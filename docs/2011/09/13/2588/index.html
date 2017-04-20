@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/09/13/2588/">
+
+
+  <title>pdg-control pdg-control, Tuesday | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>pdg-control pdg-control, Tuesday</h1> 
+      
+    
+
+<p>Tuesday, August 13
+8:00 Coffee &amp; Breakfast at NIMBioS
+8:45 Outline for Day 2 (Donahue/Armsworth)</p>
+
+<h3 id="adaptive-control-jake">Adaptive Control, Jake</h3>
+
+<p>Introduced by he two-armed bandit problem, Rothchild
+i = 1,2.
+$ T_i $ is the number of trials, $ N_i $ are numbers of successes.</p>
+
+<p>Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$</p>
+
+<p>If i is played $ p_i $ becomes</p>
+
+<p>$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$</p>
+
+<p>If i is played and successful $ \mu_i $ becomes</p>
+
+<p>$$ s(\mu_i) = \frac{\mu_i + p_i}{p_i+1} = \frac{N_i + 1 }{T_i + 2}$$</p>
+
+<p>whereas failure is</p>
+
+<p>$$ s(\mu_i) = \frac{\mu_i}{p_i+1} = \frac{N_i + 1 }{T_i + 2}$$</p>
+
+<p>$$ \lim_{T_i \to \infty} \frac{N_i}{T_i+1} = \tau_i $$, the true probability.</p>
+
+<p>Depends on prior information and luck. Costly to pull on uncertain machine.</p>
+
+<hr />
+
+<p>Consider fisheries example where
+$$ x = F(x) - h $$
+$$ F(x) = x^{\alpha} \epsilon |_{\epsilon ~ N(0, \sigma^2} $$</p>
+
+<p>$$ \ln F(x) = \alpha ln(x) + ln(\epsilon) =: y $$
+$ \alpha $ must be estimated.</p>
+
+<p>Frequentist:</p>
+
+<p>$$ \hat \alpha = \frac{\ln x&rsquo; \ln F(x)}{\ln X&rsquo; \ln x} $$</p>
+
+<p>Bayesian: $$ P(\alpha) N( \alpha<em>0, \sigma</em>{\alpha^2}) $$</p>
+
+<p>$$ f(\alpha | y ) \sim \exp\left( \tfrac{1}{2} (y-\alpha \ln(x) )&rsquo; (y- \alpha \ln(x) \right) \exp \left( -\frac{1}{2} \frac{(\alpha - \alpha<em>0)^2}{\sigma</em>{\alpha}^2}\right) $$</p>
+
+<p>Myopic igonre additional variation in harvest to identify $ \hat \alpha $. More variation means better estimated $ \alpha $</p>
+
+<p>Michael raises two issues: applying this information elsewhere. If environment is changing, learning current condition is less valuable. (can&rsquo;t I learn the change rate?)</p>
+
+<p>Adaptive management experiment in corals.</p>
+
+<h3 id="9-00-pdg-control-approaches-from-engineering-discussion-carl-toews">9:00 pdg-control: Approaches from Engineering &amp; Discussion (Carl Toews)</h3>
+
+<p>An adaptive talk on techniques.</p>
+
+<p>How do we quantify the volatility of a control law? (function space choice)
+How do we measure the distance between models? Between controls?
+Change an objective function to yield a better control law (regularization in inverse problems)</p>
+
+<h4 id="modeling-inverse-problems">Modeling, Inverse Problems</h4>
+
+<p>$$ M : X \to Y $$
+Forward: predicting observations from parameters. Inverse: parameters from observation.
+Existence, uniqueness, stability.
+$$ M = \pmatrix{ 1 &amp; 0 \ 0 &amp; \epsilon } $$
+Not unique if $ \epsilon = 0 $</p>
+
+<p>So:
+Cost functional: $ J(x) := ||M(x) = y_0|| $
+Regularization: $  \tilde J(x) := ||M(x) = y_0|| + \alpha ||x ||  $
+Optimize: $  x<em>0 = \min</em>{x\in X} \tilde J(x)  $</p>
+
+<p>Regularization means solving a suboptimal model. Fudge factor. Trade-off due to inverting an unstable operator vs error due to the objective function.</p>
+
+<p>Singular value decomposition regularization example:</p>
+
+<p>Linear regime <a href="http://en.wikipedia.org/wiki/Kalman_filter">Kalman</a> filter exact solution. (e.g. uncertainty in stock size, based on harvest).</p>
+
+<p>True state evolves according to: $ x_{k+1} = g(x_k, v<em>k) $
+But the observation is some function of that: $ y</em>{k} = h(x_k, n_k) $</p>
+
+<p>Paul: Nonlinearity can be ignored by engineers, because they can intervene frequently. If you&rsquo;re doing management, forced to do policy control, you cannot intervene frequently enough to be linear. (e.g., $g(x_k, v_k $ is nonlinear.</p>
+
+<p>Alan, Frank: quite easy for $ h(x_k, n_k) $ to be nonlinear as well, such as x being the density and y being only the moments.</p>
+
+<h4 id="estimation">Estimation</h4>
+
+<h4 id="filtering">Filtering</h4>
+
+<p><a href="http://en.wikipedia.org/wiki/Model_predictive_control"> Model predictive control</a>:</p>
+
+<ol>
+<li><p>Read control, disturbance, output variable</p></li>
+
+<li><p>Estimate state (e.g. Kalman Filter)</p></li>
+
+<li><p>Remove ill condition (regularization)</p></li>
+
+<li><p>Local steady-sate optimization (Linear or quadratic program)</p></li>
+
+<li><p>Dynamic optimization (Dynamic programming)</p></li>
+
+<li><p>outputs control variable</p></li>
+</ol>
+
+<h2 id="training-problem-ii-problem-formulation">Training Problem II problem formulation</h2>
+
+<p>How does decreasing uncertainty improve outcomes?  Expected value of perfect information?</p>
+
+<p>Model uncertainty vs parameter uncertainty.</p>
+
+<p>1) Adaptive management approach to coral-algae location of phase shift. vs Passive adaptive management/MPC.</p>
+
+<p>2) Nonlinearity in observation error</p>
+
+<p>H inverse.  dockside landings don&rsquo;t include discard/bycatch.  age &amp; space from total biomass.</p>
+
+<p>3) Optimal sampling rates and intervention rate (rel to system timescale).  Compared to 3 yr rule on stock assessment.</p>
+
+<p>Jim&rsquo;s staged approach: Overall optimal.  Conditional on fishermen sampling. compare difference.</p>
+
+<p>4) Spatial signal of declines: most efficient fishing.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Dual_control_theory">Dual control</a>  = active adaptive management.</p>
+
+<p><del>10:00 Break into Training Problem Groups</del></p>
+
+<p><del>TASK: Formalize Question. What is the biological problem? What is the control problem? Is</del>
+<del> there expertise you are missing? What resources do you need?</del>
+<del> 11:30 Report back to full group</del>
+12:00 Lunch at NIMBioS</p>
+
+<h2 id="training-problem-iii-summary">Training problem III summary</h2>
+
+<p>Claire reviews dispersal problem in larva on Caribbean reefs.</p>
+
+<p>Discussion of focal questions:</p>
+
+<ul>
+<li><p>Unique aspects of life history problems</p></li>
+
+<li><p>Metamorphosis timing, energy (optimal stopping time)</p></li>
+
+<li><p>spawning trends and synchrony.  Synchronous settlement.</p></li>
+</ul>
+
+<p>Work backwards from advanced problem.</p>
+
+<p>Extreme value vs. mean</p>
+
+<p>1:00 Training Problem Groups (shuffle expertise as needed)
+TASK: Model formulation &amp; What do you need for Wednesday?
+3:15 Break
+3:30 NIMBioS Seminar by Alan Hastings
+6:00 Dinner at the Armsworth&rsquo;s</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-09-13 09:00:38 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Sep 13, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/pdg-control">pdg-control</a
+    >, 
+    
+    <a href="../../../../tags/pdg-control">pdg-control</a
+    >, 
+    
+    <a href="../../../../tags/warning-signals">warning-signals</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/09/14/nimbios-pdg-control-wednesday/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/09/12/pretty-darn-good-control-working-group/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-09-13-2588.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-09-13-2588.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/">
+
+
+  <title>mcmc and bootstrapped likelihood runs on parrotfish tree | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>mcmc and bootstrapped likelihood runs on parrotfish tree</h1> 
+      
+    
+
+<h2 id="thursday-overview">Thursday Overview</h2>
+
+<ul>
+<li><p>Alan Meeting</p></li>
+
+<li><p>Still running scripts, see below</p></li>
+
+<li><p>pmc vignette</p></li>
+</ul>
+
+<h2 id="to-do">To Do</h2>
+
+<ul>
+<li><p>Got Duncan&rsquo;s ROAuth utilities for RMendeley, still need to test.</p></li>
+
+<li><p>Testing Scott&rsquo;s rplos functions</p></li>
+
+<li><p>Send Alan the paragraph for edits.</p></li>
+</ul>
+
+<h2 id="computation">Computation</h2>
+
+<h4 id="running-on-one">Running on one</h4>
+
+<ul>
+<li><p>n 15: sim_general_mcmc.R   MCMC of general model with 8 x 1e6 reps.  alpha diverged. DEAD</p></li>
+
+<li><p>n14 Retry above with 8 x 1e6 and with less general model: sigma, theta indep only. WAITING</p></li>
+
+<li><p>n 18: parrotfish_gape.R: alpha,theta indep, vs sigma, theta indep on lever closing ratio (not gape, actually) data.  whoops, ran alpha twice instead.  DEAD</p></li>
+
+<li><p>n18 Rerun with 800 boot reps.  on &ldquo;close&rdquo; lever ratio: SUCCESS</p></li>
+</ul>
+
+<p><img src="http://farm6.staticflickr.com/5222/5815759965_0cd67baa47_o.png" alt="" /></p>
+
+<p><img src="http://farm3.staticflickr.com/2012/5815760235_9a712a2713_o.png" alt="" /></p>
+
+<p><img src="http://farm3.staticflickr.com/2173/5816327756_4742c4c72c_o.png" alt="" /></p>
+
+<ul>
+<li><p>n16 simulated release: as above on sim (alpha,theta indep, vs sigma, theta global on sim data).  Parallel Error.  DEAD</p></li>
+
+<li><p>n16 Retry. SUCCESS</p></li>
+</ul>
+
+<p>Note that this is actually less clear fit to (underlying) alpha model than in the true data.  Also, theta is global (differing theta runs faced difficulties, not sure why).
+<img src="http://farm6.staticflickr.com/5231/5815700214_a606a42554_o.png" alt="" /></p>
+
+<p><img src="http://farm4.staticflickr.com/3033/5815132713_821c101d0c_o.png" alt="" /></p>
+
+<p><img src="http://farm3.staticflickr.com/2752/5815700830_60c588749b_o.png" alt="" /></p>
+
+<p>The two sigma peaks aren&rsquo;t visible due to y-axis scaling, which will have to be fixed (one is around 0, the other around 5).</p>
+
+<ul>
+<li><p>n17 gape.y mcmc_demo.R with sigma, theta indep, 1e6 x 8 DEAD (hits bad hastings ratio)</p></li>
+
+<li><p>n19 gape.y mcmc_demo.R with alpha, theta indep, 1e6 x 8 DEAD (hits bad hastings ratio)</p></li>
+</ul>
+
+<h2 id="auto-generated-gallery-of-today-s-runs">Auto-generated gallery of today&rsquo;s runs</h2>
+
+<p>[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-06-08 22:00:00&rdquo; max_upload_date=&ldquo;2011-06-09 23:00:00&rdquo;]</p>
+
+<h2 id="code-tidbits">Code tidbits</h2>
+
+<p>Would be nice to force me to write the comment about the script at runtime, rather than in the script itself (where I might forget to update it on a run).
+As long as any parameters are not written in by hand, the latter is okay.  Tried adding prompt on batch mode, unsuccessfully:</p>
+
+<p>Read in command line arguments at batch mode: ((Adapted from <a href="http://yangfeng.wordpress.com/2009/09/03/including-arguments-in-r-cmd-batch-mode/">here</a>))</p>
+
+<pre><code class="language-bash">
+$ R CMD BATCH --no-save --no-restore '--args a=1 b=c(2,5,6)' test.R test.out &amp;
+
+</code></pre>
+
+<p>Each argument must have no spaces, doesn&rsquo;t seem to be able to pass text strings.</p>
+
+<pre><code class="language-r">
+##First read in the arguments listed at the command line
+args=(commandArgs(TRUE))
+
+##args is now a list of character vectors
+## First check to see if arguments are passed.
+## Then cycle through each element of the list and evaluate the expressions.
+if(length(args)==0){
+    print(&quot;No arguments supplied.&quot;)
+    ##supply default values
+    a = 1
+    b = c(1,1,1)
+}else{
+    for(i in 1:length(args)){
+         eval(parse(text=args[[i]]))
+    }
+}
+print(a*2)
+print(b*3)
+
+</code></pre>
+
+<p>Always forget how to do block commenting in VIM: ((from <a href="http://hurley.wordpress.com/2007/06/13/vim-tip-comment-out-multiple-lines/">here</a>)) Easiest to just select in visual mode (v) and then do :s/^/^#/</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-06-09 16:48:42 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Jun 9, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/06/10/workflows-that-work-making-it-easy-enough/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-06-09-mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-06-09-mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

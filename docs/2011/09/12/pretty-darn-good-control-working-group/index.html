@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/09/12/pretty-darn-good-control-working-group/">
+
+
+  <title>Pretty Darn Good Control Working Group | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Pretty Darn Good Control Working Group</h1> 
+      
+    
+
+<p>Monday, August 12
+8:00 Coffee &amp; Breakfast at NIMBioS
+8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS)
+9:00 Intro to the pdg-control Working Group (Paul Armsworth)
+9:30 Introductions by each Working Group Participant
+5-minute self-introduction to the group, including your background, expertise, and current work
+10:30 Break
+11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)</p>
+
+<h3 id="training-problem-0-optimal-control">Training problem 0: Optimal Control</h3>
+
+<p>Jim</p>
+
+<p>maximize present discounted value:</p>
+
+<p>$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt  $$</p>
+
+<p>Biological growth minus harvest.  Let&rsquo;s start with given: $ X_0, X_T $</p>
+
+<p>$$ \dot x = F(x_t) -h_t $$</p>
+
+<p>Instantaneous fishing profit function curvature assumptions: $ \Pi&rsquo;(h_t) &gt;0, \Pi&rdquo;(h_t) &lt;0 $ (Diminishing returns)</p>
+
+<p>Solution:  Current Value Hamiltonian: $ H = e^{rt} \bar H $ (current value is instantaneous, present value is integrated forward)</p>
+
+<p>$ \lambda $ would be lagrange multiplier but is a variable, a function of time.  Hence &ldquo;Dynamic&rdquo; optimization.  Is the &ldquo;shadow price&rdquo; or adjoint.  Solve:</p>
+
+<p>$$ H = \Pi(h_t) + \lambda_t \left( F(x_t) -h_t \right) $$</p>
+
+<p>Under optimality conditions:</p>
+
+<ol>
+<li><p>$ h_t \frac{dH}{dh_t} = 0 \forall t w/ h_t &gt; 0 \Pi&rsquo;(h_t) -\lambda_t $</p></li>
+
+<li><p>$ \dot \lambda - r \lambda_t = \frac{dH}{dx_t} = F&rsquo;(x_t) $</p></li>
+
+<li><p>$ \dot x = F(x_t) - h_t$</p></li>
+</ol>
+
+<p>Subbing out lambda equations:</p>
+
+<p>$$ \dot h = \frac{\Pi ^{\prime}}{\Pi^{\prime\prime}} \left( r - F^{\prime}(x) \right) $$</p>
+
+<p>$$ \dot x_t = F(x_t) - h_t $$</p>
+
+<p>Why is it dynamic?</p>
+
+<ul>
+<li><p>Durability: fish stock today faces fish stock tomorrow.</p></li>
+
+<li><p>Adjustment costs: can&rsquo;t immediately change control.  Rate of changing control.  (come from $ Pi&rdquo; $</p></li>
+</ul>
+
+<p><a href="http://www.jstor.org/stable/1814560">Catenary Turnpike Theorem</a></p>
+
+<p>note the stationary state is just setting value of leaving fish in water equal to rate of money it gets  $F^{\prime}(x) = r $</p>
+
+<p>Note if $ \Pi $ depends on the stock value (i.e. more fish are easy to find, or you like having fish in the sea)</p>
+
+<p>$$ F^{\prime}(x) + \frac{\Pi_x}{\Pi_h} = r $$</p>
+
+<p>Work simple example if profit is linear in h, but depends on stock: price of fish is p.   $ \Pi(h,x) = (p - c(x)) h $  Solutions are bang-bang, etc&hellip;</p>
+
+<p>Then marginial productivity = rate of return minus stock effect (searching costs, etc).</p>
+
+<p>$$ F^{\prime}(x) = r - \frac{c&rsquo;(x) h}{p-c(x)} $$</p>
+
+<p>liquidation gain equals loss forever in taking out more fish.</p>
+
+<p>$ p-c(x) = \frac{R^{\prime}(x)}{r} $</p>
+
+<p>External change in fish price, then steady state just follows the rate of change:</p>
+
+<p>$ F^{\prime}(x) + \frac{\dot p}{p} = r $</p>
+
+<p>Singular path (steady state path):</p>
+
+<p>What if harvest is constrained outside: &ldquo;blocked intervals&rdquo; changes dynamics.</p>
+
+<p>General note in all this dynamic stuff: you want stock at steady state, but you can&rsquo;t just put it there, you have to harvest.  Hence canterary turnpike, etc.</p>
+
+<h3 id="paul-armsworth-training-problem-1">Paul Armsworth: training problem 1</h3>
+
+<p>constraints (limitations) on control</p>
+
+<p>Applications of optimal control recommend policy that changes frequently.</p>
+
+<p>Nonlinear relationship in age class</p>
+
+<p>$$ N_1(t+1) = f(N(t)$$</p>
+
+<p>$$N_{i+1}(t+1) = N_i(t) e^{\mu_i}, i \leq a  $$</p>
+
+<p>$$N_{i+1}(t+1) = N_i(t) e^{\mu_i-q_iE(t)}, i &gt; a  $$</p>
+
+<p>Fishing effort level E.  Pulse fishing or chattering becomes optimal (trying to meet two constraints, like temperature on different floors, where can&rsquo;t meet both, but response time to one is faster than the other). Can see as convexity (Alan).</p>
+
+<p>_So the full optimum isn&rsquo;t popular!  _Because no policy maker wants chattering as a solution.</p>
+
+<p>Appears when number of state variables exceeds number of control variables.  (Jim can this be proven?)  Many things expand state space.</p>
+
+<p>Another example: adding stochasticity (optimal inventory)</p>
+
+<p>$$ N(t+1) = f(N(t) -h(t)) \varepsilon_t $$</p>
+
+<p>Results in highly variable optimal quotas. At least in bluefin tuna, show policy is very non-responsive.  Alan: easier to raise than lower quotas. Jim: irreversible action extreme.</p>
+
+<p>Uncertainty analysis: Predicted stock size when quota set vs observed value.  Note: you get more accurate estimate of the stock size more distantly in the past (more harvest size data).</p>
+
+<p>Common fixes: quadratic/L2 penalty to changing quota.  L1 penalty, max change size.</p>
+
+<p>Neubert 2003: chattering in marine reserves (infinitely many infentesimal reserves) silly assumptions (no cost)</p>
+
+<p>Halpern 2011: optimal harvest rates differ for each of 22 targets.</p>
+
+<p>Hobday &amp; Hartman 2006 suggest moving time-area closure boundaries to react to satellite data.</p>
+
+<p>Technologically, tracking is possible.  But how much variation is desirable?</p>
+
+<h3 id="12-00-lunch-at-nimbios">12:00 Lunch at NIMBioS</h3>
+
+<h3 id="1-00-introduction-to-training-problem-2-discussion-alan-hastings">1:00 Introduction to Training Problem 2 &amp; Discussion (Alan Hastings)</h3>
+
+<p>Coral reef grazing model (analytic model by Mumby et al 2007) (Mumby <em>et. al.</em> 2007)</p>
+
+<p>Macroalgae (grazed by parrotfish) overgrows coral, Coral, Turf. Grazed or dead coral both become turf.  T+M+C = constant, so:</p>
+
+<p>$$ \frac{dM}{dt} = a MC - \frac{g M}{M+T}+\gamma MT $$</p>
+
+<p>$$ \frac{dC}{dt} = (rT - d-aM)C $$</p>
+
+<p>Multiple stable states.   a is overgrowth.</p>
+
+<p>Parrotfish model:</p>
+
+<p>$$ \frac{dM}{dt} = a MC - \frac{g(P) M}{M+T}+\gamma MT $$</p>
+
+<p>$$ \frac{dC}{dt} = (rT - d-aM)C $$</p>
+
+<p>$$ \frac{dP}{dt} = sP\left( 1-\frac{P}{K&copy;}\right) - fP$$</p>
+
+<p>K&copy; is from territorial limits, rather than food limits.  (Blackwood <em>et. al.</em> 2010)</p>
+
+<p>Adding habitat quality (Blackwood <em>et. al.</em> 2011).</p>
+
+<ul>
+<li><p>Compare to a non-multiple stable states.</p></li>
+
+<li><p>Carl Walters adaptive control: variance on posterior as a state variable (confidence in a parameter)</p></li>
+
+<li><p>passive adaptive &ndash; living with uncertainty &ndash; don&rsquo;t perturb to learn, only to improve expectation.</p></li>
+
+<li><p>active &ndash; actually perturbing system</p></li>
+
+<li><p>model choice. model averaging.</p></li>
+
+<li><p>Advanced problem: aggregated model vs model complexity.</p></li>
+</ul>
+
+<h3 id="2-00-introduction-to-training-problem-3-discussion-megan-donahue">2:00 Introduction to Training Problem 3 &amp; Discussion (Megan Donahue)</h3>
+
+<p>Understanding how biology does it&rsquo;s own control problems: life history switch:</p>
+
+<ol>
+<li><p>Constraint: tradeoff between growth R and fecundity F</p></li>
+
+<li><p>Optimality criterion: maximize reproduction at time T</p></li>
+
+<li><p>Optimal strategy: switch effort from all F to all R at time $t_s$</p></li>
+</ol>
+
+<p>Evolutionary context: optimal only in light of evolution.  heritablity limitations. differing historical context. optimal plasticity (&ldquo;adaptive management&rdquo;).</p>
+
+<p>ultimate (e.g. fitness) vs proximate (e.g. food) causation.</p>
+
+<p>Optimal larval return strategy.  (Intro to larval forms of marine creatures)</p>
+
+<p>Exploiting water column current flow (ARMSWORTH, 2001)</p>
+
+<p>Delayed and non-delayed swimming.  Stochastic dynamic programming (Irisson <em>et. al.</em> 2004)</p>
+
+<p>Megan: &ldquo;You guys probably have another word for it in economics&rdquo;  Jim: &ldquo;Same thing&rdquo;. (Alan throws Jim candy)</p>
+
+<p>Highly stochastic: in the sense that 1 :10^6 survive to settle.</p>
+
+<p>Objective uncertainty: maximize time in plankton? survivorship to settlement? body size at settlement?  Is arithmetic mean lifetime fitness the right measure?  Sweepstakes (does one organism&rsquo;s progeny make up most of the population?)</p>
+
+<p>Jim: Is this an optimal stopping time question?</p>
+
+<p>Alan: An approximate solution to the optimal problem or optimal solution to the approximate problem?</p>
+
+<p>Choosing among a set of potentially equivalent models.</p>
+
+<p>Jim: When do we get 90% there with a low-dimensional solution?   (Advanced problem 1 &amp; 2 start to address this). Does this make a difference when stochasticity enters?  (Jim and Alan&rsquo;s paper of adding more species to management story doesn&rsquo;t matter much).</p>
+
+<p>In policy, we only want robust solutions when forced to be non-optimal; i.e. simple model or inflexible policy.  Michael: life-history/nature optimizes full problem, not the simplified one.  Does this mean it is less robust.</p>
+
+<p>Paul Ludwig&rsquo;s paper where the simple model outperforms the generating complex model.</p>
+
+<p>3:00 Break
+3:15 Self-select into small groups to discuss Training Problems
+TASK: Identify 1-3 focal questions. What the biological problem? What&rsquo;s the control problem?</p>
+
+<h3 id="training-problem-1-questions">Training Problem 1 Questions</h3>
+
+<ul>
+<li><p>Theory:  state variable exceed control variable: we want the non-optimal control.</p>
+
+<ol>
+<li><p>When does this give chattering?</p></li>
+
+<li><p>Is there a convexity analog?</p></li>
+
+<li><p>Does this non-optimal solution to high-state-variable case do better than a an optimal solution to lower-state model?</p></li>
+</ol></li>
+
+<li><p>Adjustment Costs</p>
+
+<ol>
+<li><p>optimal vs suboptimal</p></li>
+
+<li><p>Compare optimal under different constrains irriversability/asymmetric penalty</p></li>
+</ol></li>
+
+<li><p>Overages/Underages</p></li>
+
+<li><p>Empirical: volatility of stock-size estimate vs volatility of management adjustment.</p></li>
+</ul>
+
+<p>5:00 NIMBioS Reception
+6:15 Walk into town for dinner
+7:30 Optional Activity: Contradancing at the Laurel Theater (2 blocks from NIMBioS)</p>
+
+<p>Participant list</p>
+
+<h1 id="pretty-darn-good-control-http-www-nimbios-org-workinggroups-wg-pdg"><a href="http://www.nimbios.org/workinggroups/WG_PDG">Pretty Darn Good&rsquo; Control</a></h1>
+
+<p>Participant
+Institutional affiliation
+Meetings</p>
+
+<p><strong>Paul Armsworth</strong>*</p>
+
+<p>Ecology &amp; Evolutionary Biology, Univ. of Tennessee</p>
+
+<p>1</p>
+
+<p>Michael Bode</p>
+
+<p>Adv. Environmental Decision Analysis, Univ. of Melbourne, Australia</p>
+
+<p>1</p>
+
+<p>Carl Boettiger</p>
+
+<p>Univ. of California, Davis</p>
+
+<p>1</p>
+
+<p><strong>Megan Donahue</strong>*</p>
+
+<p>Marine Biology, Univ. of Hawaii, Kaneohe</p>
+
+<p>1</p>
+
+<p>Frank Doyle</p>
+
+<p>Chemical Engineering, Univ. of California, Santa Barbara</p>
+
+<p>1</p>
+
+<p>Raissa D&rsquo;Souza</p>
+
+<p>Univ. of California, Davis; Santa Fe Institute</p>
+
+<p>-</p>
+
+<p>Marie-Josee Fortin</p>
+
+<p>Zoology, Univ. of Toronto</p>
+
+<p>1</p>
+
+<p><strong>Alan Hastings</strong>*</p>
+
+<p>Environmental Science &amp; Policy, Univ. of California, Davis</p>
+
+<p>1</p>
+
+<p>Jacob LaRiviere</p>
+
+<p>Economics, Univ. of Tennessee</p>
+
+<p>1</p>
+
+<p>Claire Paris</p>
+
+<p>Marine Science, Univ. of Miami</p>
+
+<p>1</p>
+
+<p>Jim Sanchirico</p>
+
+<p>Environmental Science &amp; Policy, Univ. of California, Davis</p>
+
+<p>1</p>
+
+<p><strong>Carl Toews</strong>*</p>
+
+<p>Mathematics, Duquesne Univ.</p>
+
+<p>1</p>
+
+<p>*Group organizers
+Mtg 1: Sep 12-15, 2011 (preliminary)</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><p>Mumby P, Hastings A and Edwards H (2007).
+&ldquo;Thresholds And The Resilience of Caribbean Coral Reefs.&rdquo;
+<em>Nature</em>, <strong>450</strong>.
+ISSN 0028-0836, <a href="http://dx.doi.org/10.1038/nature06252">http://dx.doi.org/10.1038/nature06252</a>.</p></li>
+
+<li><p>Blackwood J, Hastings A and Mumby P (2010).
+&ldquo;The Effect of Fishing on Hysteresis in Caribbean Coral Reefs.&rdquo;
+<em>Theoretical Ecology</em>, <strong>5</strong>.
+ISSN 1874-1738, <a href="http://dx.doi.org/10.1007/s12080-010-0102-0">http://dx.doi.org/10.1007/s12080-010-0102-0</a>.</p></li>
+
+<li><p>Blackwood J, Hastings A and Mumby P (2011).
+&ldquo;A Model-Based Approach to Determine The Long-Term Effects of Multiple Interacting Stressors on Coral Reefs.&rdquo;
+<em>Ecological Applications</em>, <strong>21</strong>.
+ISSN 1051-0761, <a href="http://dx.doi.org/10.1890/10-2195.1">http://dx.doi.org/10.1890/10-2195.1</a>.</p></li>
+
+<li><p>ARMSWORTH P (2001).
+&ldquo;Directed Motion in The Sea: Efficient Swimming by Reef Fish Larvae.&rdquo;
+<em>Journal of Theoretical Biology</em>, <strong>210</strong>.
+ISSN 00225193, <a href="http://dx.doi.org/10.1006/jtbi.2001.2299">http://dx.doi.org/10.1006/jtbi.2001.2299</a>.</p></li>
+
+<li><p>Irisson J, LeVan A, Lara M and Planes S (2004).
+&ldquo;Strategies And Trajectories of Coral Reef Fish Larvae Optimizing Self-Recruitment.&rdquo;
+<em>Journal of Theoretical Biology</em>, <strong>227</strong>.
+ISSN 00225193, <a href="http://dx.doi.org/10.1016/j.jtbi.2003.10.016">http://dx.doi.org/10.1016/j.jtbi.2003.10.016</a>.</p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-09-12 12:49:39 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Sep 12, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/pdg-control">pdg-control</a
+    >, 
+    
+    <a href="../../../../tags/pdg-control">pdg-control</a
+    >, 
+    
+    <a href="../../../../tags/warning-signals">warning-signals</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/09/13/2588/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/09/10/likelihood-expressions-for-branching-processes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-09-12-pretty-darn-good-control-working-group.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-09-12-pretty-darn-good-control-working-group.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

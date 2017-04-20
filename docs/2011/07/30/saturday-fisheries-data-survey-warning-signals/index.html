@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/07/30/saturday-fisheries-data-survey-warning-signals/">
+
+
+  <title>Saturday: Fisheries Data Survey, Warning Signals | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Saturday: Fisheries Data Survey, Warning Signals</h1> 
+      
+    
+
+<p>Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.</p>
+
+<p>Apparently several of the data sets are problematic.  All deal with catch instead of abundance and measurement error is highly significant, though it seems that some may suffer from more troublesome systematic errors.  Taking a quick look over what is available.  Lots of data, but despite what appears to be some rather sophisticated tools available on the sites, I&rsquo;m having a bit of difficulty finding just what I&rsquo;m looking for.</p>
+
+<p>For instance, would be nice to get the data associated with the often-reproduced <a href="http://www.millenniumassessment.org/en/GraphicResources.aspx">graphs from the Millennium Ecosystem Assessment</a> (<em>e.g.</em> inset).  An hour or so of poking around hasn&rsquo;t been very successful.  Checking out:</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Atlantic-Cod-Stocks.jpg/773px-Atlantic-Cod-Stocks.jpg" alt="" /></p>
+
+<ul>
+<li><p><a href="http://www.fao.org/fishery/statistics/collections/en">International Fisheries data from FAO</a></p></li>
+
+<li><p><a href="http://www.dfo-mpo.gc.ca/stats/commercial/sea-maritimes-eng.htm">Canadian Fisheries DFO</a> (annual entries, only back to 1990)</p></li>
+
+<li><p><a href="http://wdc.nbii.gov/ma/datapage.htm">Millennial Ecosystem assessment data at NBII</a> Looks more promising, but in zipped (MS access?) DB formats, not quite sure what&rsquo;s what yet.</p></li>
+</ul>
+
+<h2 id="reading">Reading</h2>
+
+<p>Nice paper by Carpenter and Brock comparing performance of non=parametric warning signals out in Ecology today (Carpenter &amp; Brock, 2011).  Haven&rsquo;t given it a close read yet, but seems to show that diffusion-related estimates like variance are the most reliable indicator while drift-related estimates such as autocorrelation/return time are less reliable. The estimate a drift-diffusion-jump model:</p>
+
+<p>$$ dx = \mu(x_t,\theta_t)d t + \sigma(x_t, \theta_t) d W + d(\sum Z_n) $$</p>
+
+<p>Where the $Z_n$ is a sum over discontinuous shocks.  Seems that this conclusion can be argued from first principles of stochastic processes &ndash; convergences of parameter estimates should obey a central-limit theorem, though the time-varying case might be harder.  They seem to be estimated in a piece-wise constant manner over a sliding Gaussian window.  Mean and variance are just estimated from the first and second moments in the window, somehow jump terms are estimated as function of the sixth and forth moment.  This estimation approach comes from the econometrics literature Bandi &amp; Nguyen, 2003, (Johannes, 2004).</p>
+
+<h2 id="presentation">Presentation</h2>
+
+<p>Working on incorporating comments from Friday&rsquo;s practice talk.</p>
+
+<h2 id="misc">Misc</h2>
+
+<ul>
+<li><p>Registered for DataCite 2011.</p></li>
+
+<li><p>Wrote to Alan about EIM 2011</p></li>
+
+<li><p>Some ESA planning</p></li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><p>Carpenter S and Brock W (2011).
+&ldquo;Early Warnings of Unknown Nonlinear Shifts: A Nonparametric Approach.&rdquo;
+<em>Ecology</em>, <strong>92</strong>.
+ISSN 0012-9658, <a href="http://dx.doi.org/10.1890/11-0716.1">http://dx.doi.org/10.1890/11-0716.1</a>.</p></li>
+
+<li><p>Johannes M (2004).
+&ldquo;The Statistical And Economic Role of Jumps in Continuous-Time Interest Rate Models.&rdquo;
+<em>The Journal of Finance</em>, <strong>59</strong>.
+ISSN 0022-1082, <a href="http://dx.doi.org/10.1111/j.1540-6321.2004.00632.x">http://dx.doi.org/10.1111/j.1540-6321.2004.00632.x</a>.</p></li>
+
+<li><p>on The Functional Estimation of Jump-Diffusion Models, Federico M. Bandi, Thong H. Nguyen,  (2003) <em>Journal of Econometrics</em>, <strong>116</strong>    <a href="http://dx.doi.org/10.1016/S0304-4076(03)00110-6">10.1016/S0304-4076(03)00110-6</a></p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-07-30 17:26:54 &#43;0000 UTC" itemprop="datePublished">
+      Sat, Jul 30, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/warning-signals">warning-signals</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/08/02/monday-8/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/07/29/2268/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-07-30-saturday-fisheries-data-survey-warning-signals.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-07-30-saturday-fisheries-data-survey-warning-signals.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

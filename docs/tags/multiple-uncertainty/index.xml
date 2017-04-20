@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multiple Uncertainty on Boettiger Group</title>
+    <link>/tags/multiple-uncertainty/</link>
+    <description>Recent content in Multiple Uncertainty on Boettiger Group</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/tags/multiple-uncertainty/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Resolving S &amp;lt; D Code updates octokit
+Reading  Macksamie, K., Cockburn, J., &amp;amp; Wagner, J. (2012). Robust control amidst stock and flow benefits: The case of wolf-elk-hunting dynamics in the US Mountain West. 2012 AERE Summer Conference, Asheville, NC (pp. 1-33). Retrieved from http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf  The Linear parameter varying (LPV) approach which allows this problem to leverage a standard LMI (linear matrix inequality) solver seeems like a clever route, but unclear if this would be restricted to the additive noise models such as they consider?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>No idea where I went wrong, but the final graphs are not what I expected Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions
+We consider adding additional sources of noise through observation error and implementation error to the orginal model of Reed (1979), which considers only growth error. This follows in the line of exploration taken by Clark and Kirkwood (1987), Roughgarden (1996) and Sethi (2006).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - ht$), $x{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth. We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$. Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Complete IACUC training for fish room. File forms: http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html Online training &amp;ndash; possibly see https://www.citiprogram.org/Default.asp? Shiny: http://www.rstudio.com/shiny/
+ Comment piece
+ Prep exit seminar
+ Applied math club: Networks. Reading http://dx.doi.org/10.1155/2011/284909
+  Discussion of when network structure has made an important difference on our understanding of a problem. When have the common summary statistics of a network (degree-distribution) allowed us to compte network dynamics without fully resolving the network?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>writing comment piece. writing writing writing.
+  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&amp;quot;transparent&amp;quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&amp;rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+Uniform lognormal log  A few small tweaks to probability calculations
+ Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.</description>
+    </item>
+    
+    <item>
+      <title>Multiple uncertainty corrected</title>
+      <link>/1/01/01/multiple-uncertainty-corrected/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/multiple-uncertainty-corrected/</guid>
+      <description>Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
+See notes on code changes inline.
+Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space</description>
+    </item>
+    
+    <item>
+      <title>Policy functions and value functions under multiple uncertainty</title>
+      <link>/1/01/01/policy-functions-and-value-functions-under-multiple-uncertainty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/policy-functions-and-value-functions-under-multiple-uncertainty/</guid>
+      <description>Implements a numerical version of the SDP described in (Sethi et. al. 2005).
+## Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$
+f &amp;lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
+pars &amp;lt;- c(1.5, 0.05) K &amp;lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by \( \frac{A-1}{B} \), or carring capacity K = 10.</description>
+    </item>
+    
+  </channel>
+</rss>

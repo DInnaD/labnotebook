@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../tags/delayed-release/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../tags/delayed-release/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../tags/delayed-release/">
+
+
+  <title>Delayed Release | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Delayed Release</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../../../2011/04/01/thursday-finishing-up-appendices/">Thursday finishing up appendices(?)</a></h2>
+    <h4>Fri, Apr 1, 2011</h4>
+    <div class="article-style">
+      
+      Fresh off the cpus: single replicate examples on the Drake data
+What&rsquo;s still running:  likelihood for IBM data with 2000 replicates, nice 19 on zero (ibm_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, nice 18 on zero (deut_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, (nice 19 on one)? (deut_likelihood.R) likelihood on sim data, Glaciation III and CaCO3: 80 replicates on one, nice 1 on one (figure3.R) and with 2000 replicates, nice 19 on one (figure3.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/03/30/wednesday-appendices-parameter-distributions/">Wednesday: appendices; parameter distributions</a></h2>
+    <h4>Wed, Mar 30, 2011</h4>
+    <div class="article-style">
+      
+      Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/03/26/saturday---appendices/">Saturday-- Appendices</a></h2>
+    <h4>Sat, Mar 26, 2011</h4>
+    <div class="article-style">
+      
+      Appendices Working on Appendices
+Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
+Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/03/23/tuesday-figures-figures-figures/">Tuesday: Figures, figures, figures</a></h2>
+    <h4>Wed, Mar 23, 2011</h4>
+    <div class="article-style">
+      
+      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/03/20/writing-warning-signals-mansucript/">Writing: Warning Signals Mansucript</a></h2>
+    <h4>Sun, Mar 20, 2011</h4>
+    <div class="article-style">
+      
+      Summary Paragraph
+ Critical transitions exist (Holling, 1973), (May, 1977),(Scheffer et. al. 2001) Warning signals exist (Scheffer et. al. 2009), (Drake &amp; Griffen, 2010) Warning signals are summary statistics, critical slowing down (Wissel, 1984). Statement of general problem: double-edged sword &ndash; no quantification of the chance detection scheme will fail. We provide a way to do this We find existing methods lack sufficient power and have high false-alarm potential We provide a model-based solution using machinery of modern likelihood statistics  Background  Define CSD, standard detection scheme.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/03/18/sams-practice-talk/">Sam&#39;s Practice talk</a></h2>
+    <h4>Fri, Mar 18, 2011</h4>
+    <div class="article-style">
+      
+      Notes from: Sam Price&rsquo;s Practice Job Talk for Hull, UK, next week, in Wainwright lab:
+ Diversification of mammals predated KT event(Bininda-Emonds et. al. 2007) (also considerably later, but not right after) Ecological shift in wrasses to parrotfishes(Price et. al. 2010). No evidence of elevate rates of evolution. But, scraping parrotfishes do show difference (starting from base of Hipposcarus-Scarus common ancestor). Multiple transitions to/from reef living. 2x faster on coral reefs!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/03/17/warning-signals-in-ecological-systems-drake-griffen-data/">Warning Signals in Ecological Systems: Revisions and Drake &amp; Griffen Data</a></h2>
+    <h4>Thu, Mar 17, 2011</h4>
+    <div class="article-style">
+      
+      Manuscript revisions  Heard back from Alan this morning on manuscript, need to cut wordcount in half, from 3000 to 1500 words. Should emphasize the countless and utterly arbitrary choices made in every one of these analyses. Should emphasize our approach can be applied without replicates. (also without interpolating/having evenly sampled data) Should do coefficient of variation on non-detrended data(?) should discuss?  Chemostat data This morning Alan sent me the data used by Drake &amp; Griffen (Drake &amp; Griffen, 2010).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Two years ago, I scribbled an entry into my notebook entitled Wrong Picture, Wrong Model: Why warning signals don&rsquo;t look like rare events. Months later I made some off-hand remark to Alan (my Ph.D. mentor) about how transitions found in historical records, such as the Climate examples in Dakos et. al. (2008), could actually be selecting for stochastic transitions, and this selection process might make them look like traditional warning signals &ndash; i.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    <li><a href="../../../../tags/delayed-release/page/2/">&laquo; Previous</a></li>
+    
+    
+  </ul>
+</nav>
+
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../tags/delayed-release/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

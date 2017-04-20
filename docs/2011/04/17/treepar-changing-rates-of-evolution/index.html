@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/04/17/treepar-changing-rates-of-evolution/">
+
+
+  <title>TreePar: changing rates of evolution | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>TreePar: changing rates of evolution</h1> 
+      
+    
+
+<h2 id="review-comments-on-article">Review &amp; Comments on Article</h2>
+
+<p>T. Stadler&rsquo;s article <em>Mammalian phylogeny reveals recent diversification rate shifts</em> (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds <em>et. al.</em> 2007)) as an example.</p>
+
+<p>The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times.  This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.</p>
+
+<p>Tanja presents a verbal argument for how the slope-shift may be misled, by confusing a &lsquo;pull of the present&rsquo; rate shift (at about $ 1/(\lambda-\mu)$) for a shift in rates.   Consider a birth-death model where extinction rate turns off at time T.  Just before T, we have a slope of $\lambda$ due to the &ldquo;pull of the present.&rdquo;  After T we have a real rate shift, where extinction is zero.  She argues that the slopes method would mistake this for two separate shifts, though I&rsquo;m unconvinced that the soft shift would really be mistaken as a rate shift (if there is even power to detect the shift, it&rsquo;s not a sharp transition like a true rate change).  Despite this qualm, the likelihood method is certainly an improvement over the slope change, so it&rsquo;s great to see a likelihood method stepping into this place.</p>
+
+<p>One subtlety of the likelihood maximization is that the numerical algorithm cannot actually handle the simultaneous optimization of <em>n</em> transitions in rates.  To work around this, Tanja uses the following greedy algorithm: estimate the location of a shift under a one-shift model, then fix this time to estimate the location of the next shift.</p>
+
+<p>To demonstrate that this is not necessarily the maximum likelihood, it is sufficient to demonstrate that the maximum-likelihood estimated location of a single shift is not equal to the maximum-likelihood estimate of either shift estimated in a two-shift model.  To prove this as simply as possible, consider a pure birth process: $ \lambda_1, \lambda_2, \lambda_3$, where shifts occur at times $ t_1, t_2$.  The lineage-through-time (log expected species count vs time) is a piecewise linear function with two change points.  If the change in each birth rate is monotonic, than the single change-point estimate will always choose a time intermediate to the two change-point estimates, such that the greedy algorithm will not find the maximum likelihood solution.  I believe one can also create identifiability issues of the optimum single change-point estimate in a two rate model, have to work this through more carefully though.  Less of a concern is that the locations of the shifts are restricted to a coarse grid, such that only a few different time points are actually tried.</p>
+
+<p>Tanja does an excellent job of testing the method in the supplement.  My primary concern here is that all tests of robustness and confidence intervals of the method are done for the rather large mammalian phylogeny, and will not appear nearly so robust when users apply the analysis to smaller trees but do not repeat all of the simulation tests Tanja does in the original paper.  These tests are an excellent roadmap for how to do an analysis, but they are data-specific, and I feel the approach should not be used without repeating these tests on the data in question.  This also seems like an excellent exercise for the user, I&rsquo;ll try and write this code out shortly for some simulated examples.</p>
+
+<p>Tanja&rsquo;s treatment allows for mass extinctions, which occur at estimated time-points, though Tanja has elsewhere shown that mass extinctions cannot be distinguished from models with constant speciation and extinction punctuated by stasis on the basis of extant taxa alone (Stadler, 2011), so I am unclear about the significance of their inference.  No such events are inferred in the example, and her code allows this feature to be turned off.</p>
+
+<p>Tanja&rsquo;s implementation also treats partial sampling, an issue she has also addressed elsewhere (Hartmann <em>et. al.</em> 2010).</p>
+
+<p>I hope I haven&rsquo;t seemed too critical here.  This is the first time I&rsquo;ve really looked over Tanja&rsquo;s work and it seems to be of the highest caliber.  I do worry about the non-MLE estimates of the time due to the stepwise nature of the algorithm.</p>
+
+<h2 id="code-exploring-treepar">Code: exploring TreePar</h2>
+
+<h3 id="first-impressions">First impressions:</h3>
+
+<ul>
+<li><p>TreePar code: Pure R (no src, no external dependencies).  Looks  clean but uncommented.  No object-oriented design/classes.  Does not  appear to follow style guide.  Debugging and error checks by print  statements (rather than error() and warning()), but at least performs  the checks.</p></li>
+
+<li><p>Reasonably functionalized (18 functions in separate files support 2  user-called functions (in NAMESPACE): bd.shifts.optim(),  bd.densdep.optim().</p></li>
+
+<li><p>Functions look reasonably documented, including examples code.  Examples run fine.</p></li>
+
+<li><p>OOooh very exciting: bd.densdep is a proper density dependent model  with logistic birth and constant extinction (formerly Rabosky tested a  logistic birth but no extinction model).  No mention of this that I saw in the paper though(?)</p></li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><p>Stadler T (2011).
+&ldquo;Mammalian Phylogeny Reveals Recent Diversification Rate Shifts.&rdquo;
+<em>Proceedings of The National Academy of Sciences</em>, <strong>108</strong>.
+ISSN 0027-8424, <a href="http://dx.doi.org/10.1073/pnas.1016876108">http://dx.doi.org/10.1073/pnas.1016876108</a>.</p></li>
+
+<li><p>Bininda-Emonds O, Cardillo M, Jones K, MacPhee R, Beck R, Grenyer R, Price S, Vos R, Gittleman J and Purvis A (2007).
+&ldquo;The Delayed Rise of Present-Day Mammals.&rdquo;
+<em>Nature</em>, <strong>446</strong>.
+ISSN 0028-0836, <a href="http://dx.doi.org/10.1038/nature05634">http://dx.doi.org/10.1038/nature05634</a>.</p></li>
+
+<li><p>Stadler T (2011).
+&ldquo;Simulating Trees With A Fixed Number of Extant Species.&rdquo;
+<em>Systematic Biology</em>, <strong>60</strong>.
+ISSN 1063-5157, <a href="http://dx.doi.org/10.1093/sysbio/syr029">http://dx.doi.org/10.1093/sysbio/syr029</a>.</p></li>
+
+<li><p>Hartmann K, Wong D and Stadler T (2010).
+&ldquo;Sampling Trees From Evolutionary Models.&rdquo;
+<em>Systematic Biology</em>, <strong>59</strong>.
+ISSN 1063-5157, <a href="http://dx.doi.org/10.1093/sysbio/syq026">http://dx.doi.org/10.1093/sysbio/syq026</a>.</p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-04-17 18:11:46 &#43;0000 UTC" itemprop="datePublished">
+      Sun, Apr 17, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/04/18/algorithms-discussion-group-abc-continued/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/04/16/friday-4/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-04-17-treepar-changing-rates-of-evolution.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-04-17-treepar-changing-rates-of-evolution.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

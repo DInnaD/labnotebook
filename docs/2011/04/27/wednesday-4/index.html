@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/04/27/wednesday-4/">
+
+
+  <title>Wednesday | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Wednesday</h1> 
+      
+    
+
+<ul>
+<li><p>7:30-9:30 Review for Theoretical Ecology</p>
+
+<ul>
+<li>Profiling wrightscape</li>
+</ul></li>
+</ul>
+
+<p>Compile with profiling (-g -pg flags, in make profile). Run</p>
+
+<pre><code>valgrind --leak-check-full ./wrightscape.exe
+</code></pre>
+
+<p>to remove memory links. Run</p>
+
+<pre><code>valgrind --tool=callgrind
+kcachegrind callgrind.out.&lt;###&gt;
+</code></pre>
+
+<p>For profiling information</p>
+
+<p><img src="http://farm6.staticflickr.com/5063/5661945204_f60bfe6c64_o.png" alt="" /></p>
+
+<p>Troubleshooting implementation of restricted-domain functions.  Cannot be wright_tree since they have to know their likelihood method.  Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.1.  Up and running now.</p>
+
+<ul>
+<li><p><strong>Troubleshoot ouch-style</strong> search parameters. DONE &ndash; simulation didn&rsquo;t include a rep command to copy a single alpha and sigma to be same in each regime.</p></li>
+
+<li><p><strong>Check convergence</strong>: sometimes the brownie-style search regime outperforms the wright-style (only 16 reps for testing purposes).  Add convergence score to getParameters. DONE</p></li>
+
+<li><p><strong>Should be reported by C</strong> function version as well)</p></li>
+
+<li><p>Convergence checks should be added to plot/summary functions from montecarlotest() output</p></li>
+
+<li><p>Running 160 reps of (my) brownie() vs wright() (on left) and also of brownie() vs wrightscape() (on right) at nice 10 on zero.</p></li>
+</ul>
+
+<p><img src="http://farm6.staticflickr.com/5063/5662235611_503cb5522e_o.png" alt="" />
+ <img src="http://farm6.staticflickr.com/5189/5662211039_d8b525eb2a_o.png" alt="" /></p>
+
+<h2 id="data-processing">Data processing</h2>
+
+<p>Need regimes for intramandibular joint: <em>Chlorurus</em>, <em>Hipposcarus</em> common ancestor.  Easily done with maticce package:</p>
+
+<pre><code>intramandibular &lt;- paintBranches(mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree), labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;))
+</code></pre>
+
+<p>Note that we need to look up and match species names exactly, otherwise instead of an error maticce assumes one of the species just isn&rsquo;t in our tree and simply returns the root node.</p>
+
+<p>Implemented each as a two regime model and combined as a three-regime model.  combining requires arbitrarily assigning the branch between them so that it doesn&rsquo;t become a separate node.</p>
+
+<p><img src="http://farm6.staticflickr.com/5104/5663194868_444e683067_o.png" alt="" /></p>
+
+<h2 id="convergence-issues">Convergence Issues</h2>
+
+<p>Clear examples of convergence issues on Nelder Mead stemming from initial conditions.  For instance:
+even hansen routine can&rsquo;t get the best optimum for two shifts (three regimes) when given the same starting points as it was for two regimes:</p>
+
+<pre><code>&gt;   ou2_intra &lt;- hansen(trait, labrid$tree, regime=intramandibular, .01, .01)
+&gt;   ou3 &lt;- hansen(trait, labrid$tree, regime=two_shifts, .01, .01 )
+&gt;   loglik(ou3) - loglik(ou2_phar)
+[1] -2.473179
+</code></pre>
+
+<p>Actually does worse than the model nested within it.  Changing the starting conditions (using those from the nested model), it manages to find a better optimum.</p>
+
+<pre><code>&gt;   ou3 &lt;- hansen(trait, labrid$tree, regime=two_shifts, ou2_phar@sqrt.alpha, sigma=ou2_phar@sigma )
+&gt;   loglik(ou3) - loglik(ou2_phar)
+[1] 1.079799
+</code></pre>
+
+<p>Convergence is certainly a larger issue with more parameters.  One way to address this is focusing on comparing subcases of the general form.  A particularly interesting one is the <strong>Release of Constraint</strong>: global theta and sigma, regime-specific alpha.  IMPLEMENTED</p>
+
+<p>Overall, best addressed by algorithmic methods for dealing with multiple peaks in the likelihood surface, such as simulated annealing or probably better, an EM algorithm ((Looking for packages to do this well, though may need a specific implementation.  Will discuss in our Algorithms group in a few weeks  Potentially take a closer look at <a href="http://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Clustering/Expectation_Maximization_%28EM%29">this tutorial</a> and <a href="http://rss.acs.unt.edu/Rdoc/library/mclust/html/em.html">em() in mclust</a> package.)).  Given the computational effort of these approaches, probably worth starting on the fully Bayesian implementation too.</p>
+
+<p>Meanwhile, based on likelihoods alone, results seem promising, though needs some fiddling to test for convergence.  For instance:</p>
+
+<pre><code>&gt; loglik(release_twoshifts)
+[1] 69.42358
+&gt; loglik(release_intra)
+[1] 66.88511
+&gt; loglik(release_phar)
+[1] 31.42613
+&gt; loglik(wright_twoshifts)
+[1] 67.65605
+&gt; loglik(wright_intra)
+[1] 70.40246
+</code></pre>
+
+<p>See <a href="https://github.com/cboettig/wrightscape/blob/ad3bd09f7d6b958c019f329415f6fcfdbf267367/demos/model_fits.R">code</a> for full example.</p>
+
+<h2 id="misc-r">Misc R</h2>
+
+<ul>
+<li><p>R with AWS EC2  &amp; Hadroop with <a href="http://www.stat.purdue.edu/~sguha/rhipe/">RHIPE</a> or <a href="http://code.google.com/p/segue/">Segue</a></p></li>
+
+<li><p>R gui interfaces with tcltk: <a href="http://ideas.repec.org/a/jss/jstsof/17i09.html">rpanel</a></p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-04-27 21:58:09 &#43;0000 UTC" itemprop="datePublished">
+      Wed, Apr 27, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/04/28/thursday-reading-notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/04/26/accessing-phylognenies-in-ropensci-from-r/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-04-27-wednesday-4.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-04-27-wednesday-4.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

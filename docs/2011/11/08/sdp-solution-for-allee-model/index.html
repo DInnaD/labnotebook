@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2011/11/08/sdp-solution-for-allee-model/">
+
+
+  <title>SDP solution for allee model | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>SDP solution for allee model</h1> 
+      
+    
+
+<p>Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).</p>
+
+<h3 id="problem-statement">Problem Statement</h3>
+
+<p>Choose the harvest level to optimize the profit
+$$ \max<em>h \sum</em>{t=0}^T \beta^t \pi(x,h,t) $$</p>
+
+<p>Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation:
+$$ X(t+1) = Z(t) f(X(t)) $$</p>
+
+<p>Where $Z(t)$ is a normal random variable with mean unity and standard deviation $\sigma$.</p>
+
+<h3 id="stochastic-transition-matrices">Stochastic Transition Matrices</h3>
+
+<p>The problem is discrete in time, but we must still discritize the state and control variables. We define the state (population abundance) to assume only the values on a grid of size $N$. In general the control variable could be defined on a separate grid (for instance, if we used effort-control) but as harvest is in the same units as the state variable (number of fish), we can use the same grid.</p>
+
+<p>The transition matrix $\mathbf{T}  maps all states $x_i$ to all other states $x_j$ by their transition probabilities through the state equation:
+$$ P(x_j | x_i ) = \mathcal{N} \text{lognormal}\left( \frac{x_j}{f(x_i-h)}, \sigma \right) $$</p>
+
+<p>Where $\mathcal{N}$ is just a normalization, $\mathcal{N} = \sum_j P(x_j | x_i) = 1$. Note that the state equation is computed on the post-havest population $x_i - h$, and hence a different matrix is produced for each possible value of $h$ (for the moment we ignore the possibility that this function may vary explicitly with time as well, which would further increase the memory needed).</p>
+
+<p>The stochastic dynamic programming solution just implements Bellman&rsquo;s equation:
+$$ V_{t} = \max_h \left( \mathbf{T}<em>h V</em>{t+1} + \pi(x_t, h_t) e^{-\delta (T-t)} \right) $$</p>
+
+<p>We begin with some final value $V_T$ a vector of the &ldquo;scrap&rdquo; value of each possible end state. For instance, we can offer a fixed profit for all states above $X_T$, and nothing otherwise. We then just iterate backwards, at each time-point trying all possible h values in the grid (from our set of transition matrices $\mathbf{T}_h$ ) and selecting the best harvest level for each possible system state $x_t$. Note this differs a bit from the way the boundary conditions are enforced in the deterministic continuous time case, and the exact value we put here may make a difference in different stochastic realizations.</p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>This is implemented in matlab code in the functions: <a href="https://github.com/cboettig/pdg_control/blob/de5a7cf30142a6ed3bb1a0e07decc366b3dc8f8e/matlab/determine_SDP_matrix.m">determine_SPD_matrix.m</a>, <a href="https://github.com/cboettig/pdg_control/blob/6fe3bef84398b7358c6abc8240adaf6918ab3057/matlab/find_dp_optim.m">find_dp_optim.m</a>, using population dynamics and profit model specified in <a href="https://github.com/cboettig/pdg_control/blob/de5a7cf30142a6ed3bb1a0e07decc366b3dc8f8e/matlab/Reed_SDP.m">Reed_SDP.m</a>. We can then simulate under the state equation, and apply the optimal solution (<a href="https://github.com/cboettig/pdg_control/blob/de5a7cf30142a6ed3bb1a0e07decc366b3dc8f8e/matlab/ForwardSimulate.m">ForwardSimulate.m</a>) and plot the results (<a href="https://github.com/cboettig/pdg_control/blob/de5a7cf30142a6ed3bb1a0e07decc366b3dc8f8e/matlab/draw_plots.m">draw_plots.m</a>).</p>
+
+<p>This is also implemented in R, with the optimization methods specified in <a href="https://github.com/cboettig/pdg_control/blob/6fe3bef84398b7358c6abc8240adaf6918ab3057/R/stochastic_dynamic_programming.R">stochastic_dynamic_programming.R</a>, run for selected profit function and population dynamics in <a href="https://github.com/cboettig/pdg_control/blob/12999fa836416352a09550be7db3df2d1f172102/R/Reed.R">Reed.R</a>.  We can explore a few examples using the R code.((recall that figures link to code snapshot, click through to see parameter values used in the script, etc))</p>
+
+<h3 id="example-exploration">Example exploration</h3>
+
+<p>Let&rsquo;s assume a cost function of the from:</p>
+
+<p>$$ \pi(h) = p h - c/h $$</p>
+
+<p>Which assumes a fixed price $ p $ and fishing costs following the Schaeffer production function.  Let&rsquo;s start with our allee effect model
+$$ f(x_t) =  x_t e^{ \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) }  $$
+First, with low noise, it is easy to make sure the dynamics are behaving properly:</p>
+
+<p><img src="http://farm7.staticflickr.com/6054/6326945150_4beed0a3a3_o.png" alt="" /></p>
+
+<p>Note that the population finishes near 30, the set boundary condition. This varies with larger noise:</p>
+
+<p><img src="http://farm7.staticflickr.com/6095/6326954160_1a1fda5030_o.png" alt="" /></p>
+
+<p>We can run a suite of replicates, and compare optimally harvested and unharvested outcomes.</p>
+
+<p><img src="http://farm7.staticflickr.com/6114/6326970240_5bd5daea86_o.png" alt="" /></p>
+
+<p><img src="http://farm7.staticflickr.com/6219/6326970212_131719e4a2_o.png" alt="" /></p>
+
+<p>Can compare this to Reed&rsquo;s optimal escapement.  Let&rsquo;s start with a simpler set of population dynamics using the basic Beverton-Holt model, then we harvest only whenever the population exceeds Reed&rsquo;s optimal escapement threshold, $S $, and we harvest the population at a rate that should return it to $ S $ if next year&rsquo;s growth were the equal to the expected growth:</p>
+
+<p><img src="http://farm7.staticflickr.com/6234/6326408241_09ff6444b5_o.png" alt="" /></p>
+
+<p>Note that this means that the <em>average</em> population will be below the optimal escapement, because of the curvature of the growth rate function and Jensen&rsquo;s inequality:</p>
+
+<p><img src="http://farm7.staticflickr.com/6096/6327164496_b92773bcca_o.png" alt="" /></p>
+
+<p>Compare to the case of our Allee-Ricker function, even when the allee threshold is 0, the curvature is the other way, and this rule results in under-havesting more than over-harvesting the optimal escapement:</p>
+
+<p><img src="http://farm7.staticflickr.com/6120/6326467925_cddf1a3006_o.png" alt="" /></p>
+
+<p><img src="http://farm7.staticflickr.com/6237/6327220864_3be6a170b1_o.png" alt="" /></p>
+
+<p>Kinda suggests that there should be a curvature-correction to Reed&rsquo;s derivation, presumably that&rsquo;s been done somewhere?</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-11-08 12:40:31 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Nov 8, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/pdg-control">pdg-control</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2011/11/06/sunday-5/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-11-08-sdp-solution-for-allee-model.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-11-08-sdp-solution-for-allee-model.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 
