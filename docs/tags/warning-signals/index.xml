@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Warning Signals on Boettiger Group</title>
+    <link>/tags/warning-signals/</link>
+    <description>Recent content in Warning Signals on Boettiger Group</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Dec 2010 21:10:38 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/warning-signals/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Warning signals manuscript</title>
+      <link>/2010/12/10/warning-signals-manuscript/</link>
+      <pubDate>Fri, 10 Dec 2010 21:10:38 +0000</pubDate>
+      
+      <guid>/2010/12/10/warning-signals-manuscript/</guid>
+      <description>Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
+ Intro/Abstract
+ Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
+ Nonlinearity not observed with infinite data
+ reasons detection fails: Identifiability issue &amp;amp; Power issue. Example signal that exists but inadequate power to detect?
+ Eigenvalue story
+ Probability of data vs Probability of a statistic</description>
+    </item>
+    
+    <item>
+      <title>Exploring Power in Warning Signals</title>
+      <link>/2010/12/09/exploring-power-in-warning-signals/</link>
+      <pubDate>Thu, 09 Dec 2010 23:03:40 +0000</pubDate>
+      
+      <guid>/2010/12/09/exploring-power-in-warning-signals/</guid>
+      <description>Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
+[flickr-gallery mode=&amp;ldquo;tag&amp;rdquo; tags=&amp;ldquo;stochpowercurvesslides&amp;rdquo;]
+(code ids in image discription, compare to structured-popultions git log. )
+Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.</description>
+    </item>
+    
+    <item>
+      <title>Identifying Warning Signals</title>
+      <link>/2010/12/04/identifying-warning-signals/</link>
+      <pubDate>Sat, 04 Dec 2010 22:41:08 +0000</pubDate>
+      
+      <guid>/2010/12/04/identifying-warning-signals/</guid>
+      <description>Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.</description>
+    </item>
+    
+    <item>
+      <title>Tues: Fitting the limiting OU models to each bifurcation</title>
+      <link>/2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/</link>
+      <pubDate>Tue, 30 Nov 2010 22:56:03 +0000</pubDate>
+      
+      <guid>/2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/</guid>
+      <description>Yesterday I derived the linearized SDEs for the saddle node bifurcation :
+$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
+and the transcritical bifurcation
+$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
+Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:</description>
+    </item>
+    
+    <item>
+      <title>Further treatment of the limiting models</title>
+      <link>/2010/11/29/further-treatment-of-the-limiting-models/</link>
+      <pubDate>Mon, 29 Nov 2010 19:01:29 +0000</pubDate>
+      
+      <guid>/2010/11/29/further-treatment-of-the-limiting-models/</guid>
+      <description>Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&amp;rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&amp;rsquo;t a stochastic model so cannot assign probabilities to the outcomes.</description>
+    </item>
+    
+    <item>
+      <title>Likelihoods for quadratic models cont</title>
+      <link>/2010/11/28/likelihoods-for-quadratic-models-cont/</link>
+      <pubDate>Sun, 28 Nov 2010 21:14:09 +0000</pubDate>
+      
+      <guid>/2010/11/28/likelihoods-for-quadratic-models-cont/</guid>
+      <description>Considering the fits of the quadratic models from yesterday.
+[flickr-gallery mode=&amp;ldquo;tag&amp;rdquo; tags=&amp;ldquo;quadraticfitslides&amp;rdquo; tag_mode=&amp;ldquo;all&amp;rdquo;]
+Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.</description>
+    </item>
+    
+    <item>
+      <title>Implementing Likelihoods for quadratic models</title>
+      <link>/2010/11/27/implementing-likelihoods-for-quadratic-models/</link>
+      <pubDate>Sat, 27 Nov 2010 11:09:06 +0000</pubDate>
+      
+      <guid>/2010/11/27/implementing-likelihoods-for-quadratic-models/</guid>
+      <description>Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
+$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
+and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
+$$\frac{d \hat{x}}{dt} &amp;amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$</description>
+    </item>
+    
+    <item>
+      <title>Warning signals: Likelihoods Straight-up</title>
+      <link>/2010/11/24/warning-signals-likelihoods-straight-up/</link>
+      <pubDate>Wed, 24 Nov 2010 21:44:57 +0000</pubDate>
+      
+      <guid>/2010/11/24/warning-signals-likelihoods-straight-up/</guid>
+      <description>Meeting with Alan this morning. I haven&amp;rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&amp;frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$</description>
+    </item>
+    
+    <item>
+      <title>Getting the details right on the Fourier Transform approach to likelihood</title>
+      <link>/2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/</link>
+      <pubDate>Wed, 03 Nov 2010 16:28:39 +0000</pubDate>
+      
+      <guid>/2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/</guid>
+      <description>Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
+$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
+A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&amp;rsquo;) \rangle = C(t-t&amp;rsquo;) $.
+We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&amp;rsquo;ve dropped the tilde only out of laziness):</description>
+    </item>
+    
+    <item>
+      <title>A new twist on the approach</title>
+      <link>/2010/10/28/a-new-twist-on-the-approach/</link>
+      <pubDate>Thu, 28 Oct 2010 16:08:25 +0000</pubDate>
+      
+      <guid>/2010/10/28/a-new-twist-on-the-approach/</guid>
+      <description>Matching the warning signal to different SDE models couldn&amp;rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
+(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals -- Where are we now?</title>
+      <link>/2010/10/27/warning-signals-where-are-we-now/</link>
+      <pubDate>Wed, 27 Oct 2010 16:00:48 +0000</pubDate>
+      
+      <guid>/2010/10/27/warning-signals-where-are-we-now/</guid>
+      <description>The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
+$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
+and
+$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$</description>
+    </item>
+    
+    <item>
+      <title>Correcting for the mean dynamics</title>
+      <link>/2010/10/26/correcting-for-the-mean-dynamics/</link>
+      <pubDate>Tue, 26 Oct 2010 16:46:24 +0000</pubDate>
+      
+      <guid>/2010/10/26/correcting-for-the-mean-dynamics/</guid>
+      <description>Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
+ First, if the mean is changing, the model fitting must be appropriate to this &amp;ndash; either by fitting this rate of change or correcting for it.
+ Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.</description>
+    </item>
+    
+    <item>
+      <title>Wrong picture, wrong model: why warning signals don&#39;t look like rare events</title>
+      <link>/2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/</link>
+      <pubDate>Mon, 25 Oct 2010 23:24:45 +0000</pubDate>
+      
+      <guid>/2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/</guid>
+      <description>Detecting a warning signal of collapse isn&amp;rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
+A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &amp;ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2010/10/21/</link>
+      <pubDate>Thu, 21 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/2010/10/21/</guid>
+      <description>Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
+ Proper handling of trends
+ Best model for eigenvalue change
+  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&amp;rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.</description>
+    </item>
+    
+    <item>
+      <title>Spatial Warning Signals, power, etc</title>
+      <link>/2010/10/21/spatial-warning-signals-power-etc/</link>
+      <pubDate>Thu, 21 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/2010/10/21/spatial-warning-signals-power-etc/</guid>
+      <description>Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation. Weakening stability across a set of coupled patches should result in increased autocorrelation. Decided to test this with a little visualization with help of a quick R script. Time progresses across the x-axis, 1-D space (on S1) across the y-axis. Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>1-2pm
+ Discussion of reasons early warning signals fail   Insufficient signal-to-noise ratio for early warning Ensemble vs time average &amp;ndash; satisfying ergodicity assumption? Role of bifurcation type. existing literature focuses mostly on 1D saddle node. Role of chaos (certainly frustrates warning signals, but not required).   How general are warning signals? Normal forms of bifurcations. Fitting a good model vs. general warning signals. Problem of extrapolation. Classification scheme of warning signals &amp;ndash; TREE paper(?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description> Working examples  kendall.R example of kendall&amp;rsquo;s correlation test on standard warning signal indicator being misleading.  </description>
+    </item>
+    
+    <item>
+      <title>Alan Meeting</title>
+      <link>/1/01/01/alan-meeting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/alan-meeting/</guid>
+      <description>From 03/31, see below for more!
+Outline Title
+On the ability to detect leading indicators of catastrophe in unreplicated time series
+Introduction Background on Warning Signals
+ literature Saddle Node bifurcation Detecting decreasing stabilization &amp;ndash; gradual vs changepoint estimation  Reasons detection can fail:
+ Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
+ Defining an indicator &amp;ndash; significant Kendall rank correlation coefficient τ as in doi:10.</description>
+    </item>
+    
+    <item>
+      <title>Alan Meeting</title>
+      <link>/1/01/01/alan-meeting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/alan-meeting/</guid>
+      <description>Goals next week: Bob &amp;amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized */ double b = 5; /* Birth rate (per day) */ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /* Mortality rate (per day) */ double a_egg = 3.</description>
+    </item>
+    
+    <item>
+      <title>Alan Meeting</title>
+      <link>/1/01/01/alan-meeting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/alan-meeting/</guid>
+      <description>Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.  
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&amp;rsquo;t determined in one step approach.</description>
+    </item>
+    
+    <item>
+      <title>Annual Progress Report</title>
+      <link>/1/01/01/annual-progress-report/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/annual-progress-report/</guid>
+      <description>Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&amp;rsquo;d document as I&amp;rsquo;ve done in previous years but here&amp;rsquo;s for some preliminary brainstorming.
+ Summary: In the past year, I&amp;rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.</description>
+    </item>
+    
+    <item>
+      <title>Comparing to Analytic Dynamics</title>
+      <link>/1/01/01/comparing-to-analytic-dynamics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/comparing-to-analytic-dynamics/</guid>
+      <description>Goal for today: implement analytic calculations for warning signals.
+ 10am-12pm  Abstraction/functionalizing code.
+ 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
+Recall our dynamics are d(n) = *e*n + a
+and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
+α~2~(n) = b(n) + d(n)
+
+recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.</description>
+    </item>
+    
+    <item>
+      <title>Effective warning signals</title>
+      <link>/1/01/01/effective-warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/effective-warning-signals/</guid>
+      <description>Predicting variance of variance by direct calculation &amp;ndash; still need to crunch some math for the expected convergence.
+ Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &amp;ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.</description>
+    </item>
+    
+    <item>
+      <title>Entry title</title>
+      <link>/1/01/01/entry-title/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/entry-title/</guid>
+      <description>OWW was down, notebook embedded from springnote:</description>
+    </item>
+    
+    <item>
+      <title>Goals</title>
+      <link>/1/01/01/goals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/goals/</guid>
+      <description>Model choice exercise with sdes general likelihood calculation from simulation  Test Case *dX*~t~ = α~t~(θ − X~t~)*dt* + σ*d*t
+*d*α~t~ = − β
+
+Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.</description>
+    </item>
+    
+    <item>
+      <title>Hastings Meeting</title>
+      <link>/1/01/01/hastings-meeting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/hastings-meeting/</guid>
+      <description>Discussion of cases where variance decreases before crash &amp;ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &amp;ndash;&amp;gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!</description>
+    </item>
+    
+    <item>
+      <title>Implementing warning signals metrics</title>
+      <link>/1/01/01/implementing-warning-signals-metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/implementing-warning-signals-metrics/</guid>
+      <description>The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
+ mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.</description>
+    </item>
+    
+    <item>
+      <title>Meeting</title>
+      <link>/1/01/01/meeting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/meeting/</guid>
+      <description>Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
+ Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&amp;rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.</description>
+    </item>
+    
+    <item>
+      <title>Meeting w- Alan</title>
+      <link>/1/01/01/meeting-w--alan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/meeting-w--alan/</guid>
+      <description>Weekly check-in, following up on last week&amp;rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.</description>
+    </item>
+    
+    <item>
+      <title>Reading</title>
+      <link>/1/01/01/reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/reading/</guid>
+      <description>Trying to make this show reading of the day, the script below shows only current reading:
+Friendfeed discussion on solving this:
+Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:  
+ Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/1/01/01/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/research/</guid>
+      <description>Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
+ Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&amp;rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.</description>
+    </item>
+    
+    <item>
+      <title>The Ergodicity Question- Time averaging vs Ensemble averaging</title>
+      <link>/1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/</guid>
+      <description>11am &amp;ndash; 3pm
+ Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&amp;rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&amp;rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.</description>
+    </item>
+    
+    <item>
+      <title>The Lab Notebook Goes Open</title>
+      <link>/1/01/01/the-lab-notebook-goes-open/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/the-lab-notebook-goes-open/</guid>
+      <description>(Originally posted on OpenWetWare)
+ This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&amp;rsquo;s time to dive in.
+ A good starting point is Denis et. al. (2001) Ecological Monographs 71.</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>Current Puzzles &amp;amp; Goals 1 rep
+100 reps
+ Kendall&amp;rsquo;s tau unreliable, exploring alternatives. Sliding window for identifying when warning is first detected? Goal is to detect any decrease in stability or distance from critical point? Chasing down data from Scheffer. Climate data reuses the CaCO3 from Dakos. Chasing down data from Dakos   Fig. 1 M Cariaco Basin, data file Vostok deuterium CaCO3 data Tropical Pacific core 1218   Warning signals examples with actual tipping points (Figures left).</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>Alternate models  Writing down the change-point model correctly now, starting with the simulation. Done. Implemented in sde_likelihood.R
+ Implementing Neyman-Pearson comparisons for all three models.
+  Linearizing directly from the saddle node model Dynamics:
+Slope (alpha) at equilibrium comes from the derivative:
+is the slope evaluated at n equal to equilbrium (which is the root of some messy cubic).</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>Reworking code to allow standard format for:   evaluating likelihood, &amp;ndash; Done fitting by maximum-likelihood, &amp;ndash; Done simulating, &amp;ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.
+
+Function Behavior notes  R&amp;rsquo;s mle function wants a named list.
+ Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&amp;rsquo;t helping the speed, but optimization will have to wait.</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>bootstrapping models implemented improved handling of model classes &amp;ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &amp;ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &amp;ndash;fixed, was getting t_shift as a vector from time(X).</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>Bootstrapping for likelihood ratios! Updated class behavior &amp;ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals -- still in code development</title>
+      <link>/1/01/01/warning-signals----still-in-code-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals----still-in-code-development/</guid>
+      <description>OWW was down, notebook embedded from springnote:</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals with SDEs</title>
+      <link>/1/01/01/warning-signals-with-sdes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals-with-sdes/</guid>
+      <description>Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.</description>
+    </item>
+    
+  </channel>
+</rss>

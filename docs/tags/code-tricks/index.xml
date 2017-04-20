@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code Tricks on Boettiger Group</title>
+    <link>/tags/code-tricks/</link>
+    <description>Recent content in Code Tricks on Boettiger Group</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/tags/code-tricks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adaptive Dynamics</title>
+      <link>/1/01/01/adaptive-dynamics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/adaptive-dynamics/</guid>
+      <description>compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
+ Solution:
+  C++ file mangles names in .so, changing the .C call. to get the object name:
+objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
+ extern C {  
+ Problem: Trouble getting R to export the C library to all nodes.</description>
+    </item>
+    
+    <item>
+      <title>Annual Progress Report</title>
+      <link>/1/01/01/annual-progress-report/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/annual-progress-report/</guid>
+      <description>Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&amp;rsquo;d document as I&amp;rsquo;ve done in previous years but here&amp;rsquo;s for some preliminary brainstorming.
+ Summary: In the past year, I&amp;rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.</description>
+    </item>
+    
+    <item>
+      <title>Big Picture Comparative Phylogenetics</title>
+      <link>/1/01/01/big-picture-comparative-phylogenetics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/big-picture-comparative-phylogenetics/</guid>
+      <description>A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&amp;rsquo;Meara. Quite thorough and concise.
+ Follow-up discussion on:
+ List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&amp;rsquo;s missing (there&amp;rsquo;s no way to estimate ancestral states under OU using existing software?</description>
+    </item>
+    
+    <item>
+      <title>CSGF Survey</title>
+      <link>/1/01/01/csgf-survey/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/csgf-survey/</guid>
+      <description>Wrote survey. Getting feedback and will send out this week.  previous comments
+Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&amp;rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:</description>
+    </item>
+    
+    <item>
+      <title>Entry title</title>
+      <link>/1/01/01/entry-title/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/entry-title/</guid>
+      <description>Automated scripts for image uploads. Tag-based generation of a slideshow:
+
+
+Running the script:
+ ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.
+
+
+This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).</description>
+    </item>
+    
+    <item>
+      <title>Goals</title>
+      <link>/1/01/01/goals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/goals/</guid>
+      <description>Model choice exercise with sdes general likelihood calculation from simulation  Test Case *dX*~t~ = α~t~(θ − X~t~)*dt* + σ*d*t
+*d*α~t~ = − β
+
+Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.</description>
+    </item>
+    
+    <item>
+      <title>Parallel R</title>
+      <link>/1/01/01/parallel-r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/parallel-r/</guid>
+      <description>Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.</description>
+    </item>
+    
+    <item>
+      <title>Primates</title>
+      <link>/1/01/01/primates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/primates/</guid>
+      <description>Primates project now has a Github repository. Updates are embedded from here.
+ Experimenting with distributing code and data effectively. Pluses and minuses of three options:
+   zipped file with R code and data. Requires setting working directory, harder to update. Subsequent uploads must include all the data, rather than incremental. Directly grab repository over github. Simple to update and access, stores only incremental changes. Requires knowledge of git R package: Nicely integrates data, code, and documentation.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/1/01/01/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/research/</guid>
+      <description>Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp;amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/1/01/01/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/research/</guid>
+      <description>New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &amp;ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/1/01/01/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/research/</guid>
+      <description>Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&amp;rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&amp;rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &amp;ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/1/01/01/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/research/</guid>
+      <description>Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&amp;hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
+ Started stochastic methods and model inference collection:  Research collected using Mendeley
+Various To Do  Add Peter&amp;rsquo;s bootstrap references and books to stochastic methods and model inference library. Add Science of Science papers to Future of Science collection. Adding tags, abstracts, etc to Mendeley public Library Personal/extended task view (and opinion?</description>
+    </item>
+    
+    <item>
+      <title>Solution to the strange behavior in ouch</title>
+      <link>/1/01/01/solution-to-the-strange-behavior-in-ouch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/solution-to-the-strange-behavior-in-ouch/</guid>
+      <description>Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.
+
+data(bimac) tree &amp;lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &amp;lt;- hansen(log(bimac[&#39;size&#39;]),tree,bimac[&#39;OU.1&#39;],alpha=1,sigma=1))  The print command says alpha = 0.</description>
+    </item>
+    
+    <item>
+      <title>Summary of Structured Population noise so far</title>
+      <link>/1/01/01/summary-of-structured-population-noise-so-far/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/summary-of-structured-population-noise-so-far/</guid>
+      <description>Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
+Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume
+
+System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.</description>
+    </item>
+    
+    <item>
+      <title>The Ergodicity Question- Time averaging vs Ensemble averaging</title>
+      <link>/1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/</guid>
+      <description>11am &amp;ndash; 3pm
+ Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&amp;rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&amp;rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals</title>
+      <link>/1/01/01/warning-signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals/</guid>
+      <description>bootstrapping models implemented improved handling of model classes &amp;ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &amp;ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &amp;ndash;fixed, was getting t_shift as a vector from time(X).</description>
+    </item>
+    
+    <item>
+      <title>Warning Signals with SDEs</title>
+      <link>/1/01/01/warning-signals-with-sdes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/warning-signals-with-sdes/</guid>
+      <description>Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.</description>
+    </item>
+    
+    <item>
+      <title>iEvoBio Submission</title>
+      <link>/1/01/01/ievobio-submission/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/ievobio-submission/</guid>
+      <description>Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&amp;rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&amp;rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2010/11/24/warning-signals-likelihoods-straight-up/">
+
+
+  <title>Warning signals: Likelihoods Straight-up | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Warning signals: Likelihoods Straight-up</h1> 
+      
+    
+
+<p>Meeting with Alan this morning.  I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (<sup>11</sup>&frasl;<sub>9</sub>) probably the best method works from the correlation function.  Define a new stochastic process Y
+$$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$
+$$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$
+$$ Y_3 = \ldots $$</p>
+
+<p>Argue that $ Y$ is stationary when $ X $ is stationary.  Then apply a central-limit theorem to error estimate in Y given error estimate in X, noting higher Y have much greater error due to be computed from fewer points (uncertainty near the peak of the Lorentzian (low frequency, long wavelength) or tail of the correlation function. A lot of work for a rainy day.</p>
+
+<h2 id="back-to-the-previous-tack">Back to the Previous tack</h2>
+
+<p>Meanwhile, focus on estimating the likelihood of the set of models directly.  Rather than rely on the OU model with linear moving mean, etc, will write down the probability for the quadratic model.</p>
+
+<p>Canonical form of the <a href="http://en.wikipedia.org/wiki/Saddle-node_bifurcation">saddle-node bifurcation</a>:</p>
+
+<p>$$ \frac{dx}{dt} = x^2+r $$</p>
+
+<p>Modifying this slightly for our purposes: I&rsquo;ve introduced an extra parameter to allow for the bifurcation to  occur at $ x = \theta $ instead of at zero, and swapped the sign  so that the stable point is to the right of the unstable:</p>
+
+<p>$$ \frac{dx}{dt} = -(x-\theta)^2+r $$</p>
+
+<p>Such that bifurcation occurs when $ r$ becomes negative.  Phrasing this as the appropriate SDE for demographic noise:</p>
+
+<p>$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$</p>
+
+<p>Which is a nonlinear model without an analytic solution with which we can calculate the probability density to evaluate the likelihood of the timeseries.  However, we can back up a few steps and go back through the linear noise approximation to the birth death model, where we have
+$$ \frac{d \hat{x}}{dt} = r - (\hat{x}-\theta)^2 $$
+$$  \frac{d \sigma^2}{dt} = -2 (\hat x - \theta )\sigma^2 + \beta  $$</p>
+
+<p>From which we need to construct the conditional probability of observing the system at state $ x_t$ given in started at state $ x_0$ at time t.
+$$ P(x_t | x_0) = N(\mu(x_t | x_0), \sigma(x_t | x_0)  $$</p>
+
+<p>For the OU process,
+$$ \mu(x_0) = (x_0 - \theta) e^{-\alpha t} + \theta $$
+[ \sigma(x_t, x_0) = \frac{\sigma^2}{2 \alpha } \left( 1-e^{-\alpha t} \right)
+$$</p>
+
+<p>Meanwhile the above ODEs for our quadratic model don&rsquo;t have good closed form solutions, but the ODE system can simply  be solved numerically.</p>
+
+<p>(using a simplified notation to query wxmaxima)
+$$ -\frac{log\left( -\frac{-x\left( t\right) +\sqrt{r}+a}{x\left( t\right) +\sqrt{r}-a}\right) }{2\,\sqrt{r}}=t+c $$
+$$ \sigma^2\left( t\right) =e^{2\int x\left( t\right) dt-2at}\left( b\int e^{2 a t - 2\int x \left( t \right) dt} dt+c\right)  $$</p>
+
+<p>Comment on bifurcation classes.  <a href="http://en.wikipedia.org/wiki/Transcritical_bifurcation">Transcritical bifurcations</a>, which involve an exchange of stability: still driven by the $ r$ parameter changing sign:
+$$
+\frac{dx}{dt} = x^2 + rx
+$$
+for which the logistic equation is a good example:</p>
+
+<p>$$
+\frac{dx}{dt} = r x \left(1-\frac{x}{K}\right)
+$$</p>
+
+<p>Perhaps this provides a nice simpler example worth focusing on, can probably give complete analytic treatment.  The explicit demographic model requires a parameterization of this in terms of birth and death rates.  The Levins model provides one reasonable interpretation (actually has a few biological interpretations, including the dispersal model it was introduced as, and as the SIR model of epidemiology):</p>
+
+<p>$$
+\frac{dx}{dt} = c x \left(1-\frac{x}{K}\right) - e x
+$$</p>
+
+<p>where the bifurcation occurs at $ c &lt; e$ rather than $r &lt; 0$.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-11-24 21:44:57 &#43;0000 UTC" itemprop="datePublished">
+      Wed, Nov 24, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/derivation">derivation</a
+    >, 
+    
+    <a href="../../../../tags/warning-signals">warning-signals</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='Page%28%22Power%20in%20simple%20tests%22%29'><i class="icon-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='Page%28%22Tweets%20from%20an%20Ecology%20Field%20class%20%22%29'>next <i class="icon-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-11-24-warning-signals-likelihoods-straight-up.md"><i class="icon-time"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2010-11-24-warning-signals-likelihoods-straight-up.md"></a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2010/11/18/thurs-phylogenetics-likelihood/">
+
+
+  <title>Thurs: evolution likelihood | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Thurs: evolution likelihood</h1> 
+      
+    
+
+<p>Back to writing for today.  Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value.  The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\%  confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:</p>
+
+<p><img src="http://farm5.staticflickr.com/4125/5187988176_dbfbc0db0a_o.png" alt="" /></p>
+
+<p>The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it. Perhaps this would be a better example to start with then the OU.4 case?  Doesn&rsquo;t have the same convergence issues as the all-diff (OU.23) model, and has a clearer conclusion than the OU.4 choice&hellip;</p>
+
+<p>This raises an interesting question though: should a model be preferred because it is rejected in one test and not rejected in the reverse test (at some chosen confidence level), or should it be chosen as the one having the higher likelihood?  For instance, these two choices can theoretically disagree:</p>
+
+<p><img src="http://farm2.staticflickr.com/1301/5187916996_3709f31a34_o.jpg" alt="" /></p>
+
+<p>The curve to the left has a higher probability for the observed LR, but a lower p-value when treated as the null.</p>
+
+<p>Looking into a clearer opening example such as the OU.15 tree.  Wrote a palette function for the tree (in<a href="https://github.com/cboettig/Comparative-Phylogenetics/commit/e257293ae40e2deb91d7ca0eef4ccc203ff16427"> likelihoodratio_mansucript_examples.R</a>)</p>
+
+<p><img src="http://farm5.staticflickr.com/4087/5188312038_1fa1fe0c98_o.png" alt="" /></p>
+
+<p>Gives decent example of AIC making the wrong choice, Monte Carlo making a clear different choice, accepting the simpler model with strong degree of information (power).</p>
+
+<p><img src="http://farm2.staticflickr.com/1035/5187693695_ec3a4f229d_o.png" alt="" /></p>
+
+<p>Unfortunately in this example OU.3 is not nested within this particular painting, even though the ratio is always positive.  Making a nested model tends in most examples of over-parameterized models fit neither very well, i.e. this OU.10 model:</p>
+
+<p><img src="http://farm5.staticflickr.com/4148/5188275222_8fdfd1d49b_o.png" alt="" /></p>
+
+<p>see code commit github: ef36d62.  Hmm, maybe start with some simpler nested-model comparisons.</p>
+
+<p>A clear nested case: OU.1 vs OU.3:</p>
+
+<p><img src="http://farm2.staticflickr.com/1283/5188364198_66f1d7f0e0_o.png" alt="" /></p>
+
+<h3 id="some-simpler-geiger-examples">Some Simpler Geiger Examples</h3>
+
+<p>Currently cannot run on Gieger fits aren&rsquo;t fit objects.  A little wrapper function can get around most of this.</p>
+
+<pre><code>fitContinuous_object &lt;- function(tree, data, model=&quot;BM&quot;, ...){
+    fit &lt;- fitContinuous(tree, data, model=model, ...)
+    class(fit) &lt;- &quot;fitContinuous&quot;
+    fit$model &lt;- model
+    fit$tree &lt;- tree
+    fit$data &lt;- data
+    fit$root &lt;- phylogMean(fit[[1]]$beta*vcv.phylo(tree), data)
+    fit
+}
+</code></pre>
+
+<p>The next problem is the lack of available methods for simulation in Gieger.</p>
+
+<p>I&rsquo;m afraid that it is ridiculous that sim.char in Geiger ignores the root state under the Brownian motion simulation.  Of course it can just be added to the data of the simulation, but no one will do that, or worse, not even realize that the function is ignoring the specification of the root state.</p>
+
+<p>Equally ridiculous is that geiger doesn&rsquo;t return this estimate of the root state found by fitContinuous, even though it&rsquo;s estimated from the data and contributes to the fit.  It isn&rsquo;t estimated by the optim function, however, because it can be found independently by estimating from the data directly, as I do in the function above.</p>
+
+<p>Probably faster to extend ouch to optimize over tree transformations.  Also avoid the computational drag of Gieger coding.  Anyway, just about done, a reasonably object-oriented geiger now.  Simulation needs to be extended to perform the tree transformations when required still.  See github code.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-11-18 20:05:16 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Nov 18, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='Page%28%22Weds%22%29'><i class="icon-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='#ZgotmplZ'>next <i class="icon-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-11-18-thurs-phylogenetics-likelihood.md"><i class="icon-time"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2010-11-18-thurs-phylogenetics-likelihood.md"></a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 
