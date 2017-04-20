@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [code-tricks, ]
-categories: evolution
+categories: [evolution]
 title: Big Picture Comparative Phylogenetics
 ---
 

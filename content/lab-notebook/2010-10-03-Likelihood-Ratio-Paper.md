@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [pmc, adaptive-dynamics]
-categories: evolution
+categories: [evolution]
 title: Likelihood Ratio Paper
 ---
 

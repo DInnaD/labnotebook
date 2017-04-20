@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [code-tricks, conference ]
-categories: evolution
+categories: [evolution]
 title: iEvoBio Submission
 ---
 

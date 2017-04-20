@@ -1,7 +1,7 @@
 ---
 layout: post
 
-categories: evolution
+categories: [evolution]
 title: Bootstrapping the independent alpha-sigma models
 ---
 

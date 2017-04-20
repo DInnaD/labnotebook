@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: []
-categories: evolution
+categories: [evolution]
 title: Phylogenetic Tree formats
 ---
 

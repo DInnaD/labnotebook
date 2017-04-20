@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [Labrids]
-categories: evolution
+categories: [evolution]
 title: Computing
 ---
 

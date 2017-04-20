@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: evolution
+categories: [evolution]
 title: CSGF Conference- Tuesday
 ---
 

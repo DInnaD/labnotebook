@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [adaptive-dynamics, open-science, open-science]
-categories: evolution
+categories: [evolution]
 title: Adaptive Dynamics
 ---
 

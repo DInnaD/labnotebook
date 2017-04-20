@@ -142,6 +142,7 @@
   
   <div>
     <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Research  Wrote summary function using bootstrap confidence intervals for the bootstraps of the likelihoods directly. On interpreting the bootstraps of likelihoods directly:   The extent to which the distributions themselves are distinct provides an indication of the ability to distinguish between models on the given phylogenetic tree and the actual data. For instance, if the tree was a star tree and the data produced by either BM or OU1, then all distributions would fall on top of one another.
@@ -151,6 +152,7 @@
   
   <div>
     <h2><a href="../../1/01/01/bootstrapping-likelihood-ratios/">Bootstrapping Likelihood ratios</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
@@ -161,6 +163,7 @@
   
   <div>
     <h2><a href="../../1/01/01/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
@@ -171,6 +174,7 @@
   
   <div>
     <h2><a href="../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
@@ -180,6 +184,7 @@
   
   <div>
     <h2><a href="../../1/01/01/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Code implementation in felsenstein_tree.R
@@ -190,6 +195,7 @@
   
   <div>
     <h2><a href="../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
@@ -199,6 +205,7 @@
   
   <div>
     <h2><a href="../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
@@ -209,6 +216,7 @@
   
   <div>
     <h2><a href="../../1/01/01/meeting-with-graham-and-peter/">Meeting with Graham and Peter</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Discussion of Model Comparisons Primary focus of today&rsquo;s discussion was rooted in Sunday&rsquo;s entry
@@ -219,6 +227,7 @@
   
   <div>
     <h2><a href="../../1/01/01/parallel-r/">Parallel R</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
@@ -228,6 +237,7 @@
   
   <div>
     <h2><a href="../../1/01/01/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.

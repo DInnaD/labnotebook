@@ -133,7 +133,7 @@
 
 
 
-  <h1>Lab Notebook</h1>
+  <h1>Lab Notebook Entries</h1>
 
   
 
@@ -141,6 +141,7 @@
   
   <div>
     <h2><a href="../../../1/01/01/implementing-the-new-approach/">Implementing the new approach</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Spent just about the entire day off and on implementing the approach described in yesterday&rsquo;s entry. Code includes the more direct implementation of the likelihood by generating trees from the process and averaging, as well as by weighting trees by their probability. Methods appear to agree reasonably well. The second approach should generate a wider variety of trees instead of using those produced by the first method. This could be done by varying the parameters of the transition rates to populate the collection.
@@ -150,6 +151,7 @@
   
   <div>
     <h2><a href="../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
@@ -160,6 +162,7 @@
   
   <div>
     <h2><a href="../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
@@ -169,6 +172,7 @@
   
   <div>
     <h2><a href="../../../1/01/01/lr-manuscript/">LR Manuscript</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
@@ -178,6 +182,7 @@
   
   <div>
     <h2><a href="../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Modified Crowley model Realizing Arbitrarily large demographic noise systems??
@@ -190,6 +195,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood Calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Direct Calculation of the Joint Probability Fig 1 Sample tree
@@ -200,6 +206,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../1/01/01/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
@@ -211,6 +218,7 @@ This is great, nice to know there&rsquo;s a basis for it.
   
   <div>
     <h2><a href="../../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
@@ -220,6 +228,7 @@ This is great, nice to know there&rsquo;s a basis for it.
   
   <div>
     <h2><a href="../../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
@@ -230,6 +239,7 @@ This is great, nice to know there&rsquo;s a basis for it.
   
   <div>
     <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:

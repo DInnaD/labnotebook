@@ -142,6 +142,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
@@ -151,6 +152,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
@@ -161,6 +163,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
@@ -170,6 +173,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Goals  individual-based simulation via my gillespie C library with 2-step transitions.
@@ -182,6 +186,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Fig 1: Noise in lavae dominate
@@ -193,6 +198,7 @@ Fig: 2 lower mortality, higher noise
   
   <div>
     <h2><a href="../../../../1/01/01/puzzled-over-the-two-step-jump-process-results/">Puzzled over the two-step jump process results</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
@@ -202,6 +208,7 @@ Fig: 2 lower mortality, higher noise
   
   <div>
     <h2><a href="../../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
@@ -212,6 +219,7 @@ where β~i~ is the intrinsic noise of the age class.
   
   <div>
     <h2><a href="../../../../1/01/01/structured-population-dynamics/">Structured Population Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Beetle Model Macroscopic equations:
@@ -225,6 +233,7 @@ and define variance-covariance matrix M and the Jacobian matrix of f as J. Then 
   
   <div>
     <h2><a href="../../../../1/01/01/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
@@ -237,6 +246,7 @@ Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*
   
   <div>
     <h2><a href="../../../../1/01/01/the-lab-notebook-goes-open/">The Lab Notebook Goes Open</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       (Originally posted on OpenWetWare)

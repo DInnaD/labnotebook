@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [adaptive-dynamics]
-categories: evolution
+categories: [evolution]
 title: Adaptive Dynamics Updates
 ---
 

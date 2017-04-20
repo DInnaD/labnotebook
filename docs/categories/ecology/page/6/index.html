@@ -142,6 +142,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
@@ -151,6 +152,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Modified Crowley model Realizing Arbitrarily large demographic noise systems??
@@ -163,6 +165,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
@@ -173,6 +176,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
     </div>
@@ -180,6 +184,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
@@ -189,6 +194,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/meeting-with-alan/">Meeting with Alan</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Some discussion of references  ﻿ Ovaskainen O, Meerson B. Stochastic models of population extinction. Trends in Ecology &amp; Evolution. 2010;(Box 3):1-10. Available at: <a href="http://dx.doi.org/10.1016/j.tree.2010.07.009">http://dx.doi.org/10.1016/j.tree.2010.07.009</a>.  ﻿* Goel NS, Richter-Dyn N. Stochastic Models in Biology. The Blackburn Press; 2004:269. Available at: <a href="http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X">http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X</a>.
@@ -199,6 +205,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/monday/">Monday</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
     </div>
@@ -206,6 +213,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Goals  individual-based simulation via my gillespie C library with 2-step transitions.
@@ -218,6 +226,7 @@ And solved numerically (R code, links directly to this version and can run stand
   
   <div>
     <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Fig 1: Noise in lavae dominate
@@ -229,6 +238,7 @@ Fig: 2 lower mortality, higher noise
   
   <div>
     <h2><a href="../../../../1/01/01/parallel-at-last/">Parallel at last</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.

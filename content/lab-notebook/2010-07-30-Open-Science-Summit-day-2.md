@@ -1,7 +1,7 @@
 ---
 layout: post
 
-categories: evolution
+categories: [evolution]
 title: Open Science Summit day 2
 ---
 

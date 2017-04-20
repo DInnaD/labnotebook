@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [pmc]
-categories: evolution
+categories: [evolution]
 title: Still puzzling on LR
 ---
 

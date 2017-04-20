@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [pmc]
-categories: evolution
+categories: [evolution]
 title: Follow-up on Parametric Bootstrapping
 ---
 

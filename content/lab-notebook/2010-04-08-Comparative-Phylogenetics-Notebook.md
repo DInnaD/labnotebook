@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [Labrids, open-science, pmc]
-categories: evolution
+categories: [evolution]
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [pmc, Labrids, code-tricks]
-categories: evolution
+categories: [evolution]
 title: Parallel R
 ---
 

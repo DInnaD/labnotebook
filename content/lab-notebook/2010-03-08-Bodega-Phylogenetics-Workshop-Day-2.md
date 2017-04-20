@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: []
-categories: evolution
+categories: [evolution]
 title: Bodega Phylogenetics Workshop Day 2
 ---
 

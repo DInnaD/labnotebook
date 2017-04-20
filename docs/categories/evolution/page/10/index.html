@@ -142,6 +142,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/multitype-ou-processes-with-varying-alpha-and-sigma/">Multitype OU Processes with varying alpha and sigma</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Been meaning to sit down and work this one out for a while; somehow travel and conferences helped out with that &ndash; now I only have to transcribe some dozen messy hotel notepad sheets to get the calculations into this lab notebook. Meanwhile, 15 hours on a train from Portland was just the right amount of time to code up the approach, which is now implemented at the C level for the Anoles dataset; code in the wrightscape project on github.
@@ -151,6 +152,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
@@ -161,6 +163,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/multivariate-normal-random-variables/">Multivariate normal random variables</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
@@ -170,6 +173,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/open-science-summit/">Open Science Summit</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
     </div>
@@ -177,6 +181,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
     </div>
@@ -184,6 +189,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/open-science-summit-day-2/">Open Science Summit day 2</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
     </div>
@@ -191,6 +197,7 @@
   
   <div>
     <h2><a href="../../../../1/01/01/organizing-analyses-data-codes/">Organizing analyses, data, codes</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Codes  Should have a suite of likelihood tools as a package Suite of data manipulation functions, mostly to and from ape/ouch<br />
@@ -203,6 +210,7 @@ idealized workflow:
   
   <div>
     <h2><a href="../../../../1/01/01/parallel-r/">Parallel R</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
@@ -212,6 +220,7 @@ idealized workflow:
   
   <div>
     <h2><a href="../../../../1/01/01/parameter-estimates-for-labrid-parrotfish-model/">Parameter Estimates for Labrid-Parrotfish model</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       See fast_boot and plot.wrightscape functions in code. Gape size</p>
@@ -224,6 +233,7 @@ Figures show strong evidence for the relax of constraint hypothesis, as the stre
   
   <div>
     <h2><a href="../../../../1/01/01/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
       There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.

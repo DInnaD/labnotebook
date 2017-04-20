@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [Primates]
-categories: evolution
+categories: [evolution]
 title: Adaptive Dynamics
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 
-categories: evolution
+categories: [evolution]
 title: Roi and Sam Comparative Phylogenetics R Workshop
 ---
 

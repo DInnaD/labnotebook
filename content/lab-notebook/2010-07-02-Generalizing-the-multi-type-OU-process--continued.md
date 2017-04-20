@@ -1,7 +1,7 @@
 ---
 layout: post
 
-categories: evolution
+categories: [evolution]
 title: Generalizing the multi-type OU process- continued
 ---
 

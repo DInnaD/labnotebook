@@ -1,7 +1,7 @@
 ---
 layout: post
 
-categories: evolution
+categories: [evolution]
 title: Multitype OU Processes with varying alpha and sigma
 ---
 

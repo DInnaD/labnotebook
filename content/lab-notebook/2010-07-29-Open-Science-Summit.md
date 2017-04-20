@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [conference]
-categories: evolution
+categories: [evolution]
 title: Open Science Summit
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [open-science, code-tricks]
-categories: evolution
+categories: [evolution]
 title: Entry title
 ---
 

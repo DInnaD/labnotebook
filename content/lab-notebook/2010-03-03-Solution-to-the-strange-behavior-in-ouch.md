@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: [pmc, code-tricks]
-categories: evolution
+categories: [evolution]
 title: Solution to the strange behavior in ouch
 ---
 
