@@ -1,0 +1,123 @@
+---
+published: false
+layout: post
+category: ecology
+
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>A quick first exploration of <a href="http://r-nimble.org">NIMBLE</a> and some questions.</p>
+<pre class="r"><code>library(&quot;nimble&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nimble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     simulate</code></pre>
+<pre class="r"><code>library(&quot;sde&quot;)</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: fda</code></pre>
+<pre><code>## Loading required package: splines</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## 
+## Attaching package: &#39;fda&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:nimble&#39;:
+## 
+##     inprod</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     matplot</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## sde 2.0.15</code></pre>
+<pre><code>## Companion package to the book</code></pre>
+<pre><code>## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39;</code></pre>
+<pre><code>## Iacus, Springer NY, (2008)</code></pre>
+<pre><code>## To check the errata corrige of the book, type vignette(&quot;sde.errata&quot;)</code></pre>
+<pre class="r"><code>library(&quot;methods&quot;)</code></pre>
+<p>Let’s simulate from a simple OU process: <span class="math inline">\(dX = \alpha (\theta - X) dt + \sigma dB_t\)</span></p>
+<pre class="r"><code>set.seed(123)
+d &lt;- expression(0.5 * (10-x))
+s &lt;- expression(1) 
+data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))</code></pre>
+<pre><code>## sigma.x not provided, attempting symbolic derivation.</code></pre>
+<p>i.e. <span class="math inline">\(\alpha = 0.5\)</span>, <span class="math inline">\(\theta = 10\)</span>, <span class="math inline">\(\sigma=1\)</span>, starting at <span class="math inline">\(X_0 = 6\)</span> and running for 100 time units with a dense sampling of 400 points.</p>
+<p>Le’t now estimate a Ricker model based upon (set aside closed-form solutions to this estimate for the moment, since we’re investigating MCMC behavior here).</p>
+<pre class="r"><code>code &lt;- nimbleCode({
+      K ~ dunif(0.01, 40.0)
+      r ~ dunif(0.01, 20.0)
+  sigma ~ dunif(1e-6, 100)
+
+  iQ &lt;- 1 / (sigma * sigma)
+
+  x[1] ~ dunif(0, 10)
+
+  for(t in 1:(N-1)){
+    mu[t] &lt;- log(x[t]) + r * (1 - x[t]/K) 
+    x[t+1] ~ dlnorm(mu[t], iQ) 
+  }
+})
+
+constants &lt;- list(N = length(data$x))
+inits &lt;- list(K = 6, r = 1, sigma = 1)
+
+Rmodel &lt;- nimbleModel(code=code, constants=constants, data=data, inits=inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<p>NIMBLE certainly makes for a nice syntax so far. Here we go now: create MCMC specification and algorithm</p>
+<pre class="r"><code>mcmcspec &lt;- configureMCMC(Rmodel)
+Rmcmc &lt;- buildMCMC(mcmcspec)</code></pre>
+<p>Note that we can also query some details regarding our specification (set by default)</p>
+<pre class="r"><code>mcmcspec$getSamplers()</code></pre>
+<pre><code>## [[1]]
+## RW sampler: K
+## [[2]]
+## RW sampler: r
+## [[3]]
+## RW sampler: sigma</code></pre>
+<pre class="r"><code>mcmcspec$getMonitors()</code></pre>
+<pre><code>## thin = 1: K, r, sigma, x</code></pre>
+<p>Now we’re ready to compile model and MCMC algorithm</p>
+<pre class="r"><code>Cmodel &lt;- compileNimble(Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre class="r"><code>Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.
+## compilation finished.</code></pre>
+<p>Note we could have specified the <code>Rmodel</code> as the “project” (as shown in the example from the Nimble website), but this is more explicit. Rather convenient way to add to an existing model in this manner.</p>
+<p>And Now we can execute the MCMC algorithm in blazing fast C++ and then extract the samples</p>
+<pre class="r"><code>Cmcmc$run(10000)</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))</code></pre>
+<p>How do these estimates compare to theory:</p>
+<pre class="r"><code>mean(samples$K)</code></pre>
+<pre><code>## [1] 10.05681</code></pre>
+<pre class="r"><code>mean(samples$r)</code></pre>
+<pre><code>## [1] 0.180207</code></pre>
+<hr />
+<p>Some quick impressions:</p>
+<ul>
+<li><p>Strange that <code>Rmodel</code> call has to be repeated before we can set up a custom MCMC (<a href="http://r-nimble.org/examples">nimble docs</a>). How/when was this object altered since it was defined in the above code? Seems like this could be problematic for interpreting / reproducing results?</p></li>
+<li><p>What’s going on with <code>getSamplers()</code> and <code>getMonitors()</code>? Guessing these are in there just to show us what the defaults will be for our model?</p></li>
+<li><p>why do we assign <code>Cmodel</code> if it seems we don’t use it? (the compilation needs to be done but isn’t explicitly passed to the next step). Seems we can use <code>Cmodel</code> instead of <code>Rmodel</code> in the <code>Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)</code>, which makes the dependency more explicit, at least that notation is more explicit. Seems like it should be possiple to omit the first <code>compileNimble()</code> and have the second call the <code>compileNimble</code> automatically if it gets an object whose class is that of <code>Rmodel</code> instead?</p></li>
+<li><p>Repeated calls to <code>Cmcmc</code> seem not to give the same results. Are we adding additional mcmc steps by doing this?</p></li>
+<li><p>Thinking an <code>as.data.frame</code> would be nicer than <code>as.matrix</code> in the <code>nfVar</code> <code>mvSamples</code> coercion.</p></li>
+<li><p>Don’t understand what <code>simulate</code> does (or why it always returns NULL?).</p></li>
+</ul>
