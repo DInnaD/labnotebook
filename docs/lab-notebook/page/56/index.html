@@ -140,116 +140,116 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/comparing-numerical-methods/">Comparing numerical methods</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      require(MASS) require(ggplot2) require(kernlab)  Parameterization-specific
-X &lt;- seq(-5,5,len=50) obs &lt;- data.frame(x = c(-4, -3, -1, 0, 2), y = c(-2, 0, 1, 2, -1)) l &lt;- 1 sigma_n &lt;- 0.8  Radial basis function/Gaussian kernel:
-SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2) cov &lt;- function(X, Y) outer(X, Y, SE, l)  Cholksy method
-n &lt;- length(obs$x) K &lt;- cov(obs$x, obs$x) I &lt;- diag(1, n) L &lt;- chol(K + sigma_n^2 * I) alpha &lt;- solve(t(L), solve(L, obs$y)) k_star &lt;- cov(obs$x, X) Y &lt;- t(k_star) %<em>% alpha v &lt;- solve(L, k_star) Var &lt;- cov(X,X) - t(v) %</em>% v loglik &lt;- -.
+      Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
+  Misc  Some software providing rather impressive/high fidelity pdf to html conversion&hellip; Not just rendering as images &ndash; the text is searchable, though in the html source it just looks like a bunch of binary data URIs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
-
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
+      Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
+One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
+opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/computing/">Computing</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
+      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/computing-the-value-of-information-in-management-of-a-stochastic-resource/">Computing the value of information in management of a stochastic resource</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
+      A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor&rsquo;s fallacy.
+Load the original run of the ou model and increase the nulldt data frame to use all points instead of a sample of length 5000
+load(&quot;beer_run.rda&quot;) ou_dat &lt;- dat ou_null &lt;- nulldat #ou_null_ts &lt;- nulldt null &lt;- timeseries #[1000:6010,] null &lt;- as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/conference-call-w--bob-and-brett/">Conference call w- Bob and Brett</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/data-format-functions/">Data Format functions</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
- Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
- should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
+      Author&rsquo;s Note: Having refrained from actually posting this for 8 months, as I think I have quite mellowed more my critique. I do believe that education and peer review are the best way forward in tackling these issues, but cannot overstate how much of a long and rocky road that process will be. The Mozilla Science Foundation is really leading these efforts with their code review pilots (as I have discussed in posts since writing this), and through their work with Software Carpentry training.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/data-to-knowledge-day-1/">Data to Knowledge Day 1</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Scaling Time Series Data Mining to trillions of series Eamonn Keogh
- Similarity search is the fundamental problem for any task This problem is now solved. As effective as possible, as efficient as possible.  What is similarity search? All about required invariances: Looking at ancient manuscripts of fish &ndash; identify multiple drawings of the same species. Invariant to color, scale, and orientation.
-(Note that rotation becomes phase, easy to handle).
+      Nonparametric-bayes  Establishing chunck dependencies, simplifying and abstracting code.
+ still need to fix up Allen MCMC convergence when underlying model is Myers 10:18 am 2013/05/22
+ replicate runs on data from allen and myers model 08:39 pm 2013/05/21
+  Clean code for complicated scripts Pseudo-code somewhat captured by the chuncks. Ideal would be:
+ Define models Define parameters Simulate data Estimate MLE Estimate under GPP Allen MCMC Ricker MCMC Myers MCMC Determine optimal policy for each&hellip; Simulation Graphs  A preponderance of preprint servers Having sent in my review for IEE, do I also post it on the peerJ preprint?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/data-to-knowledge-day-ii-and-other-notes/">Data to Knowledge Day II and other notes</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Great second day at the Data to Knowledge conference (a few notes below).
-Also I have been trying to move a few projects forward during the commute and break. I&rsquo;ve sent Alan my revisions on the prosecutor&rsquo;s fallacy manuscript, getting pretty close. Following up on a query from John, ran a simulation showing the impact of having a delay in the timeseries before the slow change towards the bifurcation begins.
+      Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
+ Some edits to adapt the extraction of posteriors from the multiple chains.
+ Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
+  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
+module load gcc R jags  This appears to result in greater uncertainty:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/demographic-noise/">Demographic Noise</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
+      prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/deviations-from-s--d/">Deviations from S = D</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      pdg-control Value of information Exploring causes for deviation from S = D in the Reed model: arises from self-sustaining assumption. Working out the interpretation of the self-sustaining clause, which sounds like it needs to ensure that the stock is non-decreasing in the absence of harvest,
-$$ P(X_{t+1} \geq x | X_n = x ) = 1 $$
-This sounds like a very awkward condition to enforce for a non-trivial escapement level ( x = S ).
+      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
       
     </div>
   </div>

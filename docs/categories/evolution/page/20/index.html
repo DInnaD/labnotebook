@@ -141,6 +141,33 @@
   
   
   <div>
+    <h2><a href="../../../../1/01/01/data-format-functions/">Data Format functions</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
+ Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
+ should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Automated scripts for image uploads. Tag-based generation of a slideshow:</p>
+
+<p>Running the script:
+ ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.</p>
+
+<p>This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../../1/01/01/evolution-2010/">Evolution 2010</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -235,28 +262,6 @@ Research collected using Mendeley</p>
 12p - 1p
  Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
  Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Efficiency updates:
- As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
-Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
       
     </div>
   </div>

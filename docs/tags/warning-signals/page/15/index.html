@@ -152,84 +152,60 @@ I then developed an algorithm for applying the Gaussian process inference of the
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      From 03/31, see below for more!
-Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
+Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
-/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
+      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
-Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/annual-progress-report/">Annual Progress Report</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
-
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
+      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/effective-warning-signals/">Effective warning signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
- Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -237,24 +213,33 @@ and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/goals/">Goals</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
+      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
+ pmc functions
+  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
       
     </div>
   </div>

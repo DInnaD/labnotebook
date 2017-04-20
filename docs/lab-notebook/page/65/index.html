@@ -140,107 +140,119 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/parrotfish-model-choice/">Parrotfish Model choice</a></h2>
+    <h2><a href="../../../1/01/01/archiving-the-lab-notebook-on-figshare/">Archiving the lab notebook on figshare</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/parrotfish-wrasse-example/">Parrotfish-Wrasse example</a></h2>
+    <h2><a href="../../../1/01/01/automated-feeds-in-notebook-entries/">Automated feeds in notebook entries</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
+{% raw %}
+{% octokit_commits pdg_control%}  {% endraw %}
+(or even to the post template) and have the commit log for the specified repository automatically imported.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/peter-meeting/">Peter Meeting</a></h2>
+    <h2><a href="../../../1/01/01/basic-regression-in-gaussian-processes/">Basic regression in Gaussian processes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Discussed potential solution to the model choice scenario:
- Consider an ordered list of models, A, B, C, D Then the Neyman-Pearson Lemma (see earlier entry on this) lets us walk through the list in the following fashion: We generate the simulated data sets under model A and compare likelihood ratios in each case. If the likelihood ratio of the observed data falls outside the 95% confidence interval, than it with this confidence that we are saying the data justify the alternate model (model B).
+      Working out coded examples for basic Gaussian process regression using R. I&rsquo;ve just read through the first few chapters of Rasmussen &amp; Williams (2006), this implements the examples discussed in Chapter 2.1-2.5.
+Required R libraries (for multivariate normal, also for plotting):
+require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
+set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/peter-meeting/">Peter meeting</a></h2>
+    <h2><a href="../../../1/01/01/batch-data/">Batch Data</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      SICB conference  Abstract &ndash; sent   Phylogenetic comparative methods have become all but ubiquitous in only a few decades, forcing us to reconsider if information from a phylogenetic tree can justify the results. Existing approaches to this question have been inadequate and do not scale with tree size or the ability to resolve branches. For instance, selection between phylogenetic models typically based on information criteria fails to adequately reflect this uncertainty, and can lead to preference for arbitrarily complicated models.
+      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
+    <h2><a href="../../../1/01/01/beetle-dynamics-exploration--adjustments/">Beetle dynamics exploration &amp; adjustments</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
+      Adjusted individual based Crowley model to follow same parameterization as the macroscopic model. IBM rules had divided b and c by K in the dynamics while the macroscopic was just using rescaled dynamical rates. Now both use the rescaled rates as parameter values while the equations match.
+ Variation in the Crowley model agrees between individual-based simulation and the equations.
+  Code troubleshooting  openmp private declarations perform allocs without frees!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/phylogenetics-workshop-day-5/">Phylogenetics Workshop Day 5</a></h2>
+    <h2><a href="../../../1/01/01/beetles-workshop-day-2/">Beetles workshop Day 2</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Last day of lectures: Lineage Diversification
-Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
- Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
+      Goals  van Kampen expansion of LPA model, maximize noise in L while keeping A robust?   Indiv. heterogeneity issue: dividing larval class into a smaller, highly-cannibal and remainder of more weakly cannibalistic. Pulse dynamics &ndash; interspike interval, magnitude?  Potential Data  1995 Dennis et al. &ndash; 5 replicate populations (2-cycle dataset), 5 age-cycles. eight-year chaotic time series Strawbridge daily samples (single replicate), occasional disease in lines though.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/policy-functions-and-value-functions-under-multiple-uncertainty/">Policy functions and value functions under multiple uncertainty</a></h2>
+    <h2><a href="../../../1/01/01/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
-
-<h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
-
-<p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
-pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
+      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
+ Follow-up discussion on:
+ List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/post-workshop/">Post-Workshop</a></h2>
+    <h2><a href="../../../1/01/01/bodega-phylogenetics-workshop-day-1/">Bodega Phylogenetics Workshop Day 1</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working on a couple new ideas:
- Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
+      Lecture notes for the phyolgenetics workshop. These are taken in real time, so may contain errors. I&rsquo;ll see if I keep this up throughout the course. See course website.
+Huelsenbeck 9a-11a
+ Parameters θ Observation X p(X | θ) is known as the likelihood. Adjust parameter to maximize likelihood. Coin toss example  θ = prob of heads on a single toss of a coin, X is # of heads observed on n tosses.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/power-in-trees/">Power in Trees</a></h2>
+    <h2><a href="../../../1/01/01/bodega-phylogenetics-workshop-day-2/">Bodega Phylogenetics Workshop Day 2</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
-Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
+      Marine lab researchers are back, and network speeds have just about given up (down to bytes/s). This post is composed offline and will be uploaded to the notebook. Details are well logged on the Bodgea Phylogenetics Wiki so these are reasonably sketchy with my comments.
+My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega Phylogenetics Wiki today:
+ User page Phylogenetics on Linux Becoming a Programmer Edits on Advice for Aspiring Phylogeneticists  Today&rsquo;s agenda  BEAST continued.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/power-in-trees/">Power in trees</a></h2>
+    <h2><a href="../../../1/01/01/bodega-phylogenetics-workshop-day-3/">Bodega Phylogenetics Workshop Day 3</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
+      Rich Glor, Character Evolution Official slides and tutorial
+ Weakness of ancestral state reconstruction
+ Cunningham 1999 Losos 1999  Testing hypotheses with ancestral reconstruction
+ Parsimony Farris method. Downward/upward pass. Gives a maximum parsimony reconstruction. May miss other ones. Apparently this Parsimony analysis can be done for continuous traits as well, needs a measure of distance Likelihood Pagel 1994 Schluter 1997   R tutorial (see anolis_cheat.R)
+ Discrete trait ancestral state reconstruction
       
     </div>
   </div>

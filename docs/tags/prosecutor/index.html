@@ -150,6 +150,85 @@
     </div>
   </div>
   
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      (Corresponds to commit 4bd8422107 in earlywarning repo)
+For the individual-based simulation, the population dynamics are given by
+$$\begin{align} \frac{dP(n,t)}{dt} &amp;= b{n-1} P(n-1,t) + d{n+1}P(n+1,t) - (b_n+d_n) P(n,t), b_n &amp;= \frac{e K n^2}{n^2 + h^2}, d_n &amp;= e n + a, \end{align}$$
+which is provided by the saddle_node_ibm model in populationdynamics.
+For each of the warning signal statistics in question, we need to generate the distibution over all replicates and then over replicates which have been selected conditional on having experienced a crash.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
+  Misc  Some software providing rather impressive/high fidelity pdf to html conversion&hellip; Not just rendering as images &ndash; the text is searchable, though in the html source it just looks like a bunch of binary data URIs.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor&rsquo;s fallacy.
+Load the original run of the ou model and increase the nulldt data frame to use all points instead of a sample of length 5000
+load(&quot;beer_run.rda&quot;) ou_dat &lt;- dat ou_null &lt;- nulldat #ou_null_ts &lt;- nulldt null &lt;- timeseries #[1000:6010,] null &lt;- as.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/collected-notes-from-past-few-days/">Collected notes from past few days</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
+      
+    </div>
+  </div>
+  
 
   
 

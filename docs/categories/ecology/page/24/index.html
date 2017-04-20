@@ -152,102 +152,101 @@ Currently, externalized code for GP comparison experiments is in gaussian-proces
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/actually-starting-at-arkin-lab/">Actually starting at Arkin Lab</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Meeting with M. Samoilov  Kurtz Theorems: two limits, timescale and system size, often taken in the wrong order in practice. Einstein-Smoluchowski debate regarding Langevin correspondence to Ito vs Statonvich representations resolved: [theorem]. (Statonvich is the more natural interpretation of the way in which we measure data to compare to Langevin. Of course Ito and Stratonvich can be mapped back and forth anyway). Of course this difference doesn&rsquo;t exist, and nothing goes wrong / no stochastic surprises if dynamics are linear.
+      At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I&rsquo;ve moved forward in the wee hours. Covers the past several days.
+XML and RDFa parsing I have been using the lab notebook to explore technology for scientific communication, including making use of semantic and linked data concepts. To illustrate some of the potential these tools can offer I&rsquo;ve started working on a short post with examples parsing and exploring the XML and RDFa data in the notebook.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      From 03/31, see below for more!
-Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
-/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
+      Research  consolidate and revise EWS text(?) replies to Luke and Brian on model choice  Notebook meta  fix google-analytics plugin (still needs to get toggle working?) tests of notebook-parsing.Rmd. New errors on ; somehow in straight XML parsing, ignoring for the moment. Opened a few new issues around improving site semantics. (#59, #60)  ropensci  Resubmit rfishbase &ndash; silently load to local, not global namespace. Updated data cache (and ASCII-ify and compress).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
-Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
+ classical approaches are to fix relationship of stock recruitment.
+ parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
+ A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
+ How much data we need.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/annual-progress-report/">Annual Progress Report</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
+      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/beetle-dynamics-exploration--adjustments/">Beetle dynamics exploration &amp; adjustments</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Adjusted individual based Crowley model to follow same parameterization as the macroscopic model. IBM rules had divided b and c by K in the dynamics while the macroscopic was just using rescaled dynamical rates. Now both use the rescaled rates as parameter values while the equations match.
- Variation in the Crowley model agrees between individual-based simulation and the equations.
-  Code troubleshooting  openmp private declarations perform allocs without frees!
+      This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
+Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
+In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/beetles-workshop-day-2/">Beetles workshop Day 2</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goals  van Kampen expansion of LPA model, maximize noise in L while keeping A robust?   Indiv. heterogeneity issue: dividing larval class into a smaller, highly-cannibal and remainder of more weakly cannibalistic. Pulse dynamics &ndash; interspike interval, magnitude?  Potential Data  1995 Dennis et al. &ndash; 5 replicate populations (2-cycle dataset), 5 age-cycles. eight-year chaotic time series Strawbridge daily samples (single replicate), occasional disease in lines though.
+      Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
+ We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/bug-fixed/">Bug fixed!</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Wasn&rsquo;t taking the Jacobian of the transition terms. Fixes the unstable behavior and disagreement between simulations and theory. Other note: the &ldquo;hastings.c&rdquo; model can trivially be obtained from the standard crowley-form metapopulation model by taking b_1 = 0.  For the crowley class of models at least, seems that while the two-step vs one-step involved different dynamics, this difference exists only in transients while equilbrium covariances agree.
+      Started reml, and R package for reading, writing, manipulating and publishing EML files. More details and progress so far on the Github page; in particular flushing out design goals in the issues tracker.
+Initial goals To start, I am aiming for a proof of principle case in which we can write an R data.frame into EML (issue #2), publish to a remote repository such as figshare (issue #3), and then read the data back in as the original R object types from the EML (issue #6).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/code-development-for-exploring-regimes-shifts/">Code Development for Exploring Regimes Shifts</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Just committed changes to the google project. warning_signals.c now provides a fully functional, ensemble enabled simulation written with functional API for general Gillespie simulations (at last! I&rsquo;ve come quite a way in my C coding from those early Gillespie simulations for adaptive dynamics two years ago). Still need to pull the API out of the single file. Doxygen-compatible literate programming included, but needs significant expansion before it can really be used effectively as an API for other users.
+      Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
+ 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
       
     </div>
   </div>

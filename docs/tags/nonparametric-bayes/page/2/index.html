@@ -161,24 +161,94 @@
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/gaussian-processes/">Gaussian processes</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
- Will also want to look into basis approximations for SDP acceleration.
-  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
+      Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy/">early results in nonparametric-bayes approaches to optimal policy</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
-Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
+      ropensci  rfishbase: 0.1-1 released to CRAN: bugfix updating server address. (Broke updateCache()). See NEWS for details.
+ rfigshare: 0.2-4 released to CRAN: added method to remove attached files (issue #42), see NEWS for details  Misc  My reply to John on Prosecutor&rsquo;s Fallacy piece. Thinking about a better way to provide convenient, stable access to code and data. Should provide csv versions of data.table outputs used to create each of the figures.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Applied Math Club meeting (See reading material from Tuesday.
+ Start with stable age distribtution (indep of stock-recrutiment) Consider the Entropy of that probability distribution, as function of mortality, by max age Now consider the same for fecundity: the fraction/density of the population von Bertalanffy growth (fecundity) effective mortality rate - mortality rate in an unfished population, distributed with same entropy as the fished population, Kullback-Leibler distance to measure fishing influence?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
+ classical approaches are to fix relationship of stock recruitment.
+ parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
+ A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
+ How much data we need.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
+  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      nonparametric-bayes writing writing &hellip;
+multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
+ multiple-uncertainty.m example  Compare to
+ R algorithm example  Matlab code shows the same pattern in which growth noise results in constant escapement, but either implementation or measurement noise cause deviations from this rule (most dramatic in the case of implementation uncertainty).
+Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline intro #78.
       
     </div>
   </div>
@@ -190,6 +260,8 @@ Can it be demonstrated that this actually has higher numerical stability? Altern
     
     <li><a href="../../../../tags/nonparametric-bayes/">&laquo; Previous</a></li>
     
+    
+    <li><a href="../../../../tags/nonparametric-bayes/page/3/">Next &raquo;</a></li>
     
   </ul>
 </nav>

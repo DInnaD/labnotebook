@@ -141,71 +141,52 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/puzzled-over-the-two-step-jump-process-results/">Puzzled over the two-step jump process results</a></h2>
+    <h2><a href="../../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
+      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
+ mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/questions/">Questions</a></h2>
+    <h2><a href="../../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Current population dynamics model macroscopic equations:
-Interpreting μ terms as death events, b as birth, and the a terms as transitions between age classes gives a natural form for the master equation.
-Divergent Solutions to the linear noise approximation? Breaking the age classes into k subclasses makes waiting time within an age class gamma instead of exponential, which better matches observation. Also allows sustained oscillations. The numerical solution to the linear noise approximation shows divergent variance dynamics.
+      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/reading/">Reading</a></h2>
+    <h2><a href="../../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
+      Modified Crowley model Realizing Arbitrarily large demographic noise systems??
+Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
+I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
+And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Writing up work just on ensemble vs single instance detection of regime shifts. See this entry</p>
-
-<p>Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Single replicate. Almost all warning signals have significant correlation despite the constant environment.
-False warning signals remain just as common when signals are averaged across 100 replicates?
- Exploring statistical qualification of early warning signals. Dakos et. al. (2008) use a correlation significance test (based on Kendall&rsquo;s tau) on the autocorrelation to detect the warning signals. Correlation significance test seems a very poor estimate of signal, high false positive rate at any threshold p-value for sufficiently frequent sampling.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -213,47 +194,54 @@ False warning signals remain just as common when signals are averaged across 100
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
+      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
+    <h2><a href="../../../../1/01/01/meeting-with-alan/">Meeting with Alan</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
+      Some discussion of references  ﻿ Ovaskainen O, Meerson B. Stochastic models of population extinction. Trends in Ecology &amp; Evolution. 2010;(Box 3):1-10. Available at: <a href="http://dx.doi.org/10.1016/j.tree.2010.07.009">http://dx.doi.org/10.1016/j.tree.2010.07.009</a>.  ﻿* Goel NS, Richter-Dyn N. Stochastic Models in Biology. The Blackburn Press; 2004:269. Available at: <a href="http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X">http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X</a>.
+ Bjørnstad O, Finkenstädt B, BT. Dynamics of measles epidemics: estimating scaling of transmission rates using a time series SIR model. Ecological Monographs. 2002;72(2):169-184. Available at: <a href="http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)">http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)</a>. Grenfell BT, Bjørnstad ON, Finkenstädt BF.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/status-on-structured-populations/">Status on Structured Populations</a></h2>
+    <h2><a href="../../../../1/01/01/monday/">Monday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/structured-population-dynamics/">Structured Population Dynamics</a></h2>
+    <h2><a href="../../../../1/01/01/my-prosecutors-fallacy-paper-and-other-recent-warning-signals-literature/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Beetle Model Macroscopic equations:
-Has the corresponding variance-covariance dynamics
-Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
-General Form &amp; Algorithm Consider the dynamics are given by
-and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
+      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
+Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
+ Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
+ Methods write-up, read/compare to other examples.
+ Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
       
     </div>
   </div>

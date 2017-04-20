@@ -140,114 +140,116 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/data-format-functions/">Data Format functions</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Fig 1
-Fig 2
- Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
+      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
+ Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
+ should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/data-to-knowledge-day-1/">Data to Knowledge Day 1</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
-NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
+      Scaling Time Series Data Mining to trillions of series Eamonn Keogh
+ Similarity search is the fundamental problem for any task This problem is now solved. As effective as possible, as efficient as possible.  What is similarity search? All about required invariances: Looking at ancient manuscripts of fish &ndash; identify multiple drawings of the same species. Invariant to color, scale, and orientation.
+(Note that rotation becomes phase, easy to handle).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/data-to-knowledge-day-ii-and-other-notes/">Data to Knowledge Day II and other notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
+      Great second day at the Data to Knowledge conference (a few notes below).
+Also I have been trying to move a few projects forward during the commute and break. I&rsquo;ve sent Alan my revisions on the prosecutor&rsquo;s fallacy manuscript, getting pretty close. Following up on a query from John, ran a simulation showing the impact of having a delay in the timeseries before the slow change towards the bifurcation begins.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/demographic-noise/">Demographic Noise</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
- Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
- ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
-  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
+      Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/deviations-from-s--d/">Deviations from S = D</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      pdg-control Value of information Exploring causes for deviation from S = D in the Reed model: arises from self-sustaining assumption. Working out the interpretation of the self-sustaining clause, which sounds like it needs to ensure that the stock is non-decreasing in the absence of harvest,
+$$ P(X_{t+1} \geq x | X_n = x ) = 1 $$
+This sounds like a very awkward condition to enforce for a non-trivial escapement level ( x = S ).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/difficulties-with-tgp-taking-custom-mcmc-approach-for-gps/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
+      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
+Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
+  Define some example priors
+lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/do-we-need-a-culture-of-data-science-in-academia/">Do we need a culture of Data Science in Academia?</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
+      Just my draft copy of a Guest blog post I wrote for Dynamic Ecology.
+On Tuesday the Whitehouse Office of Science and Technology Policy announced the creation of a $37.8 million dollar initiative to promote a &ldquo;Data Science Culture&rdquo; in academic institutions, funded by the Gordon and Betty Moore Foundation, Alfred P. Sloan Foundation, and hosted in centers at the universities UC Berkeley, University of Washington, and New York University.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/effective-warning-signals/">Effective warning signals</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
- Started stochastic methods and model inference collection:  Research collected using Mendeley
-Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic methods and model inference library. Add Science of Science papers to Future of Science collection. Adding tags, abstracts, etc to Mendeley public Library Personal/extended task view (and opinion?
+      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
+ Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
+    <h2><a href="../../../1/01/01/ensemble-simulations-of-beetle-dynamics/">Ensemble simulations of beetle dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
+      code Fig 1
+code Fig 2
+code Fig 3
+Exploring full ensemble simulations of beetle dynamics. Linear noise approximations (Fig 2) show divergent noise under oscillating conditions (Fig 2 lower panel), though this may be an artifact of the approximation, which applies only for finite time calculations.</p>
+
+<p>Note that mean dynamics agree, and oscillations damp out, Fig 1 simulation means (circles) fall exactly on predicted lines. Variance dynamics do not agree.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/revisions-on-prosecutors-fallacy/">Revisions on Prosecutors Fallacy</a></h2>
+    <h2><a href="../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
- Proof corrections for rfishbase manuscript. Done.
- Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
-  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
-&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
       
     </div>
   </div>

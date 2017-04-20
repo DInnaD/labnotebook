@@ -141,112 +141,111 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../../1/01/01/collected-notes-from-past-few-days/">Collected notes from past few days</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
+      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/revisions-on-prosecutors-fallacy/">Revisions on Prosecutors Fallacy</a></h2>
+    <h2><a href="../../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
- Proof corrections for rfishbase manuscript. Done.
- Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
-  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
-&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/the-lab-notebook-goes-open/">The Lab Notebook Goes Open</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Current Puzzles &amp; Goals 1 rep
-100 reps
- Kendall&rsquo;s tau unreliable, exploring alternatives. Sliding window for identifying when warning is first detected? Goal is to detect any decrease in stability or distance from critical point? Chasing down data from Scheffer. Climate data reuses the CaCO3 from Dakos. Chasing down data from Dakos   Fig. 1 M Cariaco Basin, data file Vostok deuterium CaCO3 data Tropical Pacific core 1218   Warning signals examples with actual tipping points (Figures left).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+      Goal for today: implement analytic calculations for warning signals.
+ 10am-12pm  Abstraction/functionalizing code.
+ 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
+Recall our dynamics are d(n) = *e*n + a
+and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
+α~2~(n) = b(n) + d(n)</p>
 
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../../1/01/01/effective-warning-signals/">Effective warning signals</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
+      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
+ Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/goals/">Goals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
+*d*α~t~ = − β</p>
+
+<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
+ mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/limits-to-the-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
+Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
       
     </div>
   </div>

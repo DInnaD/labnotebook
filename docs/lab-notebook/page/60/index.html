@@ -140,114 +140,113 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/implementing-the-new-approach/">Implementing the new approach</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Spent just about the entire day off and on implementing the approach described in yesterday&rsquo;s entry. Code includes the more direct implementation of the likelihood by generating trees from the process and averaging, as well as by weighting trees by their probability. Methods appear to agree reasonably well. The second approach should generate a wider variety of trees instead of using those produced by the first method. This could be done by varying the parameters of the transition rates to populate the collection.
+      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
+An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      Open Data Policy-Managing Information as an Asset
+Far from implemented, though the tools and resources at the newly created Project Open Data (hosted on Github!) look very promising. Some choice quotations below:
+Pursuant to Executive Order of May 9, 2013, &ldquo;Making Open and Machine Readable the New Default for Government Information&rdquo;
+Any datasets in the agency&rsquo;s enterprise data inventory that can be made publicly available must be listed at www.&lt;agency&gt;.gov/data in a human- and machine-readable format that enables automatic aggregation by Data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
+      Guess it&rsquo;s that time of year again. Just saw the reminder for this year&rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &ldquo;Mathematical Biology&rdquo; track through last year&rsquo;s call, I have received a few requests for materials and advice. I&rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&rsquo;ll give it a shot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/infering-partially-observable-markov-processes-with-iterative-particle-filtering/">Infering Partially Observable Markov Processes with Iterative Particle Filtering</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
-Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
-POMP doesn&rsquo;t mix well in the winbugs.
-simulation-based algorithm (plug-and-play)
-Think of a process being defined by:
- rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:
+      We have also recently reached the first milestone in RNeXML. We can now read NeXML files into R and convert to the popular phylo format from the ape package, as well as writing the ape::phylo trees out into valid NeXML. We can also add basic metadata such as author, license, title and description to the file.
+Development notes At the heart of this package is an internal S4 representation of the schema.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/jekyll-vs-wordpress/">Jekyll vs Wordpress</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      I am now trying out a Jekyll-based platform rather than a Wordpress based for my website and lab notebook. Don&rsquo;t worry, the Wordpress site still remains where it was with links intact, I&rsquo;ve simply remapped the homepage. For now this is an experiment, we&rsquo;ll see how it goes.
-Why switch? Speed Wordpress was great, meeting most of my needs for a customizable site that I couldn&rsquo;t really accomplish in my first online notebook on OpenWetWare.
+      Ever since writing the rfishbase package I&rsquo;ve been frustrated by the lack of a proper API from Fishbase.org that would allow access to that wealth of information that is not exposed in the &ldquo;Summary XML&rdquo; files from which rfishbase extracts its content. Since writing the paper in Journal of Fish Biology, I continue to receive user requests asking if or how such-and-such a data element might be extracted. Usually this involves a disappointing boiler-plate reply about how the package is limited to the &ldquo;Summary XML&rdquo; data and that improved query potential must wait for a proper API from Fishbase.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/lr-manuscript/">LR Manuscript</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
+      Just read Lost Branches on the Tree of Life in PLoS Biology and couldn&rsquo;t agree more! I too am frequently frustrated by the lack of deposition or replies to email requests for data. The 16% reply rate seems consistent with other such studies. I agree with the general message that what is most needed is a cultural shift towards these expectations. I loved this paper overall but nonetheless cannot resist a few nitpicks.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Modified Crowley model Realizing Arbitrarily large demographic noise systems??
-Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
-I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
-And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
+      Education / Workforce Development Group Cannot do grand synthesis opaquely and be science. must be able to scale and evolve.
+How did data succeed? What features really made the difference and what were just sideshows?
+ Sticks (Funder and journal mandates?) Working groups (NCEAS) Training external forces: there is more data.
+  Why one center? Why not 15 centers? Divided by discipline rather than region&hellip;. synthesize the synthesis centers
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood Calculation</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Direct Calculation of the Joint Probability Fig 1 Sample tree
- This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
+      Near the end of another excellent day of discussions we were asked to put pen to paper to outline our own views in writing. My own contribution was the following notebook scribble.
+My own vision of what ISEES should be doing for workforce development:
+ISEES would employ a multi-scale approach to improve basic computational expertise across the entire workforce necessary to fully participate in the modern software-immersed world of research through the development of training standards, while using a working-group model focused on emerging researcher-developer communities which would simultaneously improve the quality and synthesis of existing software tools while also delivering essential skills to the most transformative members of the research software communities.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
-This is great, nice to know there&rsquo;s a basis for it.
-&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
+      I&rsquo;d like to define a class that acts just like a data.frame, just like the data.table class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle data.frame objects.
+How might this be done?
+I&rsquo;m not really sure where to start on this, so below is a summary of my attempt so far and some further puzzles I have stumbled across (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
+      class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
       
     </div>
   </div>

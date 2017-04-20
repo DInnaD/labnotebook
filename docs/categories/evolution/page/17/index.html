@@ -145,6 +145,32 @@
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
+      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
+ Solution:
+  C++ file mangles names in .so, changing the .C call. to get the object name:
+objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
+ extern C {<br />
+ Problem: Trouble getting R to export the C library to all nodes.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
+ seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
       Matching theoretical approximations to simulation:
  Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
       
@@ -224,25 +250,6 @@ PDG group will be discussing
     <div class="article-style">
       
       Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Simulation Results (code)  Analytics (Analytics code)
-Notebooks and files Looking at a better way to get figures into my online notebook. I often run simulations that generate figures which I look at, make some adjustments to the code based on the figure, and then delete or overwrite the figure without uploading it to my notebook, because it isn&rsquo;t &ldquo;right&rdquo; or &ldquo;finished&rdquo; and uploading takes a lot of clicks, particularly when the code generates 36 figures in a run.
       
     </div>
   </div>

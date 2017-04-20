@@ -141,111 +141,127 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/limits-to-the-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
-Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
+      NSF goals:  combine control methods and warning signals do non-parametric or machine learning increase or decrease chance of transition learning  Further areas (from comment piece) baselines (statistical; emperical) context-specific (additional data sources, reflecting context in model)  Warning signals in managed systems Management decreases the signal: compare likelihood statistic in unmanaged_warning managed_warning:
+Estimating Stability in managed systems Recovery rate in optimally fished vs unfished system (based on the OU model): stability.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Guess it&rsquo;s that time of year again. Just saw the reminder for this year&rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &ldquo;Mathematical Biology&rdquo; track through last year&rsquo;s call, I have received a few requests for materials and advice. I&rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&rsquo;ll give it a shot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      Scratching out some thoughts here to address an issue that continues to bug me with the way the literature discusses these two very different issues.
+The ecological literature on early warning signals and related subjects continually seems to confuse the concept of state and regime.
+Let&rsquo;s get this straight.
+Regime $=$ Attractor
+ State $\neq$ Attractor
+ Nonlinear state change $\neq$ Regime shift
+Evidence that a regime shift occurred, and when the shift occurred (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/my-prosecutors-fallacy-paper-and-other-recent-warning-signals-literature/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      Fisheries data from Glaser et al. (2013) available at IchthyoDB Larvae and egg counts. About 4 GB, initialized in calcofi repo (local only).
+Reading early warning with &ldquo;Quickest Detection&rdquo; algorithm described in Carpenter et al. (2013) and used by Batt et al. (2013), which includes a rather friendly explanation in the appendix (SI).
+Uses a likelihood based method along with rather simple models of the probability of being in each state, and interestingly relies on the presence of a control system that has already experienced the transition.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notes/">Notes</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Prosecutors Fallacy Running the null distribution and add to plots
- generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
- knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
+      Consider the model
+$$d X_t = \alpha \left(\theta - X_t\right)dt + \sigma dB_t $$
+By Ito Isometry, we have:
+$$\langle X \rangle_t = E_t(X) = \theta \left(1 - e^{-\alpha t} \right) + X_0 e^{-\alpha t}$$
+and
+$$\langle X^2 \rangle_t - \langle X \rangle_t^2 = V<em>t(X) = \frac{\sigma^2}{2 \alpha }\left(1 - e^{-2 \alpha t} \right)$$
+If we assume discrete, uniform sampling of spacing $\tau$, then we have,
+$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp\left(-\frac{\sumt^{T-1} \left(X{t+1} - E\right)^2 }{2V}\right) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notes/">Notes</a></h2>
+    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
- Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
+      From 03/31, see below for more!
+Outline Title
+On the ability to detect leading indicators of catastrophe in unreplicated time series
+Introduction Background on Warning Signals
+ literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
+ Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
+ Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/project-tracking-ecology/">Project tracking (Ecology)</a></h2>
+    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      pdg-control Has become a variety of different directions:
-Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
+      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/prosecutors-fallacy-notes/">Prosecutor&#39;s fallacy notes</a></h2>
+    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Mostly getting Prosecutor&rsquo;s Fallacy example to run with large enough sample sizes. Finer sampling or more replicates than current settings seems to crash MPI connections over farm cluster, probably a memory issue. Oh well, looks like I&rsquo;ve got a good enough sample size here.
- Prosecutor&rsquo;s Fallacy  Citations on Jekyll No ideal solution here at the moment, a couple options:
- Pandoc: My intended solution, Disadvantages: converts everything to it&rsquo;s own markdown format, which messes up my PHP Markdown tables and YAML frontmatter.
+      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/reading/">Reading</a></h2>
+    <h2><a href="../../../../1/01/01/annual-progress-report/">Annual Progress Report</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
+      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
+ Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
       
     </div>
   </div>

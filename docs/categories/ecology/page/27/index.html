@@ -141,7 +141,7 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
+    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -149,28 +149,7 @@
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/meeting-with-alan/">Meeting with Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Some discussion of references  ﻿ Ovaskainen O, Meerson B. Stochastic models of population extinction. Trends in Ecology &amp; Evolution. 2010;(Box 3):1-10. Available at: <a href="http://dx.doi.org/10.1016/j.tree.2010.07.009">http://dx.doi.org/10.1016/j.tree.2010.07.009</a>.  ﻿* Goel NS, Richter-Dyn N. Stochastic Models in Biology. The Blackburn Press; 2004:269. Available at: <a href="http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X">http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X</a>.
- Bjørnstad O, Finkenstädt B, BT. Dynamics of measles epidemics: estimating scaling of transmission rates using a time series SIR model. Ecological Monographs. 2002;72(2):169-184. Available at: <a href="http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)">http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)</a>. Grenfell BT, Bjørnstad ON, Finkenstädt BF.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/monday/">Monday</a></h2>
+    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -178,68 +157,92 @@
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/my-prosecutors-fallacy-paper-and-other-recent-warning-signals-literature/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
+    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
+    <h2><a href="../../../../1/01/01/friday/">Friday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
- Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
- Methods write-up, read/compare to other examples.
- Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
+      Not much chance for progress.
+ 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
+    <h2><a href="../../../../1/01/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Fig 1: Noise in lavae dominate
-Fig: 2 lower mortality, higher noise
- Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
+      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
+png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parallel-at-last/">Parallel at last</a></h2>
+    <h2><a href="../../../../1/01/01/general-matrix-form-and-correcting-equations/">General matrix form and correcting equations</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
+      Pursuing a matrix form, seems I had missed some terms in the covariance equations Friday, which are suggested by the nice symmetry of this representation: (sometimes chalk and a camera are faster than tex).
+This suggests the general form looks like
+<em>dM</em> = <em>JM</em> + (*J*M)^T^ + g
+Where M is the covariance matrix and J the Jacobian of f as before. dM is the matrix of derivative terms, though clearly not a rigorous notation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parallelizing-code/">Parallelizing Code</a></h2>
+    <h2><a href="../../../../1/01/01/goals/">Goals</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
+      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
+*d*α~t~ = − β</p>
+
+<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/power-plots/">Power plots</a></h2>
+    <h2><a href="../../../../1/01/01/hastings-beetle-workshop/">Hastings Beetle Workshop</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Testing power code. currently null and test distributions of likelihood scores are distinguishable even for small beta on the long time scale. See code for run.
- running on shorter timescale. Note that parameters match but small code differences in repository code on the last commit since I committed the version on the local machine (my laptop, for development) but ran a slightly tweaked code (typo in reps vs nboot, .
+      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
+ Morning Session, 9a - 11a
+ Outline the individual based model, toolbox  Group lunch, noon-1:30
+ My lab Presentation, 2p-3p
+ Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
+ Follow-up on understanding noise propagation in age structure dynamics.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
       
     </div>
   </div>

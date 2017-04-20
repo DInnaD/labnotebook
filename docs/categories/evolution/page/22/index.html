@@ -141,6 +141,27 @@
   
   
   <div>
+    <h2><a href="../../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
+ Create package around power analysis, including ability to test bootstraps
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/likelihood-ratio-update/">Likelihood ratio update</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../../1/01/01/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -216,27 +237,6 @@ runBatchHansen()  User identifies a set of nodes of interest, and optionally a m
       
       7:30 &ndash; 8:30 Read ﻿article for Wainwright&rsquo;s 270:  Streisfeld, M.a. &amp; Rausher, M.D. Population Genetics, Pleiotropy, and the Preferential Fixation of Mutations During Adaptive Evolution. Evolution no-no(2010).doi:10.1111/j.1558-5646.2010.01128.x
 Interesting approach, methods description a little light and both prediction and interpretation of pattern of mutations in coding, cis-reg, and transcription factor sites seems a little loose. Detailed notes on article in Mendeley. More comments after the discussion section at 1pm today.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/multitype-ou-processes-with-varying-alpha-and-sigma/">Multitype OU Processes with varying alpha and sigma</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Been meaning to sit down and work this one out for a while; somehow travel and conferences helped out with that &ndash; now I only have to transcribe some dozen messy hotel notepad sheets to get the calculations into this lab notebook. Meanwhile, 15 hours on a train from Portland was just the right amount of time to code up the approach, which is now implemented at the C level for the Anoles dataset; code in the wrightscape project on github.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
- Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
       
     </div>
   </div>

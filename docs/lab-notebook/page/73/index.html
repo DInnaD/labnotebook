@@ -140,18 +140,94 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/welcome-to-my-lab-notebook---reloaded/">Welcome to my Lab Notebook - Reloaded</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Welcome to my lab notebook, version 3.0. My original open lab notebooks began on the wiki platform OpenWetWare, moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform (site-config), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here. Quoting from my original introduction to the Wordpress notebook:
- Disclaimer: Not a Blog  Welcome to my open lab notebook.
+      Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
+0.5735 0.29 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
+ Create package around power analysis, including ability to test bootstraps
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-ratio-update/">Likelihood ratio update</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/limits-to-the-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
+Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
+ Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/maticce/">MATICCE</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
+The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
+runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -159,71 +235,7 @@
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio manuscript.  Labrid Herbivory data Parrotfish gape shows significant differences for independent OU models (alpha, theta, sigma different) than wrasses. While the two-peak ouch model gets no support, allowing alpha and sigma to very results in a strongly significant model improvement.
-code
-&gt; ws2$ ws2$alpha ws2$data ws2$loglik ws2$regimes ws2$sigma ws2$theta ws2$tree ws2$Xo &gt; ws2$theta [1] 0.2245493 0.9569619 &gt; ws2$alpha [1] 2.943846e+00 4.995744e-06 &gt; ws2$sigma [1] 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio/phylogenetic signal manuscript.</p>
-
-<p>scrap notes from more literature combing  Cheverud 1985 autocorellational model, extended by Gittlman &amp; Kot 1990 Grafen 89, Pagen &amp; Harvey 89 extending PIC to polytomies Harvey &amp; Mace 82, Harvey &amp; Clutton Brock 85 taxonomic rather than phylogenetic  From Blomberg et al: &ldquo;The three best-justified phylogenetically based statistical methods can all be applied with a star phylogeny, in which case they yield results that are exactly the same as a conventional analysis (phylogenetically independent contrasts: Felsenstein 1985; generalized least squares: Grafen 1989; Martins and Hansen 1997; Garland and Ives 2000; Rohlf 2001; Monte Carlo simulations: Martins and Garland 1991; Garland et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing-continues/">Writing continues</a></h2>
+    <h2><a href="../../../1/01/01/meeting/">Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       

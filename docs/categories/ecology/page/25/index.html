@@ -141,107 +141,121 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
-
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
+      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
+Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/computing-the-value-of-information-in-management-of-a-stochastic-resource/">Computing the value of information in management of a stochastic resource</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
+      Other services: Tangible infrastructure support services  Discovery registration system. Includes:  Software review and certification Use and quality metrics Ticket tracking Seed funding to join the ecosystem   Community Building  user defined registry  // Hackathon?
+Consulting services  Support software lifecycle
+ Function: Assist in full lifecycle software development: e.g. (and order notwithstanding) initiation, licensing, maintenance, hardening, extensible, release, decommissioning
+ Mechanisms:
+ Call for Proposals - to solicit consulting help (or to nominate a project to receive help) (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/conference-call-w--bob-and-brett/">Conference call w- Bob and Brett</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
+An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/demographic-noise/">Demographic Noise</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
+      SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
+ NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
+ language barriers: What&rsquo;s a model?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/effective-warning-signals/">Effective warning signals</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
- Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
+      MBI Workshop Becky Epanchin-Niell  Motivating example of Rabies spatial control in Switzerland
+ 2012 Eco Let: should New Zealand survey for bark beetle? Cost of survellience, control, and damage. Epanchin-Niell et al. (2012)
+ 2012 JEEM spatial spread of star thistle: control spread and eradication as an integer programming problem in deterministic context. (with Wilen) Epanchin-Niell &amp; Wilen (2012)
+ Breaking landscape into individual landowners makes it less valuable to control early.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/ensemble-simulations-of-beetle-dynamics/">Ensemble simulations of beetle dynamics</a></h2>
+    <h2><a href="../../../../1/01/01/actually-starting-at-arkin-lab/">Actually starting at Arkin Lab</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      code Fig 1
-code Fig 2
-code Fig 3
-Exploring full ensemble simulations of beetle dynamics. Linear noise approximations (Fig 2) show divergent noise under oscillating conditions (Fig 2 lower panel), though this may be an artifact of the approximation, which applies only for finite time calculations.</p>
-
-<p>Note that mean dynamics agree, and oscillations damp out, Fig 1 simulation means (circles) fall exactly on predicted lines. Variance dynamics do not agree.
+      Meeting with M. Samoilov  Kurtz Theorems: two limits, timescale and system size, often taken in the wrong order in practice. Einstein-Smoluchowski debate regarding Langevin correspondence to Ito vs Statonvich representations resolved: [theorem]. (Statonvich is the more natural interpretation of the way in which we measure data to compare to Langevin. Of course Ito and Stratonvich can be mapped back and forth anyway). Of course this difference doesn&rsquo;t exist, and nothing goes wrong / no stochastic surprises if dynamics are linear.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
+    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      From 03/31, see below for more!
+Outline Title
+On the ability to detect leading indicators of catastrophe in unreplicated time series
+Introduction Background on Warning Signals
+ literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
+ Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
+ Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
+    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
+    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/friday/">Friday</a></h2>
+    <h2><a href="../../../../1/01/01/annual-progress-report/">Annual Progress Report</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
+      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
+ Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
       
     </div>
   </div>

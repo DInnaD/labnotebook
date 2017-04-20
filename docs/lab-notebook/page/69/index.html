@@ -140,101 +140,115 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/roi-and-sam-comparative-phylogenetics-r-workshop/">Roi and Sam Comparative Phylogenetics R Workshop</a></h2>
+    <h2><a href="../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      Day 2: 4p - 6:30p  Attending the R workshop by Roi Holzmann and Sam Price from the Wainwright lab. Missed the introductory session on Monday. Course data currently available here. Resources: Springer R books pdfs available through UC Davis. In particular: R book w/ ape.  Speciation &amp; Diversification 3rd session (4:10 - 5:10 pm): Packages: Laser, Geiger, Ape, apTreeshape &amp; Diversitree
- Lineage through time plots ape and laser:   ltt.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/semantic-lab-notebook/">Semantic Lab Notebook</a></h2>
+    <h2><a href="../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/solarized-colors-with-twitter-bootstrap/">Solarized Colors with Twitter-Bootstrap?</a></h2>
+    <h2><a href="../../../1/01/01/entry-title/">Entry title</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Trying out rendering my notebook using Ethan Schoonover&rsquo;s Solarized color scheme. The solarized palette has been selected according to Ethan&rsquo;s exacting standards for contrast, symmetry, and readability.
-My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS files. Normal CSS is valid LESS code too, but doesn&rsquo;t have the concept of a variable. So changing colors in CSS requires changing each and every occurance of some hex colorcode.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
+      Automated scripts for image uploads. Tag-based generation of a slideshow:</p>
 
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
+<p>Running the script:
+ ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.</p>
+
+<p>This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status---thoughts/">Status - Thoughts</a></h2>
+    <h2><a href="../../../1/01/01/evolution-2010/">Evolution 2010</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goal: BM vs OU vs proposed multipeak OU model with and without global alpha/sigma. Anoles dataset, carex dataset, labrids?
- Added ape2ouch_all function based on maticce to convert file formats. Might be worth checking against my current implementation. Meanwhile it&rsquo;s really the converting trees back from ouch to ape that gives the ace function trouble. something about ordering of the nodes, even though that shouldn&rsquo;t matter in the phylo format.
+      Carl Boettiger A new phylogenetic comparative method: detecting niches and transitions with continuous characters  My slides:
+A new phylogenetic comparative method: detecting niches and transitions with continuous characters
+View more presentations from cboettig.
+ Joe Felsenstein A comparative method for discrete and continuous characters using the threshold model
+ Lynsey McInnes: Deep-time changes to equilibrium diversity &ndash; a simulation study of th power to detect rule changes from reconstructed phylogenies
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status-on-structured-populations/">Status on Structured Populations</a></h2>
+    <h2><a href="../../../1/01/01/evolution-2010-day-2/">Evolution 2010 Day 2</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
+      Clay Cressler : Can you trust evolutionary parameters estimated by complex phylogenetic comparative methods? A simulation study with OUCH
+ Jeet Sukumaran (Mark Holder lab) Performance and robustness of phylogeographic analytical studies
+  Tests common macroscopic models of inferring population structure (i.e. via coalescent) an individual based simulation model.
+ Graham Slater, Luke Harmon, Liam Revell, Marc Suchard, Mike Alfaro. Estimating rates of phenotypic evolution and speciation from incomplete trees.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status-update/">Status update</a></h2>
+    <h2><a href="../../../1/01/01/evolution-2010-day-3/">Evolution 2010 Day 3</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Chris Martin: Trophic innovation drives exceptional rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes  Fantastic story of exceptional rates of evolution and trophic novelty in two tropical lakes. (8:45, Adaptation 9, talk 097002)
+ David Plachetzki: Deep homology and the evolution of animal senses: insights from Cnidaria  Cnidarians have homologous proteins to opsins and taste receptors!
+ Jeremy Yoder: Coevolution and gene flow in obligate pollination mutualism  Two species of joshua tree each with its own pollinator yucca moth.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/still-puzzling-on-lr/">Still puzzling on LR</a></h2>
+    <h2><a href="../../../1/01/01/evolution-2012-conference-day-1/">Evolution 2012 Conference, Day 1</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Fantastic first day at Evolution. Spent the morning in the SSB Sympossium organized by Jeremy Brown, &ldquo;Predictive approaches for assessing the fit of evolutionary models&rdquo;. Really covered both methods assessing model fit (posterior predictive simulations) and approximate likelihood approaches, which are also simulation-based. Then the afternoon in the second SSB Symposium on emerging methods for comparative phylogenetics, organized by Liam Revell and Cecile Ane, which included my talk. Lots of great talks, but Cecile&rsquo;s was perhaps the most striking results I saw presented all day.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/still-writing/">Still writing</a></h2>
+    <h2><a href="../../../1/01/01/evolution-and-ievobio-conference-notes/">Evolution and iEvobio conference notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Saturday  Jeremy Brown Graham Slater (Education Data Symposium) Cecile Ane Joe Felsenstein Lars Schmitz Carl Boettiger Liam Revell Brian O&rsquo;Meara (Leithan McGonigle)  Sunday  Marie-Josee Fortin Emma Goldberg 10:45 rm 209 Networks Symposium Jeremy Fox 1.30p Rm 201 (Adaptation B) Schluter 2:15p Canada 2-3 Rosie Redfield public lecture  Monday  9:00 Michael Landis, 203 9:30 Dick Gumolkiowicz 214 10:30 Dean Adams 11 (Cavender-Bares, 214) (Bolnick, 213) 11:30 Mark McPeek 214  Tuesday  Luke Harmon 9am rm 214 Luke Mahler 9am rm 210 Rafael Maia 9:15a rm 210 Sam Price 11:15a rm 210 Liam Revell 11:30 Canada 2-3 Dan Rabosky 2:30pm Canada 2-3 Tanja Stadler 3pm Canada 2-3 Chris Martin 3pm rm 213  Also: ievobio Day 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/stochastic-policy-costs/">Stochastic policy costs</a></h2>
+    <h2><a href="../../../1/01/01/evolutionary-regime-shift-examples/">Evolutionary Regime Shift examples</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Updated runs for various norms, added profit plots.
- L1 L2 asymmetric: differs on the sign of the asymmetry? Penalty only for decreasing quotas. Penalty only for increasing quotas. check implementation. fixed transaction fee &ndash; whoops, fixed cost should still be free when h == h_prev.  We need to determine a the magnitude of penalty coefficient to compare between the different functional forms. For instance, for what value of c is an L2 penalty, $ c ( h_t - h_p )^2 $ comparable to the L1 penalty, $ c \operatorname{abs}(h_t - h_p ) $ ?
+      Time to get more data and examples to start testing methods, particularly for cases in where regime shifts are hypothesized by painting a tree. Starting a Mendeley public collection for the literature in Web of Science that actually applies either the OUCH or Brownie framework to identify shifts in rates of continuous trait evolution.
+Research collected using Mendeley</p>
+
+<p>now I&rsquo;ll have to see how hard it is to obtain both the trees and trait data&hellip;
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
+ I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
       
     </div>
   </div>

@@ -141,59 +141,66 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
+ Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
+where β~i~ is the intrinsic noise of the age class.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/status-on-structured-populations/">Status on Structured Populations</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/structured-population-dynamics/">Structured Population Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Beetle Model Macroscopic equations:
+Has the corresponding variance-covariance dynamics
+Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
+General Form &amp; Algorithm Consider the dynamics are given by
+and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
+Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
 
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Exploring convergence in maximum likelihood model fits each on data produced by their own simulation method:
- fit1, basic OU method, converges just fine. (using L-BFGS-B method with appropriate bounding box to avoid negatives). fit2 , the linear change rate model, converges fine using Nelder-Meade (using 1e12 ~ inf likelihood return when attempting negative alpha or sigma), but throws hard errors for L-BFGS-B:   Error in optim(pars, warning.likfn, method = method, lower = lower) : non-finite finite-difference value [3]   fit3 runs on &ldquo;L-BFGS-B&rdquo; and returns reasonable values, though not meeting convergence standards.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/warning-signals----still-in-code-development/">Warning Signals -- still in code development</a></h2>
+    <h2><a href="../../../../1/01/01/summer-review/">Summer Review</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -201,42 +208,44 @@
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals-research/">Warning Signals Research</a></h2>
+    <h2><a href="../../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Deuterium early warning signal used for Glaciation I-IV presented in Dakos 2008:  Deuterium signal over past 4 glaciations
- Does smoothing to remove trends &ndash; longer-scale fluctuations? Seems unnatural, many of those are part of the signal. Also applied to simulated time series &ndash; even those these are at stationarity! Bandwidth chosen by visual inspection. Get the CaCO3 presented in Scheffer 2010 and Dakos 2008. &ndash; Done: CaCO3
+      11am &ndash; 3pm
+ Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals-by-model-choice/">Warning Signals by model choice</a></h2>
+    <h2><a href="../../../../1/01/01/the-lab-notebook-goes-open/">The Lab Notebook Goes Open</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Finished implementation of simulation from saddle-node example Implemented simulation from transition density for all three models  Whoops  The change point model can&rsquo;t be summarized by the transition density, as this depends only on the time interval and not the absolute time. The nice description of being able to solve for the transition density when the transition occurs during the time interval specified is neither necessary nor applicable in this context!
+      (Originally posted on OpenWetWare)
+ This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
+ A good starting point is Denis et. al. (2001) Ecological Monographs 71.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/warning-signals-with-sdes/">Warning Signals with SDEs</a></h2>
+    <h2><a href="../../../../1/01/01/thursday/">Thursday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
+      Alan will write introduction to manuscript. Schedule meeting for next week. Scheduling the Hastings lab meeting doodle Coordinate with Baskett lab  Resources for ABC / Bayesian inference in ecological and spatial context workshop  Sisson Sa, Fan Y, Tanaka MM. Sequential Monte Carlo without likelihoods. Proceedings of the National Academy of Sciences of the United States of America. 2007;104(6):1760-5. Available at: <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract</a>. de Valpine P, Hastings A. Fitting Population Models Incorporating Process Noise and Observation Error.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/wednesday/">Wednesday</a></h2>
+    <h2><a href="../../../../1/01/01/towards-a-meaningful-warning-signal-metric/">Towards a meaningful warning signal metric</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
+      Most papers do not give a statistical approach, but merely argue for the existence of a trend. Kendall&rsquo;s tau approach proved very unreliable. While the preliminary de-trending approach is unjustified in that the simulated data is known to be absent from trends, as a kind of windowed averaging it may sense as a way to detect changes. Should distinguish between the gradual slow changes and change-point estimation. Perhaps change-point provides a more rigorous starting point.
       
     </div>
   </div>
@@ -248,6 +257,8 @@
     
     <li><a href="../../../../categories/ecology/page/29/">&laquo; Previous</a></li>
     
+    
+    <li><a href="../../../../categories/ecology/page/31/">Next &raquo;</a></li>
     
   </ul>
 </nav>

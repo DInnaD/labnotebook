@@ -141,6 +141,28 @@
   
   
   <div>
+    <h2><a href="../../../../1/01/01/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Efficiency updates:
+ As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
+Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -222,27 +244,6 @@ This is great, nice to know there&rsquo;s a basis for it.
       
       Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
 0.5735 0.29 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
- Create package around power analysis, including ability to test bootstraps
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/likelihood-ratio-update/">Likelihood ratio update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
       
     </div>
   </div>

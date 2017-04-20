@@ -140,102 +140,120 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/updates-to-code/">Updates to Code</a></h2>
+    <h2><a href="../../../1/01/01/general-matrix-form-and-correcting-equations/">General matrix form and correcting equations</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Pursuing a matrix form, seems I had missed some terms in the covariance equations Friday, which are suggested by the nice symmetry of this representation: (sometimes chalk and a camera are faster than tex).
+This suggests the general form looks like
+<em>dM</em> = <em>JM</em> + (*J*M)^T^ + g
+Where M is the covariance matrix and J the Jacobian of f as before. dM is the matrix of derivative terms, though clearly not a rigorous notation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/updating-examples-of-stochastic-structured-population-dynamics/">Updating examples of stochastic structured population dynamics</a></h2>
+    <h2><a href="../../../1/01/01/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Efficiency updates:
+ As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/updating-manuscript/">Updating manuscript</a></h2>
+    <h2><a href="../../../1/01/01/goals/">Goals</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      The progress of the past few days has lead to substantial revision proposals in my manuscript draft. Rewriting for discussion with Brian tomorrow. Currently revised outline:
- Intro
- Biological Motivation Comparative Methods and Comparing Models Model choice paradigm: the right direction, but incomplete  Simple Example
- The Star Tree Two hypotheses: stabilizing vs disruptive selection Information Criteria approach is insufficient Likelihood surfaces Likelihood ratio distribution  Anoles Example
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/value-of-information-cost-of-bias/">Value of information, cost of bias</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Value of information The motivation for this &ldquo;value of information&rdquo; excercise comes from Costello et al. (2010), which essentially compares two scenarios: the value of a marine protected area when you the dispersal kernel is unknown (one of a discrete set of possible kernels you sum over), to the value of the protected area when the kernel is known perfectly. No intrinsic stochasticity, single time step, no learning.
-The model I&rsquo;m looking at comes from Reed (1979), and a modification by Sethi et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/wainwright-lab-meeting/">Wainwright Lab Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Presented a revised version of my talk for Evolution 2010, focusing on the inadequacy of information-criteria heuristics for model choice in phylogenetic comparative methods and presenting the likelihood-ratio based approach I&rsquo;ve been working on. Much better received this time. (The last two weeks have been pretty dedicated to preparing for the upcoming conferences, mostly for this presentation, so not much in the way of new research. Will be able to return to new stuff in July, following iEvoBio).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/wainwright-meeting/">Wainwright Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Current Puzzles &amp; Goals 1 rep
-100 reps
- Kendall&rsquo;s tau unreliable, exploring alternatives. Sliding window for identifying when warning is first detected? Goal is to detect any decrease in stability or distance from critical point? Chasing down data from Scheffer. Climate data reuses the CaCO3 from Dakos. Chasing down data from Dakos   Fig. 1 M Cariaco Basin, data file Vostok deuterium CaCO3 data Tropical Pacific core 1218   Warning signals examples with actual tipping points (Figures left).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
+*d*α~t~ = − β</p>
 
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
+Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Fantastic meeting with Graham and Peter today, covered a lot of ground.
+MNV I briefly sketched the multivariate normal solution for joint probability across the tree under the regimes model. The original regimes approach did not take advantage of the fact that the solution to the joint probability across the tree is multivariate normal given the painting. This allows the calculation to be partitioned as outlined in Saturday&rsquo;s entry:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/hastings-beetle-workshop/">Hastings Beetle Workshop</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
+ Morning Session, 9a - 11a
+ Outline the individual based model, toolbox  Group lunch, noon-1:30
+ My lab Presentation, 2p-3p
+ Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
+ Follow-up on understanding noise propagation in age structure dynamics.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/isees-software-lifecycle-and-components-workshop-day-1/">ISEES software lifecycle and components workshop, Day 1</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Range of large project to the long tail.
+ statistical analyses One-off models community model Services (Blast)  Science Challenges Outcomes of previous community workshops
+18 Grand Challenge areas. Highlights: Supermodels. human/biophysical systems shape and be shaped by water availability. (A vision similar to Microsoft&rsquo;s &ldquo;Model all Earth&rdquo; Purves et al)
+Functions and services areas: (priority ordering)
+ Computational training (early career - all career) Assimilation and QA/QC tools Collaborative environment decisions and workflows software discovery consultants / collaborator community hub to converge on standards merging disparate tools user-friendly interfaces multiscale coupled modeling framework Software vetting (how about paper vetting?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Code implementation in felsenstein_tree.R
+ I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
       
     </div>
   </div>

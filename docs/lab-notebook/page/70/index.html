@@ -140,106 +140,114 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/structured-population-dynamics/">Structured Population Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Beetle Model Macroscopic equations:
-Has the corresponding variance-covariance dynamics
-Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
-General Form &amp; Algorithm Consider the dynamics are given by
-and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
+      Working on manuscript for this today, hope to have a draft soon.
+ Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
+ Sent draft to Brian and Peter, and Wainwright lab.
+ Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
+    <h2><a href="../../../1/01/01/exploring-jekyll-layout/">Exploring Jekyll layout</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
+      Jekyll works wonderfully with little knowledge beyond basic html/css to create _layout templates and then you&rsquo;re free to write beautiful pages and posts in markdown. But adding more dynamic content, the kind of cool stuff avialable in so many wordpress plugins, tends to require a little understanding of the template formatting language, Liquid. Liquid is actually super simple and powerful way to build a dynamic website. The project&rsquo;s wiki provides a great introduction, starting with
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/summer-review/">Summer Review</a></h2>
+    <h2><a href="../../../1/01/01/extending-apephylo-class-to-nexml/">Extending ape::phylo class to NeXML:</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
+To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
+    <h2><a href="../../../1/01/01/f1000-research-publishing-for-ecologists/">F1000-Research publishing for ecologists</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
+      F1000-Research is waving article processing charges (APCs) for ecologists looking for an open access, open peer review platform to publish original research, null results, software papers, data papers, and an intriguing new category called &ldquo;Observations&rdquo;,
+ to report serendipitous observations that they have not been able to study systematically, but that offer a starting point for further exploration. This is especially relevant for ecologists, as it provides a platform to report unexpected observations from the field, unrelated to the main goal of the field work.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/the-lab-notebook-goes-open/">The Lab Notebook Goes Open</a></h2>
+    <h2><a href="../../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
+      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/thursday/">Thursday</a></h2>
+    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Not much chance for progress.
+ 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/thursday/">Thursday</a></h2>
+    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Alan will write introduction to manuscript. Schedule meeting for next week. Scheduling the Hastings lab meeting doodle Coordinate with Baskett lab  Resources for ABC / Bayesian inference in ecological and spatial context workshop  Sisson Sa, Fan Y, Tanaka MM. Sequential Monte Carlo without likelihoods. Proceedings of the National Academy of Sciences of the United States of America. 2007;104(6):1760-5. Available at: <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract</a>. de Valpine P, Hastings A. Fitting Population Models Incorporating Process Noise and Observation Error.
+      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
+12p - 1p
+ Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
+ Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/towards-a-meaningful-warning-signal-metric/">Towards a meaningful warning signal metric</a></h2>
+    <h2><a href="../../../1/01/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Most papers do not give a statistical approach, but merely argue for the existence of a trend. Kendall&rsquo;s tau approach proved very unreliable. While the preliminary de-trending approach is unjustified in that the simulated data is known to be absent from trends, as a kind of windowed averaging it may sense as a way to detect changes. Should distinguish between the gradual slow changes and change-point estimation. Perhaps change-point provides a more rigorous starting point.
+      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
+png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/tuesday/">Tuesday</a></h2>
+    <h2><a href="../../../1/01/01/gaussian-process-inference-on-sample-functions/">Gaussian process inference on sample functions</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      This example uses the direct inversion of the covariance function. I have also been exploring the potentially faster Cholksy decomposition without success. Sometimes the match is very good, other times not, see compare-cholsky.md This example also on github as reed-example.md.
+ Basic likelihood optimization needs to be checked. See commits estimating sigma_n and estimating l. Compare the example below to a different set of fixed hyperparameters here  Example require(pdgControl) require(ggplot2)  Simulate some training data under a stochastic growth function with standard parameterization,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/tuesday/">Tuesday</a></h2>
+    <h2><a href="../../../1/01/01/gaussian-processes/">Gaussian processes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Much of today&rsquo;s activity included in yesterday&rsquo;s.
-Recording Reading Still looking for a good way to capture time snapshots of what I&rsquo;ve read. Perhaps the Mendeley API will have a good solution. Here I try twapper-keeper to create an rss of my tweets on a given day, and the google api, but not very ideal solutions. Checked a variety of ways to filter rss feeds by date so that it would just show the current ones, none seem to manage this though.
+      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
+ Will also want to look into basis approximations for SDP acceleration.
+  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
       
     </div>
   </div>

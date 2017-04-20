@@ -191,6 +191,28 @@
   </div>
   
   <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Digging through some old stuff in the course of correspondance on related issues, I came across a few outstanding puzzles I&rsquo;ve been meaning to wrap up one day:
+ Drift effecs &ndash; some difficulties Waiting Time  and some actual results that could deserve some renewed attention too.
+ Phase 1 Routes to branching  Also raises an interesting new question that could be addressed in this context: can we formulate a similar approach to the stochastic escape from an adaptive peak?
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -222,28 +244,6 @@ objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solut
       
       Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
  seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Matching theoretical approximations to simulation:
- Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
- Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
       
     </div>
   </div>

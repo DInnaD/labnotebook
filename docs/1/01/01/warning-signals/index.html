@@ -133,42 +133,20 @@
     <article>
     <h1>Warning Signals</h1> 
       
-    
+    <ul>
+<li>Bootstrapping for likelihood ratios!</li>
+<li>Updated class behavior &ndash; all simulation and fitting routines now
+return timeseries objects as data with correct range and timestep.</li>
 
-<ul>
-<li>bootstrapping models implemented</li>
-<li>improved handling of model classes &ndash; included T, t0, N, and X0 in
-object def</li>
-<li>implemented plotting for model bootstrap</li>
-<li>difficulties with changePt model fit remain. fixed one source of
-trouble &ndash; no longer passes zero-length data to OU.lik() when
-t_shift is outside the time interval.
+<li><p>updated plotting routines. Likelihood ratio plotting function.
+Bootstraps of parameters can be plotted using the output from the
+likelihood ratio fit simulation, avoiding redundancy, just specify
+which model is desired. Bootstrap likelihood ratio plots includes
+the original ratio and calculates plot range using this information.</p></li>
 
-<ul>
-<li>Still giving errors on coercing lists into doubles for the
-saddle_node bifurcation simulated data set. &ndash;<strong>fixed</strong>, was
-getting t_shift as a vector from time(X).</li>
-</ul></li>
+<li><p>Warning signal model implementation needs to also receive the
+absolute time, and update alpha_0 as alpha_0 + beta*t</p></li>
 </ul>
-
-<h2 id="code-tricks">Code Tricks</h2>
-
-<p>Duncan pts out: the S3 mechanism is</p>
-
-<pre><code> custom =
- function(x, y, ...)
- UseMethod(&quot;custom&quot;)
-</code></pre>
-
-<p>Then that will find and use custom.foo, etc. based on the class of the
-value of x. You can have it dispatch on a different parameter, but that
-is not very common. And to dispatch on the types/classes of multiple
-parameters, e.g. x is a numeric vector, y is a matrix, you would need to
-use S4.</p>
-
-<p>See the
-<a href="http://sekhon.berkeley.edu/library/methods/html/setGeneric.html" title="http://sekhon.berkeley.edu/library/methods/html/setGeneric.html">setGeneric()</a>
-function in R for S4 method (also compatible with S3 classes).</p>
 
 <p></p>
 
@@ -219,9 +197,6 @@ function in R for S4 method (also compatible with S3 classes).</p>
     <i class="fa fa-tags"></i>
     
     <a href="../../../../tags/warning-signals">warning-signals</a
-    >, 
-    
-    <a href="../../../../tags/code-tricks">code-tricks</a
     >
     
   </span>
@@ -235,14 +210,14 @@ function in R for S4 method (also compatible with S3 classes).</p>
   <br />
   
   <p><a class="btn btn-default" rel="prev" href='../../../../1/01/01/warning-signals/'><i class="fa fa-chevron-left"></i> prev</a>
-    <a class="btn btn-default" rel="next" href='../../../../1/01/01/warning-signals/'>next <i class="fa fa-chevron-right"></i></a></p>
+    <a class="btn btn-default" rel="next" href='../../../../1/01/01/warning-signals----still-in-code-development/'>next <i class="fa fa-chevron-right"></i></a></p>
 
   <br />
 
   <p> <a class="btn btn-default" 
-         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-08-16-Warning-Signals.md"><i class="fa fa-clock-o"></i> history</a></p>
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-08-17-Warning-Signals.md"><i class="fa fa-clock-o"></i> history</a></p>
 
-  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-08-16-Warning-Signals.md">2785abf</a></p> 
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2010-08-17-Warning-Signals.md"></a></p> 
 
 
 </aside>
@@ -254,7 +229,21 @@ function in R for S4 method (also compatible with S3 classes).</p>
 
 <section id="comments">
   <div id="disqus_thread">
-    
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/1\/01\/01\/warning-signals\/';
+    var disqus_title = 'Warning Signals';
+    var disqus_url = '\/1\/01\/01\/warning-signals\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
 </section>
 

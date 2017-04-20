@@ -140,115 +140,106 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
+      Figures have been one of the standing challenges of the open notebook. Displaying figures online requires that they are first uploaded to a server somewhere. Recently I have used automated uploads to external servers such as figshare to host all images generated in the course of my research, and simply point to those graphs which I wish to include in a notebook page using an image link. Unfortunately, this means that the images themselves are not being permanently archived when I deposit my notebook entries into their annual archives on figshare.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
- seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
+      At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I&rsquo;ve moved forward in the wee hours. Covers the past several days.
+XML and RDFa parsing I have been using the lab notebook to explore technology for scientific communication, including making use of semantic and linked data concepts. To illustrate some of the potential these tools can offer I&rsquo;ve started working on a short post with examples parsing and exploring the XML and RDFa data in the notebook.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Matching theoretical approximations to simulation:
- Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
+      Skype with Alan and Noam on EWS  Expand section on statistical power and noise (following draft of Alan&rsquo;s intro)  Flush out unfinished sections in main body  Write discussion (after intro is done)  Discussion with Alan - misc notes  edit introduction  Schreiber figure  Kefi figure  Venn Diagram figure should have numbers corresponding to the references that examine each area  Finalize edits before sending for internal review  Other  Some updates to knitcitations addressing special cases.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Manuscript writing.  Phylogenetics Submitted Lightning talk to iEvoBio
-PDG group will be discussing
- Rabosky DL and Lovette IJ. .&rdquo;) pmid:18611849. PubMed HubMed [1]  tomorrow, along with critique and response.
- Waiting to hear back from Peter on manuscript. Should follow up with Ralph on likelihood ratio discussion with Ethan. Transcluding exploratory work on primate phylogeny data:  Embedded:</p>
-
-<p>Primate Phylogeny Carl Boettiger 00:37, 30 April 2010 (EDT):
+      Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
- Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
+      ropensci  rfishbase: 0.1-1 released to CRAN: bugfix updating server address. (Broke updateCache()). See NEWS for details.
+ rfigshare: 0.2-4 released to CRAN: added method to remove attached files (issue #42), see NEWS for details  Misc  My reply to John on Prosecutor&rsquo;s Fallacy piece. Thinking about a better way to provide convenient, stable access to code and data. Should provide csv versions of data.table outputs used to create each of the figures.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working on simulation based approach to summarize distribution of waiting times across different phases. What to do about zeros in phase two (when first dimorphism survives long enough to be invaded&hellip;) Quantify number/distribution of failed attempts at each phase? How to represent these distributions across a parameter space in sigma_c, sigma_k, sigma_mu, and mu?  library(BranchingTime) sim &lt;- branching_time(rep=1000, cpu=8) save(file = &quot;run1.Rdat&quot;) pdf(&quot;distribution.pdf&quot;) m &lt;- max(sim$data) plot(density(sim$data[1,]), xlim = c(0,m), col=&quot;black&quot; ) lines(density(sim$data[2,] ), col = &quot;blue&quot;) lines(density(sim$data[3,] ), col = &quot;green&quot;) lines(density(sim$data[4,] ), col = &quot;red&quot;) legend(&lsquo;topright&rsquo;, c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;), col=c(&quot;black&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;), pch = 15) dev.
+      Research  consolidate and revise EWS text(?) replies to Luke and Brian on model choice  Notebook meta  fix google-analytics plugin (still needs to get toggle working?) tests of notebook-parsing.Rmd. New errors on ; somehow in straight XML parsing, ignoring for the moment. Opened a few new issues around improving site semantics. (#59, #60)  ropensci  Resubmit rfishbase &ndash; silently load to local, not global namespace. Updated data cache (and ASCII-ify and compress).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Wide gap, flat landscape  Waiting times on a flatter landscape: sigma_c ~ sigma_k. Waiting times are dominated by the number of times phase 3 collapses: the established invader in a dimorphic population (right panels). Collapse of phase 2: collapse of the dimorphism before third population can establish is much rarer (about an order of magnitude).   from the run3 dataset, with parameters.  Narrower gap, steeper landscape  with sigma_c &lt;&lt; sigma_k, branching is easy, neither phase is particularly limiting, though single collapses from both phases are very common.
+      Fixed notebook compile error, and adjusted timeouts on pageviews / google-analytics API Some minor fixes in knitcitations (thanks to another user bug report). NEWS Accepted TE review request; better finish up ENMO review soon. Generating data tables for published figures for Dryad (from prosecutor&rsquo;s fallacy). Data in Dryad  Applied Math club reading  with Marc and Mike Bonsall on Thurs, reading:   Strevens, C. M. J. &amp; Bonsall, M.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Public code hosting  Project code now available through Github. Advantages to public hosting: Replication of adaptive dynamics simulations can be difficult, particularly in matching various nuisance parameters. While there is certainly much pedagogical value in individual researchers implementing their own simulations, verification and reproducibility of scientific results would be greatly facilitated by adapting an accepted open source code base and adding branches, etc. Researchers could much more immediately benefit from the work of their colleagues and spend more time implementing novel research and less reproducing it.
+      Leo Polansky Seminar (all notes cover published results only)
+ Wavelet analysis does a nice trick of seeing frequency-domain spectra change over time, rather than being entirely in frequency space or entirely in time space.
+ higher rank elephants decrease their movement more in dry, resource-poor season than low rank. Guarding the good territory? I wonder if this is a stochastic effect - asset protection, where you take more risk when you have low assets than when you have higher assets, a feature that would dissappear in a deterministic environment.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
- use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
+      Applied Math Club meeting (See reading material from Tuesday.
+ Start with stable age distribtution (indep of stock-recrutiment) Consider the Entropy of that probability distribution, as function of mortality, by max age Now consider the same for fecundity: the fraction/density of the population von Bertalanffy growth (fecundity) effective mortality rate - mortality rate in an unfished population, distributed with same entropy as the fished population, Kullback-Leibler distance to measure fishing influence?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
+      I have on ocassion been exploring the use of semantic markup in the notebook. In this post I illustrate how I am handling semantic citations. One of the more intriguing ideas is the ability to add semantic meaning to citations through the CITO ontology of Shotton (2010). Citation counts form a central part of academic discourse, but contain very little information regarding the reason for the citation. Most notably, &lsquo;negative&rsquo; citations refuting a claim carry just the same weight as those confirming or relying upon a claim.
       
     </div>
   </div>
