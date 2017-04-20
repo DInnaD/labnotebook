@@ -140,6 +140,64 @@
   
   
   <div>
+    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
+ I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Working on manuscript for this today, hope to have a draft soon.
+ Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
+ Sent draft to Brian and Peter, and Wainwright lab.
+ Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Not much chance for progress.
+ 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
+12p - 1p
+ Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
+ Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../1/01/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -194,63 +252,6 @@ Where M is the covariance matrix and J the Jacobian of f as before. dM is the ma
       
       Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
 Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Fantastic meeting with Graham and Peter today, covered a lot of ground.
-MNV I briefly sketched the multivariate normal solution for joint probability across the tree under the regimes model. The original regimes approach did not take advantage of the fact that the solution to the joint probability across the tree is multivariate normal given the painting. This allows the calculation to be partitioned as outlined in Saturday&rsquo;s entry:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/hastings-beetle-workshop/">Hastings Beetle Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
- Morning Session, 9a - 11a
- Outline the individual based model, toolbox  Group lunch, noon-1:30
- My lab Presentation, 2p-3p
- Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
- Follow-up on understanding noise propagation in age structure dynamics.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Code implementation in felsenstein_tree.R
- I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
       
     </div>
   </div>

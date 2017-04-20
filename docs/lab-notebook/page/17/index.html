@@ -140,6 +140,61 @@
   
   
   <div>
+    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood Calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Direct Calculation of the Joint Probability Fig 1 Sample tree
+ This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
+This is great, nice to know there&rsquo;s a basis for it.
+&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
+0.5735 0.29 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -187,54 +242,6 @@ runBatchHansen()  User identifies a set of nodes of interest, and optionally a m
     <h2><a href="../../../1/01/01/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/meeting/">Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/meeting-goals/">Meeting Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/meeting-with-alan/">Meeting with Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Some discussion of references  ﻿ Ovaskainen O, Meerson B. Stochastic models of population extinction. Trends in Ecology &amp; Evolution. 2010;(Box 3):1-10. Available at: <a href="http://dx.doi.org/10.1016/j.tree.2010.07.009">http://dx.doi.org/10.1016/j.tree.2010.07.009</a>.  ﻿* Goel NS, Richter-Dyn N. Stochastic Models in Biology. The Blackburn Press; 2004:269. Available at: <a href="http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X">http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X</a>.
- Bjørnstad O, Finkenstädt B, BT. Dynamics of measles epidemics: estimating scaling of transmission rates using a time series SIR model. Ecological Monographs. 2002;72(2):169-184. Available at: <a href="http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)">http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)</a>. Grenfell BT, Bjørnstad ON, Finkenstädt BF.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/meeting-with-graham-and-peter/">Meeting with Graham and Peter</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Discussion of Model Comparisons Primary focus of today&rsquo;s discussion was rooted in Sunday&rsquo;s entry
- On plotting quirks, haven&rsquo;t figured out lattice but here&rsquo;s yet another newer plotting engine for R I need to revisit how OUCH computes likelihood ratios and P values. Since some parameters are bounded to the positive real line (and may be small) the standard chi square isn&rsquo;t correct. I should repeat the AIC-style analysis for likelihood ratios, though this is just a shift of where I put the zero line.
       
     </div>
   </div>

@@ -140,6 +140,60 @@
   
   
   <div>
+    <h2><a href="../../../1/01/01/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
+ Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/multivariate-normal-random-variables/">Multivariate normal random variables</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
+ Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
+ Methods write-up, read/compare to other examples.
+ Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Fig 1: Noise in lavae dominate
+Fig: 2 lower mortality, higher noise
+ Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/open-science-summit/">Open Science Summit</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../1/01/01/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -184,55 +238,6 @@ idealized workflow:
     <div class="article-style">
       
       svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/parallelizing-code/">Parallelizing Code</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/parameter-estimates-for-labrid-parrotfish-model/">Parameter Estimates for Labrid-Parrotfish model</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      See fast_boot and plot.wrightscape functions in code. Gape size</p>
-
-<p>See fast_boot and plot.wrightscape functions in code Jaw Protrusion
-Figures show strong evidence for the relax of constraint hypothesis, as the strength of selection (alpha parameters) appears to have substantially weakened in both morphological traits in the parrotfish clade relative to the wrasses clade. The wrasses show strong preference for OU model with substantial stabilizing selection, while the Parrotfish estimate almost zero stabilizing selection (Brownian model, clear phylogenetic signal).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/parrotfish-model-choice/">Parrotfish Model choice</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/parrotfish-wrasse-example/">Parrotfish-Wrasse example</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
       
     </div>
   </div>

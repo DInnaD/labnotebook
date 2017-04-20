@@ -141,6 +141,17 @@
   
   
   <div>
+    <h2><a href="../../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
+ mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -232,16 +243,6 @@ And solved numerically (R code, links directly to this version and can run stand
       Fig 1: Noise in lavae dominate
 Fig: 2 lower mortality, higher noise
  Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/parallel-at-last/">Parallel at last</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
       
     </div>
   </div>

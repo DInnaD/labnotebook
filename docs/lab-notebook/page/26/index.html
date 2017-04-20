@@ -144,6 +144,58 @@
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
+      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+
+<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
+ Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Exploring convergence in maximum likelihood model fits each on data produced by their own simulation method:
+ fit1, basic OU method, converges just fine. (using L-BFGS-B method with appropriate bounding box to avoid negatives). fit2 , the linear change rate model, converges fine using Nelder-Meade (using 1e12 ~ inf likelihood return when attempting negative alpha or sigma), but throws hard errors for L-BFGS-B:   Error in optim(pars, warning.likfn, method = method, lower = lower) : non-finite finite-difference value [3]   fit3 runs on &ldquo;L-BFGS-B&rdquo; and returns reasonable values, though not meeting convergence standards.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
       Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
       
     </div>
@@ -184,50 +236,6 @@
     <div class="article-style">
       
       Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
       
     </div>
   </div>
