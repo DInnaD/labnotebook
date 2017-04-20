@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eml on Boettiger Group</title>
+    <link>/tags/eml/</link>
+    <description>Recent content in Eml on Boettiger Group</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/tags/eml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
+Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
+In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
+ We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Started reml, and R package for reading, writing, manipulating and publishing EML files. More details and progress so far on the Github page; in particular flushing out design goals in the issues tracker.
+Initial goals To start, I am aiming for a proof of principle case in which we can write an R data.frame into EML (issue #2), publish to a remote repository such as figshare (issue #3), and then read the data back in as the original R object types from the EML (issue #6).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Made substanial progress on the reml project. We have reached our first milestone, being able to:
+ Successfully validate the EML generated (#28) Start a unit test suite write eml unit tests (#14) Extract appropriate R objects from EML dataTable read eml (#6) Add function to publish EML data through figshare publish eml (#3) Generate an EML file given a data.frame and appropriate metadata write eml (#2)  As illustrated by the example shown in the Readme:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
+Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&amp;rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &amp;ldquo;meaningless bits of syntax&amp;rdquo;, e.</description>
+    </item>
+    
+    <item>
+      <title>Notes from chat with Duncan</title>
+      <link>/1/01/01/notes-from-chat-with-duncan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/notes-from-chat-with-duncan/</guid>
+      <description>Keep metadata as part of the object Recursion problem coming up.
+  Validating:  https://github.com/ropensci/reml/issues/7 Duncan has code using Matt&amp;rsquo;s java API If the EML isn&amp;rsquo;t valid, so what? Important for developers, users don&amp;rsquo;t care.
+  API design  what&amp;rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
+ Schema to create S4 objects Create R objects first, and then toXML</description>
+    </item>
+    
+  </channel>
+</rss>
