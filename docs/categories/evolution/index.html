@@ -141,113 +141,118 @@
   
   
   <div>
-    <h2><a href="../../2010/12/31/comparative-phylogenetics-is-the-data-informative/">Comparative evolution: Is the data informative?</a></h2>
-    <h4>Fri, Dec 31, 2010</h4>
+    <h2><a href="../../2012/03/19/"></a></h2>
+    <h4>Mon, Mar 19, 2012</h4>
     <div class="article-style">
       
-      Working on my SICB talk, going a little further into the example of fitting the lambda model on the Anoles data to illustrate the ways in which we may lack sufficient data for the question.
- The dataset may not contain adequate signal of the parameter / phenomenon in question
- The dataset may not be adequately large
-  Anoles data set (23 taxa):
-This first image shows the distribution of lambda values estimated from many datasets all simulated under a lambda = 0.
+      Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h2>
-    <h4>Fri, Dec 24, 2010</h4>
+    <h2><a href="../../2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
+    <h4>Tue, Feb 21, 2012</h4>
     <div class="article-style">
       
-      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
-synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
+      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
+ Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/20/sun-visualizing-my-coding-over-the-past-year/">Sun: Visualizing my coding over the past year</a></h2>
-    <h4>Mon, Dec 20, 2010</h4>
+    <h2><a href="../../2012/02/12/sunday-6/">Sunday </a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the Mendeley&rsquo;s example). So in the spirit of year-in-review reflections, here&rsquo;s my development from the past year (just for the phylogenetic statistics work).
-Quality is a little too poor to read file names, more entertaining than practical. Other user icons appear in December corresponding with my move to running the code from Amazon cloud.
+      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/16/thurs-writing-section-on-comparing-to-aic/">Thurs: writing section on comparing to AIC</a></h2>
-    <h4>Thu, Dec 16, 2010</h4>
+    <h2><a href="../../2012/01/19/is-your-phylogeny-informative/">Is your phylogeny informative?</a></h2>
+    <h4>Thu, Jan 19, 2012</h4>
     <div class="article-style">
+      
+      Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&rsquo;s preprint),As the open access copy doesn&rsquo;t appear on pubmed for a while, you can access my author&rsquo;s copy here. so I&rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
+I didn&rsquo;t set out to write this paper.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/15/weds-example-sets-more-ec2/">Weds: Example sets &amp; more EC2</a></h2>
-    <h4>Wed, Dec 15, 2010</h4>
+    <h2><a href="../../2012/01/04/wrightscape-examples/">wrightscape examples</a></h2>
+    <h4>Wed, Jan 4, 2012</h4>
     <div class="article-style">
       
-      A bit delayed from having to rerun analyses on EC2 (still learning&hellip;) More to run today (lambda trials for Anoles &ndash; should really recode this in C!).
-Trying to decide if its best to start off with the power curves and work backwards or build up from the basics. Probably doesn&rsquo;t matter too much which. Also figuring out which examples to present first:
-Where the painted trees are the following:
+      [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2012-01-03 7:00:37&rdquo; max_upload_date=&ldquo;2012-01-03 22:23:37&rdquo;]
+ kt and open seem the best focal traits. Unclear what good null traits to use would be.
+ Unclear if anything is gained by indep thetas in this example.
+ Performance of alpha v theta?
+  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/14/tues-phylogenetics-thoughts-while-writing/">Tues: evolution thoughts while writing...</a></h2>
-    <h4>Tue, Dec 14, 2010</h4>
+    <h2><a href="../../2012/01/03/tuesday-pmc-package-latex-to-word-attempts/">Tuesday: pmc package, latex to word attempts</a></h2>
+    <h4>Tue, Jan 3, 2012</h4>
     <div class="article-style">
       
-      Again spending most of the day writing. (Maybe) processing some ideas in writing by writing in my notebook as I make my edits.
-Ideas I&rsquo;m trying to get across in today&rsquo;s edits Parameter estimation is more demanding of the data than model choice. Knowing if a value is different from zero is easier than knowing what it is.
-Code updates to-do  Need to add S3 wrapper functions for ouch so both can call montecarlotest() in the pmc package.
+      Back from Oz.
+Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
+ tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
+ pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/13/back-to-writing/">Back to Writing</a></h2>
-    <h4>Mon, Dec 13, 2010</h4>
+    <h2><a href="../../2011/12/09/friday-9/">Friday</a></h2>
+    <h4>Fri, Dec 9, 2011</h4>
     <div class="article-style">
+      
+      Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/08/practice-sicb-presentation/">Practice SICB Presentation</a></h2>
-    <h4>Wed, Dec 8, 2010</h4>
+    <h2><a href="../../2011/12/08/thursday-11/">Thursday</a></h2>
+    <h4>Thu, Dec 8, 2011</h4>
     <div class="article-style">
       
-      Gave my practice talk for Society for Integrative and Comparative Biology in Wainwright lab this afternoon, after (not quite) finishing the presentation. Trying to figure out the best way to introduce these ideas to a broad audience (same challenge as with the manuscript).
-Talk storyboard:
-Looking at other talks in my session: Macroevolution I - Methods and Character Evolution, looks like a reasonably sophisticated group.
-Good feedback from the Wainwright Lab:  Emphasize: Currently we worry that we don&rsquo;t have the right models.
+      Another day of working on 4 different projects at once.
+Warning signals  review Alan pulses manuscript
+ review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
+  No way in Anchoveta data, look at time series:
+Example in the cod data using only up until 1991 data:
+ Way forward &ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/07/mapping-out-sicb-presentation-is-your-phylogeny-informative/">Mapping out SICB Presentation: Is your phylogeny informative?</a></h2>
-    <h4>Tue, Dec 7, 2010</h4>
+    <h2><a href="../../2011/12/07/wednesday-11/">Wednesday - wrightscape runs and various other things</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      Assembling material/outline for my SICB presentation in January, will be giving a practice talk in the Wainwright lab on Wednesday. 15 minute presentation with 5 minutes for questions.
- Designing presentation in &ldquo;storyboard&rdquo; format in Inkscape. Will figure out if I convert to slides or not.
- Simulations under the Anoles dataset to show posterior distributions of lambda. Exploring the connection between the likelihood of a parameter under each model to that of the distributions of the likelihood ratio.
+      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/06/follow-up-from-fri-discussions-revisiting-post-predictive-evaluation/">follow up from Fri discussions: Revisiting post-predictive evaluation</a></h2>
-    <h4>Mon, Dec 6, 2010</h4>
+    <h2><a href="../../2011/12/06/tuesday-two-insights/">Tuesday -- two insights</a></h2>
+    <h4>Tue, Dec 6, 2011</h4>
     <div class="article-style">
       
-      A few weeks ago, a seminar prompted me to take a closer look at a particular post-predictive evaluation technique applied reasonably often in our recent literature,see earlier entry. I think by phrasing the approach more concisely and precisely it will be clear what the difficulty is.
-As usual, we consider some data $ \vec X$ and a set of $ N$ models specified by parameters, $ \lbrace \vec \theta_1, \vec \theta_2, \vec \ldots \theta_N\rbrace $, then we can express the likelihood of the model as the probability of the data under the given model and parameter values:
+      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
+ Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
+ Bonvin approach &ndash; adjust the control instead (NCO Control).
       
     </div>
   </div>
@@ -258,7 +263,7 @@ As usual, we consider some data $ \vec X$ and a set of $ N$ models specified by 
   <ul class="pager">
     
     
-    <li><a href="//categories/evolution/page/2/">Next &raquo;</a></li>
+    <li><a href="../../categories/evolution/page/2/">Next &raquo;</a></li>
     
   </ul>
 </nav>

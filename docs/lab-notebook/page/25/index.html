@@ -140,99 +140,112 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/thursday/">Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/28/notebook-technology-file-sharing-notes/">Site configuration: file sharing notes</a></h2>
+    <h4>Sat, May 28, 2011</h4>
     <div class="article-style">
       
-      Alan will write introduction to manuscript. Schedule meeting for next week. Scheduling the Hastings lab meeting doodle Coordinate with Baskett lab  Resources for ABC / Bayesian inference in ecological and spatial context workshop  Sisson Sa, Fan Y, Tanaka MM. Sequential Monte Carlo without likelihoods. Proceedings of the National Academy of Sciences of the United States of America. 2007;104(6):1760-5. Available at: <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract</a>. de Valpine P, Hastings A. Fitting Population Models Incorporating Process Noise and Observation Error.
+      Easiest way to share files is ssh onto the carlboettiger.info server, change into the directory carlboettiger.info/ and create a new directory there &ndash; i.e. share/. This behaves as a regular static webpage directory that will list the files provided.
+Secure access can be created by going to the goodies &ndash;&gt;htaccess/WebDav page and selecting the option to make a directory or subdirectory secure, and then specifying the passwords, etc. Have created the subdirectory <a href="http://carlboettiger">http://carlboettiger</a>.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/towards-a-meaningful-warning-signal-metric/">Towards a meaningful warning signal metric</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/27/matt-potts-conserving-diversity-in-tropical-landscapes/">Matt Potts: Conserving Diversity in Tropical Landscapes</a></h2>
+    <h4>Fri, May 27, 2011</h4>
     <div class="article-style">
       
-      Most papers do not give a statistical approach, but merely argue for the existence of a trend. Kendall&rsquo;s tau approach proved very unreliable. While the preliminary de-trending approach is unjustified in that the simulated data is known to be absent from trends, as a kind of windowed averaging it may sense as a way to detect changes. Should distinguish between the gradual slow changes and change-point estimation. Perhaps change-point provides a more rigorous starting point.
+      My notes from Matt&rsquo;s seminar: Theory and field work addressing getting beyond binary decision making. Malaysia. Tropical forest becoming oil palm, rice, rubber, tea.
+Reserve Selection vs Landscape Reserve Design Optimality of Specialized vs Uniform Forest Management Uniform (sustainable forest management) vs very protected areas, ignore what&rsquo;s done outside. More intensive disturbance.
+An important ecological nonlinearity: What&rsquo;s the most ubiquitous spatial pattern? Aggregated, random, uniform? (50 hectares is .5 km by km, or 120 English acres, tag every tree taller than 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/tuesday/">Tuesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h2>
+    <h4>Thu, May 26, 2011</h4>
     <div class="article-style">
+      
+      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/tuesday/">Tuesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/25/wednesday-5/">Wednesday</a></h2>
+    <h4>Wed, May 25, 2011</h4>
     <div class="article-style">
       
-      Much of today&rsquo;s activity included in yesterday&rsquo;s.
-Recording Reading Still looking for a good way to capture time snapshots of what I&rsquo;ve read. Perhaps the Mendeley API will have a good solution. Here I try twapper-keeper to create an rss of my tweets on a given day, and the google api, but not very ideal solutions. Checked a variety of ways to filter rss feeds by date so that it would just show the current ones, none seem to manage this though.
+      R packages  Trying to build Windows binaries for R packages using win-builder service.
+ First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
+ Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
+ Matt successfully installed CUDA on zero (2.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/updates-to-code/">Updates to Code</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/24/tuesday-4/">Tuesday</a></h2>
+    <h4>Tue, May 24, 2011</h4>
     <div class="article-style">
+      
+      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
+ created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
+ Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/updating-examples-of-stochastic-structured-population-dynamics/">Updating examples of stochastic structured population dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/23/monday-5/">Monday: some code-tricks, Algorithms group planning</a></h2>
+    <h4>Mon, May 23, 2011</h4>
     <div class="article-style">
+      
+      Teary Some discussion on combining Greek letters with variables in R. Previously have solved this with substitute() command,
+x = 4.5 plot(1:10, main = substitute(paste(&quot;Kendall &quot;, tau == val), list(val = x[1])))  but Peter has a more elegant solution that can be vectorized:
+sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)) #for instance plot(0) legend(&quot;topright&quot;,legend=sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)),lty=2)  Better yet, bquote has a mechanism to evaluate an argument vs express the argument as a symbol, see gist id=1108159.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/updating-manuscript/">Updating manuscript</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/22/sunday/">Sunday</a></h2>
+    <h4>Sun, May 22, 2011</h4>
     <div class="article-style">
       
-      The progress of the past few days has lead to substantial revision proposals in my manuscript draft. Rewriting for discussion with Brian tomorrow. Currently revised outline:
- Intro
- Biological Motivation Comparative Methods and Comparing Models Model choice paradigm: the right direction, but incomplete  Simple Example
- The Star Tree Two hypotheses: stabilizing vs disruptive selection Information Criteria approach is insufficient Likelihood surfaces Likelihood ratio distribution  Anoles Example
+      Reading  International Symposium on Biomathematics and Ecology: Education and Research &ndash; This looks excellent, wonder if I can make it. Besides, it&rsquo;s in Portland and the acronym is promising. Pacific Ecoinformatics and Computational Ecology Lab - Based in Berkeley, looks rather intriguing, hard to tell how active this is as a group. Ecoinformatics? So it does exist? Paraphrasing Jeremy Fox, has it done anything? A rather nice review in ARES: (Jones et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wainwright-lab-meeting/">Wainwright Lab Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">End of NCEAS &amp; the legacy of synthetic data</a></h2>
+    <h4>Sun, May 22, 2011</h4>
     <div class="article-style">
       
-      Presented a revised version of my talk for Evolution 2010, focusing on the inadequacy of information-criteria heuristics for model choice in phylogenetic comparative methods and presenting the likelihood-ratio based approach I&rsquo;ve been working on. Much better received this time. (The last two weeks have been pretty dedicated to preparing for the upcoming conferences, mostly for this presentation, so not much in the way of new research. Will be able to return to new stuff in July, following iEvoBio).
+      The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
+ that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wainwright-meeting/">Wainwright Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/19/algorithms-group-mcmcmc/">Algorithms group: MCMCMC</a></h2>
+    <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
+      
+      Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/19/thursday-5/">Thursday</a></h2>
+    <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
       
-      Current Puzzles &amp; Goals 1 rep
-100 reps
- Kendall&rsquo;s tau unreliable, exploring alternatives. Sliding window for identifying when warning is first detected? Goal is to detect any decrease in stability or distance from critical point? Chasing down data from Scheffer. Climate data reuses the CaCO3 from Dakos. Chasing down data from Dakos   Fig. 1 M Cariaco Basin, data file Vostok deuterium CaCO3 data Tropical Pacific core 1218   Warning signals examples with actual tipping points (Figures left).
+      Finish and post core notes from yesterday. Debugging locale problem in phylo packages = success. Emmanuel has already patched drop.fossils() in the ape package, will see if Gieger and TreeSim try to handle locale issue directly too. Problem in comparisons:  &gt; Sys.setlocale(locale = &quot;&quot;) # default locale using UTF8 # message deleted &gt; &quot;-1&quot; &gt; 0 [1] TRUE &gt; Sys.setlocale(locale = &quot;C&quot;) # message deleted &gt; &quot;-1&quot; &gt; 0 [1] FALSE   Posted MCMCMC notes from algorithms.
       
     </div>
   </div>
@@ -242,10 +255,10 @@ Recording Reading Still looking for a good way to capture time snapshots of what
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/24/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/24/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/26/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/26/">Next &raquo;</a></li>
     
   </ul>
 </nav>

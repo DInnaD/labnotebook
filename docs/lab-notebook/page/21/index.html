@@ -140,110 +140,116 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/power-in-trees/">Power in Trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/07/thursday-8/">Thursday: sending off paper draft, starting applications</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
     <div class="article-style">
       
-      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
-Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
+      Add re-sampling blurb to appendix. Done
+ Read over manuscript &amp; send to Marissa and Marcel. Done
+ Now to spend today working on fellowship applications: research statement and proposal&hellip;
+   Appendix edits  Add distributions to the appendix.
+ Show where where the data actually fall in the distribution, as would be used in traditional hypothesis testing framework.
+ Add extra examples to the appendix.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/power-in-trees/">Power in trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/07/segue-easy-cloud-hpc-in-r-now-with-custom-packages/">Segue: Easy cloud hpc in R, now with custom packages</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
     <div class="article-style">
       
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
+      After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages. The package is available on Google code. With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud. For a basic introduction to the package see Jeff Breen&rsquo;s post.
+Quick notes on updating using mercurial: Since I&rsquo;ve already pulled the code using
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/power-in-trees-continues/">Power in trees continues</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Discussion of power in trees need a counterpoint to the example of the star tree as being devoid of information content. The best example here is probably the example tree used in the introduction of Felsenstein 1985: two star trees sharing a common ancestor. Implemented the basic creation of a balanced tree of arbitrary depth having this structure. The balanced tree has 2^h^ − 1 nodes, all internal nodes occuring at time = 1&frasl;2 and all tips at time = 1.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/power-plots/">Power plots</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Testing power code. currently null and test distributions of likelihood scores are distinguishable even for small beta on the long time scale. See code for run.
- running on shorter timescale. Note that parameters match but small code differences in repository code on the last commit since I committed the version on the local machine (my laptop, for development) but ran a slightly tweaked code (typo in reps vs nboot, .
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/primate-chronogram/">Primate chronogram</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/07/early-warning-signals-presentation-notes/">Early warning signals presentation notes</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/primates/">Primates</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Exact Simulation by the Gillespie Algorithm</a></h2>
+    <h4>Wed, Jul 6, 2011</h4>
     <div class="article-style">
       
-      Primates project now has a Github repository. Updates are embedded from here.
- Experimenting with distributing code and data effectively. Pluses and minuses of three options:
-   zipped file with R code and data. Requires setting working directory, harder to update. Subsequent uploads must include all the data, rather than incremental. Directly grab repository over github. Simple to update and access, stores only incremental changes. Requires knowledge of git R package: Nicely integrates data, code, and documentation.
+      The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
+where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/puzzled-over-the-two-step-jump-process-results/">Puzzled over the two-step jump process results</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/06/wednesday-data-wrangling-into-graphs/">Wednesday: Data wrangling into graphs</a></h2>
+    <h4>Wed, Jul 6, 2011</h4>
     <div class="article-style">
       
-      The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
+      Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
+running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/questions/">Questions</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/05/tuesday-warning-signals-data-wrangling/">Tuesday: Warning Signals Data Wrangling</a></h2>
+    <h4>Tue, Jul 5, 2011</h4>
     <div class="article-style">
       
-      Current population dynamics model macroscopic equations:
-Interpreting μ terms as death events, b as birth, and the a terms as transitions between age classes gives a natural form for the master equation.
-Divergent Solutions to the linear noise approximation? Breaking the age classes into k subclasses makes waiting time within an age class gamma instead of exponential, which better matches observation. Also allows sustained oscillations. The numerical solution to the linear noise approximation shows divergent variance dynamics.
+      Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
+ wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/r-sig-phylo/">R-sig-phylo</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/04/open-f1000-reviews/">Open F1000 reviews?</a></h2>
+    <h4>Mon, Jul 4, 2011</h4>
     <div class="article-style">
       
-      A couple interesting discussions on R-sig-phylo   estimating alpha and sigma reliably, knowing when you hit a likelihood ridge. See discussion. strange behavior in ace. Tried new ace function, same problem.<br />
-Research  Working on logs paper Waiting on Primate data Waiting on feedback on Labrids paper<br />
-DoE Conference Registration  Submitted Poster title and abstract corresponding to my iEvoBio proposal.  Reading  podcast on the Science Careers story.
+      Sebastian has started posting article reviews on his website, and invites us (Teary - our theoretical ecology tea mailing list) to do likewise. He uses a rather nifty Jabref converter to display the reviews created as bibtex entries, using the format indicated below.
+These reviews are cross-posted from the reviews he (and associates) submit to Faculty of 1000, a commercial, subscription-based service. While this gives F1000 some publicity directly from his own site, it also means individuals can access these reviews freely.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/reading/">Reading</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/04/warning-signals-writing-organization-appendices/">Warning Signals writing, organization, appendices</a></h2>
+    <h4>Mon, Jul 4, 2011</h4>
     <div class="article-style">
       
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
+      main text Summary Sentence. Abstract
+Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/07/01/friday-warning-signals-writing-etc/">Friday, warning signals writing, etc</a></h2>
+    <h4>Fri, Jul 1, 2011</h4>
+    <div class="article-style">
+      
+      9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
+   launched ibm_analysis.R on zero, n10.
+ Writing writing&hellip; first full text draft done.
+  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/06/30/thursday-7/">Thursday: Warning Signals writing, figures, segue</a></h2>
+    <h4>Thu, Jun 30, 2011</h4>
+    <div class="article-style">
+      
+      Alan meeting Figure 1: Introducing the ROC Curve Figure 2: Standard approach Figure 3: ROC curves corresponding to standard approach Do we show the distributions? &ndash; Create for each, but log in appendix
+ROC curves corresponding to increased sampling &ndash; our method, other stats? organize how?
+Computational Runs Running at constant sample points rather than sample effort.
+ On eleven: n5ibm_stable.R 6pm On zero, n10 drake_analysis.R 6pm On zero, n19 deut_analysis.
       
     </div>
   </div>
@@ -253,10 +259,10 @@ Warning Signals  Implementing likelihood-based methods for early warning signals
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/20/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/20/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/22/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/22/">Next &raquo;</a></li>
     
   </ul>
 </nav>

@@ -140,114 +140,115 @@
   
   
   <div>
-    <h2><a href="../../../2010/11/11/phylogenetics-statistics/">evolution statistics </a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
+    <h2><a href="../../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
     <div class="article-style">
       
-      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
-Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
-The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
+      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Tuesday - SDEs then back to phylogenetics</a></h2>
-    <h4>Wed, Nov 10, 2010</h4>
+    <h2><a href="../../../2012/02/16/squiggles/">Squiggles</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
     <div class="article-style">
       
-      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
-With regards the SDE problem, note that it reduces to:
-$$ dX_1 = B_2 d B_1 $$
-and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
+      Variability in the appearance of a trend
+nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
+X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/08/monday-and-some-phylogenetics/">Monday and some phylogenetics</a></h2>
-    <h4>Mon, Nov 8, 2010</h4>
+    <h2><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h2>
+    <h4>Wed, Feb 15, 2012</h4>
     <div class="article-style">
       
-      Working on paper revisions. Added a separate demo file just for generating the figures and analysis used in the manuscript, called likelihood_manuscript.R Need to clean and reorganize the package files and demos.
-Added full species names and islands to the tip labels of the tree. Adjusting which example paintings/regimes to include, currently focusing on the original OU.LP model (now calling it OU.3 following Brian&rsquo;s recommendation for simplicity), OU.4, (originally OU.
+      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
+Run the individual based simulation
+require(populationdynamics)  [code] Loading required package: populationdynamics
+ ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/08/welcome-to-my-lab-notebook/">Welcome to my Lab Notebook</a></h2>
-    <h4>Mon, Nov 8, 2010</h4>
+    <h2><a href="../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h2>
+    <h4>Tue, Feb 14, 2012</h4>
     <div class="article-style">
       
-      Disclaimer: Not a Blog Welcome to my open lab notebook. This is the active, permanent record of all my scientific research, standing in place of the traditional bound lab notebook. It is a record of ideas, and intuitions; results and mistakes. Please bear in mind that the notebook is primarily a tool for me to do science, not communicate it. I write my entries with the hope that they are intelligible to my future self; and maybe intelligible to my collaborators and experts in my field.
+      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
+Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/05/friday-evolution-reading-writing/">Friday: Evolution reading, writing</a></h2>
-    <h4>Fri, Nov 5, 2010</h4>
+    <h2><a href="../../../2012/02/13/monday-16/">Monday</a></h2>
+    <h4>Mon, Feb 13, 2012</h4>
     <div class="article-style">
-      
-      Read through the article for Monday&rsquo;s PBG270, a 2009 Nature paper from the Plotkin lab on mutational robustness and the rate of evolution. They consider an interesting little setup. Start with a Moran model (individual born, may mutate, choses who to replace at random), but allow the following mutational structure (landscape). Of P possible genotypes, each can only move to one of K neighbors by a single mutation. Call the genotype(s) of optimal fitness C.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/05/thursday/">Thursday</a></h2>
-    <h4>Fri, Nov 5, 2010</h4>
+    <h2><a href="../../../2012/02/12/sunday-6/">Sunday </a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Wrote yesterday&rsquo;s entry on power spectral analysis difficulties from yesterday. Why don&rsquo;t I remember my physics training better? Bialek&rsquo;s Phy562 notes still very helpful. No one else seems to write about this stuff clearly enough for me. Including me. 8a-11a
-Catching up on reading. Good news and discussion items in Nature on publishing code and review materials, excellent piece on climate change scientists engaging media, climate high performance computing in Brazil; etc see headlines and links in my twitter feed archive for today.
+      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../../2012/02/12/saturday-projects-reading-markdown-notebook-technology/">Saturday: projects, reading, markdown notebook-technology</a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
+      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
+ People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
+ Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/03/reviews-organization-rewrites/">Reviews, organization, rewrites</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Elegant &amp; fast data manipulation with data.table</a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Today&rsquo;s a mixed bag of activities. Finished a journal review, comments confidential, recorded in my reviewed papers archive. I then organized documents library (more below) and then back to paper revisions.
-The reference manager software Mendeley recently upgraded the way it handles groups and sharing, and I&rsquo;ve been waiting to revise how it impacts my workflow around articles. Articles can be organized into folders (collections) or kept unsorted within the library, and can be part of as multiple collections.
+      Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
+One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
+time &lt;- rep(1:10, 10) replicate &lt;- sort(time) value &lt;- rnorm(100) df &lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
+sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/30/short-note-trait-diversification-rates-controlled-by-other-traits/">Short note: Trait diversification rates controlled by other traits</a></h2>
-    <h4>Sat, Oct 30, 2010</h4>
+    <h2><a href="../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h2>
+    <h4>Fri, Feb 10, 2012</h4>
     <div class="article-style">
       
-      Peter posed an interesting question to me this afternoon: can we infer a model in which the rate of evolution in one trait (say, its Brownian diversification rate parameter) depends on the value of another trait (say, linearly and assume the other trait depends on Brownian motion). Without all those assumptions we write this generally as:
-$$ dX_t = f_x(X_t, Y_t) dt + \sigma_x(X_t, Y_t) d W_t $$ $$ dY_t = f_y(Y_t) dt + \sigma_y(Y_t) d W_t $$ (subscripts do not imply derivatives in my notation)
+      Forage fish writing See doc, FF dropbox PopDyn
+Warning signals edits  Alan edits Figure captions, titles.
+ Text changes from Noam.
+  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
+git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/28/a-new-twist-on-the-approach/">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">UC Davis graduate student symposium proposal</a></h2>
+    <h4>Wed, Feb 8, 2012</h4>
     <div class="article-style">
       
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
+      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
       
     </div>
   </div>
@@ -257,10 +258,10 @@ $$ dX_t = f_x(X_t, Y_t) dt + \sigma_x(X_t, Y_t) d W_t $$ $$ dY_t = f_y(Y_t) dt +
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/4/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/4/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/6/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/6/">Next &raquo;</a></li>
     
   </ul>
 </nav>

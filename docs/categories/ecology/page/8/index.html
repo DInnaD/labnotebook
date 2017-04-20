@@ -141,108 +141,127 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/27/optimal-control-next-steps/">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h2>
+    <h4>Thu, Oct 27, 2011</h4>
     <div class="article-style">
       
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
+      Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
+ Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
+ Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
+  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/status-on-structured-populations/">Status on Structured Populations</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/26/monday-misc-notes/">Monday, misc notes</a></h2>
+    <h4>Wed, Oct 26, 2011</h4>
     <div class="article-style">
       
-      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
+      R packages relevant to the optimal control problems
+ BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
+ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/structured-population-dynamics/">Structured Population Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/24/optimal-control-training-problem-2-problem-statement/">Training problem 2: the economist&#39;s problem statement</a></h2>
+    <h4>Mon, Oct 24, 2011</h4>
     <div class="article-style">
       
-      Beetle Model Macroscopic equations:
-Has the corresponding variance-covariance dynamics
-Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
-General Form &amp; Algorithm Consider the dynamics are given by
-and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
+      pdg-control Problem statement: Maximize profits subject to $$\max_{h(t)} \int_0^T e^{-\rho t} \pi(x, h, t) dt $$ Subject to the state equations (biology):
+$$ \dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h $$
+Note that we consider the control variable to be effort, $h$ instead of harvest, $\mathcal{H}$, where $\mathcal{H} = h x$.
+and the constraints: $$ x(0) = X_0 \qquad x(T) = X_T $$ We have fixed boundary conditions (equalities) and equalities in the state equations, so we have a nice straight-forward problem.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/21/friday-optimal-control/">Friday: Optimal Control</a></h2>
+    <h4>Fri, Oct 21, 2011</h4>
     <div class="article-style">
       
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
+      Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
+subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
+and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
+$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/summer-review/">Summer Review</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/18/mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles/">Mathematical Elements of Attack Risk Analysis for Mountain Pine tribolium</a></h2>
+    <h4>Tue, Oct 18, 2011</h4>
+    <div class="article-style">
+      
+      (POWELL et. al. 2000)
+Regimes endemic - attack the weakling trees. epidemic
+Tree has defenses. Aggregation of beetles can exhaust these, but then must disperse to other trees to avoid larval competition.
+Mathematical Elements The cast, (after some non-dimensionalization)
+ $ \dot Q(x,y,t) = R P - Q R$ Nesting beetles
+ $ \dot H(x,y,t) = R P - H R $ Holes: measures attack success
+ $ \dot R(x,y,t) = \left( 1 - R \right) R - R H $ Resin: tree defense success
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/10/17/rewrites/">Rewrites</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
+    <div class="article-style">
+      
+      Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/10/17/friday-more-runs/">Friday, more runs</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/13/thursday-fisheries-course/">Thursday, Fisheries course</a></h2>
+    <h4>Thu, Oct 13, 2011</h4>
     <div class="article-style">
       
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
+      Fisheries impact on forage fish. Forage fish impact on the primary fisheries.
+ Huxley, 1882: &ldquo;Great Sea Fisheries cannot be exhausted&rdquo; (full address) Worm et al., 2006: All fish will collapse by 2050 (Worm et. al. 2006)  Benguela Current upwelling (Anchovy collapse)
+Discussion of: Prey switching impact?
+Wasp-waist ecosystems
+Ecopath/ecosim vs Atlantis
+Questions:
+Can we identify the nature of control?
+Importance of wasp-waist control.
+regime switching
+Negative impact of forage fish on ground fish.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/the-lab-notebook-goes-open/">The Lab Notebook Goes Open</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/12/wednesday-10/">Wednesday</a></h2>
+    <h4>Wed, Oct 12, 2011</h4>
     <div class="article-style">
-      
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/thursday/">Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/11/lou-botsford-cpb/">Loo Botsford, CPB seminar</a></h2>
+    <h4>Tue, Oct 11, 2011</h4>
     <div class="article-style">
       
-      Alan will write introduction to manuscript. Schedule meeting for next week. Scheduling the Hastings lab meeting doodle Coordinate with Baskett lab  Resources for ABC / Bayesian inference in ecological and spatial context workshop  Sisson Sa, Fan Y, Tanaka MM. Sequential Monte Carlo without likelihoods. Proceedings of the National Academy of Sciences of the United States of America. 2007;104(6):1760-5. Available at: <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract</a>. de Valpine P, Hastings A. Fitting Population Models Incorporating Process Noise and Observation Error.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/towards-a-meaningful-warning-signal-metric/">Towards a meaningful warning signal metric</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Most papers do not give a statistical approach, but merely argue for the existence of a trend. Kendall&rsquo;s tau approach proved very unreliable. While the preliminary de-trending approach is unjustified in that the simulated data is known to be absent from trends, as a kind of windowed averaging it may sense as a way to detect changes. Should distinguish between the gradual slow changes and change-point estimation. Perhaps change-point provides a more rigorous starting point.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/updates-to-code/">Updates to Code</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
+      &ldquo;Effects of Fishing on the Sensitivity of Fisheries to Climate Variability&rdquo; Truncation of age structure.
+juvenation (younger population), maternal effects (first-year breeders are poor), genetic selection, ability to track environment (vs smoothing &ndash; averaging over longer times).
+Outline:
+Empirical evidence for increased variability, model explanations  Story begins with Hsieh, et al 2006. Long time series, increasing fluctuations. (Hsieh et. al. 2006)
+ Anderson et al no age structure model (Anderson et.
       
     </div>
   </div>
@@ -252,10 +271,10 @@ Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/ecology/page/7/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/ecology/page/7/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/ecology/page/9/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/ecology/page/9/">Next &raquo;</a></li>
     
   </ul>
 </nav>

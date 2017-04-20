@@ -2,7 +2,7 @@
 layout: post
 title: Gaussian processes
 category: ecology
-tags: nonparametric-bayes
+tags: [nonparametric-bayes]
 
 ---
 

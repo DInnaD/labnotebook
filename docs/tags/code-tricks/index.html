@@ -141,120 +141,123 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/04/19/catching-up/">Catching up</a></h2>
+    <h4>Thu, Apr 19, 2012</h4>
     <div class="article-style">
       
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
+      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/annual-progress-report/">Annual Progress Report</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/03/20/friday-some-random-notes/">Friday: some random notes</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
+      Computational tricks  tables in github markdown via knitr. clever Getting custom C/C++ CUDA working in R  Data management and sharing solutions for large files  NERSC uses globus online for interface for transferring terabytes/hr, pretty clever. NERSC also enables web hosting to share data.
+ Software-Carpentry style Data management a nice start. An open solution could stick the data on figshare (or elsewhere), write the readmes in markdown and keep them on github with links to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/02/27/monday-14/">Monday</a></h2>
+    <h4>Mon, Feb 27, 2012</h4>
     <div class="article-style">
       
-      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
- Follow-up discussion on:
- List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
+      Warning Signals  Added resulting indicator distributions on finer sampling results.
+ Re-running now excluding the final dive (population below 300).
+  Treebase working on manuscript. A few examples using the improved meta-data queries:
+Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/csgf-survey/">CSGF Survey</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h2>
+    <h4>Fri, Feb 10, 2012</h4>
     <div class="article-style">
       
-      Wrote survey. Getting feedback and will send out this week.  previous comments
-Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:
+      Forage fish writing See doc, FF dropbox PopDyn
+Warning signals edits  Alan edits Figure captions, titles.
+ Text changes from Noam.
+  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
+git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/entry-title/">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/01/30/monday-15/">Monday</a></h2>
+    <h4>Mon, Jan 30, 2012</h4>
     <div class="article-style">
       
-      Automated scripts for image uploads. Tag-based generation of a slideshow:</p>
-
-<p>Running the script:
- ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.</p>
-
-<p>This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).
+      pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
+view sourcecode, Reed.R
+NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/goals/">Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/01/18/wednesday-meetings/">Wednesday -- meetings</a></h2>
+    <h4>Wed, Jan 18, 2012</h4>
     <div class="article-style">
       
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      Alan meeting write write write
+Duncan Meeting Troubleshooting S3 and S4 Try adding methods? Changing order on NAMESPACE?
+Leaving ouch off the import list: no errors, but within functions, don&rsquo;t get S4 method. import but don&rsquo;t depend on ouch: error. accurate, since simulate is left as an s3 function at the user level.
+What a headache. See stackQ.
+manuscript Duncan&rsquo;s feedback
+Meredith Meeting Run a science policy workshop with Davis open science group?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/parallel-r/">Parallel R</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2012/01/09/monday-13/">Monday - Sweave workflow</a></h2>
+    <h4>Mon, Jan 9, 2012</h4>
     <div class="article-style">
       
-      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      Bibtex, Mendeley &amp; Sweave Mendeley&rsquo;s repeated entries in the bibfile is particularly annoying with my sweave workflow, as it throws an error from bibtex command that Make doesn&rsquo;t want to ignore.
+Also, in writing the documentation I&rsquo;d like to point the .Rnw file to my global library&rsquo;s bibtex document, but then this means having the .Rnw/tex file generated to by the package pointing to a file that&rsquo;s outside the package.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/primates/">Primates</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/12/12/better-sweave-dynamic-documents-with-syntax-highlighting-easier-tools/">Better dynamic documents (Sweave) with syntax highlighting, caching, etc</a></h2>
+    <h4>Mon, Dec 12, 2011</h4>
     <div class="article-style">
       
-      Primates project now has a Github repository. Updates are embedded from here.
- Experimenting with distributing code and data effectively. Pluses and minuses of three options:
-   zipped file with R code and data. Requires setting working directory, harder to update. Subsequent uploads must include all the data, rather than incremental. Directly grab repository over github. Simple to update and access, stores only incremental changes. Requires knowledge of git R package: Nicely integrates data, code, and documentation.
+      The highlight package is a simple solution for very nice syntax highlighted code boxes in latex documents. Requires switching the driver, which is best done from within R and requires creating a makefile though. Needs the &ldquo;highlight&rdquo; package installed. Here&rsquo;s a simple makefile.
+A wealth/mess of Sweave related packages on the CRAN taskview for Reproducible Research (now what other software platform has a the equivalent of a Reproducible Research task view?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/09/30/friday-wordpress-backups-pmc-edits/">Friday, wordpress backups, pmc edits</a></h2>
+    <h4>Fri, Sep 30, 2011</h4>
     <div class="article-style">
       
-      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
+      Wordpress local copy  configured mysqldump backup, following dreamhost wiki (added cron job manually instead of in panel).  edit local wp-config.php to use localhost. Get the database name, user name and password from the lines above it, which are used later.
+define(&lsquo;DB_HOST&rsquo;, &lsquo;localhost&rsquo;); // &hellip;and the server MySQL is running on  create user: log in as root
+mysql -u root -p  and create user
+mysql&gt; create database database_name mysql&gt; create user &lsquo;username&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;password&rsquo;; mysql&gt; create database database_name mysql&gt; grant usage on *.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/04/saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda/">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h2>
+    <h4>Sat, Jun 4, 2011</h4>
     <div class="article-style">
       
-      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
+      bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
+Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
       
     </div>
   </div>
@@ -265,7 +268,7 @@ Wiki Tricks Exploring use of mvs to download and upload entries from openwetware
   <ul class="pager">
     
     
-    <li><a href="//tags/code-tricks/page/2/">Next &raquo;</a></li>
+    <li><a href="../../tags/code-tricks/page/2/">Next &raquo;</a></li>
     
   </ul>
 </nav>

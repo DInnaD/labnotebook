@@ -141,108 +141,126 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/12/07/optimal-control-costs-to-policy-shifts/">Optimal control -- costs to policy shifts</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy). We can imagine several scenarios that could introduce this:
+ Fixed cost to change
+ Cost proportional to the size of the change (L1 norm)
+ Cost proportional to the square of the size (L2 norm, i.e. small changes aren&rsquo;t expensive, large ones are very expensive)
+ asymmetric costs &ndash; lowering quotas may be harder than raising them
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/12/06/tuesday-two-insights/">Tuesday -- two insights</a></h2>
+    <h4>Tue, Dec 6, 2011</h4>
     <div class="article-style">
       
-      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
+      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
+ Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
+ Bonvin approach &ndash; adjust the control instead (NCO Control).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/12/05/monday-wrightscape-meetings-pdg-meeting/">Monday - wrightscape meetings, PDG meeting</a></h2>
+    <h4>Mon, Dec 5, 2011</h4>
     <div class="article-style">
       
-      Modified Crowley model Realizing Arbitrarily large demographic noise systems??
-Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
-I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
-And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
+      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
+Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h2>
+    <h4>Wed, Nov 30, 2011</h4>
     <div class="article-style">
       
-      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
-&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h2>
+    <h4>Mon, Nov 28, 2011</h4>
     <div class="article-style">
+      
+      I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
+$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h2>
+    <h4>Wed, Nov 23, 2011</h4>
     <div class="article-style">
       
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
+$$x_{t+1} = z_t f(x_t) $$
+where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
+$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-with-alan/">Meeting with Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/18/friday-7/">Friday</a></h2>
+    <h4>Fri, Nov 18, 2011</h4>
     <div class="article-style">
       
-      Some discussion of references  ﻿ Ovaskainen O, Meerson B. Stochastic models of population extinction. Trends in Ecology &amp; Evolution. 2010;(Box 3):1-10. Available at: <a href="http://dx.doi.org/10.1016/j.tree.2010.07.009">http://dx.doi.org/10.1016/j.tree.2010.07.009</a>.  ﻿* Goel NS, Richter-Dyn N. Stochastic Models in Biology. The Blackburn Press; 2004:269. Available at: <a href="http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X">http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X</a>.
- Bjørnstad O, Finkenstädt B, BT. Dynamics of measles epidemics: estimating scaling of transmission rates using a time series SIR model. Ecological Monographs. 2002;72(2):169-184. Available at: <a href="http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)">http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)</a>. Grenfell BT, Bjørnstad ON, Finkenstädt BF.
+      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/monday/">Monday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/17/steve-pacala-storer-lecture/">Steve Pacala - Storer lecture</a></h2>
+    <h4>Thu, Nov 17, 2011</h4>
     <div class="article-style">
+      
+      Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
+Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
+ Carbon sink is half ocean, half terrestrial
+  A grim future:
+ 450ppm not feasible
+ 500ppm best case
+ 550ppm is likely even if we are largely successful
+  Even worse if the terrestrial sink collapses.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/15/tuesday-10/">Tues: Sources of stochastic variation in optimal control</a></h2>
+    <h4>Tue, Nov 15, 2011</h4>
     <div class="article-style">
       
-      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
- Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
- Methods write-up, read/compare to other examples.
- Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
+      Adding stochasticity seems to have a small history.
+Reed 1979 Reed, 1979 Uncertainty in next year&rsquo;s stock, &ldquo;growth uncertainty&rdquo; at the time of determining harvest. Constant escapement policy, no chance of extinction.
+Clark &amp; Kirkwood 1986 Clark &amp; Kirkwood, 1986 Uncertainty in this year&rsquo;s stock, &ldquo;measurement uncertainty&rdquo; when determining harvest.
+Roughgarden &amp; Smith (1996) consider both, and add uncertainty in harvest. Sethi et al. 2005 (Sethi et. al. 2005) consider the economist&rsquo;s optimization of this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h2>
+    <h4>Sun, Nov 13, 2011</h4>
     <div class="article-style">
       
-      Fig 1: Noise in lavae dominate
-Fig: 2 lower mortality, higher noise
- Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
+      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
       
     </div>
   </div>
@@ -252,10 +270,10 @@ Fig: 2 lower mortality, higher noise
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/ecology/page/5/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/ecology/page/5/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/ecology/page/7/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/ecology/page/7/">Next &raquo;</a></li>
     
   </ul>
 </nav>

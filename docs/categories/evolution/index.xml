@@ -6,10 +6,1415 @@
     <description>Recent content in Evolution on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Dec 2010 21:22:07 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Mar 2012 20:21:09 +0000</lastBuildDate>
     
 	<atom:link href="/categories/evolution/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>/2012/03/19/</link>
+      <pubDate>Mon, 19 Mar 2012 20:21:09 +0000</pubDate>
+      
+      <guid>/2012/03/19/</guid>
+      <description>Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&amp;rsquo;m still deciding what/how to present in terms of the meta-analysis section &amp;ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp;amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.</description>
+    </item>
+    
+    <item>
+      <title>Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</title>
+      <link>/2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc/</link>
+      <pubDate>Tue, 21 Feb 2012 19:20:40 +0000</pubDate>
+      
+      <guid>/2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc/</guid>
+      <description>research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &amp;ldquo;white&amp;rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
+ Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.</description>
+    </item>
+    
+    <item>
+      <title>Sunday </title>
+      <link>/2012/02/12/sunday-6/</link>
+      <pubDate>Sun, 12 Feb 2012 22:14:43 +0000</pubDate>
+      
+      <guid>/2012/02/12/sunday-6/</guid>
+      <description>phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &amp;lt;- mrcaOUCH(c(&amp;quot;Chlorurus_sordidus&amp;quot;, &amp;quot;Hipposcarus_longiceps&amp;quot;), labrid$tree) intramandibular &amp;lt;- paintBranches(intra_ancestor, labrid$tree, c(&amp;quot;other&amp;quot;,&amp;quot;intramandibular&amp;quot;)) pharyngeal_ancestor&amp;lt;-mrcaOUCH(c(&amp;quot;Bolbometopon_muricatum&amp;quot;, &amp;quot;Sparisoma_radians&amp;quot;), labrid$tree) pharyngeal &amp;lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&amp;quot;other&amp;quot;,&amp;quot;pharyngeal&amp;quot;)) two_shifts &amp;lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&amp;quot;wrasses&amp;quot;, &amp;quot;pharyngeal&amp;quot;, intramandibular&amp;quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.</description>
+    </item>
+    
+    <item>
+      <title>Is your phylogeny informative?</title>
+      <link>/2012/01/19/is-your-phylogeny-informative/</link>
+      <pubDate>Thu, 19 Jan 2012 14:10:49 +0000</pubDate>
+      
+      <guid>/2012/01/19/is-your-phylogeny-informative/</guid>
+      <description>Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&amp;rsquo;s preprint),As the open access copy doesn&amp;rsquo;t appear on pubmed for a while, you can access my author&amp;rsquo;s copy here. so I&amp;rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
+I didn&amp;rsquo;t set out to write this paper.</description>
+    </item>
+    
+    <item>
+      <title>wrightscape examples</title>
+      <link>/2012/01/04/wrightscape-examples/</link>
+      <pubDate>Wed, 04 Jan 2012 12:48:29 +0000</pubDate>
+      
+      <guid>/2012/01/04/wrightscape-examples/</guid>
+      <description>[flickr-gallery mode=&amp;ldquo;search&amp;rdquo; tags=&amp;ldquo;phylogenetics&amp;rdquo; min_upload_date=&amp;ldquo;2012-01-03 7:00:37&amp;rdquo; max_upload_date=&amp;ldquo;2012-01-03 22:23:37&amp;rdquo;]
+ kt and open seem the best focal traits. Unclear what good null traits to use would be.
+ Unclear if anything is gained by indep thetas in this example.
+ Performance of alpha v theta?
+  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:</description>
+    </item>
+    
+    <item>
+      <title>Tuesday: pmc package, latex to word attempts</title>
+      <link>/2012/01/03/tuesday-pmc-package-latex-to-word-attempts/</link>
+      <pubDate>Tue, 03 Jan 2012 18:49:10 +0000</pubDate>
+      
+      <guid>/2012/01/03/tuesday-pmc-package-latex-to-word-attempts/</guid>
+      <description>Back from Oz.
+Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
+ tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
+ pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations</description>
+    </item>
+    
+    <item>
+      <title>Friday</title>
+      <link>/2011/12/09/friday-9/</link>
+      <pubDate>Fri, 09 Dec 2011 13:42:30 +0000</pubDate>
+      
+      <guid>/2011/12/09/friday-9/</guid>
+      <description>Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp;amp; Peterman, 2012) and Woodward &amp;amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.</description>
+    </item>
+    
+    <item>
+      <title>Thursday</title>
+      <link>/2011/12/08/thursday-11/</link>
+      <pubDate>Thu, 08 Dec 2011 11:06:00 +0000</pubDate>
+      
+      <guid>/2011/12/08/thursday-11/</guid>
+      <description>Another day of working on 4 different projects at once.
+Warning signals  review Alan pulses manuscript
+ review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
+  No way in Anchoveta data, look at time series:
+Example in the cod data using only up until 1991 data:
+ Way forward &amp;ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.</description>
+    </item>
+    
+    <item>
+      <title>Wednesday - wrightscape runs and various other things</title>
+      <link>/2011/12/07/wednesday-11/</link>
+      <pubDate>Wed, 07 Dec 2011 18:01:07 +0000</pubDate>
+      
+      <guid>/2011/12/07/wednesday-11/</guid>
+      <description>pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).</description>
+    </item>
+    
+    <item>
+      <title>Tuesday -- two insights</title>
+      <link>/2011/12/06/tuesday-two-insights/</link>
+      <pubDate>Tue, 06 Dec 2011 21:46:16 +0000</pubDate>
+      
+      <guid>/2011/12/06/tuesday-two-insights/</guid>
+      <description>Control &amp;amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&amp;rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
+ Better solution &amp;ndash; adjust the penalty/regularization terms to to get better agreement between model and data
+ Bonvin approach &amp;ndash; adjust the control instead (NCO Control).</description>
+    </item>
+    
+    <item>
+      <title>Monday - wrightscape meetings, PDG meeting</title>
+      <link>/2011/12/05/monday-wrightscape-meetings-pdg-meeting/</link>
+      <pubDate>Mon, 05 Dec 2011 18:45:32 +0000</pubDate>
+      
+      <guid>/2011/12/05/monday-wrightscape-meetings-pdg-meeting/</guid>
+      <description>Wrightscape &amp;ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
+Peter Meeting  Derivation &amp;ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.</description>
+    </item>
+    
+    <item>
+      <title>More labrid plots</title>
+      <link>/2011/12/05/more-labrid-plots/</link>
+      <pubDate>Mon, 05 Dec 2011 10:24:36 +0000</pubDate>
+      
+      <guid>/2011/12/05/more-labrid-plots/</guid>
+      <description>Intramandibular likelihood comparisons
+Parameter zooms:
+Pharyngeal likelihood comparisons
+Both shifts:
+[flickr-gallery mode=&amp;ldquo;search&amp;rdquo; tags=&amp;ldquo;phylogenetics&amp;rdquo; min_upload_date=&amp;ldquo;2011-12-03 8:00:37&amp;rdquo; max_upload_date=&amp;ldquo;2011-12-04 23:23:37&amp;rdquo;]</description>
+    </item>
+    
+    <item>
+      <title>Release of constraint</title>
+      <link>/2011/12/04/release-of-constraint/</link>
+      <pubDate>Sun, 04 Dec 2011 13:41:47 +0000</pubDate>
+      
+      <guid>/2011/12/04/release-of-constraint/</guid>
+      <description>(uncertainty estimation to follow).</description>
+    </item>
+    
+    <item>
+      <title>Friday - updated wrightscape results - simulated examples</title>
+      <link>/2011/12/02/friday-updated-wrightscape-results/</link>
+      <pubDate>Fri, 02 Dec 2011 22:35:24 +0000</pubDate>
+      
+      <guid>/2011/12/02/friday-updated-wrightscape-results/</guid>
+      <description>Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right). Can we correctly discriminate between these models?
+Parameter differences:
+Likelihood differences:
+Yup.
+Repeated with effect-size scaled to be roughly equivalent for both traits. Wondering if it&amp;rsquo;s easier to plot parameters out separately like this. Error bars show median and 25&amp;frasl;75 % quantile range, with barplots showing the means (note that high outliers makes mean often larger than median).</description>
+    </item>
+    
+    <item>
+      <title>Thrusday - corrected calculation, implementing.  </title>
+      <link>/2011/12/01/thrusday-corrected-calculation-implementing/</link>
+      <pubDate>Thu, 01 Dec 2011 23:33:55 +0000</pubDate>
+      
+      <guid>/2011/12/01/thrusday-corrected-calculation-implementing/</guid>
+      <description>Implementing Wednesday night&amp;rsquo;s calculations. Should transcribe full derivation from paper notebook, meanwhile (revealing how chaotic my work process really is):
+[flickr-gallery mode=&amp;ldquo;search&amp;rdquo; tags=&amp;ldquo;equations&amp;rdquo; min_upload_date=&amp;ldquo;2011-12-04 11:00:37&amp;rdquo; max_upload_date=&amp;ldquo;2011-12-04 11:39:37&amp;rdquo;]
+Day&amp;rsquo;s log of plots:
+[flickr-gallery mode=&amp;ldquo;search&amp;rdquo; tags=&amp;ldquo;phylogenetics&amp;rdquo; min_upload_date=&amp;ldquo;2011-12-01 8:00:37&amp;rdquo; max_upload_date=&amp;ldquo;2011-12-01 23:23:37&amp;rdquo;]</description>
+    </item>
+    
+    <item>
+      <title>Wednesday - various logistics, then checking likelihood calculation</title>
+      <link>/2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/</link>
+      <pubDate>Wed, 30 Nov 2011 20:20:42 +0000</pubDate>
+      
+      <guid>/2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/</guid>
+      <description>rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&amp;rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &amp;ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&amp;rsquo;ll implement delay intervals, he&amp;rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp;amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday debugging</title>
+      <link>/2011/11/29/tuesday-debugging/</link>
+      <pubDate>Tue, 29 Nov 2011 10:13:35 +0000</pubDate>
+      
+      <guid>/2011/11/29/tuesday-debugging/</guid>
+      <description>Wrote seven unit tests to identify source of how/why I can get $ \alpha $&amp;rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&amp;rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
+Unit tests.
+Nov 29, 2011  also need to double-check calc of lca_matrix &amp;ndash; needs to obey same sc… …  52a5d0bf12  Browse code</description>
+    </item>
+    
+    <item>
+      <title>Monday: submodels for full traits</title>
+      <link>/2011/11/28/monday-11/</link>
+      <pubDate>Mon, 28 Nov 2011 11:00:24 +0000</pubDate>
+      
+      <guid>/2011/11/28/monday-11/</guid>
+      <description>Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
+Creating unit tests:
+Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
+require(wrightscape) data(labrids) s1_spec &amp;lt;- list(alpha = &amp;quot;global&amp;quot;, sigma = &amp;quot;indep&amp;quot;, theta = &amp;quot;global&amp;quot;) s1 &amp;lt;- multiTypeOU(data = dat[&amp;quot;close&amp;quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &amp;lt;- levels(pharyngeal) s1$sigma[&amp;quot;other&amp;quot;] &amp;lt;- .</description>
+    </item>
+    
+    <item>
+      <title>Friday: wrightscape, ggplot, wp memory</title>
+      <link>/2011/11/25/friday-wrightscape-ggplot-wp-memory/</link>
+      <pubDate>Fri, 25 Nov 2011 20:32:59 +0000</pubDate>
+      
+      <guid>/2011/11/25/friday-wrightscape-ggplot-wp-memory/</guid>
+      <description>more sub-model comparisons wrightscape sub-models:
+ a1 independent alphas, global theta, sigmas
+ bm &amp;ldquo;brownie&amp;rdquo; (alpha = 0, indep sigmas)
+ a2 independent alpha, theta, global sigma
+ s1 indep sigma, global alpha, theta
+ s2 indep sigma, theta, global alpha
+  Basic Nelder Mead Simulated annealing associated parameter estimates
+This approach is really not finding a very robust solution.
+Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.</description>
+    </item>
+    
+    <item>
+      <title>wrightscape and sensitivity to initial conditions</title>
+      <link>/2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/</link>
+      <pubDate>Thu, 17 Nov 2011 23:08:14 +0000</pubDate>
+      
+      <guid>/2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/</guid>
+      <description>Seems ouma performs poorly, though the sign of the effect seems correct. Starting conditions cause this.
+Even starting conditions: improves the fit and flips the sign of the result.
+More parameters: addendum Longer runs using simulated annealing can still get stuck.</description>
+    </item>
+    
+    <item>
+      <title>Wainwright Retreat to Hastings Reserve</title>
+      <link>/2011/11/12/of-labrids-and-dubious-convergence/</link>
+      <pubDate>Sat, 12 Nov 2011 21:36:51 +0000</pubDate>
+      
+      <guid>/2011/11/12/of-labrids-and-dubious-convergence/</guid>
+      <description>Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
+more labrid trait evolution alpha &amp;amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
+Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).</description>
+    </item>
+    
+    <item>
+      <title>Auteur plots for reef fish jaws and monkey brains -- needs tweaking</title>
+      <link>/2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/</link>
+      <pubDate>Thu, 10 Nov 2011 17:22:17 +0000</pubDate>
+      
+      <guid>/2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/</guid>
+      <description>Looking at the diversification patterns from Auteur. Longer rjmcmc runs aren&amp;rsquo;t showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps? Seems to overestimate the change points.
+Remains true for the primate brains example:
+Set up to run on carver cluster, copy over the saved rda file and all files matching the random string already saved as outputs. Full labrid example on 20 cores still exceeds the allocation capacity for an R vector.</description>
+    </item>
+    
+    <item>
+      <title>Friday&#39;s reading</title>
+      <link>/2011/11/04/fridays-reading/</link>
+      <pubDate>Fri, 04 Nov 2011 13:14:24 +0000</pubDate>
+      
+      <guid>/2011/11/04/fridays-reading/</guid>
+      <description>Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&amp;rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &amp;ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.</description>
+    </item>
+    
+    <item>
+      <title>Labrids &amp; Parrotfish, method1</title>
+      <link>/2011/11/01/labrids-parrotfish-method1/</link>
+      <pubDate>Tue, 01 Nov 2011 08:57:15 +0000</pubDate>
+      
+      <guid>/2011/11/01/labrids-parrotfish-method1/</guid>
+      <description>Parrotfish only: Shift at intramandibular joint in BM rate only. Shift in constraint, $ \alpha $ at intramandibular innovation. Labrids: Wrasses vs parrotfish Shift in BM rate Shift in constraint, $ \alpha $ Compare to: method2</description>
+    </item>
+    
+    <item>
+      <title>Labrid submodels</title>
+      <link>/2011/10/26/labrid-submodels/</link>
+      <pubDate>Wed, 26 Oct 2011 15:49:27 +0000</pubDate>
+      
+      <guid>/2011/10/26/labrid-submodels/</guid>
+      <description>Updates to labrids results:
+ Results from Parrotfish tree &amp;amp; 2-partition Labrid tree on full model.  Full model, Labrids Pharyngeal Shift 
+Alphas Sigmas Full Model, Intramandibular Shift .
+Labrid tree, multi-sigma model, both shifts Surprising less powerful at identifying the differences.
+Note that this still estimates OU models, and hence has a global alpha, and unique thetas:
+LABRID TREE, MULTI-alpha, BOTH SHIFTS Parrotfish tree, multi-sigma model: Parrotfish tree, multi-alpha model: Labrid pharyngeal only, multi-sigma model: Labrid pharyngeal, multi-alpha Labrid intramandibular only, multi-sigma model: Labrid intramandibular, multi-alpha Full model plots with: method2_plots.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday notes: package work mostly.</title>
+      <link>/2011/10/25/tuesday-notes-package-work-mostly/</link>
+      <pubDate>Tue, 25 Oct 2011 19:18:09 +0000</pubDate>
+      
+      <guid>/2011/10/25/tuesday-notes-package-work-mostly/</guid>
+      <description>Treebase release  write updated tutorial.
+ cran needs mac and windows binaries.
+  Trying devtools win_builder(); emailing Kurt. Nevermind, just got the email saying the binary has been built.
+ write email announcement  rfishbase data formatting My problem turned out not to be about &amp;ldquo;\&amp;rdquo; at all, these were octal encodings of symbols used in the XML data, eg: Cape Bojador (26°N)
+which xmlValue() would read in using the octal encoding &amp;rdquo;Cape Bojador (26\302\260N)&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2011/10/25/</link>
+      <pubDate>Tue, 25 Oct 2011 19:06:38 +0000</pubDate>
+      
+      <guid>/2011/10/25/</guid>
+      <description>My treebase package is now up on the CRAN repository. (Source code is up, the binaries should appear soon). Here&amp;rsquo;s a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows.</description>
+    </item>
+    
+    <item>
+      <title>Thursday - some parrotfish &amp; labrid runs on method2</title>
+      <link>/2011/10/20/thursday-some-parrotfish-runs-on-method2/</link>
+      <pubDate>Thu, 20 Oct 2011 16:20:14 +0000</pubDate>
+      
+      <guid>/2011/10/20/thursday-some-parrotfish-runs-on-method2/</guid>
+      <description>Running:
+ farm cluster, c0-17 method2_parrotfish.R &amp;ndash; Done. Below.
+ farm cluster, c0-27 method2_labrids.R (with three partitions)
+ farm cluster, c0-13 method2_labrids_phar.R (two partitions)
+ farm cluster, c0-19 method2_labrids_intra.R (two partitions)
+  Parrotfish Phylogeny The .y indicates the trait has been size-corrected. Parameters reported from estimations in the full model. All sets converged except open lever ratio. Error bars indicate 1 standard deviation estimated from the likelihood curvature. Lighter color indicates the presence of an intramandibular joint, as coded in the phylogeny above.</description>
+    </item>
+    
+    <item>
+      <title>Matt Helmus visit</title>
+      <link>/2011/10/07/matt-helmus-visit/</link>
+      <pubDate>Fri, 07 Oct 2011 14:36:33 +0000</pubDate>
+      
+      <guid>/2011/10/07/matt-helmus-visit/</guid>
+      <description>Notes from presentation 1. Species-area curve:  Species sorting by environment. species clustering due to limited dispersal Random displacement (faster saturation) In-situ speciation looks like clustering Compare to colonization Phylogenetic species variability metric: compare phylogenetic covariance matrix to a star-phylogeny, not expected to increase with area.  $$ \frac{n \textrm{tr}C - \sum C }{n(n-1)}$$
+2. Simulations:  species sort along an environmental gradient. BM trait determining position. : closely related species clustered.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday</title>
+      <link>/2011/10/04/tuesday-9/</link>
+      <pubDate>Tue, 04 Oct 2011 22:29:29 +0000</pubDate>
+      
+      <guid>/2011/10/04/tuesday-9/</guid>
+      <description>Hastings seminar: Forest Pest Outbreaks Schedule
+Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp;amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&amp;rsquo;s NY Times piece, (and see author&amp;rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp;amp; Management (Gypsy moth). * Review review (Taylor &amp;amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).</description>
+    </item>
+    
+    <item>
+      <title>Friday, wordpress backups, pmc edits</title>
+      <link>/2011/09/30/friday-wordpress-backups-pmc-edits/</link>
+      <pubDate>Fri, 30 Sep 2011 17:51:31 +0000</pubDate>
+      
+      <guid>/2011/09/30/friday-wordpress-backups-pmc-edits/</guid>
+      <description>Wordpress local copy  configured mysqldump backup, following dreamhost wiki (added cron job manually instead of in panel).  edit local wp-config.php to use localhost. Get the database name, user name and password from the lines above it, which are used later.
+define(&#39;DB_HOST&#39;, &#39;localhost&#39;); // ...and the server MySQL is running on  create user: log in as root
+mysql -u root -p  and create user
+mysql&amp;gt; create database database_name mysql&amp;gt; create user &#39;username&#39;@&#39;localhost&#39; identified by &#39;password&#39;; mysql&amp;gt; create database database_name mysql&amp;gt; grant usage on *.</description>
+    </item>
+    
+    <item>
+      <title>Thursday</title>
+      <link>/2011/09/29/thursday-10/</link>
+      <pubDate>Thu, 29 Sep 2011 16:46:03 +0000</pubDate>
+      
+      <guid>/2011/09/29/thursday-10/</guid>
+      <description>9-9:20 Updating research statement (home page). 9:20 -9:40 Updating notebook: Review, Tuesday &amp;amp; Wednesday meetings coffee 9:50 Application. 10-11:30:  Forage fish dynamics, Sanchirico and Essington Jim gives the broad overview, central question: What are the benefits/costs of a % reduction in the catch C of forage fish N:
+$$ \Delta C \downarrow \to \Delta N \to \Delta F, \Delta M \Delta S$$
+F predator commercial fisheries, M marine mammals, S seabirds.</description>
+    </item>
+    
+    <item>
+      <title>Phylogenetics - Research Proposal</title>
+      <link>/2011/09/29/phylogenetics-research-proposal/</link>
+      <pubDate>Thu, 29 Sep 2011 15:20:10 +0000</pubDate>
+      
+      <guid>/2011/09/29/phylogenetics-research-proposal/</guid>
+      <description>Evolution has shaped all ecological communities. It has tested their resilience in experiments we could never perform. Now can it help us identify what characteristics make a community resilient or vulnerable to external forces?
+Anthropogenic influences such as invasive species, climate change, and urbanization pressure ecosystems everywhere on the planet. Some collapse suddenly, others appear remarkably resilient. What makes some systems more vulnerable, and how could we identify them? Ecologists have long sought to understand the factors most influencing this stability, but the scale is immense and the problem complex &amp;ndash; making controlled experimentation difficult and limited.</description>
+    </item>
+    
+    <item>
+      <title>Wednesday - Berkeley visits</title>
+      <link>/2011/09/28/wednesday-berkeley-visits/</link>
+      <pubDate>Wed, 28 Sep 2011 09:25:56 +0000</pubDate>
+      
+      <guid>/2011/09/28/wednesday-berkeley-visits/</guid>
+      <description>Consultation call with Rebecca Lawrence, F1000. F1000 is exploring offering a data publishing platform, and we discussed some of the potential challenges (submission incentives, data review/reproducible review, meta-data standards).   anyone who might be interested in working with us to get this project off the ground, with a scientific PhD background, a reasonable understanding of data sharing/mining issues and some knowledge of technical issues (not necessarily a coder but I guess it might help) then do let me know.</description>
+    </item>
+    
+    <item>
+      <title>Monday</title>
+      <link>/2011/09/26/monday-10/</link>
+      <pubDate>Mon, 26 Sep 2011 15:31:07 +0000</pubDate>
+      
+      <guid>/2011/09/26/monday-10/</guid>
+      <description>Phylogenetics paper  Grayscale the figures  Moore &amp;amp; Coop PBG 270: Phylo methods for exploring correlations between character traits and lineage rates.
+ Models ((Are the generalized birth-death models (e.g. Kendall 1948) good limit to interesting process? somtimes. ))    detecting variation in rates
+ locating shifts along branches
+ locating shifts in time
+ correlates of differential rates (_e.g. _traits; our subject for today/course).
+ Parameter estimation</description>
+    </item>
+    
+    <item>
+      <title>Friday: ropensci, manuscript edits</title>
+      <link>/2011/09/23/friday-ropensci-manuscript-edits/</link>
+      <pubDate>Fri, 23 Sep 2011 11:03:43 +0000</pubDate>
+      
+      <guid>/2011/09/23/friday-ropensci-manuscript-edits/</guid>
+      <description>rOpenSci Conference Call Catalyst grant  Reviewed budget. Karthik will merge current proposals, Carl will review. Goal: send out next week. Ask Mark Hahnel to look it over  Blog posts  Carley planning to make guest blog post within the next week.  Mendeley/Plos Binary battle  Carl will file entry form. Karthik push edits to rplos Scott will add rplos tutorial to ropensci.org Carl will add rmendeley tutorial to ropensci.</description>
+    </item>
+    
+    <item>
+      <title>Thursday</title>
+      <link>/2011/09/22/thursday-9/</link>
+      <pubDate>Thu, 22 Sep 2011 17:51:06 +0000</pubDate>
+      
+      <guid>/2011/09/22/thursday-9/</guid>
+      <description>Sent off review. finally.
+Sanchirico seminar with Tim Essington (U Washington). Goal: Prepare for a review on forage fisheries.
+Outline  background background Fishery interactions marine mammal/seabird interactions Climate &amp;amp; forage fish Fishmeal (Demand side) direct consumption (Demand side) Vitamin supp / health benefits (Demand side) Non-market value marine mammals Synthesis  Forage-fish: &amp;ldquo;foundation species&amp;rdquo; in marine ecosystems, get energy from zooplankton/upwelling to high-level predators (high-market target fisheries). Sardines/pilchards, anchovies, sandeels, krill, herrings, capelin, menhaden.</description>
+    </item>
+    
+    <item>
+      <title>Likelihood expressions for branching processes</title>
+      <link>/2011/09/10/likelihood-expressions-for-branching-processes/</link>
+      <pubDate>Sat, 10 Sep 2011 14:29:09 +0000</pubDate>
+      
+      <guid>/2011/09/10/likelihood-expressions-for-branching-processes/</guid>
+      <description>Lineage-through-time approach Nee, then Paradis (Paradis, 2003) introduces unresolved tips
+Distribution of branch-lengths approach Note that in any Markov branching process, only node depth, not topology, influence the likelihood.
+See also:  Notes on bootstrapping in laser
+ Earlier Notes on distribution derivation from Kendall 1948
+ My derivation of the analytic probability of N individuals in pure birth (from van Kampen approximation)
+  (manual list)
+Refs Kendall, D.</description>
+    </item>
+    
+    <item>
+      <title>discriminating early bursts</title>
+      <link>/2011/09/08/discriminating-early-bursts/</link>
+      <pubDate>Thu, 08 Sep 2011 23:08:33 +0000</pubDate>
+      
+      <guid>/2011/09/08/discriminating-early-bursts/</guid>
+      <description>Looking at cases when early burst can be discriminated from OU, a la Harmon et al 2010 (Harmon et. al. 2010). Fixed models can be told apart. Rather trivially, none of these models can be told apart if initially estimated from Brownian data. Rather encouraging: models estimated from common data can be told apart. 600 taxa tree
+Still works on 60 taxa, identifying OU correctly when sim under OU (left), and EB for EB data (right):</description>
+    </item>
+    
+    <item>
+      <title>rfishbase demo: Are there more Goby or Labrid species on reefs?</title>
+      <link>/2011/09/02/rfishbase-demo-are-there-more-goby-or-labrid-species-on-reefs/</link>
+      <pubDate>Fri, 02 Sep 2011 12:59:35 +0000</pubDate>
+      
+      <guid>/2011/09/02/rfishbase-demo-are-there-more-goby-or-labrid-species-on-reefs/</guid>
+      <description>I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
+For instance, here&amp;rsquo;s a quick demo based on a question from Peter Wainwright: &amp;ldquo;are there more gobys or labrids on reefs?</description>
+    </item>
+    
+    <item>
+      <title>Wednesday</title>
+      <link>/2011/08/31/wednesday-7/</link>
+      <pubDate>Wed, 31 Aug 2011 12:09:29 +0000</pubDate>
+      
+      <guid>/2011/08/31/wednesday-7/</guid>
+      <description>Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp;amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp;amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp;amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday</title>
+      <link>/2011/08/30/tuesday-8/</link>
+      <pubDate>Tue, 30 Aug 2011 22:11:23 +0000</pubDate>
+      
+      <guid>/2011/08/30/tuesday-8/</guid>
+      <description> Completed review for Methods.
+ First read-through of review/resubmission for THEE.
+ Working on Evolution manuscript
+ Wrightscape: root should have the option of being fixed at phylogenetic mean for all models. Do root estimates occur far from this currently?
+ Check graph color schemes, seem inconsistent.
+   </description>
+    </item>
+    
+    <item>
+      <title>Monday: scaling wrightscape examples</title>
+      <link>/2011/08/29/monday-scaling-wrightscape-examples/</link>
+      <pubDate>Mon, 29 Aug 2011 18:27:20 +0000</pubDate>
+      
+      <guid>/2011/08/29/monday-scaling-wrightscape-examples/</guid>
+      <description>syntaxHighligher isn&amp;rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&amp;rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:</description>
+    </item>
+    
+    <item>
+      <title>Sunday: scaling, runs</title>
+      <link>/2011/08/28/sunday-scaling-runs/</link>
+      <pubDate>Sun, 28 Aug 2011 22:33:59 +0000</pubDate>
+      
+      <guid>/2011/08/28/sunday-scaling-runs/</guid>
+      <description>laptop: ubuntu upgrades: 10.04 LTS -&amp;gt; 10.10 -&amp;gt; 11.04, geesh.
+Set up for running primates.R in likelihood mode with abstracted parallelization:
+Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
+hmm, high (9%) memory usage on primates.R on zero&amp;hellip; monitoring situation closely&amp;hellip; Only .3% on farm so far, which has 24G instead of zero&amp;rsquo;s 32Gig RAM.</description>
+    </item>
+    
+    <item>
+      <title>rropensci and some taxonomy in R with taxize</title>
+      <link>/2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize/</link>
+      <pubDate>Fri, 26 Aug 2011 23:16:22 +0000</pubDate>
+      
+      <guid>/2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize/</guid>
+      <description>rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday: rropensci, Rmpi, manuscripts, ...</title>
+      <link>/2011/08/23/tuesday-rropensci-rmpi-manuscripts/</link>
+      <pubDate>Tue, 23 Aug 2011 15:10:24 +0000</pubDate>
+      
+      <guid>/2011/08/23/tuesday-rropensci-rmpi-manuscripts/</guid>
+      <description>rfishbase In answer to Tomomi&amp;rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
+XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
+&amp;lt;dataObject&amp;gt; &amp;lt;dc:identifier&amp;gt;FB-Size-2&amp;lt;/dc:identifier&amp;gt; &amp;lt;dc:description&amp;gt; Text I need &amp;lt;/dc:description&amp;gt; &amp;lt;/dataObject&amp;gt;  Which I parsed in R as:</description>
+    </item>
+    
+    <item>
+      <title>Academic Year 2011 Summary</title>
+      <link>/2011/08/21/academic-year-2011-summary/</link>
+      <pubDate>Sun, 21 Aug 2011 23:46:13 +0000</pubDate>
+      
+      <guid>/2011/08/21/academic-year-2011-summary/</guid>
+      <description>Brief summary of events for this past academic year, as submitted to my dissertation committee.
+TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.</description>
+    </item>
+    
+    <item>
+      <title>Thursday: reviewing edits, ropensci, computers.</title>
+      <link>/2011/08/18/thursday-reviewing-edits-ropensci-computers/</link>
+      <pubDate>Thu, 18 Aug 2011 15:03:16 +0000</pubDate>
+      
+      <guid>/2011/08/18/thursday-reviewing-edits-ropensci-computers/</guid>
+      <description>Graham &amp;amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&amp;rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
+Brief topic notes from today&amp;rsquo;s meeting:
+ set up different take on layout: lambda, AIC, power</description>
+    </item>
+    
+    <item>
+      <title>Wrightscape: a brief tutorial</title>
+      <link>/2011/08/17/wrightscape-a-brief-tutorial/</link>
+      <pubDate>Wed, 17 Aug 2011 14:15:59 +0000</pubDate>
+      
+      <guid>/2011/08/17/wrightscape-a-brief-tutorial/</guid>
+      <description>While the wrightscape package is still in active development, I realize the code base doesn&amp;rsquo;t contain any introductory examples. So as a first tutorial, here&amp;rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
+require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&amp;rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday:</title>
+      <link>/2011/08/16/tuesday-7/</link>
+      <pubDate>Tue, 16 Aug 2011 19:04:22 +0000</pubDate>
+      
+      <guid>/2011/08/16/tuesday-7/</guid>
+      <description> Finished first round of edits and sent off to Graham and Peter.
+ Exploring wrightscape runs on additional data sets
+ Exploring migrating code into MPI
+   </description>
+    </item>
+    
+    <item>
+      <title>Monday: Evolution manuscript revisions; early burst models, etc</title>
+      <link>/2011/08/16/monday-evolution-manuscript-revisions-early-burst-models-etc/</link>
+      <pubDate>Tue, 16 Aug 2011 12:13:46 +0000</pubDate>
+      
+      <guid>/2011/08/16/monday-evolution-manuscript-revisions-early-burst-models-etc/</guid>
+      <description>Evolution Manuscript Edits Received the reviews of our evolution manuscript back with relatively straight-forward edits. (Yay!)
+Need better citations of the early history in phylogenetic comparative methods, which is quite rich. Reviewer pointed me to an early book chapter by AW Edwards and LL Cavalli-Sforza introducing Brownian motion model in 1964, of which Joe Felsenstein has a nice description (of this and other work) in his 1988 review(Felsenstein, 1988).</description>
+    </item>
+    
+    <item>
+      <title>Monday: ESA, appendix, etc</title>
+      <link>/2011/07/25/monday-esa/</link>
+      <pubDate>Mon, 25 Jul 2011 23:22:37 +0000</pubDate>
+      
+      <guid>/2011/07/25/monday-esa/</guid>
+      <description>Reading Gene expression as a continuous phenotypic trait &amp;ndash; establishing signal for selection over drift. (Bedford &amp;amp; Hartl, 2009) OU vs BM (or just estimation of selection in the OU model relative to tree length) would have been an obvious way to do this, but the paper tries to make the argument that scaling the data and then comparing
+$$\frac{\sigma^2}{2\alpha} $$
+is some indication.
+Model choice section on warning signals Trying to figure out whether or not to remove this section (previously Appendix H: Model Choice and Model Adequacy).</description>
+    </item>
+    
+    <item>
+      <title>Showcasing the latest phylogenetic methods: AUTEUR</title>
+      <link>/2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur/</link>
+      <pubDate>Wed, 20 Jul 2011 15:07:14 +0000</pubDate>
+      
+      <guid>/2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur/</guid>
+      <description>While high-speed fish feeding videos may be the signature of the lab, dig a bit deeper and you&amp;rsquo;ll find a wealth of comparative phylogenetic methods sneaking in. It&amp;rsquo;s a natural union &amp;ndash; expert functional morphology is the key to good comparative methods, just as phylogenies hold the key to untangling the evolutionary origins of that morphology. The lab&amp;rsquo;s own former graduate, Brian O&amp;rsquo;Meara, made a revolutionary step forward in the land of phylogenetic methods when he unveiled Brownie in 2006, allowing researchers to identify major shifts in trait diversification rates across the tree.</description>
+    </item>
+    
+    <item>
+      <title>#ievobio Day 2</title>
+      <link>/2011/06/22/ievobio-day-2/</link>
+      <pubDate>Wed, 22 Jun 2011 23:44:58 +0000</pubDate>
+      
+      <guid>/2011/06/22/ievobio-day-2/</guid>
+      <description>Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it&amp;rsquo;s way to the web:
+ Nico Cellinese
+ Scott Chamberlain
+ Rob Guralnick
+  Meanwhile, my scratchpad of notes from day 2, tweet-style.
+My Lightning Talk Gave my lightning talk in this session, slides:
+R interface to TreeBASE</description>
+    </item>
+    
+    <item>
+      <title>Evolution Day 4 / #ievobio Day 1</title>
+      <link>/2011/06/21/evolution-day-4-ievobio-day-1/</link>
+      <pubDate>Tue, 21 Jun 2011 23:44:26 +0000</pubDate>
+      
+      <guid>/2011/06/21/evolution-day-4-ievobio-day-1/</guid>
+      <description>Start of the ievobio conference, simultaneously the forth day of evolution. ievobio conference was very busy, luckily given the nature of the conference it is also largely well documented online. My notes are again archived primarily in tweet form below. My personal highlights of the day included the Keynote by Cladio Silva on Provenance &amp;ndash; essentially supporting reproducible research workflows &amp;ndash; and examples through his vistrails software, and Mark Yoder&amp;rsquo;s demonstration of mx at the software bazaar.</description>
+    </item>
+    
+    <item>
+      <title>Evolution Day 3</title>
+      <link>/2011/06/20/evolution-day-3/</link>
+      <pubDate>Mon, 20 Jun 2011 23:44:25 +0000</pubDate>
+      
+      <guid>/2011/06/20/evolution-day-3/</guid>
+      <description>Talks  David Babst: Patterns of diversification on large species level supertree of extinct graptolites &amp;ndash; Actually, more on methods for making such a supertree for extinct taxa than on diversification analysis, but excellent talk.
+ Gene Hunt: _Using fossils to test the link between speciation and phenotypic evolution &amp;ndash; _another highlight of the talks, really looking at cladeogeneic vs anaogenic models of evolutionary change, modifying the approach of Folmer Bokma</description>
+    </item>
+    
+    <item>
+      <title>Slides from my talk at Evolution 2011</title>
+      <link>/2011/06/20/slides-from-my-talk-at-evolution-2011/</link>
+      <pubDate>Mon, 20 Jun 2011 20:59:59 +0000</pubDate>
+      
+      <guid>/2011/06/20/slides-from-my-talk-at-evolution-2011/</guid>
+      <description>A general model of continuous character evolution [iframe http://www.slideshare.net/slideshow/embed_code/8371419 425 355]
+View more presentations from Carl Boettiger
+As highlighted in the last slide (following acknowledgments), clicking on the results graphs will take you to the image repository, which records when the result was generated in my workstream, and provides a link to the script, software package and data to replicate. Code is parallel, examples shown took between 2 and 12 hours on a 16-core cpu.</description>
+    </item>
+    
+    <item>
+      <title>Evolution Day 2</title>
+      <link>/2011/06/19/evolution-day-2/</link>
+      <pubDate>Sun, 19 Jun 2011 23:44:20 +0000</pubDate>
+      
+      <guid>/2011/06/19/evolution-day-2/</guid>
+      <description>Second day of the conference. Many of the talks I most want to see are coming up Monday and Tuesday, and I have a bit more to do to prepare my own talk, so I take it a bit light on sessions. Highlight of the day was definitely the discussion with Mark McPeek and the other journal editors during and following the &amp;ldquo;Happy hour with the editors&amp;rdquo; session, which was perhaps the best event of the conference, despite a rather unimpressive attendance.</description>
+    </item>
+    
+    <item>
+      <title>Evolution Conference Day 1</title>
+      <link>/2011/06/18/evolution-conference-day-1/</link>
+      <pubDate>Sat, 18 Jun 2011 21:34:01 +0000</pubDate>
+      
+      <guid>/2011/06/18/evolution-conference-day-1/</guid>
+      <description>Morning Sessions SSB Symposium 8:30 - noon: Unified Approaches for Understanding Patterns of Character Evolution and Diversification  Stacey Smith (U. of Nebraska-Lincoln) and Boris Igic (U.of Illinois-Chicago) - &amp;ldquo;Introduction to models of character state-dependent diversification&amp;rdquo;  Introduces the BiSSE model.
+ Richard Fitzjohn (U. of British Columbia) - &amp;ldquo;Stochastic mapping incorporating differential diversification&amp;rdquo;  BiSSE comparison to traditional discrete-trait transition rate which ignores the correlation.
+ Folmer Bokma (Umeå University) - &amp;ldquo;Estimating speciation and extinction with incomplete phylogenies&amp;rdquo;   Emma Goldberg (University of Illinois-Chicago) - &amp;ldquo;Modes of speciation and character change from phylogenetic trees&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Friday: more labrid &amp; parrotfish wrightscape examples</title>
+      <link>/2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/</link>
+      <pubDate>Fri, 17 Jun 2011 15:16:32 +0000</pubDate>
+      
+      <guid>/2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/</guid>
+      <description>Runs from yesterday: MLE comparison of full labrid pharyngeal innovation (all parrotfish), alpha-v-sigma: Unfortunately, the all-variable mcmc over labrid tree was unsuccessful.
+Pure-brownie vs pure diversification ends up with the surprisingly opposite conclusion from the sigmas-alphas on parrotfish close ratio:
+Clearly a convergence problem but with which model? (see parameter distributions adjacent; following in photostream archive).
+Luckily this is not the case in the full labrid (size-corrected, protrusion, pharyngeal innovation) model set:</description>
+    </item>
+    
+    <item>
+      <title>Wrightscape labrid/parrotfish results; Evolution pres</title>
+      <link>/2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/</link>
+      <pubDate>Thu, 16 Jun 2011 22:14:58 +0000</pubDate>
+      
+      <guid>/2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/</guid>
+      <description>Analysis Summarizing recently completed runs:  Reviewing last night&amp;rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&amp;rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&amp;rsquo;t seem to want to run)
+ the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
+  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
+Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&amp;rsquo;s when theta could also vary.</description>
+    </item>
+    
+    <item>
+      <title>Wednesday MCMC and MLEs for wrightscape</title>
+      <link>/2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/</link>
+      <pubDate>Wed, 15 Jun 2011 22:36:07 +0000</pubDate>
+      
+      <guid>/2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/</guid>
+      <description>Wrote plotting function for wrightscape MCMC analysis
+ added support to write MCMC to a file.
+ exploring divergent MCMCs. more checks on NaNs
+ trying MLE initiated MCMC
+ Revising talk for evolution
+ tweaks to socialR reporting &amp;ndash; include error message, exit with status=1, fewer time sigfigs; see gitlog.
+   Max likelihoods &amp;amp; bootstraps Parrotfish protrusion (size corrected, 400 reps) If thetas are different and not allowed to vary, the alpha model will obviously do worse than the sigma model, even if it is correct.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday - Evolution/wrightscape talk &amp; sundry</title>
+      <link>/2011/06/14/tuesday-evolutionwrightscape-talk-sundry/</link>
+      <pubDate>Tue, 14 Jun 2011 23:29:48 +0000</pubDate>
+      
+      <guid>/2011/06/14/tuesday-evolutionwrightscape-talk-sundry/</guid>
+      <description>Computing For today&amp;rsquo;s analyses run history (with result/code links): see tweeting_cpu account or its search history (from Topsy)
+Analysis/Summary MCMC over parrotfish tree on protrusion doesn&amp;rsquo;t converge when alpha and sigma are both free to vary.
+MLE approach, (size-corrected) protrusion (12hr run)
+Vary both theta and sigma:
+Vary alpha and theta:
+alpha-theta wins over theta-sigma:
+git ids/urls git codes must be obtained at start of run, together with commit, or link will point to the wrong code!</description>
+    </item>
+    
+    <item>
+      <title>Monday -</title>
+      <link>/2011/06/13/monday-7/</link>
+      <pubDate>Mon, 13 Jun 2011 13:06:51 +0000</pubDate>
+      
+      <guid>/2011/06/13/monday-7/</guid>
+      <description> Algorithms group meeting Evolution presentation warningsignals runs complete and troubleshooting finalizing power in phylogenies manuscript cover letter, supplement, final check through, etc.  </description>
+    </item>
+    
+    <item>
+      <title>mcmc and bootstrapped likelihood runs on parrotfish tree</title>
+      <link>/2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/</link>
+      <pubDate>Thu, 09 Jun 2011 16:48:42 +0000</pubDate>
+      
+      <guid>/2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/</guid>
+      <description>Thursday Overview  Alan Meeting
+ Still running scripts, see below
+ pmc vignette
+  To Do  Got Duncan&amp;rsquo;s ROAuth utilities for RMendeley, still need to test.
+ Testing Scott&amp;rsquo;s rplos functions
+ Send Alan the paragraph for edits.
+  Computation Running on one  n 15: sim_general_mcmc.R MCMC of general model with 8 x 1e6 reps. alpha diverged. DEAD
+ n14 Retry above with 8 x 1e6 and with less general model: sigma, theta indep only.</description>
+    </item>
+    
+    <item>
+      <title>Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree</title>
+      <link>/2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/</link>
+      <pubDate>Wed, 08 Jun 2011 13:03:15 +0000</pubDate>
+      
+      <guid>/2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/</guid>
+      <description>Reviewed last night&amp;rsquo;s simulations, see yesterday&amp;rsquo;s post.  Simulated data testing: Fitting the general model well on the parrotfish tree even with clear simulated data seems hard. Simulating with alpha(intramandibulars) = .01, and others = 20, and fitting general model and the alpha-only independent model (release of constraint model). The release model MLE recovers reasonable values: alpha(intra) = 1.7, alpha(others) = 21.8, while the general model fit is clearly struggling even with SANN.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday: Parrotfish/wrightscape runs and code modification</title>
+      <link>/2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/</link>
+      <pubDate>Tue, 07 Jun 2011 23:47:09 +0000</pubDate>
+      
+      <guid>/2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/</guid>
+      <description>Runs: Mon midnight: parrotfish.R with updated SANN parameters and corrected output parameter labeling (always {Xo, alpha, sigma, theta} ordering), implemented on zero, nice 19. General model (&amp;ldquo;wright&amp;rdquo;) still not outperforming others, so still un-converged.
+[flickr]5808279169/[/flickr]
+ MCMC runs of gape.y and close on one, at nice 19 and 18 1e5 reps. (Alex running matlab nice 10). protrusion.y at nice 11, 1e6 reps.
+ open at nice 18 on zero, 1e6 reps.</description>
+    </item>
+    
+    <item>
+      <title>Parrotfish in wrightscape</title>
+      <link>/2011/06/06/parrotfish-in-wrightscape/</link>
+      <pubDate>Mon, 06 Jun 2011 17:54:23 +0000</pubDate>
+      
+      <guid>/2011/06/06/parrotfish-in-wrightscape/</guid>
+      <description>Bootstrapping option Needs a method to pass the optional optim arguments to the update function, such that update uses the same algorithm as the initial fit. Required being a little clever:
+[gist id=&amp;ldquo;1010999&amp;rdquo;]
+Done. but perhaps we won&amp;rsquo;t always want to bootstrap under this? I suppose it is good practice but slow! Shoot, now I need a lot of really large computers really soon.
+Excellent suggestion for better ways to do this from statscicomp list.</description>
+    </item>
+    
+    <item>
+      <title>Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</title>
+      <link>/2011/06/04/saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda/</link>
+      <pubDate>Sat, 04 Jun 2011 21:27:30 +0000</pubDate>
+      
+      <guid>/2011/06/04/saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda/</guid>
+      <description>bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&amp;rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
+Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.</description>
+    </item>
+    
+    <item>
+      <title>Friday</title>
+      <link>/2011/06/03/friday-5/</link>
+      <pubDate>Fri, 03 Jun 2011 17:52:31 +0000</pubDate>
+      
+      <guid>/2011/06/03/friday-5/</guid>
+      <description>A day&amp;rsquo;s agenda  Scott&amp;rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&amp;rsquo;s revisions 11-1p Meeting with Peter &amp;amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&amp;rsquo;s Autoparts paper 4-5:30  Colored git diff&amp;rsquo;s etc (from progit.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday: PMC, confidence intervals; screen code-tricks</title>
+      <link>/2011/05/31/tuesday-5/</link>
+      <pubDate>Tue, 31 May 2011 14:38:59 +0000</pubDate>
+      
+      <guid>/2011/05/31/tuesday-5/</guid>
+      <description>PMC  Final read through of manuscript from me and Peter.
+ Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
+sqrt(diag(solve(out$hessian)))
+ See conf_interval_ex.R. i.e for Geospiza tree is:
+[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.</description>
+    </item>
+    
+    <item>
+      <title>Monday</title>
+      <link>/2011/05/30/monday-6/</link>
+      <pubDate>Mon, 30 May 2011 23:44:54 +0000</pubDate>
+      
+      <guid>/2011/05/30/monday-6/</guid>
+      <description>Power in Phylogenies Paper (PMC)  Working through / incorporated Graham&amp;rsquo;s edits Added confidence intervals discussion tweaks to associated pmc package Exploring confidence intervals (and lack thereof) in literature on comparative methods. Pagel (1999) (Pagel, 1999) includes them, but few other papers do. He does not include any discussion about how these are calculated. Seems Sweave makes sense for the recreate-figures code from the cached data-files, but perhaps not for the entire analysis code-base (in demos/).</description>
+    </item>
+    
+    <item>
+      <title>Sunday</title>
+      <link>/2011/05/29/sunday-2/</link>
+      <pubDate>Sun, 29 May 2011 23:24:59 +0000</pubDate>
+      
+      <guid>/2011/05/29/sunday-2/</guid>
+      <description>Completed phylogenetic power manuscript updates based on Peter&amp;rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &amp;ndash; method done, time to write.</description>
+    </item>
+    
+    <item>
+      <title>End of NCEAS &amp; the legacy of synthetic data</title>
+      <link>/2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/</link>
+      <pubDate>Sun, 22 May 2011 15:40:43 +0000</pubDate>
+      
+      <guid>/2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/</guid>
+      <description>The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&amp;rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
+ that&amp;rsquo;s probably NCEAS&amp;rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>Algorithms group: MCMCMC</title>
+      <link>/2011/05/19/algorithms-group-mcmcmc/</link>
+      <pubDate>Thu, 19 May 2011 12:52:34 +0000</pubDate>
+      
+      <guid>/2011/05/19/algorithms-group-mcmcmc/</guid>
+      <description>Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&amp;rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.</description>
+    </item>
+    
+    <item>
+      <title>Thursday</title>
+      <link>/2011/05/19/thursday-5/</link>
+      <pubDate>Thu, 19 May 2011 10:52:22 +0000</pubDate>
+      
+      <guid>/2011/05/19/thursday-5/</guid>
+      <description>Finish and post core notes from yesterday. Debugging locale problem in phylo packages = success. Emmanuel has already patched drop.fossils() in the ape package, will see if Gieger and TreeSim try to handle locale issue directly too. Problem in comparisons:  &amp;gt; Sys.setlocale(locale = &amp;quot;&amp;quot;) # default locale using UTF8 # message deleted &amp;gt; &amp;quot;-1&amp;quot; &amp;gt; 0 [1] TRUE &amp;gt; Sys.setlocale(locale = &amp;quot;C&amp;quot;) # message deleted &amp;gt; &amp;quot;-1&amp;quot; &amp;gt; 0 [1] FALSE   Posted MCMCMC notes from algorithms.</description>
+    </item>
+    
+    <item>
+      <title>Birth-death Tutorial for PBG Core</title>
+      <link>/2011/05/18/birth-death-tutorial-for-pbg-core/</link>
+      <pubDate>Wed, 18 May 2011 23:55:05 +0000</pubDate>
+      
+      <guid>/2011/05/18/birth-death-tutorial-for-pbg-core/</guid>
+      <description>Ran a introductory tutorial on birth-death models for phylogenetic trees in R today for Peter Wainwright&amp;rsquo;s section of the Pop Bio Core sequence. Notes below, in a manner that may suggest I was better organized than reality might attest. Luckily the firsties are brilliant&amp;hellip;
+Getting Started Code is shown section by section with results in the following examples. If you prefer, you can download my full code file here, but you will have to comment out my flickr plotting utilities before it will run.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday: Parrotfish results, MCMCMC testing, APIs</title>
+      <link>/2011/05/17/tuesday-3/</link>
+      <pubDate>Tue, 17 May 2011 22:55:59 +0000</pubDate>
+      
+      <guid>/2011/05/17/tuesday-3/</guid>
+      <description>Finished review for TE
+ Shared post on TreeBASE API
+ Reviewed Scott&amp;rsquo;s updates to dryad R API, adjusted formatting.
+ Looking at documentation for the OAI-MPH queries, don&amp;rsquo;t seem to be as rich as Phylo-ws queries. This is why treeBASE metadata searches tend to download the full metadata set into R and query that. Looks like we&amp;rsquo;ll need to take a similar approach to Dryad, as it doesn&amp;rsquo;t seem like there&amp;rsquo;s a way to query the API by author name at all?</description>
+    </item>
+    
+    <item>
+      <title>TreeBASE in R: a first tutorial</title>
+      <link>/2011/05/16/ropensci-in-r-a-first-tutorial/</link>
+      <pubDate>Mon, 16 May 2011 19:46:54 +0000</pubDate>
+      
+      <guid>/2011/05/16/ropensci-in-r-a-first-tutorial/</guid>
+      <description>My TreeBASE R package is essentially functional now. Here&amp;rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
+TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.</description>
+    </item>
+    
+    <item>
+      <title>Thursday: Fun with databases continued</title>
+      <link>/2011/05/12/thursday-fun-with-databases-continued/</link>
+      <pubDate>Thu, 12 May 2011 20:32:26 +0000</pubDate>
+      
+      <guid>/2011/05/12/thursday-fun-with-databases-continued/</guid>
+      <description>Dryad Hilmar pointed out the documentation for machine access to Dryad fileson the wiki, much nicer than guessing from the XML. (Good thing too, since it&amp;rsquo;s a bit more complicated than I thought). Wiki describes four steps:
+ Get the dryad short-identifier for the datafile
+ look up the METS reference using that identifier
+ parse the XML returned by METS to find the bitstream url
+ Query the bitstream url and presto!</description>
+    </item>
+    
+    <item>
+      <title>Wednesday: Treebase</title>
+      <link>/2011/05/11/wednesday-ropensci/</link>
+      <pubDate>Wed, 11 May 2011 15:12:14 +0000</pubDate>
+      
+      <guid>/2011/05/11/wednesday-ropensci/</guid>
+      <description>TREEBASE PACKAGE:
+ Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
+ Modified the package with the option to return only max number of trees,
+try(xpathApply(search_returns, paste(&amp;quot;//rdf:li[position()&amp;lt; &amp;quot;, max_trees, &amp;quot;]&amp;quot;, sep=&amp;quot;&amp;quot;), function(x){  &amp;hellip;
+ Modified to check for branch lengths and remove trees without branch lengths from the returned set.</description>
+    </item>
+    
+    <item>
+      <title>Interfaces for databases: TreeBASE, Dryad, DataONE</title>
+      <link>/2011/05/10/interfaces-for-databases-ropensci-dryad-dataone/</link>
+      <pubDate>Tue, 10 May 2011 09:55:57 +0000</pubDate>
+      
+      <guid>/2011/05/10/interfaces-for-databases-ropensci-dryad-dataone/</guid>
+      <description>Next Steps Treebase  (See Sunday&amp;rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
+ RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
+ Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.</description>
+    </item>
+    
+    <item>
+      <title>Monday: meetings, notebook</title>
+      <link>/2011/05/09/monday-4/</link>
+      <pubDate>Mon, 09 May 2011 23:56:35 +0000</pubDate>
+      
+      <guid>/2011/05/09/monday-4/</guid>
+      <description>Coop &amp;amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
+Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
+$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
+$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
+Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.</description>
+    </item>
+    
+    <item>
+      <title>Sunday: a few Treebase R package updates</title>
+      <link>/2011/05/08/sunday-a-few-ropensci-r-package-updates/</link>
+      <pubDate>Sun, 08 May 2011 23:16:24 +0000</pubDate>
+      
+      <guid>/2011/05/08/sunday-a-few-ropensci-r-package-updates/</guid>
+      <description>Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.</description>
+    </item>
+    
+    <item>
+      <title>Thursday: parrotfish analysis</title>
+      <link>/2011/05/05/thursday-parrotfish-analysis/</link>
+      <pubDate>Thu, 05 May 2011 16:57:28 +0000</pubDate>
+      
+      <guid>/2011/05/05/thursday-parrotfish-analysis/</guid>
+      <description>Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
+Tree: alpha is favored in all the ratio traits, sometimes substantially.</description>
+    </item>
+    
+    <item>
+      <title>Weds: Parrotfish data set analysis</title>
+      <link>/2011/05/04/weds-parrotfish-data-set-analysis/</link>
+      <pubDate>Wed, 04 May 2011 23:16:29 +0000</pubDate>
+      
+      <guid>/2011/05/04/weds-parrotfish-data-set-analysis/</guid>
+      <description>Parrotfish  Need better convergence error handling.
+ Need to remedy: &amp;ldquo;Function cannot be evaluated at initial parameters&amp;rdquo; errors &amp;ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
+ Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.</description>
+    </item>
+    
+    <item>
+      <title>Tuesday: phylogenetics- wrightscape coding</title>
+      <link>/2011/05/03/tuesday-phylogenetics-wrightscape-coding/</link>
+      <pubDate>Tue, 03 May 2011 23:31:25 +0000</pubDate>
+      
+      <guid>/2011/05/03/tuesday-phylogenetics-wrightscape-coding/</guid>
+      <description>Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
+[flickr-gallery mode=&amp;ldquo;search&amp;rdquo; tags=&amp;ldquo;phylogenetics&amp;rdquo; min_upload_date=&amp;ldquo;2011-05-03 00:00:00&amp;rdquo; max_upload_date=&amp;ldquo;2011-05-03 23:59:59&amp;rdquo;]
+See code: loop_models_traits_regimes.R
+Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.</description>
+    </item>
+    
+    <item>
+      <title>treeBASE R interface: proposal for #iEvoBio</title>
+      <link>/2011/05/03/ropensci-an-r-interface-proposal-for-ievobio/</link>
+      <pubDate>Tue, 03 May 2011 21:07:36 +0000</pubDate>
+      
+      <guid>/2011/05/03/ropensci-an-r-interface-proposal-for-ievobio/</guid>
+      <description>Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.</description>
+    </item>
+    
+    <item>
+      <title>Monday</title>
+      <link>/2011/05/03/monday-3/</link>
+      <pubDate>Tue, 03 May 2011 11:09:43 +0000</pubDate>
+      
+      <guid>/2011/05/03/monday-3/</guid>
+      <description>Today:
+ Application for CPB travel funds. DONE
+ Faxed receipts from Felsenstein&amp;rsquo;s visit. DONE
+  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp;amp; Drummond, 2009) and BEST (Liu et. al. 2008).
+Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.</description>
+    </item>
+    
+    <item>
+      <title>Friday: Notes on Labrids, notes on Transforms and size-corrections</title>
+      <link>/2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/</link>
+      <pubDate>Fri, 29 Apr 2011 22:19:43 +0000</pubDate>
+      
+      <guid>/2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/</guid>
+      <description>The specific traits were:
+Oral Jaw traits
+ mouth-closing lever ratio (Close),
+ mouth-opening lever ratio (Open), kinematic
+ transmission coefficient of the oral jaws four-bar linkage (Jaw KT),
+ adductor mandibulae (AM) muscle mass,
+ premaxillary protrusion distance (Prot),
+ gape width (Gape),
+  Exterior to the Oral Jaws, not expected to become unconstrained:
+ levator posterior (LP) muscle mass: (Pharyngeal jaw muscle)
+ sterno-hyoideus (SH) muscle mass, (Primarily buccual cavity)</description>
+    </item>
+    
+    <item>
+      <title>Reading Notes, presentation prep treebase error handling</title>
+      <link>/2011/04/28/thursday-reading-notes/</link>
+      <pubDate>Thu, 28 Apr 2011 13:59:43 +0000</pubDate>
+      
+      <guid>/2011/04/28/thursday-reading-notes/</guid>
+      <description>Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&amp;rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &amp;ndash; check out the &amp;ldquo;new ideas&amp;rdquo; categories for worthwhile reading.</description>
+    </item>
+    
+    <item>
+      <title>Wednesday</title>
+      <link>/2011/04/27/wednesday-4/</link>
+      <pubDate>Wed, 27 Apr 2011 21:58:09 +0000</pubDate>
+      
+      <guid>/2011/04/27/wednesday-4/</guid>
+      <description>7:30-9:30 Review for Theoretical Ecology
+ Profiling wrightscape   Compile with profiling (-g -pg flags, in make profile). Run
+valgrind --leak-check-full ./wrightscape.exe  to remove memory links. Run
+valgrind --tool=callgrind kcachegrind callgrind.out.&amp;lt;###&amp;gt;  For profiling information
+Troubleshooting implementation of restricted-domain functions. Cannot be wright_tree since they have to know their likelihood method. Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&amp;rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.</description>
+    </item>
+    
+    <item>
+      <title>Accessing phylognenies in TreeBASE from R</title>
+      <link>/2011/04/26/accessing-phylognenies-in-ropensci-from-r/</link>
+      <pubDate>Tue, 26 Apr 2011 14:10:22 +0000</pubDate>
+      
+      <guid>/2011/04/26/accessing-phylognenies-in-ropensci-from-r/</guid>
+      <description>I&amp;rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&amp;rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.</description>
+    </item>
+    
+    <item>
+      <title>TreeBASE interface continued...</title>
+      <link>/2011/04/25/ropensci-interface-continued/</link>
+      <pubDate>Mon, 25 Apr 2011 10:11:31 +0000</pubDate>
+      
+      <guid>/2011/04/25/ropensci-interface-continued/</guid>
+      <description>Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
+Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
+Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&amp;rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.</description>
+    </item>
+    
+    <item>
+      <title>wrightscape profiling</title>
+      <link>/2011/04/24/wrightscape-profiling/</link>
+      <pubDate>Sun, 24 Apr 2011 18:50:11 +0000</pubDate>
+      
+      <guid>/2011/04/24/wrightscape-profiling/</guid>
+      <description>Optimization at the R level is substantially slower than at the C level:
+system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&amp;rsquo;s not done in a separate R function yet, the profiler cannot tell us this.</description>
+    </item>
+    
+    <item>
+      <title>Release of constraint in labrids?</title>
+      <link>/2011/04/22/release-of-constraint-in-labrids/</link>
+      <pubDate>Fri, 22 Apr 2011 18:45:05 +0000</pubDate>
+      
+      <guid>/2011/04/22/release-of-constraint-in-labrids/</guid>
+      <description>Started writing outline, assembling references
+ Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
+ Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
+ Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&amp;rsquo;t optimize the likelihood.</description>
+    </item>
+    
+    <item>
+      <title>Wednesday</title>
+      <link>/2011/04/20/wednesday-3/</link>
+      <pubDate>Wed, 20 Apr 2011 22:24:25 +0000</pubDate>
+      
+      <guid>/2011/04/20/wednesday-3/</guid>
+      <description>Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&amp;rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&amp;rsquo;t display (or share) stars. Can only sort A-Z or by most recent.</description>
+    </item>
+    
+    <item>
+      <title>TreePar: changing rates of evolution</title>
+      <link>/2011/04/17/treepar-changing-rates-of-evolution/</link>
+      <pubDate>Sun, 17 Apr 2011 18:11:46 +0000</pubDate>
+      
+      <guid>/2011/04/17/treepar-changing-rates-of-evolution/</guid>
+      <description>Review &amp;amp; Comments on Article T. Stadler&amp;rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
+The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.</description>
+    </item>
+    
+    <item>
+      <title>Friday</title>
+      <link>/2011/04/16/friday-4/</link>
+      <pubDate>Sat, 16 Apr 2011 20:00:49 +0000</pubDate>
+      
+      <guid>/2011/04/16/friday-4/</guid>
+      <description>Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
+ UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&amp;rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.</description>
+    </item>
+    
+    <item>
+      <title>TreeBase: exploratory exercises in database-driven phylogenetics</title>
+      <link>/2011/04/08/ropensci-exploratory-exercises-in-database-driven-phylogenetics/</link>
+      <pubDate>Fri, 08 Apr 2011 15:18:02 +0000</pubDate>
+      
+      <guid>/2011/04/08/ropensci-exploratory-exercises-in-database-driven-phylogenetics/</guid>
+      <description>Taking a look at the TreeBase database for potential project with Gabe &amp;amp; Duncan&amp;rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.</description>
+    </item>
+    
+    <item>
+      <title>Comparative methods paper status/to-do</title>
+      <link>/2011/04/06/comparative-methods-paper-statusto-do/</link>
+      <pubDate>Wed, 06 Apr 2011 11:56:20 +0000</pubDate>
+      
+      <guid>/2011/04/06/comparative-methods-paper-statusto-do/</guid>
+      <description>Finished revisions yesterday after rewriting introduction considerably. Following Graham&amp;rsquo;s comment, taking a closer look at aic error along power curves:
+&amp;gt; load(&amp;quot;../../pmc/demos/5594495254.Rdat&amp;quot;) &amp;gt; require(pmc) &amp;gt; aic &amp;lt;- 2 &amp;gt; aic_errors_size &amp;lt;- sapply(1:(length(n)), function(i) sum(size[[i]]$null_dist &amp;gt; aic)/size[[i]]$nboot ) &amp;gt; aic_errors_shape &amp;lt;- sapply(1:length(lambda), function(i) sum(shape[[i]]$null_dist &amp;gt; aic)/shape[[i]]$nboot ) &amp;gt; data.frame(n, aic_errors_size) n aic_errors_size 1 10 0.1945 2 20 0.2405 3 40 0.1800 4 60 0.1590 5 80 0.0750 6 100 0.1015 7 150 0.</description>
+    </item>
+    
+    <item>
+      <title>evolution manuscript revisions</title>
+      <link>/2011/04/04/phylogenetics-manuscript-revisions/</link>
+      <pubDate>Mon, 04 Apr 2011 22:48:21 +0000</pubDate>
+      
+      <guid>/2011/04/04/phylogenetics-manuscript-revisions/</guid>
+      <description>Heard back from Graham Friday on manuscript revisions. Notes on reviewing edits:
+ Reconsider title? (Currently: &amp;ldquo;is your phylogeny informative? estimating power in phylogenetic trees&amp;rdquo;). Suggestions from Graham/Brian?
+ 1000 taxa, 500 taxa seem to break the ouch package inferences.
+ Add table for AIC comparisons etc
+ Does AIC work better/worse on the lambda = 0 trees?
+n[1:3] [1] 10 50 100 aic_errors_size &amp;lt;- sapply(1:(length(n)-2), function(i) sum(size[[i]]$null_dist &amp;gt; aic)/size[[i]]$nboot ) aic_errors_size [1] 0.</description>
+    </item>
+    
+    <item>
+      <title>A few large data problems in Ecology &amp; Evolution</title>
+      <link>/2011/03/31/a-few-large-data-problems-in-ecology-evolution/</link>
+      <pubDate>Thu, 31 Mar 2011 11:18:38 +0000</pubDate>
+      
+      <guid>/2011/03/31/a-few-large-data-problems-in-ecology-evolution/</guid>
+      <description>I&amp;rsquo;ve joined a student-led seminar with Gabriel Becker in the Statistics department on dealing with large data, primarily in R. Offered to say a few words about large data problems in my field for a few minutes, so making some notes.
+Large dataBases  Genebank: $ &amp;gt; 10^8$ sequences. Phylogenetic inference
+ Morphological databases: Specialized databases with semantic tools (Dahdul et. al. 2010)
+ NEON observatories data Keller et. al.</description>
+    </item>
+    
+    <item>
+      <title>Brian O&#39;Meara discusses new algorithms approaches on Phylo</title>
+      <link>/2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phylo/</link>
+      <pubDate>Wed, 30 Mar 2011 20:52:04 +0000</pubDate>
+      
+      <guid>/2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phylo/</guid>
+      <description>Brian gave an excellent overview of Approximate Bayesian Computing (ABC) and described the TreEvo software he is developing with post-doc Barb Banbury. My notes from the seminar, with my own comments italics and a few added references
+Intro / Motivation  Rates of model innovation is rather slow
+ Can be impossible to specify in closed form (can&amp;rsquo;t specify median of binomial in closed form)
+ Perhaps it would be faster if we didn&amp;rsquo;t have to wait for someone to come up with all the likelihood functions</description>
+    </item>
+    
+    <item>
+      <title>Approximate Bayesian Computing (algorithms) methods</title>
+      <link>/2011/03/19/approximate-bayesian-hpc-abc-methods/</link>
+      <pubDate>Sat, 19 Mar 2011 11:07:50 +0000</pubDate>
+      
+      <guid>/2011/03/19/approximate-bayesian-hpc-abc-methods/</guid>
+      <description>Erick Matsen  asked me about the question at the end of Luke Harmon&amp;rsquo;s phyloseminar critiquing Approximate Bayesian Computing ABC methods. The question wasn&amp;rsquo;t any more specific, though Luke recognized the paper. Searching the literature didn&amp;rsquo;t turn anything up, asking Leo through the MCMC group on Mendeley I think this is the paper:
+﻿Robert, C.P. et al. Lack of confidence in ABC model choice. PNAS I, 8(2011). (arXiv)
+Seems a more pointed critique to ABC then Templeton&amp;rsquo;s discussion (Templeton, 2010) particularly as the lead author is a critic of Templeton (Berger et.</description>
+    </item>
+    
+    <item>
+      <title>Sam&#39;s Practice talk</title>
+      <link>/2011/03/18/sams-practice-talk/</link>
+      <pubDate>Fri, 18 Mar 2011 16:37:40 +0000</pubDate>
+      
+      <guid>/2011/03/18/sams-practice-talk/</guid>
+      <description>Notes from: Sam Price&amp;rsquo;s Practice Job Talk for Hull, UK, next week, in Wainwright lab:
+ Diversification of mammals predated KT event(Bininda-Emonds et. al. 2007) (also considerably later, but not right after) Ecological shift in wrasses to parrotfishes(Price et. al. 2010). No evidence of elevate rates of evolution. But, scraping parrotfishes do show difference (starting from base of Hipposcarus-Scarus common ancestor). Multiple transitions to/from reef living. 2x faster on coral reefs!</description>
+    </item>
+    
+    <item>
+      <title>Model identifiability in phylogenetic inference GTR&#43;I&#43;G</title>
+      <link>/2011/03/15/models-in-phylogenetic-inference/</link>
+      <pubDate>Tue, 15 Mar 2011 13:07:13 +0000</pubDate>
+      
+      <guid>/2011/03/15/models-in-phylogenetic-inference/</guid>
+      <description>Another phylogenetics paper (Perelman et. al. 2011) using GTR+I+G inspired me to look back over the discussion and objections with this model. This model is the basis of 100s of publications, 40 alone in Sys Bio in 2006(Allman et. al. 2008). There&amp;rsquo;s a decent discussion on Dechronization about the issue. There&amp;rsquo;s some treatment of identifiability on this issue, such as 2001 Sys Bio (Rogers, 2001) which suggests this is possible and a nice paper in Adv.</description>
+    </item>
+    
+    <item>
+      <title>Peter&#39;s talk </title>
+      <link>/2011/03/14/peters-talk/</link>
+      <pubDate>Mon, 14 Mar 2011 22:29:55 +0000</pubDate>
+      
+      <guid>/2011/03/14/peters-talk/</guid>
+      <description>Peter spoke in Sebastian&amp;rsquo;s lab meeting about a spatially explicit Moran model, for which he derives Fisher&amp;rsquo;s wave equation and an ancestry process. Here&amp;rsquo;s what he says,
+ the general plan is to describe a simple spatial model of adaptation (or, could be of invasion&amp;hellip;); and use it to derive (Fisher&amp;rsquo;s) traveling wave; the corrections that arise if you don&amp;rsquo;t assume the population is infinitely large; and describe how to follow lineages back through the expanding wave.</description>
+    </item>
+    
+    <item>
+      <title>Bodega evolution Tutorial: behind the scenes difficulties in R packages</title>
+      <link>/2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/</link>
+      <pubDate>Mon, 07 Mar 2011 21:22:42 +0000</pubDate>
+      
+      <guid>/2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/</guid>
+      <description>Just finished my tutorial for comparative methods on continuous traits in R, which I&amp;rsquo;ll be presenting on Wednesday with Justen Whittall. The tutorial is up on the Bodega Phylogenetics Wiki, together with the necessary data files.
+Errors that shouldn&amp;rsquo;t happen: a few package bugs in simulation functions Assembling the tutorial exposed a few more frustrations in the R packages. Consider simulating OU with rTraitCont:
+## Load the libraries, simulate a tree require(geiger) require(TreeSim) tree &amp;lt;- sim.</description>
+    </item>
+    
+    <item>
+      <title>Is BM nested in OU?  Understanding likelihoods of ouch</title>
+      <link>/2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/</link>
+      <pubDate>Fri, 25 Feb 2011 20:16:37 +0000</pubDate>
+      
+      <guid>/2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/</guid>
+      <description>A quick run of the example ouch code given by
+ ?bimac  will produce something of a surprise for most users:
+require(ouch) data(bimac) tree &amp;lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) h1 &amp;lt;- brown(log(bimac[&#39;size&#39;]),tree) h2 &amp;lt;- hansen(log(bimac[&#39;size&#39;]),tree,bimac[&#39;OU.1&#39;],sqrt.alpha=1,sigma=1) c(&amp;quot;BM LogLik&amp;quot;=h1@loglik, &amp;quot;OU LogLik&amp;quot;=h2@loglik) BM LogLik OU LogLik 17.33129 15.69682  These models are supposed to be nested, right? Set OU&amp;rsquo;s $ \alpha $ parameter to zero and you get BM, so how does it manage to do worse in log likelihood?</description>
+    </item>
+    
+    <item>
+      <title>Phylo: Luke Harmon</title>
+      <link>/2011/02/25/phylo-luke-harmon/</link>
+      <pubDate>Fri, 25 Feb 2011 14:36:16 +0000</pubDate>
+      
+      <guid>/2011/02/25/phylo-luke-harmon/</guid>
+      <description>My notes on Luke Harmon&amp;rsquo;s excellent talk on Phyloseminar this morning. See the recording of Luke&amp;rsquo;s actual talk to know what he said, below are my thoughts and notes to myself having watched the talk.
+Luke summarizes his goal rather nicely as:
+ Analyzing the data that people actually have to answer the questions they actually want to know
+ For him, this focuses on incomplete trees and non-Brownian models.</description>
+    </item>
+    
+    <item>
+      <title>Bodega evolution Workshop: Continuous Characters R session planning</title>
+      <link>/2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/</link>
+      <pubDate>Sat, 19 Feb 2011 03:45:09 +0000</pubDate>
+      
+      <guid>/2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/</guid>
+      <description>Preparing for the Bodega Phylogenetics workshop. I&amp;rsquo;ll be covering the R tutorial followingJusten Whittall&amp;rsquo;s introduction to continuous characters:
+ In my intro lecture i will discuss Felsenstein 1985 (including a little phylo signal), then follow with some alternatives (including the OU model). I can also discuss the tree transformations ala Pagel&amp;rsquo;s kappa, delta, etc. and mention multivariate approaches to detecting correlated characters in a phylogenetic context.
+ I&amp;rsquo;m toying with the idea of a brief (~1hr) phylogenetic signal / model inference exercise:</description>
+    </item>
+    
+    <item>
+      <title>Friday</title>
+      <link>/2011/02/18/friday/</link>
+      <pubDate>Fri, 18 Feb 2011 15:21:41 +0000</pubDate>
+      
+      <guid>/2011/02/18/friday/</guid>
+      <description>Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&amp;rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.</description>
+    </item>
+    
+    <item>
+      <title>Thursday</title>
+      <link>/2011/02/17/thursday-4/</link>
+      <pubDate>Thu, 17 Feb 2011 23:55:56 +0000</pubDate>
+      
+      <guid>/2011/02/17/thursday-4/</guid>
+      <description>Mostly working on manuscript revisions throughout this week. Haven&amp;rsquo;t really learned to integrate this workflow into the notebook. In some ways it makes more sense not to, as it interrupts the flow of the research description. But then it looks like I&amp;rsquo;m not doing anything when I have nothing meaningful in the entry. Perhaps I should just put a heading saying &amp;ldquo;Writing.&amp;rdquo;
+Morning&amp;rsquo;s reading: Reproducible Research  Victoria Stodden highlights the Journal of Biostatistics approach to Reproducible Research.</description>
+    </item>
+    
+    <item>
+      <title>Monday</title>
+      <link>/2011/02/14/monday/</link>
+      <pubDate>Mon, 14 Feb 2011 23:37:00 +0000</pubDate>
+      
+      <guid>/2011/02/14/monday/</guid>
+      <description>Excellent CPB visiting weekend with perspective students Thurs evening - Sunday morning. Hosting students, etc doesn&amp;rsquo;t make for much of a research entry Friday. Catching up with many things today.
+ ESA registration. Topics, Abstract
+ Checking in with Alan
+ Data workshop: create &amp;amp; post advertisement, map out subject areas
+ Reading: Syst Bio issue
+ Updated pubmed author alerts
+ Checking in with Peter &amp;amp; Graham on revisions</description>
+    </item>
+    
+    <item>
+      <title>Thursday</title>
+      <link>/2011/02/10/thursday-2/</link>
+      <pubDate>Thu, 10 Feb 2011 17:00:44 +0000</pubDate>
+      
+      <guid>/2011/02/10/thursday-2/</guid>
+      <description>Organizing for Future of Data workshop. Confirming time/room booking, etc. Science makes open access a special issue on Dealing with Data  Hosting visiting prospective CPB student, scheduling events. Going over edits questions with Peter R. on phylogenetics manuscript. Editing/pruning plugins &amp;ndash; starting to choke my Wordpress hosting. Folks at DreamHost have been very helpful, hopefully no key plugins are off. Apparently deactivating doesn&amp;rsquo;t necessarily prevent plugin from contributing to the memory load.</description>
+    </item>
+    
+    <item>
+      <title>Phylogenetic Monte Carlo for the Laser package</title>
+      <link>/2011/02/09/phylogenetic-monte-carlo-for-the-laser-package/</link>
+      <pubDate>Wed, 09 Feb 2011 18:17:54 +0000</pubDate>
+      
+      <guid>/2011/02/09/phylogenetic-monte-carlo-for-the-laser-package/</guid>
+      <description>Laser simulations: First ensuring example has expected behaviour, can in general get the expected likelihood differences between fits of Yule and birth-death models.
+Estimated models had been appearing identical in the runs (on left), seems to have been a bug. Distributions appear roughly the same across different tree sizes and values of death rate. General pattern of likelihood tests is reminiscent of the lambda models: high variability in likelihood ratios under bd simulations relative to the pure-birth simulations.</description>
+    </item>
+    
+    <item>
+      <title>Notes during revisions on phylogenetics manuscript</title>
+      <link>/2011/02/08/notes-during-revisions-on-phylogenetics-manuscript/</link>
+      <pubDate>Tue, 08 Feb 2011 13:47:10 +0000</pubDate>
+      
+      <guid>/2011/02/08/notes-during-revisions-on-phylogenetics-manuscript/</guid>
+      <description>I have made the revisions to attempt to address Graham&amp;rsquo;s annotations and Peter&amp;rsquo;s comments. (revisions are also up on the git repo.) I have added a brief section introducing the models immediately after the introduction. I also rewrote more of the PMC method to include definitions of p and power in the context of comparing model likelihood ratios. I moved the AIC section up before I talk about the other comparisons.</description>
+    </item>
+    
+    <item>
+      <title>more Phylogenetic signal metrics &amp; Brownie comparison</title>
+      <link>/2011/01/31/more-phylogenetic-signal-metrics-brownie-comparison/</link>
+      <pubDate>Mon, 31 Jan 2011 16:31:42 +0000</pubDate>
+      
+      <guid>/2011/01/31/more-phylogenetic-signal-metrics-brownie-comparison/</guid>
+      <description>Blomberg&amp;rsquo;s K estimates on trees of different sizes. Estimates differ across the distribution of possible data generated by BM model and generated from white noise. In principle, the K statistic should be able to distinguish between data simulated between these two. Of course, the ability to do this depends on the size and structure of the phylogenetic tree &amp;ndash; Blomberg&amp;rsquo;s K is not an estimate of whether the phylogeny is sufficiently structured as to be informative.</description>
+    </item>
+    
+    <item>
+      <title>Notes on Bokma 2010: evolution in drifts and jumps</title>
+      <link>/2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps/</link>
+      <pubDate>Mon, 31 Jan 2011 12:15:45 +0000</pubDate>
+      
+      <guid>/2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps/</guid>
+      <description>Bokma 2010 asks if there is an analytic expression for the likelihood in the evolutionary model he describes.
+The trait value of the process is determined by two things &amp;ndash; a Brownian motion random walk (diffusion) with rate parameter $ s_a^2$ and speciation events. Under a speciation event, the trait jumps to a new value that differs from it&amp;rsquo;s parent&amp;rsquo;s by some amount chosen from zero-mean normal distribution with variance $ s_c^2$.</description>
+    </item>
+    
+    <item>
+      <title>Phylogenetic Signal metrics</title>
+      <link>/2011/01/28/phylogenetic-signal-metrics/</link>
+      <pubDate>Fri, 28 Jan 2011 17:52:39 +0000</pubDate>
+      
+      <guid>/2011/01/28/phylogenetic-signal-metrics/</guid>
+      <description>Blomberg&amp;rsquo;s K distribution under data simulated from BM on the geospiza tree (red) compared to simulating independent random draws from the Normal distribution.
+Would be good to compare with differing size trees.</description>
+    </item>
+    
+    <item>
+      <title>Felsenstein (web) seminar</title>
+      <link>/2011/01/24/felsenstein-web/</link>
+      <pubDate>Mon, 24 Jan 2011 11:13:08 +0000</pubDate>
+      
+      <guid>/2011/01/24/felsenstein-web/</guid>
+      <description>Joe Felsenstein on phyloseminar (watch here). This morning. [ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets.[/ref] Discusses bridging population genetics &amp;amp; comparative methods: where does covariation in traits across a phylogeny come from?
+Morphometrics Using morphometrics (digitized landmarks [though now we can do spherical harmonics, CT scans, etc]) to evolve on a phylogeny under BM rather than use that data to infer phylogeny.</description>
+    </item>
+    
+    <item>
+      <title>Shape as well as size influence power of phylogeny</title>
+      <link>/2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/</link>
+      <pubDate>Fri, 21 Jan 2011 17:34:57 +0000</pubDate>
+      
+      <guid>/2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/</guid>
+      <description>Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.</description>
+    </item>
+    
+    <item>
+      <title>Estimating phylogenetic signal (lambda) on large trees</title>
+      <link>/2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/</link>
+      <pubDate>Thu, 20 Jan 2011 19:21:23 +0000</pubDate>
+      
+      <guid>/2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/</guid>
+      <description>Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
+[flickr size=&amp;ldquo;small&amp;rdquo; float=&amp;ldquo;left&amp;rdquo;]5370016511 [/flickr]
+[flickr size=&amp;ldquo;small&amp;rdquo; float=&amp;ldquo;right&amp;rdquo;]5370635360 [/flickr]
+compare to 281 taxa and then 600 taxa:
+[flickr size=&amp;ldquo;small&amp;rdquo; float=&amp;ldquo;left&amp;rdquo;]5310150538 [/flickr]
+By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.</description>
+    </item>
+    
+    <item>
+      <title>evolution- wrightscape</title>
+      <link>/2011/01/11/phylogenetics-wrightscape/</link>
+      <pubDate>Tue, 11 Jan 2011 15:38:41 +0000</pubDate>
+      
+      <guid>/2011/01/11/phylogenetics-wrightscape/</guid>
+      <description>Interesting meeting with Peter to discuss a variety of issues in comparative phylogenetics. Short notes:
+ Transforming data, log data
+ Trends in directions in convergent traits
+ multivariate inference
+ Manuscript
+  Wrightscape First have to test PMC to make sure it works with OUCH classes. Also adding PMC-required wrappers for wrightscape. Ended up modifying PMC to handle the case of simulate functions that return replicates, like these packages do.</description>
+    </item>
+    
+    <item>
+      <title>Phylo Monte Carlo for diversification rates</title>
+      <link>/2011/01/09/phylo-monte-carlo-for-diversification-rates/</link>
+      <pubDate>Sun, 09 Jan 2011 13:28:55 +0000</pubDate>
+      
+      <guid>/2011/01/09/phylo-monte-carlo-for-diversification-rates/</guid>
+      <description>Writing function wrappers for geiger functions to perform Phylogenetic Monte Carlo. Any object that has methods defined for update.objecttype (object, data) and simulate.objecttype(data), and loglik.object(object) should be able to use the montecarlotest() function. OUCH almost does this but not quite, since the datatype returned by &amp;lsquo;simulate&amp;rsquo; doesn&amp;rsquo;t match that needed by &amp;lsquo;update&amp;rsquo;. OUCH also uses S4 class styles.
+Wrote wrappers for ouch functions such that the ouch models will work with the same montecarlotest() code.</description>
+    </item>
+    
+    <item>
+      <title>Finishing up my #SICB Presentation</title>
+      <link>/2011/01/02/finishing-up-my-sicb-presentation/</link>
+      <pubDate>Sun, 02 Jan 2011 21:00:03 +0000</pubDate>
+      
+      <guid>/2011/01/02/finishing-up-my-sicb-presentation/</guid>
+      <description>Finished up my SICB presentation tweaks, slides now up on slideshare, flying off to the conference tomorrow. Created this in OpenOffice, started adding animations and then decided it would be more reliable to just duplicate slides to have parts appear (really just for the explanation of the likelihood ratio distributions under each model). Next time think I&amp;rsquo;ll stick with my usual inkscape slides tied together with latex beamer, the lack of vector images in this one is not ideal.</description>
+    </item>
     
     <item>
       <title>Comparative evolution: Is the data informative?</title>

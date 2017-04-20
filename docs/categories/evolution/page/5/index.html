@@ -141,115 +141,112 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/31/wednesday-7/">Wednesday</a></h2>
+    <h4>Wed, Aug 31, 2011</h4>
     <div class="article-style">
       
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
+      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/30/tuesday-8/">Tuesday</a></h2>
+    <h4>Tue, Aug 30, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
     <div class="article-style">
       
-      Simulation Results (code)  Analytics (Analytics code)
-Notebooks and files Looking at a better way to get figures into my online notebook. I often run simulations that generate figures which I look at, make some adjustments to the code based on the figure, and then delete or overwrite the figure without uploading it to my notebook, because it isn&rsquo;t &ldquo;right&rdquo; or &ldquo;finished&rdquo; and uploading takes a lot of clicks, particularly when the code generates 36 figures in a run.
+      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/adaptive-dynamics-updates/">Adaptive Dynamics Updates</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h2>
+    <h4>Sun, Aug 28, 2011</h4>
     <div class="article-style">
       
-      The numerical coexistence time simulations are still running, (Server rest brought down these runs two weeks ago, and they take a few weeks to do all the replicates) meanwhile here are the rest of the analytic set (and one simulation that finished). See code for parameters etc. (Below in frame)</p>
-
-<p>EVE Seminar: Brad Shaffer A rather good talk on the California Tiger salamander, emphasizing intersection of ecological and evolutionary investigation in a conservation, management-oriented context.
+      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
+Set up for running primates.R in likelihood mode with abstracted parallelization:
+Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
+hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/batch-data/">Batch Data</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/23/tuesday-rropensci-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
+    <h4>Tue, Aug 23, 2011</h4>
     <div class="article-style">
       
-      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
- Follow-up discussion on:
- List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
+      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
+XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
+&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/bodega-phylogenetics-workshop-day-1/">Bodega Phylogenetics Workshop Day 1</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h2>
+    <h4>Sun, Aug 21, 2011</h4>
     <div class="article-style">
       
-      Lecture notes for the phyolgenetics workshop. These are taken in real time, so may contain errors. I&rsquo;ll see if I keep this up throughout the course. See course website.
-Huelsenbeck 9a-11a
- Parameters θ Observation X p(X | θ) is known as the likelihood. Adjust parameter to maximize likelihood. Coin toss example  θ = prob of heads on a single toss of a coin, X is # of heads observed on n tosses.
+      Brief summary of events for this past academic year, as submitted to my dissertation committee.
+TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/bodega-phylogenetics-workshop-day-2/">Bodega Phylogenetics Workshop Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/18/thursday-reviewing-edits-ropensci-computers/">Thursday: reviewing edits, ropensci, computers.</a></h2>
+    <h4>Thu, Aug 18, 2011</h4>
     <div class="article-style">
       
-      Marine lab researchers are back, and network speeds have just about given up (down to bytes/s). This post is composed offline and will be uploaded to the notebook. Details are well logged on the Bodgea Phylogenetics Wiki so these are reasonably sketchy with my comments.
-My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega Phylogenetics Wiki today:
- User page Phylogenetics on Linux Becoming a Programmer Edits on Advice for Aspiring Phylogeneticists  Today&rsquo;s agenda  BEAST continued.
+      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
+Brief topic notes from today&rsquo;s meeting:
+ set up different take on layout: lambda, AIC, power
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/bodega-phylogenetics-workshop-day-3/">Bodega Phylogenetics Workshop Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/17/wrightscape-a-brief-tutorial/">Wrightscape: a brief tutorial</a></h2>
+    <h4>Wed, Aug 17, 2011</h4>
     <div class="article-style">
       
-      Rich Glor, Character Evolution Official slides and tutorial
- Weakness of ancestral state reconstruction
- Cunningham 1999 Losos 1999  Testing hypotheses with ancestral reconstruction
- Parsimony Farris method. Downward/upward pass. Gives a maximum parsimony reconstruction. May miss other ones. Apparently this Parsimony analysis can be done for continuous traits as well, needs a measure of distance Likelihood Pagel 1994 Schluter 1997   R tutorial (see anolis_cheat.R)
- Discrete trait ancestral state reconstruction
+      While the wrightscape package is still in active development, I realize the code base doesn&rsquo;t contain any introductory examples. So as a first tutorial, here&rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
+require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/bodega-workshop-day-4/">Bodega Workshop Day 4</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/08/16/tuesday-7/">Tuesday:</a></h2>
+    <h4>Tue, Aug 16, 2011</h4>
     <div class="article-style">
-      
-      Morphological Evolution Day:
- Peter Wainwright Sam Price Johnathan Eisen  We have the afternoon session off for field trips and research.</p>
-
-<p>Peter Wainwright, Comparative Analysis of Morphological Diversity  Fantastic diversity in morphology, corresponds to niche! But morphological diversity isn&rsquo;t evenly distributed across tree of life. (See slides, parallels Peter&rsquo;s section on core and gives the best biological coverage we&rsquo;ve had this week).  What changes morphological diversification rate
       
     </div>
   </div>
@@ -259,10 +256,10 @@ My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/4/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/4/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/evolution/page/6/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/evolution/page/6/">Next &raquo;</a></li>
     
   </ul>
 </nav>

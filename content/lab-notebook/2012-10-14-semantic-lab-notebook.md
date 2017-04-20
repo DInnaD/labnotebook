@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Semantic Lab Notebook
-categories: open-science
+categories: [open-science]
 tags: 
 - semantics
 - notebook-technology

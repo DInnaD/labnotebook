@@ -141,124 +141,128 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/computing/">Computing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/">Wrightscape labrid/parrotfish results; Evolution pres</a></h2>
+    <h4>Thu, Jun 16, 2011</h4>
     <div class="article-style">
       
-      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
+      Analysis Summarizing recently completed runs:  Reviewing last night&rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&rsquo;t seem to want to run)
+ the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
+  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
+Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&rsquo;s when theta could also vary.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/data-format-functions/">Data Format functions</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/">Wednesday MCMC and MLEs for wrightscape</a></h2>
+    <h4>Wed, Jun 15, 2011</h4>
     <div class="article-style">
       
-      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
- Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
- should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
+      Wrote plotting function for wrightscape MCMC analysis
+ added support to write MCMC to a file.
+ exploring divergent MCMCs. more checks on NaNs
+ trying MLE initiated MCMC
+ Revising talk for evolution
+ tweaks to socialR reporting &ndash; include error message, exit with status=1, fewer time sigfigs; see gitlog.
+   Max likelihoods &amp; bootstraps Parrotfish protrusion (size corrected, 400 reps) If thetas are different and not allowed to vary, the alpha model will obviously do worse than the sigma model, even if it is correct.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/14/tuesday-evolutionwrightscape-talk-sundry/">Tuesday - Evolution/wrightscape talk &amp; sundry</a></h2>
+    <h4>Tue, Jun 14, 2011</h4>
     <div class="article-style">
       
-      Automated scripts for image uploads. Tag-based generation of a slideshow:</p>
-
-<p>Running the script:
- ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.</p>
-
-<p>This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).
+      Computing For today&rsquo;s analyses run history (with result/code links): see tweeting_cpu account or its search history (from Topsy)
+Analysis/Summary MCMC over parrotfish tree on protrusion doesn&rsquo;t converge when alpha and sigma are both free to vary.
+MLE approach, (size-corrected) protrusion (12hr run)
+Vary both theta and sigma:
+Vary alpha and theta:
+alpha-theta wins over theta-sigma:
+git ids/urls git codes must be obtained at start of run, together with commit, or link will point to the wrong code!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/evolution-2010/">Evolution 2010</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/13/monday-7/">Monday -</a></h2>
+    <h4>Mon, Jun 13, 2011</h4>
     <div class="article-style">
-      
-      Carl Boettiger A new phylogenetic comparative method: detecting niches and transitions with continuous characters  My slides:
-A new phylogenetic comparative method: detecting niches and transitions with continuous characters
-View more presentations from cboettig.
- Joe Felsenstein A comparative method for discrete and continuous characters using the threshold model
- Lynsey McInnes: Deep-time changes to equilibrium diversity &ndash; a simulation study of th power to detect rule changes from reconstructed phylogenies
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/evolution-2010-day-2/">Evolution 2010 Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/">mcmc and bootstrapped likelihood runs on parrotfish tree</a></h2>
+    <h4>Thu, Jun 9, 2011</h4>
     <div class="article-style">
       
-      Clay Cressler : Can you trust evolutionary parameters estimated by complex phylogenetic comparative methods? A simulation study with OUCH
- Jeet Sukumaran (Mark Holder lab) Performance and robustness of phylogeographic analytical studies
-  Tests common macroscopic models of inferring population structure (i.e. via coalescent) an individual based simulation model.
- Graham Slater, Luke Harmon, Liam Revell, Marc Suchard, Mike Alfaro. Estimating rates of phenotypic evolution and speciation from incomplete trees.
+      Thursday Overview  Alan Meeting
+ Still running scripts, see below
+ pmc vignette
+  To Do  Got Duncan&rsquo;s ROAuth utilities for RMendeley, still need to test.
+ Testing Scott&rsquo;s rplos functions
+ Send Alan the paragraph for edits.
+  Computation Running on one  n 15: sim_general_mcmc.R MCMC of general model with 8 x 1e6 reps. alpha diverged. DEAD
+ n14 Retry above with 8 x 1e6 and with less general model: sigma, theta indep only.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/evolution-2010-day-3/">Evolution 2010 Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/">Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree</a></h2>
+    <h4>Wed, Jun 8, 2011</h4>
     <div class="article-style">
       
-      Chris Martin: Trophic innovation drives exceptional rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes  Fantastic story of exceptional rates of evolution and trophic novelty in two tropical lakes. (8:45, Adaptation 9, talk 097002)
- David Plachetzki: Deep homology and the evolution of animal senses: insights from Cnidaria  Cnidarians have homologous proteins to opsins and taste receptors!
- Jeremy Yoder: Coevolution and gene flow in obligate pollination mutualism  Two species of joshua tree each with its own pollinator yucca moth.
+      Reviewed last night&rsquo;s simulations, see yesterday&rsquo;s post.  Simulated data testing: Fitting the general model well on the parrotfish tree even with clear simulated data seems hard. Simulating with alpha(intramandibulars) = .01, and others = 20, and fitting general model and the alpha-only independent model (release of constraint model). The release model MLE recovers reasonable values: alpha(intra) = 1.7, alpha(others) = 21.8, while the general model fit is clearly struggling even with SANN.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/evolutionary-regime-shift-examples/">Evolutionary Regime Shift examples</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/">Tuesday: Parrotfish/wrightscape runs and code modification</a></h2>
+    <h4>Tue, Jun 7, 2011</h4>
     <div class="article-style">
       
-      Time to get more data and examples to start testing methods, particularly for cases in where regime shifts are hypothesized by painting a tree. Starting a Mendeley public collection for the literature in Web of Science that actually applies either the OUCH or Brownie framework to identify shifts in rates of continuous trait evolution.
-Research collected using Mendeley</p>
-
-<p>now I&rsquo;ll have to see how hard it is to obtain both the trees and trait data&hellip;
+      Runs: Mon midnight: parrotfish.R with updated SANN parameters and corrected output parameter labeling (always {Xo, alpha, sigma, theta} ordering), implemented on zero, nice 19. General model (&ldquo;wright&rdquo;) still not outperforming others, so still un-converged.
+[flickr]5808279169/[/flickr]
+ MCMC runs of gape.y and close on one, at nice 19 and 18 1e5 reps. (Alex running matlab nice 10). protrusion.y at nice 11, 1e6 reps.
+ open at nice 18 on zero, 1e6 reps.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/06/parrotfish-in-wrightscape/">Parrotfish in wrightscape</a></h2>
+    <h4>Mon, Jun 6, 2011</h4>
     <div class="article-style">
       
-      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
- I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
+      Bootstrapping option Needs a method to pass the optional optim arguments to the update function, such that update uses the same algorithm as the initial fit. Required being a little clever:
+[gist id=&ldquo;1010999&rdquo;]
+Done. but perhaps we won&rsquo;t always want to bootstrap under this? I suppose it is good practice but slow! Shoot, now I need a lot of really large computers really soon.
+Excellent suggestion for better ways to do this from statscicomp list.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/04/saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda/">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h2>
+    <h4>Sat, Jun 4, 2011</h4>
     <div class="article-style">
       
-      Working on manuscript for this today, hope to have a draft soon.
- Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
- Sent draft to Brian and Peter, and Wainwright lab.
- Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
+      bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
+Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/06/03/friday-5/">Friday</a></h2>
+    <h4>Fri, Jun 3, 2011</h4>
     <div class="article-style">
       
-      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
+      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
       
     </div>
   </div>
@@ -268,10 +272,10 @@ Research collected using Mendeley</p>
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/6/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/6/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/evolution/page/8/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/evolution/page/8/">Next &raquo;</a></li>
     
   </ul>
 </nav>

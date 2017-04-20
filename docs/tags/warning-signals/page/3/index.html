@@ -141,113 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/annual-progress-report/">Annual Progress Report</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2012/01/06/optimal-policy-with-assymetric-costs-to-changing-harvest-quotas/">Optimal policy with assymetric costs to changing harvest quotas</a></h2>
+    <h4>Fri, Jan 6, 2012</h4>
     <div class="article-style">
       
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
+      The optimal policy with symmetric L1 costs to changing the quotas results in the solutions that stop changing, sometimes at no harvest (if there&rsquo;s scrap value), or at some fixed high harvest if no scrap value. (See earlier notes). Asymmetric costs of comparable magnitude result in more crashes.
+When we apply an L1 norm cost of the same magnitude as before for decreasing quotas, but allow increasing quotas to be free (no cost to environmental lobby), the solution follows the Reed optimum is in purple (harvest_alt) (cost-free adjustment), while the blue is the harvest level being implemented with a cost:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/12/09/friday-9/">Friday</a></h2>
+    <h4>Fri, Dec 9, 2011</h4>
     <div class="article-style">
       
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
-
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
+      Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/effective-warning-signals/">Effective warning signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/12/07/wednesday-11/">Wednesday - wrightscape runs and various other things</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
- Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
+      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/entry-title/">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/12/06/tuesday-two-insights/">Tuesday -- two insights</a></h2>
+    <h4>Tue, Dec 6, 2011</h4>
     <div class="article-style">
+      
+      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
+ Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
+ Bonvin approach &ndash; adjust the control instead (NCO Control).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/goals/">Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h2>
+    <h4>Wed, Nov 30, 2011</h4>
     <div class="article-style">
       
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/18/friday-7/">Friday</a></h2>
+    <h4>Fri, Nov 18, 2011</h4>
     <div class="article-style">
       
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
+      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h2>
+    <h4>Wed, Nov 9, 2011</h4>
     <div class="article-style">
       
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting/">Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/03/warning-signals---noise-response/">Warning signals - noise response</a></h2>
+    <h4>Thu, Nov 3, 2011</h4>
     <div class="article-style">
+      
+      Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h2>
+    <h4>Fri, Oct 28, 2011</h4>
     <div class="article-style">
       
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/reading/">Reading</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/21/friday-optimal-control/">Friday: Optimal Control</a></h2>
+    <h4>Fri, Oct 21, 2011</h4>
     <div class="article-style">
       
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
+      Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
+subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
+and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
+$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
       
     </div>
   </div>
@@ -257,10 +261,10 @@ Warning Signals  Implementing likelihood-based methods for early warning signals
 <nav>
   <ul class="pager">
     
-    <li><a href="//tags/warning-signals/page/2/">&laquo; Previous</a></li>
+    <li><a href="../../../../tags/warning-signals/page/2/">&laquo; Previous</a></li>
     
     
-    <li><a href="//tags/warning-signals/page/4/">Next &raquo;</a></li>
+    <li><a href="../../../../tags/warning-signals/page/4/">Next &raquo;</a></li>
     
   </ul>
 </nav>

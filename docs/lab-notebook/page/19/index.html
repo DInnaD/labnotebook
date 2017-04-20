@@ -140,104 +140,108 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/08/monday-esa-conference/">Monday: ESA Conference</a></h2>
+    <h4>Mon, Aug 8, 2011</h4>
     <div class="article-style">
       
-      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
- Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
+      Hope to process the day&rsquo;s happenings later, meanwhile just a snapshot of my twitter-stream notes. My own highlights certainly include Steve Pacala&rsquo;s fantastic plenary session in receiving the MacArthur award, and Mark Urban&rsquo;s crystal clear presentation on &ldquo;climate collisions.&rdquo; I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away. In pointing out really fundamental concepts, such details just aren&rsquo;t so important.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/multivariate-normal-random-variables/">Multivariate normal random variables</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/02/fisheries-stock-assessments-for-early-warning/">Fisheries stock assessments for early warning</a></h2>
+    <h4>Tue, Aug 2, 2011</h4>
     <div class="article-style">
       
-      GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
+      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
+<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
+Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/02/monday-8/">Monday</a></h2>
+    <h4>Tue, Aug 2, 2011</h4>
     <div class="article-style">
       
-      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
- Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
- Methods write-up, read/compare to other examples.
- Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
+      Peter advice  Figure out your focus. Have all the stuff from your PhD published (at least submitted), make sure your post-doc moves forward. (#1 mistake). Publish with data folks to show you have much to offer the non-theorist community Speak to potential advisers, get them excited about the work. Berkeley over Michigan over NESCent/NIMBioS. Visit Berkeley. Ackerley on sabbatical?  Review for Theoretical Ecology Working on another review. Not a bad paper, but presenting many classical results as novel.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/30/saturday-fisheries-data-survey-warning-signals/">Saturday: Fisheries Data Survey, Warning Signals</a></h2>
+    <h4>Sat, Jul 30, 2011</h4>
     <div class="article-style">
       
-      Fig 1: Noise in lavae dominate
-Fig: 2 lower mortality, higher noise
- Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
+      Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.
+Apparently several of the data sets are problematic. All deal with catch instead of abundance and measurement error is highly significant, though it seems that some may suffer from more troublesome systematic errors. Taking a quick look over what is available. Lots of data, but despite what appears to be some rather sophisticated tools available on the sites, I&rsquo;m having a bit of difficulty finding just what I&rsquo;m looking for.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/open-science-summit/">Open Science Summit</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/29/2268/">Friday: ESA Practice Talk</a></h2>
+    <h4>Fri, Jul 29, 2011</h4>
     <div class="article-style">
+      
+      Practice talk in Teary today; Jamie, Marissa and myself. Lots of discussion and feedback. Some good general discussion about presentations as well &ndash; Marissa mentioned the Oceanographic Institute&rsquo;s tips for speakers and other resources on her website. Brief notes on changes to make in my talk based on some excellent discussion:
+ Julie and others point out I should at least reference Type I &amp; Type II Error &ndash; statement contrasting scientific hypothesis testing vs managing for collapse.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/27/weds-manuscript/">Weds: Manuscript</a></h2>
+    <h4>Wed, Jul 27, 2011</h4>
     <div class="article-style">
+      
+      I&rsquo;ve removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:
+ Here the authors claim that by using particular structural models based on assumptions about underlying dynamics their method makes it easy to identify cases that do not conform to the assumptions. It would be interesting to evaluate this claim but it would require a substantial amount of analysis that may be beyond the scope of a short paper.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/open-science-summit-day-2/">Open Science Summit day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits/">Wednesday: ESA presentation, manuscript/appendix edits </a></h2>
+    <h4>Wed, Jul 27, 2011</h4>
     <div class="article-style">
+      
+      Misc morning  Site trouble, again. requested migrating servers. Done. hope we&rsquo;re more stable now. Checking in with Peter about migrating site domain. Sent request to Matt. Looking over NERSC PI application, see first allocation instructions. Emailed Mary Ann w/ questions on forms. SMB 2012 is at NIMBioS! Nick to join ropensci. Coordinating launch, advisers, etc. Karthik and Scott have done a great job editing my intro post and sprucing up the site.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/organizing-analyses-data-codes/">Organizing analyses, data, codes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/26/tues-esa-presentation/">Tues: ESA presentation</a></h2>
+    <h4>Tue, Jul 26, 2011</h4>
     <div class="article-style">
       
-      Codes  Should have a suite of likelihood tools as a package Suite of data manipulation functions, mostly to and from ape/ouch<br />
-idealized workflow:
- Read in nexus file and csv data. Call model fit for each model to be tested (BM, one peak, multiple peaks, multiple peaks with independent selective forces)<br />
- A function checks tree and data for matches, discards those without match. This could be done automatically by the model fit.
+      Working on ESA presentation. See slides and code for details.
+ Adding movie a time series which gets longer (and closer to collapse) each frame, with corresponding warning signals for the interval thus far shown below (for CV and autocorrelation). Include sparsely sampled (100) and densely sampled (1000) examples. Compare always using a sliding window-size equal to half the length of the available data (works well on longer time series) to a fixed-width sliding window (doesn&rsquo;t work well ever).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/parallel-r/">Parallel R</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/25/monday-esa/">Monday: ESA, appendix, etc</a></h2>
+    <h4>Mon, Jul 25, 2011</h4>
     <div class="article-style">
       
-      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      Reading Gene expression as a continuous phenotypic trait &ndash; establishing signal for selection over drift. (Bedford &amp; Hartl, 2009) OU vs BM (or just estimation of selection in the OU model relative to tree length) would have been an obvious way to do this, but the paper tries to make the argument that scaling the data and then comparing
+$$\frac{\sigma^2}{2\alpha} $$
+is some indication.
+Model choice section on warning signals Trying to figure out whether or not to remove this section (previously Appendix H: Model Choice and Model Adequacy).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/parallel-at-last/">Parallel at last</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/07/25/monday-algorithms-discussion-group-em-finished/">Monday: Algorithms Discussion Group, EM finished</a></h2>
+    <h4>Mon, Jul 25, 2011</h4>
     <div class="article-style">
-      
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
       
     </div>
   </div>
@@ -247,10 +251,10 @@ idealized workflow:
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/18/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/18/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/20/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/20/">Next &raquo;</a></li>
     
   </ul>
 </nav>

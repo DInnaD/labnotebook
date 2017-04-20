@@ -1,7 +1,7 @@
 ---
 layout: post
 category: ecology
-tags: warning-signals decision-theory
+tags: [warning-signals, decision-theory]
 
 ---
 

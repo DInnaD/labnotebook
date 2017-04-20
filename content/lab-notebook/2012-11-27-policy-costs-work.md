@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [ecology]
-tags: pdg-control
+tags: [pdg-control]
 
 ---
 

@@ -140,106 +140,128 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h2>
+    <h4>Wed, Nov 30, 2011</h4>
     <div class="article-style">
       
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
+      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h2>
+    <h4>Tue, Nov 29, 2011</h4>
     <div class="article-style">
       
-      GTC: Assessment  Today I&rsquo;m facilitating the GTC session discussing Assessment. Here&rsquo;s our VUE map of the activity.<br />
-What better way to begin a discussion about assessment than with an assessment? We began with a somewhat tongue-in-cheek quiz about the &ldquo;right&rdquo; way to conduct an assessment, modelling some common faults in poor assessments while also serving as a brainstorm to get some ideas out there. We presented some background theory on assessment, drawing from the excellent text: Handelsman, J.
+      Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
+Unit tests.
+Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/28/monday-11/">Monday: submodels for full traits</a></h2>
+    <h4>Mon, Nov 28, 2011</h4>
     <div class="article-style">
       
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
+      Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
+Creating unit tests:
+Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
+require(wrightscape) data(labrids) s1_spec &lt;- list(alpha = &quot;global&quot;, sigma = &quot;indep&quot;, theta = &quot;global&quot;) s1 &lt;- multiTypeOU(data = dat[&quot;close&quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &lt;- levels(pharyngeal) s1$sigma[&quot;other&quot;] &lt;- .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h2>
+    <h4>Mon, Nov 28, 2011</h4>
     <div class="article-style">
       
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
+      I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
+$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Friday: wrightscape, ggplot, wp memory</a></h2>
+    <h4>Fri, Nov 25, 2011</h4>
     <div class="article-style">
       
-      Graduate Teaching Community &ndash; reflections on teaching Haven&rsquo;t made a lot of entries in this notebook as I&rsquo;m not teaching regularly at the moment, though am still attending meetings of the Graduate Teaching Community, a record of which can be found on our GTC blog. But today in GTC we are thinking about reflections on teaching, and starting with a little bit of journaling, so this seemed like a good place to do it.
+      more sub-model comparisons wrightscape sub-models:
+ a1 independent alphas, global theta, sigmas
+ bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
+ a2 independent alpha, theta, global sigma
+ s1 indep sigma, global alpha, theta
+ s2 indep sigma, theta, global alpha
+  Basic Nelder Mead Simulated annealing associated parameter estimates
+This approach is really not finding a very robust solution.
+Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h2>
+    <h4>Wed, Nov 23, 2011</h4>
     <div class="article-style">
+      
+      Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
+$$x_{t+1} = z_t f(x_t) $$
+where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
+$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/actually-starting-at-arkin-lab/">Actually starting at Arkin Lab</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">some configuration notes: RStudio setup, syntax highlighting in sweave</a></h2>
+    <h4>Tue, Nov 22, 2011</h4>
     <div class="article-style">
       
-      Meeting with M. Samoilov  Kurtz Theorems: two limits, timescale and system size, often taken in the wrong order in practice. Einstein-Smoluchowski debate regarding Langevin correspondence to Ito vs Statonvich representations resolved: [theorem]. (Statonvich is the more natural interpretation of the way in which we measure data to compare to Langevin. Of course Ito and Stratonvich can be mapped back and forth anyway). Of course this difference doesn&rsquo;t exist, and nothing goes wrong / no stochastic surprises if dynamics are linear.
+      Installing R-Studio on my dreamhost VPS server. Dreamhost runs debian lenny, which is a bit dated, making it necessary to install from source. (Would be easy on a modern ubuntu server). Here we go.
+First, we probably want to install R from source to begin with (Lenny comes with cutting-edge R 2.7.1&hellip;). This needs to be done with shared libs enabled. Also I needed to run it without recommended-packages to get the initial install working
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/18/friday-7/">Friday</a></h2>
+    <h4>Fri, Nov 18, 2011</h4>
     <div class="article-style">
       
-      Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
+      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Steve Pacala - Storer lecture</a></h2>
+    <h4>Thu, Nov 17, 2011</h4>
     <div class="article-style">
       
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
+      Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
+Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
+ Carbon sink is half ocean, half terrestrial
+  A grim future:
+ 450ppm not feasible
+ 500ppm best case
+ 550ppm is likely even if we are largely successful
+  Even worse if the terrestrial sink collapses.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/">wrightscape and sensitivity to initial conditions</a></h2>
+    <h4>Thu, Nov 17, 2011</h4>
     <div class="article-style">
-      
-      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
- seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
       
     </div>
   </div>
@@ -249,10 +271,10 @@ objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solut
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/8/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/8/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/10/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/10/">Next &raquo;</a></li>
     
   </ul>
 </nav>

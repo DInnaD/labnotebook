@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: [ecology]
-tags: nonparametric-bayes
+tags: [nonparametric-bayes]
 modified: 2012-12-12
 
 ---

@@ -141,6 +141,82 @@
   
   
   <div>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Current Situation &amp; Challenges 2000 bootstraps of models fitted to simulated ou2 data
+ A single data set is produced by simulation under a specified ou2 model on the Labrid tree (actually one that was fitted to the original Labrid data). Each model (Brownian motion and 1 to 5 separate OU peaks (assigned by my partition function) is fitted to this dataset. Each fitted model is used to generate 2000 replicate datasets For each replicate dataset, the model used to generate it is compared to each other model in likelihood ratio test 2(log(L~1~) − log(L~2~)), where L~1~ is the likelihood of the model that generated the data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Graham &amp; Peter Meeting Fig 1
+Fig 2
+ Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
+Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
+
+<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../../../1/01/01/still-puzzling-on-lr/">Still puzzling on LR</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
@@ -174,7 +250,7 @@
 <nav>
   <ul class="pager">
     
-    <li><a href="//tags/pmc/page/2/">&laquo; Previous</a></li>
+    <li><a href="../../../../tags/pmc/page/2/">&laquo; Previous</a></li>
     
     
   </ul>

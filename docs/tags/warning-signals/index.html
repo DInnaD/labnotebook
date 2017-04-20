@@ -141,122 +141,121 @@
   
   
   <div>
-    <h2><a href="../../2010/12/10/warning-signals-manuscript/">Warning signals manuscript</a></h2>
-    <h4>Fri, Dec 10, 2010</h4>
+    <h2><a href="../../2012/10/17/notes/">Notes</a></h2>
+    <h4>Wed, Oct 17, 2012</h4>
     <div class="article-style">
       
-      Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
- Intro/Abstract
- Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
- Nonlinearity not observed with infinite data
- reasons detection fails: Identifiability issue &amp; Power issue. Example signal that exists but inadequate power to detect?
- Eigenvalue story
- Probability of data vs Probability of a statistic
+      Talking points for phone interview with Lucy
+Finding warning signals in the wild
+ Gold standard &ndash; experimental group, control group Real world: We have no control group.
+  Would we know a warning signal when we saw it?
+From statistics to models: We fit a generalized models of the processes that are and aren&rsquo;t approaching a tipping point, and compare the models. The modeling approach is also more sensitive than the simple statistics.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/09/exploring-power-in-warning-signals/">Exploring Power in Warning Signals</a></h2>
-    <h4>Thu, Dec 9, 2010</h4>
+    <h2><a href="../../2012/04/26/2012-04-20/">2012-04-20</a></h2>
+    <h4>Thu, Apr 26, 2012</h4>
     <div class="article-style">
       
-      Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
-<a href="code ids in image discription, compare to structured-popultions git log. ">flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;stochpowercurvesslides&rdquo;</a>
-Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.
+      Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
+Added Alan&rsquo;s edits.
+ Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
+Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
+Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
+ These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/12/04/identifying-warning-signals/">Identifying Warning Signals</a></h2>
-    <h4>Sat, Dec 4, 2010</h4>
+    <h2><a href="../../2012/04/19/catching-up/">Catching up</a></h2>
+    <h4>Thu, Apr 19, 2012</h4>
     <div class="article-style">
       
-      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
+      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
+    <h2><a href="../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h2>
+    <h4>Tue, Apr 10, 2012</h4>
     <div class="article-style">
       
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
+      rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
+    <h4>Tue, Feb 28, 2012</h4>
     <div class="article-style">
       
-      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
+      Description: an example trying to detect early warning signals in data from fisheries collapses
+Set up markdown format and image uploads.
+render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
+require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/28/likelihoods-for-quadratic-models-cont/">Likelihoods for quadratic models cont</a></h2>
-    <h4>Sun, Nov 28, 2010</h4>
+    <h2><a href="../../2012/02/27/monday-14/">Monday</a></h2>
+    <h4>Mon, Feb 27, 2012</h4>
     <div class="article-style">
       
-      Considering the fits of the quadratic models from yesterday.
-[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
-Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
+      Warning Signals  Added resulting indicator distributions on finer sampling results.
+ Re-running now excluding the final dive (population below 300).
+  Treebase working on manuscript. A few examples using the improved meta-data queries:
+Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/27/implementing-likelihoods-for-quadratic-models/">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
+    <h2><a href="../../2012/02/23/esa-2012/">ESA 2012 Abstract</a></h2>
+    <h4>Thu, Feb 23, 2012</h4>
     <div class="article-style">
       
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
+      Submitted my abstract for ESA 2012, in Portland. Getting a title and abstract pinned down about seven months in advance is itself an exercise in decision making under uncertainty. I&rsquo;ve added some further background below.
+Unknown unknowns: management strategies under uncertainty &amp; alternate stable states Background/Question/Methods The effective management of natural resource populations such as fisheries or forests and the ecosystems in which they are embedded is a central goal of much work in both theoretical and applied ecological research.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/24/warning-signals-likelihoods-straight-up/">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
+    <h2><a href="../../2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
+    <h4>Tue, Feb 21, 2012</h4>
     <div class="article-style">
       
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
+      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
+ Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../2012/02/20/finer-sampling-in-prosecutors-fallacy/">finer sampling in prosecutor&#39;s fallacy</a></h2>
+    <h4>Mon, Feb 20, 2012</h4>
     <div class="article-style">
       
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
+      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
+require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
+d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/10/28/a-new-twist-on-the-approach/">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
     <div class="article-style">
       
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
+      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
       
     </div>
   </div>
@@ -267,7 +266,7 @@ We evaluate the correlation function of their Fourier transform (note $ x (\omeg
   <ul class="pager">
     
     
-    <li><a href="//tags/warning-signals/page/2/">Next &raquo;</a></li>
+    <li><a href="../../tags/warning-signals/page/2/">Next &raquo;</a></li>
     
   </ul>
 </nav>

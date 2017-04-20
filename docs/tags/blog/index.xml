@@ -21,6 +21,94 @@
     </item>
     
     <item>
+      <title>knitr, github, and a new phase for the lab notebook</title>
+      <link>/2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/</link>
+      <pubDate>Wed, 21 Mar 2012 12:13:42 +0000</pubDate>
+      
+      <guid>/2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/</guid>
+      <description>I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&amp;rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&amp;rsquo;t say where in the script the command came from, and it required manually specifying the script name).</description>
+    </item>
+    
+    <item>
+      <title>Citing R packages</title>
+      <link>/2012/03/20/citing-r-packages/</link>
+      <pubDate>Tue, 20 Mar 2012 10:02:09 +0000</pubDate>
+      
+      <guid>/2012/03/20/citing-r-packages/</guid>
+      <description>I&amp;rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&amp;rsquo;s some quick examples:
+citation(&amp;quot;ouch&amp;quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), http://ouch.r-forge.r-project.org Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.</description>
+    </item>
+    
+    <item>
+      <title>Journey to freedom - a code&#39;s tale of open source license migration</title>
+      <link>/2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration/</link>
+      <pubDate>Tue, 31 Jan 2012 17:58:08 +0000</pubDate>
+      
+      <guid>/2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration/</guid>
+      <description>My software wants to be free. It wants to be seen and used and loved by as many people as possible. When first it heard of open source licenses, it set sail to join the company of great software in the promised land, but finding true freedom has been a tortured journey.
+In the clutches of the GPL Created and defended by the Free Software Foundation and used by such venerable institutions as the Linux Kernel, the gcc compiler, and the R statistical environment, the GNU&amp;rsquo;s General Public License seemed like a gold standard to call home.</description>
+    </item>
+    
+    <item>
+      <title>Are open lab notebooks considered prior publication?</title>
+      <link>/2012/01/16/are-open-lab-notebooks-considered-prior-publication/</link>
+      <pubDate>Mon, 16 Jan 2012 10:47:17 +0000</pubDate>
+      
+      <guid>/2012/01/16/are-open-lab-notebooks-considered-prior-publication/</guid>
+      <description>This question invariably comes up at some point in any discussion of open notebook science. This concern is usually voiced in reference to the high-visibility magazines, which many scientists seem to assume will have very restrictive conditions. A quick read of their policies shows otherwise. Here are the links to pre-publication policies of major journals, with my short summaries &amp;amp; comments.
+Nature - Go right ahead. Explicit protection clause for open/collaborative blogs/wikis.</description>
+    </item>
+    
+    <item>
+      <title>How google views me: by search terms or citation counts?</title>
+      <link>/2011/09/09/how-google-views-me-by-search-terms-or-citation-counts/</link>
+      <pubDate>Fri, 09 Sep 2011 09:55:39 +0000</pubDate>
+      
+      <guid>/2011/09/09/how-google-views-me-by-search-terms-or-citation-counts/</guid>
+      <description>How Google search views me: here&amp;rsquo;s a word cloud of search terms reaching my site in August. Word cloud produced with R: click-through for link to source-code. Uses the rather convenient tm package for text-mining functions in R. Note that this shows the frequency of individual words used in searches, rather than the whole search term.
+Code:
+require(tm) require(wordcloud) require(RColorBrewer) carl &amp;lt;- read.csv(&amp;quot;searchterms.csv&amp;quot;, colClasses=c(&amp;quot;character&amp;quot;, &amp;quot;numeric&amp;quot;)) words &amp;lt;- character(sum(carl[[2]])) m &amp;lt;- 1 for(i in 1:length(carl[[1]])){ n &amp;lt;- carl[[2]][i] x &amp;lt;- carl[[1]][i] words[m:(m+(n-1))] &amp;lt;- rep(x, n) m &amp;lt;- m+n } carl &amp;lt;- Corpus(DataframeSource(carl)) carl &amp;lt;- tm_map(carl, removePunctuation) carl &amp;lt;- tm_map(carl, tolower) carl.</description>
+    </item>
+    
+    <item>
+      <title>Citation tools &amp; Future of Publishing</title>
+      <link>/2011/02/16/citation-tools-future-of-publishing/</link>
+      <pubDate>Wed, 16 Feb 2011 23:04:50 +0000</pubDate>
+      
+      <guid>/2011/02/16/citation-tools-future-of-publishing/</guid>
+      <description>There has been a lot of rapid development in scientific tools based on a Wordpress platform recently, perhaps spurred in part by the recent Beyond-the-PDF and sessions in Science Online conferences. A new discussion group has emerged around these tools, as described by Martin Fenner.
+I have been exploring better tools for citation management within my lab notebook. Recently I have been using the papercite plugin to add citations from my BibTeX files, which are generated from Mendeley, as I described earlier.</description>
+    </item>
+    
+    <item>
+      <title>Data Mangement on UC3 Merritt Repository</title>
+      <link>/2011/02/16/data-mangement-on-uc3-merritt-repository/</link>
+      <pubDate>Wed, 16 Feb 2011 19:06:11 +0000</pubDate>
+      
+      <guid>/2011/02/16/data-mangement-on-uc3-merritt-repository/</guid>
+      <description>I&amp;rsquo;ve been trying to learn a little more about the potential for data management solutions through the UC3 Merritt repository, and decide how this compares to commercial alternatives such as Amazon S3, Picasa/Flickr (obviously for images only), and field-specific and publication specific repositories such as Dryad. Merritt email support have been very helpful in answering my questions and concerns.
+ Persistence: of the data itself, of the URLs &amp;amp; object identifiers, of access to the data?</description>
+    </item>
+    
+    <item>
+      <title>The Future of Data: Plans for a UC Davis workshop</title>
+      <link>/2011/02/01/the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies/</link>
+      <pubDate>Tue, 01 Feb 2011 09:40:59 +0000</pubDate>
+      
+      <guid>/2011/02/01/the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies/</guid>
+      <description>I have been working with several of the faculty of UC Davis to prepare a workshop for our department to (1) help make our researchers aware of the new requirements for NSF proposals and journal submissions with regard to data archiving, (2) To explore what new opportunities this creates and what tools exist that will help our researchers take maximum advantage of it, and (3) to engage our research community in the discussion of future standards for sharing, standardizing, rewarding and funding the archiving of data.</description>
+    </item>
+    
+    <item>
+      <title>Reflections from #scio11: Saturday&#39;s Open Science Track</title>
+      <link>/2011/01/15/reflections-from-scio11-saturdays-open-science-track/</link>
+      <pubDate>Sat, 15 Jan 2011 23:12:45 +0000</pubDate>
+      
+      <guid>/2011/01/15/reflections-from-scio11-saturdays-open-science-track/</guid>
+      <description>Have just returned from the amazing and energetic science online 2011 conference, where I will now, like the rest of the attendees, turn to catching up on sleep, following new online acquaintances, struggling not to append #scio11 to everything I write, and composing that nearly obligatory post-event blog entry we all use like a glass of water after a party; with the hope in may help me metabolize the experience.</description>
+    </item>
+    
+    <item>
       <title>Thoughts on the New Policies for Data Archiving at NSF and in Common Journals</title>
       <link>/2010/12/03/nsf-and-journal-data-archiving/</link>
       <pubDate>Fri, 03 Dec 2010 19:08:53 +0000</pubDate>
@@ -28,6 +116,64 @@
       <guid>/2010/12/03/nsf-and-journal-data-archiving/</guid>
       <description>This post is a work in progress, a scratch pad for me to start assembling what I&amp;rsquo;ve been learning about and resources pertaining to the new policies emerging from NSF and journals relevant to ecology and evolution. Hoping to highlight not only the policies, but the issues, opportunities, and concerns around them.
 I am hoping to help organize a workshop to discuss these issues in my department this Winter. The Davis Open Science group, is planning a series of these workshops, hoping to work with departments, the libraries and the UC Davis Office of Research and its Responsible Conduct of Research  program (in compliance with NIH/NSF ethics requirements), as well as resident faculty and editors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Earlier today, Scott Collins, the president of the Ecological Society of America has announced that the society will now accept articles that have previously been posted on preprint servers. This comes on the heels of a growing discussion in our community. Ethan White has a good summary over on Jabberwocky Ecology.
+Many voices have joined the discussion over the past month, and it is exciting and vindicating to see the Society engage and discuss these questions.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Thanks to a recent bugfix in the exitwp scripts I was able to export all my Wordpress entries. The script pulls the entries from the Wordpress database and formats them in markdown, along with extracting all metadata such as timestamp, tags, categories, publication status, and Wordpress id number, which are all embedded as YAML header information.
+Why migrate the old entries? When I moved to the Jekyll notebook, I left the Wordpress site standing with all its existing content and simply remapped the home pages.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&amp;rsquo;t mention it, you can get a programmatic list of available categories from http://api.figshare.com/v1/categories. Figshare can also take code as a fileset or dataset, and may soon add a type for it.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&amp;rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
+Issues not only have title and tags, but support a comment thread for progress and discussion of the issue.</description>
+    </item>
+    
+    <item>
+      <title>Semantic Lab Notebook</title>
+      <link>/1/01/01/semantic-lab-notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/semantic-lab-notebook/</guid>
+      <description>As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to my Lab Notebook - Reloaded</title>
+      <link>/1/01/01/welcome-to-my-lab-notebook---reloaded/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/welcome-to-my-lab-notebook---reloaded/</guid>
+      <description>Welcome to my lab notebook, version 3.0. My original open lab notebooks began on the wiki platform OpenWetWare, moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform (site-config), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here. Quoting from my original introduction to the Wordpress notebook:
+ Disclaimer: Not a Blog  Welcome to my open lab notebook.</description>
     </item>
     
   </channel>

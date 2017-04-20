@@ -140,111 +140,124 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/">Wrightscape labrid/parrotfish results; Evolution pres</a></h2>
+    <h4>Thu, Jun 16, 2011</h4>
     <div class="article-style">
       
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
+      Analysis Summarizing recently completed runs:  Reviewing last night&rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&rsquo;t seem to want to run)
+ the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
+  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
+Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&rsquo;s when theta could also vary.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/">Wednesday MCMC and MLEs for wrightscape</a></h2>
+    <h4>Wed, Jun 15, 2011</h4>
     <div class="article-style">
       
-      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
- Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
- ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
-  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
+      Wrote plotting function for wrightscape MCMC analysis
+ added support to write MCMC to a file.
+ exploring divergent MCMCs. more checks on NaNs
+ trying MLE initiated MCMC
+ Revising talk for evolution
+ tweaks to socialR reporting &ndash; include error message, exit with status=1, fewer time sigfigs; see gitlog.
+   Max likelihoods &amp; bootstraps Parrotfish protrusion (size corrected, 400 reps) If thetas are different and not allowed to vary, the alpha model will obviously do worse than the sigma model, even if it is correct.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/14/tuesday-evolutionwrightscape-talk-sundry/">Tuesday - Evolution/wrightscape talk &amp; sundry</a></h2>
+    <h4>Tue, Jun 14, 2011</h4>
+    <div class="article-style">
+      
+      Computing For today&rsquo;s analyses run history (with result/code links): see tweeting_cpu account or its search history (from Topsy)
+Analysis/Summary MCMC over parrotfish tree on protrusion doesn&rsquo;t converge when alpha and sigma are both free to vary.
+MLE approach, (size-corrected) protrusion (12hr run)
+Vary both theta and sigma:
+Vary alpha and theta:
+alpha-theta wins over theta-sigma:
+git ids/urls git codes must be obtained at start of run, together with commit, or link will point to the wrong code!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/06/13/em-algorithm-2/">EM Algorithm</a></h2>
+    <h4>Mon, Jun 13, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/13/monday-7/">Monday -</a></h2>
+    <h4>Mon, Jun 13, 2011</h4>
     <div class="article-style">
-      
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/12/sunday-3/">Sunday</a></h2>
+    <h4>Sun, Jun 12, 2011</h4>
     <div class="article-style">
-      
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/10/friday-6/">Friday</a></h2>
+    <h4>Fri, Jun 10, 2011</h4>
     <div class="article-style">
       
-      Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
- Started stochastic methods and model inference collection:  Research collected using Mendeley
-Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic methods and model inference library. Add Science of Science papers to Future of Science collection. Adding tags, abstracts, etc to Mendeley public Library Personal/extended task view (and opinion?
+      Finish updates to socialR and wrote post.
+ reply to Richard on DataONE workflow internship
+ really should meet Bertram, re: workflow, dataONE, open science, etc.
+ wrote an avereps fn to replace limma dependency. hmmf.
+ setup analysis.R to run complete analysis sets. still testing.
+   To Do  consider returning myCall information on most standard functions
+ Review model implementations
+ model convergence error handling.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/10/workflows-that-work-making-it-easy-enough/">Workflows that Work: making it &#34;easy enough&#34;</a></h2>
+    <h4>Fri, Jun 10, 2011</h4>
     <div class="article-style">
       
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
+      I thought I had already fixed this problem. I thought I already had a way to recover the code and parameter values of figures saved in my image log. Grab the SHA hash from the comment, go to the relevant repository on github, search the commit history for the commit, find the version of that file that was current at that time of commit (which could be in an earlier version if nothing had changed&hellip;) and so forth&hellip; Instead, I would catch myself re-running the code with parameters I knew (I&rsquo;d scribble somewhere), just so I could be sure.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/roi-and-sam-comparative-phylogenetics-r-workshop/">Roi and Sam Comparative Phylogenetics R Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/">mcmc and bootstrapped likelihood runs on parrotfish tree</a></h2>
+    <h4>Thu, Jun 9, 2011</h4>
     <div class="article-style">
       
-      Day 2: 4p - 6:30p  Attending the R workshop by Roi Holzmann and Sam Price from the Wainwright lab. Missed the introductory session on Monday. Course data currently available here. Resources: Springer R books pdfs available through UC Davis. In particular: R book w/ ape.  Speciation &amp; Diversification 3rd session (4:10 - 5:10 pm): Packages: Laser, Geiger, Ape, apTreeshape &amp; Diversitree
- Lineage through time plots ape and laser:   ltt.
+      Thursday Overview  Alan Meeting
+ Still running scripts, see below
+ pmc vignette
+  To Do  Got Duncan&rsquo;s ROAuth utilities for RMendeley, still need to test.
+ Testing Scott&rsquo;s rplos functions
+ Send Alan the paragraph for edits.
+  Computation Running on one  n 15: sim_general_mcmc.R MCMC of general model with 8 x 1e6 reps. alpha diverged. DEAD
+ n14 Retry above with 8 x 1e6 and with less general model: sigma, theta indep only.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/">Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree</a></h2>
+    <h4>Wed, Jun 8, 2011</h4>
     <div class="article-style">
       
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
-
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/status---thoughts/">Status - Thoughts</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Goal: BM vs OU vs proposed multipeak OU model with and without global alpha/sigma. Anoles dataset, carex dataset, labrids?
- Added ape2ouch_all function based on maticce to convert file formats. Might be worth checking against my current implementation. Meanwhile it&rsquo;s really the converting trees back from ouch to ape that gives the ace function trouble. something about ordering of the nodes, even though that shouldn&rsquo;t matter in the phylo format.
+      Reviewed last night&rsquo;s simulations, see yesterday&rsquo;s post.  Simulated data testing: Fitting the general model well on the parrotfish tree even with clear simulated data seems hard. Simulating with alpha(intramandibulars) = .01, and others = 20, and fitting general model and the alpha-only independent model (release of constraint model). The release model MLE recovers reasonable values: alpha(intra) = 1.7, alpha(others) = 21.8, while the general model fit is clearly struggling even with SANN.
       
     </div>
   </div>
@@ -254,10 +267,10 @@ where β~i~ is the intrinsic noise of the age class.
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/22/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/22/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/24/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/24/">Next &raquo;</a></li>
     
   </ul>
 </nav>

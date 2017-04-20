@@ -140,108 +140,122 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/15/tuesday-10/">Tues: Sources of stochastic variation in optimal control</a></h2>
+    <h4>Tue, Nov 15, 2011</h4>
     <div class="article-style">
       
-      Matching theoretical approximations to simulation:
- Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
+      Adding stochasticity seems to have a small history.
+Reed 1979 Reed, 1979 Uncertainty in next year&rsquo;s stock, &ldquo;growth uncertainty&rdquo; at the time of determining harvest. Constant escapement policy, no chance of extinction.
+Clark &amp; Kirkwood 1986 Clark &amp; Kirkwood, 1986 Uncertainty in this year&rsquo;s stock, &ldquo;measurement uncertainty&rdquo; when determining harvest.
+Roughgarden &amp; Smith (1996) consider both, and add uncertainty in harvest. Sethi et al. 2005 (Sethi et. al. 2005) consider the economist&rsquo;s optimization of this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h2>
+    <h4>Sun, Nov 13, 2011</h4>
     <div class="article-style">
       
-      Manuscript writing.  Phylogenetics Submitted Lightning talk to iEvoBio
-PDG group will be discussing
- Rabosky DL and Lovette IJ. .&rdquo;) pmid:18611849. PubMed HubMed [1]  tomorrow, along with critique and response.
- Waiting to hear back from Peter on manuscript. Should follow up with Ralph on likelihood ratio discussion with Ethan. Transcluding exploratory work on primate phylogeny data:  Embedded:</p>
-
-<p>Primate Phylogeny Carl Boettiger 00:37, 30 April 2010 (EDT):
+      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/12/of-labrids-and-dubious-convergence/">Wainwright Retreat to Hastings Reserve</a></h2>
+    <h4>Sat, Nov 12, 2011</h4>
     <div class="article-style">
       
-      Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
- Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
+      Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
+more labrid trait evolution alpha &amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
+Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/10/thursday-12/">Thursday</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Working on simulation based approach to summarize distribution of waiting times across different phases. What to do about zeros in phase two (when first dimorphism survives long enough to be invaded&hellip;) Quantify number/distribution of failed attempts at each phase? How to represent these distributions across a parameter space in sigma_c, sigma_k, sigma_mu, and mu?  library(BranchingTime) sim &lt;- branching_time(rep=1000, cpu=8) save(file = &quot;run1.Rdat&quot;) pdf(&quot;distribution.pdf&quot;) m &lt;- max(sim$data) plot(density(sim$data[1,]), xlim = c(0,m), col=&quot;black&quot; ) lines(density(sim$data[2,] ), col = &quot;blue&quot;) lines(density(sim$data[3,] ), col = &quot;green&quot;) lines(density(sim$data[4,] ), col = &quot;red&quot;) legend(&lsquo;topright&rsquo;, c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;), col=c(&quot;black&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;), pch = 15) dev.
+      Forage Fish dynamics
+ Forage fish consumption: who consumes, how important is it. e.g. Africa imports more quantity of fish, but of low value. net exports based on value.
+ food security / undernourished regions
+ forage fish substitutable? Study in Asia: Pretty inelastic.
+ income elasticity vs wealth elasticity (not a real difference. but patterns of consumption of a rich person aren&rsquo;t same as poor person with a windfall, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/">Auteur plots for reef fish jaws and monkey brains -- needs tweaking</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Wide gap, flat landscape  Waiting times on a flatter landscape: sigma_c ~ sigma_k. Waiting times are dominated by the number of times phase 3 collapses: the established invader in a dimorphic population (right panels). Collapse of phase 2: collapse of the dimorphism before third population can establish is much rarer (about an order of magnitude).   from the run3 dataset, with parameters.  Narrower gap, steeper landscape  with sigma_c &lt;&lt; sigma_k, branching is easy, neither phase is particularly limiting, though single collapses from both phases are very common.
+      Looking at the diversification patterns from Auteur. Longer rjmcmc runs aren&rsquo;t showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps? Seems to overestimate the change points.
+Remains true for the primate brains example:
+Set up to run on carver cluster, copy over the saved rda file and all files matching the random string already saved as outputs. Full labrid example on 20 cores still exceeds the allocation capacity for an R vector.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/10/parallel-hpc-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Public code hosting  Project code now available through Github. Advantages to public hosting: Replication of adaptive dynamics simulations can be difficult, particularly in matching various nuisance parameters. While there is certainly much pedagogical value in individual researchers implementing their own simulations, verification and reproducibility of scientific results would be greatly facilitated by adapting an accepted open source code base and adding branches, etc. Researchers could much more immediately benefit from the work of their colleagues and spend more time implementing novel research and less reproducing it.
+      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
+parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h2>
+    <h4>Wed, Nov 9, 2011</h4>
     <div class="article-style">
       
-      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
- use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
+      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h2>
+    <h4>Tue, Nov 8, 2011</h4>
     <div class="article-style">
       
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
+      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/06/sunday-5/">Sunday</a></h2>
+    <h4>Sun, Nov 6, 2011</h4>
     <div class="article-style">
+      
+      Computing notes A few configuration related things from migrating to the new laptop.
+Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
+make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
+mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/04/sparkleshare-configuration/">Sparkleshare configuration</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
       
-      Simulation Results (code)  Analytics (Analytics code)
-Notebooks and files Looking at a better way to get figures into my online notebook. I often run simulations that generate figures which I look at, make some adjustments to the code based on the figure, and then delete or overwrite the figure without uploading it to my notebook, because it isn&rsquo;t &ldquo;right&rdquo; or &ldquo;finished&rdquo; and uploading takes a lot of clicks, particularly when the code generates 36 figures in a run.
+      Configured sparkleshare across my linux server &amp; laptops, and android phone. Provides a dropbox-style syncing and version history for all files using git. I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost. Wonderful.
+Basic setup Get sparkleshare working on a server is dead simple, Can also use a github server, gitorious server, etc. Setup is clearly documented, which is really just doing a bunch of standard stuff if you have a server or github already set up.
       
     </div>
   </div>
@@ -251,10 +265,10 @@ Notebooks and files Looking at a better way to get figures into my online notebo
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/9/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/9/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/11/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/11/">Next &raquo;</a></li>
     
   </ul>
 </nav>

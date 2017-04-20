@@ -140,114 +140,121 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/csgf-conference--tuesday/">CSGF Conference- Tuesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/17/rewrites/">Rewrites</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
+    <div class="article-style">
+      
+      Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/10/17/friday-more-runs/">Friday, more runs</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/csgf-survey/">CSGF Survey</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/13/thursday-fisheries-course/">Thursday, Fisheries course</a></h2>
+    <h4>Thu, Oct 13, 2011</h4>
     <div class="article-style">
       
-      Wrote survey. Getting feedback and will send out this week.  previous comments
-Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:
+      Fisheries impact on forage fish. Forage fish impact on the primary fisheries.
+ Huxley, 1882: &ldquo;Great Sea Fisheries cannot be exhausted&rdquo; (full address) Worm et al., 2006: All fish will collapse by 2050 (Worm et. al. 2006)  Benguela Current upwelling (Anchovy collapse)
+Discussion of: Prey switching impact?
+Wasp-waist ecosystems
+Ecopath/ecosim vs Atlantis
+Questions:
+Can we identify the nature of control?
+Importance of wasp-waist control.
+regime switching
+Negative impact of forage fish on ground fish.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/cetartiodactyle-data/">Cetartiodactyle data</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/12/wednesday-10/">Wednesday</a></h2>
+    <h4>Wed, Oct 12, 2011</h4>
     <div class="article-style">
       
-      Exploring the cetartiodactyle data (unreleased) Nelder-Mead fails to converge or improve upon the hansen model. Likelihood scores differ little:  &gt; bm@loglik [1] -362.6228 &gt; ou1@loglik [1] -364.9039 &gt; ws1$loglik [1] -362.7616 &gt; ou2@loglik [1] -361.6976 &gt; ws2$loglik [1] -361.2542  See Cetaceans code.</p>
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/10/12/rfishbase-tutorial-updated-extended/">rfishbase Tutorial - updated &amp; extended</a></h2>
+    <h4>Wed, Oct 12, 2011</h4>
+    <div class="article-style">
+      
+      Updated rfishbase package. Include querying for a list of scientific names and the addition of more quantitative traits, though the selection is still somewhat limited. Demo includes how to grab some data to match a phylogenetic tree, and some regular expression (grep) searches for feeding behavior.
+Source code
+Windows binary also available.</p>
 
-<p>Fig. 1 The Brownian Motion model is preferred to the OU.1 model (left). Two separate optima are supported over a single optima (right).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/code-development-for-exploring-regimes-shifts/">Code Development for Exploring Regimes Shifts</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Just committed changes to the google project. warning_signals.c now provides a fully functional, ensemble enabled simulation written with functional API for general Gillespie simulations (at last! I&rsquo;ve come quite a way in my C coding from those early Gillespie simulations for adaptive dynamics two years ago). Still need to pull the API out of the single file. Doxygen-compatible literate programming included, but needs significant expansion before it can really be used effectively as an API for other users.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/comparative-phylogenetics-talk/">Comparative Phylogenetics Talk</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Practice talk in Wainwright lab meeting next Weds. 12 minutes.
- Introduce question: Inferring the number of regimes Context relative to existing methods Statistical challenges &ndash; model-dependent phylogenetic signal problem Labrid example  Frameworks for approaching regimes question  wrightscape phylogenetically corrected clustering
- speed/feasibility concerns, rate limiting steps.
- model realism / representation concerns
- statistical concerns
-  Returning to Wrightscape approach Haven&rsquo;t worked on the full problem of inferring multiple peaks directly from comparative data using the joint probability calculation since the beginning of this notebook, so about time to return to the direct problem and compare with the more heuristic approach of &ldquo;phylogenetically corrected clustering&rdquo; and also synthesize the work on uncertainty which has been a dominate theme thus far (add category label for this group!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
+<h1 id="demo-r-rm-list-ls-require-rfishbase-grabbing-loading-amp-caching-fishbase-data-download-and-parse-data-for-first-40-ids-36-fish-fish">demo.R rm(list=ls()) require(rfishbase) ###### Grabbing, Loading &amp; Caching Fishbase Data ###### ## Download and parse data for first 40 ids (36 fish) #fish.</h1>
 
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/computing/">Computing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/11/lou-botsford-cpb/">Loo Botsford, CPB seminar</a></h2>
+    <h4>Tue, Oct 11, 2011</h4>
     <div class="article-style">
       
-      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
+      &ldquo;Effects of Fishing on the Sensitivity of Fisheries to Climate Variability&rdquo; Truncation of age structure.
+juvenation (younger population), maternal effects (first-year breeders are poor), genetic selection, ability to track environment (vs smoothing &ndash; averaging over longer times).
+Outline:
+Empirical evidence for increased variability, model explanations  Story begins with Hsieh, et al 2006. Long time series, increasing fluctuations. (Hsieh et. al. 2006)
+ Anderson et al no age structure model (Anderson et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/conference-call-w--bob-and-brett/">Conference call w- Bob and Brett</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/10/algorithms-group-hmm-meets-em/">Algorithms Group, HMM meets EM</a></h2>
+    <h4>Mon, Oct 10, 2011</h4>
     <div class="article-style">
+      
+      Alisa reviews HMM, EM, and shows us how to combine them.
+The EM version treats the transition probabilities (exchanging coins) and emission probabilities (chance of heads/tails under each coin) as unknowns. Make a guess, calculate the blue line from before. This can be used to calculate a new guess that will hill climb to the locally optimum solution (EM).
+New guess for the transition probability is:
+$$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/data-format-functions/">Data Format functions</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/07/matt-helmus-visit/">Matt Helmus visit</a></h2>
+    <h4>Fri, Oct 7, 2011</h4>
     <div class="article-style">
       
-      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
- Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
- should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
+      Notes from presentation 1. Species-area curve:  Species sorting by environment. species clustering due to limited dispersal Random displacement (faster saturation) In-situ speciation looks like clustering Compare to colonization Phylogenetic species variability metric: compare phylogenetic covariance matrix to a star-phylogeny, not expected to increase with area.  $$ \frac{n \textrm{tr}C - \sum C }{n(n-1)}$$
+2. Simulations:  species sort along an environmental gradient. BM trait determining position. : closely related species clustered.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/demographic-noise/">Demographic Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/05/wednesday-forage-fish-cascades/">Wednesday - forage fish &amp; cascades</a></h2>
+    <h4>Wed, Oct 5, 2011</h4>
     <div class="article-style">
       
-      Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
+      Forage fish presentation Some simulations exploring top-down &amp; bottom up control concepts in simple models.
+$$ \frac{dN}{dt} = r N\left( 1 - \frac{N}{K} \right) - \alpha N P $$ $$ \frac{dP}{dt} = \beta \alpha N P - \mu P $$ Note that at equilibrium, N depends only on predator dynamics, P on K and r. $$\hat N = \frac{\mu}{\alpha\beta} $$ $$ \hat P = \frac{r}{\alpha}\left( 1 - \frac{N}{K} \right) $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/10/04/tuesday-9/">Tuesday</a></h2>
+    <h4>Tue, Oct 4, 2011</h4>
+    <div class="article-style">
+      
+      Hastings seminar: Forest Pest Outbreaks Schedule
+Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&rsquo;s NY Times piece, (and see author&rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp; Management (Gypsy moth). * Review review (Taylor &amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).
       
     </div>
   </div>
@@ -257,10 +264,10 @@ and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/12/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/12/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/14/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/14/">Next &raquo;</a></li>
     
   </ul>
 </nav>

@@ -140,101 +140,123 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/status-on-structured-populations/">Status on Structured Populations</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/">Tuesday: Parrotfish/wrightscape runs and code modification</a></h2>
+    <h4>Tue, Jun 7, 2011</h4>
     <div class="article-style">
       
-      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
+      Runs: Mon midnight: parrotfish.R with updated SANN parameters and corrected output parameter labeling (always {Xo, alpha, sigma, theta} ordering), implemented on zero, nice 19. General model (&ldquo;wright&rdquo;) still not outperforming others, so still un-converged.
+[flickr]5808279169/[/flickr]
+ MCMC runs of gape.y and close on one, at nice 19 and 18 1e5 reps. (Alex running matlab nice 10). protrusion.y at nice 11, 1e6 reps.
+ open at nice 18 on zero, 1e6 reps.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status-update/">Status update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/06/parrotfish-in-wrightscape/">Parrotfish in wrightscape</a></h2>
+    <h4>Mon, Jun 6, 2011</h4>
     <div class="article-style">
+      
+      Bootstrapping option Needs a method to pass the optional optim arguments to the update function, such that update uses the same algorithm as the initial fit. Required being a little clever:
+[gist id=&ldquo;1010999&rdquo;]
+Done. but perhaps we won&rsquo;t always want to bootstrap under this? I suppose it is good practice but slow! Shoot, now I need a lot of really large computers really soon.
+Excellent suggestion for better ways to do this from statscicomp list.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/still-puzzling-on-lr/">Still puzzling on LR</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/05/sunday-warning-signals-manuscript-mostly/">Sunday -- warning signals manuscript (mostly)</a></h2>
+    <h4>Sun, Jun 5, 2011</h4>
     <div class="article-style">
+      
+      Updates to Scott&rsquo;s rspringer package
+ Grabbed remaining datasets from Dakos et al., added to package
+ Reading (Biggs et. al. 2009) a bit more closely
+ Writing and revisions on warning signals manuscript.
+   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/still-writing/">Still writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/04/saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda/">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h2>
+    <h4>Sat, Jun 4, 2011</h4>
     <div class="article-style">
+      
+      bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
+Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/structured-population-dynamics/">Structured Population Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/03/friday-5/">Friday</a></h2>
+    <h4>Fri, Jun 3, 2011</h4>
     <div class="article-style">
       
-      Beetle Model Macroscopic equations:
-Has the corresponding variance-covariance dynamics
-Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
-General Form &amp; Algorithm Consider the dynamics are given by
-and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
+      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/02/thursday-warning-signals/">Thursday: Warning Signals</a></h2>
+    <h4>Thu, Jun 2, 2011</h4>
     <div class="article-style">
       
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
+      Alan Meeting Reviewing my edits.
+ Writing writing writing
+ updating graphs and package
+  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
+ This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
+ Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
+  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/summer-review/">Summer Review</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
+    <h4>Wed, Jun 1, 2011</h4>
     <div class="article-style">
+      
+      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
+ Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/31/tuesday-5/">Tuesday: PMC, confidence intervals; screen code-tricks</a></h2>
+    <h4>Tue, May 31, 2011</h4>
     <div class="article-style">
       
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
+      PMC  Final read through of manuscript from me and Peter.
+ Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
+sqrt(diag(solve(out$hessian)))
+ See conf_interval_ex.R. i.e for Geospiza tree is:
+[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/the-lab-notebook-goes-open/">The Lab Notebook Goes Open</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/30/monday-6/">Monday</a></h2>
+    <h4>Mon, May 30, 2011</h4>
     <div class="article-style">
       
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
+      Power in Phylogenies Paper (PMC)  Working through / incorporated Graham&rsquo;s edits Added confidence intervals discussion tweaks to associated pmc package Exploring confidence intervals (and lack thereof) in literature on comparative methods. Pagel (1999) (Pagel, 1999) includes them, but few other papers do. He does not include any discussion about how these are calculated. Seems Sweave makes sense for the recreate-figures code from the cached data-files, but perhaps not for the entire analysis code-base (in demos/).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/thursday/">Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/29/sunday-2/">Sunday</a></h2>
+    <h4>Sun, May 29, 2011</h4>
     <div class="article-style">
+      
+      Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
       
     </div>
   </div>
@@ -244,10 +266,10 @@ Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/23/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/23/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/25/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/25/">Next &raquo;</a></li>
     
   </ul>
 </nav>

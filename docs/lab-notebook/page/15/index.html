@@ -140,118 +140,120 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/21/colored-noise-some-classic-results-in-ecology/">Colored noise: some classic results in ecology</a></h2>
+    <h4>Wed, Sep 21, 2011</h4>
     <div class="article-style">
       
-      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
- I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
+      Some of my early notes &amp; derivations on the impact of red environmental noise on population dynamics as pdf:
+ Roughgarden&rsquo;s paper Fieberg &amp; Ellner, (2000) &ldquo;When is it Meaningful to Estimate an Extinction Probability?&rdquo; Ecology, 81. doi. Lawton, J. H. (1988). More time means more variation. Nature, 334, 563. Petchey, O. L., Gonzalez, A., &amp; Wilson, H. B. (1997). Effects on population persistence: the interaction between environmental noise colour, intraspecific competition and space.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/21/van-kampen-expansion-and-stochastic-population-dynamics/">Van Kampen Expansion and Stochastic population dynamics</a></h2>
+    <h4>Wed, Sep 21, 2011</h4>
     <div class="article-style">
-      
-      Working on manuscript for this today, hope to have a draft soon.
- Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
- Sent draft to Brian and Peter, and Wainwright lab.
- Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/21/tuesday-visit-to-berkeley/">Tuesday: Visit to Berkeley</a></h2>
+    <h4>Wed, Sep 21, 2011</h4>
     <div class="article-style">
       
-      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
+      Train to Berkeley 7:15-8:32 (6:35a)  9-10:30 Harte lab meeting: Chloe presented her work on mima mounds and pocket gofers 10:30 - noon Justin (coffee, tour campus). Discussed grant opportunities: Lab has a recent NSF and likely will get a Moore grant to extend maximum entropy work. (Not to be confused with species distribution modeling maxent). noon-1p Erica (lunch). 1p-2:15 John. 2:15-3:30 Andy. Great discussions about phylogenetic methods and hierarchical models, regime shifts, open science.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/19/monday-9/">Monday</a></h2>
+    <h4>Mon, Sep 19, 2011</h4>
     <div class="article-style">
-      
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/15/nimbios-pdg-control-thursday/">pdg-control pdg-control: Thursday</a></h2>
+    <h4>Thu, Sep 15, 2011</h4>
     <div class="article-style">
-      
-      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
-12p - 1p
- Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
- Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/15/nimbios-pdg-group-tasks/">pdg-control PDG group, Tasks</a></h2>
+    <h4>Thu, Sep 15, 2011</h4>
     <div class="article-style">
       
-      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
-png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
+      Tools  Sharing: Dropbox (Team account? 350 gigs/12 users $1670/yr)
+ Common language for training development: Matlab
+ Remote collaboration: GoToMeeting? Evo?
+ Code collaboration GitHub?
+  Training problem I 1a) State vars &gt; Control vars: Can give solutions with chattering (periodic, possibly jumping between boundaries.)
+Short-term priorities:
+1) shared numerics. Jim looks at collocation problem: how do they perform on periodic controls on the infinite time? (If they can&rsquo;t work, we go to finite time.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/general-matrix-form-and-correcting-equations/">General matrix form and correcting equations</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/14/training-problem-ii/">Training Problem II</a></h2>
+    <h4>Wed, Sep 14, 2011</h4>
     <div class="article-style">
       
-      Pursuing a matrix form, seems I had missed some terms in the covariance equations Friday, which are suggested by the nice symmetry of this representation: (sometimes chalk and a camera are faster than tex).
-This suggests the general form looks like
-<em>dM</em> = <em>JM</em> + (*J*M)^T^ + g
-Where M is the covariance matrix and J the Jacobian of f as before. dM is the matrix of derivative terms, though clearly not a rigorous notation.
+      Consider a harvested fish population with discrete-time population dynamics under an allee effect:
+$$ N_{t+1} = N_t \exp \left( \gamma \left[ 1-\frac{N_t}{K} \right] \left[ \frac{N_t - C}{K} \right] \right) - \beta E_h N_t$$
+Note that C is the unfished allee threshold, K the carrying capacity, $E_h$ the fish harvesting effort.
+Consider that the initial population is unknown, but described by a density function whose variance can be decreased by sampling. Just to get started, let&rsquo;s assume log-normal (avoiding the chance of negative population sizes), with log-standard deviation inversely proportional to the sampling effort $E_s $.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/14/nimbios-pdg-control-wednesday/">pdg-control pdg-control: Wednesday</a></h2>
+    <h4>Wed, Sep 14, 2011</h4>
     <div class="article-style">
       
-      Efficiency updates:
- As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
+      Wednesday, August 14 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Introduction to Day 3 (Donahue/Armsworth) 9:00 Training Problem Groups
+Marie-Jose reflects on the sampling problem:  Optimization between effort and data.
+ Spatial autocorrelation challenges
+ periodic sampling challenges.
+ Fortin et al 1989
+ Carl asked: Nyquist frequency?
+ Spatial sampling the correct scale by maximum variance in wavelet scaling.
+  Frank reflects on our activities from a control engineer&rsquo;s perspective  MPC for fishery management - few long-sampling engineering examples.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/goals/">Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/13/2588/">pdg-control pdg-control, Tuesday</a></h2>
+    <h4>Tue, Sep 13, 2011</h4>
     <div class="article-style">
       
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
+Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
+Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
+If i is played $ p_i $ becomes
+$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
+If i is played and successful $ \mu_i $ becomes
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/12/pretty-darn-good-control-working-group/">Pretty Darn Good Control Working Group</a></h2>
+    <h4>Mon, Sep 12, 2011</h4>
     <div class="article-style">
       
-      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
-Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
+      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
+Training problem 0: Optimal Control Jim
+maximize present discounted value:
+$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
       
     </div>
   </div>
@@ -261,10 +263,10 @@ Research Progress  Completed writing the bootstrapping function for the partitio
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/14/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/14/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/16/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/16/">Next &raquo;</a></li>
     
   </ul>
 </nav>

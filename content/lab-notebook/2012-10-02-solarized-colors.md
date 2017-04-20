@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Solarized Colors with Twitter-Bootstrap?
-categories: open-science
+categories: [open-science]
 tags: 
 - notebook-technology
 - Jekyll

@@ -141,102 +141,123 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/06/comparative-methods-paper-statusto-do/">Comparative methods paper status/to-do</a></h2>
+    <h4>Wed, Apr 6, 2011</h4>
     <div class="article-style">
       
-      There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.
+      Finished revisions yesterday after rewriting introduction considerably. Following Graham&rsquo;s comment, taking a closer look at aic error along power curves:
+&gt; load(&quot;../../pmc/demos/5594495254.Rdat&quot;) &gt; require(pmc) &gt; aic &lt;- 2 &gt; aic_errors_size &lt;- sapply(1:(length(n)), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) &gt; aic_errors_shape &lt;- sapply(1:length(lambda), function(i) sum(shape[[i]]$null_dist &gt; aic)/shape[[i]]$nboot ) &gt; data.frame(n, aic_errors_size) n aic_errors_size 1 10 0.1945 2 20 0.2405 3 40 0.1800 4 60 0.1590 5 80 0.0750 6 100 0.1015 7 150 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parrotfish-model-choice/">Parrotfish Model choice</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/04/phylogenetics-manuscript-revisions/">evolution manuscript revisions</a></h2>
+    <h4>Mon, Apr 4, 2011</h4>
     <div class="article-style">
+      
+      Heard back from Graham Friday on manuscript revisions. Notes on reviewing edits:
+ Reconsider title? (Currently: &ldquo;is your phylogeny informative? estimating power in phylogenetic trees&rdquo;). Suggestions from Graham/Brian?
+ 1000 taxa, 500 taxa seem to break the ouch package inferences.
+ Add table for AIC comparisons etc
+ Does AIC work better/worse on the lambda = 0 trees?
+n[1:3] [1] 10 50 100 aic_errors_size &lt;- sapply(1:(length(n)-2), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) aic_errors_size [1] 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parrotfish-wrasse-example/">Parrotfish-Wrasse example</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/31/a-few-large-data-problems-in-ecology-evolution/">A few large data problems in Ecology &amp; Evolution</a></h2>
+    <h4>Thu, Mar 31, 2011</h4>
     <div class="article-style">
+      
+      I&rsquo;ve joined a student-led seminar with Gabriel Becker in the Statistics department on dealing with large data, primarily in R. Offered to say a few words about large data problems in my field for a few minutes, so making some notes.
+Large dataBases  Genebank: $ &gt; 10^8$ sequences. Phylogenetic inference
+ Morphological databases: Specialized databases with semantic tools (Dahdul et. al. 2010)
+ NEON observatories data Keller et. al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/peter-meeting/">Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phylo/">Brian O&#39;Meara discusses new algorithms approaches on Phylo</a></h2>
+    <h4>Wed, Mar 30, 2011</h4>
     <div class="article-style">
       
-      Discussed potential solution to the model choice scenario:
- Consider an ordered list of models, A, B, C, D Then the Neyman-Pearson Lemma (see earlier entry on this) lets us walk through the list in the following fashion: We generate the simulated data sets under model A and compare likelihood ratios in each case. If the likelihood ratio of the observed data falls outside the 95% confidence interval, than it with this confidence that we are saying the data justify the alternate model (model B).
+      Brian gave an excellent overview of Approximate Bayesian Computing (ABC) and described the TreEvo software he is developing with post-doc Barb Banbury. My notes from the seminar, with my own comments italics and a few added references
+Intro / Motivation  Rates of model innovation is rather slow
+ Can be impossible to specify in closed form (can&rsquo;t specify median of binomial in closed form)
+ Perhaps it would be faster if we didn&rsquo;t have to wait for someone to come up with all the likelihood functions
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/peter-meeting/">Peter meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/19/approximate-bayesian-hpc-abc-methods/">Approximate Bayesian Computing (algorithms) methods</a></h2>
+    <h4>Sat, Mar 19, 2011</h4>
     <div class="article-style">
       
-      SICB conference  Abstract &ndash; sent   Phylogenetic comparative methods have become all but ubiquitous in only a few decades, forcing us to reconsider if information from a phylogenetic tree can justify the results. Existing approaches to this question have been inadequate and do not scale with tree size or the ability to resolve branches. For instance, selection between phylogenetic models typically based on information criteria fails to adequately reflect this uncertainty, and can lead to preference for arbitrarily complicated models.
+      Erick Matsen  asked me about the question at the end of Luke Harmon&rsquo;s phyloseminar critiquing Approximate Bayesian Computing ABC methods. The question wasn&rsquo;t any more specific, though Luke recognized the paper. Searching the literature didn&rsquo;t turn anything up, asking Leo through the MCMC group on Mendeley I think this is the paper:
+﻿Robert, C.P. et al. Lack of confidence in ABC model choice. PNAS I, 8(2011). (arXiv)
+Seems a more pointed critique to ABC then Templeton&rsquo;s discussion (Templeton, 2010) particularly as the lead author is a critic of Templeton (Berger et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/18/sams-practice-talk/">Sam&#39;s Practice talk</a></h2>
+    <h4>Fri, Mar 18, 2011</h4>
     <div class="article-style">
       
-      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
+      Notes from: Sam Price&rsquo;s Practice Job Talk for Hull, UK, next week, in Wainwright lab:
+ Diversification of mammals predated KT event(Bininda-Emonds et. al. 2007) (also considerably later, but not right after) Ecological shift in wrasses to parrotfishes(Price et. al. 2010). No evidence of elevate rates of evolution. But, scraping parrotfishes do show difference (starting from base of Hipposcarus-Scarus common ancestor). Multiple transitions to/from reef living. 2x faster on coral reefs!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/phylogenetics-workshop-day-5/">Phylogenetics Workshop Day 5</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/15/models-in-phylogenetic-inference/">Model identifiability in phylogenetic inference GTR&#43;I&#43;G</a></h2>
+    <h4>Tue, Mar 15, 2011</h4>
     <div class="article-style">
       
-      Last day of lectures: Lineage Diversification
-Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
- Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
+      Another phylogenetics paper (Perelman et. al. 2011) using GTR+I+G inspired me to look back over the discussion and objections with this model. This model is the basis of 100s of publications, 40 alone in Sys Bio in 2006(Allman et. al. 2008). There&rsquo;s a decent discussion on Dechronization about the issue. There&rsquo;s some treatment of identifiability on this issue, such as 2001 Sys Bio (Rogers, 2001) which suggests this is possible and a nice paper in Adv.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/post-workshop/">Post-Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/14/peters-talk/">Peter&#39;s talk </a></h2>
+    <h4>Mon, Mar 14, 2011</h4>
     <div class="article-style">
       
-      Working on a couple new ideas:
- Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
+      Peter spoke in Sebastian&rsquo;s lab meeting about a spatially explicit Moran model, for which he derives Fisher&rsquo;s wave equation and an ancestry process. Here&rsquo;s what he says,
+ the general plan is to describe a simple spatial model of adaptation (or, could be of invasion&hellip;); and use it to derive (Fisher&rsquo;s) traveling wave; the corrections that arise if you don&rsquo;t assume the population is infinitely large; and describe how to follow lineages back through the expanding wave.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/power-in-trees/">Power in Trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/">Bodega evolution Tutorial: behind the scenes difficulties in R packages</a></h2>
+    <h4>Mon, Mar 7, 2011</h4>
     <div class="article-style">
       
-      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
-Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
+      Just finished my tutorial for comparative methods on continuous traits in R, which I&rsquo;ll be presenting on Wednesday with Justen Whittall. The tutorial is up on the Bodega Phylogenetics Wiki, together with the necessary data files.
+Errors that shouldn&rsquo;t happen: a few package bugs in simulation functions Assembling the tutorial exposed a few more frustrations in the R packages. Consider simulating OU with rTraitCont:</p>
+
+<h2 id="load-the-libraries-simulate-a-tree-require-geiger-require-treesim-tree-lt-sim">Load the libraries, simulate a tree require(geiger) require(TreeSim) tree &lt;- sim.</h2>
+
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/power-in-trees/">Power in trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Is BM nested in OU?  Understanding likelihoods of ouch</a></h2>
+    <h4>Fri, Feb 25, 2011</h4>
     <div class="article-style">
       
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
+      A quick run of the example ouch code given by
+ ?bimac  will produce something of a surprise for most users:
+require(ouch) data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) h1 &lt;- brown(log(bimac[&lsquo;size&rsquo;]),tree) h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],sqrt.alpha=1,sigma=1) c(&quot;BM LogLik&quot;=h1@loglik, &quot;OU LogLik&quot;=h2@loglik) BM LogLik OU LogLik 17.33129 15.69682  These models are supposed to be nested, right? Set OU&rsquo;s $ \alpha $ parameter to zero and you get BM, so how does it manage to do worse in log likelihood?
       
     </div>
   </div>
@@ -246,10 +267,10 @@ Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 da
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/10/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/10/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/evolution/page/12/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/evolution/page/12/">Next &raquo;</a></li>
     
   </ul>
 </nav>

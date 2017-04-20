@@ -141,123 +141,118 @@
   
   
   <div>
-    <h2><a href="../../../../2010/11/27/implementing-likelihoods-for-quadratic-models/">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
+    <h2><a href="../../../../2012/03/20/tuesday-active-adaptive-management-a-first-solution/">Tuesday: active adaptive management, a first solution</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
+      Spent way more of today than I wanted to hammering out the active adaptive management implementation for a trivial model-choice problem using the discretized belief-SDP approach.
+We have alternate models $f_1$ and $f2$ of the state equations (population growth dynamics) $$ x{t+1} = z_t f(x_t) $$ and introduce a continuously valued belief probability $p$ that model 1 is correct. This lends itself to a Bayesian updating rule for our belief based on observing a transition from $x$ to $y$,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/11/24/warning-signals-likelihoods-straight-up/">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
+    <h2><a href="../../../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">pdg-control Day 1 goals by training problem</a></h2>
+    <h4>Tue, Mar 13, 2012</h4>
     <div class="article-style">
       
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
+      Training Problem I / Theme 1 Policy costs  Functional forms of cost &amp; Structure of the paper Comparability (view over all costs? view expected economic benefit?)
+ Visualizations Dan&rsquo;s L1 norm story (vs stochastic, discrete time?)  Transaction Fee details in cts time, deterministic Advanced problem 1 How many spatially differentiated policies are optimal 1. formulate bioeconomic model 2. modularity methods 3. comparison of GBR &amp; Caribbean examples
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/11/16/tues/">Tues seminar</a></h2>
-    <h4>Tue, Nov 16, 2010</h4>
+    <h2><a href="../../../../2012/03/13/pdg-control-training-problem-2-update-to-group/">pdg-control, Training Problem 2 update to group</a></h2>
+    <h4>Tue, Mar 13, 2012</h4>
     <div class="article-style">
       
-      Sarah Dalrymple seminar. Rick Karban&rsquo;s excellent intro: &ldquo;unlike the rest of these seminars, Sarah will tell us something new.&rdquo; &ldquo;Sarah&rsquo;s really out there.&ldquo; Also mentions TAC and art teaching.
-Ants, Jeff pine &amp; fire Fire suppression dramatic impacts. Prescribed under story burns work! ie Angora fire in Tahoe, 2007. Discover rings of unburned soil around base of tree, reducing damage&hellip; undescribed!
-More common in recently burned ( 30 yrs. What makes the rings?
+      Intrinsic Stochasticity $$ x_{t+1} = z_t f(x_t, ht) $$ $$ max{h_t} \textrm{E} \left( \sum_t \Pi(h_t, x_t) \delta^t \right) $$ Measurement error $ m_t = z_m x_t $ Implementation error $ i_t = z_i h<em>t $
+Next: Uncertainty = we can learn and hence decrease the uncertainty. But state-space grows exponentially.
+Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t, a_t) P(a_t, \hat a_t, \sigmat) $$ Bayesian Learning state equations $$ \hat a{t+1} = \textrm{Posterior}(a | x) = \frac{ L(x|a) \textrm{Prior}(a)}{\int L(x|a) \textrm{Prior}(a) da } $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Parameter uncertainty in stochastic control problems</a></h2>
+    <h4>Sun, Mar 11, 2012</h4>
     <div class="article-style">
       
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
+      Day 3 of my short-term visitor stay before the working group starts.
+ Wednesday: Travel
+ Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
+  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
+ Friday Writing up Training problem II with Jake, Michael.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/28/a-new-twist-on-the-approach/">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../../../2012/03/09/alex-pfaff--meeting/">Alex Pfaff seminar, meeting</a></h2>
+    <h4>Fri, Mar 9, 2012</h4>
     <div class="article-style">
       
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
+      Notes from Alex Pfaff talk at UTK (during my visit for pdg-control meeting).
+ average impact vs differential impact &ndash; must compare against what would have happened to the area if unprotected (at current time/short-timescale, or in future?)
+ Proximity is not a good proxy of similarity (i.e. bc we protect steep slopes but farm the flat land nearby)
+ Instead use simple metrics available in GIS layers - distance from nearest road, etc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/28/red-noise-aside-exercise/">Red Noise (aside exercise)</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Stability analysis on fished and unfished dynamics.  </a></h2>
+    <h4>Tue, Mar 6, 2012</h4>
     <div class="article-style">
       
-      Consider the first-order autoregressive process: $$ X_{t+1} = \rho X_t + \sqrt{1-\rho^2}Z_t $$
-Why the funny term at the end? This comes from normalizing the variance,
-$$ \begin{multline} E( (\rho X_t + \sqrt{1-\rho^2} Z_t)^2 ) = E (\rho^2 X_t^2) + E(2 \rho X_t \sqrt{1-\rho^2}) Z_t ) + E( X_t^2 Z_t^2 (1-\rho^2) ) \end{multline}$$
-by independence:
-$$ = \rho^2 E(X_t^2) + 2 \rho \sqrt{1-\rho^2} E( X_t ) E( Z_t ) + E( X_t^2) E(Z_t^2) (1-\rho^2) $$
+      In this example, we compute the distribution of the stability coefficients estimated from the fished and unfished simulations. Overall this shows little success in distinguishing between the stability of the fished and unfished populations &ndash; i.e. no hint that we are managing near an edge.
+(Originally run and posted in github notebook, but cross posting for reference here since I had trouble recalling if this was filed with the control project or the warning signals project directory.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/27/warning-signals-where-are-we-now/">Warning Signals -- Where are we now?</a></h2>
-    <h4>Wed, Oct 27, 2010</h4>
+    <h2><a href="../../../../2012/03/06/tuesday-14/">Tuesday</a></h2>
+    <h4>Tue, Mar 6, 2012</h4>
     <div class="article-style">
       
-      The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
-$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
-and
-$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
+      Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
+ model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h2>
-    <h4>Tue, Oct 26, 2010</h4>
+    <h2><a href="../../../../2012/03/05/monday-17/">Monday</a></h2>
+    <h4>Mon, Mar 5, 2012</h4>
     <div class="article-style">
       
-      Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
- First, if the mean is changing, the model fitting must be appropriate to this &ndash; either by fitting this rate of change or correcting for it.
- Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.
+      Trivial example of a non-optimal but more robust policy by editing the optimal strategy directly. Note in particular that this outperforms the optimal strategy economically as well as ecologically (fewer crashed populations).
+ Running the policy-costs model with Beverton Holt instead of the Myers function seems to give a clearer picture of a system responding to policy costs. The single-replicate picture probably captures this better than the policy/replicate visualizations.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h2>
-    <h4>Mon, Oct 25, 2010</h4>
+    <h2><a href="../../../../2012/03/03/thursday-friday-saturday/">Thursday, Friday, Saturday</a></h2>
+    <h4>Sat, Mar 3, 2012</h4>
     <div class="article-style">
       
-      Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
-A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.
+      forage fish seminar - Patrick and Jay with interesting stuff. Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.  knit hooks externalization example working (based on Reed.R). Still unsure how I feel about externalization vs fully literate code. Redundant typing is bad but isn&rsquo;t that why common tasks are functionalized?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/21/"></a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
+    <h2><a href="../../../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
+    <h4>Tue, Feb 28, 2012</h4>
     <div class="article-style">
       
-      Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
- Proper handling of trends
- Best model for eigenvalue change
-  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
+      Description: an example trying to detect early warning signals in data from fisheries collapses
+Set up markdown format and image uploads.
+render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
+require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
       
     </div>
   </div>
@@ -267,10 +262,10 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/ecology/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/ecology/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/ecology/page/3/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/ecology/page/3/">Next &raquo;</a></li>
     
   </ul>
 </nav>

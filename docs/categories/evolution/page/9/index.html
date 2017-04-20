@@ -141,102 +141,131 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/11/wednesday-ropensci/">Wednesday: Treebase</a></h2>
+    <h4>Wed, May 11, 2011</h4>
     <div class="article-style">
       
-      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
-0.5735 0.29 0.
+      TREEBASE PACKAGE:
+ Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
+ Modified the package with the option to return only max number of trees,
+try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_trees, &quot;]&quot;, sep=&quot;&quot;), function(x){  &hellip;
+ Modified to check for branch lengths and remove trees without branch lengths from the returned set.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/10/interfaces-for-databases-ropensci-dryad-dataone/">Interfaces for databases: TreeBASE, Dryad, DataONE</a></h2>
+    <h4>Tue, May 10, 2011</h4>
     <div class="article-style">
       
-      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
- Create package around power analysis, including ability to test bootstraps
+      Next Steps Treebase  (See Sunday&rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
+ RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
+ Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/likelihood-ratio-update/">Likelihood ratio update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/09/monday-4/">Monday: meetings, notebook</a></h2>
+    <h4>Mon, May 9, 2011</h4>
     <div class="article-style">
       
-      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      Coop &amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
+Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
+$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
+$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
+Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/08/sunday-a-few-ropensci-r-package-updates/">Sunday: a few Treebase R package updates</a></h2>
+    <h4>Sun, May 8, 2011</h4>
     <div class="article-style">
       
-      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
- Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
+      Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/maticce/">MATICCE</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/05/thursday-parrotfish-analysis/">Thursday: parrotfish analysis</a></h2>
+    <h4>Thu, May 5, 2011</h4>
     <div class="article-style">
       
-      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
-The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
-runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
+      Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
+Tree: alpha is favored in all the ratio traits, sometimes substantially.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/04/weds-parrotfish-data-set-analysis/">Weds: Parrotfish data set analysis</a></h2>
+    <h4>Wed, May 4, 2011</h4>
     <div class="article-style">
+      
+      Parrotfish  Need better convergence error handling.
+ Need to remedy: &ldquo;Function cannot be evaluated at initial parameters&rdquo; errors &ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
+ Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-goals/">Meeting Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/03/tuesday-phylogenetics-wrightscape-coding/">Tuesday: phylogenetics- wrightscape coding</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
+      
+      Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-05-03 00:00:00&rdquo; max_upload_date=&ldquo;2011-05-03 23:59:59&rdquo;]
+See code: loop_models_traits_regimes.R
+Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-with-graham-and-peter/">Meeting with Graham and Peter</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/03/ropensci-an-r-interface-proposal-for-ievobio/">treeBASE R interface: proposal for #iEvoBio</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Discussion of Model Comparisons Primary focus of today&rsquo;s discussion was rooted in Sunday&rsquo;s entry
- On plotting quirks, haven&rsquo;t figured out lattice but here&rsquo;s yet another newer plotting engine for R I need to revisit how OUCH computes likelihood ratios and P values. Since some parameters are bounded to the positive real line (and may be small) the standard chi square isn&rsquo;t correct. I should repeat the AIC-style analysis for likelihood ratios, though this is just a shift of where I put the zero line.
+      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meeting-with-sam/">Meeting with Sam</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/05/03/monday-3/">Monday</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Discussing elements of likelihood ratio manuscript and review results from release of constraint data. Figure out what to include in one manuscript, what order to present elements in, and what examples are necessary.
- Phylogenetic Signal introduction. Need for examples? A good example where phylogenetically independent contrasts is misleading, but lambda/K definition of phylogenetic signal is also misleading. Power in phylogenetic tree:  Likelihood ratio and model choice: Monte Carlo LR approach, support in the literature <a href="http://openwetware">http://openwetware</a>.
+      Today:
+ Application for CPB travel funds. DONE
+ Faxed receipts from Felsenstein&rsquo;s visit. DONE
+  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
+Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/meetings/">Meetings</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/">Friday: Notes on Labrids, notes on Transforms and size-corrections</a></h2>
+    <h4>Fri, Apr 29, 2011</h4>
     <div class="article-style">
+      
+      The specific traits were:
+Oral Jaw traits
+ mouth-closing lever ratio (Close),
+ mouth-opening lever ratio (Open), kinematic
+ transmission coefficient of the oral jaws four-bar linkage (Jaw KT),
+ adductor mandibulae (AM) muscle mass,
+ premaxillary protrusion distance (Prot),
+ gape width (Gape),
+  Exterior to the Oral Jaws, not expected to become unconstrained:
+ levator posterior (LP) muscle mass: (Pharyngeal jaw muscle)
+ sterno-hyoideus (SH) muscle mass, (Primarily buccual cavity)
       
     </div>
   </div>
@@ -246,10 +275,10 @@ runBatchHansen()  User identifies a set of nodes of interest, and optionally a m
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/8/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/8/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/evolution/page/10/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/evolution/page/10/">Next &raquo;</a></li>
     
   </ul>
 </nav>

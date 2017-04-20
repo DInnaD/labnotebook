@@ -140,114 +140,116 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort/">Warning signals: summary statistic performance at varying sampling effort</a></h2>
+    <h4>Wed, Jun 29, 2011</h4>
     <div class="article-style">
       
-      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
+      oikos post launch case of increased sampling on sim data for autocorrelation (is our approach more robust to model differences?)  IBM data Example Using data from the individual-based model simulation of a system approaching a saddle-node.
+Variance While the initial example with variance shows almost no signal, increasing the sampling effort substantially improves the performance. This can be seen in the ROC curves and as a tightening and spreading out of the null and test distributions as the sampling effort is increased.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/29/warning-signals-writing/">Warning Signals writing</a></h2>
+    <h4>Wed, Jun 29, 2011</h4>
     <div class="article-style">
-      
-      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/27/monday-warning-signals-manuscript/">Monday: Warning Signals Manuscript</a></h2>
+    <h4>Mon, Jun 27, 2011</h4>
     <div class="article-style">
       
-      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
+      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
+Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
+Analyses  Maximization algorithm failing at initial conditions on deut2
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/22/ievobio-day-2/">#ievobio Day 2</a></h2>
+    <h4>Wed, Jun 22, 2011</h4>
     <div class="article-style">
       
-      Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
+      Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it&rsquo;s way to the web:
+ Nico Cellinese
+ Scott Chamberlain
+ Rob Guralnick
+  Meanwhile, my scratchpad of notes from day 2, tweet-style.
+My Lightning Talk Gave my lightning talk in this session, slides:
+R interface to TreeBASE
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/21/evolution-day-4-ievobio-day-1/">Evolution Day 4 / #ievobio Day 1</a></h2>
+    <h4>Tue, Jun 21, 2011</h4>
     <div class="article-style">
       
-      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
+      Start of the ievobio conference, simultaneously the forth day of evolution. ievobio conference was very busy, luckily given the nature of the conference it is also largely well documented online. My notes are again archived primarily in tweet form below. My personal highlights of the day included the Keynote by Cladio Silva on Provenance &ndash; essentially supporting reproducible research workflows &ndash; and examples through his vistrails software, and Mark Yoder&rsquo;s demonstration of mx at the software bazaar.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/20/evolution-day-3/">Evolution Day 3</a></h2>
+    <h4>Mon, Jun 20, 2011</h4>
     <div class="article-style">
       
-      Current Situation &amp; Challenges 2000 bootstraps of models fitted to simulated ou2 data
- A single data set is produced by simulation under a specified ou2 model on the Labrid tree (actually one that was fitted to the original Labrid data). Each model (Brownian motion and 1 to 5 separate OU peaks (assigned by my partition function) is fitted to this dataset. Each fitted model is used to generate 2000 replicate datasets For each replicate dataset, the model used to generate it is compared to each other model in likelihood ratio test 2(log(L~1~) − log(L~2~)), where L~1~ is the likelihood of the model that generated the data.
+      Talks  David Babst: Patterns of diversification on large species level supertree of extinct graptolites &ndash; Actually, more on methods for making such a supertree for extinct taxa than on diversification analysis, but excellent talk.
+ Gene Hunt: _Using fossils to test the link between speciation and phenotypic evolution &ndash; _another highlight of the talks, really looking at cladeogeneic vs anaogenic models of evolutionary change, modifying the approach of Folmer Bokma
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/20/slides-from-my-talk-at-evolution-2011/">Slides from my talk at Evolution 2011</a></h2>
+    <h4>Mon, Jun 20, 2011</h4>
     <div class="article-style">
       
-      Writing up work just on ensemble vs single instance detection of regime shifts. See this entry</p>
-
-<p>Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      A general model of continuous character evolution [iframe <a href="http://www.slideshare.net/slideshow/embed_code/8371419">http://www.slideshare.net/slideshow/embed_code/8371419</a> 425 355]
+View more presentations from Carl Boettiger
+As highlighted in the last slide (following acknowledgments), clicking on the results graphs will take you to the image repository, which records when the result was generated in my workstream, and provides a link to the script, software package and data to replicate. Code is parallel, examples shown took between 2 and 12 hours on a 16-core cpu.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/19/evolution-day-2/">Evolution Day 2</a></h2>
+    <h4>Sun, Jun 19, 2011</h4>
     <div class="article-style">
       
-      Single replicate. Almost all warning signals have significant correlation despite the constant environment.
-False warning signals remain just as common when signals are averaged across 100 replicates?
- Exploring statistical qualification of early warning signals. Dakos et. al. (2008) use a correlation significance test (based on Kendall&rsquo;s tau) on the autocorrelation to detect the warning signals. Correlation significance test seems a very poor estimate of signal, high false positive rate at any threshold p-value for sufficiently frequent sampling.
+      Second day of the conference. Many of the talks I most want to see are coming up Monday and Tuesday, and I have a bit more to do to prepare my own talk, so I take it a bit light on sessions. Highlight of the day was definitely the discussion with Mark McPeek and the other journal editors during and following the &ldquo;Happy hour with the editors&rdquo; session, which was perhaps the best event of the conference, despite a rather unimpressive attendance.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/18/evolution-conference-day-1/">Evolution Conference Day 1</a></h2>
+    <h4>Sat, Jun 18, 2011</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Fig 1
-Fig 2
- Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
+      Morning Sessions SSB Symposium 8:30 - noon: Unified Approaches for Understanding Patterns of Character Evolution and Diversification  Stacey Smith (U. of Nebraska-Lincoln) and Boris Igic (U.of Illinois-Chicago) - &ldquo;Introduction to models of character state-dependent diversification&rdquo;  Introduces the BiSSE model.
+ Richard Fitzjohn (U. of British Columbia) - &ldquo;Stochastic mapping incorporating differential diversification&rdquo;  BiSSE comparison to traditional discrete-trait transition rate which ignores the correlation.
+ Folmer Bokma (Umeå University) - &ldquo;Estimating speciation and extinction with incomplete phylogenies&rdquo;   Emma Goldberg (University of Illinois-Chicago) - &ldquo;Modes of speciation and character change from phylogenetic trees&rdquo;
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/">Friday: more labrid &amp; parrotfish wrightscape examples</a></h2>
+    <h4>Fri, Jun 17, 2011</h4>
     <div class="article-style">
       
-      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
-NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
+      Runs from yesterday: MLE comparison of full labrid pharyngeal innovation (all parrotfish), alpha-v-sigma: Unfortunately, the all-variable mcmc over labrid tree was unsuccessful.
+Pure-brownie vs pure diversification ends up with the surprisingly opposite conclusion from the sigmas-alphas on parrotfish close ratio:
+Clearly a convergence problem but with which model? (see parameter distributions adjacent; following in photostream archive).
+Luckily this is not the case in the full labrid (size-corrected, protrusion, pharyngeal innovation) model set:
       
     </div>
   </div>
@@ -257,10 +259,10 @@ NESCent  Considering a visit to NESCent, meet researchers and learn about progra
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/21/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/21/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/23/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/23/">Next &raquo;</a></li>
     
   </ul>
 </nav>

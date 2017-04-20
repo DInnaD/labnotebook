@@ -140,108 +140,123 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood Calculation</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
     <div class="article-style">
       
-      Direct Calculation of the Joint Probability Fig 1 Sample tree
- This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
+      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h2>
+    <h4>Sun, Aug 28, 2011</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
-This is great, nice to know there&rsquo;s a basis for it.
-&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
+      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
+Set up for running primates.R in likelihood mode with abstracted parallelization:
+Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
+hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/27/saturday-working-on-computational-scaling-ion-etc/">Saturday: working on computational scaling, ion, etc</a></h2>
+    <h4>Sat, Aug 27, 2011</h4>
     <div class="article-style">
       
-      Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
+      Can I get a generic montecarlotest function working for both warningsignals and pmc?
+Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
-0.5735 0.29 0.
+      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/26/ropensci-from-r-some-xml-parsing/">FishBASE from R: some XML parsing</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
-&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
+In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/25/datacite-day-2/">DataCite Day 2</a></h2>
+    <h4>Thu, Aug 25, 2011</h4>
     <div class="article-style">
       
-      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
- Create package around power analysis, including ability to test bootstraps
+      9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
+ Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
+  see great example of the ACRID database
+ Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-update/">Likelihood ratio update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/24/datacite-day-1/">DataCite Day 1</a></h2>
+    <h4>Wed, Aug 24, 2011</h4>
     <div class="article-style">
       
-      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      12:00pm-1:00pm Lunch
+ 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
+Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
+ 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
+ Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/23/tuesday-rropensci-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
+    <h4>Tue, Aug 23, 2011</h4>
     <div class="article-style">
       
-      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
- Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
+      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
+XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
+&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/maticce/">MATICCE</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h2>
+    <h4>Sun, Aug 21, 2011</h4>
     <div class="article-style">
       
-      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
-The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
-runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
+      Brief summary of events for this past academic year, as submitted to my dissertation committee.
+TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/18/thursday-reviewing-edits-ropensci-computers/">Thursday: reviewing edits, ropensci, computers.</a></h2>
+    <h4>Thu, Aug 18, 2011</h4>
     <div class="article-style">
+      
+      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
+Brief topic notes from today&rsquo;s meeting:
+ set up different take on layout: lambda, AIC, power
       
     </div>
   </div>
@@ -251,10 +266,10 @@ runBatchHansen()  User identifies a set of nodes of interest, and optionally a m
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/16/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/16/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/18/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/18/">Next &raquo;</a></li>
     
   </ul>
 </nav>

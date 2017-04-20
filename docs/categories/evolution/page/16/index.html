@@ -141,17 +141,48 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/ievobio-submission/">iEvoBio Submission</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2010/11/05/friday-evolution-reading-writing/">Friday: Evolution reading, writing</a></h2>
+    <h4>Fri, Nov 5, 2010</h4>
     <div class="article-style">
       
-      Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.
+      Read through the article for Monday&rsquo;s PBG270, a 2009 Nature paper from the Plotkin lab on mutational robustness and the rate of evolution. They consider an interesting little setup. Start with a Moran model (individual born, may mutate, choses who to replace at random), but allow the following mutational structure (landscape). Of P possible genotypes, each can only move to one of K neighbors by a single mutation. Call the genotype(s) of optimal fitness C.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/ievobio-day-one/">iEvoBio day one</a></h2>
+    <h2><a href="../../../../2010/10/30/short-note-trait-diversification-rates-controlled-by-other-traits/">Short note: Trait diversification rates controlled by other traits</a></h2>
+    <h4>Sat, Oct 30, 2010</h4>
+    <div class="article-style">
+      
+      Peter posed an interesting question to me this afternoon: can we infer a model in which the rate of evolution in one trait (say, its Brownian diversification rate parameter) depends on the value of another trait (say, linearly and assume the other trait depends on Brownian motion). Without all those assumptions we write this generally as:
+$$ dX_t = f_x(X_t, Y_t) dt + \sigma_x(X_t, Y_t) d W_t $$ $$ dY_t = f_y(Y_t) dt + \sigma_y(Y_t) d W_t $$ (subscripts do not imply derivatives in my notation)
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2010/09/04/hello-world-2/">evolution Research Abstract</a></h2>
+    <h4>Sat, Sep 4, 2010</h4>
+    <div class="article-style">
+      
+      Comparative methods in evolutionary biology use phylogenetic trees to explore the origins and maintenance of biodiversity. I develop methods to extend the kinds of questions we can ask and also to test the statistical limits of our ability to make evolutionary inferences through such a periscope into the past. I am particularly interested in detecting evolutionary regime shifts &ndash; locations in evolutionary history where the governing rules or parameters shift suddenly &ndash; as well as more general questions of model choice, informativeness &amp; identifiability in phylogenetic inference.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2010/01/10/cpb-thesis-proposal/">CPB thesis proposal</a></h2>
+    <h4>Sun, Jan 10, 2010</h4>
+    <div class="article-style">
+      
+      In the spirit of archiving work in the lab notebook, this was my PhD dissertation proposal, a requirement to advance to candidacy submitted before our oral defense in the second or third year. Following some excellent advice, this is focused more narrowly than my actual dissertation. As a historical note, I started keeping an open lab notebook the month following this, on OpenWetWare (so work leading up to this isn&rsquo;t archived, though admittedly first two years were largely coursework).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -159,20 +190,63 @@
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/ievobio-day-two/">iEvoBio day two</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Research Labrid Paper Outline Biology Letters format, 2500 words, 2 figures.
+Fig 1?
+Fig 2?
+ Title: Phylogenetic Evidence for Multiple Morphological Niches in Coral Reef Fish Summary (&lt; 200 words)
+ We present phylogenetic evidence for two distinct evolutionary optima in the fin morphology of Labrid Fish.  Keywords: Evolution, Phylogenetics, Comparative Methods, Labrids, Multiple Niches
+ Introduction
+ Labrid Fin Morphology Is clustering in Trait space evidence of Selection or Phylogenetic Inertia?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/ievobio-lightning-talk/">iEvoBio lightning talk</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Submitting a five minute lighting talk on open science. Submitted version here, final text below. See the page revision history for earlier drafts and the original call below. Special thanks to Sam, Alistair, Betta, Shaun, and Alex for feedback.
-My experiment with open science: Why the benefits of sharing go beyond source code The practice and philosophy of open source run deep within the iEvoBio community. Sharing source code has made software development faster and more reliable.
+      Research  Wrote summary function using bootstrap confidence intervals for the bootstraps of the likelihoods directly. On interpreting the bootstraps of likelihoods directly:   The extent to which the distributions themselves are distinct provides an indication of the ability to distinguish between models on the given phylogenetic tree and the actual data. For instance, if the tree was a star tree and the data produced by either BM or OU1, then all distributions would fall on top of one another.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
+ Solution:
+  C++ file mangles names in .so, changing the .C call. to get the object name:
+objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
+ extern C {<br />
+ Problem: Trouble getting R to export the C library to all nodes.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
+ seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
       
     </div>
   </div>
@@ -182,8 +256,10 @@ My experiment with open science: Why the benefits of sharing go beyond source co
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/15/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/15/">&laquo; Previous</a></li>
     
+    
+    <li><a href="../../../../categories/evolution/page/17/">Next &raquo;</a></li>
     
   </ul>
 </nav>

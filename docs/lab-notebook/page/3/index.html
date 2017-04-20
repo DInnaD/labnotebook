@@ -140,119 +140,115 @@
   
   
   <div>
-    <h2><a href="../../../2010/12/04/identifying-warning-signals/">Identifying Warning Signals</a></h2>
-    <h4>Sat, Dec 4, 2010</h4>
+    <h2><a href="../../../2012/03/20/citing-r-packages/">Citing R packages</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
+      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
+citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/03/nsf-and-journal-data-archiving/">Thoughts on the New Policies for Data Archiving at NSF and in Common Journals</a></h2>
-    <h4>Fri, Dec 3, 2010</h4>
+    <h2><a href="../../../2012/03/19/"></a></h2>
+    <h4>Mon, Mar 19, 2012</h4>
     <div class="article-style">
       
-      This post is a work in progress, a scratch pad for me to start assembling what I&rsquo;ve been learning about and resources pertaining to the new policies emerging from NSF and journals relevant to ecology and evolution. Hoping to highlight not only the policies, but the issues, opportunities, and concerns around them.
-I am hoping to help organize a workshop to discuss these issues in my department this Winter. The Davis Open Science group, is planning a series of these workshops, hoping to work with departments, the libraries and the UC Davis Office of Research and its Responsible Conduct of Research  program (in compliance with NIH/NSF ethics requirements), as well as resident faculty and editors.
+      Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/01/cpb--david-collar/">CPB : David Collar</a></h2>
-    <h4>Wed, Dec 1, 2010</h4>
+    <h2><a href="../../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">pdg-control Day 1 goals by training problem</a></h2>
+    <h4>Tue, Mar 13, 2012</h4>
     <div class="article-style">
       
-      Identifying ecological constraint on morph and function using phylogenies. 2007 CPB grad, losos post doc, now postdoc w Rita.
-Indep origin of &lsquo;bass&rsquo; cranial morph. Also unique patterns- stonefish. Phylo comparative methods to address why and how. Three types of factors on morphology: ecological, time!, intrinsic (genetic, behavior) constraints. Outline:
-I. determinants of morph diversification.
-II. Complex traits.
-I. Diversification rate vary by habitat? (Dragon lizards- diverse morph, diverse habitat). Reconstruct history of habitat use (4 types), (assign discrete traits) then stoch character maps to reconstruct (paint) tree.
+      Training Problem I / Theme 1 Policy costs  Functional forms of cost &amp; Structure of the paper Comparability (view over all costs? view expected economic benefit?)
+ Visualizations Dan&rsquo;s L1 norm story (vs stochastic, discrete time?)  Transaction Fee details in cts time, deterministic Advanced problem 1 How many spatially differentiated policies are optimal 1. formulate bioeconomic model 2. modularity methods 3. comparison of GBR &amp; Caribbean examples
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
+    <h2><a href="../../../2012/03/13/pdg-control-training-problem-2-update-to-group/">pdg-control, Training Problem 2 update to group</a></h2>
+    <h4>Tue, Mar 13, 2012</h4>
     <div class="article-style">
       
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
+      Intrinsic Stochasticity $$ x_{t+1} = z_t f(x_t, ht) $$ $$ max{h_t} \textrm{E} \left( \sum_t \Pi(h_t, x_t) \delta^t \right) $$ Measurement error $ m_t = z_m x_t $ Implementation error $ i_t = z_i h<em>t $
+Next: Uncertainty = we can learn and hence decrease the uncertainty. But state-space grows exponentially.
+Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t, a_t) P(a_t, \hat a_t, \sigmat) $$ Bayesian Learning state equations $$ \hat a{t+1} = \textrm{Posterior}(a | x) = \frac{ L(x|a) \textrm{Prior}(a)}{\int L(x|a) \textrm{Prior}(a) da } $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Parameter uncertainty in stochastic control problems</a></h2>
+    <h4>Sun, Mar 11, 2012</h4>
     <div class="article-style">
       
-      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
+      Day 3 of my short-term visitor stay before the working group starts.
+ Wednesday: Travel
+ Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
+  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
+ Friday Writing up Training problem II with Jake, Michael.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/29/challenges-in-estimating-phylogenetic-signal/">Challenges in estimating phylogenetic signal</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../../2012/03/09/alex-pfaff--meeting/">Alex Pfaff seminar, meeting</a></h2>
+    <h4>Fri, Mar 9, 2012</h4>
     <div class="article-style">
       
-      Uncertainty in estimate of lambda illustrated by simulating 1000 data sets on the Geopsiza tree under a model with lambda = 0.62. Shows the high uncertainty in estimating lambda at all, despite the power in the estimate at this value.
-(Code)
-Will fill this out further later. Will be interesting to compare at different base values of lambda used for the simulation.
-Have updated the codbase to provide bootstraps of parameters as part of the monte carlo output.
+      Notes from Alex Pfaff talk at UTK (during my visit for pdg-control meeting).
+ average impact vs differential impact &ndash; must compare against what would have happened to the area if unprotected (at current time/short-timescale, or in future?)
+ Proximity is not a good proxy of similarity (i.e. bc we protect steep slopes but farm the flat land nearby)
+ Instead use simple metrics available in GIS layers - distance from nearest road, etc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/28/likelihoods-for-quadratic-models-cont/">Likelihoods for quadratic models cont</a></h2>
-    <h4>Sun, Nov 28, 2010</h4>
+    <h2><a href="../../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Stability analysis on fished and unfished dynamics.  </a></h2>
+    <h4>Tue, Mar 6, 2012</h4>
     <div class="article-style">
       
-      Considering the fits of the quadratic models from yesterday.
-[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
-Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
+      In this example, we compute the distribution of the stability coefficients estimated from the fished and unfished simulations. Overall this shows little success in distinguishing between the stability of the fished and unfished populations &ndash; i.e. no hint that we are managing near an edge.
+(Originally run and posted in github notebook, but cross posting for reference here since I had trouble recalling if this was filed with the control project or the warning signals project directory.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/27/implementing-likelihoods-for-quadratic-models/">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
+    <h2><a href="../../../2012/03/06/tuesday-14/">Tuesday</a></h2>
+    <h4>Tue, Mar 6, 2012</h4>
     <div class="article-style">
       
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
+      Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
+ model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/25/tweets-from-an-ecology-field-class/">Tweets from an Ecology Field class </a></h2>
-    <h4>Thu, Nov 25, 2010</h4>
+    <h2><a href="../../../2012/03/05/monday-17/">Monday</a></h2>
+    <h4>Mon, Mar 5, 2012</h4>
     <div class="article-style">
       
-      I just spoke with Professor Mau Stanton, a leading researcher in our field and an award-winning teacher, about the potential for using twitter in her field ecology course. Though never having used any social media before, Mau has both clear and clever idea of how she wants to apply it in this 15-student field class.
-The challenge: Students don&rsquo;t seem to read email as much any more, and are often not at a computer.
+      Trivial example of a non-optimal but more robust policy by editing the optimal strategy directly. Note in particular that this outperforms the optimal strategy economically as well as ecologically (fewer crashed populations).
+ Running the policy-costs model with Beverton Holt instead of the Myers function seems to give a clearer picture of a system responding to policy costs. The single-replicate picture probably captures this better than the policy/replicate visualizations.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/24/warning-signals-likelihoods-straight-up/">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
+    <h2><a href="../../../2012/03/03/thursday-friday-saturday/">Thursday, Friday, Saturday</a></h2>
+    <h4>Sat, Mar 3, 2012</h4>
     <div class="article-style">
       
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
+      forage fish seminar - Patrick and Jay with interesting stuff. Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.  knit hooks externalization example working (based on Reed.R). Still unsure how I feel about externalization vs fully literate code. Redundant typing is bad but isn&rsquo;t that why common tasks are functionalized?
       
     </div>
   </div>
@@ -262,10 +258,10 @@ The challenge: Students don&rsquo;t seem to read email as much any more, and ar
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/2/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/2/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/4/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/4/">Next &raquo;</a></li>
     
   </ul>
 </nav>

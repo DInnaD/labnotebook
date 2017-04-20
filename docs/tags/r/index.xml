@@ -21,12 +21,109 @@
     </item>
     
     <item>
+      <title>Writing reproducibly in the open with knitr</title>
+      <link>/2012/04/07/writing-reproducibly-in-the-open-with-knitr/</link>
+      <pubDate>Sat, 07 Apr 2012 14:58:36 +0000</pubDate>
+      
+      <guid>/2012/04/07/writing-reproducibly-in-the-open-with-knitr/</guid>
+      <description>Sweave is something of a gold standard in reproducible research. It creates a dynamic document, written in a mix of LaTeX and R code where the results of the analysis (numbers, figures, tables) are automatically generated from the code and inserted into the resulting pdf document, making them easy to update if the data or methods change. It&amp;rsquo;s a nice idea, in principle.
+However, the practical troubles are many. Coauthors don&amp;rsquo;t know LaTeX, publishers who don&amp;rsquo;t accept LaTeX or pdfs.</description>
+    </item>
+    
+    <item>
+      <title>Citations in markdown using knitr</title>
+      <link>/2012/03/24/citations-in-markdown-using-knitr/</link>
+      <pubDate>Sat, 24 Mar 2012 21:33:27 +0000</pubDate>
+      
+      <guid>/2012/03/24/citations-in-markdown-using-knitr/</guid>
+      <description>I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading). One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I&amp;rsquo;d like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).</description>
+    </item>
+    
+    <item>
+      <title>knitr, github, and a new phase for the lab notebook</title>
+      <link>/2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/</link>
+      <pubDate>Wed, 21 Mar 2012 12:13:42 +0000</pubDate>
+      
+      <guid>/2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/</guid>
+      <description>I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&amp;rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&amp;rsquo;t say where in the script the command came from, and it required manually specifying the script name).</description>
+    </item>
+    
+    <item>
+      <title>Citing R packages</title>
+      <link>/2012/03/20/citing-r-packages/</link>
+      <pubDate>Tue, 20 Mar 2012 10:02:09 +0000</pubDate>
+      
+      <guid>/2012/03/20/citing-r-packages/</guid>
+      <description>I&amp;rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&amp;rsquo;s some quick examples:
+citation(&amp;quot;ouch&amp;quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), http://ouch.r-forge.r-project.org Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.</description>
+    </item>
+    
+    <item>
+      <title>Elegant &amp; fast data manipulation with data.table</title>
+      <link>/2012/02/12/elegant-fast-data-manipulation-with-data-table/</link>
+      <pubDate>Sun, 12 Feb 2012 13:39:03 +0000</pubDate>
+      
+      <guid>/2012/02/12/elegant-fast-data-manipulation-with-data-table/</guid>
+      <description>Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
+One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
+time &amp;lt;- rep(1:10, 10) replicate &amp;lt;- sort(time) value &amp;lt;- rnorm(100) df &amp;lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
+sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use</description>
+    </item>
+    
+    <item>
+      <title>Is your phylogeny informative?</title>
+      <link>/2012/01/19/is-your-phylogeny-informative/</link>
+      <pubDate>Thu, 19 Jan 2012 14:10:49 +0000</pubDate>
+      
+      <guid>/2012/01/19/is-your-phylogeny-informative/</guid>
+      <description>Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&amp;rsquo;s preprint),As the open access copy doesn&amp;rsquo;t appear on pubmed for a while, you can access my author&amp;rsquo;s copy here. so I&amp;rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
+I didn&amp;rsquo;t set out to write this paper.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2011/10/25/</link>
+      <pubDate>Tue, 25 Oct 2011 19:06:38 +0000</pubDate>
+      
+      <guid>/2011/10/25/</guid>
+      <description>My treebase package is now up on the CRAN repository. (Source code is up, the binaries should appear soon). Here&amp;rsquo;s a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows.</description>
+    </item>
+    
+    <item>
+      <title>Showcasing the latest phylogenetic methods: AUTEUR</title>
+      <link>/2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur/</link>
+      <pubDate>Wed, 20 Jul 2011 15:07:14 +0000</pubDate>
+      
+      <guid>/2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur/</guid>
+      <description>While high-speed fish feeding videos may be the signature of the lab, dig a bit deeper and you&amp;rsquo;ll find a wealth of comparative phylogenetic methods sneaking in. It&amp;rsquo;s a natural union &amp;ndash; expert functional morphology is the key to good comparative methods, just as phylogenies hold the key to untangling the evolutionary origins of that morphology. The lab&amp;rsquo;s own former graduate, Brian O&amp;rsquo;Meara, made a revolutionary step forward in the land of phylogenetic methods when he unveiled Brownie in 2006, allowing researchers to identify major shifts in trait diversification rates across the tree.</description>
+    </item>
+    
+    <item>
+      <title>TreeBASE in R: a first tutorial</title>
+      <link>/2011/05/16/ropensci-in-r-a-first-tutorial/</link>
+      <pubDate>Mon, 16 May 2011 19:46:54 +0000</pubDate>
+      
+      <guid>/2011/05/16/ropensci-in-r-a-first-tutorial/</guid>
+      <description>My TreeBASE R package is essentially functional now. Here&amp;rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
+TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.</description>
+    </item>
+    
+    <item>
       <title>socialR: Reproducible Research &amp; Notebook integration with R</title>
       <link>/2010/12/11/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools/</link>
       <pubDate>Sat, 11 Dec 2010 03:44:54 +0000</pubDate>
       
       <guid>/2010/12/11/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools/</guid>
       <description>I&amp;rsquo;ve created an R package that uses social media tools for reproducible research. The goal of the package is this: whenever I run a code, output figures are automatically added to my figure repository (Flickr), linked to the timestamped version of the code that produced them in the code repository. Figures should be tagged by project and be embedded selectively or automatically into this lab notebook. The basic workflow of the notebook looks like this:[ref]Diagram of my notebook as presented at Science Online, 2011, see other slides in my entry on this.</description>
+    </item>
+    
+    <item>
+      <title>knitcitations</title>
+      <link>/1/01/01/knitcitations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/knitcitations/</guid>
+      <description>EDIT: Note that this package has evolved quite a bit from this initial post. While the basic interface is the same, support for additional features and some choices in formatting differ from what is presented here. Please see the README for the latest introduction to the package. Readers may also be interested in the more recent post discussing the introduction of several new features including semantic tools in the knitcitations package</description>
     </item>
     
   </channel>

@@ -141,112 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/28/phylogenetic-signal-metrics/">Phylogenetic Signal metrics</a></h2>
+    <h4>Fri, Jan 28, 2011</h4>
     <div class="article-style">
-      
-      Graham &amp; Peter Meeting Fig 1
-Fig 2
- Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/24/felsenstein-web/">Felsenstein (web) seminar</a></h2>
+    <h4>Mon, Jan 24, 2011</h4>
     <div class="article-style">
       
-      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
-NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
+      Joe Felsenstein on phyloseminar (watch here). This morning. [ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets.[/ref] Discusses bridging population genetics &amp; comparative methods: where does covariation in traits across a phylogeny come from?
+Morphometrics Using morphometrics (digitized landmarks [though now we can do spherical harmonics, CT scans, etc]) to evolve on a phylogeny under BM rather than use that data to infer phylogeny.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/">Shape as well as size influence power of phylogeny</a></h2>
+    <h4>Fri, Jan 21, 2011</h4>
     <div class="article-style">
       
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
+      Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/">Estimating phylogenetic signal (lambda) on large trees</a></h2>
+    <h4>Thu, Jan 20, 2011</h4>
     <div class="article-style">
       
-      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
- Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
- ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
-  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
+      Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
+[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5370016511 [/flickr]
+[flickr size=&ldquo;small&rdquo; float=&ldquo;right&rdquo;]5370635360 [/flickr]
+compare to 281 taxa and then 600 taxa:
+[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5310150538 [/flickr]
+By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/11/phylogenetics-wrightscape/">evolution- wrightscape</a></h2>
+    <h4>Tue, Jan 11, 2011</h4>
     <div class="article-style">
       
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
+      Interesting meeting with Peter to discuss a variety of issues in comparative phylogenetics. Short notes:
+ Transforming data, log data
+ Trends in directions in convergent traits
+ multivariate inference
+ Manuscript
+  Wrightscape First have to test PMC to make sure it works with OUCH classes. Also adding PMC-required wrappers for wrightscape. Ended up modifying PMC to handle the case of simulate functions that return replicates, like these packages do.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/09/phylo-monte-carlo-for-diversification-rates/">Phylo Monte Carlo for diversification rates</a></h2>
+    <h4>Sun, Jan 9, 2011</h4>
     <div class="article-style">
       
-      Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
- Started stochastic methods and model inference collection:  Research collected using Mendeley
-Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic methods and model inference library. Add Science of Science papers to Future of Science collection. Adding tags, abstracts, etc to Mendeley public Library Personal/extended task view (and opinion?
+      Writing function wrappers for geiger functions to perform Phylogenetic Monte Carlo. Any object that has methods defined for update.objecttype (object, data) and simulate.objecttype(data), and loglik.object(object) should be able to use the montecarlotest() function. OUCH almost does this but not quite, since the datatype returned by &lsquo;simulate&rsquo; doesn&rsquo;t match that needed by &lsquo;update&rsquo;. OUCH also uses S4 class styles.
+Wrote wrappers for ouch functions such that the ouch models will work with the same montecarlotest() code.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/roi-and-sam-comparative-phylogenetics-r-workshop/">Roi and Sam Comparative Phylogenetics R Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/01/02/finishing-up-my-sicb-presentation/">Finishing up my #SICB Presentation</a></h2>
+    <h4>Sun, Jan 2, 2011</h4>
     <div class="article-style">
       
-      Day 2: 4p - 6:30p  Attending the R workshop by Roi Holzmann and Sam Price from the Wainwright lab. Missed the introductory session on Monday. Course data currently available here. Resources: Springer R books pdfs available through UC Davis. In particular: R book w/ ape.  Speciation &amp; Diversification 3rd session (4:10 - 5:10 pm): Packages: Laser, Geiger, Ape, apTreeshape &amp; Diversitree
- Lineage through time plots ape and laser:   ltt.
+      Finished up my SICB presentation tweaks, slides now up on slideshare, flying off to the conference tomorrow. Created this in OpenOffice, started adding animations and then decided it would be more reliable to just duplicate slides to have parts appear (really just for the explanation of the likelihood ratio distributions under each model). Next time think I&rsquo;ll stick with my usual inkscape slides tied together with latex beamer, the lack of vector images in this one is not ideal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2010/12/31/comparative-phylogenetics-is-the-data-informative/">Comparative evolution: Is the data informative?</a></h2>
+    <h4>Fri, Dec 31, 2010</h4>
     <div class="article-style">
       
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
-
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
+      Working on my SICB talk, going a little further into the example of fitting the lambda model on the Anoles data to illustrate the ways in which we may lack sufficient data for the question.
+ The dataset may not contain adequate signal of the parameter / phenomenon in question
+ The dataset may not be adequately large
+  Anoles data set (23 taxa):
+This first image shows the distribution of lambda values estimated from many datasets all simulated under a lambda = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/status---thoughts/">Status - Thoughts</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h2>
+    <h4>Fri, Dec 24, 2010</h4>
     <div class="article-style">
       
-      Goal: BM vs OU vs proposed multipeak OU model with and without global alpha/sigma. Anoles dataset, carex dataset, labrids?
- Added ape2ouch_all function based on maticce to convert file formats. Might be worth checking against my current implementation. Meanwhile it&rsquo;s really the converting trees back from ouch to ape that gives the ace function trouble. something about ordering of the nodes, even though that shouldn&rsquo;t matter in the phylo format.
+      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
+synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/status-update/">Status update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2010/12/20/sun-visualizing-my-coding-over-the-past-year/">Sun: Visualizing my coding over the past year</a></h2>
+    <h4>Mon, Dec 20, 2010</h4>
     <div class="article-style">
+      
+      Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the Mendeley&rsquo;s example). So in the spirit of year-in-review reflections, here&rsquo;s my development from the past year (just for the phylogenetic statistics work).
+Quality is a little too poor to read file names, more entertaining than practical. Other user icons appear in December corresponding with my move to running the code from Amazon cloud.
       
     </div>
   </div>
@@ -256,10 +261,10 @@ Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic me
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/12/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/12/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/evolution/page/14/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/evolution/page/14/">Next &raquo;</a></li>
     
   </ul>
 </nav>

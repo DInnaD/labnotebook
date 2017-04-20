@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: nonparametric-bayes
+tags: [nonparametric-bayes]
 categories: [ecology]
 
 ---

@@ -140,89 +140,120 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/06/reproducible-research-large-data-sets-and-si2/">Reproducible Research, Large data sets, and SI2 </a></h2>
+    <h4>Fri, May 6, 2011</h4>
+    <div class="article-style">
+      
+      What follows are my notes from May 6th, 2011 expressing the ideas that would ultimately coalesce into the rOpenSci project. Much of this was turned into an email to Duncan and Todd, whose feedback was invaluable in working through this, and several others. (The reference to SI2 refers to an NSF call from about that time, which also stimulated my thinking on this matter.) Since then I&rsquo;ve learned quite a bit about these tools, with which I now feel quite comfortable.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/05/06/mendeley-hpc-in-r/">Mendeley API in R</a></h2>
+    <h4>Fri, May 6, 2011</h4>
+    <div class="article-style">
+      
+      Started to implement the Mendeley API in R, with much help and guidance from Prof. Duncan Temple-Lang in the Stats dept. R is a widely used statistical software environment, and this should facilitate real-time statistical analysis of the rich amount of publication data available in Mendeley.
+My motivation is primarily pedagogical at the moment- Mendeley seems to have a nice modern API with both public and authentication-required elements (using OAuth). Writing out the API gives me some good practice making GET requests in RCURL and handling JSON returns, and experiencing the bumps that go with this kind of work.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/05/05/thursday-parrotfish-analysis/">Thursday: parrotfish analysis</a></h2>
+    <h4>Thu, May 5, 2011</h4>
+    <div class="article-style">
+      
+      Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
+Tree: alpha is favored in all the ratio traits, sometimes substantially.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/05/04/weds-parrotfish-data-set-analysis/">Weds: Parrotfish data set analysis</a></h2>
+    <h4>Wed, May 4, 2011</h4>
+    <div class="article-style">
+      
+      Parrotfish  Need better convergence error handling.
+ Need to remedy: &ldquo;Function cannot be evaluated at initial parameters&rdquo; errors &ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
+ Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/05/04/algorithms-discussion-group-mcmc/">Algorithms Discussion Group: MCMC</a></h2>
+    <h4>Wed, May 4, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/03/tuesday-phylogenetics-wrightscape-coding/">Tuesday: phylogenetics- wrightscape coding</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
+      Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-05-03 00:00:00&rdquo; max_upload_date=&ldquo;2011-05-03 23:59:59&rdquo;]
+See code: loop_models_traits_regimes.R
+Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/03/ropensci-an-r-interface-proposal-for-ievobio/">treeBASE R interface: proposal for #iEvoBio</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
+      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/03/monday-3/">Monday</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
+      
+      Today:
+ Application for CPB travel funds. DONE
+ Faxed receipts from Felsenstein&rsquo;s visit. DONE
+  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
+Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/">Friday: Notes on Labrids, notes on Transforms and size-corrections</a></h2>
+    <h4>Fri, Apr 29, 2011</h4>
     <div class="article-style">
+      
+      The specific traits were:
+Oral Jaw traits
+ mouth-closing lever ratio (Close),
+ mouth-opening lever ratio (Open), kinematic
+ transmission coefficient of the oral jaws four-bar linkage (Jaw KT),
+ adductor mandibulae (AM) muscle mass,
+ premaxillary protrusion distance (Prot),
+ gape width (Gape),
+  Exterior to the Oral Jaws, not expected to become unconstrained:
+ levator posterior (LP) muscle mass: (Pharyngeal jaw muscle)
+ sterno-hyoideus (SH) muscle mass, (Primarily buccual cavity)
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/04/28/thursday-reading-notes/">Reading Notes, presentation prep treebase error handling</a></h2>
+    <h4>Thu, Apr 28, 2011</h4>
     <div class="article-style">
       
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio manuscript.  Labrid Herbivory data Parrotfish gape shows significant differences for independent OU models (alpha, theta, sigma different) than wrasses. While the two-peak ouch model gets no support, allowing alpha and sigma to very results in a strongly significant model improvement.
-code
-&gt; ws2$ ws2$alpha ws2$data ws2$loglik ws2$regimes ws2$sigma ws2$theta ws2$tree ws2$Xo &gt; ws2$theta [1] 0.2245493 0.9569619 &gt; ws2$alpha [1] 2.943846e+00 4.995744e-06 &gt; ws2$sigma [1] 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
+      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
       
     </div>
   </div>
@@ -232,10 +263,10 @@ code
 <nav>
   <ul class="pager">
     
-    <li><a href="//lab-notebook/page/26/">&laquo; Previous</a></li>
+    <li><a href="../../../lab-notebook/page/26/">&laquo; Previous</a></li>
     
     
-    <li><a href="//lab-notebook/page/28/">Next &raquo;</a></li>
+    <li><a href="../../../lab-notebook/page/28/">Next &raquo;</a></li>
     
   </ul>
 </nav>

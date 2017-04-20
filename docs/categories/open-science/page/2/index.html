@@ -141,44 +141,121 @@
   
   
   <div>
-    <h2><a href="../../../../2010/11/05/thursday/">Thursday</a></h2>
-    <h4>Fri, Nov 5, 2010</h4>
+    <h2><a href="../../../../2012/02/06/some-collaborative-tools-for-science/">Some Collaborative Tools for Science</a></h2>
+    <h4>Mon, Feb 6, 2012</h4>
     <div class="article-style">
       
-      Wrote yesterday&rsquo;s entry on power spectral analysis difficulties from yesterday. Why don&rsquo;t I remember my physics training better? Bialek&rsquo;s Phy562 notes still very helpful. No one else seems to write about this stuff clearly enough for me. Including me. 8a-11a
-Catching up on reading. Good news and discussion items in Nature on publishing code and review materials, excellent piece on climate change scientists engaging media, climate high performance computing in Brazil; etc see headlines and links in my twitter feed archive for today.
+      Ania Truszczynski invited me to give a little talk on the use of various collaborative tools for scientists. I enjoyed presenting this as a chalk-talk, but alas no slides to link so here&rsquo;s a list of reference. Rather than the impossible attempt to be comprehensive, this is restricted to resources I use regularly and have found to be the best of their class. All are freely available.
+Tools   Science Blogs (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/11/03/reviews-organization-rewrites/">Reviews, organization, rewrites</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../../../2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration/">Journey to freedom - a code&#39;s tale of open source license migration</a></h2>
+    <h4>Tue, Jan 31, 2012</h4>
     <div class="article-style">
       
-      Today&rsquo;s a mixed bag of activities. Finished a journal review, comments confidential, recorded in my reviewed papers archive. I then organized documents library (more below) and then back to paper revisions.
-The reference manager software Mendeley recently upgraded the way it handles groups and sharing, and I&rsquo;ve been waiting to revise how it impacts my workflow around articles. Articles can be organized into folders (collections) or kept unsorted within the library, and can be part of as multiple collections.
+      My software wants to be free. It wants to be seen and used and loved by as many people as possible. When first it heard of open source licenses, it set sail to join the company of great software in the promised land, but finding true freedom has been a tortured journey.
+In the clutches of the GPL Created and defended by the Free Software Foundation and used by such venerable institutions as the Linux Kernel, the gcc compiler, and the R statistical environment, the GNU&rsquo;s General Public License seemed like a gold standard to call home.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h2>
-    <h4>Mon, Oct 25, 2010</h4>
+    <h2><a href="../../../../2012/01/16/are-open-lab-notebooks-considered-prior-publication/">Are open lab notebooks considered prior publication?</a></h2>
+    <h4>Mon, Jan 16, 2012</h4>
     <div class="article-style">
       
-      Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
-A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.
+      This question invariably comes up at some point in any discussion of open notebook science. This concern is usually voiced in reference to the high-visibility magazines, which many scientists seem to assume will have very restrictive conditions. A quick read of their policies shows otherwise. Here are the links to pre-publication policies of major journals, with my short summaries &amp; comments.
+Nature - Go right ahead. Explicit protection clause for open/collaborative blogs/wikis.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/09/07/lab-notebooks/">Lab Notebooks</a></h2>
-    <h4>Tue, Sep 7, 2010</h4>
+    <h2><a href="../../../../2011/12/12/better-sweave-dynamic-documents-with-syntax-highlighting-easier-tools/">Better dynamic documents (Sweave) with syntax highlighting, caching, etc</a></h2>
+    <h4>Mon, Dec 12, 2011</h4>
     <div class="article-style">
       
-      I strive for a transparent and reproducible research process. My lab notebooks are kept on an open wiki (via OpenWetWare). I curate the literature I read into several public lists (Mendeley), maintain my research source code and simulations on a collective database for open source development (Github), and am active on academic forums and mailing lists. These web-based tools make a largely automated, interlinked archive of my work I can search, update and share easily.
+      The highlight package is a simple solution for very nice syntax highlighted code boxes in latex documents. Requires switching the driver, which is best done from within R and requires creating a makefile though. Needs the &ldquo;highlight&rdquo; package installed. Here&rsquo;s a simple makefile.
+A wealth/mess of Sweave related packages on the CRAN taskview for Reproducible Research (now what other software platform has a the equivalent of a Reproducible Research task view?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/12/11/some-notes-on-open-notebooks-open-peer-review-practices/">Some Notes on Open Notebooks, Open peer review practices.</a></h2>
+    <h4>Sun, Dec 11, 2011</h4>
+    <div class="article-style">
+      
+      What follows is a collection of notes, examples, and reflections I&rsquo;ve been meaning to write down.
+Revealing Revisions Sharing version history is an important part of an open notebook really being open, and one reason why wikis have remained so popular for Open Notebook Science. Wordpress (this platform) does version management internally, and thepost-revision display plug-in makes this visible on posts. I had experimented but disabled this a while ago because I didn&rsquo;t like visual impact of the long list at the end of my posts.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/09/09/how-google-views-me-by-search-terms-or-citation-counts/">How google views me: by search terms or citation counts?</a></h2>
+    <h4>Fri, Sep 9, 2011</h4>
+    <div class="article-style">
+      
+      How Google search views me: here&rsquo;s a word cloud of search terms reaching my site in August. Word cloud produced with R: click-through for link to source-code. Uses the rather convenient tm package for text-mining functions in R. Note that this shows the frequency of individual words used in searches, rather than the whole search term.
+Code:
+require&trade; require(wordcloud) require(RColorBrewer) carl &lt;- read.csv(&quot;searchterms.csv&quot;, colClasses=c(&quot;character&quot;, &quot;numeric&quot;)) words &lt;- character(sum(carl[[2]])) m &lt;- 1 for(i in 1:length(carl[[1]])){ n &lt;- carl[[2]][i] x &lt;- carl[[1]][i] words[m:(m+(n-1))] &lt;- rep(x, n) m &lt;- m+n } carl &lt;- Corpus(DataframeSource(carl)) carl &lt;- tm_map(carl, removePunctuation) carl &lt;- tm_map(carl, tolower) carl.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/08/25/datacite-day-2/">DataCite Day 2</a></h2>
+    <h4>Thu, Aug 25, 2011</h4>
+    <div class="article-style">
+      
+      9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
+ Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
+  see great example of the ACRID database
+ Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/08/24/datacite-day-1/">DataCite Day 1</a></h2>
+    <h4>Wed, Aug 24, 2011</h4>
+    <div class="article-style">
+      
+      12:00pm-1:00pm Lunch
+ 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
+Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
+ 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
+ Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/07/14/the-case-for-better-data-citation-practices/">The Case for Better Data Citation Practices?</a></h2>
+    <h4>Thu, Jul 14, 2011</h4>
+    <div class="article-style">
+      
+      An excellent question came up on ecoinformatics list today on data citation from Kyle Kwaiser at the Michigan Biological Station
+ I am working with graduate students this summer to archive their work at our field station. I want to tell them to cite their datasets on their CV&rsquo;s but I know this is not yet the norm.
+ Any general thoughts on how close we are to including datasets on CV&rsquo;s?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/07/13/uc-davis-student-assembled-panel-on-data-management-issues/">UC Davis Student Assembled Panel on Data Management Issues</a></h2>
+    <h4>Wed, Jul 13, 2011</h4>
+    <div class="article-style">
+      
+      Panel Members (listed left to right)
+ Paul Gepts: UC Davis Professor of Plant Science: evolution of plants on domestication.
+ Mario Biagioli: Professor of Law in Science and Technology, Director of Science and Innovation, formerly Professor of History of Science at Harvard; written extensively on the role of secrecy in science.
+ John Kunze: Preservation Technologist and Ass. Director of California Digital Library.
+ Phoebe Ayers: UC Davis Librarian, Wikimedia Foundation Board of Trustees.
       
     </div>
   </div>
@@ -188,8 +265,10 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/open-science/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/open-science/">&laquo; Previous</a></li>
     
+    
+    <li><a href="../../../../categories/open-science/page/3/">Next &raquo;</a></li>
     
   </ul>
 </nav>

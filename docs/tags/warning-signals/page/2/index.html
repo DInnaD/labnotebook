@@ -141,117 +141,111 @@
   
   
   <div>
-    <h2><a href="../../../../2010/10/27/warning-signals-where-are-we-now/">Warning Signals -- Where are we now?</a></h2>
-    <h4>Wed, Oct 27, 2010</h4>
+    <h2><a href="../../../../2012/02/16/squiggles/">Squiggles</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
     <div class="article-style">
       
-      The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
-$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
-and
-$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
+      Variability in the appearance of a trend
+nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
+X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h2>
-    <h4>Tue, Oct 26, 2010</h4>
+    <h2><a href="../../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h2>
+    <h4>Wed, Feb 15, 2012</h4>
     <div class="article-style">
       
-      Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
- First, if the mean is changing, the model fitting must be appropriate to this &ndash; either by fitting this rate of change or correcting for it.
- Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.
+      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
+Run the individual based simulation
+require(populationdynamics)  [code] Loading required package: populationdynamics
+ ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h2>
-    <h4>Mon, Oct 25, 2010</h4>
+    <h2><a href="../../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h2>
+    <h4>Tue, Feb 14, 2012</h4>
     <div class="article-style">
       
-      Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
-A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.
+      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
+Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../2010/10/21/"></a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
-    <div class="article-style">
-      
-      Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
- Proper handling of trends
- Best model for eigenvalue change
-  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/21/spatial-warning-signals-power-etc/">Spatial Warning Signals, power, etc</a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
-    <div class="article-style">
-      
-      Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation. Weakening stability across a set of coupled patches should result in increased autocorrelation. Decided to test this with a little visualization with help of a quick R script. Time progresses across the x-axis, 1-D space (on S1) across the y-axis. Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      1-2pm
- Discussion of reasons early warning signals fail   Insufficient signal-to-noise ratio for early warning Ensemble vs time average &ndash; satisfying ergodicity assumption? Role of bifurcation type. existing literature focuses mostly on 1D saddle node. Role of chaos (certainly frustrates warning signals, but not required).   How general are warning signals? Normal forms of bifurcations. Fitting a good model vs. general warning signals. Problem of extrapolation. Classification scheme of warning signals &ndash; TREE paper(?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2012/02/13/monday-16/">Monday</a></h2>
+    <h4>Mon, Feb 13, 2012</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2012/02/12/sunday-6/">Sunday </a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      From 03/31, see below for more!
-Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2012/02/12/saturday-projects-reading-markdown-notebook-technology/">Saturday: projects, reading, markdown notebook-technology</a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
-/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
+      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
+ People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
+ Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">UC Davis graduate student symposium proposal</a></h2>
+    <h4>Wed, Feb 8, 2012</h4>
     <div class="article-style">
       
-      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
-Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Different ways of visualizing distribution overlap</a></h2>
+    <h4>Fri, Feb 3, 2012</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2012/01/24/tuesday-11/">Tuesday</a></h2>
+    <h4>Tue, Jan 24, 2012</h4>
+    <div class="article-style">
+      
+      Resilience seminar  the unhelpful resilience of invaded systems (ecosystem engineers anyone? Cheatgrass change the fire regime, salt-cedar ) Examples in cheatgrass invading sagebrush, and saltcedar invading cottonwoods. Variables on axes? Problem of dimensionality? resilient to what? Carpenter&rsquo;s rigidity trap (need to eliminate something) vs poverty trap (something is missing) promote a small disturbance to reset the system &ndash; when are small disturbances stabilizing? (escape the rachet?)  pdg-control  Summary for Training Problem II  Warning Signals  Figures for Alan paper.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2012/01/18/wednesday-meetings/">Wednesday -- meetings</a></h2>
+    <h4>Wed, Jan 18, 2012</h4>
+    <div class="article-style">
+      
+      Alan meeting write write write
+Duncan Meeting Troubleshooting S3 and S4 Try adding methods? Changing order on NAMESPACE?
+Leaving ouch off the import list: no errors, but within functions, don&rsquo;t get S4 method. import but don&rsquo;t depend on ouch: error. accurate, since simulate is left as an s3 function at the user level.
+What a headache. See stackQ.
+manuscript Duncan&rsquo;s feedback
+Meredith Meeting Run a science policy workshop with Davis open science group?
       
     </div>
   </div>
@@ -261,10 +255,10 @@ Questions  LPA vs ELLPA model Defining state space in individual-based model vs 
 <nav>
   <ul class="pager">
     
-    <li><a href="//tags/warning-signals/">&laquo; Previous</a></li>
+    <li><a href="../../../../tags/warning-signals/">&laquo; Previous</a></li>
     
     
-    <li><a href="//tags/warning-signals/page/3/">Next &raquo;</a></li>
+    <li><a href="../../../../tags/warning-signals/page/3/">Next &raquo;</a></li>
     
   </ul>
 </nav>

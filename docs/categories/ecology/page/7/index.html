@@ -141,115 +141,128 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/parallel-at-last/">Parallel at last</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/10/thursday-12/">Thursday</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
+      Forage Fish dynamics
+ Forage fish consumption: who consumes, how important is it. e.g. Africa imports more quantity of fish, but of low value. net exports based on value.
+ food security / undernourished regions
+ forage fish substitutable? Study in Asia: Pretty inelastic.
+ income elasticity vs wealth elasticity (not a real difference. but patterns of consumption of a rich person aren&rsquo;t same as poor person with a windfall, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parallelizing-code/">Parallelizing Code</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h2>
+    <h4>Wed, Nov 9, 2011</h4>
     <div class="article-style">
       
-      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
+      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/power-plots/">Power plots</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h2>
+    <h4>Tue, Nov 8, 2011</h4>
     <div class="article-style">
       
-      Testing power code. currently null and test distributions of likelihood scores are distinguishable even for small beta on the long time scale. See code for run.
- running on shorter timescale. Note that parameters match but small code differences in repository code on the last commit since I committed the version on the local machine (my laptop, for development) but ran a slightly tweaked code (typo in reps vs nboot, .
+      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/puzzled-over-the-two-step-jump-process-results/">Puzzled over the two-step jump process results</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
       
-      The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
+      Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/questions/">Questions</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/03/warning-signals---noise-response/">Warning signals - noise response</a></h2>
+    <h4>Thu, Nov 3, 2011</h4>
     <div class="article-style">
       
-      Current population dynamics model macroscopic equations:
-Interpreting μ terms as death events, b as birth, and the a terms as transitions between age classes gives a natural form for the master equation.
-Divergent Solutions to the linear noise approximation? Breaking the age classes into k subclasses makes waiting time within an age class gamma instead of exponential, which better matches observation. Also allows sustained oscillations. The numerical solution to the linear noise approximation shows divergent variance dynamics.
+      Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/reading/">Reading</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h2>
+    <h4>Wed, Nov 2, 2011</h4>
     <div class="article-style">
       
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
+      Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
+$$ X_{t+1} = Z_n f(X_n) $$
+$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
+$$ f(x) = \frac{A x}{1+B x} $$
+Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Writing up work just on ensemble vs single instance detection of regime shifts. See this entry</p>
-
-<p>Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      Call includes everyone except Frank &amp; Claire.
+Logistics  Meeting 2: 13-15 March
+ Review code/files on wiggio.
+ Want a group review of material / webX tutorial? Email Paul after the call.
+  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
+ Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
+ Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Single replicate. Almost all warning signals have significant correlation despite the constant environment.
-False warning signals remain just as common when signals are averaged across 100 replicates?
- Exploring statistical qualification of early warning signals. Dakos et. al. (2008) use a correlation significance test (based on Kendall&rsquo;s tau) on the autocorrelation to detect the warning signals. Correlation significance test seems a very poor estimate of signal, high false positive rate at any threshold p-value for sufficiently frequent sampling.
+      Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/31/monday-openfisheries-ggplot/">Monday: openfisheries &amp; ggplot</a></h2>
+    <h4>Mon, Oct 31, 2011</h4>
     <div class="article-style">
+      
+      Andrew has put together the preliminary API for the openfisheries.org project. I&rsquo;ve begun an R package, rfisheries, to interface to the openfisheries project. It would be great to incorporate data from the RAM Legacy database and the seaaroundus.org project, which may be done at the level of the R package or (perhaps more flexibly) directly through the developing openfisheries API.
+Here&rsquo;s a quick proof-of-principle example for Andrew&rsquo;s API:
+(Code linked from image as usual).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/research/">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h2>
+    <h4>Fri, Oct 28, 2011</h4>
     <div class="article-style">
       
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
+      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
       
     </div>
   </div>
@@ -259,10 +272,10 @@ False warning signals remain just as common when signals are averaged across 100
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/ecology/page/6/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/ecology/page/6/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/ecology/page/8/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/ecology/page/8/">Next &raquo;</a></li>
     
   </ul>
 </nav>

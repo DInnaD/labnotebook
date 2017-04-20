@@ -141,103 +141,113 @@
   
   
   <div>
-    <h2><a href="../../../../1/01/01/monday/">Monday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/28/thursday-reading-notes/">Reading Notes, presentation prep treebase error handling</a></h2>
+    <h4>Thu, Apr 28, 2011</h4>
     <div class="article-style">
       
-      7:30 &ndash; 8:30 Read ﻿article for Wainwright&rsquo;s 270:  Streisfeld, M.a. &amp; Rausher, M.D. Population Genetics, Pleiotropy, and the Preferential Fixation of Mutations During Adaptive Evolution. Evolution no-no(2010).doi:10.1111/j.1558-5646.2010.01128.x
-Interesting approach, methods description a little light and both prediction and interpretation of pattern of mutations in coding, cis-reg, and transcription factor sites seems a little loose. Detailed notes on article in Mendeley. More comments after the discussion section at 1pm today.
+      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/multitype-ou-processes-with-varying-alpha-and-sigma/">Multitype OU Processes with varying alpha and sigma</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/27/wednesday-4/">Wednesday</a></h2>
+    <h4>Wed, Apr 27, 2011</h4>
     <div class="article-style">
       
-      Been meaning to sit down and work this one out for a while; somehow travel and conferences helped out with that &ndash; now I only have to transcribe some dozen messy hotel notepad sheets to get the calculations into this lab notebook. Meanwhile, 15 hours on a train from Portland was just the right amount of time to code up the approach, which is now implemented at the C level for the Anoles dataset; code in the wrightscape project on github.
+      7:30-9:30 Review for Theoretical Ecology
+ Profiling wrightscape   Compile with profiling (-g -pg flags, in make profile). Run
+valgrind &ndash;leak-check-full ./wrightscape.exe  to remove memory links. Run
+valgrind &ndash;tool=callgrind kcachegrind callgrind.out.&lt;###&gt;  For profiling information
+Troubleshooting implementation of restricted-domain functions. Cannot be wright_tree since they have to know their likelihood method. Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/26/accessing-phylognenies-in-ropensci-from-r/">Accessing phylognenies in TreeBASE from R</a></h2>
+    <h4>Tue, Apr 26, 2011</h4>
     <div class="article-style">
       
-      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
- Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
+      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/multivariate-normal-random-variables/">Multivariate normal random variables</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/25/ropensci-interface-continued/">TreeBASE interface continued...</a></h2>
+    <h4>Mon, Apr 25, 2011</h4>
     <div class="article-style">
       
-      GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
+      Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
+Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
+Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/open-science-summit/">Open Science Summit</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/24/wrightscape-profiling/">wrightscape profiling</a></h2>
+    <h4>Sun, Apr 24, 2011</h4>
     <div class="article-style">
+      
+      Optimization at the R level is substantially slower than at the C level:
+system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/22/release-of-constraint-in-labrids/">Release of constraint in labrids?</a></h2>
+    <h4>Fri, Apr 22, 2011</h4>
     <div class="article-style">
+      
+      Started writing outline, assembling references
+ Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
+ Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
+ Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&rsquo;t optimize the likelihood.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/open-science-summit-day-2/">Open Science Summit day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/20/wednesday-3/">Wednesday</a></h2>
+    <h4>Wed, Apr 20, 2011</h4>
     <div class="article-style">
+      
+      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/organizing-analyses-data-codes/">Organizing analyses, data, codes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/17/treepar-changing-rates-of-evolution/">TreePar: changing rates of evolution</a></h2>
+    <h4>Sun, Apr 17, 2011</h4>
     <div class="article-style">
       
-      Codes  Should have a suite of likelihood tools as a package Suite of data manipulation functions, mostly to and from ape/ouch<br />
-idealized workflow:
- Read in nexus file and csv data. Call model fit for each model to be tested (BM, one peak, multiple peaks, multiple peaks with independent selective forces)<br />
- A function checks tree and data for matches, discards those without match. This could be done automatically by the model fit.
+      Review &amp; Comments on Article T. Stadler&rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
+The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parallel-r/">Parallel R</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/16/friday-4/">Friday</a></h2>
+    <h4>Sat, Apr 16, 2011</h4>
     <div class="article-style">
       
-      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
+ UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/parameter-estimates-for-labrid-parrotfish-model/">Parameter Estimates for Labrid-Parrotfish model</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../../2011/04/08/ropensci-exploratory-exercises-in-database-driven-phylogenetics/">TreeBase: exploratory exercises in database-driven phylogenetics</a></h2>
+    <h4>Fri, Apr 8, 2011</h4>
     <div class="article-style">
       
-      See fast_boot and plot.wrightscape functions in code. Gape size</p>
-
-<p>See fast_boot and plot.wrightscape functions in code Jaw Protrusion
-Figures show strong evidence for the relax of constraint hypothesis, as the strength of selection (alpha parameters) appears to have substantially weakened in both morphological traits in the parrotfish clade relative to the wrasses clade. The wrasses show strong preference for OU model with substantial stabilizing selection, while the Parrotfish estimate almost zero stabilizing selection (Brownian model, clear phylogenetic signal).
+      Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
       
     </div>
   </div>
@@ -247,10 +257,10 @@ Figures show strong evidence for the relax of constraint hypothesis, as the stre
 <nav>
   <ul class="pager">
     
-    <li><a href="//categories/evolution/page/9/">&laquo; Previous</a></li>
+    <li><a href="../../../../categories/evolution/page/9/">&laquo; Previous</a></li>
     
     
-    <li><a href="//categories/evolution/page/11/">Next &raquo;</a></li>
+    <li><a href="../../../../categories/evolution/page/11/">Next &raquo;</a></li>
     
   </ul>
 </nav>

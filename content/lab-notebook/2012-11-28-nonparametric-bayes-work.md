@@ -1,7 +1,7 @@
 ---
 layout: post
 category: ecology
-tags: nonparametric-bayes
+tags: [nonparametric-bayes]
 title: early results in nonparametric-bayes approaches to optimal policy
 
 ---
