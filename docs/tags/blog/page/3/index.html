@@ -145,107 +145,104 @@
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
+      Scientific Research: Moving beyond bubbles to platforms. The Economist contrasts the current start-up culture to that of the dotcom bubble. Their special report argues that while the dotcom bubble was characterized by heavy investment in a single idea with a &ldquo;Build it and they will come&rdquo; attitude, the current generation of startups is characterized by tinkering and rapid experimentation. They argue that this is possible thanks to the cheaply available &ldquo;platforms&rdquo; of open source software, cloud computing, APIs, and social media dissemination.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/archiving-the-lab-notebook-on-figshare/">Archiving the lab notebook on figshare</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
+      Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
+ There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/doi--citable/">DOI != citable</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      I feel I see this kind of comment almost daily:
-Is there a way to obtain DOI for a @github repository? (for citing #opensource software packages, similar to @figshare objects) #git
-&mdash; Ahmed Moustafa (@AhmedMoustafa) May 29, 2013
-Again and again, researchers suggest that DOI to makes something &ldquo;citable&rdquo;. And this frustrates me.
-Don&rsquo;t get me wrong. I love DOIs, and I love CrossRef. And I bang on the table when I have some old journal article that doesn&rsquo;t yet have a DOI.
+      While I have made my workflow for most of my ongoing projects available on Github for some time, this does not mean that it has been particularly easy to follow. Further, as I move from project to project I have slowly improved how I handle projects. For instance, I have since added unit tests (with testthat) and continuous integration (with travis-ci) to my repositories, and my handling of manuscripts has gotten more automated, with richer latex templates, yaml metadata, and simpler and more powerful makefiles.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/do-we-need-a-culture-of-data-science-in-academia/">Do we need a culture of Data Science in Academia?</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Just my draft copy of a Guest blog post I wrote for Dynamic Ecology.
-On Tuesday the Whitehouse Office of Science and Technology Policy announced the creation of a $37.8 million dollar initiative to promote a &ldquo;Data Science Culture&rdquo; in academic institutions, funded by the Gordon and Betty Moore Foundation, Alfred P. Sloan Foundation, and hosted in centers at the universities UC Berkeley, University of Washington, and New York University.
+      For a while now most of my active research is developed through .Rmd scripts connected to a particular project repository (something I discuss at length in deep challenges with knitr workflows). In the previous post I discuss creating a template package with a more transparent organization of files, such as moving manuscripts from inst/doc/ to simply manuscripts/. This left these exploratory analysis scripts in inst/examples in a similarly unintuitive place.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/is-it-time-to-retire-pagels-lambda/">Is it time to retire Pagel&#39;s lambda?</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Pagel&rsquo;s $\lambda$ (lambda), introduced in Pagel 1999 as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).
-Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity. There are many issues with the statistic, some of which I attempt to summarise below.
-The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.
+      PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
+At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notebook-features-parsing-linked-data-in-the-semantic-notebook/">Notebook Features: parsing linked data in the semantic notebook</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
+Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
+I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notebook-features-sha-hashes/">Notebook features: SHA Hashes</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
+      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notebook-features-an-introduction/">Notebook features: an introduction</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
- Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
+      Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
+ From general laws flow absolutely bullet-proof insights and this is what we most need
+ I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notebook-features-digital-archiving/">Notebook features: digital archiving</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
+      The NIH has recently announced the report of a landmark meeting which presents a vision for a Software Discovery Index (SDI). The report is both timely and focused on the key issues of locating, citing, reusing software:
+ Software developers face challenges disseminating their software and measuring its adoption. Software users have difficulty identifying the most appropriate software for their work. Journal publishers lack a consistent way to handle software citations or to ensure reproducibility of published findings.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../../1/01/01/notebook-features-reproducible-code/">Notebook features: reproducible code</a></h2>
+    <h2><a href="../../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
+      Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
       
     </div>
   </div>

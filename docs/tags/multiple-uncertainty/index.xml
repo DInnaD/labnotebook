@@ -136,6 +136,63 @@ Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline
     </item>
     
     <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Scratch notes on uncertainty.
+Function definition: multiple_uncertainty.m
+Settings:
+f=@(x, h) max( (x-h) * (1 - (x-h) ./ 100) + (x-h), 0); x_grid = [0:5:100]; h_grid = x_grid; % Must be same dimensions as x_grid, or L91 errors... Tmax = 5; sigma_g = 0.1; sigma_m = 0.; sigma_i = 0.0; delta = 0.05; pdf = @(p,mu,s) lognpdf(p ./ mu, 0, s); %pdf = @(p,mu,s) unifpdf(p, mu .* (1 - s), mu .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>EML  bug fixes and replies to various input from community on EML package
+ Thoughts on understanding and using EML in research, including Dryad. See https://github.com/ropensci/EML/issues/82#issuecomment-33558301
+  multiple-uncertainty Jim and Mike meeting  Why the steps in the optimal solution of the deterministic case? Irregularities in value function in first iteration: sometimes not exact ties; actually preferring to fish at almost 0 rather than 0.
+ address range constraints on h and x.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Growth Noise Only Run:
+matlab -nodesktop &amp;lt; testing.m &amp;gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
+ Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>multiple uncertainty  Set up Paul Fackler&amp;rsquo;s MDPSOLVE and run Paul&amp;rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
+  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&amp;rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&amp;rsquo;s the price of working with economists.</description>
+    </item>
+    
+    <item>
       <title>Multiple uncertainty corrected</title>
       <link>/1/01/01/multiple-uncertainty-corrected/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

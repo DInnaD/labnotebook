@@ -140,111 +140,118 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
+    <h2><a href="../../../1/01/01/csgf-conference--tuesday/">CSGF Conference- Tuesday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
- Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/multivariate-normal-random-variables/">Multivariate normal random variables</a></h2>
+    <h2><a href="../../../1/01/01/csgf-survey/">CSGF Survey</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
+      Wrote survey. Getting feedback and will send out this week.  previous comments
+Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/my-prosecutors-fallacy-paper-and-other-recent-warning-signals-literature/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
+    <h2><a href="../../../1/01/01/cetartiodactyle-data/">Cetartiodactyle data</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      Exploring the cetartiodactyle data (unreleased) Nelder-Mead fails to converge or improve upon the hansen model. Likelihood scores differ little:  &gt; bm@loglik [1] -362.6228 &gt; ou1@loglik [1] -364.9039 &gt; ws1$loglik [1] -362.7616 &gt; ou2@loglik [1] -361.6976 &gt; ws2$loglik [1] -361.2542  See Cetaceans code.</p>
+
+<p>Fig. 1 The Brownian Motion model is preferred to the OU.1 model (left). Two separate optima are supported over a single optima (right).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/my-research-workflow-based-on-github/">My research workflow, based on Github</a></h2>
+    <h2><a href="../../../1/01/01/code-development-for-exploring-regimes-shifts/">Code Development for Exploring Regimes Shifts</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      This post outlines my current research workflow. This has evolved over time, so only my most recent projects hold completely to it, though almost all my projects follow the general R package structure. Two main differences are visible in my earlier projects: I used to keep scripts in demo before they became the more complete knitr markdown in inst/examples. I previously relied on a custom package called socialR to post results from those scripts to flickr, and would then embed the results in my Wordpress notebook, linking back to the demo file in Github.
+      Just committed changes to the google project. warning_signals.c now provides a fully functional, ensemble enabled simulation written with functional API for general Gillespie simulations (at last! I&rsquo;ve come quite a way in my C coding from those early Gillespie simulations for adaptive dynamics two years ago). Still need to pull the API out of the single file. Doxygen-compatible literate programming included, but needs significant expansion before it can really be used effectively as an API for other users.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/noisy-beetles/">Noisy Beetles</a></h2>
+    <h2><a href="../../../1/01/01/collected-notes-from-past-few-days/">Collected notes from past few days</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
- Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
- Methods write-up, read/compare to other examples.
- Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
+      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/noisy-beetles/">Noisy beetles</a></h2>
+    <h2><a href="../../../1/01/01/comparative-phylogenetics-talk/">Comparative Phylogenetics Talk</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Fig 1: Noise in lavae dominate
-Fig: 2 lower mortality, higher noise
- Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
+      Practice talk in Wainwright lab meeting next Weds. 12 minutes.
+ Introduce question: Inferring the number of regimes Context relative to existing methods Statistical challenges &ndash; model-dependent phylogenetic signal problem Labrid example  Frameworks for approaching regimes question  wrightscape phylogenetically corrected clustering
+ speed/feasibility concerns, rate limiting steps.
+ model realism / representation concerns
+ statistical concerns
+  Returning to Wrightscape approach Haven&rsquo;t worked on the full problem of inferring multiple peaks directly from comparative data using the joint probability calculation since the beginning of this notebook, so about time to return to the direct problem and compare with the more heuristic approach of &ldquo;phylogenetically corrected clustering&rdquo; and also synthesize the work on uncertainty which has been a dominate theme thus far (add category label for this group!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notebook-features-parsing-linked-data-in-the-semantic-notebook/">Notebook Features: parsing linked data in the semantic notebook</a></h2>
+    <h2><a href="../../../1/01/01/comparing-numerical-methods/">Comparing numerical methods</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      require(MASS) require(ggplot2) require(kernlab)  Parameterization-specific
+X &lt;- seq(-5,5,len=50) obs &lt;- data.frame(x = c(-4, -3, -1, 0, 2), y = c(-2, 0, 1, 2, -1)) l &lt;- 1 sigma_n &lt;- 0.8  Radial basis function/Gaussian kernel:
+SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2) cov &lt;- function(X, Y) outer(X, Y, SE, l)  Cholksy method
+n &lt;- length(obs$x) K &lt;- cov(obs$x, obs$x) I &lt;- diag(1, n) L &lt;- chol(K + sigma_n^2 * I) alpha &lt;- solve(t(L), solve(L, obs$y)) k_star &lt;- cov(obs$x, X) Y &lt;- t(k_star) %<em>% alpha v &lt;- solve(L, k_star) Var &lt;- cov(X,X) - t(v) %</em>% v loglik &lt;- -.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notebook-features-sha-hashes/">Notebook features: SHA Hashes</a></h2>
+    <h2><a href="../../../1/01/01/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
+      Goal for today: implement analytic calculations for warning signals.
+ 10am-12pm  Abstraction/functionalizing code.
+ 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
+Recall our dynamics are d(n) = *e*n + a
+and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
+α~2~(n) = b(n) + d(n)</p>
+
+<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notebook-features-an-introduction/">Notebook features: an introduction</a></h2>
+    <h2><a href="../../../1/01/01/computing/">Computing</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
- Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
+      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notebook-features-digital-archiving/">Notebook features: digital archiving</a></h2>
+    <h2><a href="../../../1/01/01/computing-the-value-of-information-in-management-of-a-stochastic-resource/">Computing the value of information in management of a stochastic resource</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
+      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
       
     </div>
   </div>

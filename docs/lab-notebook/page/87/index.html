@@ -140,100 +140,112 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/peter-meeting/">Peter Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Discussed potential solution to the model choice scenario:
+ Consider an ordered list of models, A, B, C, D Then the Neyman-Pearson Lemma (see earlier entry on this) lets us walk through the list in the following fashion: We generate the simulated data sets under model A and compare likelihood ratios in each case. If the likelihood ratio of the observed data falls outside the 95% confidence interval, than it with this confidence that we are saying the data justify the alternate model (model B).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/peter-meeting/">Peter meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working on likelihood ratio/phylogenetic signal manuscript.</p>
+      SICB conference  Abstract &ndash; sent   Phylogenetic comparative methods have become all but ubiquitous in only a few decades, forcing us to reconsider if information from a phylogenetic tree can justify the results. Existing approaches to this question have been inadequate and do not scale with tree size or the ability to resolve branches. For instance, selection between phylogenetic models typically based on information criteria fails to adequately reflect this uncertainty, and can lead to preference for arbitrarily complicated models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/phylogenetics-workshop-day-5/">Phylogenetics Workshop Day 5</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Last day of lectures: Lineage Diversification
+Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
+ Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/policy-functions-and-value-functions-under-multiple-uncertainty/">Policy functions and value functions under multiple uncertainty</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
 
-<p>scrap notes from more literature combing  Cheverud 1985 autocorellational model, extended by Gittlman &amp; Kot 1990 Grafen 89, Pagen &amp; Harvey 89 extending PIC to polytomies Harvey &amp; Mace 82, Harvey &amp; Clutton Brock 85 taxonomic rather than phylogenetic  From Blomberg et al: &ldquo;The three best-justified phylogenetically based statistical methods can all be applied with a star phylogeny, in which case they yield results that are exactly the same as a conventional analysis (phylogenetically independent contrasts: Felsenstein 1985; generalized least squares: Grafen 1989; Martins and Hansen 1997; Garland and Ives 2000; Rohlf 2001; Monte Carlo simulations: Martins and Garland 1991; Garland et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing-continues/">Writing continues</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/a-day-of-writing/">a day of writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Figuring out the best way to present the critique of AIC, introduction to the method, introduction to the power test. Seeking inspiration from Huelsenbeck 1996 and digging farther back into the literature:</p>
+<h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
 
-<p>Cox, D.R. Further results on tests of separate families of hypotheses. Journal of the Royal Stastical Society 24, 406-424(1962). Cox, D.R. Tests of Seperate Families of Hypotheses. Proceedings of the 4th Berkeley Symposium, University of California Press 105 - 123(1961).
+<p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
+pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/a-few-notes-on-various-projects/">a few notes on various projects</a></h2>
+    <h2><a href="../../../1/01/01/post-workshop/">Post-Workshop</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
-  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
+      Working on a couple new ideas:
+ Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy/">early results in nonparametric-bayes approaches to optimal policy</a></h2>
+    <h2><a href="../../../1/01/01/power-in-trees/">Power in Trees</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
-Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
+      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
+Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/ievobio-submission/">iEvoBio Submission</a></h2>
+    <h2><a href="../../../1/01/01/power-in-trees/">Power in trees</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.
+      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/ievobio-day-one/">iEvoBio day one</a></h2>
+    <h2><a href="../../../1/01/01/power-in-trees-continues/">Power in trees continues</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Discussion of power in trees need a counterpoint to the example of the star tree as being devoid of information content. The best example here is probably the example tree used in the introduction of Felsenstein 1985: two star trees sharing a common ancestor. Implemented the basic creation of a balanced tree of arbitrary depth having this structure. The balanced tree has 2^h^ − 1 nodes, all internal nodes occuring at time = 1&frasl;2 and all tips at time = 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/ievobio-day-two/">iEvoBio day two</a></h2>
+    <h2><a href="../../../1/01/01/power-plots/">Power plots</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/ievobio-lightning-talk/">iEvoBio lightning talk</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Submitting a five minute lighting talk on open science. Submitted version here, final text below. See the page revision history for earlier drafts and the original call below. Special thanks to Sam, Alistair, Betta, Shaun, and Alex for feedback.
-My experiment with open science: Why the benefits of sharing go beyond source code The practice and philosophy of open source run deep within the iEvoBio community. Sharing source code has made software development faster and more reliable.
+      Testing power code. currently null and test distributions of likelihood scores are distinguishable even for small beta on the long time scale. See code for run.
+ running on shorter timescale. Note that parameters match but small code differences in repository code on the last commit since I committed the version on the local machine (my laptop, for development) but ran a slightly tweaked code (typo in reps vs nboot, .
       
     </div>
   </div>

@@ -140,18 +140,6 @@
   
   
   <div>
-    <h2><a href="../../../2011/04/08/reproducible-research/">Some reproducible research practices in journals</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
-    <div class="article-style">
-      
-      Interesting discussion on the Reproducible Research Group about rates at which the various reproducible research standards are used in the Journal of Biostatistics:
-from unknown, 2010, which provides a great basis for recommendations to authors, publishers, and funders to ensure reproducible research. Victoria Stodden describes two journals with Open Review and two with Associate Editors of Reproducible Research.
-Some of the articles from Biostatistics discussing this practice: (Baker et. al.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../2011/04/07/steve-ellners/">Steve Ellner&#39;s seminar</a></h2>
     <h4>Thu, Apr 7, 2011</h4>
     <div class="article-style">
@@ -260,6 +248,19 @@ Intro / Motivation  Rates of model innovation is rather slow
     <div class="article-style">
       
       Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/29/tuesday-simulations-appendix/">Tuesday, simulations &amp; appendix</a></h2>
+    <h4>Tue, Mar 29, 2011</h4>
+    <div class="article-style">
+      
+      Today mostly working over code sets for examples in appendix, and increasing replicates. Somehow more trouble than it should be, see commit history for today.
+ibm_sim.R &ndash; simulate from individual-based dynamics containing a saddle-node bifurcation (fully hysteresis model).
+ibm_analysis.R &ndash; run figure1, 2, 3 analysis (correlation test, bootstrap of test, likelihood test) on each data.
+ibm_likelihood.R &ndash; shouldn&rsquo;t be needed, all code is in deut_examples.R. Running now due to earlier parallel instance errors during montecarlotest.
       
     </div>
   </div>

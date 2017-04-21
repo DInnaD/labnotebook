@@ -140,112 +140,117 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/infering-partially-observable-markov-processes-with-iterative-particle-filtering/">Infering Partially Observable Markov Processes with Iterative Particle Filtering</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Single replicate. Almost all warning signals have significant correlation despite the constant environment.
-False warning signals remain just as common when signals are averaged across 100 replicates?
- Exploring statistical qualification of early warning signals. Dakos et. al. (2008) use a correlation significance test (based on Kendall&rsquo;s tau) on the autocorrelation to detect the warning signals. Correlation significance test seems a very poor estimate of signal, high false positive rate at any threshold p-value for sufficiently frequent sampling.
+      Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
+Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
+POMP doesn&rsquo;t mix well in the winbugs.
+simulation-based algorithm (plug-and-play)
+Think of a process being defined by:
+ rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/is-it-time-to-retire-pagels-lambda/">Is it time to retire Pagel&#39;s lambda?</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Fig 1
-Fig 2
- Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
+      Pagel&rsquo;s $\lambda$ (lambda), introduced in Pagel 1999 as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).
+Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity. There are many issues with the statistic, some of which I attempt to summarise below.
+The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/is-statistical-software-harmful/">Is statistical software harmful?</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
-NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
+      Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
+Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/jekyll-vs-wordpress/">Jekyll vs Wordpress</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
+      I am now trying out a Jekyll-based platform rather than a Wordpress based for my website and lab notebook. Don&rsquo;t worry, the Wordpress site still remains where it was with links intact, I&rsquo;ve simply remapped the homepage. For now this is an experiment, we&rsquo;ll see how it goes.
+Why switch? Speed Wordpress was great, meeting most of my needs for a customizable site that I couldn&rsquo;t really accomplish in my first online notebook on OpenWetWare.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/lr-manuscript/">LR Manuscript</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
- Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
- ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
-  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
+      Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Modified Crowley model Realizing Arbitrarily large demographic noise systems??
+Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
+I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
+And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood Calculation</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
+      Direct Calculation of the Joint Probability Fig 1 Sample tree
+ This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
+      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
+This is great, nice to know there&rsquo;s a basis for it.
+&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research/">Research</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
- Started stochastic methods and model inference collection:  Research collected using Mendeley
-Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic methods and model inference library. Add Science of Science papers to Future of Science collection. Adding tags, abstracts, etc to Mendeley public Library Personal/extended task view (and opinion?
+      Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
+      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
+0.5735 0.29 0.
       
     </div>
   </div>

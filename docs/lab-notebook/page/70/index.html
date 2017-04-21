@@ -140,114 +140,109 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working on manuscript for this today, hope to have a draft soon.
- Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
- Sent draft to Brian and Peter, and Wainwright lab.
- Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
+      Working through quick-start example in nimble manual
+library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/exploring-jekyll-layout/">Exploring Jekyll layout</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Jekyll works wonderfully with little knowledge beyond basic html/css to create _layout templates and then you&rsquo;re free to write beautiful pages and posts in markdown. But adding more dynamic content, the kind of cool stuff avialable in so many wordpress plugins, tends to require a little understanding of the template formatting language, Liquid. Liquid is actually super simple and powerful way to build a dynamic website. The project&rsquo;s wiki provides a great introduction, starting with
+      Working through quick-start example in nimble manual
+The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/extending-apephylo-class-to-nexml/">Extending ape::phylo class to NeXML:</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
-To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
+      some sample data
+library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.Date, as.Date.numeric ## sde 2.0.15 ## Companion package to the book ## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39; ## Iacus, Springer NY, (2008) ## To check the errata corrige of the book, type vignette(&quot;sde.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/f1000-research-publishing-for-ecologists/">F1000-Research publishing for ecologists</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      F1000-Research is waving article processing charges (APCs) for ecologists looking for an open access, open peer review platform to publish original research, null results, software papers, data papers, and an intriguing new category called &ldquo;Observations&rdquo;,
- to report serendipitous observations that they have not been able to study systematically, but that offer a starting point for further exploration. This is especially relevant for ecologists, as it provides a platform to report unexpected observations from the field, unrelated to the main goal of the field work.
+      some sample data
+library(sde) library(nimble) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
+lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
+      Scott&rsquo;s analogsea package provides a great way to script commands for cloud instances on the digitalocean platform. for instance, we can use analogsea to automatically start an instance of the desired size, submit a computationally intensive task, and then terminate the instance when the task completes successfully. This last step is particularly convenient since it makes it easier to use a very powerful (and thus expensive) instance for a short time, knowing it will terminate and avoid extra charges while idle.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
+      My workflow has continued to evolve a bit since I last described it in this notebook. As these posts seem particularly popular, I have attempted to update the description to something a bit more current.
+Lab Notebook When I began keeping a lab notebook (on OpenWetWare) I didn&rsquo;t have Github or knitr, and though I would link to scripts on google-code, much of my day-to-day notes ended up directly in the notebook.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
-12p - 1p
- Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
- Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
+      Dear Ian, Lars,
+I am a post-doctoral researcher in ecology with a strong interest in reproducible computation. I have just finished reading your paper, &ldquo;Recomputation.org: Experiences of the first year and lessons learned.&rdquo; Despite working in a very different field of research, both the approaches and experience you describe greatly resonate with my own experience.
+In particular, you highlight the need to make computation reproducible with minimal overhead for the researcher: that is, taking these steps only after the project is done, with minimal effort, even if the work is &ldquo;kludgy&rdquo; and &ldquo;held together with string.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
-png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
+      Misc notes from #rrhack. Much more detail under our Github organization, including the issues tracker &amp; wiki for the meeting and the start of the repositories for the various teaching modules.
+Also see rrhack slack forum and twitter hashtag.
+Key questions  Audience and motivation. Reproducibility isn&rsquo;t a goal, it&rsquo;s a means to an ends. Accelerating science is the goal. Motivation should be to accelerate &amp; scale your own science.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/gaussian-process-inference-on-sample-functions/">Gaussian process inference on sample functions</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      This example uses the direct inversion of the covariance function. I have also been exploring the potentially faster Cholksy decomposition without success. Sometimes the match is very good, other times not, see compare-cholsky.md This example also on github as reed-example.md.
- Basic likelihood optimization needs to be checked. See commits estimating sigma_n and estimating l. Compare the example below to a different set of fixed hyperparameters here  Example require(pdgControl) require(ggplot2)  Simulate some training data under a stochastic growth function with standard parameterization,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/gaussian-processes/">Gaussian processes</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
- Will also want to look into basis approximations for SDP acceleration.
-  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
       
     </div>
   </div>

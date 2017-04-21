@@ -8,12 +8,12 @@ tags:
 
 Working through quick-start example in [nimble manual](http://r-nimble.org/manuals/NimbleUserManual.pdf)
 
-```{r embedded-svgs, include=FALSE}
+```{r embedded-svgs}
 library(methods)
 library(knitr)
 # set dev to png for graphs with > 1e3 points
-opts_chunk$set(dev='png', fig.width=3, fig.height=4, cache=TRUE)
 
+## caching nimble can create trouble!
 ```
 
 
@@ -115,25 +115,22 @@ pump$lambda
 
 Good, we're reset. Now we try:
 
-```{r}
+```{r compile}
 Cpump <- compileNimble(pump)
 pumpSpec <- configureMCMC(pump)
 pumpSpec$addMonitors(c('alpha', 'beta', 'theta'))
-```
 
-
-```{r}
+## These must be in same chunk as above!
 pumpMCMC <- buildMCMC(pumpSpec)
 CpumpMCMC <- compileNimble(pumpMCMC, project = pump)
-```
 
-```{r}
+## and these
 CpumpMCMC$run(1000)
 samples <- as.matrix(CpumpMCMC$mvSamples)
-
 ```
 
-```{r fig.show='hold'}
+
+```{r plot, fig.show='hold'}
 plot(samples[ , 'alpha'], type = 'l', xlab = 'iteration',
 ylab = expression(alpha))
 plot(samples[ , 'beta'], type = 'l', xlab = 'iteration',

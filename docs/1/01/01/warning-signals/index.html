@@ -133,20 +133,42 @@
     <article>
     <h1>Warning Signals</h1> 
       
-    <ul>
-<li>Bootstrapping for likelihood ratios!</li>
-<li>Updated class behavior &ndash; all simulation and fitting routines now
-return timeseries objects as data with correct range and timestep.</li>
+    
 
-<li><p>updated plotting routines. Likelihood ratio plotting function.
-Bootstraps of parameters can be plotted using the output from the
-likelihood ratio fit simulation, avoiding redundancy, just specify
-which model is desired. Bootstrap likelihood ratio plots includes
-the original ratio and calculates plot range using this information.</p></li>
+<ul>
+<li>bootstrapping models implemented</li>
+<li>improved handling of model classes &ndash; included T, t0, N, and X0 in
+object def</li>
+<li>implemented plotting for model bootstrap</li>
+<li>difficulties with changePt model fit remain. fixed one source of
+trouble &ndash; no longer passes zero-length data to OU.lik() when
+t_shift is outside the time interval.
 
-<li><p>Warning signal model implementation needs to also receive the
-absolute time, and update alpha_0 as alpha_0 + beta*t</p></li>
+<ul>
+<li>Still giving errors on coercing lists into doubles for the
+saddle_node bifurcation simulated data set. &ndash;<strong>fixed</strong>, was
+getting t_shift as a vector from time(X).</li>
+</ul></li>
 </ul>
+
+<h2 id="code-tricks">Code Tricks</h2>
+
+<p>Duncan pts out: the S3 mechanism is</p>
+
+<pre><code> custom =
+ function(x, y, ...)
+ UseMethod(&quot;custom&quot;)
+</code></pre>
+
+<p>Then that will find and use custom.foo, etc. based on the class of the
+value of x. You can have it dispatch on a different parameter, but that
+is not very common. And to dispatch on the types/classes of multiple
+parameters, e.g. x is a numeric vector, y is a matrix, you would need to
+use S4.</p>
+
+<p>See the
+<a href="http://sekhon.berkeley.edu/library/methods/html/setGeneric.html" title="http://sekhon.berkeley.edu/library/methods/html/setGeneric.html">setGeneric()</a>
+function in R for S4 method (also compatible with S3 classes).</p>
 
 <p></p>
 
@@ -197,6 +219,9 @@ absolute time, and update alpha_0 as alpha_0 + beta*t</p></li>
     <i class="fa fa-tags"></i>
     
     <a href="../../../../tags/warning-signals">warning-signals</a
+    >, 
+    
+    <a href="../../../../tags/code-tricks">code-tricks</a
     >
     
   </span>
@@ -210,14 +235,14 @@ absolute time, and update alpha_0 as alpha_0 + beta*t</p></li>
   <br />
   
   <p><a class="btn btn-default" rel="prev" href='../../../../1/01/01/warning-signals/'><i class="fa fa-chevron-left"></i> prev</a>
-    <a class="btn btn-default" rel="next" href='../../../../1/01/01/warning-signals----still-in-code-development/'>next <i class="fa fa-chevron-right"></i></a></p>
+    <a class="btn btn-default" rel="next" href='../../../../1/01/01/warning-signals/'>next <i class="fa fa-chevron-right"></i></a></p>
 
   <br />
 
   <p> <a class="btn btn-default" 
-         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-08-17-Warning-Signals.md"><i class="fa fa-clock-o"></i> history</a></p>
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-08-16-Warning-Signals.md"><i class="fa fa-clock-o"></i> history</a></p>
 
-  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2010-08-17-Warning-Signals.md"></a></p> 
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2010-08-16-Warning-Signals.md"></a></p> 
 
 
 </aside>

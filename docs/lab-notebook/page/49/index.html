@@ -144,18 +144,6 @@
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
- Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
- Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
       I enjoyed an excellent meeting with Annette Thomas, CEO of MacMillian Publishing and Nature Publishing group at UC Davis. It was impressive to here that Annette wanted to meet with UC Davis faculty and graduate students interested in open access and open science to discuss our opinions, desires and frustrations in the scientific publishing process. It was particularly valuable to discuss some of the failed experiments in open science at Nature.
       
     </div>
@@ -248,6 +236,18 @@ mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
       
       writing comment piece. writing writing writing.
   Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+Uniform lognormal log  A few small tweaks to probability calculations
+ Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
       
     </div>
   </div>

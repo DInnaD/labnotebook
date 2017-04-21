@@ -8,7 +8,6 @@ tags:
 
 ```{r embedded-svgs, include=FALSE}
 library(knitr)
-opts_chunk$set(dev='svg', fig.width=2, fig.height=3, cache=TRUE)
 ```
 
 
@@ -17,6 +16,7 @@ some sample data
 ```{r}
 library(sde)
 library(nimble)
+library(methods)
 set.seed(123)
 d <- expression(0.5 * (10-x))
 s <- expression(1) 
@@ -31,7 +31,7 @@ plot(data)
 Test case: Set prior for `m` $\approx 0$:
 
 ```{r}
-lsn <- modelCode({
+lsn <- nimbleCode({
    theta ~ dunif(1e-10, 100.0)
    sigma_x ~ dunif(1e-10, 100.0)
    sigma_y ~ dunif(1e-10, 100.0)
@@ -74,21 +74,21 @@ Cmodel <- compileNimble(Rmodel)
 
 
 ```{r, echo=TRUE, results = 'hide', message = FALSE}
-mcmcspec <- MCMCspec(Rmodel, print=TRUE,thin=1e2)
-Rmcmc <- buildMCMC(mcmcspec)
+spec <- configureMCMC(Rmodel, print=TRUE,thin=1e2)
+Rmcmc <- buildMCMC(spec)
 Cmcmc <- compileNimble(Rmcmc, project = Cmodel)
 ```
 
 
 ```{r} 
-Cmcmc(1e4)
+Cmcmc$run(1e4)
 ```
 
 
 and examine results
 
 ```{r}
-samples <- as.data.frame(as.matrix(nfVar(Cmcmc, 'mvSamples')))
+samples <- as.data.frame(as.matrix(Cmcmc$mvSamples))
 dim(samples)
 samples <- samples[,1:4]
 ```

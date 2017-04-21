@@ -133,112 +133,9 @@
     <article>
     
       
-    <p>Consider the model</p>
-
-<p>$$d X_t = \alpha \left(\theta - X_t\right)dt + \sigma dB_t  $$</p>
-
-<p>By Ito Isometry, we have:</p>
-
-<p>$$\langle X \rangle_t = E_t(X) = \theta \left(1 - e^{-\alpha t} \right) + X_0 e^{-\alpha t}$$</p>
-
-<p>and</p>
-
-<p>$$\langle X^2 \rangle_t - \langle X \rangle_t^2 = V_t(X) = \frac{\sigma^2}{2 \alpha }\left(1 - e^{-2 \alpha t} \right)$$</p>
-
-<p>If we assume discrete, uniform sampling of spacing $\tau$, then we have,</p>
-
-<p>$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V_{\tau} }}^{T-1} \exp\left(-\frac{\sum<em>t^{T-1} \left(X</em>{t+1} - E\right)^2 }{2V}\right) $$</p>
-
-<p>or more explicitly (taking $\tau_i = 1$ without loss of generality),</p>
-
-<p>$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{\tfrac{\alpha}{\sigma}}{\pi (1- e^{-\alpha t}) }}^{T-1}
-                                  \exp\left( - \frac{\sum<em>t^{T-1} \left(X</em>{t+1} - ( \theta (1 - e^{-\alpha}) + X_0 e^{-\alpha}) \right)^2 }{\tfrac{\sigma^2}{\alpha}(1-e^{-2\alpha})}\right) $$</p>
-
-<p>To integrate out $\theta$, $P(X | \alpha, \sigma) = \int P(X | \theta, \alpha, \sigma ) P(\theta) d\theta$, we&rsquo;ll make this look like a Gaussian in $\theta$ by completing the square.  First, let us introduce a more compact notation to manipulate terms independent of $\theta$:</p>
-
-<p>$$A<em>t := X</em>{t+1} - X_0e^{-\alpha}$$
-$$ B := 1-e^{-\alpha} $$</p>
-
-<p>Our sum in the exponent can then be written more succinctly:</p>
-
-<p>$$ \sum_t^{T-1} (A_t - \theta B)^2 $$</p>
-
-<p>Squaring out inside the sum and distributing the summation operator (by linearity) and extracting or summing terms constant in $t$, we have:</p>
-
-<p>$$ \sum A_t^2 - 2 \theta B \sum A_t + \theta^2 B^2 (T-1) $$</p>
-
-<p>For which we complete the square in $\theta$,</p>
-
-<p>$$ B^2 (T-1) \left( \left(\theta - \frac{\sum_t A_t}{B(T-1)}\right)^2 + \frac{\sum A_t ^2 - (\sum A_t)^2}{B^2 (T-1)} \right) $$</p>
-
-<p>Which lets us write $P(\theta | X; \alpha, \sigma)$ as a normal distribution in $\theta$ times some constant terms:</p>
-
-<p>$$ P(\theta | X; \alpha, \sigma) =  \exp \left(\frac{-\sum A_t^2 + (\sum A<em>t)^2 }{V</em>{\tau}  }\right) \sqrt{\frac{1}{2\pi V_{\tau} }}^{T-1} \int d\theta\exp\left( -\frac{ \left(\theta -  \frac{\sum_t A<em>t}{B(T-1)} \right)^2 }{\tfrac{2V</em>{\tau}}{B^2 (T-1)}}\right) $$</p>
-
-<p>In which we recognize the integral as Gaussian with mean $\mu = \frac{\sum_t A<em>t}{B(T-1)} $ and variance $\nu =  V</em>{\tau}/(B^2(T-1))$, and thus can replace the integral with $\sqrt{2 \pi \nu} = \sqrt{\frac{2 \pi V_{\tau} }{B^2(T-1)}}$,</p>
-
-<p>$$ P(\theta | X; \alpha, \sigma) =  \exp \left(\frac{-\sum A_t^2 + (\sum A<em>t)^2 }{V</em>{\tau}  }\right) \sqrt{\frac{1}{2\pi V<em>{\tau} }}^{T-1}  \sqrt{\frac{2 \pi V</em>{\tau} }{B^2(T-1)}}$$</p>
-
-<p>Collecting common terms in $V_t$,</p>
-
-<p>$$ P(\theta | X; \alpha, \sigma) =  \exp \left(\frac{f(A<em>t)}{V</em>{\tau}}\right) \sqrt{\frac{1}{2\pi}}^{T-1}  \sqrt{\frac{2 \pi  }{B^2(T-1)}} V<em>{\tau}^{\tfrac{1}{2}} V</em>{\tau}^{\tfrac{1-T}{2}}  $$</p>
-
-<p>$$ =  \exp \left(\frac{f(A<em>t)}{V</em>{\tau}}\right) \sqrt{\frac{(2 \pi)^{2-T}}{B ^ 2(T-1)}} V_{\tau}^{1 - \tfrac{T}{2}}  $$</p>
-
-<p>where</p>
-
-<p>$$ f(A_t) = - \sum A_t^2 + \left( \sum A_t \right)^2 $$</p>
-
-<p>Then substituting in $V_t = \tfrac{\sigma^2}{2\alpha} \left(1 - e^{-2\alpha}\right)$</p>
-
-<p>$$ =  \exp \left(\frac{\tfrac{2\alpha f(A)}{1 - e^{-2\alpha}} }{\sigma^2}\right) \sqrt{\frac{(2 \pi)^{2-T}}{B ^ 2(T-1)}}  \left(\tfrac{1}{2\alpha} \left(1 - e^{-2\alpha}\right)\right)^{1 - \tfrac{T}{2}}\sigma^{2(1 - T/2)} $$</p>
-
-<p>Which can be written to look like an Inverse Gamma integral in $\sigma^2$</p>
-
-<p>$$ = \mathcal{N} e^{\tfrac{-\beta}{\sigma^2}} (\sigma^2)^{-\gamma - 1} $$</p>
-
-<p>where</p>
-
-<p>$$ \gamma = T/2 -2,$$</p>
-
-<p>$$ \beta = \frac{2 \alpha  \left( \left( \sum A_t \right)^2- \sum A_t^2 \right) }{1 - e^{-2\alpha}} $$
-and</p>
-
-<p>$$ \mathcal{N} = \sqrt{\frac{(2 \pi)^{2-T}}{B ^ 2(T-1)}}  \left(\tfrac{1}{2\alpha} \left(1 - e^{-2\alpha}\right)\right)^{1 - \tfrac{T}{2}} $$</p>
-
-<p>Which we can integrate as Inverse Gamma (again assuming uniform prior, now in $\sigma^2$),</p>
-
-<p>$$ = \mathcal{N} \int e^{\tfrac{-\beta}{\sigma^2}} (\sigma^2)^{-\gamma - 1} d\sigma^2 = \mathcal{N} \frac{\beta^{\gamma}}{\Gamma(\gamma)}  $$</p>
-
-<p>with $\beta$, $\gamma$, and $\mathcal{N}$ as defined above.</p>
-
-<!-- 
-
-## marginalizing over $\sigma$
-
-$$P(\theta | X; \alpha, \sigma) = \exp\left(-\sum A_t ^2 + (\sum A_t)^2\right)  \sqrt{\frac{1}{2\pi V }}^{T-1} \sqrt{\frac{2 \pi V}{B^2(T-1)}}$$
-
-$$P(\theta | X; \alpha, \sigma) = \exp\left(-\sum A_t ^2 + (\sum A_t)^2\right)  \sqrt{\frac{1}{2\pi V }}^{T-2} \sqrt{\frac{1}{(1-e^{-\alpha})^2(T-1)}}$$
-
-
-Now that we have effectively eliminated the parameter $r$ from our posterior calculation, we wish to also integrate out the second parameter, $\sigma$.  Once again we can "integrate by analogy;" the expression above in the variable $\sigma^2$ looks like a Gamma distribution,
-
-$$ \int x^{\alpha - 1} e^{-\beta x} dx = \frac{\beta^{\alpha}}{\Gamma(\alpha)} $$ 
-
-Where we take
-
-$$ \alpha = T/2$$
-
-and 
-
-$$ \beta = \frac{1}{2} \left( \sum M_t^2 - \frac{ \left( \sum M_t \right)^2}{T - 1}\right) $$,
-
-leaving us with 
-
-$$\frac{1}{(T-1)\sqrt{2 \pi}^{T-2} } \frac{\tfrac{1}{2}^{T/2} \left( \sum M_t^2 - \frac{ \left( \sum M_t \right)^2}{T - 1}\right)^{T/2}}{\Gamma(T/2)} $$
-
-
---> 
+    <p>Repo files are 21Mb (zipped).
+Most of this is in <code>assets/files</code> (31 MB, mostly large pdfs including pubs), though <code>_posts</code> is 14 Mb.
+<code>.git</code>, by comparison, is 237 Mb.</p>
 
     </article>
   </div>
@@ -268,20 +165,6 @@ $$\frac{1}{(T-1)\sqrt{2 \pi}^{T-2} } \frac{\tfrac{1}{2}^{T/2} \left( \sum M_t^2 
   
   <p>
   
-  
-  
-  <span class="article-tags">
-    <i class="fa fa-tags"></i>
-    
-    <a href="../../../tags/warning-signals">warning-signals</a
-    >, 
-    
-    <a href="../../../tags/derivation">derivation</a
-    >
-    
-  </span>
-  
-  
   </p>
 
 </div>
@@ -295,9 +178,9 @@ $$\frac{1}{(T-1)\sqrt{2 \pi}^{T-2} } \frac{\tfrac{1}{2}^{T/2} \left( \sum M_t^2 
   <br />
 
   <p> <a class="btn btn-default" 
-         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-12-10-notes.md"><i class="fa fa-clock-o"></i> history</a></p>
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-30-notebook-maintenance-and-scaling.md"><i class="fa fa-clock-o"></i> history</a></p>
 
-  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2013-12-10-notes.md"></a></p> 
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2014-12-30-notebook-maintenance-and-scaling.md"></a></p> 
 
 
 </aside>

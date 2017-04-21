@@ -140,19 +140,6 @@
   
   
   <div>
-    <h2><a href="../../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
-    <h4>Tue, Feb 28, 2012</h4>
-    <div class="article-style">
-      
-      Description: an example trying to detect early warning signals in data from fisheries collapses
-Set up markdown format and image uploads.
-render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
-require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../2012/02/28/knitr-with-flickr-and-wordpress/">Knitr with flickr and wordpress</a></h2>
     <h4>Tue, Feb 28, 2012</h4>
     <div class="article-style">
@@ -257,6 +244,16 @@ but we really see what is going on when we color-code the population dynamics of
       Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
 require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
 d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
+    <div class="article-style">
+      
+      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
       
     </div>
   </div>

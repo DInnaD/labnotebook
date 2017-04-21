@@ -140,99 +140,73 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/revisions-on-prosecutors-fallacy/">Revisions on Prosecutors Fallacy</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood calculation</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
- Proof corrections for rfishbase manuscript. Done.
- Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
-  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
-&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
+      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/roi-and-sam-comparative-phylogenetics-r-workshop/">Roi and Sam Comparative Phylogenetics R Workshop</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Day 2: 4p - 6:30p  Attending the R workshop by Roi Holzmann and Sam Price from the Wainwright lab. Missed the introductory session on Monday. Course data currently available here. Resources: Springer R books pdfs available through UC Davis. In particular: R book w/ ape.  Speciation &amp; Diversification 3rd session (4:10 - 5:10 pm): Packages: Laser, Geiger, Ape, apTreeshape &amp; Diversitree
- Lineage through time plots ape and laser:   ltt.
+      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
+ Create package around power analysis, including ability to test bootstraps
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/semantic-lab-notebook/">Semantic Lab Notebook</a></h2>
+    <h2><a href="../../../1/01/01/likelihood-ratio-update/">Likelihood ratio update</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
+      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/so-youre-active-on-research-gate/">So, you&#39;re active on Research Gate?</a></h2>
+    <h2><a href="../../../1/01/01/limits-to-the-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      I have occassionally been getting this question:
- So, you&rsquo;re active on ResearchGate?
- Sounds like being accused of some scandal, doesn&rsquo;t it?
-I&rsquo;m not generally active on it - my impression is that the open science community is mostly skeptical about ResearchGate and any other &ldquo;Social Network&rdquo; for scientists, largely on the grounds that &ldquo;we already use the same social networks everyone else uses.&rdquo; Some object on more philosophical grounds (profit, Mendeley, etc), but heck I publish in Elsevier/Springer/Wiley so I won&rsquo;t preach.
+      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
+Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/solarized-colors-with-twitter-bootstrap/">Solarized Colors with Twitter-Bootstrap?</a></h2>
+    <h2><a href="../../../1/01/01/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Trying out rendering my notebook using Ethan Schoonover&rsquo;s Solarized color scheme. The solarized palette has been selected according to Ethan&rsquo;s exacting standards for contrast, symmetry, and readability.
-My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS files. Normal CSS is valid LESS code too, but doesn&rsquo;t have the concept of a variable. So changing colors in CSS requires changing each and every occurance of some hex colorcode.
+      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
+ Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
+    <h2><a href="../../../1/01/01/maticce/">MATICCE</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
-
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
+      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
+The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
+runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status---thoughts/">Status - Thoughts</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Goal: BM vs OU vs proposed multipeak OU model with and without global alpha/sigma. Anoles dataset, carex dataset, labrids?
- Added ape2ouch_all function based on maticce to convert file formats. Might be worth checking against my current implementation. Meanwhile it&rsquo;s really the converting trees back from ouch to ape that gives the ace function trouble. something about ordering of the nodes, even though that shouldn&rsquo;t matter in the phylo format.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/status-on-structured-populations/">Status on Structured Populations</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/status-update/">Status update</a></h2>
+    <h2><a href="../../../1/01/01/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -240,9 +214,27 @@ My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS fil
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/still-puzzling-on-lr/">Still puzzling on LR</a></h2>
+    <h2><a href="../../../1/01/01/meeting/">Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/meeting-goals/">Meeting Goals</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/meeting-w--alan/">Meeting w- Alan</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
       
     </div>
   </div>

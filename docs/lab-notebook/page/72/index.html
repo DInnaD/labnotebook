@@ -140,116 +140,114 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/implementing-the-new-approach/">Implementing the new approach</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Spent just about the entire day off and on implementing the approach described in yesterday&rsquo;s entry. Code includes the more direct implementation of the likelihood by generating trees from the process and averaging, as well as by weighting trees by their probability. Methods appear to agree reasonably well. The second approach should generate a wider variety of trees instead of using those produced by the first method. This could be done by varying the parameters of the transition rates to populate the collection.
+      Public code hosting  Project code now available through Github. Advantages to public hosting: Replication of adaptive dynamics simulations can be difficult, particularly in matching various nuisance parameters. While there is certainly much pedagogical value in individual researchers implementing their own simulations, verification and reproducibility of scientific results would be greatly facilitated by adapting an accepted open source code base and adding branches, etc. Researchers could much more immediately benefit from the work of their colleagues and spend more time implementing novel research and less reproducing it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
+ use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
+      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/infering-partially-observable-markov-processes-with-iterative-particle-filtering/">Infering Partially Observable Markov Processes with Iterative Particle Filtering</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
-      
-      Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
-Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
-POMP doesn&rsquo;t mix well in the winbugs.
-simulation-based algorithm (plug-and-play)
-Think of a process being defined by:
- rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/is-it-time-to-retire-pagels-lambda/">Is it time to retire Pagel&#39;s lambda?</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Pagel&rsquo;s $\lambda$ (lambda), introduced in Pagel 1999 as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).
-Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity. There are many issues with the statistic, some of which I attempt to summarise below.
-The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.
+      Simulation Results (code)  Analytics (Analytics code)
+Notebooks and files Looking at a better way to get figures into my online notebook. I often run simulations that generate figures which I look at, make some adjustments to the code based on the figure, and then delete or overwrite the figure without uploading it to my notebook, because it isn&rsquo;t &ldquo;right&rdquo; or &ldquo;finished&rdquo; and uploading takes a lot of clicks, particularly when the code generates 36 figures in a run.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/jekyll-vs-wordpress/">Jekyll vs Wordpress</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics-updates/">Adaptive Dynamics Updates</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      I am now trying out a Jekyll-based platform rather than a Wordpress based for my website and lab notebook. Don&rsquo;t worry, the Wordpress site still remains where it was with links intact, I&rsquo;ve simply remapped the homepage. For now this is an experiment, we&rsquo;ll see how it goes.
-Why switch? Speed Wordpress was great, meeting most of my needs for a customizable site that I couldn&rsquo;t really accomplish in my first online notebook on OpenWetWare.
+      The numerical coexistence time simulations are still running, (Server rest brought down these runs two weeks ago, and they take a few weeks to do all the replicates) meanwhile here are the rest of the analytic set (and one simulation that finished). See code for parameters etc. (Below in frame)</p>
+
+<p>EVE Seminar: Brad Shaffer A rather good talk on the California Tiger salamander, emphasizing intersection of ecological and evolutionary investigation in a conservation, management-oriented context.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/lr-manuscript/">LR Manuscript</a></h2>
+    <h2><a href="../../../1/01/01/additional-sources-of-noise-sethi-2005/">Additional sources of noise (Sethi 2005)</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
+      Sethi Model  author Carl Boettiger, cboettig@gmail.com license: CC0  Implements a numerical version of the SDP described in (Sethi et. al. 2005).
+Clear the workspace and load package dependencies:
+Define noise parameters
+sigma_g &lt;- 0.1 # Noise in population growth sigma_m &lt;- 0.1 # noise in stock assessment measurement sigma_i &lt;- 0.1 # noise in implementation of the quota  we&rsquo;ll use log normal noise functions. For Reed, only z_g will be random.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/large-intrinsic-noise/">Large Intrinsic Noise</a></h2>
+    <h2><a href="../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Modified Crowley model Realizing Arbitrarily large demographic noise systems??
-Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
-I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
-And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
+      From 03/31, see below for more!
+Outline Title
+On the ability to detect leading indicators of catastrophe in unreplicated time series
+Introduction Background on Warning Signals
+ literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
+ Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
+ Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-calculation/">Likelihood Calculation</a></h2>
+    <h2><a href="../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Direct Calculation of the Joint Probability Fig 1 Sample tree
- This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
+      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
+    <h2><a href="../../../1/01/01/alan-meeting/">Alan Meeting</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
-This is great, nice to know there&rsquo;s a basis for it.
-&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
+      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
       
     </div>
   </div>

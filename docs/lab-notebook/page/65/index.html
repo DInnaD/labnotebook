@@ -140,119 +140,116 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/archiving-the-lab-notebook-on-figshare/">Archiving the lab notebook on figshare</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
+      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/automated-feeds-in-notebook-entries/">Automated feeds in notebook entries</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
-{% raw %}
-{% octokit_commits pdg_control%}  {% endraw %}
-(or even to the post template) and have the commit log for the specified repository automatically imported.
+      Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/basic-regression-in-gaussian-processes/">Basic regression in Gaussian processes</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Working out coded examples for basic Gaussian process regression using R. I&rsquo;ve just read through the first few chapters of Rasmussen &amp; Williams (2006), this implements the examples discussed in Chapter 2.1-2.5.
-Required R libraries (for multivariate normal, also for plotting):
-require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
-set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
+      Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
+ Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/batch-data/">Batch Data</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
+  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/beetle-dynamics-exploration--adjustments/">Beetle dynamics exploration &amp; adjustments</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Adjusted individual based Crowley model to follow same parameterization as the macroscopic model. IBM rules had divided b and c by K in the dynamics while the macroscopic was just using rescaled dynamical rates. Now both use the rescaled rates as parameter values while the equations match.
- Variation in the Crowley model agrees between individual-based simulation and the equations.
-  Code troubleshooting  openmp private declarations perform allocs without frees!
+      labnotebook Updates to configuration to be more portable and lightweight:
+ Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/beetles-workshop-day-2/">Beetles workshop Day 2</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Goals  van Kampen expansion of LPA model, maximize noise in L while keeping A robust?   Indiv. heterogeneity issue: dividing larval class into a smaller, highly-cannibal and remainder of more weakly cannibalistic. Pulse dynamics &ndash; interspike interval, magnitude?  Potential Data  1995 Dennis et al. &ndash; 5 replicate populations (2-cycle dataset), 5 age-cycles. eight-year chaotic time series Strawbridge daily samples (single replicate), occasional disease in lines though.
+      Units in EML Overview of how units are determined in the EML package:
+library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot;, &quot;AM&quot;)), spp = c(&quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus kisutch&quot;), stg = ordered(c(&quot;smolt&quot;, &quot;parr&quot;, &quot;smolt&quot;), levels=c(&quot;parr&quot;, &quot;smolt&quot;)), # levels indicates increasing level, eg. parr &lt; smolt ct = c(293L, 410L, 210L), day = as.Date(c(&quot;2013-09-01&quot;, &quot;2013-09-1&quot;, &quot;2013-09-02&quot;)), stringsAsFactors = FALSE, col.defs = c(&quot;River site used for collection&quot;, &quot;Species scientific name&quot;, &quot;Life Stage&quot;, &quot;count of live fish in traps&quot;, &quot;day traps were sampled (usually in morning thereof)&quot;), unit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
- Follow-up discussion on:
- List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
+      EML I&rsquo;ve added a interface for custom units. You don&rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
+create_custom_unit(id = &quot;metersSquaredPerHectare&quot;, parentSI = &quot;dimensionless&quot;, unitType = &quot;dimensionless&quot;, multiplierToSI = &quot;0.0001&quot;, description = &quot;Square meters per hectare&quot;)  and then use the id you give as the unit type in your unit.defs. create_custom_unit updates a custom_units list in the EMLConfig environment, which the eml or write_eml functions detect and use to write in the additional metadata.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/bodega-phylogenetics-workshop-day-1/">Bodega Phylogenetics Workshop Day 1</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Lecture notes for the phyolgenetics workshop. These are taken in real time, so may contain errors. I&rsquo;ll see if I keep this up throughout the course. See course website.
-Huelsenbeck 9a-11a
- Parameters θ Observation X p(X | θ) is known as the likelihood. Adjust parameter to maximize likelihood. Coin toss example  θ = prob of heads on a single toss of a coin, X is # of heads observed on n tosses.
+      Multiple uncertainty Handling variation in different grids. Cleaned up a bunch of transpose expressions in the code and make sure that dimensions are always properly aligned. Now problem can be solved on arbitrarily different grid discritizations for stock $x$, observed stock $y$, harvest $h$ and quota $q$. See multiple_uncertainty.m and example calls in testing.m
+Taking a look a how we handle normalization when some of the probability density falls outside the discritized space.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/bodega-phylogenetics-workshop-day-2/">Bodega Phylogenetics Workshop Day 2</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Marine lab researchers are back, and network speeds have just about given up (down to bytes/s). This post is composed offline and will be uploaded to the notebook. Details are well logged on the Bodgea Phylogenetics Wiki so these are reasonably sketchy with my comments.
-My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega Phylogenetics Wiki today:
- User page Phylogenetics on Linux Becoming a Programmer Edits on Advice for Aspiring Phylogeneticists  Today&rsquo;s agenda  BEAST continued.
+      Reading a little about Flat UI design (1, 2). Basic concept is that users now realize they can click on things without them looking like actual three-dimensional buttons. (Along with links, checkboxes, and forms). Frequently seems to use many different colors on a single page to bring some life back, though this might just make the design look like Windows 8 instead. I&rsquo;ve started noticing this everwhere now that I know what it is.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/bodega-phylogenetics-workshop-day-3/">Bodega Phylogenetics Workshop Day 3</a></h2>
+    <h2><a href="../../../1/01/01/"></a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Rich Glor, Character Evolution Official slides and tutorial
- Weakness of ancestral state reconstruction
- Cunningham 1999 Losos 1999  Testing hypotheses with ancestral reconstruction
- Parsimony Farris method. Downward/upward pass. Gives a maximum parsimony reconstruction. May miss other ones. Apparently this Parsimony analysis can be done for continuous traits as well, needs a measure of distance Likelihood Pagel 1994 Schluter 1997   R tutorial (see anolis_cheat.R)
- Discrete trait ancestral state reconstruction
+      Labnotebook  Configure Github CDN Hmm, jekyll-assets. Not sure that this is preferable from just using the makefile to compile and minify assets seperately as needed. Move www.carlboettiger.info to host from gh-pages branch of labnotebook. This self-contained system is more standard, and it is strange for other gh-pages hosting to be using the same domain/subdomain to reference content that is actually on a gh-pages branch of some totally different repository.
       
     </div>
   </div>

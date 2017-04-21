@@ -140,120 +140,116 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/general-matrix-form-and-correcting-equations/">General matrix form and correcting equations</a></h2>
+    <h2><a href="../../../1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Pursuing a matrix form, seems I had missed some terms in the covariance equations Friday, which are suggested by the nice symmetry of this representation: (sometimes chalk and a camera are faster than tex).
-This suggests the general form looks like
-<em>dM</em> = <em>JM</em> + (*J*M)^T^ + g
-Where M is the covariance matrix and J the Jacobian of f as before. dM is the matrix of derivative terms, though clearly not a rigorous notation.
+      Load necessary libraries,
+library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
+library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
+    <h2><a href="../../../1/01/01/actually-starting-at-arkin-lab/">Actually starting at Arkin Lab</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Efficiency updates:
- As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
+      Meeting with M. Samoilov  Kurtz Theorems: two limits, timescale and system size, often taken in the wrong order in practice. Einstein-Smoluchowski debate regarding Langevin correspondence to Ito vs Statonvich representations resolved: [theorem]. (Statonvich is the more natural interpretation of the way in which we measure data to compare to Langevin. Of course Ito and Stratonvich can be mapped back and forth anyway). Of course this difference doesn&rsquo;t exist, and nothing goes wrong / no stochastic surprises if dynamics are linear.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/goals/">Goals</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
+      Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
+ Solution:
+  C++ file mangles names in .so, changing the .C call. to get the object name:
+objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
+ extern C {<br />
+ Problem: Trouble getting R to export the C library to all nodes.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
+ seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Matching theoretical approximations to simulation:
+ Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Manuscript writing.  Phylogenetics Submitted Lightning talk to iEvoBio
+PDG group will be discussing
+ Rabosky DL and Lovette IJ. .&rdquo;) pmid:18611849. PubMed HubMed [1]  tomorrow, along with critique and response.
+ Waiting to hear back from Peter on manuscript. Should follow up with Ralph on likelihood ratio discussion with Ethan. Transcluding exploratory work on primate phylogeny data:  Embedded:</p>
 
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+<p>Primate Phylogeny Carl Boettiger 00:37, 30 April 2010 (EDT):
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
-Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
+      Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
+ Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/graham--peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Fantastic meeting with Graham and Peter today, covered a lot of ground.
-MNV I briefly sketched the multivariate normal solution for joint probability across the tree under the regimes model. The original regimes approach did not take advantage of the fact that the solution to the joint probability across the tree is multivariate normal given the painting. This allows the calculation to be partitioned as outlined in Saturday&rsquo;s entry:
+      Working on simulation based approach to summarize distribution of waiting times across different phases. What to do about zeros in phase two (when first dimorphism survives long enough to be invaded&hellip;) Quantify number/distribution of failed attempts at each phase? How to represent these distributions across a parameter space in sigma_c, sigma_k, sigma_mu, and mu?  library(BranchingTime) sim &lt;- branching_time(rep=1000, cpu=8) save(file = &quot;run1.Rdat&quot;) pdf(&quot;distribution.pdf&quot;) m &lt;- max(sim$data) plot(density(sim$data[1,]), xlim = c(0,m), col=&quot;black&quot; ) lines(density(sim$data[2,] ), col = &quot;blue&quot;) lines(density(sim$data[3,] ), col = &quot;green&quot;) lines(density(sim$data[4,] ), col = &quot;red&quot;) legend(&lsquo;topright&rsquo;, c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;), col=c(&quot;black&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;), pch = 15) dev.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/hastings-beetle-workshop/">Hastings Beetle Workshop</a></h2>
+    <h2><a href="../../../1/01/01/adaptive-dynamics/">Adaptive Dynamics</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
- Morning Session, 9a - 11a
- Outline the individual based model, toolbox  Group lunch, noon-1:30
- My lab Presentation, 2p-3p
- Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
- Follow-up on understanding noise propagation in age structure dynamics.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/isees-software-lifecycle-and-components-workshop-day-1/">ISEES software lifecycle and components workshop, Day 1</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Range of large project to the long tail.
- statistical analyses One-off models community model Services (Blast)  Science Challenges Outcomes of previous community workshops
-18 Grand Challenge areas. Highlights: Supermodels. human/biophysical systems shape and be shaped by water availability. (A vision similar to Microsoft&rsquo;s &ldquo;Model all Earth&rdquo; Purves et al)
-Functions and services areas: (priority ordering)
- Computational training (early career - all career) Assimilation and QA/QC tools Collaborative environment decisions and workflows software discovery consultants / collaborator community hub to converge on standards merging disparate tools user-friendly interfaces multiscale coupled modeling framework Software vetting (how about paper vetting?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Code implementation in felsenstein_tree.R
- I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
+      Wide gap, flat landscape  Waiting times on a flatter landscape: sigma_c ~ sigma_k. Waiting times are dominated by the number of times phase 3 collapses: the established invader in a dimorphic population (right panels). Collapse of phase 2: collapse of the dimorphism before third population can establish is much rarer (about an order of magnitude).   from the run3 dataset, with parameters.  Narrower gap, steeper landscape  with sigma_c &lt;&lt; sigma_k, branching is easy, neither phase is particularly limiting, though single collapses from both phases are very common.
       
     </div>
   </div>

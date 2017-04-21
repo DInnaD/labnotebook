@@ -140,49 +140,7 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/welcome-to-my-lab-notebook---reloaded/">Welcome to my Lab Notebook - Reloaded</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Welcome to my lab notebook, version 3.0. My original open lab notebooks began on the wiki platform OpenWetWare, moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform (site-config), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here. Quoting from my original introduction to the Wordpress notebook:
- Disclaimer: Not a Blog  Welcome to my open lab notebook.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/what-i-look-for-in-software-papers/">What I look for in &#39;Software Papers&#39;</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Update Thanks to the rich discussion in the comments and beyond, I&rsquo;ve revised my thoughts on this somewhat, as I discuss in this more recent post.
-I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I define as publications whose primary purpose is to publicize a piece of scientific software and provide a traditional research product with hopes that it will receive citations and recognition from other researchers in grant and job reviews.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -190,7 +148,7 @@ I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I d
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/open-science-summit-day-2/">Open Science Summit day 2</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -198,7 +156,73 @@ I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I d
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/organizing-analyses-data-codes/">Organizing analyses, data, codes</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Codes  Should have a suite of likelihood tools as a package Suite of data manipulation functions, mostly to and from ape/ouch<br />
+idealized workflow:
+ Read in nexus file and csv data. Call model fit for each model to be tested (BM, one peak, multiple peaks, multiple peaks with independent selective forces)<br />
+ A function checks tree and data for matches, discards those without match. This could be done automatically by the model fit.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/parallel-r/">Parallel R</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/parallel-at-last/">Parallel at last</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/parallelizing-code/">Parallelizing Code</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/parameter-estimates-for-labrid-parrotfish-model/">Parameter Estimates for Labrid-Parrotfish model</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      See fast_boot and plot.wrightscape functions in code. Gape size</p>
+
+<p>See fast_boot and plot.wrightscape functions in code Jaw Protrusion
+Figures show strong evidence for the relax of constraint hypothesis, as the strength of selection (alpha parameters) appears to have substantially weakened in both morphological traits in the parrotfish clade relative to the wrasses clade. The wrasses show strong preference for OU model with substantial stabilizing selection, while the Parrotfish estimate almost zero stabilizing selection (Brownian model, clear phylogenetic signal).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/parrotfish-model-choice/">Parrotfish Model choice</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -206,27 +230,7 @@ I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I d
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio manuscript.  Labrid Herbivory data Parrotfish gape shows significant differences for independent OU models (alpha, theta, sigma different) than wrasses. While the two-peak ouch model gets no support, allowing alpha and sigma to very results in a strongly significant model improvement.
-code
-&gt; ws2$ ws2$alpha ws2$data ws2$loglik ws2$regimes ws2$sigma ws2$theta ws2$tree ws2$Xo &gt; ws2$theta [1] 0.2245493 0.9569619 &gt; ws2$alpha [1] 2.943846e+00 4.995744e-06 &gt; ws2$sigma [1] 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/writing/">Writing</a></h2>
+    <h2><a href="../../../1/01/01/parrotfish-wrasse-example/">Parrotfish-Wrasse example</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       

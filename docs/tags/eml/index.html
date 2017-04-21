@@ -197,6 +197,43 @@ Semantics Writing Semantics. Lots of elements of the EML schema have semantic me
   </div>
   
   <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Units in EML Overview of how units are determined in the EML package:
+library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot;, &quot;AM&quot;)), spp = c(&quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus kisutch&quot;), stg = ordered(c(&quot;smolt&quot;, &quot;parr&quot;, &quot;smolt&quot;), levels=c(&quot;parr&quot;, &quot;smolt&quot;)), # levels indicates increasing level, eg. parr &lt; smolt ct = c(293L, 410L, 210L), day = as.Date(c(&quot;2013-09-01&quot;, &quot;2013-09-1&quot;, &quot;2013-09-02&quot;)), stringsAsFactors = FALSE, col.defs = c(&quot;River site used for collection&quot;, &quot;Species scientific name&quot;, &quot;Life Stage&quot;, &quot;count of live fish in traps&quot;, &quot;day traps were sampled (usually in morning thereof)&quot;), unit.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      EML I&rsquo;ve added a interface for custom units. You don&rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
+create_custom_unit(id = &quot;metersSquaredPerHectare&quot;, parentSI = &quot;dimensionless&quot;, unitType = &quot;dimensionless&quot;, multiplierToSI = &quot;0.0001&quot;, description = &quot;Square meters per hectare&quot;)  and then use the id you give as the unit type in your unit.defs. create_custom_unit updates a custom_units list in the EMLConfig environment, which the eml or write_eml functions detect and use to write in the additional metadata.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="../../1/01/01/notes-from-chat-with-duncan/">Notes from chat with Duncan</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">

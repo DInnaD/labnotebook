@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: open-science
+categories: [open-science]
 tags:
 - blog
 - reproducible-research

@@ -140,112 +140,117 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/prep-for-ere-talk/">Prep for ERE talk</a></h2>
+    <h2><a href="../../../1/01/01/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
+      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/primate-chronogram/">Primate chronogram</a></h2>
+    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Not much chance for progress.
+ 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/primates/">Primates</a></h2>
+    <h2><a href="../../../1/01/01/friday/">Friday</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Primates project now has a Github repository. Updates are embedded from here.
- Experimenting with distributing code and data effectively. Pluses and minuses of three options:
-   zipped file with R code and data. Requires setting working directory, harder to update. Subsequent uploads must include all the data, rather than incremental. Directly grab repository over github. Simple to update and access, stores only incremental changes. Requires knowledge of git R package: Nicely integrates data, code, and documentation.
+      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
+12p - 1p
+ Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
+ Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/progress-this-week-by-project/">Progress this week, by project</a></h2>
+    <h2><a href="../../../1/01/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Critical transitions Must determine the correct set of comparisons:
- Solve the SDP optim using the exact time dependent
- Simulate under an f with the same escapement policy but different functional form, i.e. logistic with K &amp; r estimated from the May example, either analytically or directly from the data.
- Considering the costs of &ldquo;cautious policy&rdquo; (calculates optimal harvest recursively but always selects a fraction P of the optimal.
+      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
+png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/project-tracking-ecology/">Project tracking (Ecology)</a></h2>
+    <h2><a href="../../../1/01/01/gaussian-process-inference-on-sample-functions/">Gaussian process inference on sample functions</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      pdg-control Has become a variety of different directions:
-Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
+      This example uses the direct inversion of the covariance function. I have also been exploring the potentially faster Cholksy decomposition without success. Sometimes the match is very good, other times not, see compare-cholsky.md This example also on github as reed-example.md.
+ Basic likelihood optimization needs to be checked. See commits estimating sigma_n and estimating l. Compare the example below to a different set of fixed hyperparameters here  Example require(pdgControl) require(ggplot2)  Simulate some training data under a stochastic growth function with standard parameterization,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/project-tracking-evolution/">Project tracking (Evolution)</a></h2>
+    <h2><a href="../../../1/01/01/gaussian-processes/">Gaussian processes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Evolution I&rsquo;m also still wrapping up a variety of projects on the Evolution front.
-treebase  Dynamic manuscript. Reorganize, simplify? add, document, employ the additional functions to avoid sapply commands. Prune examples? iEvoBio challenge entry?  Wrightscape  Start synthesizing documents Evidence for release in open lever ratio and kt Illustrating the different models Consider updated data format outputs and graphical processing functions for the model choice steps  fishbase  submitted!
+      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
+ Will also want to look into basis approximations for SDP acceleration.
+  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/prosecutors-fallacy-notes/">Prosecutor&#39;s fallacy notes</a></h2>
+    <h2><a href="../../../1/01/01/general-matrix-form-and-correcting-equations/">General matrix form and correcting equations</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Mostly getting Prosecutor&rsquo;s Fallacy example to run with large enough sample sizes. Finer sampling or more replicates than current settings seems to crash MPI connections over farm cluster, probably a memory issue. Oh well, looks like I&rsquo;ve got a good enough sample size here.
- Prosecutor&rsquo;s Fallacy  Citations on Jekyll No ideal solution here at the moment, a couple options:
- Pandoc: My intended solution, Disadvantages: converts everything to it&rsquo;s own markdown format, which messes up my PHP Markdown tables and YAML frontmatter.
+      Pursuing a matrix form, seems I had missed some terms in the covariance equations Friday, which are suggested by the nice symmetry of this representation: (sometimes chalk and a camera are faster than tex).
+This suggests the general form looks like
+<em>dM</em> = <em>JM</em> + (*J*M)^T^ + g
+Where M is the covariance matrix and J the Jacobian of f as before. dM is the matrix of derivative terms, though clearly not a rigorous notation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/puzzled-over-the-two-step-jump-process-results/">Puzzled over the two-step jump process results</a></h2>
+    <h2><a href="../../../1/01/01/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
+      Efficiency updates:
+ As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/questions/">Questions</a></h2>
+    <h2><a href="../../../1/01/01/goals/">Goals</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Current population dynamics model macroscopic equations:
-Interpreting μ terms as death events, b as birth, and the a terms as transitions between age classes gives a natural form for the master equation.
-Divergent Solutions to the linear noise approximation? Breaking the age classes into k subclasses makes waiting time within an age class gamma instead of exponential, which better matches observation. Also allows sustained oscillations. The numerical solution to the linear noise approximation shows divergent variance dynamics.
+      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
+*d*α~t~ = − β</p>
+
+<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/r-sig-phylo/">R-sig-phylo</a></h2>
+    <h2><a href="../../../1/01/01/goodbye-jekyll/">Goodbye Jekyll?</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      A couple interesting discussions on R-sig-phylo   estimating alpha and sigma reliably, knowing when you hit a likelihood ridge. See discussion. strange behavior in ace. Tried new ace function, same problem.<br />
-Research  Working on logs paper Waiting on Primate data Waiting on feedback on Labrids paper<br />
-DoE Conference Registration  Submitted Poster title and abstract corresponding to my iEvoBio proposal.  Reading  podcast on the Science Careers story.
+      The great strength of Jekyll is in providing a really convenient HTML templating system through the _layouts and _includes directories and Liquid variables (including the auto-populated ones like page.previous.url).
+For quickly deploying simple sites though, this is often unnecessary: one or two layout files will suffice, and an _includes directory is not so useful with only a single layout. The ease of maintenance by having a template divided into modular chunks is somewhat trumped by the greater simplicity of copying a single template or set of templates over into a new directory.
       
     </div>
   </div>

@@ -140,19 +140,6 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
-    <h4>Mon, Aug 29, 2011</h4>
-    <div class="article-style">
-      
-      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
- Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
-   Commits to taxize pushed to Scott.
-wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h2>
     <h4>Sun, Aug 28, 2011</h4>
     <div class="article-style">
@@ -257,6 +244,19 @@ TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computa
       Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
 Brief topic notes from today&rsquo;s meeting:
  set up different take on layout: lambda, AIC, power
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wednesday: migrating codes into MPI</a></h2>
+    <h4>Wed, Aug 17, 2011</h4>
+    <div class="article-style">
+      
+      Parellelization/Scaling of code MPI on farm cluster
+Got my MPI codes running.
+Much better way to get jobs into the queue, asking for 16 threads that don&rsquo;t have to be on the same node is much faster. Can also ask for 161 threads, but will wait longer in the queue.
+The trick to getting this to run was mostly getting the library set correctly. Setting the library path at the top of the script did the trick:
       
     </div>
   </div>

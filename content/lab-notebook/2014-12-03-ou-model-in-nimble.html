@@ -1,0 +1,125 @@
+---
+title: OU model in Nimble
+layout: post
+category: ecology
+tags:
+  - earlywarning
+---
+
+
+<p>Sanity test with a simple model, Start with some sample data from an OU process:</p>
+<pre class="r"><code>library(&quot;sde&quot;)</code></pre>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: fda</code></pre>
+<pre><code>## Loading required package: splines</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## 
+## Attaching package: &#39;fda&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     matplot</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## sde 2.0.15</code></pre>
+<pre><code>## Companion package to the book</code></pre>
+<pre><code>## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39;</code></pre>
+<pre><code>## Iacus, Springer NY, (2008)</code></pre>
+<pre><code>## To check the errata corrige of the book, type vignette(&quot;sde.errata&quot;)</code></pre>
+<pre class="r"><code>library(&quot;nimble&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nimble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:fda&#39;:
+## 
+##     inprod</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     simulate</code></pre>
+<pre class="r"><code>library(&quot;methods&quot;)
+set.seed(123)
+d &lt;- expression(0.5 * (10-x))
+s &lt;- expression(1) 
+data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))</code></pre>
+<pre><code>## sigma.x not provided, attempting symbolic derivation.</code></pre>
+<pre class="r"><code>plot(data)</code></pre>
+<p><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Specify this model in Nimble BUGS code</p>
+<pre class="r"><code>ou &lt;- nimbleCode({
+   theta ~ dunif(1e-10, 100.0)
+       r ~ dunif(1e-10, 20.0)
+   sigma ~ dunif(1e-10, 100)
+    x[1] ~ dunif(0, 100)
+
+  for(t in 1:(N-1)){
+    mu[t] &lt;- x[t] + r * (theta - x[t]) 
+    x[t+1] ~ dnorm(mu[t], sd = sigma) 
+  }
+})</code></pre>
+<p>nimble parameters</p>
+<pre class="r"><code>const &lt;- list(N = length(data$x))
+ou_inits &lt;- list(theta = 6, r = 1, sigma = 1)</code></pre>
+<p>Create, spec, build, &amp; compile</p>
+<pre class="r"><code>ou_Rmodel &lt;- nimbleModel(code = ou, constants = const, data = data, inits = ou_inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<pre class="r"><code>ou_spec &lt;- configureMCMC(ou_Rmodel, thin=1e2)
+ou_Rmcmc &lt;- buildMCMC(ou_spec)
+ou_Cmodel &lt;- compileNimble(ou_Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre class="r"><code>ou_mcmc &lt;- compileNimble(ou_Rmcmc, project = ou_Cmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.
+## compilation finished.</code></pre>
+<p>Run the MCMC</p>
+<pre class="r"><code>ou_mcmc$run(1e4)</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<pre><code>## NULL</code></pre>
+<p>and examine the results</p>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(ou_mcmc$mvSamples))
+mean(samples$theta)</code></pre>
+<pre><code>## [1] 10.47953</code></pre>
+<pre class="r"><code>mean(samples$sigma)</code></pre>
+<pre><code>## [1] 0.392594</code></pre>
+<pre class="r"><code>mean(samples$r)</code></pre>
+<pre><code>## [1] 0.1026019</code></pre>
+<pre class="r"><code>plot(samples[ , &#39;r&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;, ylab = expression(r))
+plot(samples[ , &#39;sigma&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;, ylab = expression(sigma))
+plot(samples[ , &#39;theta&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;, ylab = expression(theta))
+plot(samples[ , &#39;r&#39;], samples[ , &#39;sigma&#39;], xlab = expression(r), ylab = expression(simga))
+hist(samples[, &#39;theta&#39;])</code></pre>
+<p><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-8-2.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-8-3.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-8-4.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-8-5.png" width="672" /></p>
+<div id="block-sampler" class="section level3">
+<h3>Block sampler</h3>
+<pre class="r"><code>ou_spec$addSampler(c(&#39;r&#39;,&#39;sigma&#39;,&#39;theta&#39;), type = &quot;RW_block&quot;, control = list(adaptInterval=100))
+ou_Rmcmc2 &lt;- buildMCMC(ou_spec)</code></pre>
+<pre class="r"><code>ou_mcmc2 &lt;- compileNimble(ou_Rmcmc2, project=ou_Rmodel, resetFunctions=TRUE)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<p>(not clear why we use the old project here; but seems to allow us to inherit from previous settings, e.g. the monitors from <code>configureMCMC()</code> initialization)</p>
+<pre class="r"><code>ou_mcmc2$run(1e4)</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>samples2 &lt;- as.data.frame(as.matrix(ou_mcmc2$mvSamples))
+mean(samples2$theta)</code></pre>
+<pre><code>## [1] 10.46894</code></pre>
+<pre class="r"><code>plot(samples2[ , &#39;r&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;, ylab = expression(r))
+plot(samples2[ , &#39;sigma&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;, ylab = expression(sigma))
+plot(samples2[ , &#39;theta&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;, ylab = expression(theta))
+plot(samples2[ , &#39;r&#39;], samples[ , &#39;sigma&#39;], xlab = expression(r), ylab = expression(simga))
+hist(samples2[ , &#39;theta&#39;])</code></pre>
+<p><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-13-1.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-13-2.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-13-3.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-13-4.png" width="672" /><img src="/lab-notebook/2014-12-03-ou-model-in-nimble_files/figure-html/unnamed-chunk-13-5.png" width="672" /></p>
+<hr />
+</div>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Earlywarning on Boettiger Group</title>
+    <link>/tags/earlywarning/</link>
+    <description>Recent content in Earlywarning on Boettiger Group</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/tags/earlywarning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Working through quick-start example in nimble manual
+library(methods) library(knitr) # set dev to png for graphs with &amp;gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate pumpCode &amp;lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &amp;lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>Working through quick-start example in nimble manual
+The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) pumpCode &amp;lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &amp;lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &amp;lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &amp;lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &amp;lt;- list(alpha = 1, beta = 1, theta = rep(0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>some sample data
+library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &amp;#39;fda&amp;#39; ## The following object is masked from &amp;#39;package:graphics&amp;#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.Date, as.Date.numeric ## sde 2.0.15 ## Companion package to the book ## &amp;#39;Simulation and Inference for Stochastic Differential Equations With R Examples&amp;#39; ## Iacus, Springer NY, (2008) ## To check the errata corrige of the book, type vignette(&amp;quot;sde.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>some sample data
+library(sde) library(nimble) set.seed(123) d &amp;lt;- expression(0.5 * (10-x)) s &amp;lt;- expression(1) data &amp;lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
+lsn &amp;lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &amp;lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &amp;lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.</description>
+    </item>
+    
+    <item>
+      <title>OU model in Nimble</title>
+      <link>/1/01/01/ou-model-in-nimble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/ou-model-in-nimble/</guid>
+      <description>Sanity test with a simple model, Start with some sample data from an OU process:
+library(&amp;quot;sde&amp;quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &amp;#39;fda&amp;#39; ## The following object is masked from &amp;#39;package:graphics&amp;#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.</description>
+    </item>
+    
+    <item>
+      <title>OU model in Nimble</title>
+      <link>/1/01/01/ou-model-in-nimble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/ou-model-in-nimble/</guid>
+      <description>Sanity test with a simple model, Start with some sample data from an OU process:
+library(&amp;quot;sde&amp;quot;) library(&amp;quot;nimble&amp;quot;) set.seed(123) d &amp;lt;- expression(0.5 * (10-x)) s &amp;lt;- expression(1) data &amp;lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
+ou &amp;lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &amp;lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -144,17 +144,6 @@
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
-Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
       Remote RStudio configuration (keep forgetting options and ports).
 ssh -o &quot;ExitOnForwardFailure yes&quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
  sensitivity.md (Myers) sensitivity-allen.md  Overall:
@@ -260,6 +249,17 @@ showMethods(&quot;xmlToS4&quot;, includeDefs=TRUE)  ropensci  Closed rfigshare i
       Digging through some old stuff in the course of correspondance on related issues, I came across a few outstanding puzzles I&rsquo;ve been meaning to wrap up one day:
  Drift effecs &ndash; some difficulties Waiting Time  and some actual results that could deserve some renewed attention too.
  Phase 1 Routes to branching  Also raises an interesting new question that could be addressed in this context: can we formulate a similar approach to the stochastic escape from an adaptive peak?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../1/01/01/"></a></h2>
+    <h4>Mon, Jan 1, 0001</h4>
+    <div class="article-style">
+      
+      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
+An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
       
     </div>
   </div>

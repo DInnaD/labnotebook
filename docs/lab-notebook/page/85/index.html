@@ -140,7 +140,7 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../1/01/01/notes/">Notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
@@ -148,90 +148,98 @@
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../1/01/01/notes/">Notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
-
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+      Returned proofs for warning signals paper. Wrightscape figures sent to Peter. move fallacy to a branch off of main in earlywaring package? Running knit on the large clusters means images cannot be uploaded as they are created, since compute nodes don&rsquo;t have internet access. Saving files locally, I&rsquo;ve created a little script to parse the output file.md to find the and upload the local images, and swap the local paths for the url paths.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../1/01/01/notes/">Notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Exploring convergence in maximum likelihood model fits each on data produced by their own simulation method:
- fit1, basic OU method, converges just fine. (using L-BFGS-B method with appropriate bounding box to avoid negatives). fit2 , the linear change rate model, converges fine using Nelder-Meade (using 1e12 ~ inf likelihood return when attempting negative alpha or sigma), but throws hard errors for L-BFGS-B:   Error in optim(pars, warning.likfn, method = method, lower = lower) : non-finite finite-difference value [3]   fit3 runs on &ldquo;L-BFGS-B&rdquo; and returns reasonable values, though not meeting convergence standards.
+      Partially Observable Stochastic Processes (cont.)  Reading a bit more about pomp. Looks like SCM and PMCMC offer nicely Bayesian inference tools using the same framework (rprocess and dmeasure), making a nice platform for implementing multiple methods. Almost feels like having the likelihood equation in hand again. A bit more skeptical about nonlinear forecasting and probe matching, as they feel even more heuristic or arbitrary. I suppose that&rsquo;s just the price of having only rmeasure instead of dmeasure available though.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../1/01/01/notes/">Notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
+      Prosecutors Fallacy Running the null distribution and add to plots
+ generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
+ knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals/">Warning Signals</a></h2>
+    <h2><a href="../../../1/01/01/notes/">Notes</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
+      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
+ Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals----still-in-code-development/">Warning Signals -- still in code development</a></h2>
+    <h2><a href="../../../1/01/01/notes-from-chat-with-duncan/">Notes from chat with Duncan</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
+      
+      Keep metadata as part of the object Recursion problem coming up.
+  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
+  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
+ Schema to create S4 objects Create R objects first, and then toXML
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals-research/">Warning Signals Research</a></h2>
+    <h2><a href="../../../1/01/01/notes-on-value-of-information-runs-with-uniform-noise/">Notes on value of information runs with uniform noise</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Deuterium early warning signal used for Glaciation I-IV presented in Dakos 2008:  Deuterium signal over past 4 glaciations
- Does smoothing to remove trends &ndash; longer-scale fluctuations? Seems unnatural, many of those are part of the signal. Also applied to simulated time series &ndash; even those these are at stationarity! Bandwidth chosen by visual inspection. Get the CaCO3 presented in Scheffer 2010 and Dakos 2008. &ndash; Done: CaCO3
+      Debug Sethi with large uniform noise: needed to avoid havest &gt; stock in definition of f.
+  I ran the value of information calculations using the Sethi settings of a logistic map and uniform noise, which does indeed replicate their results, where the measurement error escapement is lower than the &ldquo;all low noise&rdquo; (&ldquo;deterministic&rdquo;) escapement until stock get above carrying capacity. results
+Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribution; I still find the lognormal noise pattern a bit more intuitive.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals-by-model-choice/">Warning Signals by model choice</a></h2>
+    <h2><a href="../../../1/01/01/ou-model-in-nimble/">OU model in Nimble</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Finished implementation of simulation from saddle-node example Implemented simulation from transition density for all three models  Whoops  The change point model can&rsquo;t be summarized by the transition density, as this depends only on the time interval and not the absolute time. The nice description of being able to solve for the transition density when the transition occurs during the time interval specified is neither necessary nor applicable in this context!
+      Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/warning-signals-with-sdes/">Warning Signals with SDEs</a></h2>
+    <h2><a href="../../../1/01/01/ou-model-in-nimble/">OU model in Nimble</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       
-      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
+      Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
+ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday/">Wednesday</a></h2>
+    <h2><a href="../../../1/01/01/open-science-summit/">Open Science Summit</a></h2>
     <h4>Mon, Jan 1, 0001</h4>
     <div class="article-style">
       

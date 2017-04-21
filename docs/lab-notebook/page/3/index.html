@@ -140,17 +140,6 @@
   
   
   <div>
-    <h2><a href="../../../2012/03/20/citing-r-packages/">Citing R packages</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
-    <div class="article-style">
-      
-      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
-citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../2012/03/19/"></a></h2>
     <h4>Mon, Mar 19, 2012</h4>
     <div class="article-style">
@@ -249,6 +238,19 @@ Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t
     <div class="article-style">
       
       forage fish seminar - Patrick and Jay with interesting stuff. Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.  knit hooks externalization example working (based on Reed.R). Still unsure how I feel about externalization vs fully literate code. Redundant typing is bad but isn&rsquo;t that why common tasks are functionalized?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
+    <h4>Tue, Feb 28, 2012</h4>
+    <div class="article-style">
+      
+      Description: an example trying to detect early warning signals in data from fisheries collapses
+Set up markdown format and image uploads.
+render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
+require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
       
     </div>
   </div>

@@ -12,6 +12,7 @@ Sanity test with a simple model,  Start with some sample data from an OU process
 ```{r}
 library("sde")
 library("nimble")
+library("methods")
 set.seed(123)
 d <- expression(0.5 * (10-x))
 s <- expression(1) 
@@ -25,7 +26,7 @@ plot(data)
 Specify this model in Nimble BUGS code 
 
 ```{r}
-ou <- modelCode({
+ou <- nimbleCode({
    theta ~ dunif(1e-10, 100.0)
        r ~ dunif(1e-10, 20.0)
    sigma ~ dunif(1e-10, 100)
@@ -50,7 +51,7 @@ Create, spec, build, & compile
 
 ```{r}
 ou_Rmodel <- nimbleModel(code = ou, constants = const, data = data, inits = ou_inits)
-ou_spec <- MCMCspec(ou_Rmodel, thin=1e2)
+ou_spec <- configureMCMC(ou_Rmodel, thin=1e2)
 ou_Rmcmc <- buildMCMC(ou_spec)
 ou_Cmodel <- compileNimble(ou_Rmodel)
 ou_mcmc <- compileNimble(ou_Rmcmc, project = ou_Cmodel)
@@ -58,16 +59,16 @@ ou_mcmc <- compileNimble(ou_Rmcmc, project = ou_Cmodel)
 Run the MCMC
 
 ```{r}
-ou_mcmc(1e4)
+ou_mcmc$run(1e4)
 ```
 
 and examine the results
 
 ```{r}
-samples <- as.data.frame(as.matrix(nfVar(ou_mcmc, 'mvSamples')))
+samples <- as.data.frame(as.matrix(ou_mcmc$mvSamples))
 mean(samples$theta)
 mean(samples$sigma)
-means(samples$r)
+mean(samples$r)
 ```
 
 
@@ -85,7 +86,7 @@ hist(samples[, 'theta'])
 ### Block sampler ###
 
 ```{r}
-ou_spec$addSampler("RW_block", list(targetNodes=c('r','sigma','theta'), adaptInterval=100))
+ou_spec$addSampler(c('r','sigma','theta'), type = "RW_block", control = list(adaptInterval=100))
 ou_Rmcmc2 <- buildMCMC(ou_spec)
 ```
 
@@ -94,15 +95,15 @@ ou_Rmcmc2 <- buildMCMC(ou_spec)
 ou_mcmc2 <- compileNimble(ou_Rmcmc2, project=ou_Rmodel, resetFunctions=TRUE)
 ```
 
-(not clear why we use the old project here; but seems to allow us to inherit from previous settings, e.g. the monitors from `mcmcSpec()` initialization)  
+(not clear why we use the old project here; but seems to allow us to inherit from previous settings, e.g. the monitors from `configureMCMC()` initialization)  
 
 
 ```{r}
-ou_mcmc2(1e4)
+ou_mcmc2$run(1e4)
 ```
 
 ```{r}
-samples2 <- as.data.frame(as.matrix(nfVar(ou_mcmc2, 'mvSamples')))
+samples2 <- as.data.frame(as.matrix(ou_mcmc2$mvSamples))
 mean(samples2$theta)
 ```
 

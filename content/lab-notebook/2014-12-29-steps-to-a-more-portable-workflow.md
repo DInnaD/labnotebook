@@ -1,7 +1,7 @@
 ---
 layout: post
 published: false
-categories: computation
+categories: [computation]
 tags:
 - docker
 ---

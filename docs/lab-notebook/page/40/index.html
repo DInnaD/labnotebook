@@ -140,20 +140,6 @@
   
   
   <div>
-    <h2><a href="../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
-    <div class="article-style">
-      
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
     <h4>Mon, Nov 29, 2010</h4>
     <div class="article-style">
@@ -252,6 +238,17 @@ Question 1 Should the Monte Carlo simulations use the maximum likelihood test a
       
       I&rsquo;m running quite a few of my analyses on my remote server, a 16 core, 32 GB ram, Ubuntu server with Tesla GPU, named &ldquo;zero&rdquo; (we&rsquo;re creative folks). It&rsquo;s easy to start lots of simulations (from ssh), harder to track when they are finished and verify results. No longer &ndash; &ldquo;zero&rdquo; now uses social media to share what she&rsquo;s up to. Find her on twitter: @tweeting_cpu
 Social Computation  Provides automated updating of simulation status and error messages
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat: evolution -- porting tree transformations to OUCH?</a></h2>
+    <h4>Sat, Nov 20, 2010</h4>
+    <div class="article-style">
+      
+      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
+Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
       
     </div>
   </div>
