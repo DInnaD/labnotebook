@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-21 11:19:59
-layout: post
-slug: sunday-manuscript-and-simulations
-title: Sunday - manuscript and simulations
-redirects: [/wordpress/archives/1249, /archives/1249]
 categories:
 - ecology
+comments: true
+date: 2011-03-21T11:19:59Z
+redirects:
+- /wordpress/archives/1249
+- /archives/1249
+slug: sunday-manuscript-and-simulations
 tags:
 - warning-signals
+title: Sunday - manuscript and simulations
+url: /2011/03/21/sunday-manuscript-and-simulations/
 ---
 
 Working on manuscript.  lot of writing / editing.

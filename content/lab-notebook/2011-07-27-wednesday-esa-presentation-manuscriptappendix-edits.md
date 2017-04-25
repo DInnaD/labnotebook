@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-27 16:22:02
-layout: post
-slug: wednesday-esa-presentation-manuscriptappendix-edits
-title: 'Wednesday: ESA presentation, manuscript/appendix edits '
-redirects: [/wordpress/archives/2244, /archives/2244]
 categories:
 - ecology
+comments: true
+date: 2011-07-27T16:22:02Z
+redirects:
+- /wordpress/archives/2244
+- /archives/2244
+slug: wednesday-esa-presentation-manuscriptappendix-edits
 tags:
 - warning-signals
+title: 'Wednesday: ESA presentation, manuscript/appendix edits '
+url: /2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits/
 ---
 
 ## Misc morning

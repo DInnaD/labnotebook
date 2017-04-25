@@ -1,12 +1,11 @@
 ---
-comments: true
-date: 2011-09-29 15:20:10
-layout: post
-slug: phylogenetics-research-proposal
-title: Phylogenetics - Research Proposal
 categories:
 - evolution
-
+comments: true
+date: 2011-09-29T15:20:10Z
+slug: phylogenetics-research-proposal
+title: Phylogenetics - Research Proposal
+url: /2011/09/29/phylogenetics-research-proposal/
 ---
 
 Evolution has shaped all ecological communities. It has tested their resilience in experiments we could never perform. Now can it help us identify what characteristics make a community resilient or vulnerable to external forces?

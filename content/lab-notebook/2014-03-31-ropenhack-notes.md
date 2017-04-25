@@ -1,12 +1,12 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-03-31T00:00:00Z
 tags:
 - ropensci
 - hackathon
-
+url: /2014/03/31/ropenhack-notes/
 ---
-
 
 Breakfast
 ---------

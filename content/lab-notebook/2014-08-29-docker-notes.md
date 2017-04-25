@@ -1,8 +1,8 @@
 ---
-layout: post
+date: 2014-08-29T00:00:00Z
 title: Docker tricks of the trade and best practices thoughts
+url: /2014/08/29/docker-notes/
 ---
-
 
 ## Best practices questions
 

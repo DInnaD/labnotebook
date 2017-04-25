@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,107 +141,113 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/31/wednesday-7.html">Wednesday</a></h2>
-    <h4>Wed, Aug 31, 2011</h4>
+    <h2><a href="../../../2012/02/27/monday-14/">Monday</a></h2>
+    <h4>Mon, Feb 27, 2012</h4>
     <div class="article-style">
       
-      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
- Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
+      Warning Signals  Added resulting indicator distributions on finer sampling results.
+ Re-running now excluding the final dive (population below 300).
+  Treebase working on manuscript. A few examples using the improved meta-data queries:
+Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/30/tuesday-8.html">Tuesday</a></h2>
-    <h4>Tue, Aug 30, 2011</h4>
+    <h2><a href="../../../2012/02/23/esa-2012-abstract/">ESA 2012 Abstract</a></h2>
+    <h4>Thu, Feb 23, 2012</h4>
+    <div class="article-style">
+      
+      Submitted my abstract for ESA 2012, in Portland. Getting a title and abstract pinned down about seven months in advance is itself an exercise in decision making under uncertainty. I&rsquo;ve added some further background below.
+Unknown unknowns: management strategies under uncertainty &amp; alternate stable states Background/Question/Methods The effective management of natural resource populations such as fisheries or forests and the ecosystems in which they are embedded is a central goal of much work in both theoretical and applied ecological research.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
+    <h4>Tue, Feb 21, 2012</h4>
+    <div class="article-style">
+      
+      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
+ Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/20/finer-sampling-in-prosecutors-fallacy/">finer sampling in prosecutor&#39;s fallacy</a></h2>
+    <h4>Mon, Feb 20, 2012</h4>
+    <div class="article-style">
+      
+      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
+require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
+d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
+    <div class="article-style">
+      
+      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/16/squiggles/">Squiggles</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
+    <div class="article-style">
+      
+      Variability in the appearance of a trend
+nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
+X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h2>
+    <h4>Wed, Feb 15, 2012</h4>
+    <div class="article-style">
+      
+      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
+Run the individual based simulation
+require(populationdynamics)  [code] Loading required package: populationdynamics
+ ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h2>
+    <h4>Tue, Feb 14, 2012</h4>
+    <div class="article-style">
+      
+      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
+Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/02/13/monday-16/">Monday</a></h2>
+    <h4>Mon, Feb 13, 2012</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/09/esa-tuesday.html">ESA Tuesday</a></h2>
-    <h4>Tue, Aug 9, 2011</h4>
+    <h2><a href="../../../2012/02/12/sunday-6/">Sunday </a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-twitter-log    cboettig Great Eco Let mixer. Kudos to Marcel &amp; crew for increasing citation rates w/o decreasing acceptance. Now how bout data sharing reqs? #esa11
-   cboettig RT @IceAgeEcologist: #ESA11 Marten Scheffer gets Honorary Member Award (max 20 living awardees); Don Strong ge… (cont) <a href="http://deck">http://deck</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/08/monday-esa-conference.html">Monday: ESA Conference</a></h2>
-    <h4>Mon, Aug 8, 2011</h4>
-    <div class="article-style">
-      
-      Hope to process the day&rsquo;s happenings later, meanwhile just a snapshot of my twitter-stream notes. My own highlights certainly include Steve Pacala&rsquo;s fantastic plenary session in receiving the MacArthur award, and Mark Urban&rsquo;s crystal clear presentation on &ldquo;climate collisions.&rdquo; I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away. In pointing out really fundamental concepts, such details just aren&rsquo;t so important.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/02/fisheries-stock-assessments-for-early-warning.html">Fisheries stock assessments for early warning</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
-    <div class="article-style">
-      
-      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
-<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
-Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/02/monday-8.html">Monday</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
-    <div class="article-style">
-      
-      Peter advice  Figure out your focus. Have all the stuff from your PhD published (at least submitted), make sure your post-doc moves forward. (#1 mistake). Publish with data folks to show you have much to offer the non-theorist community Speak to potential advisers, get them excited about the work. Berkeley over Michigan over NESCent/NIMBioS. Visit Berkeley. Ackerley on sabbatical?  Review for Theoretical Ecology Working on another review. Not a bad paper, but presenting many classical results as novel.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/07/30/saturday-fisheries-data-survey-warning-signals.html">Saturday: Fisheries Data Survey, Warning Signals</a></h2>
-    <h4>Sat, Jul 30, 2011</h4>
-    <div class="article-style">
-      
-      Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.
-Apparently several of the data sets are problematic. All deal with catch instead of abundance and measurement error is highly significant, though it seems that some may suffer from more troublesome systematic errors. Taking a quick look over what is available. Lots of data, but despite what appears to be some rather sophisticated tools available on the sites, I&rsquo;m having a bit of difficulty finding just what I&rsquo;m looking for.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/07/29/2268.html">Friday: ESA Practice Talk</a></h2>
-    <h4>Fri, Jul 29, 2011</h4>
-    <div class="article-style">
-      
-      Practice talk in Teary today; Jamie, Marissa and myself. Lots of discussion and feedback. Some good general discussion about presentations as well &ndash; Marissa mentioned the Oceanographic Institute&rsquo;s tips for speakers and other resources on her website. Brief notes on changes to make in my talk based on some excellent discussion:
- Julie and others point out I should at least reference Type I &amp; Type II Error &ndash; statement contrasting scientific hypothesis testing vs managing for collapse.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/07/27/weds-manuscript.html">Weds: Manuscript</a></h2>
-    <h4>Wed, Jul 27, 2011</h4>
-    <div class="article-style">
-      
-      I&rsquo;ve removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:
- Here the authors claim that by using particular structural models based on assumptions about underlying dynamics their method makes it easy to identify cases that do not conform to the assumptions. It would be interesting to evaluate this claim but it would require a substantial amount of analysis that may be beyond the scope of a short paper.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits.html">Wednesday: ESA presentation, manuscript/appendix edits </a></h2>
-    <h4>Wed, Jul 27, 2011</h4>
-    <div class="article-style">
-      
-      Misc morning  Site trouble, again. requested migrating servers. Done. hope we&rsquo;re more stable now. Checking in with Peter about migrating site domain. Sent request to Matt. Looking over NERSC PI application, see first allocation instructions. Emailed Mary Ann w/ questions on forms. SMB 2012 is at NIMBioS! Nick to join ropensci. Coordinating launch, advisers, etc. Karthik and Scott have done a great job editing my intro post and sprucing up the site.
+      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
       
     </div>
   </div>

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [Labrids]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-15T00:00:00Z
+tags:
+- Labrids
 title: Parrotfish-Wrasse example
+url: /2010/07/15/Parrotfish-Wrasse-example/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Painting the tree with parrotfish as a separate regime from wrasses,
     I find significant support for a model with separate optima with

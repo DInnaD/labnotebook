@@ -1,13 +1,14 @@
 ---
-layout: post
-category: computing
-tags: 
+categories:
+- computing
+date: 2014-11-24T00:00:00Z
+tags:
 - infrastructure
 - docker
 - coreos
 - digitalocean
+url: /2014/11/24/coreos-docker-registries-etc/
 ---
-
 
 ## A secure docker registry ##
 

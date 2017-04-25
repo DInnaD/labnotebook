@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-09-10T00:00:00Z
 title: Meeting with Alan
+url: /2010/09/10/Meeting-with-Alan/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Some discussion of references
 

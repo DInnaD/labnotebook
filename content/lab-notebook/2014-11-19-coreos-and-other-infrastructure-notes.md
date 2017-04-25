@@ -1,9 +1,9 @@
 ---
-layout: post
-category: computing
-
+categories:
+- computing
+date: 2014-11-19T00:00:00Z
+url: /2014/11/19/coreos-and-other-infrastructure-notes/
 ---
-
 
 ## CoreOS? ##
 

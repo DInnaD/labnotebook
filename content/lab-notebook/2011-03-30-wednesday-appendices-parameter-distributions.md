@@ -1,17 +1,15 @@
 ---
-comments: true
-date: 2011-03-30 17:59:20
-layout: post
-slug: wednesday-appendices-parameter-distributions
-title: 'Wednesday: appendices; parameter distributions'
 categories:
-- ecology 
+- ecology
+comments: true
+date: 2011-03-30T17:59:20Z
+slug: wednesday-appendices-parameter-distributions
 tags:
 - warning-signals
 - delayed-release
+title: 'Wednesday: appendices; parameter distributions'
+url: /2011/03/30/wednesday-appendices-parameter-distributions/
 ---
-
-
 
 * Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs.  rm.na=TRUE fixed this.
 * GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power.  Updated codes to turn this flag back on and am re-running.

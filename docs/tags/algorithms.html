@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,7 +141,44 @@
   
   
   <div>
-    <h2><a href="../2011/10/26/monday-misc-notes.html">Monday, misc notes</a></h2>
+    <h2><a href="../2013/05/27/exploring-approximate-dynamic-programming-approaches/"></a></h2>
+    <h4>Mon, May 27, 2013</h4>
+    <div class="article-style">
+      
+      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2013/03/20/research/"></a></h2>
+    <h4>Wed, Mar 20, 2013</h4>
+    <div class="article-style">
+      
+      pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2012/05/09/notes/">Infering Partially Observable Markov Processes with Iterative Particle Filtering</a></h2>
+    <h4>Wed, May 9, 2012</h4>
+    <div class="article-style">
+      
+      Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
+Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
+POMP doesn&rsquo;t mix well in the winbugs.
+simulation-based algorithm (plug-and-play)
+Think of a process being defined by:
+ rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/10/26/monday-misc-notes/">Monday, misc notes</a></h2>
     <h4>Wed, Oct 26, 2011</h4>
     <div class="article-style">
       
@@ -153,7 +190,7 @@ ADG (algorithm discussion group)  Reviewed github, basic git commands. Added rox
   </div>
   
   <div>
-    <h2><a href="../2011/10/17/algorithms-group-literate-programming.html">Algorithms Group: Literate programming</a></h2>
+    <h2><a href="../2011/10/17/algorithms-group-literate-programming/">Algorithms Group: Literate programming</a></h2>
     <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
       
@@ -168,7 +205,7 @@ ADG (algorithm discussion group)  Reviewed github, basic git commands. Added rox
   </div>
   
   <div>
-    <h2><a href="../2011/10/10/algorithms-group-hmm-meets-em.html">Algorithms Group, HMM meets EM</a></h2>
+    <h2><a href="../2011/10/10/algorithms-group-hmm-meets-em/">Algorithms Group, HMM meets EM</a></h2>
     <h4>Mon, Oct 10, 2011</h4>
     <div class="article-style">
       
@@ -181,7 +218,7 @@ $$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$
   </div>
   
   <div>
-    <h2><a href="../2011/08/29/algorithms-group-hidden-markov-models.html">Algorithms group: Hidden Markov Models</a></h2>
+    <h2><a href="../2011/08/29/algorithms-group-hidden-markov-models/">Algorithms group: Hidden Markov Models</a></h2>
     <h4>Mon, Aug 29, 2011</h4>
     <div class="article-style">
       
@@ -192,7 +229,7 @@ As usual in the notebook, click on the graph to get link-through to the code.
   </div>
   
   <div>
-    <h2><a href="../2011/07/25/monday-algorithms-discussion-group-em-finished.html">Monday: Algorithms Discussion Group, EM finished</a></h2>
+    <h2><a href="../2011/07/25/monday-algorithms-discussion-group-em-finished/">Monday: Algorithms Discussion Group, EM finished</a></h2>
     <h4>Mon, Jul 25, 2011</h4>
     <div class="article-style">
       
@@ -200,7 +237,7 @@ As usual in the notebook, click on the graph to get link-through to the code.
   </div>
   
   <div>
-    <h2><a href="../2011/06/13/em-algorithm-2.html">EM Algorithm</a></h2>
+    <h2><a href="../2011/06/13/em-algorithm-2/">EM Algorithm</a></h2>
     <h4>Mon, Jun 13, 2011</h4>
     <div class="article-style">
       
@@ -208,43 +245,11 @@ As usual in the notebook, click on the graph to get link-through to the code.
   </div>
   
   <div>
-    <h2><a href="../2011/05/19/algorithms-group-mcmcmc.html">Algorithms group: MCMCMC</a></h2>
+    <h2><a href="../2011/05/19/algorithms-group-mcmcmc/">Algorithms group: MCMCMC</a></h2>
     <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
       
       Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2011/05/09/monday-4.html">Monday: meetings, notebook</a></h2>
-    <h4>Mon, May 9, 2011</h4>
-    <div class="article-style">
-      
-      Coop &amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
-Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
-$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
-$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
-Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2011/05/04/algorithms-discussion-group-mcmc.html">Algorithms Discussion Group: MCMC</a></h2>
-    <h4>Wed, May 4, 2011</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2011/04/18/algorithms-discussion-group-abc-continued.html">Algorithms Discussion Group: algorithms Continued</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
-    <div class="article-style">
-      
-      Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&rsquo;s gist and started editing during today&rsquo;s session &ndash; when I save it I get a new version ID, so last week&rsquo;s post still points to last week&rsquo;s code, but it doesn&rsquo;t create a second copy, so you can tell if you have the right version.
       
     </div>
   </div>

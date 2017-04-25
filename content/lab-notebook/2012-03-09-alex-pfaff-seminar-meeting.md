@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-09 10:34:20
-layout: post
-slug: alex-pfaff--meeting
-title: Alex Pfaff seminar, meeting
-redirects: [/wordpress/archives/4273, /archives/4273]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2012-03-09T10:34:20Z
+redirects:
+- /wordpress/archives/4273
+- /archives/4273
+slug: alex-pfaff--meeting
+tags:
 - seminar
+title: Alex Pfaff seminar, meeting
+url: /2012/03/09/alex-pfaff-seminar-meeting/
 ---
 
 Notes from [Alex Pfaff](http://www.duke.edu/~asp9/cv&bio.html) talk at UTK (during my visit for pdg-control meeting).

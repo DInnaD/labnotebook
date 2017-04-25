@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,129 +141,113 @@
   
   
   <div>
-    <h2><a href="../../../2011/03/24/thursday-3.html">Thursday</a></h2>
-    <h4>Thu, Mar 24, 2011</h4>
+    <h2><a href="../../../2011/07/07/thursday-8/">Thursday: sending off paper draft, starting applications</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
     <div class="article-style">
       
-      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
- Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
+      Add re-sampling blurb to appendix. Done
+ Read over manuscript &amp; send to Marissa and Marcel. Done
+ Now to spend today working on fellowship applications: research statement and proposal&hellip;
+   Appendix edits  Add distributions to the appendix.
+ Show where where the data actually fall in the distribution, as would be used in traditional hypothesis testing framework.
+ Add extra examples to the appendix.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/23/wednesday-2.html">Wednesday</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
+    <h2><a href="../../../2011/07/07/early-warning-signals-presentation-notes/">Early warning signals presentation notes</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
     <div class="article-style">
-      
-      Still to do on figures:
- Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
- Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
- separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
- bootstrap_indicators should have option of which indicators are included &ndash; DONE
- all_indicators should have option of which indicators are included &ndash; DONE
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/23/tuesday-figures-figures-figures.html">Tuesday: Figures, figures, figures</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
+    <h2><a href="../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Exact Simulation by the Gillespie Algorithm</a></h2>
+    <h4>Wed, Jul 6, 2011</h4>
     <div class="article-style">
       
-      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
+      The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
+where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/22/monday-edits-and-organization.html">Monday -- Edits and organization</a></h2>
-    <h4>Tue, Mar 22, 2011</h4>
+    <h2><a href="../../../2011/07/06/wednesday-6/">Wednesday: Data wrangling into graphs</a></h2>
+    <h4>Wed, Jul 6, 2011</h4>
     <div class="article-style">
       
-      Skype with Alan: 9-9:4
- Figures as panels
- Write Appendix
- Finish References
- Move into Word
-   Sims  LSN m = -0.049, N =50, T=100
- LSN m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=50
- LTC m = -0.049, N =100, T=200
-  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
+      Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
+running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/21/sunday-manuscript-and-simulations.html">Sunday - manuscript and simulations</a></h2>
-    <h4>Mon, Mar 21, 2011</h4>
+    <h2><a href="../../../2011/07/05/tuesday-6/">Tuesday: Warning Signals Data Wrangling</a></h2>
+    <h4>Tue, Jul 5, 2011</h4>
     <div class="article-style">
       
-      Working on manuscript. lot of writing / editing.
-Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
- m = -0.04, N = 50, nboot = 160, (with all moments)
- m = -0.04, N = 50, nboot = 800, (with all moments)
- m = -0.05, N = 50, nboot = 800, (with all moments)
- m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
+      Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
+ wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/20/writing-warning-signals-mansucript.html">Writing: Warning Signals Mansucript</a></h2>
-    <h4>Sun, Mar 20, 2011</h4>
+    <h2><a href="../../../2011/07/04/warning-signals-writing-organization-appendices/">Warning Signals writing, organization, appendices</a></h2>
+    <h4>Mon, Jul 4, 2011</h4>
     <div class="article-style">
       
-      Summary Paragraph
- Critical transitions exist (Holling, 1973), (May, 1977),(Scheffer et. al. 2001) Warning signals exist (Scheffer et. al. 2009), (Drake &amp; Griffen, 2010) Warning signals are summary statistics, critical slowing down (Wissel, 1984). Statement of general problem: double-edged sword &ndash; no quantification of the chance detection scheme will fail. We provide a way to do this We find existing methods lack sufficient power and have high false-alarm potential We provide a model-based solution using machinery of modern likelihood statistics  Background  Define CSD, standard detection scheme.
+      main text Summary Sentence. Abstract
+Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/19/warning-signals-examples-and-tracking-graphs.html">Warning Signals examples and tracking graphs</a></h2>
-    <h4>Sat, Mar 19, 2011</h4>
+    <h2><a href="../../../2011/07/01/friday-warning-signals-writing-etc/">Friday, warning signals writing, etc</a></h2>
+    <h4>Fri, Jul 1, 2011</h4>
     <div class="article-style">
       
-      Working on more examples for the notebook. Currently exploring a collection of simulated examples. In particular, would be useful to have simulated examples that look as realistic in data-density as possible (i.e. fewer sample points, also shorter sampling interval relative to timescale, so doesn&rsquo;t look like a fuzzy caterpillar. Second, would be good to include examples on data simulated from non-linearized systems made to represent some richer bifurcation examples. Finally it would be good to include as many real-data examples as reasonable.
+      9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
+   launched ibm_analysis.R on zero, n10.
+ Writing writing&hellip; first full text draft done.
+  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/17/warning-signals-in-ecological-systems-drake-griffen-data.html">Warning Signals in Ecological Systems: Revisions and Drake &amp; Griffen Data</a></h2>
-    <h4>Thu, Mar 17, 2011</h4>
+    <h2><a href="../../../2011/06/30/thursday-7/">Thursday: Warning Signals writing, figures, segue</a></h2>
+    <h4>Thu, Jun 30, 2011</h4>
     <div class="article-style">
       
-      Manuscript revisions  Heard back from Alan this morning on manuscript, need to cut wordcount in half, from 3000 to 1500 words. Should emphasize the countless and utterly arbitrary choices made in every one of these analyses. Should emphasize our approach can be applied without replicates. (also without interpolating/having evenly sampled data) Should do coefficient of variation on non-detrended data(?) should discuss?  Chemostat data This morning Alan sent me the data used by Drake &amp; Griffen (Drake &amp; Griffen, 2010).
+      Alan meeting Figure 1: Introducing the ROC Curve Figure 2: Standard approach Figure 3: ROC curves corresponding to standard approach Do we show the distributions? &ndash; Create for each, but log in appendix
+ROC curves corresponding to increased sampling &ndash; our method, other stats? organize how?
+Computational Runs Running at constant sample points rather than sample effort.
+ On eleven: n5ibm_stable.R 6pm On zero, n10 drake_analysis.R 6pm On zero, n19 deut_analysis.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/16/wednesday.html">Wednesday</a></h2>
-    <h4>Wed, Mar 16, 2011</h4>
+    <h2><a href="../../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort/">Warning signals: summary statistic performance at varying sampling effort</a></h2>
+    <h4>Wed, Jun 29, 2011</h4>
     <div class="article-style">
       
-      Updated dependencies of warningsignals package. Removed old dependencies, migrated montecarlotest into package, removing the pmc dependency.
- Updated my webpage teaching statement (lunch break)
- montecarlotest wasn&rsquo;t getting sfLibrary(warningsignals) called in yesterday&rsquo;s runs, so redoing this.
- Writing &ndash; conclusion, finalized organization, sent off to Alan.
-   To Do:  Panel for models. Appendix for model derivations.
- Panel for approach/algorithm. Appendix for algorithm implementation.
- Figure review
+      oikos post launch case of increased sampling on sim data for autocorrelation (is our approach more robust to model differences?)  IBM data Example Using data from the individual-based model simulation of a system approaching a saddle-node.
+Variance While the initial example with variance shows almost no signal, increasing the sampling effort substantially improves the performance. This can be seen in the ROC curves and as a tightening and spreading out of the null and test distributions as the sampling effort is increased.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/15/tuesday-2.html">Tuesday</a></h2>
-    <h4>Tue, Mar 15, 2011</h4>
+    <h2><a href="../../../2011/06/29/warning-signals-writing/">Warning Signals writing</a></h2>
+    <h4>Wed, Jun 29, 2011</h4>
     <div class="article-style">
-      
-      Variance and warning signals Sebastian has several examples of dynamical systems that decrease in variance as they approach a bifurcation. In some sense this is not surprising, both are through the collapse of periodic attractors. Figure 2d in TPB paperSchreiber, 2003 has an example in a discrete system, and Figure 5a in the Ecology Letters paper (Schreiber &amp; Rudolf, 2008) has a continuous-time example. Consider for instance the supercritical Hopf bifurcation, in which a stable limit cycle vanishes into an unstable node, as in a van der Pol oscillator,
       
     </div>
   </div>

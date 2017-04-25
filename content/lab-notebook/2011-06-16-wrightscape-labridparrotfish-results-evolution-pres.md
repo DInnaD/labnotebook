@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-06-16 22:14:58
-layout: post
-slug: wrightscape-labridparrotfish-results-evolution-pres
-title: Wrightscape labrid/parrotfish results; Evolution pres
-redirects: [/wordpress/archives/2011, /archives/2011]
 categories:
 - evolution
+comments: true
+date: 2011-06-16T22:14:58Z
+redirects:
+- /wordpress/archives/2011
+- /archives/2011
+slug: wrightscape-labridparrotfish-results-evolution-pres
+title: Wrightscape labrid/parrotfish results; Evolution pres
+url: /2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/
 ---
 
 ## Analysis

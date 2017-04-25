@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,123 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/05/thursday-parrotfish-analysis/">Thursday: parrotfish analysis</a></h2>
+    <h4>Thu, May 5, 2011</h4>
     <div class="article-style">
       
-      Open Data Policy-Managing Information as an Asset
-Far from implemented, though the tools and resources at the newly created Project Open Data (hosted on Github!) look very promising. Some choice quotations below:
-Pursuant to Executive Order of May 9, 2013, &ldquo;Making Open and Machine Readable the New Default for Government Information&rdquo;
-Any datasets in the agency&rsquo;s enterprise data inventory that can be made publicly available must be listed at www.&lt;agency&gt;.gov/data in a human- and machine-readable format that enables automatic aggregation by Data.
+      Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
+Tree: alpha is favored in all the ratio traits, sometimes substantially.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/04/weds-parrotfish-data-set-analysis/">Weds: Parrotfish data set analysis</a></h2>
+    <h4>Wed, May 4, 2011</h4>
     <div class="article-style">
       
-      Guess it&rsquo;s that time of year again. Just saw the reminder for this year&rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &ldquo;Mathematical Biology&rdquo; track through last year&rsquo;s call, I have received a few requests for materials and advice. I&rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&rsquo;ll give it a shot.
+      Parrotfish  Need better convergence error handling.
+ Need to remedy: &ldquo;Function cannot be evaluated at initial parameters&rdquo; errors &ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
+ Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/04/algorithms-discussion-group-mcmc/">Algorithms Discussion Group: MCMC</a></h2>
+    <h4>Wed, May 4, 2011</h4>
     <div class="article-style">
-      
-      We have also recently reached the first milestone in RNeXML. We can now read NeXML files into R and convert to the popular phylo format from the ape package, as well as writing the ape::phylo trees out into valid NeXML. We can also add basic metadata such as author, license, title and description to the file.
-Development notes At the heart of this package is an internal S4 representation of the schema.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/03/tuesday-phylogenetics-wrightscape-coding/">Tuesday: phylogenetics- wrightscape coding</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Ever since writing the rfishbase package I&rsquo;ve been frustrated by the lack of a proper API from Fishbase.org that would allow access to that wealth of information that is not exposed in the &ldquo;Summary XML&rdquo; files from which rfishbase extracts its content. Since writing the paper in Journal of Fish Biology, I continue to receive user requests asking if or how such-and-such a data element might be extracted. Usually this involves a disappointing boiler-plate reply about how the package is limited to the &ldquo;Summary XML&rdquo; data and that improved query potential must wait for a proper API from Fishbase.
+      Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-05-03 00:00:00&rdquo; max_upload_date=&ldquo;2011-05-03 23:59:59&rdquo;]
+See code: loop_models_traits_regimes.R
+Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/03/treebase-an-r-interface-proposal-for-ievobio/">treeBASE R interface: proposal for #iEvoBio</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Just read Lost Branches on the Tree of Life in PLoS Biology and couldn&rsquo;t agree more! I too am frequently frustrated by the lack of deposition or replies to email requests for data. The 16% reply rate seems consistent with other such studies. I agree with the general message that what is most needed is a cultural shift towards these expectations. I loved this paper overall but nonetheless cannot resist a few nitpicks.
+      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/03/monday-3/">Monday</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Education / Workforce Development Group Cannot do grand synthesis opaquely and be science. must be able to scale and evolve.
-How did data succeed? What features really made the difference and what were just sideshows?
- Sticks (Funder and journal mandates?) Working groups (NCEAS) Training external forces: there is more data.
-  Why one center? Why not 15 centers? Divided by discipline rather than region&hellip;. synthesize the synthesis centers
+      Today:
+ Application for CPB travel funds. DONE
+ Faxed receipts from Felsenstein&rsquo;s visit. DONE
+  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
+Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/">Friday: Notes on Labrids, notes on Transforms and size-corrections</a></h2>
+    <h4>Fri, Apr 29, 2011</h4>
     <div class="article-style">
       
-      Near the end of another excellent day of discussions we were asked to put pen to paper to outline our own views in writing. My own contribution was the following notebook scribble.
-My own vision of what ISEES should be doing for workforce development:
-ISEES would employ a multi-scale approach to improve basic computational expertise across the entire workforce necessary to fully participate in the modern software-immersed world of research through the development of training standards, while using a working-group model focused on emerging researcher-developer communities which would simultaneously improve the quality and synthesis of existing software tools while also delivering essential skills to the most transformative members of the research software communities.
+      The specific traits were:
+Oral Jaw traits
+ mouth-closing lever ratio (Close),
+ mouth-opening lever ratio (Open), kinematic
+ transmission coefficient of the oral jaws four-bar linkage (Jaw KT),
+ adductor mandibulae (AM) muscle mass,
+ premaxillary protrusion distance (Prot),
+ gape width (Gape),
+  Exterior to the Oral Jaws, not expected to become unconstrained:
+ levator posterior (LP) muscle mass: (Pharyngeal jaw muscle)
+ sterno-hyoideus (SH) muscle mass, (Primarily buccual cavity)
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/28/thursday-reading-notes/">Reading Notes, presentation prep treebase error handling</a></h2>
+    <h4>Thu, Apr 28, 2011</h4>
     <div class="article-style">
       
-      I&rsquo;d like to define a class that acts just like a data.frame, just like the data.table class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle data.frame objects.
-How might this be done?
-I&rsquo;m not really sure where to start on this, so below is a summary of my attempt so far and some further puzzles I have stumbled across (e.
+      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/27/wednesday-4/">Wednesday</a></h2>
+    <h4>Wed, Apr 27, 2011</h4>
     <div class="article-style">
       
-      class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
+      7:30-9:30 Review for Theoretical Ecology
+ Profiling wrightscape   Compile with profiling (-g -pg flags, in make profile). Run
+valgrind &ndash;leak-check-full ./wrightscape.exe  to remove memory links. Run
+valgrind &ndash;tool=callgrind kcachegrind callgrind.out.&lt;###&gt;  For profiling information
+Troubleshooting implementation of restricted-domain functions. Cannot be wright_tree since they have to know their likelihood method. Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/26/accessing-phylognenies-in-treebase-from-r/">Accessing phylognenies in TreeBASE from R</a></h2>
+    <h4>Tue, Apr 26, 2011</h4>
     <div class="article-style">
       
-      nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
-  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
- code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
+      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
       
     </div>
   </div>

@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-15 16:24:46
-layout: post
-slug: weds-example-sets-more-ec2
-title: 'Weds: Example sets & more EC2'
-redirects: [/wordpress/archives/628, /archives/628]
 categories:
 - evolution
+comments: true
+date: 2010-12-15T16:24:46Z
+redirects:
+- /wordpress/archives/628
+- /archives/628
+slug: weds-example-sets-more-ec2
+title: 'Weds: Example sets & more EC2'
+url: /2010/12/15/weds-example-sets-more-ec2/
 ---
 
 A bit delayed from having to rerun analyses on EC2 (still learning...)  More to run today (lambda trials for Anoles -- should really recode this in C!).

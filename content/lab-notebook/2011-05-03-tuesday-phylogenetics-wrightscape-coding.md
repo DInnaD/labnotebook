@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-05-03 23:31:25
-layout: post
-slug: tuesday-phylogenetics-wrightscape-coding
-title: 'Tuesday: phylogenetics- wrightscape coding'
-redirects: [/wordpress/archives/1543, /archives/1543]
 categories:
 - evolution
+comments: true
+date: 2011-05-03T23:31:25Z
+redirects:
+- /wordpress/archives/1543
+- /archives/1543
+slug: tuesday-phylogenetics-wrightscape-coding
+title: 'Tuesday: phylogenetics- wrightscape coding'
+url: /2011/05/03/tuesday-phylogenetics-wrightscape-coding/
 ---
 
 Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications.  Easy to end up with large-dimensional output, challenge for visualization.  Experimenting with different groupings.

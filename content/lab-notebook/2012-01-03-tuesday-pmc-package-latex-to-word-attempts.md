@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2012-01-03 18:49:10
-layout: post
-slug: tuesday-pmc-package-latex-to-word-attempts
-title: 'Tuesday: pmc package, latex to word attempts'
-redirects: [/wordpress/archives/3557, /archives/3557]
 categories:
 - evolution
+comments: true
+date: 2012-01-03T18:49:10Z
+redirects:
+- /wordpress/archives/3557
+- /archives/3557
+slug: tuesday-pmc-package-latex-to-word-attempts
+title: 'Tuesday: pmc package, latex to word attempts'
+url: /2012/01/03/tuesday-pmc-package-latex-to-word-attempts/
 ---
 
 Back from Oz.

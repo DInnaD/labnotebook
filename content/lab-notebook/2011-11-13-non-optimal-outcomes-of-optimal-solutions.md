@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-13 00:54:39
-layout: post
-slug: non-optimal-outcomes-of-optimal-solutions
-title: non-optimal outcomes of optimal solutions
-redirects: [/wordpress/archives/3296, /archives/3296]
 categories:
 - ecology
+comments: true
+date: 2011-11-13T00:54:39Z
+redirects:
+- /wordpress/archives/3296
+- /archives/3296
+slug: non-optimal-outcomes-of-optimal-solutions
 tags:
 - pdg-control
+title: non-optimal outcomes of optimal solutions
+url: /2011/11/13/non-optimal-outcomes-of-optimal-solutions/
 ---
 
 I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways.  In some way this is an "unfair" analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known. I consider several scenarios below.  

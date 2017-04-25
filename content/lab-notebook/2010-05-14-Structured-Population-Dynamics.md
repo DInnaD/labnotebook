@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-14T00:00:00Z
+tags:
+- tribolium
 title: Structured Population Dynamics
+url: /2010/05/14/Structured-Population-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Beetle Model
 

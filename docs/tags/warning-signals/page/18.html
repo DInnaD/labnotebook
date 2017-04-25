@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,75 +141,49 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/meeting-w--alan.html">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/08/16/warning-signals/">Warning Signals</a></h2>
+    <h4>Mon, Aug 16, 2010</h4>
     <div class="article-style">
       
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/my-prosecutors-fallacy-paper-and-other-recent-warning-signals-literature.html">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/08/12/warning-signals/">Warning Signals</a></h2>
+    <h4>Thu, Aug 12, 2010</h4>
     <div class="article-style">
       
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+
+<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
+ Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/08/10/warning-signals/">Warning Signals</a></h2>
+    <h4>Tue, Aug 10, 2010</h4>
     <div class="article-style">
-      
-      Prosecutors Fallacy Running the null distribution and add to plots
- generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
- knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/08/08/warning-signals/">Warning Signals</a></h2>
+    <h4>Sun, Aug 8, 2010</h4>
     <div class="article-style">
       
-      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
- Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
+      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/project-tracking-ecology.html">Project tracking (Ecology)</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      pdg-control Has become a variety of different directions:
-Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/prosecutors-fallacy-notes.html">Prosecutor&#39;s fallacy notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Mostly getting Prosecutor&rsquo;s Fallacy example to run with large enough sample sizes. Finer sampling or more replicates than current settings seems to crash MPI connections over farm cluster, probably a memory issue. Oh well, looks like I&rsquo;ve got a good enough sample size here.
- Prosecutor&rsquo;s Fallacy  Citations on Jekyll No ideal solution here at the moment, a couple options:
- Pandoc: My intended solution, Disadvantages: converts everything to it&rsquo;s own markdown format, which messes up my PHP Markdown tables and YAML frontmatter.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/reading.html">Reading</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/08/07/reading/">Reading</a></h2>
+    <h4>Sat, Aug 7, 2010</h4>
     <div class="article-style">
       
       Trying to make this show reading of the day, the script below shows only current reading:
@@ -221,37 +195,57 @@ Warning Signals  Implementing likelihood-based methods for early warning signals
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/05/17/annual-progress-report/">Annual Progress Report</a></h2>
+    <h4>Mon, May 17, 2010</h4>
     <div class="article-style">
       
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
+      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
+ Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/revisions-on-prosecutors-fallacy.html">Revisions on Prosecutors Fallacy</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/05/10/alan-meeting/">Alan Meeting</a></h2>
+    <h4>Mon, May 10, 2010</h4>
     <div class="article-style">
       
-      Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
- Proof corrections for rfishbase manuscript. Done.
- Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
-  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
-&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
+      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging.html">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/05/09/warning-signals-with-sdes/">Warning Signals with SDEs</a></h2>
+    <h4>Sun, May 9, 2010</h4>
     <div class="article-style">
       
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
+      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/06/goals/">Goals</a></h2>
+    <h4>Thu, May 6, 2010</h4>
+    <div class="article-style">
+      
+      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
+*d*α~t~ = − β</p>
+
+<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/04/alan-meeting/">Alan Meeting</a></h2>
+    <h4>Tue, May 4, 2010</h4>
+    <div class="article-style">
+      
+      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
       
     </div>
   </div>

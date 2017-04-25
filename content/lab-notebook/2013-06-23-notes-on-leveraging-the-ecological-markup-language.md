@@ -1,13 +1,14 @@
 ---
-layout: post
-categories: [ecology]
+categories:
+- ecology
+date: 2013-06-23T00:00:00Z
 tags:
 - semantics
 - ropensci
 - eml
 - reading
+url: /2013/06/23/notes-on-leveraging-the-ecological-markup-language/
 ---
-
 
 This post creates new tag [eml](/tags.html#eml) for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof ([reml](https://github.com/ropensci/reml)).  
 

@@ -1,12 +1,12 @@
 ---
-comments: true
-date: 2011-06-29 18:35:18
-layout: post
-title: Warning Signals writing
 categories:
 - ecology
+comments: true
+date: 2011-06-29T18:35:18Z
 tags:
 - warning-signals
+title: Warning Signals writing
+url: /2011/06/29/warning-signals-writing/
 ---
 
 ## Alan Meeting:

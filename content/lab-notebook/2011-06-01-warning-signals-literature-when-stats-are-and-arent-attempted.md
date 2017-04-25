@@ -1,14 +1,14 @@
 ---
-comments: true
-date: 2011-06-01 15:10:56
-layout: post
-slug: warning-signals-literature-when-stats-are-and-arent-attempted
-title: 'Warning Signals Literature: when stats are and aren''t attempted'
 categories:
 - ecology
+comments: true
+date: 2011-06-01T15:10:56Z
+slug: warning-signals-literature-when-stats-are-and-arent-attempted
 tags:
 - warning-signals
 - delayed-release
+title: 'Warning Signals Literature: when stats are and aren''t attempted'
+url: /2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/
 ---
 
 In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done.  There's certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance).  Scheffer's key review (Scheffer _et. al._ 2009) calls for the need to measure statistical significance of warning signals,

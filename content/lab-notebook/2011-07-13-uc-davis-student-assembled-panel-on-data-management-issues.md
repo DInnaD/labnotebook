@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-07-13 17:47:41
-layout: post
-slug: uc-davis-student-assembled-panel-on-data-management-issues
-title: UC Davis Student Assembled Panel on Data Management Issues
-redirects: [/wordpress/archives/2170, /archives/2170]
 categories:
 - open-science
+comments: true
+date: 2011-07-13T17:47:41Z
+redirects:
+- /wordpress/archives/2170
+- /archives/2170
+slug: uc-davis-student-assembled-panel-on-data-management-issues
+title: UC Davis Student Assembled Panel on Data Management Issues
+url: /2011/07/13/uc-davis-student-assembled-panel-on-data-management-issues/
 ---
 
 ## Panel Members

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-10-13T00:00:00Z
 title: Wednesday
+url: /2010/10/13/Wednesday/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Monte Carlo
 

@@ -1,13 +1,13 @@
 ---
-layout: post
-categories: 
-  - ecology
-  - open-science
-tags: 
-  - open-science 
-  - pdg-control
-  - reading
-
+categories:
+- ecology
+- open-science
+date: 2013-02-04T00:00:00Z
+tags:
+- open-science
+- pdg-control
+- reading
+url: /2013/02/04/updates-across-various-projects/
 ---
 
 At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I've moved forward in the wee hours. Covers the past several days.     

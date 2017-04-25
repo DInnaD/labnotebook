@@ -1,9 +1,10 @@
 ---
-layout: post
-category: ecology
-title: "UPS and data vs optimal control"
+categories:
+- ecology
+date: 2014-07-21T00:00:00Z
+title: UPS and data vs optimal control
+url: /2014/07/21/UPS-and-data-vs-optimal-control/
 ---
-
 
 *Random idea for possible further exploration:*
 

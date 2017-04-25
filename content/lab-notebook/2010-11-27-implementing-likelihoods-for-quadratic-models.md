@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-11-27 11:09:06
-layout: post
-slug: implementing-likelihoods-for-quadratic-models
-title: Implementing Likelihoods for quadratic models
-redirects: [/wordpress/archives/452, /archives/452]
 categories:
 - ecology
+comments: true
+date: 2010-11-27T11:09:06Z
+redirects:
+- /wordpress/archives/452
+- /archives/452
+slug: implementing-likelihoods-for-quadratic-models
 tags:
 - warning-signals
+title: Implementing Likelihoods for quadratic models
+url: /2010/11/27/implementing-likelihoods-for-quadratic-models/
 ---
 
 Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model.  Recall that the dynamics are:

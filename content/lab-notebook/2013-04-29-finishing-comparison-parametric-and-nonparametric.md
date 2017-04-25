@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-04-29T00:00:00Z
 tags:
 - nonparametric-bayes
-
+url: /2013/04/29/finishing-comparison-parametric-and-nonparametric/
 ---
-
 
 Implemented in [BUGS/allen.md](https://github.com/cboettig/nonparametric-bayes/blob/75df9413c016480f935867d88345ddaa36d07a82/inst/examples/BUGS/allen.md)
 

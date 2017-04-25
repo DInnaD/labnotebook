@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-05-06 19:24:03
-layout: post
-slug: reproducible-research-large-data-sets-and-si2
-title: 'Reproducible Research, Large data sets, and SI2 '
-redirects: [/wordpress/archives/1592, /archives/1592]
 categories:
 - open-science
+comments: true
+date: 2011-05-06T19:24:03Z
+redirects:
+- /wordpress/archives/1592
+- /archives/1592
+slug: reproducible-research-large-data-sets-and-si2
+title: 'Reproducible Research, Large data sets, and SI2 '
+url: /2011/05/06/reproducible-research-large-data-sets-and-si2/
 ---
 
 What follows are my notes from May 6th, 2011 expressing the ideas that would ultimately coalesce into the [rOpenSci](ropensci.org) project.  Much of this was turned into an email to Duncan and Todd, whose feedback was invaluable in working through this, and several others.  (The reference to SI2 refers to [an NSF call](http://www.nsf.gov/pubs/2011/nsf11539/nsf11539.htm) from about that time, which also stimulated my thinking on this matter.) Since then I've learned quite a bit about these tools, with which I now feel quite comfortable.  I stumbled across this private note in my notebook today, and figured it could take it's place as part of my public notebook.    

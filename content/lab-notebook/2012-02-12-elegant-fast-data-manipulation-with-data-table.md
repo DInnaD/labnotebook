@@ -1,16 +1,17 @@
 ---
-comments: true
-date: 2012-02-12 13:39:03
-layout: post
-slug: elegant-fast-data-manipulation-with-data-table
-title: Elegant & fast data manipulation with data.table
-redirects: [/wordpress/archives/3832, /archives/3832]
 categories:
 - computation
+comments: true
+date: 2012-02-12T13:39:03Z
+modified: 2012-12-03
+redirects:
+- /wordpress/archives/3832
+- /archives/3832
+slug: elegant-fast-data-manipulation-with-data-table
 tags:
 - R
-modified: 2012-12-03
-
+title: Elegant & fast data manipulation with data.table
+url: /2012/02/12/elegant-fast-data-manipulation-with-data-table/
 ---
 
 Just learned about the R [data.table package](http://cran.r-project.org/web/packages/data.table/index.html) (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2012/11/30/note-on-notebook-figures/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h2 id="plots-for-the-notebook">plots for the notebook</h2>
+
+<p>I have started uploading images to my own server, rather than flickr.  Programmatically, this is just a matter of switching the knitr upload function:</p>
+
+<pre><code class="language-r">opts_knit$set(upload.fun = socialR::notebook.url)
+</code></pre>
+
+<p>from my custom <a href="https://github.com/cboettig/socialR/blob/299f4aeb8cc1a9b31c761dc7c9b14b1d73f7ef25/R/custom_knit.R">flickr.url</a> function (a wrapper to <code>Rflickr</code>) to a custom function <a href="https://github.com/cboettig/socialR/blob/e9a30fd6381c1a8147cbaec0e3886d559de6d48c/R/notebook.R">notebook.url</a> using a system call to <code>cp</code> (to my local jekyll notebook) and <code>rsync</code> (so the figure displays before my next jekyll push).</p>
+
+<p>The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.  This way multiple runs tweaking an individual file are not recorded as separate files if no commits are made to the repository, but every commit is guaranteed to link to a unique set of figures (unless the chunk is loaded from cache and does not generate a new image).  All figures also <a href="http://www.carlboettiger.info/2012/assets/figures/">appear sorted by date on the webserver</a> in the manner.  I could probably put some lightweightphotobrowser on the server, if browsing images serves any purpose.</p>
+
+<p>The real reason for the change is to maintain the images in my labnotebook directory, such that the directory is a complete archive that can exist independent of web services such as flickr.  The images aren&rsquo;t included in the git management for obvious reasons.  My current archiving on figshare has simple involved zipping up the markdown versions of all my posts by year (in _posts).  If I continue in this way, I should need to archive the <code>figures/</code> directory along with it.  Perhaps I should archive the entire Jekyll directory instead.<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup></p>
+
+<p>An alternative strategy would be to upload each figure to figshare directly in the same way I was doing with flickr. While this has the advantage of clockss archiving, mostly I&rsquo;m not sure that I should flood my figshare account in this way.  I really don&rsquo;t need a different doi for every attempt to create a figure (just as I&rsquo;ve decided not to archive each notebook entry as a separate figshare object.)</p>
+
+<h3 id="plot-appearance-transparency-in-the-notebook">Plot appearance (transparency) in the notebook</h3>
+
+<p>It&rsquo;s not easy to generate figures that display nicely in both dark and light themes (well, I should just tell ggplot to use a solarized set of theme colors, but I&rsquo;m too lazy to write that).  Meanwhile, just setting the transparent background to the plot, and transparent grid lines against the grey boxes seems to do pretty well:</p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-04-046b509f8d-unnamed-chunk-6.png" alt="Example transparent plot" /></p>
+
+<p>This is accomplished with the codeblock below.  Note that we need to tell <code>knitr</code> chunks to set the background of the png device to transparent, as well as telling ggplot what we want to be transparent:</p>
+
+<pre><code class="language-r">opts_chunk$set(dev.args=list(bg=&quot;transparent&quot;))
+theme_notebook &lt;- 
+  theme_grey() + 
+  theme(
+    plot.background = element_rect(fill = &quot;transparent&quot;, colour = NA),
+    panel.grid.major = element_line(colour = &quot;transparent&quot;)),
+    panel.grid.minor = element_line(colour = &quot;transparent&quot;))
+theme_set(theme_notebook)
+</code></pre>
+
+<p>(It appears this makes the gridlines invisible, since they appear over the grey <code>panel.background</code>.  For now, best to leave them white, which shows up against the grey background in any event).</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">One challenge this introduces is private posts (such as the reviews I write in peer review, which I sign but cannot publicly disclose).  Currently these are ignored by github (<code>.gitignore</code>) and by Jekyll (<code>exclude:</code> in <code>_config.yml</code>).  I suppose I could likewise simply tell tarball to ignore <code>_posts/private</code>.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2012-11-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Fri, Nov 30, 2012
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/notebook-technology">notebook-technology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2012/12/03/figures-3-and-4-for-policycosts/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2012/11/28/nonparametric-bayes-work/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2012-11-30-Note-on-notebook-figures.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/b3630889a5584cd1240e1c9d2208759615c88af4/content/lab-notebook/2012-11-30-Note-on-notebook-figures.md">b3630889a</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2012\/11\/30\/note-on-notebook-figures\/';
+    var disqus_title = '';
+    var disqus_url = '\/2012\/11\/30\/note-on-notebook-figures\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

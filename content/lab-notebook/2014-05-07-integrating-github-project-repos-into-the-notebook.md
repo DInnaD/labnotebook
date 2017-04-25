@@ -1,12 +1,13 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-05-07T00:00:00Z
 tags:
 - blog
 - reproducible-research
 - labnotebook
+url: /2014/05/07/integrating-github-project-repos-into-the-notebook/
 ---
-
 
 For a while now most of my active research is developed through `.Rmd`
 scripts connected to a particular project repository (something I discuss

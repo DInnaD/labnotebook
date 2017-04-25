@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-17 13:39:08
-layout: post
-slug: friday-more-runs
-title: Friday, more runs
-redirects: [/wordpress/archives/2901, /archives/2901]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-10-17T13:39:08Z
+redirects:
+- /wordpress/archives/2901
+- /archives/2901
+slug: friday-more-runs
+tags:
 - warning-signals
+title: Friday, more runs
+url: /2011/10/17/friday-more-runs/
 ---
 
 A couple more runs:

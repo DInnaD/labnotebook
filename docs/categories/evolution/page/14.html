@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,116 +141,116 @@
   
   
   <div>
-    <h2><a href="../../../2010/12/16/thurs-writing-section-on-comparing-to-aic.html">Thurs: writing section on comparing to AIC</a></h2>
-    <h4>Thu, Dec 16, 2010</h4>
+    <h2><a href="../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Is BM nested in OU?  Understanding likelihoods of ouch</a></h2>
+    <h4>Fri, Feb 25, 2011</h4>
     <div class="article-style">
+      
+      A quick run of the example ouch code given by
+ ?bimac  will produce something of a surprise for most users:
+require(ouch) data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) h1 &lt;- brown(log(bimac[&lsquo;size&rsquo;]),tree) h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],sqrt.alpha=1,sigma=1) c(&quot;BM LogLik&quot;=h1@loglik, &quot;OU LogLik&quot;=h2@loglik) BM LogLik OU LogLik 17.33129 15.69682  These models are supposed to be nested, right? Set OU&rsquo;s $ \alpha $ parameter to zero and you get BM, so how does it manage to do worse in log likelihood?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/15/weds-example-sets-more-ec2.html">Weds: Example sets &amp; more EC2</a></h2>
-    <h4>Wed, Dec 15, 2010</h4>
+    <h2><a href="../../../2011/02/25/phyloseminar-luke-harmon/">Phylo: Luke Harmon</a></h2>
+    <h4>Fri, Feb 25, 2011</h4>
     <div class="article-style">
       
-      A bit delayed from having to rerun analyses on EC2 (still learning&hellip;) More to run today (lambda trials for Anoles &ndash; should really recode this in C!).
-Trying to decide if its best to start off with the power curves and work backwards or build up from the basics. Probably doesn&rsquo;t matter too much which. Also figuring out which examples to present first:
-Where the painted trees are the following:
+      My notes on Luke Harmon&rsquo;s excellent talk on Phyloseminar this morning. See the recording of Luke&rsquo;s actual talk to know what he said, below are my thoughts and notes to myself having watched the talk.
+Luke summarizes his goal rather nicely as:
+ Analyzing the data that people actually have to answer the questions they actually want to know
+ For him, this focuses on incomplete trees and non-Brownian models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/14/tues-phylogenetics-thoughts-while-writing.html">Tues: evolution thoughts while writing...</a></h2>
-    <h4>Tue, Dec 14, 2010</h4>
+    <h2><a href="../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/">Bodega evolution Workshop: Continuous Characters R session planning</a></h2>
+    <h4>Sat, Feb 19, 2011</h4>
     <div class="article-style">
       
-      Again spending most of the day writing. (Maybe) processing some ideas in writing by writing in my notebook as I make my edits.
-Ideas I&rsquo;m trying to get across in today&rsquo;s edits Parameter estimation is more demanding of the data than model choice. Knowing if a value is different from zero is easier than knowing what it is.
-Code updates to-do  Need to add S3 wrapper functions for ouch so both can call montecarlotest() in the pmc package.
+      Preparing for the Bodega Phylogenetics workshop. I&rsquo;ll be covering the R tutorial followingJusten Whittall&rsquo;s introduction to continuous characters:
+ In my intro lecture i will discuss Felsenstein 1985 (including a little phylo signal), then follow with some alternatives (including the OU model). I can also discuss the tree transformations ala Pagel&rsquo;s kappa, delta, etc. and mention multivariate approaches to detecting correlated characters in a phylogenetic context.
+ I&rsquo;m toying with the idea of a brief (~1hr) phylogenetic signal / model inference exercise:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/13/back-to-writing.html">Back to Writing</a></h2>
-    <h4>Mon, Dec 13, 2010</h4>
+    <h2><a href="../../../2011/02/18/friday/">Friday</a></h2>
+    <h4>Fri, Feb 18, 2011</h4>
     <div class="article-style">
+      
+      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/08/practice-sicb-presentation.html">Practice SICB Presentation</a></h2>
-    <h4>Wed, Dec 8, 2010</h4>
+    <h2><a href="../../../2011/02/17/thursday-4/">Thursday</a></h2>
+    <h4>Thu, Feb 17, 2011</h4>
     <div class="article-style">
       
-      Gave my practice talk for Society for Integrative and Comparative Biology in Wainwright lab this afternoon, after (not quite) finishing the presentation. Trying to figure out the best way to introduce these ideas to a broad audience (same challenge as with the manuscript).
-Talk storyboard:
-Looking at other talks in my session: Macroevolution I - Methods and Character Evolution, looks like a reasonably sophisticated group.
-Good feedback from the Wainwright Lab:  Emphasize: Currently we worry that we don&rsquo;t have the right models.
+      Mostly working on manuscript revisions throughout this week. Haven&rsquo;t really learned to integrate this workflow into the notebook. In some ways it makes more sense not to, as it interrupts the flow of the research description. But then it looks like I&rsquo;m not doing anything when I have nothing meaningful in the entry. Perhaps I should just put a heading saying &ldquo;Writing.&rdquo;
+Morning&rsquo;s reading: Reproducible Research  Victoria Stodden highlights the Journal of Biostatistics approach to Reproducible Research.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/07/mapping-out-sicb-presentation-is-your-phylogeny-informative.html">Mapping out SICB Presentation: Is your phylogeny informative?</a></h2>
-    <h4>Tue, Dec 7, 2010</h4>
+    <h2><a href="../../../2011/02/14/monday/">Monday</a></h2>
+    <h4>Mon, Feb 14, 2011</h4>
     <div class="article-style">
       
-      Assembling material/outline for my SICB presentation in January, will be giving a practice talk in the Wainwright lab on Wednesday. 15 minute presentation with 5 minutes for questions.
- Designing presentation in &ldquo;storyboard&rdquo; format in Inkscape. Will figure out if I convert to slides or not.
- Simulations under the Anoles dataset to show posterior distributions of lambda. Exploring the connection between the likelihood of a parameter under each model to that of the distributions of the likelihood ratio.
+      Excellent CPB visiting weekend with perspective students Thurs evening - Sunday morning. Hosting students, etc doesn&rsquo;t make for much of a research entry Friday. Catching up with many things today.
+ ESA registration. Topics, Abstract
+ Checking in with Alan
+ Data workshop: create &amp; post advertisement, map out subject areas
+ Reading: Syst Bio issue
+ Updated pubmed author alerts
+ Checking in with Peter &amp; Graham on revisions
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/06/follow-up-from-fri-discussions-revisiting-post-predictive-evaluation.html">follow up from Fri discussions: Revisiting post-predictive evaluation</a></h2>
-    <h4>Mon, Dec 6, 2010</h4>
+    <h2><a href="../../../2011/02/10/thursday-2/">Thursday</a></h2>
+    <h4>Thu, Feb 10, 2011</h4>
     <div class="article-style">
       
-      A few weeks ago, a seminar prompted me to take a closer look at a particular post-predictive evaluation technique applied reasonably often in our recent literature,see earlier entry. I think by phrasing the approach more concisely and precisely it will be clear what the difficulty is.
-As usual, we consider some data $ \vec X$ and a set of $ N$ models specified by parameters, $ \lbrace \vec \theta_1, \vec \theta_2, \vec \ldots \theta_N\rbrace $, then we can express the likelihood of the model as the probability of the data under the given model and parameter values:
+      Organizing for Future of Data workshop. Confirming time/room booking, etc. Science makes open access a special issue on Dealing with Data  Hosting visiting prospective CPB student, scheduling events. Going over edits questions with Peter R. on phylogenetics manuscript. Editing/pruning plugins &ndash; starting to choke my Wordpress hosting. Folks at DreamHost have been very helpful, hopefully no key plugins are off. Apparently deactivating doesn&rsquo;t necessarily prevent plugin from contributing to the memory load.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/01/cpb--david-collar.html">CPB : David Collar</a></h2>
-    <h4>Wed, Dec 1, 2010</h4>
+    <h2><a href="../../../2011/02/09/phylogenetic-monte-carlo-for-the-laser-package/">Phylogenetic Monte Carlo for the Laser package</a></h2>
+    <h4>Wed, Feb 9, 2011</h4>
     <div class="article-style">
       
-      Identifying ecological constraint on morph and function using phylogenies. 2007 CPB grad, losos post doc, now postdoc w Rita.
-Indep origin of &lsquo;bass&rsquo; cranial morph. Also unique patterns- stonefish. Phylo comparative methods to address why and how. Three types of factors on morphology: ecological, time!, intrinsic (genetic, behavior) constraints. Outline:
-I. determinants of morph diversification.
-II. Complex traits.
-I. Diversification rate vary by habitat? (Dragon lizards- diverse morph, diverse habitat). Reconstruct history of habitat use (4 types), (assign discrete traits) then stoch character maps to reconstruct (paint) tree.
+      Laser simulations: First ensuring example has expected behaviour, can in general get the expected likelihood differences between fits of Yule and birth-death models.
+Estimated models had been appearing identical in the runs (on left), seems to have been a bug. Distributions appear roughly the same across different tree sizes and values of death rate. General pattern of likelihood tests is reminiscent of the lambda models: high variability in likelihood ratios under bd simulations relative to the pure-birth simulations.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/29/challenges-in-estimating-phylogenetic-signal.html">Challenges in estimating phylogenetic signal</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../../2011/02/08/notes-during-revisions-on-phylogenetics-manuscript/">Notes during revisions on phylogenetics manuscript</a></h2>
+    <h4>Tue, Feb 8, 2011</h4>
     <div class="article-style">
       
-      Uncertainty in estimate of lambda illustrated by simulating 1000 data sets on the Geopsiza tree under a model with lambda = 0.62. Shows the high uncertainty in estimating lambda at all, despite the power in the estimate at this value.
-(Code)
-Will fill this out further later. Will be interesting to compare at different base values of lambda used for the simulation.
-Have updated the codbase to provide bootstraps of parameters as part of the monte carlo output.
+      I have made the revisions to attempt to address Graham&rsquo;s annotations and Peter&rsquo;s comments. (revisions are also up on the git repo.) I have added a brief section introducing the models immediately after the introduction. I also rewrote more of the PMC method to include definitions of p and power in the context of comparing model likelihood ratios. I moved the AIC section up before I talk about the other comparisons.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/22/power-in-simple-tests.html">Power in simple tests</a></h2>
-    <h4>Mon, Nov 22, 2010</h4>
+    <h2><a href="../../../2011/01/31/more-phylogenetic-signal-metrics-brownie-comparison/">more Phylogenetic signal metrics &amp; Brownie comparison</a></h2>
+    <h4>Mon, Jan 31, 2011</h4>
     <div class="article-style">
       
-      Exploring power in simple tree models. With the smaller tree from the _geospiza _dataset, (14 tips, left) is less than yesterday&rsquo;s in the bimaculus Anoles (with 23 tips, right)
-(code)
-Also wrote the OUCH-based wrapper function to fit tree transformation parameters. Unfortunately it currently transforms from ape to ouch format repeatedly (in order to use ape&rsquo;s tree transforms, need to write native ouch-format transforms), so it may not be any faster.
+      Blomberg&rsquo;s K estimates on trees of different sizes. Estimates differ across the distribution of possible data generated by BM model and generated from white noise. In principle, the K statistic should be able to distinguish between data simulated between these two. Of course, the ability to do this depends on the size and structure of the phylogenetic tree &ndash; Blomberg&rsquo;s K is not an estimate of whether the phylogeny is sufficiently structured as to be informative.
       
     </div>
   </div>

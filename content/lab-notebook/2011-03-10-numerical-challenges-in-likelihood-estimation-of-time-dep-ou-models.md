@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-10 23:46:46
-layout: post
-slug: numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models
-title: Numerical challenges in likelihood estimation of time-dep OU models
-redirects: [/wordpress/archives/1169, /archives/1169]
 categories:
 - ecology
+comments: true
+date: 2011-03-10T23:46:46Z
+redirects:
+- /wordpress/archives/1169
+- /archives/1169
+slug: numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models
 tags:
 - warning-signals
+title: Numerical challenges in likelihood estimation of time-dep OU models
+url: /2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models/
 ---
 
 Worried about accurate maximum likelihood estimates of parameters, as the optimization could still converge on values not far from the starting conditions (not as surprising as the starting parameters are estimated intelligently first from the summary statistics) but could also vary depending on initial conditions.  

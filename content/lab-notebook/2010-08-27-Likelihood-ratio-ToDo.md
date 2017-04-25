@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-27T00:00:00Z
 title: Likelihood ratio ToDo
+url: /2010/08/27/Likelihood-ratio-ToDo/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Inclusion of power figure, discussion of power. (include comparison
     to smaller trees?)

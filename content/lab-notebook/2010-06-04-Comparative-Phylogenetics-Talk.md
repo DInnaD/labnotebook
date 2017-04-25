@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-04T00:00:00Z
 title: Comparative Phylogenetics Talk
+url: /2010/06/04/Comparative-Phylogenetics-Talk/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Practice talk in Wainwright lab meeting next Weds. 12 minutes.
 

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-04-18 14:11:24
-layout: post
-slug: algorithms-discussion-group-abc-continued
-title: 'Algorithms Discussion Group: algorithms Continued'
-redirects: [/wordpress/archives/1445, /archives/1445]
 categories:
-- computation 
+- computation
+comments: true
+date: 2011-04-18T14:11:24Z
+redirects:
+- /wordpress/archives/1445
+- /archives/1445
+slug: algorithms-discussion-group-abc-continued
 tags:
 - algorithms
+title: 'Algorithms Discussion Group: algorithms Continued'
+url: /2011/04/18/algorithms-discussion-group-abc-continued/
 ---
 
 Our little informal ABC group met again today to continue our discussion of ABC methods from [last week](http://www.carlboettiger.info/archives/1397).  The updated code is included in the gist below. ((Nick asked about gists -- they are code boxes provided by Github that are easy to embed into blogs, etc.  They provide automatic syntax highlighting and version management.  For instance, I just opened last week's gist and started editing during today's session -- when I save it I get a new version ID, so last week's post still points to last week's code, but it doesn't create a second copy, so you can tell if you have the right version.  Click on the gist id at the bottom and you can see the revisions.))

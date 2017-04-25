@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-02-01 13:27:53
-layout: post
-slug: to-podcast-or-not-to-podcast-university-lectures
-title: To podcast or not to podcast university lectures
-redirects: [/wordpress/archives/903, /archives/903]
 categories:
 - teaching
+comments: true
+date: 2011-02-01T13:27:53Z
+redirects:
+- /wordpress/archives/903
+- /archives/903
+slug: to-podcast-or-not-to-podcast-university-lectures
+title: To podcast or not to podcast university lectures
+url: /2011/02/01/to-podcast-or-not-to-podcast-university-lectures/
 ---
 
 Today in graduate teaching community we're discussing the value of podcasts which rapidly becoming the standard expectation of in university lectures.  There weren't podcasts when I was a student, at least never in the classes I'd taken -though I've often wished I had access to complete recordings of my university lectures.  Most wouldn't be valuable, but some I would still wish to go back to long after the fact, not so much to recall content but to remember the styles and stories my notes fail to capture.

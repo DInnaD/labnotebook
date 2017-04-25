@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-08-08 13:09:27
-layout: post
-slug: monday-esa-conference
-title: 'Monday: ESA Conference'
-redirects: [/wordpress/archives/2287, /archives/2287]
 categories:
 - ecology
+comments: true
+date: 2011-08-08T13:09:27Z
+redirects:
+- /wordpress/archives/2287
+- /archives/2287
+slug: monday-esa-conference
 tags:
 - conference
 - warning-signals
+title: 'Monday: ESA Conference'
+url: /2011/08/08/monday-esa-conference/
 ---
 
 Hope to process the day's happenings later, meanwhile just a snapshot of my twitter-stream notes.  My own highlights certainly include Steve Pacala's fantastic plenary session in receiving the MacArthur award, and Mark Urban's crystal clear presentation on "climate collisions."  I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away.  In pointing out really fundamental concepts, such details just aren't so important.

@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-09-30T00:00:00Z
+tags:
 - warning-signals
-
+url: /2013/09/30/regime-vs-state/
 ---
-
 
 Scratching out some thoughts here to address an issue that continues to bug me with the way the literature discusses these two very different issues.  
 

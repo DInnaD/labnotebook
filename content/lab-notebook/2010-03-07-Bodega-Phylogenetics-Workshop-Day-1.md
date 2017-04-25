@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-03-07T00:00:00Z
 tags: []
-categories: [evolution]
 title: Bodega Phylogenetics Workshop Day 1
+url: /2010/03/07/Bodega-Phylogenetics-Workshop-Day-1/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Lecture notes for the phyolgenetics workshop. These are taken in real
 time, so may contain errors. I'll see if I keep this up throughout the

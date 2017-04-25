@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,56 +141,96 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/10/prior-distributions-for-tgp-mcmc/"></a></h2>
+    <h4>Mon, Dec 10, 2012</h4>
     <div class="article-style">
       
-      RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
- Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&rsquo;t have to wrap some C library myself&hellip;  nonparametric-bayes Writing writing.
- Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.
+      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
+Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
+$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
+And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/04/tgp-mcmc-for-gaussian-processes/"></a></h2>
+    <h4>Tue, Dec 4, 2012</h4>
     <div class="article-style">
       
-      Load necessary libraries,
-library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
-library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
+      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
+Example call:
+gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
+n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/collected-notes-from-past-few-days.html">Collected notes from past few days</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h2>
+    <h4>Wed, Nov 28, 2012</h4>
     <div class="article-style">
       
-      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
- ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
+      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
+Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/difficulties-with-tgp-taking-custom-mcmc-approach-for-gps.html">Difficulties with tgp; taking custom mcmc approach for GPs</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/11/19/sequential-updating/"></a></h2>
+    <h4>Mon, Nov 19, 2012</h4>
     <div class="article-style">
       
-      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
-Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
-  Define some example priors
-lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
+      Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
+for the covariance:
+C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
+mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/gaussian-processes.html">Gaussian processes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/11/15/notes/"></a></h2>
+    <h4>Thu, Nov 15, 2012</h4>
+    <div class="article-style">
+      
+      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
+Is there some scalar $v_2$ such that
+$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
+e.g. a term like:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/11/08/notes/"></a></h2>
+    <h4>Thu, Nov 8, 2012</h4>
+    <div class="article-style">
+      
+      Complete IACUC training for fish room. File forms: <a href="http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html">http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html</a> Online training &ndash; possibly see <a href="https://www.citiprogram.org/Default.asp?">https://www.citiprogram.org/Default.asp?</a> Shiny: <a href="http://www.rstudio.com/shiny/">http://www.rstudio.com/shiny/</a>
+ Comment piece
+ Prep exit seminar
+ Applied math club: Networks. Reading <a href="http://dx.doi.org/10.1155/2011/284909">http://dx.doi.org/10.1155/2011/284909</a>
+  Discussion of when network structure has made an important difference on our understanding of a problem. When have the common summary statistics of a network (degree-distribution) allowed us to compte network dynamics without fully resolving the network?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/10/25/stochastic-dynamic-programming-with-gaussian-process-approx/"></a></h2>
+    <h4>Thu, Oct 25, 2012</h4>
+    <div class="article-style">
+      
+      Here we work out an SDP solution of the Reed (1979) using a Gaussian process approximation. In this example the Gaussian process hyper-parameters haven&rsquo;t been tuned, so in principle the solution would perform even better, but this is just for illustrative purposes.
+We simulate 40 points under a stochastic growth (lognormal multiplicative noise) Beverton-Holt model and infer the Gaussian process. We start the simulation from a low stock value, giving reasonable but not perfect coverage of the state-space.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/10/16/gaussian-processes/">Gaussian processes</a></h2>
+    <h4>Tue, Oct 16, 2012</h4>
     <div class="article-style">
       
       Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
@@ -201,44 +241,12 @@ lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- u
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/prep-for-ere-talk.html">Prep for ERE talk</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/08/29/santa-cruz-postdoc/"></a></h2>
+    <h4>Wed, Aug 29, 2012</h4>
     <div class="article-style">
       
-      Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/reading-and-potential-examples-for-talk-to-ere-next-week.html">Reading and potential examples for talk to ERE next week</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
- As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy.html">early results in nonparametric-bayes approaches to optimal policy</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
-Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/nonparametric-bayes-framing-the-issues-for-the-manuscript.html">nonparametric-bayes: framing the issues for the manuscript</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
- Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
+      Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with Steve Munch, Marc Mangel, and Alec MacCall. I will be based primarily at the National Marine Fisheries Service building, here: ` Five fantastic years of graduate school are coming to an end: I will start officially later this fall, where I will
+ join an exciting team of ecologists and applied mathematicians who work collaboratively on cutting-edge problems in ecological and evolutionary modeling through the Center for Stock Assessment Research.
       
     </div>
   </div>

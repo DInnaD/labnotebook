@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-08-06T00:00:00Z
+tags:
 - warning-signals
 - pdg-control
-
+url: /2013/08/06/summarizing-earlier-warning-signal-under-control-notes/
 ---
 
 - NSF goals: 

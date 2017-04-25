@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,111 +140,108 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/my-prosecutors-fallacy-paper-and-other-recent-warning-signals-literature.html">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/10/questions/">Questions</a></h2>
+    <h4>Thu, Jun 10, 2010</h4>
     <div class="article-style">
       
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      Current population dynamics model macroscopic equations:
+Interpreting μ terms as death events, b as birth, and the a terms as transitions between age classes gives a natural form for the master equation.
+Divergent Solutions to the linear noise approximation? Breaking the age classes into k subclasses makes waiting time within an age class gamma instead of exponential, which better matches observation. Also allows sustained oscillations. The numerical solution to the linear noise approximation shows divergent variance dynamics.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/my-research-workflow-based-on-github.html">My research workflow, based on Github</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/09/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Wed, Jun 9, 2010</h4>
     <div class="article-style">
       
-      This post outlines my current research workflow. This has evolved over time, so only my most recent projects hold completely to it, though almost all my projects follow the general R package structure. Two main differences are visible in my earlier projects: I used to keep scripts in demo before they became the more complete knitr markdown in inst/examples. I previously relied on a custom package called socialR to post results from those scripts to flickr, and would then embed the results in my Wordpress notebook, linking back to the demo file in Github.
+      Fantastic meeting with Graham and Peter today, covered a lot of ground.
+MNV I briefly sketched the multivariate normal solution for joint probability across the tree under the regimes model. The original regimes approach did not take advantage of the fact that the solution to the joint probability across the tree is multivariate normal given the painting. This allows the calculation to be partitioned as outlined in Saturday&rsquo;s entry:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/noisy-beetles.html">Noisy Beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/08/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
+    <h4>Tue, Jun 8, 2010</h4>
     <div class="article-style">
-      
-      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
- Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
- Methods write-up, read/compare to other examples.
- Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/noisy-beetles.html">Noisy beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/06/implementing-the-new-approach/">Implementing the new approach</a></h2>
+    <h4>Sun, Jun 6, 2010</h4>
     <div class="article-style">
       
-      Fig 1: Noise in lavae dominate
-Fig: 2 lower mortality, higher noise
- Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
+      Spent just about the entire day off and on implementing the approach described in yesterday&rsquo;s entry. Code includes the more direct implementation of the likelihood by generating trees from the process and averaging, as well as by weighting trees by their probability. Methods appear to agree reasonably well. The second approach should generate a wider variety of trees instead of using those produced by the first method. This could be done by varying the parameters of the transition rates to populate the collection.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notebook-features-parsing-linked-data-in-the-semantic-notebook.html">Notebook Features: parsing linked data in the semantic notebook</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/05/likelihood-calculation/">Likelihood Calculation</a></h2>
+    <h4>Sat, Jun 5, 2010</h4>
     <div class="article-style">
       
-      In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      Direct Calculation of the Joint Probability Fig 1 Sample tree
+ This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notebook-features-sha-hashes.html">Notebook features: SHA Hashes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/04/comparative-phylogenetics-talk/">Comparative Phylogenetics Talk</a></h2>
+    <h4>Fri, Jun 4, 2010</h4>
     <div class="article-style">
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
+      Practice talk in Wainwright lab meeting next Weds. 12 minutes.
+ Introduce question: Inferring the number of regimes Context relative to existing methods Statistical challenges &ndash; model-dependent phylogenetic signal problem Labrid example  Frameworks for approaching regimes question  wrightscape phylogenetically corrected clustering
+ speed/feasibility concerns, rate limiting steps.
+ model realism / representation concerns
+ statistical concerns
+  Returning to Wrightscape approach Haven&rsquo;t worked on the full problem of inferring multiple peaks directly from comparative data using the joint probability calculation since the beginning of this notebook, so about time to return to the direct problem and compare with the more heuristic approach of &ldquo;phylogenetically corrected clustering&rdquo; and also synthesize the work on uncertainty which has been a dominate theme thus far (add category label for this group!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notebook-features-an-introduction.html">Notebook features: an introduction</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/03/entry-title/">Entry title</a></h2>
+    <h4>Thu, Jun 3, 2010</h4>
     <div class="article-style">
-      
-      In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
- Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notebook-features-digital-archiving.html">Notebook features: digital archiving</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/02/actually-starting-at-arkin-lab/">Actually starting at Arkin Lab</a></h2>
+    <h4>Wed, Jun 2, 2010</h4>
     <div class="article-style">
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
+      Meeting with M. Samoilov  Kurtz Theorems: two limits, timescale and system size, often taken in the wrong order in practice. Einstein-Smoluchowski debate regarding Langevin correspondence to Ito vs Statonvich representations resolved: [theorem]. (Statonvich is the more natural interpretation of the way in which we measure data to compare to Langevin. Of course Ito and Stratonvich can be mapped back and forth anyway). Of course this difference doesn&rsquo;t exist, and nothing goes wrong / no stochastic surprises if dynamics are linear.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notebook-features-reproducible-code.html">Notebook features: reproducible code</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/06/01/gamma-waiting-times-on-individual-level/">Gamma Waiting times on individual level</a></h2>
+    <h4>Tue, Jun 1, 2010</h4>
     <div class="article-style">
       
-      I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
+      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
+png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notebook-tweaks-apis-in-ruby-github-hosting.html">Notebook tweaks: APIs in Ruby, Github hosting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/31/csgf-survey/">CSGF Survey</a></h2>
+    <h4>Mon, May 31, 2010</h4>
     <div class="article-style">
       
-      Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
- Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
+      Wrote survey. Getting feedback and will send out this week.  previous comments
+Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:
       
     </div>
   </div>

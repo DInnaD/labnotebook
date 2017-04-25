@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-27 21:27:20
-layout: post
-slug: matt-potts-conserving-diversity-in-tropical-landscapes
-title: 'Matt Potts: Conserving Diversity in Tropical Landscapes'
-redirects: [/wordpress/archives/1833, /archives/1833]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-05-27T21:27:20Z
+redirects:
+- /wordpress/archives/1833
+- /archives/1833
+slug: matt-potts-conserving-diversity-in-tropical-landscapes
+tags:
 - seminar
+title: 'Matt Potts: Conserving Diversity in Tropical Landscapes'
+url: /2011/05/27/matt-potts-conserving-diversity-in-tropical-landscapes/
 ---
 
 My notes from Matt's seminar: Theory and field work addressing getting beyond binary decision making.  Malaysia.  Tropical forest becoming oil palm, rice, rubber, tea.

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-01-24 16:03:31
-layout: post
-slug: mcelreath-hierarchical-models
-title: McElreath Hierarchical Models
-redirects: [/wordpress/archives/839, /archives/839]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-01-24T16:03:31Z
+redirects:
+- /wordpress/archives/839
+- /archives/839
+slug: mcelreath-hierarchical-models
+tags:
 - seminar
+title: McElreath Hierarchical Models
+url: /2011/01/24/mcelreath-hierarchical-models/
 ---
 
 CPB workshop on hierarchal modeling starts off today with Richard McElreath's introduction.[ref]These are my own notes as taken during the seminar and may not   accurately reflect everything.  I merely confirm with the speaker that   my notes are publicly visible.  My own commentary/thoughts indicated in   square brackets.  As these notes are taken directly during seminar (on my droid phone -- saves me transcribing, later) , please forgive  typos and shorthand.[/ref]  "This is a workshop, not a job talk, meaning I'm going to give away the tricks and you have to learn something.  For job talks you just show off."

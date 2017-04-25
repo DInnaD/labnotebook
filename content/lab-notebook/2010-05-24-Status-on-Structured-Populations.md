@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-24T00:00:00Z
 title: Status on Structured Populations
+url: /2010/05/24/Status-on-Structured-Populations/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Model roundup
 

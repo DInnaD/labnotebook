@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [Labrids]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-15T00:00:00Z
+tags:
+- Labrids
 title: Computing
+url: /2010/03/15/Computing/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Exploring parallel computing options. [OpenMP for distributed memory
     applications](http://www.ecn.purdue.edu/ParaMount/publications/HIPS07-smin.pdf "http://www.ecn.purdue.edu/ParaMount/publications/HIPS07-smin.pdf").

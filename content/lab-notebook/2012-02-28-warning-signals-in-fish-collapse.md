@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-28 15:01:42
-layout: post
-slug: warning-signals-in-fish-collapse
-title: Warning Signals in Fish Collapse
-redirects: [/wordpress/archives/3984, /archives/3984]
 categories:
 - ecology
+comments: true
+date: 2012-02-28T15:01:42Z
+redirects:
+- /wordpress/archives/3984
+- /archives/3984
+slug: warning-signals-in-fish-collapse
 tags:
 - warning-signals
+title: Warning Signals in Fish Collapse
+url: /2012/02/28/warning-signals-in-fish-collapse/
 ---
 
 Description: an example trying to detect early warning signals  in data from fisheries collapses

@@ -1,7 +1,8 @@
 ---
-layout: post
-category: open-science
-
+categories:
+- open-science
+date: 2013-03-02T00:00:00Z
+url: /2013/03/02/delayed-release-archives/
 ---
 
 Today I dug out a handful (37) posts from the past two years that were published as [#delayed-release](http://carlboettiger.info/tags.html#delayed-release) content (and have all been tagged as such to indicate they were not public at their publication date).  Many of these were connected to the [#warning-signals](http://carlboettiger.info/tags.html#warning-signals) project but involved results that I or Alan weren't ready to provide ahead of publication, as I discussed in a post when I first began marking some posts for delayed release, [challenges with collaboration in open science](http://www.carlboettiger.info/2011/03/21/challenges-with-collaboration-in-open-science.html)  These posts were created while on the Wordpress platform and had been marked private, so that they would be invisible to public browsing. Wordpress makes this easy to do, as I discuss in the earlier post.  When I switched to a Jekyll platform, these posts all received the yaml header `published: false` and were also excluded from the Github repository until I could revisit and decide which to release.  Managing these posts for release in the Jekyll framework just requires a little command-line fu, `grep -l 'published: false' *.md` grabs the relevant posts for inspection and release.    

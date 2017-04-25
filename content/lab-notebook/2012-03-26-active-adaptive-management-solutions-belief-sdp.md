@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-26 14:46:52
-layout: post
-slug: active-adaptive-management-solutions-belief-sdp
-title: 'Active adaptive management solutions: Belief SDP'
-redirects: [/wordpress/archives/4371, /archives/4371]
 categories:
 - ecology
+comments: true
+date: 2012-03-26T14:46:52Z
+redirects:
+- /wordpress/archives/4371
+- /archives/4371
+slug: active-adaptive-management-solutions-belief-sdp
 tags:
 - pdg-control
+title: 'Active adaptive management solutions: Belief SDP'
+url: /2012/03/26/active-adaptive-management-solutions-belief-sdp/
 ---
 
 Have finally gotten my active adaptive management solutions working.

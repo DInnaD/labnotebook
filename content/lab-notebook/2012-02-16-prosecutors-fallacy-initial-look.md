@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-16 20:02:49
-layout: post
-slug: prosecutors-fallacy-initial-look
-title: prosecutor's fallacy initial look
-redirects: [/wordpress/archives/3897, /archives/3897]
 categories:
 - ecology
+comments: true
+date: 2012-02-16T20:02:49Z
+redirects:
+- /wordpress/archives/3897
+- /archives/3897
+slug: prosecutors-fallacy-initial-look
 tags:
 - warning-signals
+title: prosecutor's fallacy initial look
+url: /2012/02/16/prosecutors-fallacy-initial-look/
 ---
 
 So I've simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation.  I've added enough noise (demographic stochasticity in this case, but doesn't matter what) that 129/1000 transition stochastically to the bad state, so I have decent sample sizes in each. 

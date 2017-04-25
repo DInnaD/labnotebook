@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-11-03 16:28:39
-layout: post
-slug: getting-the-details-right-on-the-fourier-transform-approach-to-likelihood
-title: Getting the details right on the Fourier Transform approach to likelihood
-redirects: [/wordpress/archives/159, /archives/159]
 categories:
 - ecology
+comments: true
+date: 2010-11-03T16:28:39Z
+redirects:
+- /wordpress/archives/159
+- /archives/159
+slug: getting-the-details-right-on-the-fourier-transform-approach-to-likelihood
 tags:
 - warning-signals
+title: Getting the details right on the Fourier Transform approach to likelihood
+url: /2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/
 ---
 
 Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as

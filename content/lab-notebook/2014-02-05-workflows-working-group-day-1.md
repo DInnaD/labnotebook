@@ -1,17 +1,15 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2014-02-05T00:00:00Z
+tags:
 - conference
 - working-group
-- nceas 
+- nceas
 - community-metrics
-- workflows 
-
+- workflows
+url: /2014/02/05/workflows-working-group-day-1/
 ---
-
-
-
 
 Goals
 -----

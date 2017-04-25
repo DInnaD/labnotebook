@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,113 +141,118 @@
   
   
   <div>
-    <h2><a href="../2012/03/27/tuesday-pandoc-citations-notes-various.html">Tuesday: pandoc citations notes, various</a></h2>
-    <h4>Tue, Mar 27, 2012</h4>
+    <h2><a href="../2014/08/14/pdg-controlfest-notes/"></a></h2>
+    <h4>Thu, Aug 14, 2014</h4>
     <div class="article-style">
       
-      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
+      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
+I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/26/active-adaptive-management-solutions-belief-sdp.html">Active adaptive management solutions: Belief SDP</a></h2>
-    <h4>Mon, Mar 26, 2012</h4>
+    <h2><a href="../2014/04/07/notes/"></a></h2>
+    <h4>Mon, Apr 7, 2014</h4>
     <div class="article-style">
       
-      Have finally gotten my active adaptive management solutions working.
-The active adaptive management solution learns very quickly and rather monotonically which model is correct, even when models differ by small amounts and the initial belief is heavily skewed to the wrong model. I&rsquo;ve implemented examples with Myers model, but in this parameter space the allee effect is well below the Reed escapement level of the alternative Beverton Holt model, so it doesn&rsquo;t exert itself.
+      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/21/policy-costs-to-changing-mangement-tp-1b-apples-to-apples.html">Policy costs to changing mangement, TP 1b: Apples to Apples</a></h2>
-    <h4>Wed, Mar 21, 2012</h4>
+    <h2><a href="../2014/03/18/notes/"></a></h2>
+    <h4>Tue, Mar 18, 2014</h4>
     <div class="article-style">
       
-      A central question of training problem 1b addressed at the working group was how to compare the different penalties. Following up on those discussions, here are a few notes on how far I&rsquo;ve gotten in the analysis regarding the best way to make these comparisons.
- simulate_npv_curves Nice job of showing the performance of the variance ratio, clear example for L2. Correlation test should probably be applied to differences, pattern is much less clear.
+      ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
+ Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/20/tuesday-active-adaptive-management-a-first-solution.html">Tuesday: active adaptive management, a first solution</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
+    <h2><a href="../2013/11/06/mbi-day-three/"></a></h2>
+    <h4>Wed, Nov 6, 2013</h4>
     <div class="article-style">
       
-      Spent way more of today than I wanted to hammering out the active adaptive management implementation for a trivial model-choice problem using the discretized belief-SDP approach.
-We have alternate models $f_1$ and $f2$ of the state equations (population growth dynamics) $$ x{t+1} = z_t f(x_t) $$ and introduce a continuously valued belief probability $p$ that model 1 is correct. This lends itself to a Bayesian updating rule for our belief based on observing a transition from $x$ to $y$,
+      MBI Workshop Becky Epanchin-Niell  Motivating example of Rabies spatial control in Switzerland
+ 2012 Eco Let: should New Zealand survey for bark beetle? Cost of survellience, control, and damage. Epanchin-Niell et al. (2012)
+ 2012 JEEM spatial spread of star thistle: control spread and eradication as an integer programming problem in deterministic context. (with Wilen) Epanchin-Niell &amp; Wilen (2012)
+ Breaking landscape into individual landowners makes it less valuable to control early.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/13/pdg-control-day-1-goals-by-training-problem.html">pdg-control Day 1 goals by training problem</a></h2>
-    <h4>Tue, Mar 13, 2012</h4>
+    <h2><a href="../2013/11/05/mbi-day-two/"></a></h2>
+    <h4>Tue, Nov 5, 2013</h4>
     <div class="article-style">
       
-      Training Problem I / Theme 1 Policy costs  Functional forms of cost &amp; Structure of the paper Comparability (view over all costs? view expected economic benefit?)
- Visualizations Dan&rsquo;s L1 norm story (vs stochastic, discrete time?)  Transaction Fee details in cts time, deterministic Advanced problem 1 How many spatially differentiated policies are optimal 1. formulate bioeconomic model 2. modularity methods 3. comparison of GBR &amp; Caribbean examples
+      MBI Workshop Paul Armsworth Very nice example of control in creating a market for ecosystem services for landowners. Key feature is that multiple land-owners respond by adjusting their prices, and so payments can be divided into fraction going into subsidy and fraction going into conservation. When one land-owner controls land that is particularly good cost per conservation accomplished, they also stand to gain largest value.
+Also looked at auction mechanism and impact of cooperation among landowners to create hold outs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/13/pdg-control-training-problem-2-update-to-group.html">pdg-control, Training Problem 2 update to group</a></h2>
-    <h4>Tue, Mar 13, 2012</h4>
+    <h2><a href="../2013/11/04/mbi-notes/"></a></h2>
+    <h4>Mon, Nov 4, 2013</h4>
     <div class="article-style">
       
-      Intrinsic Stochasticity $$ x_{t+1} = z_t f(x_t, ht) $$ $$ max{h_t} \textrm{E} \left( \sum_t \Pi(h_t, x_t) \delta^t \right) $$ Measurement error $ m_t = z_m x_t $ Implementation error $ i_t = z_i h<em>t $
-Next: Uncertainty = we can learn and hence decrease the uncertainty. But state-space grows exponentially.
-Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t, a_t) P(a_t, \hat a_t, \sigmat) $$ Bayesian Learning state equations $$ \hat a{t+1} = \textrm{Posterior}(a | x) = \frac{ L(x|a) \textrm{Prior}(a)}{\int L(x|a) \textrm{Prior}(a) da } $$
+      SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
+ NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
+ language barriers: What&rsquo;s a model?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2.html">Parameter uncertainty in stochastic control problems</a></h2>
-    <h4>Sun, Mar 11, 2012</h4>
+    <h2><a href="../2013/08/06/summarizing-earlier-warning-signal-under-control-notes/"></a></h2>
+    <h4>Tue, Aug 6, 2013</h4>
     <div class="article-style">
       
-      Day 3 of my short-term visitor stay before the working group starts.
- Wednesday: Travel
- Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
-  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
- Friday Writing up Training problem II with Jake, Michael.
+      NSF goals:  combine control methods and warning signals do non-parametric or machine learning increase or decrease chance of transition learning  Further areas (from comment piece) baselines (statistical; emperical) context-specific (additional data sources, reflecting context in model)  Warning signals in managed systems Management decreases the signal: compare likelihood statistic in unmanaged_warning managed_warning:
+Estimating Stability in managed systems Recovery rate in optimally fished vs unfished system (based on the OU model): stability.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/06/tuesday-14.html">Tuesday</a></h2>
-    <h4>Tue, Mar 6, 2012</h4>
+    <h2><a href="../2013/05/20/notes/"></a></h2>
+    <h4>Mon, May 20, 2013</h4>
     <div class="article-style">
       
-      Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
- model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
+      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/05/monday-17.html">Monday</a></h2>
-    <h4>Mon, Mar 5, 2012</h4>
+    <h2><a href="../2013/05/13/notes/"></a></h2>
+    <h4>Mon, May 13, 2013</h4>
     <div class="article-style">
       
-      Trivial example of a non-optimal but more robust policy by editing the optimal strategy directly. Note in particular that this outperforms the optimal strategy economically as well as ecologically (fewer crashed populations).
- Running the policy-costs model with Beverton Holt instead of the Myers function seems to give a clearer picture of a system responding to policy costs. The single-replicate picture probably captures this better than the policy/replicate visualizations.
+      Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
+  Misc  Some software providing rather impressive/high fidelity pdf to html conversion&hellip; Not just rendering as images &ndash; the text is searchable, though in the html source it just looks like a bunch of binary data URIs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/03/thursday-friday-saturday.html">Thursday, Friday, Saturday</a></h2>
-    <h4>Sat, Mar 3, 2012</h4>
+    <h2><a href="../2013/02/04/updates-across-various-projects/"></a></h2>
+    <h4>Mon, Feb 4, 2013</h4>
     <div class="article-style">
       
-      forage fish seminar - Patrick and Jay with interesting stuff. Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.  knit hooks externalization example working (based on Reed.R). Still unsure how I feel about externalization vs fully literate code. Redundant typing is bad but isn&rsquo;t that why common tasks are functionalized?
+      At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I&rsquo;ve moved forward in the wee hours. Covers the past several days.
+XML and RDFa parsing I have been using the lab notebook to explore technology for scientific communication, including making use of semantic and linked data concepts. To illustrate some of the potential these tools can offer I&rsquo;ve started working on a short post with examples parsing and exploring the XML and RDFa data in the notebook.
       
     </div>
   </div>

@@ -1,14 +1,14 @@
 ---
-comments: true
-date: 2011-04-11 22:47:04
-layout: post
-slug: monday-warning-signals-updated-graphs
-title: 'Monday: Warning Signals - Updated graphs'
 categories:
 - ecology
+comments: true
+date: 2011-04-11T22:47:04Z
+slug: monday-warning-signals-updated-graphs
 tags:
 - warning-signals
 - delayed-release
+title: 'Monday: Warning Signals - Updated graphs'
+url: /2011/04/11/monday-warning-signals-updated-graphs/
 ---
 
 Trying a different set-up for the graphs.  Added two additional datasets, trying layout of making all three figures into a panels in a single figure.

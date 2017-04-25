@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,115 +140,118 @@
   
   
   <div>
-    <h2><a href="../../2010/11/29/further-treatment-of-the-limiting-models.html">Further treatment of the limiting models</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../2012/01/10/resilience-seminar-course-plan/">Resilience seminar course plan</a></h2>
+    <h4>Tue, Jan 10, 2012</h4>
     <div class="article-style">
       
-      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
+      Resilience Monte Carlo Seminar, 11am Tuesdays. Val Eviner.
+ Jan 17 Resilience of coral reefs/mangrove systems, Alexander Gaos Jan 24 Resilience of degraded vs. intact systems, Erica Case and Alex Webster Jan 31 Novel ecosystems, Ania Truszczynski and Mark Noyes Feb 7 Landscape configuration, Julia Moore Feb 14 Assisted Migration, Anna O&rsquo;Brien Feb 21 Designing and managing for resilience, Sarah McCullough and Caroline Wright Feb 28 Thresholds/ uncertainty, Matt Meisner and Carl Boettiger March 6 Managing for evolutionary potential, Jaime Ashander March 13 ?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/29/challenges-in-estimating-phylogenetic-signal.html">Challenges in estimating phylogenetic signal</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../2012/01/09/monday-13/">Monday - Sweave workflow</a></h2>
+    <h4>Mon, Jan 9, 2012</h4>
     <div class="article-style">
       
-      Uncertainty in estimate of lambda illustrated by simulating 1000 data sets on the Geopsiza tree under a model with lambda = 0.62. Shows the high uncertainty in estimating lambda at all, despite the power in the estimate at this value.
-(Code)
-Will fill this out further later. Will be interesting to compare at different base values of lambda used for the simulation.
-Have updated the codbase to provide bootstraps of parameters as part of the monte carlo output.
+      Bibtex, Mendeley &amp; Sweave Mendeley&rsquo;s repeated entries in the bibfile is particularly annoying with my sweave workflow, as it throws an error from bibtex command that Make doesn&rsquo;t want to ignore.
+Also, in writing the documentation I&rsquo;d like to point the .Rnw file to my global library&rsquo;s bibtex document, but then this means having the .Rnw/tex file generated to by the package pointing to a file that&rsquo;s outside the package.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/28/likelihoods-for-quadratic-models-cont.html">Likelihoods for quadratic models cont</a></h2>
-    <h4>Sun, Nov 28, 2010</h4>
+    <h2><a href="../../2012/01/06/optimal-policy-with-assymetric-costs-to-changing-harvest-quotas/">Optimal policy with assymetric costs to changing harvest quotas</a></h2>
+    <h4>Fri, Jan 6, 2012</h4>
     <div class="article-style">
       
-      Considering the fits of the quadratic models from yesterday.
-[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
-Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
+      The optimal policy with symmetric L1 costs to changing the quotas results in the solutions that stop changing, sometimes at no harvest (if there&rsquo;s scrap value), or at some fixed high harvest if no scrap value. (See earlier notes). Asymmetric costs of comparable magnitude result in more crashes.
+When we apply an L1 norm cost of the same magnitude as before for decreasing quotas, but allow increasing quotas to be free (no cost to environmental lobby), the solution follows the Reed optimum is in purple (harvest_alt) (cost-free adjustment), while the blue is the harvest level being implemented with a cost:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/27/implementing-likelihoods-for-quadratic-models.html">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
+    <h2><a href="../../2012/01/04/wrightscape-examples/">wrightscape examples</a></h2>
+    <h4>Wed, Jan 4, 2012</h4>
     <div class="article-style">
       
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
+      [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2012-01-03 7:00:37&rdquo; max_upload_date=&ldquo;2012-01-03 22:23:37&rdquo;]
+ kt and open seem the best focal traits. Unclear what good null traits to use would be.
+ Unclear if anything is gained by indep thetas in this example.
+ Performance of alpha v theta?
+  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/25/tweets-from-an-ecology-field-class.html">Tweets from an Ecology Field class </a></h2>
-    <h4>Thu, Nov 25, 2010</h4>
+    <h2><a href="../../2012/01/03/tuesday-pmc-package-latex-to-word-attempts/">Tuesday: pmc package, latex to word attempts</a></h2>
+    <h4>Tue, Jan 3, 2012</h4>
     <div class="article-style">
       
-      I just spoke with Professor Mau Stanton, a leading researcher in our field and an award-winning teacher, about the potential for using twitter in her field ecology course. Though never having used any social media before, Mau has both clear and clever idea of how she wants to apply it in this 15-student field class.
-The challenge: Students don&rsquo;t seem to read email as much any more, and are often not at a computer.
+      Back from Oz.
+Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
+ tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
+ pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/24/warning-signals-likelihoods-straight-up.html">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
+    <h2><a href="../../2011/12/12/monday-12/">Monday</a></h2>
+    <h4>Mon, Dec 12, 2011</h4>
     <div class="article-style">
       
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
+      Wrote method2 test functions out in knitr/sweave. Sent document to Peter. Move my ropensci git origins to the ropensci github page. Ropensci comments on \dontrun: recommended for anything non-trivial, including web calls. Richer tests should be put into testthat. Reply to Charles Jervis, biology high school teacher interested in tools to teach math/modeling in ecology. Sounds like he&rsquo;s already doing some cool stuff with phylogenies with his students. prepare vignette for rfishbase based on tutorial.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/22/power-in-simple-tests.html">Power in simple tests</a></h2>
-    <h4>Mon, Nov 22, 2010</h4>
+    <h2><a href="../../2011/12/12/better-sweave-dynamic-documents-with-syntax-highlighting-easier-tools/">Better dynamic documents (Sweave) with syntax highlighting, caching, etc</a></h2>
+    <h4>Mon, Dec 12, 2011</h4>
     <div class="article-style">
       
-      Exploring power in simple tree models. With the smaller tree from the _geospiza _dataset, (14 tips, left) is less than yesterday&rsquo;s in the bimaculus Anoles (with 23 tips, right)
-(code)
-Also wrote the OUCH-based wrapper function to fit tree transformation parameters. Unfortunately it currently transforms from ape to ouch format repeatedly (in order to use ape&rsquo;s tree transforms, need to write native ouch-format transforms), so it may not be any faster.
+      The highlight package is a simple solution for very nice syntax highlighted code boxes in latex documents. Requires switching the driver, which is best done from within R and requires creating a makefile though. Needs the &ldquo;highlight&rdquo; package installed. Here&rsquo;s a simple makefile.
+A wealth/mess of Sweave related packages on the CRAN taskview for Reproducible Research (now what other software platform has a the equivalent of a Reproducible Research task view?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/21/two-questions.html">Two questions</a></h2>
-    <h4>Sun, Nov 21, 2010</h4>
+    <h2><a href="../../2011/12/11/some-notes-on-open-notebooks-open-peer-review-practices/">Some Notes on Open Notebooks, Open peer review practices.</a></h2>
+    <h4>Sun, Dec 11, 2011</h4>
     <div class="article-style">
       
-      I&rsquo;ve been thinking about a few elements of the Monte Carlo approach that seem to be particularly subtle in interpretation. Thought I&rsquo;d write them out here as a separate examples to help think through them. Thoughts?
-Question 1 Should the Monte Carlo simulations use the maximum likelihood test and null model estimated from the data (as in McLachlan 1987, Goldman 1993, Huelsenbeck 1996) or draw from the distribution of model parameters for each simulation?
+      What follows is a collection of notes, examples, and reflections I&rsquo;ve been meaning to write down.
+Revealing Revisions Sharing version history is an important part of an open notebook really being open, and one reason why wikis have remained so popular for Open Notebook Science. Wordpress (this platform) does version management internally, and thepost-revision display plug-in makes this visible on posts. I had experimented but disabled this a while ago because I didn&rsquo;t like visual impact of the long list at the end of my posts.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/21/following-my-computer-simulations-on-twitter.html">Making R twitter?</a></h2>
-    <h4>Sun, Nov 21, 2010</h4>
+    <h2><a href="../../2011/12/09/friday-9/">Friday</a></h2>
+    <h4>Fri, Dec 9, 2011</h4>
     <div class="article-style">
       
-      I&rsquo;m running quite a few of my analyses on my remote server, a 16 core, 32 GB ram, Ubuntu server with Tesla GPU, named &ldquo;zero&rdquo; (we&rsquo;re creative folks). It&rsquo;s easy to start lots of simulations (from ssh), harder to track when they are finished and verify results. No longer &ndash; &ldquo;zero&rdquo; now uses social media to share what she&rsquo;s up to. Find her on twitter: @tweeting_cpu
-Social Computation  Provides automated updating of simulation status and error messages
+      Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch.html">Sat: evolution -- porting tree transformations to OUCH?</a></h2>
-    <h4>Sat, Nov 20, 2010</h4>
+    <h2><a href="../../2011/12/08/thursday-11/">Thursday</a></h2>
+    <h4>Thu, Dec 8, 2011</h4>
     <div class="article-style">
       
-      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
-Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
+      Another day of working on 4 different projects at once.
+Warning signals  review Alan pulses manuscript
+ review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
+  No way in Anchoveta data, look at time series:
+Example in the cod data using only up until 1991 data:
+ Way forward &ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.
       
     </div>
   </div>

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-10-05T00:00:00Z
 title: LR Manuscript
+url: /2010/10/05/LR-Manuscript/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Still writing. Working on the comparisons to AIC section. Things to
     think about adding:

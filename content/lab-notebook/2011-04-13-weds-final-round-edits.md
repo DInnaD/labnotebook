@@ -1,17 +1,15 @@
 ---
-comments: true
-date: 2011-04-13 16:21:30
-layout: post
-title: 'Weds: Final round edits'
 categories:
 - ecology
+comments: true
+date: 2011-04-13T16:21:30Z
 tags:
 - warning-signals
 - delayed-release
+title: 'Weds: Final round edits'
+url: /2011/04/13/weds-final-round-edits/
 ---
 
-
-	
 * Low-power (40 data-point) IBM simulation example
 
 ![]( http://farm6.staticflickr.com/5063/5613789663_d3aec5de4b_o.png )

@@ -1,13 +1,12 @@
 ---
-layout: post
-category: computing
+categories:
+- computing
+date: 2014-09-09T00:00:00Z
 tags:
 - digitalocean
 - docker
-
+url: /2014/09/09/server-backups/
 ---
-
-
 
 ## Digital Ocean Snapshots
 

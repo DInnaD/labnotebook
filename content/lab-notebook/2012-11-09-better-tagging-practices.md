@@ -1,10 +1,10 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2012-11-09T00:00:00Z
 tag: notebook-technology
-
+url: /2012/11/09/better-tagging-practices/
 ---
-
 
 ## Better tagging practices
 

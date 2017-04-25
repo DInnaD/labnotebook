@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-03 21:07:36
-layout: post
-slug: ropensci-an-r-interface-proposal-for-ievobio
-title: 'treeBASE R interface: proposal for #iEvoBio'
-redirects: [/wordpress/archives/1549, /archives/1549]
 categories:
 - evolution
+comments: true
+date: 2011-05-03T21:07:36Z
+redirects:
+- /wordpress/archives/1549
+- /archives/1549
+slug: ropensci-an-r-interface-proposal-for-ievobio
 tags:
 - ropensci
+title: 'treeBASE R interface: proposal for #iEvoBio'
+url: /2011/05/03/treebase-an-r-interface-proposal-for-ievobio/
 ---
 
 ## Lightning Talk Proposal

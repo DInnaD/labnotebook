@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-05-12 20:32:26
-layout: post
-slug: thursday-fun-with-databases-continued
-title: 'Thursday: Fun with databases continued'
-redirects: [/wordpress/archives/1692, /archives/1692]
 categories:
 - evolution
+comments: true
+date: 2011-05-12T20:32:26Z
+redirects:
+- /wordpress/archives/1692
+- /archives/1692
+slug: thursday-fun-with-databases-continued
+title: 'Thursday: Fun with databases continued'
+url: /2011/05/12/thursday-fun-with-databases-continued/
 ---
 
 ## Dryad

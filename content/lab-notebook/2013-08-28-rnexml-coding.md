@@ -1,12 +1,12 @@
 ---
-layout: post
-category: evolution
-tags: 
+categories:
+- evolution
+date: 2013-08-28T00:00:00Z
+tags:
 - ropensci
 - rnexml
-
+url: /2013/08/28/rnexml-coding/
 ---
-
 
 - test_ape.R unit tests now passing.
 Should still revise the coercion methods in nexml_write.R to something more clever.  We aren't

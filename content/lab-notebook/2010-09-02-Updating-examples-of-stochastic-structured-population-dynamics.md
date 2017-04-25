@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-09-02T00:00:00Z
 title: Updating examples of stochastic structured population dynamics
+url: /2010/09/02/Updating-examples-of-stochastic-structured-population-dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 [![image](http://farm5.static.flickr.com/4125/4951239235_6c3c8f7c9a.jpg)](http://www.flickr.com/photos/cboettig/4951239235/)
 

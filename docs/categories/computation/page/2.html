@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,135 +141,114 @@
   
   
   <div>
-    <h2><a href="../../../2011/11/10/parallel-hpc-on-clusters-in-r-mpi.html">Parallel hpc on clusters in R, MPI</a></h2>
-    <h4>Thu, Nov 10, 2011</h4>
+    <h2><a href="../../../2014/10/09/lessons-learned-in-writing-dockerfiles/"></a></h2>
+    <h4>Thu, Oct 9, 2014</h4>
     <div class="article-style">
       
-      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
-parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
+      Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
+ Minimize the number of layers, but use \ to break commands across multiple lines,
+ Always run apt-get update &amp;&amp; apt-get install -y .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/06/sunday-5.html">Sunday</a></h2>
-    <h4>Sun, Nov 6, 2011</h4>
+    <h2><a href="../../../2014/10/07/notes/"></a></h2>
+    <h4>Tue, Oct 7, 2014</h4>
     <div class="article-style">
       
-      Computing notes A few configuration related things from migrating to the new laptop.
-Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
-make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
-mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
+      Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
+ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/04/sparkleshare-configuration.html">Sparkleshare configuration</a></h2>
-    <h4>Fri, Nov 4, 2011</h4>
+    <h2><a href="../../../2014/10/02/notes/"></a></h2>
+    <h4>Thu, Oct 2, 2014</h4>
     <div class="article-style">
       
-      Configured sparkleshare across my linux server &amp; laptops, and android phone. Provides a dropbox-style syncing and version history for all files using git. I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost. Wonderful.
-Basic setup Get sparkleshare working on a server is dead simple, Can also use a github server, gitorious server, etc. Setup is clearly documented, which is really just doing a bunch of standard stuff if you have a server or github already set up.
+      docker 2014-09-29:
+ Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
+ Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&rsquo;s talk on our Docker work.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify.html">server file management from bowser: ajaxplorer, mollify</a></h2>
-    <h4>Tue, Nov 1, 2011</h4>
+    <h2><a href="../../../2014/09/24/notes/"></a></h2>
+    <h4>Wed, Sep 24, 2014</h4>
     <div class="article-style">
       
-      A few notes on trying out some server-based file sharing solutions.
-ajaXplorer Kind of amazingly good and easy to install, with configuration-free functionality like previews of images and playing mp3s. More secure file sharing (at least, public link not generated until asked for, can have password assigned to it). Sharing is the only step not activated by default. Create a folder called &ldquo;public&rdquo; in the ajaxplorer directory, and this feature will appear.
+      rocker / docker  Talking over strategy with Dirk, see summary in #1 and follow-up issues, #3, #4, #5.  rdataone &amp; EML Trying to fix travis issues. Much craziness.
+travis.sh doesn&rsquo;t provide notes on setup for repos where the R package is in a subdirectory. Looks like cd commands are persistent though throughout a travis file. okay.
+ dataone is imported by EML but suggested by dataone. Since install_github likes to install the suggests list, this creates problems:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/19/optimal-control-exploration.html">Optimal Control Exploration</a></h2>
-    <h4>Wed, Oct 19, 2011</h4>
+    <h2><a href="../../../2014/09/05/drone-ci-and-docker/"></a></h2>
+    <h4>Fri, Sep 5, 2014</h4>
     <div class="article-style">
       
-      Translating Jim&rsquo;s Matlab code.
-Adapted for Octave.
-R version.
-Document review:
- Chapter 04_Sanchirico_Final.pdf
- SanchiricoOptimalSpace_JEEM.pdf (Sanchirico &amp; Wilen, 2005)
- Optimal_Rebuilding_AJAE2010.pdf, Optimal_Rebuilding_Supp_Material.pdf (Sanchirico et. al. 2010)
- Sanchirico_editsembedded.pdf: Book Chapter 1: Economically Optimal Management of a Metapopulation
-  Reviewing Bett&rsquo;s Practical Methods for Optimal Control using Nonlinear Programming. (( Practical Methods for Optimal Control and Estimation Using Nonlinear Programming, Second Edition (Advances in Design and Control) John T.
+      Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&rsquo;t supported out of the box).
+ We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &lsquo;minion&rsquo;.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/17/algorithms-group-literate-programming.html">Algorithms Group: Literate programming</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h2><a href="../../../2014/05/02/scientific-computing-notes/"></a></h2>
+    <h4>Fri, May 2, 2014</h4>
     <div class="article-style">
       
-      Algorithms group today took a brake from discussing algorithms for an aside on coding practices. Today we focused primarily on literate programming tools for making better documented, more readable code. We covered:
- Sweave
- Google style guide, also see R core-team developer Hadley Wickam&rsquo;sstyle guide (modified from Google)
- R coding practices grab-bag: using functionalized code, {&hellip;}, S3 vs S4 classes.
- roxygen, roxygen2
-  Next time: Github, then we&rsquo;ll spend 30 minutes collaboratively adding roxygen documentation to our existing codes and committing changes over git.
+      In my experience EC2 is good for some things but not for others. Consequently having some funding allocated for it would be great, but it would still be necessary to have other resources as well. I&rsquo;ve found EC2 very good for running some reasonably portable analysis where you temporarily want some extra processors or memory. On the other hand, I&rsquo;ve had some frustrations with it as well. You don&rsquo;t have a persistent development environment unless you explicitly make and maintain a machine image, which means installing any software dependencies from scratch; sometimes a particular nuisance when you aren&rsquo;t familiar with the architecture.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/12/rfishbase-tutorial-updated-extended.html">rfishbase Tutorial - updated &amp; extended</a></h2>
-    <h4>Wed, Oct 12, 2011</h4>
+    <h2><a href="../../../2013/09/11/isees-workforce-development-day-2/"></a></h2>
+    <h4>Wed, Sep 11, 2013</h4>
     <div class="article-style">
       
-      Updated rfishbase package. Include querying for a list of scientific names and the addition of more quantitative traits, though the selection is still somewhat limited. Demo includes how to grab some data to match a phylogenetic tree, and some regular expression (grep) searches for feeding behavior.
-Source code
-Windows binary also available.</p>
-
-<h1 id="demo-r-rm-list-ls-require-rfishbase-grabbing-loading-amp-caching-fishbase-data-download-and-parse-data-for-first-40-ids-36-fish-fish">demo.R rm(list=ls()) require(rfishbase) ###### Grabbing, Loading &amp; Caching Fishbase Data ###### ## Download and parse data for first 40 ids (36 fish) #fish.</h1>
-
+      Near the end of another excellent day of discussions we were asked to put pen to paper to outline our own views in writing. My own contribution was the following notebook scribble.
+My own vision of what ISEES should be doing for workforce development:
+ISEES would employ a multi-scale approach to improve basic computational expertise across the entire workforce necessary to fully participate in the modern software-immersed world of research through the development of training standards, while using a working-group model focused on emerging researcher-developer communities which would simultaneously improve the quality and synthesis of existing software tools while also delivering essential skills to the most transformative members of the research software communities.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/10/algorithms-group-hmm-meets-em.html">Algorithms Group, HMM meets EM</a></h2>
-    <h4>Mon, Oct 10, 2011</h4>
+    <h2><a href="../../../2013/09/11/extending-data-frame-class/"></a></h2>
+    <h4>Wed, Sep 11, 2013</h4>
     <div class="article-style">
       
-      Alisa reviews HMM, EM, and shows us how to combine them.
-The EM version treats the transition probabilities (exchanging coins) and emission probabilities (chance of heads/tails under each coin) as unknowns. Make a guess, calculate the blue line from before. This can be used to calculate a new guess that will hill climb to the locally optimum solution (EM).
-New guess for the transition probability is:
-$$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$
+      I&rsquo;d like to define a class that acts just like a data.frame, just like the data.table class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle data.frame objects.
+How might this be done?
+I&rsquo;m not really sure where to start on this, so below is a summary of my attempt so far and some further puzzles I have stumbled across (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/30/friday-wordpress-backups-pmc-edits.html">Friday, wordpress backups, pmc edits</a></h2>
-    <h4>Fri, Sep 30, 2011</h4>
+    <h2><a href="../../../2013/09/10/isees-training-workshop-day-1/"></a></h2>
+    <h4>Tue, Sep 10, 2013</h4>
     <div class="article-style">
       
-      Wordpress local copy  configured mysqldump backup, following dreamhost wiki (added cron job manually instead of in panel).  edit local wp-config.php to use localhost. Get the database name, user name and password from the lines above it, which are used later.
-define(&lsquo;DB_HOST&rsquo;, &lsquo;localhost&rsquo;); // &hellip;and the server MySQL is running on  create user: log in as root
-mysql -u root -p  and create user
-mysql&gt; create database database_name mysql&gt; create user &lsquo;username&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;password&rsquo;; mysql&gt; create database database_name mysql&gt; grant usage on *.
+      Education / Workforce Development Group Cannot do grand synthesis opaquely and be science. must be able to scale and evolve.
+How did data succeed? What features really made the difference and what were just sideshows?
+ Sticks (Funder and journal mandates?) Working groups (NCEAS) Training external forces: there is more data.
+  Why one center? Why not 15 centers? Divided by discipline rather than region&hellip;. synthesize the synthesis centers
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/07/memory-management-cron.html">memory management, cron</a></h2>
-    <h4>Wed, Sep 7, 2011</h4>
+    <h2><a href="../../../2012/07/27/csgf-conference/"></a></h2>
+    <h4>Fri, Jul 27, 2012</h4>
     <div class="article-style">
-      
-      Create the memcheck.sh script that will write a mem.log file with the data, and agnuplot script that will plot it.
-[gist id=1201994]
-Then set up a cron job. First, set the editor to something functional:
-export EDITOR=vi  then, crontab -e to edit the cron table. Add this line to run the command every 2 minutes (see wikipedia entry for quick intro), and plot it every 15 minutes:
-*/2 * * * * /home/cboettig/.
       
     </div>
   </div>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2014/11/24/coreos-docker-registries-etc/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h2 id="a-secure-docker-registry">A secure docker registry</h2>
+
+<p>Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).  So this meant learning how to use <code>nginx</code> load balancing, which I guess is useful to know more generally.</p>
+
+<h3 id="first-pass-nginx-on-ubuntu-server">First pass: nginx on ubuntu server</h3>
+
+<p>After a few false starts, decided the <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-14-04">digitalocean guide</a> is easily the best (though steps 1-3 can be skipped by using a containerized <code>registry</code> instead). This runs <code>nginx</code> directly from the host OS, which is in some ways more straight forward but less portable. A few notes-to-self in working through the tutorial:</p>
+
+<ul>
+<li><p>Note: At first, nginx refuses to run because there&rsquo;s was <code>default</code> configuration in <code>cd /etc/nginx/sites-enabled</code> that tries to create a conflict.  Remove this and things go pretty nicely.</p></li>
+
+<li><p>Note: Running the registry container explicitly on port <code>127.0.0.1</code> provides an internal-only port that we can then point to from nginx. (Actually this will no longer matter when we use a containerized <code>nginx</code>, since we will simply not export these ports at all, but only expose the port of the <code>nginx</code> load balancer). Still, good to finally be aware of the difference between <code>127.0.0.1</code> and <code>0.0.0.0</code> (the publicly visible localhost, and the default if we supply only a port) in this context.</p></li>
+
+<li><p>Note: Running and configuring <code>nginx</code> Note that keys are specific to the url. This is necessary for the server signing request, but I believe could have been omitted in the root certificate. Here&rsquo;s how w ego about creating a root key and certificate (<code>crt</code>), a server key, server signing request (<code>csr</code>), and then sign the latter with the former to get the server certificate.</p></li>
+</ul>
+
+<pre><code class="language-bash">openssl genrsa -out dockerCA.key 2048
+openssl req -x509 -new -nodes -key dockerCA.key -days 10000 -out dockerCA.crt -subj '/C=US/ST=Oregon/L=Portland/CN=coreos.carlboettiger.info'
+openssl genrsa -out docker-registry.key 2048
+openssl req -new -key docker-registry.key -out docker-registry.csr -subj '/C=US/ST=Oregon/L=Portland/CN=coreos.carlboettiger.info'
+openssl x509 -req -in docker-registry.csr -CA dockerCA.crt -CAkey dockerCA.key -CAcreateserial -out docker-registry.crt -days 10000
+</code></pre>
+
+<p>Note that we also need the <code>htpasswd</code> file from above, which needs <code>apache2-utils</code> and so cannot be generated directly from the CoreOS terminal (though the <code>openssl</code> certs can):</p>
+
+<pre><code>sudo htpasswd -bc /etc/nginx/docker-registry.htpasswd $USERNAME $PASSWORD
+</code></pre>
+
+<p>Having created these ahead of time, I end up just copying my keys into the Dockerfile for my <code>nginx</code> instance (if we generated them on the container, we&rsquo;d still need to get <code>dockerCA.crt</code> off the container to authenticate the client machines.  Makes for a simple Dockerfile that we then build locally:</p>
+
+<pre><code>FROM ubuntu:14.04
+RUN apt-get update &amp;&amp; apt-get install -y apache2-utils curl nginx openssl supervisor
+COPY docker-registry /etc/nginx/sites-available/docker-registry
+RUN ln -s /etc/nginx/sites-available/docker-registry /etc/nginx/sites-enabled/docker-registry
+
+## Copy over certificates ##
+COPY docker-registry.crt /etc/ssl/certs/docker-registry 
+COPY docker-registry.key /etc/ssl/private/docker-registry 
+COPY docker-registry.htpasswd /etc/nginx/docker-registry.htpasswd
+
+
+EXPOSE 8080
+
+## use supervisord to persist
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+CMD [&quot;/usr/bin/supervisord&quot;]
+</code></pre>
+
+<p>Note that we need to install the <code>dockerCA.crt</code> certificate on any client that wants to access the private registry. On Ubuntu this looks like:</p>
+
+<pre><code class="language-bash">sudo mkdir /usr/local/share/ca-certificates/docker-dev-cert
+sudo cp devdockerCA.crt /usr/local/share/ca-certificates/docker-dev-cert
+sudo update-ca-certificates 
+sudo service docker restart
+</code></pre>
+
+<p>But on CoreOS we use a different directory (and restarting the docker service doesn&rsquo;t seem possible or necessary):</p>
+
+<pre><code class="language-bash">sudo cp dockerCA.crt /etc/ssl/certs/docker-cert
+sudo update-ca-certificates  
+</code></pre>
+
+<ul>
+<li><p>Note: Could not get the official <code>nginx</code> container to run the <code>docker-registry</code> config file as <code>/etc/nginx/nginx.conf</code>, either with or without adding <code>daemon off;</code> at the top of <code>/etc/nginx/nginx.conf</code>.  With, it complains this is a duplicate, (despite being recommended on the <a href="https://registry.hub.docker.com/_/nginx">nginx container documentation</a>, though admittedly this already appears in the default command <code>[&quot;nginx&quot; &quot;-g&quot; &quot;daemon off;&quot;]</code>).  Without, the error says that <code>upstream</code> directive is not allowed here. Not sure what to make of these errors, ended up running an ubuntu container and then just installing <code>nginx</code> etc following the digitalocean guide. Ended up dropping the <code>daemon off;</code> from the config file and running <code>service nginx start</code> through <code>supervisord</code> to ensure that the container stays up.  Oh well.</p></li>
+
+<li><p>Note: I got a 502 error when calling <code>curl</code> against the the <code>nginx</code> container-provided URL (with or without SSL enabled), since from inside the <code>nginx</code> container we cannot access the host addresses.  The simplest solution is to add <code>--net=&quot;host&quot;</code> when we <code>docker run</code> the <code>nginx</code> container, but this isn&rsquo;t particularly secure.  Instead, we&rsquo;ll link directly to the ports of the <code>registry</code> container like this:</p></li>
+</ul>
+
+<pre><code class="language-bash">docker run  --name=registry -p 8080:8080 registry
+docker run --name=nginx --net=container:registry nginx
+</code></pre>
+
+<p>Note that we do not need to export the registry port (e.g. <code>-p 5000:5000</code>) at all, but we do need to export the <code>nginx</code> load-balancer port <em>from the <code>registry</code> container</em> first, since we will simply be linking it&rsquo;s network with the special <code>--net=container:registry</code>.</p>
+
+<p>Note that we would probably want to link a local directory to provide persistent storage for the <code>registry</code>; in the above example images committed to registry are lost when the container is destroyed.</p>
+
+<p>We can now log in:</p>
+
+<pre><code class="language-bash">docker login https://&lt;YOUR-DOMAIN&gt;:8080
+</code></pre>
+
+<p>We can now reference our private registry by using its full address in the namespace of the image in commands to <code>docker pull</code>, <code>push</code>, <code>run</code> etc.</p>
+
+<h2 id="migrating-gitlab-between-servers">Migrating gitlab between servers</h2>
+
+<p>This migration was my original motivation to configure the private docker registry; ironically it isn&rsquo;t necessary for this case (though it&rsquo;s useful for the drone image, for instance).</p>
+
+<p>Note that there is no need to migrate the redis and postgresql containers manually.  Migrating the backup file over to the corresponding location in the linked volume and then running the backup-restore is sufficient.  Upgrading is also surprisingly smooth; we can backup (just in case), then stop and remove the container (leaving the <code>redis</code> and <code>postgresql</code> containers running), pull and relaunch with otherwise matched option arguments and the upgrade runs automatically.</p>
+
+<p>When first launching the <code>gitlab</code> container on a tiny droplet running coreos, my droplet seems invariably to hang.  Rebooting from the digitalocean terminal seems to fix this. A nice feature of <code>fleet</code> is that all the containers are restarted automatically after reboot, unlike when running these directly from <code>docker</code> on my ubuntu machine.</p>
+
+<h2 id="notes-on-fleet-unit-files">Notes on fleet unit files ##</h2>
+
+<p>Fleet unit files are actually pretty handy and straight forward.  One trick is that we must quote commands in which we want to make use of environmental variables. For instance, one must write:</p>
+
+<pre><code>Environment=&quot;VERSION=1.0&quot;
+ExecStart=/bin/bash -c &quot;/usr/bin/docker run image:${VERSION}&quot;
+</code></pre>
+
+<p>in a <code>Service</code> block, rather than <code>ExecStart=/usr/bin/docker run ...</code> directly, for the substitution to work. It seems if we are using the more standard practice of environment files (which after all is the necessary approach to avoid having to edit the unit file directly one way or another anyway), we can avoid the <code>bin/bash</code> wrapper and insert the environment reference directly.</p>
+
+<p>If we&rsquo;re not doing anything fancy wrt load balancing between different servers, we don&rsquo;t have that much use for the corresponding &ldquo;sidekick&rdquo; unit files that keep our global <code>etcd</code> registry up to date. Perhaps these will see more use later.</p>
+
+<h2 id="cloud-config">Cloud-config</h2>
+
+<p>Note that we need to refresh the discovery url pretty-much anytime we completely destroy the cluster.</p>
+
+<p>A few edits to my cloud-config to handle initiating swap, essential for running most things (gitlab, rstudio) on tiny droplets. Still requires one manual reboot for the allocation to take effect. Adds this to the <code>units</code> section of <code>#cloud-config</code>:</p>
+
+<pre><code>    ## Configure SWAP as per https://github.com/coreos/docs/issues/52
+    - name: swap.service
+      command: start
+      content: |
+        [Unit]
+        Description=Turn on swap
+
+        [Service]
+        Type=oneshot
+        Environment=&quot;SWAPFILE=/1GiB.swap&quot;
+        RemainAfterExit=true
+        ExecStartPre=/usr/sbin/losetup -f ${SWAPFILE}
+        ExecStart=/usr/bin/sh -c &quot;/sbin/swapon $(/usr/sbin/losetup -j ${SWAPFILE} | /usr/bin/cut -d : -f 1)&quot;
+        ExecStop=/usr/bin/sh -c &quot;/sbin/swapoff $(/usr/sbin/losetup -j ${SWAPFILE} | /usr/bin/cut -d : -f 1)&quot;
+        ExecStopPost=/usr/bin/sh -c &quot;/usr/sbin/losetup -d $(/usr/sbin/losetup -j ${SWAPFILE} | /usr/bin/cut -d : -f 1)&quot;
+
+        [Install]
+        WantedBy=local.target
+
+    - name: swapalloc.service
+      command: start
+      content: |
+        [Unit]
+        Description=Allocate swap
+
+        [Service]
+        Type=oneshot
+        ExecStart=/bin/sh -c &quot;sudo fallocate -l 1024m /1GiB.swap &amp;&amp; sudo chmod 600 /1GiB.swap &amp;&amp; sudo chattr +C /1GiB.swap &amp;&amp; sudo mkswap /1GiB.swap&quot;
+
+</code></pre>
+
+<p>More probably be structured more elegantly, but it works.  (Not much luck trying to tweak this into a bunch of <code>ExecStartPre</code> commands though.</p>
+
+<h2 id="nfs-sharing-on-coreos">NFS sharing on CoreOS?</h2>
+
+<p>Couldn&rsquo;t figure this one out.  <a href="http://serverfault.com/questions/647014/share-disks-through-nfs-on-a-coreos-cluster">My SO Q here</a></p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2014-11-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Nov 24, 2014
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/computing">computing</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/infrastructure">infrastructure</a
+    >, 
+    
+    <a href="../../../../tags/docker">docker</a
+    >, 
+    
+    <a href="../../../../tags/coreos">coreos</a
+    >, 
+    
+    <a href="../../../../tags/digitalocean">digitalocean</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/11/26/coreos-cluster-gotchas/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/11/19/coreos-and-other-infrastructure-notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-11-24-coreos-docker-registries-etc.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-11-24-coreos-docker-registries-etc.md">8b51c8d4c</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2014\/11\/24\/coreos-docker-registries-etc\/';
+    var disqus_title = '';
+    var disqus_url = '\/2014\/11\/24\/coreos-docker-registries-etc\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

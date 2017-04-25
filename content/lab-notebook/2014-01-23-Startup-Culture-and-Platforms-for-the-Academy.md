@@ -1,9 +1,10 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-01-23T00:00:00Z
 tags:
 - blog
-
+url: /2014/01/23/Startup-Culture-and-Platforms-for-the-Academy/
 ---
 
 ## Scientific Research: Moving beyond bubbles to platforms.

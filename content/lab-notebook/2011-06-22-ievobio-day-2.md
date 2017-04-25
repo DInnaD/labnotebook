@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-06-22 23:44:58
-layout: post
-slug: ievobio-day-2
-title: '#ievobio Day 2'
-redirects: [/wordpress/archives/2044, /archives/2044]
 categories:
 - evolution
+comments: true
+date: 2011-06-22T23:44:58Z
+redirects:
+- /wordpress/archives/2044
+- /archives/2044
+slug: ievobio-day-2
 tags:
 - conference
 - ropensci
+title: '#ievobio Day 2'
+url: /2011/06/22/ievobio-day-2/
 ---
 
 Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it's way to the web:

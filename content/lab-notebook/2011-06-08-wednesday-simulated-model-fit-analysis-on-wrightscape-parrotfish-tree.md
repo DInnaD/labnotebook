@@ -1,19 +1,19 @@
 ---
-comments: true
-date: 2011-06-08 13:03:15
-layout: post
-slug: wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree
-title: 'Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree'
-redirects: [/wordpress/archives/1937, /archives/1937]
 categories:
 - evolution
+comments: true
+date: 2011-06-08T13:03:15Z
+redirects:
+- /wordpress/archives/1937
+- /archives/1937
+slug: wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree
 tags:
 - hpc
+title: 'Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree'
+url: /2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/
 ---
 
-
-	
-  * Reviewed last night's simulations, see yesterday's post.
+* Reviewed last night's simulations, see yesterday's post.
 
 
 

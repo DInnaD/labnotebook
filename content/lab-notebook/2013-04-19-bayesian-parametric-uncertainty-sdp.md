@@ -1,16 +1,12 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+code: true
+date: 2013-04-19T00:00:00Z
 tags:
 - nonparametric-bayes
-code: yes
+url: /2013/04/19/bayesian-parametric-uncertainty-sdp/
 ---
-
-
-
-
-
-
 
 Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see [earlier notes](http://carlboettiger.info/2013/04/12/parametric-bayesian-example.html)) to the stochastic dynamic programming solution for the optimal policy.  Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.  
 

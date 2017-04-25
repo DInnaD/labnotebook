@@ -1,9 +1,10 @@
 ---
-layout: post
-categories: [ecology]
+categories:
+- ecology
+date: 2014-08-14T00:00:00Z
 tags:
 - pdg-control
-
+url: /2014/08/14/pdg-controlfest-notes/
 ---
 
 Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.

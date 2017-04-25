@@ -1,9 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: [multiple-uncertainty]
+categories:
+- ecology
+date: 2012-11-16T00:00:00Z
+tags:
+- multiple-uncertainty
 title: Multiple uncertainty corrected
-
+url: /2012/11/16/mult-uncertainty/
 ---
 
 Fixed the [multiple uncertainty calculation](http://www.carlboettiger.info/2012/11/01/multiple-uncertainty-corrections.html) implementation.  Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices.  Should still confirm final implementation.  In the below example each case has log-normal growth noise present.  The non-monotonic section of the measurement uncertainty

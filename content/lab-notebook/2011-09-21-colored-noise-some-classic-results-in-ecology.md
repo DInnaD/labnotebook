@@ -1,13 +1,16 @@
 ---
-comments: true
-date: 2011-09-21 13:20:52
-layout: post
-slug: colored-noise-some-classic-results-in-ecology
-title: 'Colored noise: some classic results in ecology'
-redirects: [/wordpress/archives/2699, /archives/2699]
 categories:
 - ecology
-tags: [colored-noise]
+comments: true
+date: 2011-09-21T13:20:52Z
+redirects:
+- /wordpress/archives/2699
+- /archives/2699
+slug: colored-noise-some-classic-results-in-ecology
+tags:
+- colored-noise
+title: 'Colored noise: some classic results in ecology'
+url: /2011/09/21/colored-noise-some-classic-results-in-ecology/
 ---
 
 Some of my early notes & derivations on the impact of red environmental noise on population dynamics as pdf:

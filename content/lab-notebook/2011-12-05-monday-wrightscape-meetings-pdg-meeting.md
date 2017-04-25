@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2011-12-05 18:45:32
-layout: post
-slug: monday-wrightscape-meetings-pdg-meeting
-title: Monday - wrightscape meetings, PDG meeting
-redirects: [/wordpress/archives/3472, /archives/3472]
 categories:
 - evolution
 - ecology
-tags: 
+comments: true
+date: 2011-12-05T18:45:32Z
+redirects:
+- /wordpress/archives/3472
+- /archives/3472
+slug: monday-wrightscape-meetings-pdg-meeting
+tags:
 - pdg-control
 - wrightscape
+title: Monday - wrightscape meetings, PDG meeting
+url: /2011/12/05/monday-wrightscape-meetings-pdg-meeting/
 ---
 
 Wrightscape -- added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.

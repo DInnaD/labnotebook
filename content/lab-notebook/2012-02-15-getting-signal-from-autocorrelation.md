@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-15 19:40:26
-layout: post
-slug: getting-signal-from-autocorrelation
-title: getting signal from autocorrelation
-redirects: [/wordpress/archives/3885, /archives/3885]
 categories:
 - ecology
+comments: true
+date: 2012-02-15T19:40:26Z
+redirects:
+- /wordpress/archives/3885
+- /archives/3885
+slug: getting-signal-from-autocorrelation
 tags:
 - warning-signals
+title: getting signal from autocorrelation
+url: /2012/02/15/getting-signal-from-autocorrelation/
 ---
 
 This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain **some** signal of early warning.  ((Post markdown generated automatically from knitr.))

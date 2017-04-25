@@ -1,8 +1,10 @@
 ---
-layout: post
-category: ecology
-tags: [nonparametric-bayes]
-
+categories:
+- ecology
+date: 2012-12-20T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2012/12/20/results-comparing-gp-to-parametric/
 ---
 
 Comparison of the Gaussian process inference to the true optimum and a parametric estimate.   

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-08-08T00:00:00Z
+tags:
+- warning-signals
 title: Warning Signals
+url: /2010/08/08/Warning-Signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Working on implementation of the the TwoRates model looking for
     changepoint:

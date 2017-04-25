@@ -1,12 +1,12 @@
 ---
-layout: post
-title: "Is it time to retire Pagel's lambda?"
-category: evolution
-tags: 
+categories:
+- evolution
+date: 2013-10-11T00:00:00Z
+tags:
 - blog
-
+title: Is it time to retire Pagel's lambda?
+url: /2013/10/11/is-it-time-to-retire-pagels-lambda/
 ---
-
 
 Pagel's $\lambda$ (lambda), introduced in [Pagel 1999](http://doi.org/10.1038/44766 "Inferring the historical patterns of biological evolution. in Nature.") as a potential measure of "phylogenetic signal," the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).  
 

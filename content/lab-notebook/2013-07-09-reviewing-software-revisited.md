@@ -1,10 +1,11 @@
 ---
+categories:
+- open-science
+date: 2013-07-09T00:00:00Z
 subtitle: Great ideas from the Journal of Open Research Software
-layout: post
-category: open-science
 tags:
-- blog 
-
+- blog
+url: /2013/07/09/reviewing-software-revisited/
 ---
 
 Several weeks ago I wrote a [post](/2013/06/13/what-I-look-for-in-software-papers.html) describing issues I commonly raise when reviewing software papers. This provoked a lively discussion among authors, editors, and other reviewers of software papers (most of us having been on at least both reviewing and authoring end), with quite varied perspectives as to whether such criteria were appropriate in this context.  As I describe there, I view the concept of dedicated software papers as a somewhat necessary "hack" of the publishing system, and hope a more mature system will eventually come into place, as is now happening for data through efforts such as [Dryad](http://datadryad.org) and associated journal archiving requirements.  

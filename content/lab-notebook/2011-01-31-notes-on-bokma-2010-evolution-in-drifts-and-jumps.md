@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-01-31 12:15:45
-layout: post
-slug: notes-on-bokma-2010-evolution-in-drifts-and-jumps
-title: 'Notes on Bokma 2010: evolution in drifts and jumps'
-redirects: [/wordpress/archives/886, /archives/886]
 categories:
 - evolution
+comments: true
+date: 2011-01-31T12:15:45Z
+redirects:
+- /wordpress/archives/886
+- /archives/886
+slug: notes-on-bokma-2010-evolution-in-drifts-and-jumps
+title: 'Notes on Bokma 2010: evolution in drifts and jumps'
+url: /2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps/
 ---
 
 [Bokma 2010](http://dx.doi.org/10.1093/sysbio/syq029) asks if there is an analytic expression for the likelihood in the evolutionary model he describes.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,104 +140,103 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/still-puzzling-on-lr.html">Still puzzling on LR</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/25/research/">Research</a></h2>
+    <h4>Thu, Mar 25, 2010</h4>
     <div class="article-style">
+      
+      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/still-writing.html">Still writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/24/parallel-r/">Parallel R</a></h2>
+    <h4>Wed, Mar 24, 2010</h4>
     <div class="article-style">
+      
+      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/stochastic-policy-costs.html">Stochastic policy costs</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/23/bootstrapping-likelihood-ratios/">Bootstrapping Likelihood ratios</a></h2>
+    <h4>Tue, Mar 23, 2010</h4>
     <div class="article-style">
       
-      Updated runs for various norms, added profit plots.
- L1 L2 asymmetric: differs on the sign of the asymmetry? Penalty only for decreasing quotas. Penalty only for increasing quotas. check implementation. fixed transaction fee &ndash; whoops, fixed cost should still be free when h == h_prev.  We need to determine a the magnitude of penalty coefficient to compare between the different functional forms. For instance, for what value of c is an L2 penalty, $ c ( h_t - h_p )^2 $ comparable to the L1 penalty, $ c \operatorname{abs}(h_t - h_p ) $ ?
+      Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
+&gt; summary(anoles_boots) [,1] [,2] [,3] [,4] [,5] [1,] 0.500000000 0.981399498 0.26514573 0.06668672 0.018154938 [2,] 0.009580545 0.500000000 0.15610274 0.04819938 0.011616566 [3,] 0.039233893 0.075349644 0.50000000 0.05699877 0.005443493 [4,] 0.004211230 0.004592917 0.01389950 0.50000000 0.006648916 [5,] 0.173457542 0.198303402 0.38893099 0.33891430 0.500000000 &gt;  Labrids: &gt; summary(labrid_boots) [,1] [,2] [,3] [,4] [1,] 0.5000000 6.036842e-05 0.0000000 0.0 [2,] 0.5424613 5.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/structured-population-dynamics.html">Structured Population Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/22/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
+    <h4>Mon, Mar 22, 2010</h4>
     <div class="article-style">
       
-      Beetle Model Macroscopic equations:
-Has the corresponding variance-covariance dynamics
-Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
-General Form &amp; Algorithm Consider the dynamics are given by
-and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
+      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/summary-of-structured-population-noise-so-far.html">Summary of Structured Population noise so far</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/20/research/">Research</a></h2>
+    <h4>Sat, Mar 20, 2010</h4>
     <div class="article-style">
       
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
+      Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/summer-review.html">Summer Review</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/19/research/">Research</a></h2>
+    <h4>Fri, Mar 19, 2010</h4>
     <div class="article-style">
+      
+      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging.html">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/18/research/">Research</a></h2>
+    <h4>Thu, Mar 18, 2010</h4>
     <div class="article-style">
       
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
+      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/the-lab-notebook-goes-open.html">The Lab Notebook Goes Open</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/17/research/">Research</a></h2>
+    <h4>Wed, Mar 17, 2010</h4>
     <div class="article-style">
       
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
+      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/thursday.html">Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/16/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Tue, Mar 16, 2010</h4>
     <div class="article-style">
+      
+      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
+Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/thursday.html">Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/15/computing/">Computing</a></h2>
+    <h4>Mon, Mar 15, 2010</h4>
     <div class="article-style">
       
-      Alan will write introduction to manuscript. Schedule meeting for next week. Scheduling the Hastings lab meeting doodle Coordinate with Baskett lab  Resources for ABC / Bayesian inference in ecological and spatial context workshop  Sisson Sa, Fan Y, Tanaka MM. Sequential Monte Carlo without likelihoods. Proceedings of the National Academy of Sciences of the United States of America. 2007;104(6):1760-5. Available at: <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract</a>. de Valpine P, Hastings A. Fitting Population Models Incorporating Process Noise and Observation Error.
+      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
       
     </div>
   </div>

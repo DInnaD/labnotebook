@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-08 22:21:34
-layout: post
-slug: practice-sicb-presentation
-title: Practice SICB Presentation
-redirects: [/wordpress/archives/553, /archives/553]
 categories:
 - evolution
+comments: true
+date: 2010-12-08T22:21:34Z
+redirects:
+- /wordpress/archives/553
+- /archives/553
+slug: practice-sicb-presentation
+title: Practice SICB Presentation
+url: /2010/12/08/practice-sicb-presentation/
 ---
 
 Gave my practice talk for Society for Integrative and Comparative Biology in Wainwright lab this afternoon, after (not quite) finishing the presentation.  Trying to figure out the best way to introduce these ideas to a broad audience (same challenge as with the manuscript).

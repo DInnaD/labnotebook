@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-03-26 23:28:00
-layout: post
-title: Saturday-- Appendices
 categories:
-- ecology 
+- ecology
+comments: true
+date: 2011-03-26T23:28:00Z
 tags:
 - warning-signals
 - delayed-release
+title: Saturday-- Appendices
+url: /2011/03/26/saturday-appendices/
 ---
 
 ## Appendices

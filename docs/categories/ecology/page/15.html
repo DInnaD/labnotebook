@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,113 +141,119 @@
   
   
   <div>
-    <h2><a href="../../../2011/05/22/sunday.html">Sunday</a></h2>
-    <h4>Sun, May 22, 2011</h4>
+    <h2><a href="../../../2012/12/10/prior-distributions-for-tgp-mcmc/"></a></h2>
+    <h4>Mon, Dec 10, 2012</h4>
     <div class="article-style">
       
-      Reading  International Symposium on Biomathematics and Ecology: Education and Research &ndash; This looks excellent, wonder if I can make it. Besides, it&rsquo;s in Portland and the acronym is promising. Pacific Ecoinformatics and Computational Ecology Lab - Based in Berkeley, looks rather intriguing, hard to tell how active this is as a group. Ecoinformatics? So it does exist? Paraphrasing Jeremy Fox, has it done anything? A rather nice review in ARES: (Jones et.
+      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
+Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
+$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
+And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data.html">End of NCEAS &amp; the legacy of synthetic data</a></h2>
-    <h4>Sun, May 22, 2011</h4>
+    <h2><a href="../../../2012/12/05/notes/"></a></h2>
+    <h4>Wed, Dec 5, 2012</h4>
     <div class="article-style">
       
-      The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
- that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
+      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
+ Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/03/monday-3.html">Monday</a></h2>
-    <h4>Tue, May 3, 2011</h4>
+    <h2><a href="../../../2012/12/04/tgp-mcmc-for-gaussian-processes/"></a></h2>
+    <h4>Tue, Dec 4, 2012</h4>
     <div class="article-style">
       
-      Today:
- Application for CPB travel funds. DONE
- Faxed receipts from Felsenstein&rsquo;s visit. DONE
-  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
-Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
+      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
+Example call:
+gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
+n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/28/thursday-reading-notes.html">Reading Notes, presentation prep treebase error handling</a></h2>
-    <h4>Thu, Apr 28, 2011</h4>
+    <h2><a href="../../../2012/12/03/figures-3-and-4-for-policycosts/"></a></h2>
+    <h4>Mon, Dec 3, 2012</h4>
     <div class="article-style">
       
-      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
+      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
+Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/19/early-warning-signals-in-coral-dynamics----economic-analysis-of-risk.html">Early Warning Signals in Coral Dynamics -- Economic analysis of risk</a></h2>
-    <h4>Tue, Apr 19, 2011</h4>
+    <h2><a href="../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h2>
+    <h4>Wed, Nov 28, 2012</h4>
     <div class="article-style">
       
-      Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico. Our current work focuses on quantifying the relative risk of false alarms and missed detections. While statisticians typically accept a 5% &ldquo;false alarm&rdquo; rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.
+      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
+Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/18/thursday-submitting-warning-signals-manuscript.html">Thursday: submitting warning signals manuscript</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
+    <h2><a href="../../../2012/11/27/policy-costs-work/"></a></h2>
+    <h4>Tue, Nov 27, 2012</h4>
     <div class="article-style">
+      
+      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
+ Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/13/weds-final-round-edits.html">Weds: Final round edits</a></h2>
-    <h4>Wed, Apr 13, 2011</h4>
+    <h2><a href="../../../2012/11/22/notes/"></a></h2>
+    <h4>Thu, Nov 22, 2012</h4>
     <div class="article-style">
+      
+      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+Uniform lognormal log  A few small tweaks to probability calculations
+ Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/12/tuesday-manuscript-and-appendix-edits.html">Tuesday: manuscript and appendix edits</a></h2>
-    <h4>Tue, Apr 12, 2011</h4>
+    <h2><a href="../../../2012/11/21/notes/"></a></h2>
+    <h4>Wed, Nov 21, 2012</h4>
     <div class="article-style">
       
-      Today&rsquo;s log  Edited cover letter summary for public.
- Soliciting feedback on examples in manuscript vs appendix, see Monday&rsquo;s entry. (Entry posted, images added to flickr database)
- Jeff fixed the double-post bug in twitteR, tested update.
- Improved initialization estimates for LSN model in fit_models (code), as identified &amp; discussed in Sunday&rsquo;s entry. Needs testing on a unit case, trying on ibm_analysis.R now&hellip; seems to work fine.
+      writing comment piece. writing writing writing.
+  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/11/monday-warning-signals-updated-graphs.html">Monday: Warning Signals - Updated graphs</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
+    <h2><a href="../../../2012/11/19/sequential-updating/"></a></h2>
+    <h4>Mon, Nov 19, 2012</h4>
     <div class="article-style">
       
-      Trying a different set-up for the graphs. Added two additional datasets, trying layout of making all three figures into a panels in a single figure.
-Concerns:
- Better than only one empirical example, but not sure that the three Glaciation data sets add that much since they are all quite similar. Five panels wide might be too much. Don&rsquo;t have an example where a transition is about to occur but the data doesn&rsquo;t have adequate power even for our Likelihood method, third panel.
+      Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
+for the covariance:
+C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
+mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/11/sunday-warning-signals-edits-continue.html">Sunday: Warning signals edits continue</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
+    <h2><a href="../../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h2>
+    <h4>Fri, Nov 16, 2012</h4>
     <div class="article-style">
       
-      Marissa edits &ndash; Nearly done
- Single-figure layout &ndash; DONE
- equations in appendix &ndash; DONE
- convergence / likelihood agreement between constOU and constLSN (Done, see below; consider using for a better initial-condition guessing routine for better convergence)
- Reformulate transcritical bifurcation?
- Rewrite cover letter
-   load(&quot;5598226674.Rdat&quot;) require(warningsignals) OU &lt;- deterior_mc$null LSN &lt;- deterior_mc$test LSN_OU &lt;- updateGauss(const_LSN, OU$pars, OU$X) c(OU$loglik, LSN$loglik, LSN_OU$loglik) [1] -1038.510 -1142.539 -1162.
+      Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
+See notes on code changes inline.
+Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
       
     </div>
   </div>

@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-07-14 09:34:31
-layout: post
-slug: the-case-for-better-data-citation-practices
-title: The Case for Better Data Citation Practices?
-redirects: [/wordpress/archives/2180, /archives/2180]
 categories:
 - open-science
+comments: true
+date: 2011-07-14T09:34:31Z
+redirects:
+- /wordpress/archives/2180
+- /archives/2180
+slug: the-case-for-better-data-citation-practices
+title: The Case for Better Data Citation Practices?
+url: /2011/07/14/the-case-for-better-data-citation-practices/
 ---
 
 An excellent question came up on ecoinformatics list today on data citation from Kyle Kwaiser at the Michigan Biological Station

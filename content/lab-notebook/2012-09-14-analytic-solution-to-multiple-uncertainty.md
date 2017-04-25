@@ -1,13 +1,13 @@
 ---
-layout: post 
-categories: [ecology]
-tags: 
+categories:
+- ecology
+code: true
+date: 2012-09-14T00:00:00Z
+tags:
 - decision-theory
 - multiple-uncertainty
-code: true
+url: /2012/09/14/analytic-solution-to-multiple-uncertainty/
 ---
-
-
 
 *No idea where I went wrong, but the final graphs are not what I expected*
 *Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions*

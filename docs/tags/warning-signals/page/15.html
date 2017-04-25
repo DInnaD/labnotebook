@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,105 +141,115 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/28/warning-signals-on-real-data-continued/">Warning Signals on Real data continued</a></h2>
+    <h4>Mon, Feb 28, 2011</h4>
     <div class="article-style">
       
-      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
-I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
+      Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos et. al. 2008). After adjusting my code to deal with variably spaced sampling intervals, I reread the supplement &ndash; I had forgotten that they don&rsquo;t actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.
+Obviously this is not ideal. It is true that the autocorrelation would be impacted by non-equally spaced data, while there is no reason to do so for the variance indicator.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/27/warning-signals-on-real-data/">Warning Signals on Real Data?</a></h2>
+    <h4>Sun, Feb 27, 2011</h4>
     <div class="article-style">
       
-      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
-Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
+      Grabbed the data used in (Dakos et. al. 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit et. al. 1999), showing transitions into the last several ice ages, and calcium carbonate from Eocene &ldquo;greenhouse&rdquo; climate (Tripati et. al. 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000). Data is all freely provided through NOAA.
+ CaCO3 data file (Tripati et. al. 2005), NOAA entry.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/23/esa-2011-abstract/">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h2>
+    <h4>Wed, Feb 23, 2011</h4>
     <div class="article-style">
       
-      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
-Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      Just submitted my abstract to for an oral presentation at the Ecological Society of America 2011 meeting in Austin, based on my recent work on early warning signals. Here it is:
+Limits to Detection of Early Warning Signals of Population Collapse Background/Question/Methods The recognition that ecosystems can undergo sudden shifts to alternate, less desirable stable states has led to the desire to identify early warning signs of these impending collapses.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/16/weds-framing-warning-signals-manuscript/">Weds &amp; Framing warning signals manuscript</a></h2>
+    <h4>Wed, Feb 16, 2011</h4>
     <div class="article-style">
       
-      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
-function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
+      Alan Meeting, 10a Good meeting discussing warning signals manuscript details and organization. Particularly on the best way to present some of the major conceptual and semantic elements: there are many ways to describe the same thing, each of which carries a lot of semantic baggage.
+Do we choose to present this as:
+As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produced by the MLE model of no stability loss), hypothesis = there is (distribution produced by, MLE model with stability loss) determine p value for falsely rejecting the null and the power of the statistical test.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/14/monday/">Monday</a></h2>
+    <h4>Mon, Feb 14, 2011</h4>
     <div class="article-style">
       
-      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
+      Excellent CPB visiting weekend with perspective students Thurs evening - Sunday morning. Hosting students, etc doesn&rsquo;t make for much of a research entry Friday. Catching up with many things today.
+ ESA registration. Topics, Abstract
+ Checking in with Alan
+ Data workshop: create &amp; post advertisement, map out subject areas
+ Reading: Syst Bio issue
+ Updated pubmed author alerts
+ Checking in with Peter &amp; Graham on revisions
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/04/warning-signals-computing/">Warning signals &amp; hpc</a></h2>
+    <h4>Fri, Feb 4, 2011</h4>
     <div class="article-style">
       
-      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
+      Morning has been rather difficult trying to get simulations up and running. Parallel library isn&rsquo;t running on zero or one, variety of errors that seemed to be machine dependent and reminiscent of the ~./sfCluster problem, 3 hrs of debugging revealed this was indeed just a bug in my updated code. (In changing to my object-oriented simulate.gauss and update.gauss functions rather than calling the specific functions directly I hadn&rsquo;t updated all the function calls).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/02/03/progress-on-warning-signals/">Progress on warning signals</a></h2>
+    <h4>Thu, Feb 3, 2011</h4>
+    <div class="article-style">
+      
+      Going several directions at once in tweaking the warning signals code to make sure I have clear comparisons that are not resulting from any limitations in the numerical algorithms. Performing a variety of error checks, etc:
+ Comparing fixed models vs comparing models estimated from the data
+ Ensure that const model doesn&rsquo;t attempt to estimate m (doesn&rsquo;t impact likelihood anyway
+ Ensure only positive values of sigma are returned (trying use trigger in setLTC and setLSN to return infinite variance if sigma is negative)
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/01/31/warning-signals-indicators-vs-likelihood-continued/">Warning signals: Indicators vs Likelihood continued</a></h2>
+    <h4>Mon, Jan 31, 2011</h4>
+    <div class="article-style">
+      
+      Continuing to explore examples
+Some difficulty in the &ldquo;snowfall&rdquo; parallel computation engine, removing the ~/.sfCluster directory seems to reset the error &ldquo;unable to unserialize nodes&hellip;&ldquo; Also don&rsquo;t have good handling of variable names for tracking the boostrapping of parameters. For the moment have just added a toggle to suppress these to avoid dim mismatch in rownames command. Strange that this happens to the indicator_vs_likelihood code but not to the nearly-identical call to montecarlotest() in lin_bifur_models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/01/28/warning-signals-of-differing-stregths-by-likelihood-and-by-indicator/">Warning signals of differing stregths by likelihood and by indicator</a></h2>
+    <h4>Fri, Jan 28, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/01/27/warning-signals-vs-model-choice/">Warning signals vs model choice</a></h2>
+    <h4>Thu, Jan 27, 2011</h4>
     <div class="article-style">
       
-      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
- pmc functions
-  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
+      Continuing writing and experimentation for examples in the warning signals manuscript, figuring out how to explain the need for the likelihood-based model comparison approach rather than the standard method of summary statistics.
+The traditional approach computes a particular &ldquo;leading indicator&rdquo;, such as variance or autocorrelation, in a sliding window along the time series. If the system is loosing stability approaching a bifurcation, it&rsquo;s leading eigenvalue must go through zero and hence shows critical slowing down, with the associated pattern of increasing autocorrelation an increasing variance.
       
     </div>
   </div>

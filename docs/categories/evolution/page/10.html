@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,113 +141,111 @@
   
   
   <div>
-    <h2><a href="../../../2011/04/28/thursday-reading-notes.html">Reading Notes, presentation prep treebase error handling</a></h2>
-    <h4>Thu, Apr 28, 2011</h4>
+    <h2><a href="../../../2011/06/03/friday-5/">Friday</a></h2>
+    <h4>Fri, Jun 3, 2011</h4>
     <div class="article-style">
       
-      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
+      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/27/wednesday-4.html">Wednesday</a></h2>
-    <h4>Wed, Apr 27, 2011</h4>
+    <h2><a href="../../../2011/05/31/tuesday-5/">Tuesday: PMC, confidence intervals; screen code-tricks</a></h2>
+    <h4>Tue, May 31, 2011</h4>
     <div class="article-style">
       
-      7:30-9:30 Review for Theoretical Ecology
- Profiling wrightscape   Compile with profiling (-g -pg flags, in make profile). Run
-valgrind &ndash;leak-check-full ./wrightscape.exe  to remove memory links. Run
-valgrind &ndash;tool=callgrind kcachegrind callgrind.out.&lt;###&gt;  For profiling information
-Troubleshooting implementation of restricted-domain functions. Cannot be wright_tree since they have to know their likelihood method. Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.
+      PMC  Final read through of manuscript from me and Peter.
+ Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
+sqrt(diag(solve(out$hessian)))
+ See conf_interval_ex.R. i.e for Geospiza tree is:
+[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/26/accessing-phylognenies-in-ropensci-from-r.html">Accessing phylognenies in TreeBASE from R</a></h2>
-    <h4>Tue, Apr 26, 2011</h4>
+    <h2><a href="../../../2011/05/30/monday-6/">Monday</a></h2>
+    <h4>Mon, May 30, 2011</h4>
     <div class="article-style">
       
-      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
+      Power in Phylogenies Paper (PMC)  Working through / incorporated Graham&rsquo;s edits Added confidence intervals discussion tweaks to associated pmc package Exploring confidence intervals (and lack thereof) in literature on comparative methods. Pagel (1999) (Pagel, 1999) includes them, but few other papers do. He does not include any discussion about how these are calculated. Seems Sweave makes sense for the recreate-figures code from the cached data-files, but perhaps not for the entire analysis code-base (in demos/).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/25/ropensci-interface-continued.html">TreeBASE interface continued...</a></h2>
-    <h4>Mon, Apr 25, 2011</h4>
+    <h2><a href="../../../2011/05/29/sunday-2/">Sunday</a></h2>
+    <h4>Sun, May 29, 2011</h4>
     <div class="article-style">
       
-      Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
-Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
-Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.
+      Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/24/wrightscape-profiling.html">wrightscape profiling</a></h2>
-    <h4>Sun, Apr 24, 2011</h4>
+    <h2><a href="../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">End of NCEAS &amp; the legacy of synthetic data</a></h2>
+    <h4>Sun, May 22, 2011</h4>
     <div class="article-style">
       
-      Optimization at the R level is substantially slower than at the C level:
-system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
+      The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
+ that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/22/release-of-constraint-in-labrids.html">Release of constraint in labrids?</a></h2>
-    <h4>Fri, Apr 22, 2011</h4>
+    <h2><a href="../../../2011/05/19/algorithms-group-mcmcmc/">Algorithms group: MCMCMC</a></h2>
+    <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
       
-      Started writing outline, assembling references
- Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
- Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
- Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&rsquo;t optimize the likelihood.
+      Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/20/wednesday-3.html">Wednesday</a></h2>
-    <h4>Wed, Apr 20, 2011</h4>
+    <h2><a href="../../../2011/05/19/thursday-5/">Thursday</a></h2>
+    <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
       
-      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
+      Finish and post core notes from yesterday. Debugging locale problem in phylo packages = success. Emmanuel has already patched drop.fossils() in the ape package, will see if Gieger and TreeSim try to handle locale issue directly too. Problem in comparisons:  &gt; Sys.setlocale(locale = &quot;&quot;) # default locale using UTF8 # message deleted &gt; &quot;-1&quot; &gt; 0 [1] TRUE &gt; Sys.setlocale(locale = &quot;C&quot;) # message deleted &gt; &quot;-1&quot; &gt; 0 [1] FALSE   Posted MCMCMC notes from algorithms.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/17/treepar-changing-rates-of-evolution.html">TreePar: changing rates of evolution</a></h2>
-    <h4>Sun, Apr 17, 2011</h4>
+    <h2><a href="../../../2011/05/18/birth-death-tutorial-for-pbg-core/">Birth-death Tutorial for PBG Core</a></h2>
+    <h4>Wed, May 18, 2011</h4>
     <div class="article-style">
       
-      Review &amp; Comments on Article T. Stadler&rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
-The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.
+      Ran a introductory tutorial on birth-death models for phylogenetic trees in R today for Peter Wainwright&rsquo;s section of the Pop Bio Core sequence. Notes below, in a manner that may suggest I was better organized than reality might attest. Luckily the firsties are brilliant&hellip;
+Getting Started Code is shown section by section with results in the following examples. If you prefer, you can download my full code file here, but you will have to comment out my flickr plotting utilities before it will run.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/16/friday-4.html">Friday</a></h2>
-    <h4>Sat, Apr 16, 2011</h4>
+    <h2><a href="../../../2011/05/17/tuesday-3/">Tuesday: Parrotfish results, MCMCMC testing, APIs</a></h2>
+    <h4>Tue, May 17, 2011</h4>
     <div class="article-style">
       
-      Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
- UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.
+      Finished review for TE
+ Shared post on TreeBASE API
+ Reviewed Scott&rsquo;s updates to dryad R API, adjusted formatting.
+ Looking at documentation for the OAI-MPH queries, don&rsquo;t seem to be as rich as Phylo-ws queries. This is why treeBASE metadata searches tend to download the full metadata set into R and query that. Looks like we&rsquo;ll need to take a similar approach to Dryad, as it doesn&rsquo;t seem like there&rsquo;s a way to query the API by author name at all?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/08/ropensci-exploratory-exercises-in-database-driven-phylogenetics.html">TreeBase: exploratory exercises in database-driven phylogenetics</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
+    <h2><a href="../../../2011/05/16/treebase-in-r-a-first-tutorial/">TreeBASE in R: a first tutorial</a></h2>
+    <h4>Mon, May 16, 2011</h4>
     <div class="article-style">
       
-      Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
+      My TreeBASE R package is essentially functional now. Here&rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
+TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.
       
     </div>
   </div>

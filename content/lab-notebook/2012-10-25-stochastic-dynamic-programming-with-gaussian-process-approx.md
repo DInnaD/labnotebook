@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: [nonparametric-bayes]
+categories:
+- ecology
 code: true
-
+date: 2012-10-25T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2012/10/25/stochastic-dynamic-programming-with-gaussian-process-approx/
 ---
-
-
 
 Here we work out an SDP solution of the Reed (1979) using a Gaussian process approximation. In this example the Gaussian process hyper-parameters haven't been tuned, so in principle the solution would perform even better, but this is just for illustrative purposes.  
 

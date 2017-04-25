@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2014-01-15T00:00:00Z
+tags:
 - conference
-
+url: /2014/01/15/ASN-Conference/
 ---
-
 
 **Note:** posting this considerably after the fact as I did not have a chance to make a proper entry during the conference.  
 

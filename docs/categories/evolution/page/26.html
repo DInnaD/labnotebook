@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,53 +141,66 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/23/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Fri, Apr 23, 2010</h4>
     <div class="article-style">
       
-      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
-NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
+      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
+ seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/22/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Thu, Apr 22, 2010</h4>
     <div class="article-style">
       
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
+      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
+ Solution:
+  C++ file mangles names in .so, changing the .C call. to get the object name:
+objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
+ extern C {<br />
+ Problem: Trouble getting R to export the C library to all nodes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/21/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Wed, Apr 21, 2010</h4>
     <div class="article-style">
       
-      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
- Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
- ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
-  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
+      Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/20/waiting-time/"></a></h2>
+    <h4>Tue, Apr 20, 2010</h4>
     <div class="article-style">
       
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
+      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/20/r-sig-phylo/">R-sig-phylo</a></h2>
+    <h4>Tue, Apr 20, 2010</h4>
+    <div class="article-style">
+      
+      A couple interesting discussions on R-sig-phylo   estimating alpha and sigma reliably, knowing when you hit a likelihood ridge. See discussion. strange behavior in ace. Tried new ace function, same problem.<br />
+Research  Working on logs paper Waiting on Primate data Waiting on feedback on Labrids paper<br />
+DoE Conference Registration  Submitted Poster title and abstract corresponding to my iEvoBio proposal.  Reading  podcast on the Science Careers story.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/04/19/research/">Research</a></h2>
+    <h4>Mon, Apr 19, 2010</h4>
     <div class="article-style">
       
       Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
@@ -198,50 +211,40 @@ Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic me
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/roi-and-sam-comparative-phylogenetics-r-workshop.html">Roi and Sam Comparative Phylogenetics R Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/18/maticce/">MATICCE</a></h2>
+    <h4>Sun, Apr 18, 2010</h4>
     <div class="article-style">
       
-      Day 2: 4p - 6:30p  Attending the R workshop by Roi Holzmann and Sam Price from the Wainwright lab. Missed the introductory session on Monday. Course data currently available here. Resources: Springer R books pdfs available through UC Davis. In particular: R book w/ ape.  Speciation &amp; Diversification 3rd session (4:10 - 5:10 pm): Packages: Laser, Geiger, Ape, apTreeshape &amp; Diversitree
- Lineage through time plots ape and laser:   ltt.
+      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
+The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
+runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/solution-to-the-strange-behavior-in-ouch.html">Solution to the strange behavior in ouch</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/16/ievobio-submission/">iEvoBio Submission</a></h2>
+    <h4>Fri, Apr 16, 2010</h4>
     <div class="article-style">
       
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
-
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
+      Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status---thoughts.html">Status - Thoughts</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/15/branching-paper/"></a></h2>
+    <h4>Thu, Apr 15, 2010</h4>
     <div class="article-style">
       
-      Goal: BM vs OU vs proposed multipeak OU model with and without global alpha/sigma. Anoles dataset, carex dataset, labrids?
- Added ape2ouch_all function based on maticce to convert file formats. Might be worth checking against my current implementation. Meanwhile it&rsquo;s really the converting trees back from ouch to ape that gives the ace function trouble. something about ordering of the nodes, even though that shouldn&rsquo;t matter in the phylo format.
+      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/status-update.html">Status update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/still-puzzling-on-lr.html">Still puzzling on LR</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/14/wednesday/">Wednesday</a></h2>
+    <h4>Wed, Apr 14, 2010</h4>
     <div class="article-style">
       
     </div>

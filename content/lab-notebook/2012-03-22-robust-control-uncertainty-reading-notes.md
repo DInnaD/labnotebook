@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-22 18:19:17
-layout: post
-slug: robust-control-uncertainty-reading-notes
-title: Robust control & uncertainty - reading notes
-redirects: [/wordpress/archives/4345, /archives/4345]
 categories:
 - ecology
+comments: true
+date: 2012-03-22T18:19:17Z
+redirects:
+- /wordpress/archives/4345
+- /archives/4345
+slug: robust-control-uncertainty-reading-notes
 tags:
 - reading
+title: Robust control & uncertainty - reading notes
+url: /2012/03/22/robust-control-uncertainty-reading-notes/
 ---
 
 Ecologists/TREE (Fischer _et. al._ 2009), (Polasky _et. al._ 2011)  give a nice overview/introduction to the problem.  Perhaps most interestingly, both set up resilience approaches as a foil or alternate approach in contrast to a decision-theoretic problem. Fischer's group does a particularly nice job handling the case that these two are separate approaches -- it's easy to dismiss resilience thinking as fuzzy optimization of fuzzy objective functions.

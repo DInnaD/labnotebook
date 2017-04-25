@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-19 19:51:34
-layout: post
-slug: fri-extending-geiger-to-monte-carlo-method
-title: 'Fri: extending Geiger to Monte Carlo method'
-redirects: [/wordpress/archives/356, /archives/356]
 categories:
 - evolution
+comments: true
+date: 2010-11-19T19:51:34Z
+redirects:
+- /wordpress/archives/356
+- /archives/356
+slug: fri-extending-geiger-to-monte-carlo-method
+title: 'Fri: extending Geiger to Monte Carlo method'
+url: /2010/11/19/fri-extending-geiger-to-monte-carlo-method/
 ---
 
 Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate().  A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:

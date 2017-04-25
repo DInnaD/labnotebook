@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-08 22:33:42
-layout: post
-slug: monday-and-some-phylogenetics
-title: Monday and some phylogenetics
-redirects: [/wordpress/archives/267, /archives/267]
 categories:
 - evolution
+comments: true
+date: 2010-11-08T22:33:42Z
+redirects:
+- /wordpress/archives/267
+- /archives/267
+slug: monday-and-some-phylogenetics
+title: Monday and some phylogenetics
+url: /2010/11/08/monday-and-some-phylogenetics/
 ---
 
 Working on paper revisions.  Added a separate demo file just for generating the figures and analysis used in the manuscript, called [likelihood_manuscript.R](https://github.com/cboettig/Comparative-Phylogenetics/blob/f9a315db7fde5f1b7d355c3efeec394c8bb053be/demos/likelihoodratio_manuscript_examples.R) Need to clean and reorganize the package files and demos.

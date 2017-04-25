@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-11 20:47:51
-layout: post
-slug: thursday-post-predictive-verification-exploration-writing-and-figures
-title: 'Thursday: Post-predictive verification exploration; writing and figures'
-redirects: [/wordpress/archives/299, /archives/299]
 categories:
 - evolution
+comments: true
+date: 2010-11-11T20:47:51Z
+redirects:
+- /wordpress/archives/299
+- /archives/299
+slug: thursday-post-predictive-verification-exploration-writing-and-figures
+title: 'Thursday: Post-predictive verification exploration; writing and figures'
+url: /2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/
 ---
 
 ### On Post-predictive Verification

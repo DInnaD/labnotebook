@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/05/21/comforting-trends-in-scientific-software-use/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p><strong>Author&rsquo;s Note</strong>:
+Having refrained from actually posting this for 8 months, as I think I have quite mellowed more my critique. I do believe that education and peer review are the best way forward in tackling these issues, but cannot overstate how much of a long and rocky road that process will be.  The Mozilla Science Foundation is really leading these efforts with their code review pilots (as I have discussed in posts since writing this), and through their work with Software Carpentry training. Still, I leave this post as a bookmark of my intial thoughts and a reminder of these challenges.</p>
+
+<p>Consider reading these other posts on software review and training:</p>
+
+<ul>
+<li><a href="http://carlboettiger.info/2013/09/25/mozilla-software-review.html">Reflections on the Mozilla Code Review Pilot</a> (phase 1)</li>
+<li>ISEES Meeting software lifecycle: <a href="http://carlboettiger.info/2013/08/13/ISEES-Day-1.html">Day 1</a>, <a href="http://carlboettiger.info/2013/08/14/ISEES-day-2.html">Day 2</a></li>
+
+<li><p>ISEES Software training <a href="http://carlboettiger.info/2013/09/10/ISEES-training-workshop-day-1.html">Day 1</a>, <a href="http://carlboettiger.info/2013/09/11/ISEES-Workforce-Development-Day-2.html">Day 2</a></p></li>
+
+<li><p><a href="http://carlboettiger.info/2013/07/09/reviewing-software-revisited.html">Reviewing Software, revisited</a></p></li>
+
+<li><p><a href="http://carlboettiger.info/2013/06/13/what-I-look-for-in-software-papers.html">What I look for in software papers</a></p></li>
+</ul>
+
+<hr />
+
+<p>I have just been reading through <code>r citet(&quot;10.1126/science.1231535&quot;, &quot;critiques&quot;)</code>.
+While I agree  with a lot of the sentiment in this article, (we place
+way too little emphasis on good coding practices, validation, etc.),
+I actually found this article incredibly frustrating.  Following
+a little <a href="https://plus.google.com/112929796403983408632/posts/8whV6rtvsuw">rant on Google+</a>
+(G+ has to be good for something, right?) and subsequent discussion,
+I&rsquo;ve tried formulating my thoughts into a blog post here.</p>
+
+<p>What first got my goat were the proposed &ldquo;solutions&rdquo; to the problem.
+I think it is hopelessly naive to write that the solution is &ldquo;better
+computational education&rdquo; and &ldquo;peer review of code&rdquo;.</p>
+
+<h3 id="calling-for-better-education-is-a-cop-out">Calling for better education is a cop-out</h3>
+
+<p>I completely agree that better education is sorely needed,
+and am delighted to see the authors cite the <a href="http://softwarecarpentry.org">Sofware
+Carpentry</a> project (Though couldn&rsquo;t they
+have made this a proper citations with a link?).  However, this is an
+all too common cop-out of an answer that will do little to address the
+real problem. For decades such position papers have called for better
+education to address all our weaknesses &ndash; biologists should learn better
+mathematics, better statistics, better programming skills.  They should
+also learn proper data management and archiving skills no doubt.
+While we&rsquo;re at it, they should learn more about communicating science
+and public speaking too.  What these calls to &ldquo;raise standards&rdquo; have in
+common is a <strong>dearth of incentives</strong>.  Reward these talents with jobs and
+advancement (publications and grants, after all, are just a means to such
+ends, are they not?) and the education will follow.  Economics teaches
+us that if we want to change behavior, we change incentives. Unless
+this education translates into the currency of academia, we will only
+do our students a disservice by forcing it upon them.  (I do note that
+Software Carpentry rightly claims that the kind of training it offers
+does promise to pay off in the current currency through time savings
+that will be realized down the line&hellip;)</p>
+
+<h3 id="peer-review-of-code-is-not-the-answer">Peer review of code is not the answer</h3>
+
+<p>If &ldquo;peer review&rdquo; were the ultimate solution to good code, we&rsquo;d see that
+standard in the software industry too, wouldn&rsquo;t we? Peer review actually
+is used in the software industry, if perhaps more the way we treat
+&ldquo;friendly review&rdquo; then with the black-and-white view we attach to peer
+review in the scientific literature.  Peer review would never guarantee
+the validity of code, though it would certainly help. The real bugbear
+with peer review of code is just how difficult it would be to establish
+as a practice.  The authors are silent on these challenges: organizing,
+incentivising, transitioning to, and paying for such a system would all
+be major hurdles to overcome.</p>
+
+<p>I would trust software that has a long and active development history
+with an engaged user base much more than anything that has simply been
+&ldquo;peer reviewed&rdquo;.   I suspect that instituting peer review of code in the
+sciences would be a huge challenge for a potentially limited payoff. If
+open source taught us nothing else, it is that &ldquo;with many eyes all bugs
+are shallow&rdquo;.  Robust software must ultimately rely on bug report feedback
+cycle of users (and developers following the [&ldquo;dog food&rdquo; rule]()).</p>
+
+<h2 id="so-what-is-the-problem-exactly">So what is the problem, exactly?</h2>
+
+<p>If the proposed solutions are weak, the statement of the problem is not
+actually much more convincing.  What, exactly, is the &ldquo;troubling trend&rdquo;
+alluded to in the title?  The primary concern from their survey appears
+to be that scientists rely on personal recommendations, ease of use,
+and frequency of use in published studies when choosing what software
+to use.  This approach is only &ldquo;dangerous&rdquo; if we assume that a scientist
+has a choice of N potential software applications to perform a task,
+of which some fraction F are faulty. (And that a &ldquo;worrying&rdquo; 80% want to
+become better programmers&hellip;)</p>
+
+<p>But does this study argue any of the software there users approached
+was faulty? No.  Do they provide evidence that the metrics a researcher
+uses (popularity, trust, ease of use) are not good predictors of decent
+software? No!  They just assume this can&rsquo;t possibly be a good criterion
+to evaluate software.</p>
+
+<p>Suggesting that this criterion is to blame misses the underlying problem
+entirely.  Researchers will always prefer software that has been used in
+published studies, is easy to use, and recommended by people they trust.
+If this is leading to problems, we must fix the software, not the people.</p>
+
+<p>Reliance on common software is replacing reliance on undisclosed software
+written from scratch by each researcher.  It is much easier to identify
+and correct errors when the community all uses a common piece of software
+then when everything is done from scratch.  Crucially, this shows the
+emergence of a common code base &ndash; a shared software infrastructure,
+emerging in many fields.  This development is to be celebrated and taken
+advantage of rather than something to fret over. A shared infrastructure
+is a powerful thing.</p>
+
+<h2 id="real-solutions-changing-incentives">Real solutions: changing incentives</h2>
+
+<p>Of course there are some real gems in the paper that should have recieved more emphasis.</p>
+
+<blockquote>
+<p>Current models for how scientists and journals are rewarded must change,
+as the would-be editors of the Open Research Computation journal (now a
+series of the journal Source Code for Biology and Medicine) discovered
+during efforts to establish a journal for publishing peer-reviewed
+software ( 27).</p>
+</blockquote>
+
+<p>Reward software the way we reward papers.  Github model of contributions.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Tue, May 21, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/blog">blog</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/05/22/notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/05/20/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-05-21-comforting-trends-in-scientific-software-use.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-05-21-comforting-trends-in-scientific-software-use.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/05\/21\/comforting-trends-in-scientific-software-use\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/05\/21\/comforting-trends-in-scientific-software-use\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

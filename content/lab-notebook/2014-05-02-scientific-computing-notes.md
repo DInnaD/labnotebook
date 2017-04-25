@@ -1,9 +1,10 @@
 ---
-layout: post
-category: computation
+categories:
+- computation
+date: 2014-05-02T00:00:00Z
 tags:
 - cloud-computing
-
+url: /2014/05/02/scientific-computing-notes/
 ---
 
 In my experience EC2 is good for some things but not for others.  Consequently having some funding allocated for it would be great, but it would still be necessary to have other resources as well.  I've found EC2 very good for running some reasonably portable analysis where you temporarily want some extra processors or memory.  On the other hand, I've had some frustrations with it as well.  You don't have a persistent development environment unless you explicitly make and maintain a machine image, which means installing any software dependencies from scratch; sometimes a particular nuisance when you aren't familiar with the architecture.  So this adds more overhead on your time relative to administering your own machine, and much more than a university cluster with a human administrator. Obviously the latter is much more costly, but seems to scale well at least where I've seen that in universities.

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2010/04/20/waiting-time/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p><strong>editorial note</strong>: These notes pre-date the formal start of my online
+laboratory notebook, <a href="http://carlboettiger.info/2010/02/02/The-Lab-Notebook-Goes-Open-.html">Feb 2 2010: The Lab Notebook Goes Open</a>
+and were adapted from a LaTeX document in which I kept notes on this topic
+during my summer at <a href="http://www.iiasa.ac.at/">IIASA</a>.  Lacking a proper notebook then, documents
+like this one were updated periodically and occassionally branched into
+new ones.  The post date represents the last time the
+LaTeX document was edited in the course of that research.</p>
+
+<hr />
+
+<h1 id="abstract">Abstract</h1>
+
+<p>The theory of Adaptive Dynamics has recieved much attention for its
+analysis of evolutionary branching points. While the asymptotic dynamics
+of such branching points has been well studied, little is known about
+the timescale of the process or its behaviour away from the asymptotic
+limits of large populations and rare, small mutational steps. We provide
+several estimates of the waiting time for evolutionary branching to
+occur when different assumptions are relaxed. This approach demonstrates
+how adaptive branching can be characterized by four seperate phases and
+also identifies the most likely rate-limiting process in the course of
+adaptive branching. Our analytic approximations are compared to exact
+numerical simulation of the branching process.</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In adaptive dynamics theory, an evolutionary branching point is a
+singular strategy that is globally convergent but locally unstable.</p>
+
+<p>A population approaches by discrete jumps.</p>
+
+<p>Almost all quantitative theories of evolution have relied on stochastic
+models to address the impacts of chance events - such as mutations,
+births, deaths, and environmental changes - that affect the evolutionary
+process (Fisher 1937; Lande 1979; Coyne &amp; Orr 2004). Adaptive dynamics
+theory typically considers two sources of stochasticity: random
+mutations and the loss of advantageous mutants to chance extinction
+while their numbers are small. What these models typically do not
+consider is demographic stochasticity of resident populations (resulting
+from intrinsic fluctuations through stochastic birth and death events in
+finite populations of discrete individuals) and environmental
+stochasticity (resulting from external fluctuations in the environmental
+conditions a population experiences).</p>
+
+<p>Several recent studies have tried to overcome these limitations.
+Claessen et al. (2007, 2008) explore simulations of evolutionary
+branching in small populations and found that demographic stochasticity
+can delay or halt diversification. Johansson and Ripa (2006) explored
+the impact that correlated environmental stochasticity has on
+diversification. They assume that as populations diverge, the
+environmental influences upon them become less similar. They demonstrate
+that this correlation can facilitate coexistence early in the process of
+branching, and as it weakens, the chance that a branch is lost
+increases. While these studies make an excellent start, a more general
+theory and mathematical framework is needed to untangle and quantify the
+multitude of effects stochasticity has on evolutionary branching.</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="model">Model</h2>
+
+<p>We consider the classic adaptive dynamics model for evolutionary
+branching under competition for a limiting resource by Dieckmann and
+Doebeli (1999). The population dynamics of $N(x,t)$ individuals each
+with focal trait $x$ are given by a continuous time birth-death process
+with rates</p>
+
+<p>$$\begin{aligned}
+b(N) = &amp; r \nonumber <br />
+d(N) = &amp; r \frac{\sum_yN(y,t)C(x,y)}{K(x)} .\label{general_logistic}\end{aligned}$$</p>
+
+<p>The focal trait $x$ can be thought of as some continuous phenotypic
+variable, such as beak size, which affects resource consumption. Niche
+differences driving speciation arise from differences in this trait. In
+the model, $K(x)$ is the resource kernel which determines the
+equilibrium population density and $C(x,y)$ is a the competition kernel,
+describing the relative change in death rate of individuals of type $x$
+due to competition by individuals of type $y$. Given $C(x,x)=1$, the
+equilibrium density of a monomorphic population is $N^{\ast}(x)=K(x)$.
+Following \citet{dieckmann_nat1999} we assume the following Gaussian
+forms,</p>
+
+<p>$$K(x)=K_0e^{-x^2/(2\sigma_k^2)}, \label{K}$$</p>
+
+<p>and</p>
+
+<p>$$C(x,y)=e^{-(x-y)^2/(2\sigma_c^2)}, \label{C}$$</p>
+
+<p>where $\sigma_k$ and $\sigma_c$ are scale factors for the resource
+distribution and competition kernels respectively. $\sigma_c$ can be
+though of as the niche size. We focus on the case $\sigma_k&gt;\sigma_c$,
+for which the model has an evolutionary branching point at
+$x=0$ \citep{geritz_evoeco1998}.</p>
+
+<p>The evolutionary dynamics are specified only at the phenotypic level: We
+assume that with probability $\mu$ an individual birth results in a
+mutant offspring, and that the mutant trait is chosen from a Gaussian
+distribution centered at the trait value of the parents and with a
+variance $\sigma_{\mu}^2$.</p>
+
+<h2 id="the-adaptive-dynamics-of-branching">The Adaptive Dynamics of Branching</h2>
+
+<p>Evolutionary branching occurs in this model when the resource kernel is
+wider than the competition kernel, $\sigma_k &gt; \sigma_c$ as discussed
+in \citet{geritz_evoeco1998, dieckmann_nat1999}. It is straight forward
+to show that the invasion fitness $s(y,x) := b(K(x),x,y) -d(K(x), x,y)$
+of a rare mutant $y$ in a population $x$ at equilibrium has a singular
+point at $x^*=0$, the peak of the resource distribution. This is easily
+confirmed by taking the second derivatives or observing the pairwise
+invasibility plot.</p>
+
+<h2 id="phases-of-branching">Phases of branching</h2>
+
+<p>Evolutionary branching through this mechanism can be divided into four
+phases. In the first phase, the population approaches the branching
+point by repeated invasions that completely replace the monomorphic
+population. This rate is governed by the canonical equation of adaptive
+dynamics, a rate proportional to the size of mutational jumps relative
+to the size of the resource kernel, $\sigma_{\mu}/\sigma_k$.
+Mathematically, this phase can be defined by the $P_1$ region of the
+pairwise invasibility plot. In this region, dimoprhisms are always
+transient.</p>
+
+<p>In the second phase, the population is near enough to the branching
+point that mutations begin occuring in the coexistence region. More
+precisely, any dimorphism that occurs in the $P_2$ region but where one
+of the populations is too small to contribute to density-dependent
+effects can be considered to be in this phase. The dynamics of this
+phase are thus governed by the fixation probabilities of rare mutants
+occuring in the coexistence region. This phase may often fail when a
+rare mutant occurs in the coexistence region but is soon lost to drift.</p>
+
+<p>The third phase begins when mutations in the coexistence region survive
+the initial genetic drift to establish as significant frequencies in the
+population. In this stage the density-dependent contribution of each
+population is relevant. This stage may fail due to the loss of either
+population, more often the one farther from the branching point. As this
+is usually (but not necessarily) the resident population that gave rise
+to the other population through mutation, the failure of this phase can
+be thought of in terms of loss of the resident population, while the
+second phase is governed primarily by the loss of the invader
+population.</p>
+
+<p>In the fourth phase, subsequent mutations farther from the branching
+point invade and the populations move apart. Each time a mutant exterior
+to the branching point successfully invades the probability the
+coexistence becomes exponentially more stable, as we will demonstrate.
+While the expected coexistence time for the two populations remains
+similar to the evolutionary timescale over which new mutants enter and
+establish, the coexistence may be lost, collapsing back to the second
+phase. However, as the coexistence of the first pair (phase 3) is much
+more likely to collapse than the subsequently more stable coexisting
+pairs that arise from it, we will have a good approximation by
+considering only the probabilty that the initial pair survives long
+enough to enter phase four. This is justified by the Ahrennius
+approximation result and confirmed by numerical simulation.</p>
+
+<h3 id="overview-of-the-approach">Overview of the approach</h3>
+
+<p>The division into phases provides both a conceptual and mathematical
+framework to address the branching process. Analyzing the first two
+phases essentially consists of partitioning the space of possible
+mutants: considering all the mutants that lie in the $P_1$ region that
+are expected to invade and replace the resident (moving the population
+closer to the branching point as per phase 1), and mutants that reach
+the coexistence region $P_2$ in phase 2. This is done by partitioning
+the domain of integration for an integral over mutant traits $y$ for
+each resident $x$. The closer $x$ is to $x^*$ the more of this integral
+lies in $P_2$ and entering phase two becomes increasingly probable. This
+treatment follows along similar lines as the original derivation of the
+canonical equation of adaptive dynamics \citep{dieckmann_jmb1996}.</p>
+
+<p>The crux of the remaining third and fourth phases settles around
+predicting the coexistence time. This is done through a diffusion
+approximation approach to individual dynamics, which remains quite
+technical to solve. To provide both an effective approximation and a
+useful intuition, we demonstrate how this coexistence problem can be
+construed as an escape from a potential energy well, as in classical
+chemical kinetics. Understanding the depth of this well tells us most of
+what we need to know about the coexistence time. Relating the
+coexistence timescale to the evolutionary timescale wraps up the
+calculation for how long branching will take.</p>
+
+<p>The deterministic theory applies both the limit of rare mutations (small
+$\mu$) and small mutational steps (small $\sigma_{\mu}$). In our
+treatment, either one of these can become the limiting factor and
+correspond to different regimes of adaptive branching. If mutations are
+very rare, we&rsquo;ll see that the population must essentially survive phase
+3 in a single mutational step. In this regime recieving a single
+mutation far enough into the $P_2$ region to survive the coexistence
+balance (phase 3 to 4). This corresponds to a single mutational step
+that is on the order of the width of the competition kernel, $\sigma_c$.
+Here branching is accomplished essentially by the single unlikely event
+being “rolled,” and transitions between phases are slow but rarely
+collapse to an earlier stage. When mutational step size is limiting,
+many mutational steps are required to get any population a distance of
+order $\sigma<em>c$ away - to escape the shadow of competition. In this
+regime, successful branching appears as a lucky string of mutations,
+like a long series of flipping a coin and coming up heads rather than
+the singular improbable event. This regime is characterized by many
+aborted branching attempts before one succeeds. The smaller $\mu$
+becomes, the smaller the chances of seeing this lucky run within the
+coexistence time. The smaller $\sigma</em>{\mu}$ becomes the smaller the
+chances of seing the rare large jump within the coexistence time. When
+both are too small relative to the coexistence time, the population will
+fail to branch.</p>
+
+<h2 id="approaching-the-branching-point">Approaching the branching point</h2>
+
+<p>Classically, the approach to the branching point is governed by the
+canonical equation of adaptive dynamics \citep{dieckmann_jmb1996}. To
+account for branching we have to revisit the original derivation of this
+equation where we relax the limit of small mutational steps sufficiently
+to allow mutants to enter the coexitence region, $P_2$. The derivation
+of the canonical equation integrates only over those mutants that fall
+into the invasion-substitution region, $P_1$. However, since the
+derivation is done in the limit of small mutational step sizes, this
+encompasses essentially all of the weight of the mutational kernel, and
+to good approximation can thus be replaced with the entire
+$P_1 \cup P_2$ region. Recall that in the derivation of the canonical
+equation, deleterious mutations are given zero probability of fixing
+(from the branching process approximation), and hence this corresponds
+to integrating over half of the real line $\mathbb{R}$.</p>
+
+<p>$$\begin{aligned}
+\frac{\mathrm{d}\bar x}{\mathrm{d}t} = \mu N^*(x) \phantom \cdot \partial_y s(y,x) \Big|<em>x \int</em>{P_1} [y-x]^2 M(y-x) \mathrm{d}[y-x]
+\label{canonical}\end{aligned}$$</p>
+
+<p>The probability of such a mutant occurring in our monomorphic population
+of trait $x$ is given by the probability that any mutant occurs (given
+by the population size, approximately $K(x)$ at equilibrium, times the
+birth rate $b(x)$ times the mutation rate $\mu$) times the probability
+that the mutation lies on the opposite side of the coexistence boundary,
+which we denote as $\phi(x)$ and $\psi(x)$, which is $\phi(x)$ reflected
+across the line $y=x$. This depends on the mutational kernel, $M(y,x)$
+which gives the probability that a mutant arising from a resident
+population of trait $x$ bears trait $y$ that falls withing the
+coexistance region as follows:</p>
+
+<p>$$\int<em>{-\infty}^{\phi(x)} M(y,x) \mathrm{d}y + \int</em>{\psi(x)}^{\infty} M(y,x) \mathrm{d}y$$</p>
+
+<p>Without loss of generality let us assume that the singular strategy
+$x^* = 0$ and that we start from some trait value $x<em>0 &gt; x^*$.
+Additionally, let us we assume $M(y,x)$ is Gaussian in $y-x$ with mean 0
+and variance $\sigma</em>{\mu}^2$. However, we do not wish to consider all
+such mutants $y$, but only those that survive. We multiply the
+probability of a mutant having trait $y$, $M(y,x)$, times the
+probability that is survives drift. This probability we quote from the
+Galton-Watson branching process, $1-\tfrac{d(y,x)}{b(y,x)}$. Using our
+model for birth and death rates , the probability of surviving branching
+is</p>
+
+<p>$$1-\frac{C(y,x)K(x)}{K(y)} := S(y,x)
+\label{S}$$</p>
+
+<p>which we denote as $S(y,x)$ as indicated. Hence we modify our integral
+to consider all mutants $y &lt; x^*$ which occur with probability $M(y,x)$
+and then survive with probability $S(y,x)$, and write down the rate
+$P(x)$ at which a mutant which leads to branching occurs from our
+monomorphic population with trait $x$:</p>
+
+<p>$$P(x) := r \mu K(x)\left( \int<em>{-\infty}^{\phi(x)} M(y,x) S(y,x) \mathrm{d}y + \int</em>{\psi(x)}^{\infty} M(y,x) S(y,x) \mathrm{d}y  \right)
+\label{MSerf}$$</p>
+
+<p>Though a little cumbersome, this can be written in nearly closed form
+(using the error function). For our particular model $s(y,x)$, we can
+write the boundaries $\phi(x)$ and $\psi(x)$ as</p>
+
+<p>$$\begin{aligned}
+\phi(x) = x\frac{\frac{\sigma_k^2}{\sigma_c^2}+1}{\frac{\sigma_k^2}{\sigma_c^2}-1} \nonumber <br />
+\psi(x) = x\frac{\frac{\sigma_k^2}{\sigma_c^2}-1}{\frac{\sigma_k^2}{\sigma_c^2}+1}
+\label{phipsi}\end{aligned}$$</p>
+
+<p>Then, given a starting condition $x_0$, we can determine the expected
+trait $x$ at time $t$ of a monomorphic resident population by
+integrating the canonical equation,</p>
+
+<p>$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{1}{2} \mu \sigma_{mu}^2 N^*(x) \partial_y s(y,x)$$</p>
+
+<p>which for our model is</p>
+
+<p>$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{-x}{2\sigma<em>k^2} r \mu \sigma</em>{\mu}^2 K(x)$$</p>
+
+<p>While no closed form solution exists for $x(t)$ in this case, if we
+assume $x_0 \ll \sigma_k$ then to good approximation we can view $K(x)$
+to be constant over the interval and take our path to be:</p>
+
+<p>$$x(t) = x<em>0 \exp\left( -r \mu \sigma</em>{\mu}^2 K_0 t/\sigma_k^2\right)$$</p>
+
+<p>Using this mean path, we can write down an approximation for the rate of
+a branching mutant occurring as a function of time, $P(x(t))$. Using
+this time dependent rate, the probability of not branching after time
+$T$ is simply $\exp\left( - \int_0^T P(t)\mathrm{d}t \right)$. One minus
+this is the probability branching by time $T$; i.e. the cumulative
+density function, hence the probability density function for the waiting
+time is:</p>
+
+<p>$$\Pi(T) = P(x(T)) \exp\left( -\int_0^T P(x(t)) \right)
+\label{pdf}$$</p>
+
+<p>and the expected time to complete phases 1 and 2 is
+$\int_0^{\infty} T \Pi(T) \mathrm{d}T$. This is our first analytic
+approximation.</p>
+
+<h2 id="coexistence">Coexistence</h2>
+
+<p>Consider a population of two coexisting types, characterized by traits
+$x_1$ and $x_2$ respectively. The birth and death rates of each
+population are then given by expression  . We&rsquo;ll assume that the
+populations can coexist, that is $(x_1, x_2)$ falls into the coexistence
+region $P_2$; <em>i.e.</em> that $C(x_1,x_2)K(x_2) /K_1(x_1) &lt; 1 $ and
+$C(x_1, x_2) K(x_1)/K(x_2) &lt; 1$. This guarentees that each population
+has a positive expected growth rate when rare. However, because the
+population is composed of finitely many discrete individuals, there is
+still a chance that either type will be lost to chance; to demographic
+stochasticity. We whish to characterize the expected waiting time for
+such an event to occur.</p>
+
+<p>To do so, we will switch first into density and then frequency, to
+obtain a one-dimensional expression we can solve exactly. We will then
+use the Arhennius approximation to obtain a closed form solution. First,
+we will replace the discrete number of individuals $N$ with the
+macroscopic, continuous variable $n$, representing the mean <em>density</em> of
+individuals; $N/A$, where $A$ is the area in which $N$ individuals are
+found. For suitably large $A$, we will be able to accurately describe
+$n$ with a coupled stochastic differential equation for each population.
+By changing variables once more into the frequency of one type,
+$p = n_1/(n_1+n_2)$ and $n = n_1 + n_2$, we are able to do a timescale
+seperation to focus on the dynamics in a single variable, $p$.</p>
+
+<p>The master equation that describes the probability of observing $N_i$
+individuals of type $i$ is given by,</p>
+
+<p>$$\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} P(N_1,t) &amp;= (\text{E}_1 - 1) r N_1 \frac{N_1 + C(x_1, x_2) N_2}{K(x_1) }P(N_1) + (\text{E}_1^{-1} - 1)r N_1 P(N_1) \nonumber <br />
+\frac{\mathrm{d}}{\mathrm{d}t} P(N_2,t) &amp;= (\text{E}_2 - 1) r N_2 \frac{N_2 + C(x_2, x_1) N_1}{K(x_2) }P(N_2) + (\text{E}_2^{-1} - 1)r N_2 P(N_2)
+\label{mastereq}\end{aligned}$$</p>
+
+<p>where $\text{E}_i^k$ is the step operator taking
+$f(N<em>i) \to f(N</em>{i+k})$. We apply van Kampen&rsquo;s expansion of the master
+equation to linear order to recover the following stochastic
+differential equation (Itô equation)</p>
+
+<p>$$\begin{aligned}
+\mathrm{d}n_1 = r n_1 \left(1 -  \frac{n_1 + C(x_1, x_2) n_2}{K(x_1) } \right) \mathrm{d}t + \frac{1}{\sqrt{K_o} } \sqrt{r n_1 \left(1 +  \frac{n_1 + C(x_1, x_2) n_2}{K(x_1) } \right) } \mathrm{d}W_1
+\label{sde}\end{aligned}$$</p>
+
+<p>and $n_2$ similarly. Switching into the variables for frequency,
+$p = n_1/n$ and $n = n_1+n_2$ and simplying notation by
+$C(x_1, x<em>2) = c</em>{12}$ and $K(X_i) = k_i$:</p>
+
+<p>$$\begin{aligned}
+\mathrm{d}p &amp;= r p \left(1 -  n(p) \frac{p + c_{12}(1-p) }{k_1 } \right) \mathrm{d}t + \frac{1}{\sqrt{K<em>o n(p)} } \sqrt{r p \left(1 +  n(p)\frac{p + c</em>{12} (1-p) }{k_1 } \right) } \mathrm{d}W_1  \label{freq_sde} <br />
+n(p) &amp;=  \frac{k_1 k_2}{k_2 p^2 + (k_1+k<em>2) c</em>{12} p (1-p) + k1 (1-p)^2 }, \end{aligned}$$</p>
+
+<p>where we have set the dynamic equation for $n(p)$ to equilibrium. The
+extinction probability $u(p,t)$ for this expression is given by the
+Backwards equation for the generator,</p>
+
+<p>$$\frac{\mathrm{d}}{\mathrm{d}t} u(p,t) = \underbrace{r p \left(1 -  n(p) \frac{p + c_{12}(1-p) }{k<em>1 } \right)}</em>{A(p)} \partial_p u(p,t) + \tfrac{1}{2} \underbrace{\frac{1}{K<em>o n(p) } r p \left(1 +  n(p)\frac{p + c</em>{12} (1-p) }{k<em>1 } \right)}</em>{B(p)} \partial_p^2 u(p,t)
+\label{u}$$</p>
+
+<p>with the boundary conditions $u(0,t) = 1$ and $u(1,t) = 1$ being
+absorbing.</p>
+
+<p>Assuming that type 1 is the rare mutant invader, we can solve this
+explicitly for small $p$, and particularly for the case of exactly one
+new mutant. After some rearrangement we can rewrite this as</p>
+
+<p>$$\begin{gathered}
+\frac{\mathrm{d}}{\mathrm{d}t} u(p,t) = \left( rp \left( 1-\frac{n c_{12}}{k_1} \right) - \frac{r n}{k<em>1} p^2 (1 - c</em>{12} )\right)  \partial<em>p u(p,t) <br />
++ \left( rp \left(1+\frac{n c</em>{12}}{k_1}\right)  + \frac{r n }{k<em>1} p^2 (1 - c</em>{12} ) \right) \frac{\partial_p^2 u(p,t)}{2K_0 n}\end{gathered}$$</p>
+
+<p>Note then for $p$ small we can neglect the terms quadratic in $p$ and we
+are left with the backwards equation from the density independent case,</p>
+
+<p>$$\frac{\mathrm{d}}{\mathrm{d}t} u(p,t) =  rp \left( 1-\frac{n c_{12}}{k_1} \right)   \partial<em>p u(p,t) + rp \left(1+\frac{n c</em>{12}}{k_1}\right)   \frac{\partial_p^2 u(p,t)}{2K_0 n}$$</p>
+
+<p>Setting equal to zero we have a simple ordinary differential equation
+for the stationary extinction probability:</p>
+
+<p>$$\begin{aligned}
+u(p) &amp;= 1 - e^{-2sp K<em>0 n} <br />
+s &amp;= \frac{r\left( 1-\frac{n c</em>{12}}{k<em>1} \right) }{ r\left(1+\frac{n c</em>{12}}{k_1}\right)} \end{aligned}$$</p>
+
+<p>and particularly for a frequency $p$ corresponding to a single
+individual, a frequency of
+$p=1/(N_1+N_2) =(1/K_0)/(n_1+n_2) = 1/(K_0 n)$, this reduces to</p>
+
+<p>$$u = 1-e^{-2s}$$</p>
+
+<p>Assuming $ rp \left( 1-\frac{k<em>2 c</em>{12}}{k_1} \right) \neq 0$, the
+time-dependent solution<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> is:</p>
+
+<p>$$\begin{aligned}
+u(p,t) &amp;= 1-e^{-p \psi(t) } <br />
+\psi(t) &amp;= \frac{2 s K_0 n}{1-e^{ r\left( 1-\frac{k<em>2 c</em>{12}}{k_1} \right) t } }
+\label{timedep}\end{aligned}$$</p>
+
+<p>Larger population (system size) $K_o$ results in longer persistance.</p>
+
+<p>This tells us nothing about the survival of the resident, as it is only
+valid for small $p$. In most applications of this approach, it is
+assumed the resident quickly goes extinct once $p \sim o(1)$. If we
+consider the asymptotic behavior of the nonlinear PDE, Eq. , we see sure
+absorbtion at one boundary or the other. The asymptotic behavior needn&rsquo;t
+concern us; as we really want to know how the expected lifetime of this
+dimporphic state compares with the rate at which mutants are entering
+this population. To do so we need the time dependent solution to the
+nonlinear backwards equation .</p>
+
+<p>While a direct solution to the nonlinear PDE is not available, we can
+solve for the moments analytically. As $u(p,t)$ is the probability of
+non-extinction, that is, that the exit time $T$ is greater than the
+current time $t$; e.g. $u$ is the cumululative probability density.
+Consequently the mean exit time $T(p)$ is given by,</p>
+
+<p>$$T(p) = - \int_0^\infty t \partial_t u(p,t) \mathrm{d}t = \int_0^\infty u(p,t) \mathrm{d}t \label{simple}$$</p>
+
+<p>where we have integrated by parts to get the second expression.
+Meanwhile, we can integrate the left-hand side of ,</p>
+
+<p>$$\int_0^{\infty} \partial_t u(p,t) \mathrm{d}t = u(p,\infty) - u(p,0) = -1$$</p>
+
+<p>and integrate the right hand side using  to get</p>
+
+<p>$$A(p) \partial_p T(p) + \tfrac{1}{2} B(p) \partial_p^2 T(x) = -1$$</p>
+
+<p>This can be integrated directly to solve for the mean time starting from
+$p=x$ to be absorbed at either boundary $a=0$ or $b=1$:</p>
+
+<p>$$\begin{aligned}
+T(x) &amp;= \frac{2 \left[\left(\int_a^x\frac{\mathrm{d}y}{\psi(y)}\right)\int_x^b \frac{\mathrm{d}y&rsquo;}{\psi(y&rsquo;)} \int_a^{y&rsquo;} \frac{\mathrm{d}z \psi(z)}{B(z)} - \left(\int_x^b\frac{\mathrm{d}y}{\psi(y)}\right)\int_a^x \frac{\mathrm{d}y&rsquo;}{\psi(y&rsquo;)} \int_a^{y&rsquo;} \frac{\mathrm{d}z \psi(z)}{B(z)}\right]}{\int_a^b \frac{\mathrm{d}y}{\psi(y)}}
+\label{7integrals}
+\intertext{where}
+\psi(x) &amp;= \exp\left( \int_0^x \mathrm{d}x&rsquo; \frac{2A(x&rsquo;)}{B(x&rsquo;)} \right)\end{aligned}$$</p>
+
+<p>Though these integrals can be computed numerically, a small noise limit
+(large populations) allows us to make an additional approximation by
+mapping this problem onto the familiar question of escape over a
+potential energy barrier. This question arises in basic chemistry, and
+is described by a similar stochastic differential equation where the
+$A(x)$ coefficent represents the gradient of the energy surface and $B$
+the temperature. The analogy initially appears to fail, since in the
+chemical context the diffusion coefficent is determined by the
+temperature alone, and is independent of the state, while our $B$ term
+depends on the frequency $p$. However, as it is not explicitly time
+dependent, there is always a transform to change variables into a
+context where $B$ is constant. The relevant transformation for us is
+known as the Lamperti Transform. Switching variables from $p$ to $q$ by
+means of the transform:</p>
+
+<p>$$q = F(p) = \int_z^{p} \frac{1}{\sqrt{B(u)}} \mathrm{d}u
+\label{p_to_q}$$</p>
+
+<p>we can rewrite  as</p>
+
+<p>$$\begin{aligned}
+\frac{\partial u(q,t)}{\partial t} = \underbrace{\left(\frac{4 A(p)- \partial<em>p B(p) }{4\sqrt{B(p)}}  \right)}</em>{\nabla V(p)} \frac{\partial u(q,t)}{\partial q} + \frac{1}{2} \frac{\partial^2 u(q,t)}{\partial q^2}.
+\label{new_u}\end{aligned}$$</p>
+
+<p>The mean first passage time in this transformed variable is still solved
+by . However, interpreting the coefficent of the drift term as the
+gradient of the energy landscape, $\nabla V(p)$, we can approximate that
+this time will scale as the exponent of the depth of the energy well
+defined by that landscape:</p>
+
+<p>$$\exp{- (\min(V(0), V(1)) - V(p^*) )}$$</p>
+
+<h1 id="results">Results</h1>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">note that $n(p) \approx k_2$ for small $p$.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-04-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Apr 20, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/adaptive-dynamics">adaptive-dynamics</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2010/04/21/adaptive-dynamics/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2010/04/20/alan-meeting/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-04-20-waiting-time.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-04-20-waiting-time.md">2785abfe8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2010\/04\/20\/waiting-time\/';
+    var disqus_title = '';
+    var disqus_url = '\/2010\/04\/20\/waiting-time\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

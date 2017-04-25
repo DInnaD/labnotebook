@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-03 19:08:53
-layout: post
-slug: nsf-and-journal-data-archiving
-title: Thoughts on the New Policies for Data Archiving at NSF and in Common Journals
-redirects: [/wordpress/archives/502, /archives/502]
 categories:
 - open-science
+comments: true
+date: 2010-12-03T19:08:53Z
+redirects:
+- /wordpress/archives/502
+- /archives/502
+slug: nsf-and-journal-data-archiving
 tags:
 - blog
+title: Thoughts on the New Policies for Data Archiving at NSF and in Common Journals
+url: /2010/12/03/nsf-and-journal-data-archiving/
 ---
 
 This post is a work in progress, a scratch pad for me to start assembling what I've been learning about and resources pertaining to the new policies emerging from NSF and journals relevant to ecology and evolution.  Hoping to highlight not only the policies, but the issues, opportunities, and concerns around them.

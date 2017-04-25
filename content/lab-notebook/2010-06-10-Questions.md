@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-06-10T00:00:00Z
 title: Questions
+url: /2010/06/10/Questions/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Current population dynamics model macroscopic equations:
 

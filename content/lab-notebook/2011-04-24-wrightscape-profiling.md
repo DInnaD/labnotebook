@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2011-04-24 18:50:11
-layout: post
-slug: wrightscape-profiling
-title: wrightscape profiling
-redirects: [/wordpress/archives/1486, /archives/1486]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-04-24T18:50:11Z
+redirects:
+- /wordpress/archives/1486
+- /archives/1486
+slug: wrightscape-profiling
+title: wrightscape profiling
+url: /2011/04/24/wrightscape-profiling/
 ---
 
 Optimization at the R level is substantially slower than at the C level:

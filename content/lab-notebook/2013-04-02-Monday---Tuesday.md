@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-04-02T00:00:00Z
 tags:
 - nonparametric-bayes
 - reading
-
+url: /2013/04/02/Monday---Tuesday/
 ---
-
 
 ## Writing
 

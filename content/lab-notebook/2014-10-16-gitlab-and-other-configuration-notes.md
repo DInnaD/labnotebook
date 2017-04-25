@@ -1,9 +1,9 @@
 ---
-layout: post
-category: computing
-
+categories:
+- computing
+date: 2014-10-16T00:00:00Z
+url: /2014/10/16/gitlab-and-other-configuration-notes/
 ---
-
 
 Updating gitlab setup:
 

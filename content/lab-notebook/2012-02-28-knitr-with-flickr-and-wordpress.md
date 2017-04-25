@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2012-02-28 14:59:21
-layout: post
-slug: knitr-with-flickr-and-wordpress
-title: Knitr with flickr and wordpress
-redirects: [/wordpress/archives/3988, /archives/3988]
 categories:
 - open-science
+comments: true
+date: 2012-02-28T14:59:21Z
+redirects:
+- /wordpress/archives/3988
+- /archives/3988
+slug: knitr-with-flickr-and-wordpress
+title: Knitr with flickr and wordpress
+url: /2012/02/28/knitr-with-flickr-and-wordpress/
 ---
 
 It's amazing how nice it is to work with well-developed software.  It took me about 20 minutes to extend Yuhui's interface to allow me to upload images through flickr instead of imgur, and embed them into a wordpress blog using the shortcode from the flickr gallery plugin.  

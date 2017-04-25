@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-24 17:46:26
-layout: post
-slug: optimal-control-training-problem-2-problem-statement
-title: 'Training problem 2: the economist''s problem statement'
-redirects: [/wordpress/archives/3001, /archives/3001]
 categories:
 - ecology
+comments: true
+date: 2011-10-24T17:46:26Z
+redirects:
+- /wordpress/archives/3001
+- /archives/3001
+slug: optimal-control-training-problem-2-problem-statement
 tags:
 - pdg-control
+title: 'Training problem 2: the economist''s problem statement'
+url: /2011/10/24/optimal-control-training-problem-2-problem-statement/
 ---
 
 ### pdg-control

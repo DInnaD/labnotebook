@@ -1,10 +1,11 @@
 ---
-layout: post
-categories: [open-science]
+categories:
+- open-science
+date: 2014-05-06T00:00:00Z
 tags:
 - blog
 - reproducible-research
-
+url: /2014/05/06/steps-to-a-more-portable-workflow/
 ---
 
 While I have made [my

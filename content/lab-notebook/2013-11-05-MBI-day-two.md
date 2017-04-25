@@ -1,11 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
-- conference 
-- pdg-control 
-- ropensci 
-
+categories:
+- ecology
+date: 2013-11-05T00:00:00Z
+tags:
+- conference
+- pdg-control
+- ropensci
+url: /2013/11/05/MBI-day-two/
 ---
 
 ## MBI Workshop 

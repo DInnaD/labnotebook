@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,107 +140,114 @@
   
   
   <div>
-    <h2><a href="../../2011/04/26/accessing-phylognenies-in-ropensci-from-r.html">Accessing phylognenies in TreeBASE from R</a></h2>
-    <h4>Tue, Apr 26, 2011</h4>
+    <h2><a href="../../2012/10/16/gaussian-processes/">Gaussian processes</a></h2>
+    <h4>Tue, Oct 16, 2012</h4>
     <div class="article-style">
       
-      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
+      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
+ Will also want to look into basis approximations for SDP acceleration.
+  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/25/ropensci-interface-continued.html">TreeBASE interface continued...</a></h2>
-    <h4>Mon, Apr 25, 2011</h4>
+    <h2><a href="../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h2>
+    <h4>Sun, Oct 14, 2012</h4>
     <div class="article-style">
       
-      Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
-Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
-Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.
+      As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/24/wrightscape-profiling.html">wrightscape profiling</a></h2>
-    <h4>Sun, Apr 24, 2011</h4>
+    <h2><a href="../../2012/10/11/notes/"></a></h2>
+    <h4>Thu, Oct 11, 2012</h4>
     <div class="article-style">
       
-      Optimization at the R level is substantially slower than at the C level:
-system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
+      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
+pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/22/release-of-constraint-in-labrids.html">Release of constraint in labrids?</a></h2>
-    <h4>Fri, Apr 22, 2011</h4>
+    <h2><a href="../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
+    <h4>Wed, Oct 10, 2012</h4>
     <div class="article-style">
       
-      Started writing outline, assembling references
- Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
- Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
- Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&rsquo;t optimize the likelihood.
+      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
+Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/20/wednesday-3.html">Wednesday</a></h2>
-    <h4>Wed, Apr 20, 2011</h4>
+    <h2><a href="../../2012/10/09/data-management-plan/"></a></h2>
+    <h4>Tue, Oct 9, 2012</h4>
     <div class="article-style">
       
-      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
+      Writing out a data management plan for myself. Suggestions and feedback welcome.
+Data Types and Structure All source code, documentation, scripts and data for the analyses performed in the course of this research shall be maintained in a digital compendium using the R package structure as recommended in Gentleman and Lang (2007). The progress and results of this research shall be regularly chronicled in an electronic lab notebook, maintained openly at carlboettiger.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/19/tuesday-reading-and-thoughts.html">Tuesday: Reading and thoughts</a></h2>
-    <h4>Tue, Apr 19, 2011</h4>
+    <h2><a href="../../2012/10/05/notes/">Automated feeds in notebook entries</a></h2>
+    <h4>Fri, Oct 5, 2012</h4>
     <div class="article-style">
       
-      Reading Taking twenty minutes to take down some notes and reactions to this morning&rsquo;s reading.
-Interdisciplinary Science Meeting Great post by the AAAS on theScience on FIRE meeting. Think the focus on young faculty and undergraduate education is dead on. However , the lack of emphasis (or even inclusion) of ecology and evolution material in &ldquo;exemplar programs&rdquo; such as CIMB (not be confused with UC Davis&rsquo;s CLIMB, which does this balance very well) is tragic, given that (a) these fields have a richer and longer quantitative history than mol bio, (b) undergraduate ed in these areas shares the same general lack of emphasis in computation and mathematics skills as it&rsquo;s molecular brethren classes &copy; world challenges in these areas are at least on par with challenges in medicine, and deserve attention (despite the differences in funding).
+      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
+{% raw %}
+{% octokit_commits pdg_control%}  {% endraw %}
+(or even to the post template) and have the commit log for the specified repository automatically imported.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/19/early-warning-signals-in-coral-dynamics----economic-analysis-of-risk.html">Early Warning Signals in Coral Dynamics -- Economic analysis of risk</a></h2>
-    <h4>Tue, Apr 19, 2011</h4>
+    <h2><a href="../../2012/10/02/solarized-colors/">Solarized Colors with Twitter-Bootstrap?</a></h2>
+    <h4>Tue, Oct 2, 2012</h4>
     <div class="article-style">
       
-      Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico. Our current work focuses on quantifying the relative risk of false alarms and missed detections. While statisticians typically accept a 5% &ldquo;false alarm&rdquo; rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.
+      Trying out rendering my notebook using Ethan Schoonover&rsquo;s Solarized color scheme. The solarized palette has been selected according to Ethan&rsquo;s exacting standards for contrast, symmetry, and readability.
+My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS files. Normal CSS is valid LESS code too, but doesn&rsquo;t have the concept of a variable. So changing colors in CSS requires changing each and every occurance of some hex colorcode.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/18/thursday-submitting-warning-signals-manuscript.html">Thursday: submitting warning signals manuscript</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
+    <h2><a href="../../2012/10/01/multiple-uncertainty/"></a></h2>
+    <h4>Mon, Oct 1, 2012</h4>
     <div class="article-style">
+      
+      Let
+ y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
+$$ x</em>{t+1} = z_g f(x_t) $$
+In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/18/algorithms-discussion-group-abc-continued.html">Algorithms Discussion Group: algorithms Continued</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
+    <h2><a href="../../2012/09/28/welcome-to-my-lab-notebook/">Welcome to my Lab Notebook - Reloaded</a></h2>
+    <h4>Fri, Sep 28, 2012</h4>
     <div class="article-style">
       
-      Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&rsquo;s gist and started editing during today&rsquo;s session &ndash; when I save it I get a new version ID, so last week&rsquo;s post still points to last week&rsquo;s code, but it doesn&rsquo;t create a second copy, so you can tell if you have the right version.
+      Welcome to my lab notebook, version 3.0. My original open lab notebooks began on the wiki platform OpenWetWare, moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform (site-config), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here. Quoting from my original introduction to the Wordpress notebook:
+ Disclaimer: Not a Blog  Welcome to my open lab notebook.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/17/treepar-changing-rates-of-evolution.html">TreePar: changing rates of evolution</a></h2>
-    <h4>Sun, Apr 17, 2011</h4>
+    <h2><a href="../../2012/09/27/migrating-oww-posts-to-jekyll/"></a></h2>
+    <h4>Thu, Sep 27, 2012</h4>
     <div class="article-style">
       
-      Review &amp; Comments on Article T. Stadler&rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
-The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.
+      This Open Lab Notebook started on a public MediaWiki-based site, OpenWetWare (OWW), which was created with the ambitious vision of having a single wiki for biological sciences (or at least, synthetic microbiology, since such the wiki grew out of a collection of such labs). Users could have their own pages that served as a personal website or lab group site, contribute pages on specific protocols, host course websites, and most interestingly, were encouraged to create open lab notebooks using specially designed templates for the purpose.
       
     </div>
   </div>

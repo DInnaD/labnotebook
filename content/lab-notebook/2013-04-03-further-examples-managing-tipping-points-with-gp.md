@@ -1,14 +1,12 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+code: true
+date: 2013-04-03T00:00:00Z
 tags:
 - nonparametric-bayes
-code: true
-
+url: /2013/04/03/further-examples-managing-tipping-points-with-gp/
 ---
-
-
-
 
 See also:
 

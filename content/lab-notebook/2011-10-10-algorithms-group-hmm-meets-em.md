@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-10 18:42:03
-layout: post
-slug: algorithms-group-hmm-meets-em
-title: Algorithms Group, HMM meets EM
-redirects: [/wordpress/archives/2853, /archives/2853]
 categories:
 - computation
+comments: true
+date: 2011-10-10T18:42:03Z
+redirects:
+- /wordpress/archives/2853
+- /archives/2853
+slug: algorithms-group-hmm-meets-em
 tags:
 - algorithms
+title: Algorithms Group, HMM meets EM
+url: /2011/10/10/algorithms-group-hmm-meets-em/
 ---
 
 Alisa reviews [HMM](http://www.carlboettiger.info/archives/2521), [EM](http://www.carlboettiger.info/archives/2215), and shows us how to combine them.

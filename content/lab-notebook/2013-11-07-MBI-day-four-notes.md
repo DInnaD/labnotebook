@@ -1,12 +1,12 @@
 ---
-layout: post
-tags: 
+categories:
+- ecology
+date: 2013-11-07T00:00:00Z
+tags:
 - conference
 - pdg_control
-category: ecology
-
+url: /2013/11/07/MBI-day-four-notes/
 ---
-
 
 ## Morning session
 

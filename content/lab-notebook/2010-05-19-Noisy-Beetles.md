@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-19T00:00:00Z
+tags:
+- tribolium
 title: Noisy Beetles
+url: /2010/05/19/Noisy-Beetles/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Goals
 

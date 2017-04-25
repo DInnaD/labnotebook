@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-20 23:44:25
-layout: post
-slug: evolution-day-3
-title: Evolution Day 3
-redirects: [/wordpress/archives/2040, /archives/2040]
 categories:
 - evolution
+comments: true
+date: 2011-06-20T23:44:25Z
+redirects:
+- /wordpress/archives/2040
+- /archives/2040
+slug: evolution-day-3
 tags:
 - conference
+title: Evolution Day 3
+url: /2011/06/20/evolution-day-3/
 ---
 
 ## Talks

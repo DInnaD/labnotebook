@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2012-02-12 13:40:37
-layout: post
-slug: saturday-projects-reading-markdown-notebook-technology
-title: 'Saturday: projects, reading, markdown notebook-technology'
-redirects: [/wordpress/archives/3818, /archives/3818]
 categories:
-- ecology 
+- ecology
+comments: true
+date: 2012-02-12T13:40:37Z
+redirects:
+- /wordpress/archives/3818
+- /archives/3818
+slug: saturday-projects-reading-markdown-notebook-technology
 tags:
 - notebook-technology
 - warning-signals
 - ropensci
+title: 'Saturday: projects, reading, markdown notebook-technology'
+url: /2012/02/12/saturday-projects-reading-markdown-plugins/
 ---
 
 Greatly enjoyed seeing this perspective on power laws (Stumpf & Porter, 2012) Or as Richard McElreath put even more concisely,

@@ -1,11 +1,12 @@
 ---
-title: "Notebook features: reproducible code"
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-04-26T00:00:00Z
+tags:
 - notebook-technology
 - blog
-
+title: 'Notebook features: reproducible code'
+url: /2013/04/26/notebook-features-reproducible-code/
 ---
 
 I now use the dynamic documentation software called

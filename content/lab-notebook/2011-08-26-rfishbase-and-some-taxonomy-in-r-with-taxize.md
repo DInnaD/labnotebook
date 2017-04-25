@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-08-26 23:16:22
-layout: post
-slug: rropensci-and-some-taxonomy-in-r-with-taxize
-title: rropensci and some taxonomy in R with taxize
-redirects: [/wordpress/archives/2443, /archives/2443]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-08-26T23:16:22Z
+redirects:
+- /wordpress/archives/2443
+- /archives/2443
+slug: rropensci-and-some-taxonomy-in-r-with-taxize
 tags:
 - ropensci
+title: rropensci and some taxonomy in R with taxize
+url: /2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/
 ---
 
 ## rfishbase

@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2014-03-24T00:00:00Z
+tags:
 - ropensci
-
+url: /2014/03/24/review-of-progress-on-packages/
 ---
-
 
 A lot of the past week has been focused on some catching up and tidying
 up in my active projects in metadata manipulation and publishing tools,

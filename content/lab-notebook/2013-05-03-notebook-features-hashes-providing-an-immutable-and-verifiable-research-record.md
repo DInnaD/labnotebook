@@ -1,12 +1,13 @@
 ---
-title: "Notebook features: SHA Hashes" 
-subtitle: "Providing an immutable and verifiable research record"
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-05-03T00:00:00Z
+subtitle: Providing an immutable and verifiable research record
+tags:
 - notebook-technology
 - blog
-
+title: 'Notebook features: SHA Hashes'
+url: /2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/
 ---
 
 Note: this entry is part of a [series of posts](http://carlboettiger.info/2013/04/26/notebook-features-introduction.html) 

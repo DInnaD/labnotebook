@@ -1,12 +1,12 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2012-12-06T00:00:00Z
 tags:
 - notebook-technology
 - blog
-
+url: /2012/12/06/github-issues-tracker:-the-perfect-research-todo-list/
 ---
-
 
 Github issues tracker has increasingly become my research to-do list.  Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I've made in each.  Tags serve to group issues related to a common sub-project (as in my [pdg-control](https://github.com/cboettig/pdg_control/issues)) repo or priotize tasks (as in my [nonparametric-bayes](https://github.com/cboettig/nonparametric-bayes/issues) repo.  
 

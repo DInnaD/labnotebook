@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-16T00:00:00Z
+tags:
+- pmc
 title: Updating manuscript
+url: /2010/02/16/Updating-manuscript/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 The progress of the past few days has lead to substantial revision
 proposals in my manuscript draft. Rewriting for discussion with Brian

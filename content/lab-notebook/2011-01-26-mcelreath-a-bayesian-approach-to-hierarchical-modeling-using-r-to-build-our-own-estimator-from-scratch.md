@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-01-26 17:12:18
-layout: post
-slug: mcelreath-a-bayesian-approach-to-hierarchical-modeling-using-r-to-build-our-own-estimator-from-scratch
-title: 'McElreath: A Bayesian approach to hierarchical modeling, using R to build
-  our own estimator from scratch'
-redirects: [/wordpress/archives/850, /archives/850]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-01-26T17:12:18Z
+redirects:
+- /wordpress/archives/850
+- /archives/850
+slug: mcelreath-a-bayesian-approach-to-hierarchical-modeling-using-r-to-build-our-own-estimator-from-scratch
+tags:
 - seminar
+title: 'McElreath: A Bayesian approach to hierarchical modeling, using R to build
+  our own estimator from scratch'
+url: /2011/01/26/mcelreath-a-bayesian-approach-to-hierarchical-modeling-using-r-to-build-our-own-estimator-from-scratch/
 ---
 
 CPB workshop continues, introduction to Bayesian inference.

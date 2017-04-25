@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-22 18:45:05
-layout: post
-slug: release-of-constraint-in-labrids
-title: Release of constraint in labrids?
-redirects: [/wordpress/archives/1483, /archives/1483]
 categories:
 - evolution
+comments: true
+date: 2011-04-22T18:45:05Z
+redirects:
+- /wordpress/archives/1483
+- /archives/1483
+slug: release-of-constraint-in-labrids
+title: Release of constraint in labrids?
+url: /2011/04/22/release-of-constraint-in-labrids/
 ---
 
 Started writing outline, assembling references

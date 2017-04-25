@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,126 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/27/monday-warning-signals-manuscript/">Monday: Warning Signals Manuscript</a></h2>
+    <h4>Mon, Jun 27, 2011</h4>
     <div class="article-style">
       
-      The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
+      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
+Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
+Analyses  Maximization algorithm failing at initial conditions on deut2
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/22/ievobio-day-2/">#ievobio Day 2</a></h2>
+    <h4>Wed, Jun 22, 2011</h4>
     <div class="article-style">
       
-      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
-After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
+      Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it&rsquo;s way to the web:
+ Nico Cellinese
+ Scott Chamberlain
+ Rob Guralnick
+  Meanwhile, my scratchpad of notes from day 2, tweet-style.
+My Lightning Talk Gave my lightning talk in this session, slides:
+R interface to TreeBASE
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/21/evolution-day-4-ievobio-day-1/">Evolution Day 4 / #ievobio Day 1</a></h2>
+    <h4>Tue, Jun 21, 2011</h4>
     <div class="article-style">
       
-      finish pmc post from Tuesday (done).
- Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
- Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
+      Start of the ievobio conference, simultaneously the forth day of evolution. ievobio conference was very busy, luckily given the nature of the conference it is also largely well documented online. My notes are again archived primarily in tweet form below. My personal highlights of the day included the Keynote by Cladio Silva on Provenance &ndash; essentially supporting reproducible research workflows &ndash; and examples through his vistrails software, and Mark Yoder&rsquo;s demonstration of mx at the software bazaar.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/20/evolution-day-3/">Evolution Day 3</a></h2>
+    <h4>Mon, Jun 20, 2011</h4>
     <div class="article-style">
       
-      Implemented in BUGS/allen.md
-Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
- Oh, Jeromy Anglim has a rather nice collection of jags links
-  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
+      Talks  David Babst: Patterns of diversification on large species level supertree of extinct graptolites &ndash; Actually, more on methods for making such a supertree for extinct taxa than on diversification analysis, but excellent talk.
+ Gene Hunt: _Using fossils to test the link between speciation and phenotypic evolution &ndash; _another highlight of the talks, really looking at cladeogeneic vs anaogenic models of evolutionary change, modifying the approach of Folmer Bokma
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/20/slides-from-my-talk-at-evolution-2011/">Slides from my talk at Evolution 2011</a></h2>
+    <h4>Mon, Jun 20, 2011</h4>
     <div class="article-style">
       
-      (Development version for reference; code functions now in R/gp_mcmc.R)
-Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
+      A general model of continuous character evolution [iframe <a href="http://www.slideshare.net/slideshow/embed_code/8371419">http://www.slideshare.net/slideshow/embed_code/8371419</a> 425 355]
+View more presentations from Carl Boettiger
+As highlighted in the last slide (following acknowledgments), clicking on the results graphs will take you to the image repository, which records when the result was generated in my workstream, and provides a link to the script, software package and data to replicate. Code is parallel, examples shown took between 2 and 12 hours on a 16-core cpu.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/19/evolution-day-2/">Evolution Day 2</a></h2>
+    <h4>Sun, Jun 19, 2011</h4>
     <div class="article-style">
       
-      Added integration over the posterior distribution of the GP
- Added example of parametric Bayesian inference based on Ricker
-  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
+      Second day of the conference. Many of the talks I most want to see are coming up Monday and Tuesday, and I have a bit more to do to prepare my own talk, so I take it a bit light on sessions. Highlight of the day was definitely the discussion with Mark McPeek and the other journal editors during and following the &ldquo;Happy hour with the editors&rdquo; session, which was perhaps the best event of the conference, despite a rather unimpressive attendance.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/18/evolution-conference-day-1/">Evolution Conference Day 1</a></h2>
+    <h4>Sat, Jun 18, 2011</h4>
     <div class="article-style">
       
-      Just because I&rsquo;m a theorist deeply entrenched in methodological concerns about uncertainty and decision making doesn&rsquo;t mean I don&rsquo;t think about practical conservation from time to time. Some musings from my comment here, copied over for my own reference.
-Though I would like to believe the gap stems from the problems you discuss, I think that differing objectives between research and application may play a much larger role. I suspect that scientific papers that are most useful and influential for conservation practitioners and policymakers are those which confirm what they already believe, or whatever the interests opposed to them least want to hear.
+      Morning Sessions SSB Symposium 8:30 - noon: Unified Approaches for Understanding Patterns of Character Evolution and Diversification  Stacey Smith (U. of Nebraska-Lincoln) and Boris Igic (U.of Illinois-Chicago) - &ldquo;Introduction to models of character state-dependent diversification&rdquo;  Introduces the BiSSE model.
+ Richard Fitzjohn (U. of British Columbia) - &ldquo;Stochastic mapping incorporating differential diversification&rdquo;  BiSSE comparison to traditional discrete-trait transition rate which ignores the correlation.
+ Folmer Bokma (Umeå University) - &ldquo;Estimating speciation and extinction with incomplete phylogenies&rdquo;   Emma Goldberg (University of Illinois-Chicago) - &ldquo;Modes of speciation and character change from phylogenetic trees&rdquo;
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/">Friday: more labrid &amp; parrotfish wrightscape examples</a></h2>
+    <h4>Fri, Jun 17, 2011</h4>
     <div class="article-style">
       
-      Sustainable Research Happened across a provocative example of why we need a software ecosystem, though it was certainly not intended to be one, which led me to ask myself:
- How complex does an algorithm have to be before a talented researcher with expertise in both the relevant mathematics and computer science will make a significant mistake in their first release of the software?
- As a corollary we might also ask, &ldquo;How much less care do we put into research code not destined for release?
+      Runs from yesterday: MLE comparison of full labrid pharyngeal innovation (all parrotfish), alpha-v-sigma: Unfortunately, the all-variable mcmc over labrid tree was unsuccessful.
+Pure-brownie vs pure diversification ends up with the surprisingly opposite conclusion from the sigmas-alphas on parrotfish close ratio:
+Clearly a convergence problem but with which model? (see parameter distributions adjacent; following in photostream archive).
+Luckily this is not the case in the full labrid (size-corrected, protrusion, pharyngeal innovation) model set:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/">Wrightscape labrid/parrotfish results; Evolution pres</a></h2>
+    <h4>Thu, Jun 16, 2011</h4>
     <div class="article-style">
       
-      Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
+      Analysis Summarizing recently completed runs:  Reviewing last night&rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&rsquo;t seem to want to run)
+ the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
+  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
+Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&rsquo;s when theta could also vary.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/">Wednesday MCMC and MLEs for wrightscape</a></h2>
+    <h4>Wed, Jun 15, 2011</h4>
     <div class="article-style">
       
-      Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
-  Misc  Some software providing rather impressive/high fidelity pdf to html conversion&hellip; Not just rendering as images &ndash; the text is searchable, though in the html source it just looks like a bunch of binary data URIs.
+      Wrote plotting function for wrightscape MCMC analysis
+ added support to write MCMC to a file.
+ exploring divergent MCMCs. more checks on NaNs
+ trying MLE initiated MCMC
+ Revising talk for evolution
+ tweaks to socialR reporting &ndash; include error message, exit with status=1, fewer time sigfigs; see gitlog.
+   Max likelihoods &amp; bootstraps Parrotfish protrusion (size corrected, 400 reps) If thetas are different and not allowed to vary, the alpha model will obviously do worse than the sigma model, even if it is correct.
       
     </div>
   </div>

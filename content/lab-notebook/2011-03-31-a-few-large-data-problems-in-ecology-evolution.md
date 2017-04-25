@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2011-03-31 11:18:38
-layout: post
-slug: a-few-large-data-problems-in-ecology-evolution
-title: A few large data problems in Ecology & Evolution
-redirects: [/wordpress/archives/1310, /archives/1310]
 categories:
 - evolution
 - ecology
+comments: true
+date: 2011-03-31T11:18:38Z
+redirects:
+- /wordpress/archives/1310
+- /archives/1310
+slug: a-few-large-data-problems-in-ecology-evolution
+title: A few large data problems in Ecology & Evolution
+url: /2011/03/31/a-few-large-data-problems-in-ecology-evolution/
 ---
 
 I've joined a student-led seminar with Gabriel Becker in the Statistics department on dealing with large data, primarily in R.  Offered to say a few words about large data problems in my field for a few minutes, so making some notes.

@@ -6,107 +6,74 @@
     <description>Recent content in Docker on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/12/29/steps-to-a-more-portable-workflow/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&amp;rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.</description>
+      <guid>/2014/12/29/steps-to-a-more-portable-workflow/</guid>
+      <description>Tweaking Dockerfile for labnotebook to be simpler and more portable.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/11/24/coreos-docker-registries-etc/</link>
+      <pubDate>Mon, 24 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&amp;rsquo;t supported out of the box).
- We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &amp;lsquo;minion&amp;rsquo;.</description>
+      <guid>/2014/11/24/coreos-docker-registries-etc/</guid>
+      <description>A secure docker registry Running one&amp;rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&amp;rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&amp;rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &amp;ndash; doesn&amp;rsquo;t sound like a good idea).</description>
+    </item>
+    
+    <item>
+      <title>Dear DockerHub users: please configure your repository links</title>
+      <link>/2014/11/07/dear-docker-hub-users/</link>
+      <pubDate>Fri, 07 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/11/07/dear-docker-hub-users/</guid>
+      <description>The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&amp;rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
+Unfortunately, far fewer users configure Repository Links to trigger builds to update even when the resulting Dockerfile is unchanged.</description>
+    </item>
+    
+    <item>
+      <title>linking binaries from other containers</title>
+      <link>/2014/11/05/notes/</link>
+      <pubDate>Wed, 05 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/11/05/notes/</guid>
+      <description>Been thinking about this for a while, but @benmarwick &amp;rsquo;s examples with --volumes-from convinced me to give this a try.
+While there&amp;rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&amp;rsquo;t have it built in, like rocker/rstudio.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/11/03/three-interfaces-for-docker/</link>
+      <pubDate>Mon, 03 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
- Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
- Disabling root logins. (We&amp;rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&amp;rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.</description>
+      <guid>/2014/11/03/three-interfaces-for-docker/</guid>
+      <description>Here I outline three broad, different strategies for incorporating Docker into a user&amp;rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &amp;lsquo;native&amp;rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/10/29/the-viability-of-dockerized-research/</link>
+      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
-The process is rather manual: we have to sudo poweroff the droplet and then trigger the snapshot (the container will come back online after that, though we have to restart the services / active docker containers). We also have to delete old snapshots manually. Some of this can be automated from the API.</description>
+      <guid>/2014/10/29/the-viability-of-dockerized-research/</guid>
+      <description>In the spirit of Greg&amp;rsquo;s post &amp;amp; the discussion here, I&amp;rsquo;d be interested in hearing more on people&amp;rsquo;s thoughts about the viability of Dockerized software both in the teaching classroom and beyond, as students continue in their research.
+To start off, I thought I&amp;rsquo;d share a few of my own impressions, largely to give a target for anyone to push back against. In doing so I will also try to outline what I see as the features and potential workflow would look like, in hopes that it does not require any actual experience with docker to have an opinion on whether or not a particular strategy makes sense pedagogically.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/10/21/docker-and-user-permissions-crazyness/</link>
+      <pubDate>Tue, 21 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>A key challenge for reproducible research is developing solutions that integrate easily into a researcher&amp;rsquo;s existing workflow. Having to move all of one&amp;rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&amp;rsquo;t particularly appealing. In my experience this doesn&amp;rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
-      <description>docker 2014-09-29:
- Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
- Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&amp;rsquo;s talk on our Docker work.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
-      <description>Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;amp;&amp;amp; apt-get build-dep -y littler \ &amp;amp;&amp;amp; apt-get install autoconf git \ &amp;amp;&amp;amp; git clone https://github.com/eddelbuettel/littler.git \ &amp;amp;&amp;amp; /littler/./bootstrap  May want to symlink too:
-ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;amp;&amp;amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;amp;&amp;amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;amp;&amp;amp; ln -s /littler/examples/testInstalled.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
-      <description>Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&amp;rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&amp;rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
- Minimize the number of layers, but use \ to break commands across multiple lines,
- Always run apt-get update &amp;amp;&amp;amp; apt-get install -y .</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
-      <description>Been looking into building versioned images for previous R releases using Docker, based on somewhat common requests to our recently begun rocker project. Versioning is under early development and the best way to go about this is not yet clear. Getting the correct version of R installed is not always trivial but is relatively straight forward, and I outline two approaches below.
-Getting the correct version of packages (or even merely any compatible version of the package) to install is a considerably more difficult problem, which I&amp;rsquo;ll discuss later.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
+      <guid>/2014/10/21/docker-and-user-permissions-crazyness/</guid>
       <description>Lots of crazyness getting to the bottom of permissions changes, as discussed in:
  rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
 Here&amp;rsquo;s the SO version of the question, for my reference:</description>
@@ -114,80 +81,114 @@ Here&amp;rsquo;s the SO version of the question, for my reference:</description>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/10/14/rocker-versioning/</link>
+      <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>In the spirit of Greg&amp;rsquo;s post &amp;amp; the discussion here, I&amp;rsquo;d be interested in hearing more on people&amp;rsquo;s thoughts about the viability of Dockerized software both in the teaching classroom and beyond, as students continue in their research.
-To start off, I thought I&amp;rsquo;d share a few of my own impressions, largely to give a target for anyone to push back against. In doing so I will also try to outline what I see as the features and potential workflow would look like, in hopes that it does not require any actual experience with docker to have an opinion on whether or not a particular strategy makes sense pedagogically.</description>
+      <guid>/2014/10/14/rocker-versioning/</guid>
+      <description>Been looking into building versioned images for previous R releases using Docker, based on somewhat common requests to our recently begun rocker project. Versioning is under early development and the best way to go about this is not yet clear. Getting the correct version of R installed is not always trivial but is relatively straight forward, and I outline two approaches below.
+Getting the correct version of packages (or even merely any compatible version of the package) to install is a considerably more difficult problem, which I&amp;rsquo;ll discuss later.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/10/09/lessons-learned-in-writing-dockerfiles/</link>
+      <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>Here I outline three broad, different strategies for incorporating Docker into a user&amp;rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &amp;lsquo;native&amp;rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.</description>
+      <guid>/2014/10/09/lessons-learned-in-writing-dockerfiles/</guid>
+      <description>Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&amp;rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&amp;rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
+ Minimize the number of layers, but use \ to break commands across multiple lines,
+ Always run apt-get update &amp;amp;&amp;amp; apt-get install -y .</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/10/07/notes/</link>
+      <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>A secure docker registry Running one&amp;rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&amp;rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&amp;rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &amp;ndash; doesn&amp;rsquo;t sound like a good idea).</description>
+      <guid>/2014/10/07/notes/</guid>
+      <description>Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;amp;&amp;amp; apt-get build-dep -y littler \ &amp;amp;&amp;amp; apt-get install autoconf git \ &amp;amp;&amp;amp; git clone https://github.com/eddelbuettel/littler.git \ &amp;amp;&amp;amp; /littler/./bootstrap  May want to symlink too:
+ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;amp;&amp;amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;amp;&amp;amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;amp;&amp;amp; ln -s /littler/examples/testInstalled.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/10/02/notes/</link>
+      <pubDate>Thu, 02 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01.html</guid>
-      <description>Tweaking Dockerfile for labnotebook to be simpler and more portable.</description>
+      <guid>/2014/10/02/notes/</guid>
+      <description>docker 2014-09-29:
+ Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
+ Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&amp;rsquo;s talk on our Docker work.</description>
     </item>
     
     <item>
-      <title>An appropriate amount of fun with docker?</title>
-      <link>/1/01/01/an-appropriate-amount-of-fun-with-docker.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title></title>
+      <link>/2014/09/22/containerizing-my-development-environment/</link>
+      <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/an-appropriate-amount-of-fun-with-docker.html</guid>
-      <description>An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
-I&amp;rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
-docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.</description>
+      <guid>/2014/09/22/containerizing-my-development-environment/</guid>
+      <description>A key challenge for reproducible research is developing solutions that integrate easily into a researcher&amp;rsquo;s existing workflow. Having to move all of one&amp;rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&amp;rsquo;t particularly appealing. In my experience this doesn&amp;rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.</description>
     </item>
     
     <item>
-      <title>Dear DockerHub users: please configure your repository links</title>
-      <link>/1/01/01/dear-dockerhub-users-please-configure-your-repository-links.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title></title>
+      <link>/2014/09/09/server-backups/</link>
+      <pubDate>Tue, 09 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/dear-dockerhub-users-please-configure-your-repository-links.html</guid>
-      <description>The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&amp;rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
-Unfortunately, far fewer users configure Repository Links to trigger builds to update even when the resulting Dockerfile is unchanged.</description>
+      <guid>/2014/09/09/server-backups/</guid>
+      <description>Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
+The process is rather manual: we have to sudo poweroff the droplet and then trigger the snapshot (the container will come back online after that, though we have to restart the services / active docker containers). We also have to delete old snapshots manually. Some of this can be automated from the API.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2014/09/08/server-security-basics/</link>
+      <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/09/08/server-security-basics/</guid>
+      <description>Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
+ Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
+ Disabling root logins. (We&amp;rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&amp;rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2014/09/05/drone-ci-and-docker/</link>
+      <pubDate>Fri, 05 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/09/05/drone-ci-and-docker/</guid>
+      <description>Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&amp;rsquo;t supported out of the box).
+ We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &amp;lsquo;minion&amp;rsquo;.</description>
     </item>
     
     <item>
       <title>Reproducible research environments with Docker</title>
-      <link>/1/01/01/reproducible-research-environments-with-docker.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>/2014/08/25/reproducible-research-environments-with-docker/</link>
+      <pubDate>Mon, 25 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/reproducible-research-environments-with-docker.html</guid>
+      <guid>/2014/08/25/reproducible-research-environments-with-docker/</guid>
       <description>Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
 Wouldn&amp;rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&amp;rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?</description>
     </item>
     
     <item>
-      <title>linking binaries from other containers</title>
-      <link>/1/01/01/linking-binaries-from-other-containers.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title></title>
+      <link>/2014/08/14/docker-notes/</link>
+      <pubDate>Thu, 14 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/linking-binaries-from-other-containers.html</guid>
-      <description>Been thinking about this for a while, but @benmarwick &amp;rsquo;s examples with --volumes-from convinced me to give this a try.
-While there&amp;rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&amp;rsquo;t have it built in, like rocker/rstudio.</description>
+      <guid>/2014/08/14/docker-notes/</guid>
+      <description>Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&amp;rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.</description>
+    </item>
+    
+    <item>
+      <title>An appropriate amount of fun with docker?</title>
+      <link>/2014/08/08/an-appropriate-amount-of-fun-with-docker/</link>
+      <pubDate>Fri, 08 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/08/08/an-appropriate-amount-of-fun-with-docker/</guid>
+      <description>An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
+I&amp;rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
+docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.</description>
     </item>
     
   </channel>

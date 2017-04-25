@@ -1,19 +1,19 @@
 ---
-comments: true
-date: 2011-08-24 08:10:51
-layout: post
-slug: datacite-day-1
-title: DataCite Day 1
-redirects: [/wordpress/archives/2381, /archives/2381]
 categories:
 - open-science
+comments: true
+date: 2011-08-24T08:10:51Z
+redirects:
+- /wordpress/archives/2381
+- /archives/2381
+slug: datacite-day-1
 tags:
 - conference
+title: DataCite Day 1
+url: /2011/08/24/datacite-day-1/
 ---
 
-
-	
-  * 12:00pm-1:00pm Lunch
+* 12:00pm-1:00pm Lunch
 
 	
   * 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. ([Slides](http://www.slideshare.net/wilbanks/datacite-wilbanks))

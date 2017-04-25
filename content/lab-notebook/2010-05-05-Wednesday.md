@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-05T00:00:00Z
+tags:
+- tribolium
 title: Wednesday
+url: /2010/05/05/Wednesday/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Structured populations part of project migrated to
     [github](http://github.com/cboettig/structured-populations "http://github.com/cboettig/structured-populations")

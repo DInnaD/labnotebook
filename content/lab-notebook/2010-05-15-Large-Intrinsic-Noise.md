@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-15T00:00:00Z
 title: Large Intrinsic Noise
+url: /2010/05/15/Large-Intrinsic-Noise/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Modified Crowley model
 

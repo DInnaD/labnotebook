@@ -1,12 +1,10 @@
 ---
+date: 2012-10-17T00:00:00Z
+tags:
+- warning-signals
 title: Notes
-layout: post
-category: [ecology]
-tags: [warning-signals]
-date: 2012-10-17
-
+url: /2012/10/17/talkingpoints/
 ---
-
 
 ## Talking points 
 

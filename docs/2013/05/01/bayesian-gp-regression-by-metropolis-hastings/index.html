@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p>(Development version for reference; code functions now in <a href="https://github.com/cboettig/nonparametric-bayes/blob/331a441ca8bdf83ce660e9fc35c58bb9fb5e2a47/R/gp_mcmc.R">R/gp_mcmc.R</a>)</p>
+
+<h3 id="function-definitions">Function definitions</h3>
+
+<pre><code class="language-r">library(mcmc)
+#' Basic regression in Gaussian processes  
+#' 
+#' 
+#' @param x Observed x values, (vector or matrix with columns for each dimension of data)
+#' @param y Vector of observed y values in the training data
+#' @param init_pars the initial guesses for lengthscale l and process noise sigma_n
+#' @param n iterations of the metropolis algorithm
+#' @details Currently assumes the covariance function.  By default we will use 
+#' the squared exponential (also called radial basis or Gaussian, 
+#' though it is not this that gives Gaussian process it's name; 
+#' any covariance function would do) as the covariance function, 
+#' $\operatorname{cov}(X_i, X_j) = \exp\left(-\frac{(X_i - X_j)^2}{2 \ell ^ 2}\right)$
+#' @return the MCMC output, as constructed by \link{metrop} from the mcmc package.
+#' @export
+#' @import mcmc  
+gp_mcmc &lt;- function(x, y, init_pars = c(l=1, sigma.n=1), n = 1e4, d.p = c(5,5), s2.p = c(5,5)){
+
+  lpriors &lt;- function(pars){
+    prior &lt;- unname(
+      dgamma(exp(pars[1]), d.p[1], scale = d.p[2]) *
+      dgamma(exp(pars[2]), s2.p[1], s2.p[2]) 
+    )
+    log(prior)
+  }
+  posterior &lt;- function(pars, x, y){ 
+    l &lt;- exp(pars[1])
+    sigma.n &lt;- exp(pars[2])
+    
+    cov &lt;- function(X, Y) outer(X, Y, SE, l)
+    I &lt;- diag(1, length(x))
+    K &lt;- cov(x, x) 
+    
+    loglik &lt;- - 0.5 * t(y) %*% solve(K + sigma.n^2 * I) %*% y -
+      log(det(K + sigma.n^2*I)) -
+      length(y) * log(2 * pi) / 2
+    
+    loglik + lpriors(pars)
+  }
+  
+  out &lt;- metrop(posterior, log(init_pars), n, x = obs$x, y = obs$y)  
+  out$d.p &lt;- d.p
+  out$s2.p &lt;- s2.p
+  
+  out
+}
+</code></pre>
+
+<pre><code class="language-r">#' predict the expected values and posterior distributions of the Gaussian Process
+#' 
+#' @param x_predict the values at which we desire predictions
+#' @param covs if TRUE, return covariances instead of variances (set high thinning as this is memory intensive)
+#' @import reshape2
+#' @export
+gp_predict &lt;- function(gp, x_predict, burnin=0, thin=1, covs=FALSE){
+
+  postdist &lt;- cbind(index=1:gp$nbatch, as.data.frame(exp(gp$batch)))
+  s &lt;- seq(burnin+1, gp$nbatch, by=thin)
+  postdist &lt;- postdist[s,]
+  names(postdist) &lt;- c(&quot;index&quot;, names(gp$initial))
+  
+  indices &lt;- 1:dim(postdist)[1]
+  
+  out &lt;- lapply(indices, function(i){
+    l &lt;- postdist[i, &quot;l&quot;]
+    sigma.n &lt;- postdist[i, &quot;sigma.n&quot;]
+    
+    cov &lt;- function(X, Y) outer(X, Y, SE, l)
+    cov_xx_inv &lt;- solve(cov(obs$x, obs$x) + sigma.n^2 * diag(1, length(obs$x)))
+    Ef &lt;- cov(x_predict, obs$x) %*% cov_xx_inv %*% obs$y
+    Cf &lt;- cov(x_predict, x_predict) - cov(x_predict, obs$x)  %*% cov_xx_inv %*% cov(obs$x, x_predict)
+    list(Ef = Ef, Cf = Cf, Vf = diag(Cf))
+  })
+  
+  Ef_posterior &lt;- sapply(out, `[[`, &quot;Ef&quot;)
+  Cf_posterior &lt;- sapply(out, `[[`, &quot;Cf&quot;)
+  Vf_posterior &lt;- sapply(out, `[[`, &quot;Vf&quot;)
+  
+  
+  E_Ef &lt;- rowMeans(Ef_posterior)
+  E_Cf &lt;- matrix( apply(Cf_posterior, 1, sum) / dim(Cf_posterior)[2], ncol = sqrt(dim(Cf_posterior)[1]) )
+  E_Vf &lt;- diag(E_Cf) # same as rowMeans(Vf_posterior)
+  
+  # list format better for return
+  Cf_posterior &lt;- lapply(out, `[[`, &quot;Cf&quot;)
+  
+  list(Ef_posterior = Ef_posterior, 
+       Vf_posterior = Vf_posterior,
+       Cf_posterior = Cf_posterior,
+       E_Ef = E_Ef, E_Cf = E_Cf, E_Vf = E_Vf)
+  
+}  
+</code></pre>
+
+<pre><code class="language-r">library(reshape2)
+library(ggplot2)
+library(plyr)
+#' Summary plots showing the trace and posteriors for the gp_mcmc estimates
+#' 
+#' @param gp a fit of the gaussian process from gp_mcmc
+#' @param burnin length of sequence to discard as a transient
+#' @param thin frequency of sub-sampling (make posterior distribution smaller if necessary)
+#' @return two ggplot2 objects, one plotting the trace and one 
+#' plotting the posteriors in black with priors overlaid in red.  
+#' @import reshape2
+#' @import ggplot2
+#' @import plyr
+#' @export
+summary_gp_mcmc &lt;- function(gp, burnin=0, thin=1){
+
+  postdist &lt;- cbind(index=1:gp$nbatch, as.data.frame(exp(gp$batch)))
+  s &lt;- seq(burnin+1, gp$nbatch, by=thin)
+  postdist &lt;- postdist[s,]
+  names(postdist) &lt;- c(&quot;index&quot;, names(gp$initial))
+  
+  # TRACES
+  df &lt;- melt(postdist, id=&quot;index&quot;)
+  traces_plot &lt;- 
+    ggplot(df) + geom_line(aes(index, value)) + 
+    facet_wrap(~ variable, scale=&quot;free&quot;, ncol=1)
+  
+  s2.p &lt;- gp$s2.p
+  d.p &lt;- gp$d.p
+  s2_prior &lt;- function(x) dgamma(x, s2.p[1], s2.p[2])
+  d_prior &lt;- function(x) dgamma(x, d.p[1], scale = d.p[2])
+  prior_fns &lt;- list(l = d_prior, sigma.n = s2_prior)
+  
+  prior_curves &lt;- ddply(df, &quot;variable&quot;, function(dd){
+    grid &lt;- seq(min(dd$value), max(dd$value), length = 100)
+    data.frame(value = grid, density = prior_fns[[dd$variable[1]]](grid))
+  })
+  
+  # Posteriors (easier to read than histograms)
+  posteriors_plot &lt;- ggplot(df, aes(value)) + 
+    stat_density(geom=&quot;path&quot;, position=&quot;identity&quot;, alpha=0.7) +
+    geom_line(data=prior_curves, aes(x=value, y=density), col=&quot;red&quot;) + 
+    facet_wrap(~ variable, scale=&quot;free&quot;, ncol=2)
+  
+  print(traces_plot)
+  print(posteriors_plot)
+  
+  out &lt;- list(traces_plot = traces_plot, posteriors_plot = posteriors_plot)
+  invisible(out)
+}
+
+# Helper function: The default covariance function
+SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2)
+</code></pre>
+
+<h2 id="example">Example</h2>
+
+<pre><code class="language-r">x_predict &lt;- seq(-5,5,len=50)
+obs &lt;- data.frame(x = c(-4, -3, -1,  0,  2),
+                  y = c(-2,  0,  1,  2, -1))
+</code></pre>
+
+<pre><code class="language-r">gp &lt;- gp_mcmc(obs$x, obs$y, d.p = c(2,.5), s2.p = c(2,.5))
+</code></pre>
+
+<pre><code class="language-r">summary_gp_mcmc(gp)
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7285/8739390350_c4c06db5ab_o.png" alt="plot of chunk unnamed-chunk-6" /> <img src="http://farm8.staticflickr.com/7285/8739390438_50350c1a38_o.png" alt="plot of chunk unnamed-chunk-6" /></p>
+
+<pre><code class="language-r">gp_dat &lt;- gp_predict(gp, x_predict)
+</code></pre>
+
+<pre><code class="language-r">tgp_dat &lt;- 
+    data.frame(  x = x_predict, 
+                 y = gp_dat$E_Ef, 
+                 ymin = gp_dat$E_Ef - 2 * sqrt(gp_dat$E_Vf), 
+                 ymax = gp_dat$E_Ef + 2 * sqrt(gp_dat$E_Vf) )
+
+ggplot(tgp_dat) + geom_ribbon(aes(x,y,ymin=ymin,ymax=ymax), fill=&quot;gray80&quot;) +
+    geom_line(aes(x, y), lwd=2, alpha=0.8) + 
+    geom_point(data=obs, aes(x,y), alpha=0.8) + 
+    xlab(expression(X[t])) + ylab(expression(X[t+1])) 
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7282/8738272607_d913f04a10_o.png" alt="plot of chunk unnamed-chunk-8" /></p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-05-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Wed, May 1, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/nonparametric-bayes">nonparametric-bayes</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/05/02/scholarly-infrastructure-thoughts/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/05/01/integrating-over-posterior-gp/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-05-01-bayesian-GP-regression-by-metropolis-hastings.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-05-01-bayesian-GP-regression-by-metropolis-hastings.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/05\/01\/bayesian-gp-regression-by-metropolis-hastings\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/05\/01\/bayesian-gp-regression-by-metropolis-hastings\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

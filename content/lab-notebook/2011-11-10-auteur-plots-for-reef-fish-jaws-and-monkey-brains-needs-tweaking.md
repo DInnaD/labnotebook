@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-11-10 17:22:17
-layout: post
-slug: auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking
-title: Auteur plots for reef fish jaws and monkey brains -- needs tweaking
-redirects: [/wordpress/archives/3229, /archives/3229]
 categories:
 - evolution
+comments: true
+date: 2011-11-10T17:22:17Z
+redirects:
+- /wordpress/archives/3229
+- /archives/3229
+slug: auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking
+title: Auteur plots for reef fish jaws and monkey brains -- needs tweaking
+url: /2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/
 ---
 
 Looking at the diversification patterns from Auteur.  Longer rjmcmc runs aren't showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps?  Seems to overestimate the change points.

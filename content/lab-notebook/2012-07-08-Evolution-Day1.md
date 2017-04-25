@@ -1,9 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2012-07-08T00:00:00Z
+tags:
+- conference
 title: Evolution 2012 Conference, Day 1
-tags: [conference]
-category: evolution
-
+url: /2012/07/08/Evolution-Day1/
 ---
 
 Fantastic first day at Evolution.  Spent the morning in the SSB Sympossium organized by Jeremy Brown, "Predictive approaches for assessing the fit of evolutionary models".  Really covered both methods assessing model fit (posterior predictive simulations) and approximate likelihood approaches, which are also simulation-based.  Then the afternoon in the second SSB Symposium on emerging methods for comparative phylogenetics, organized by Liam Revell and Cecile Ane, which included my talk.  Lots of great talks, but Cecile's was perhaps the most striking results I saw presented all day.  

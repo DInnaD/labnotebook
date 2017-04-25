@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,110 +140,114 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/bodega-phylogenetics-workshop-day-2.html">Bodega Phylogenetics Workshop Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/18/thurs-phylogenetics-likelihood/">Thurs: evolution likelihood</a></h2>
+    <h4>Thu, Nov 18, 2010</h4>
     <div class="article-style">
       
-      Marine lab researchers are back, and network speeds have just about given up (down to bytes/s). This post is composed offline and will be uploaded to the notebook. Details are well logged on the Bodgea Phylogenetics Wiki so these are reasonably sketchy with my comments.
-My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega Phylogenetics Wiki today:
- User page Phylogenetics on Linux Becoming a Programmer Edits on Advice for Aspiring Phylogeneticists  Today&rsquo;s agenda  BEAST continued.
+      Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
+The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bodega-phylogenetics-workshop-day-3.html">Bodega Phylogenetics Workshop Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/18/weds/">Weds</a></h2>
+    <h4>Thu, Nov 18, 2010</h4>
     <div class="article-style">
       
-      Rich Glor, Character Evolution Official slides and tutorial
- Weakness of ancestral state reconstruction
- Cunningham 1999 Losos 1999  Testing hypotheses with ancestral reconstruction
- Parsimony Farris method. Downward/upward pass. Gives a maximum parsimony reconstruction. May miss other ones. Apparently this Parsimony analysis can be done for continuous traits as well, needs a measure of distance Likelihood Pagel 1994 Schluter 1997   R tutorial (see anolis_cheat.R)
- Discrete trait ancestral state reconstruction
+      Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
+Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bodega-workshop-day-4.html">Bodega Workshop Day 4</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/16/tues-seminar/">Tues seminar</a></h2>
+    <h4>Tue, Nov 16, 2010</h4>
     <div class="article-style">
       
-      Morphological Evolution Day:
- Peter Wainwright Sam Price Johnathan Eisen  We have the afternoon session off for field trips and research.</p>
-
-<p>Peter Wainwright, Comparative Analysis of Morphological Diversity  Fantastic diversity in morphology, corresponds to niche! But morphological diversity isn&rsquo;t evenly distributed across tree of life. (See slides, parallels Peter&rsquo;s section on core and gives the best biological coverage we&rsquo;ve had this week).  What changes morphological diversification rate
+      Sarah Dalrymple seminar. Rick Karban&rsquo;s excellent intro: &ldquo;unlike the rest of these seminars, Sarah will tell us something new.&rdquo; &ldquo;Sarah&rsquo;s really out there.&ldquo; Also mentions TAC and art teaching.
+Ants, Jeff pine &amp; fire Fire suppression dramatic impacts. Prescribed under story burns work! ie Angora fire in Tahoe, 2007. Discover rings of unburned soil around base of tree, reducing damage&hellip; undescribed!
+More common in recently burned ( 30 yrs. What makes the rings?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bodega-workshop-presentations.html">Bodega Workshop Presentations</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">evolution today:  Discussion groups, writing, etc</a></h2>
+    <h4>Mon, Nov 15, 2010</h4>
     <div class="article-style">
       
-      Final day of Bodega Phylogenetics workshop: a full day of student presentations. (High resolution images for the trees available by clicking on them)
-Principle figures from my investigation of the Labrid data. While morphospace doesn&rsquo;t present an obvious clustering, it can be effectively divided by my maximum likelihood partitioning scheme on fin angle. A smoothed density plot of fin angle alone reveals two identifiable modes in the traitspace.
-Based on the discretized partition, ancestral states are reconstructed under both the equal rates and independent rates model.
+      Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
+Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
+Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bootstrapping-likelihood-ratios.html">Bootstrapping Likelihood ratios</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thursday: Post-predictive verification exploration; writing and figures</a></h2>
+    <h4>Thu, Nov 11, 2010</h4>
     <div class="article-style">
       
-      Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
-&gt; summary(anoles_boots) [,1] [,2] [,3] [,4] [,5] [1,] 0.500000000 0.981399498 0.26514573 0.06668672 0.018154938 [2,] 0.009580545 0.500000000 0.15610274 0.04819938 0.011616566 [3,] 0.039233893 0.075349644 0.50000000 0.05699877 0.005443493 [4,] 0.004211230 0.004592917 0.01389950 0.50000000 0.006648916 [5,] 0.173457542 0.198303402 0.38893099 0.33891430 0.500000000 &gt;  Labrids: &gt; summary(labrid_boots) [,1] [,2] [,3] [,4] [1,] 0.5000000 6.036842e-05 0.0000000 0.0 [2,] 0.5424613 5.
+      On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
+[latex] \frac{dN}{dt} = (\lambda - \mu) N 
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bootstrapping-the-independent-alpha-sigma-models.html">Bootstrapping the independent alpha-sigma models</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/11/phylogenetics-statistics/">evolution statistics </a></h2>
+    <h4>Thu, Nov 11, 2010</h4>
     <div class="article-style">
       
-      I compare in a robust framework the likelihood that species mean trait values are generated by Brownian motion, a single peak OU model, or a model with different regimes (postulated in the literature) in which the selective strength (alpha) and diversification rate (sigma) are fixed across the entire tree or allowed to vary by selective regime. (Regimes are defined as branches with different values for the selective optimum).
-The parametric bootstrap of the likelihood ratio statistic provides a rigorous way to quantify the probability that the model choice is correct: the probability that the data was produced by the test model vs the null model is assured by the Neyman-Pearson lemma.
+      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
+Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
+The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bug-fixed.html">Bug fixed!</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Tuesday - SDEs then back to phylogenetics</a></h2>
+    <h4>Wed, Nov 10, 2010</h4>
     <div class="article-style">
       
-      Wasn&rsquo;t taking the Jacobian of the transition terms. Fixes the unstable behavior and disagreement between simulations and theory. Other note: the &ldquo;hastings.c&rdquo; model can trivially be obtained from the standard crowley-form metapopulation model by taking b_1 = 0.  For the crowley class of models at least, seems that while the two-step vs one-step involved different dynamics, this difference exists only in transients while equilbrium covariances agree.
+      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
+With regards the SDE problem, note that it reduces to:
+$$ dX_1 = B_2 d B_1 $$
+and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/csgf-conference-day-2.html">CSGF Conference Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/08/monday-and-some-phylogenetics/">Monday and some phylogenetics</a></h2>
+    <h4>Mon, Nov 8, 2010</h4>
     <div class="article-style">
+      
+      Working on paper revisions. Added a separate demo file just for generating the figures and analysis used in the manuscript, called likelihood_manuscript.R Need to clean and reorganize the package files and demos.
+Added full species names and islands to the tip labels of the tree. Adjusting which example paintings/regimes to include, currently focusing on the original OU.LP model (now calling it OU.3 following Brian&rsquo;s recommendation for simplicity), OU.4, (originally OU.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/csgf-conference-thursday.html">CSGF Conference Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/08/welcome-to-my-lab-notebook/">Welcome to my Lab Notebook</a></h2>
+    <h4>Mon, Nov 8, 2010</h4>
     <div class="article-style">
+      
+      Disclaimer: Not a Blog Welcome to my open lab notebook. This is the active, permanent record of all my scientific research, standing in place of the traditional bound lab notebook. It is a record of ideas, and intuitions; results and mistakes. Please bear in mind that the notebook is primarily a tool for me to do science, not communicate it. I write my entries with the hope that they are intelligible to my future self; and maybe intelligible to my collaborators and experts in my field.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/csgf-conference--hpc-workshop.html">CSGF Conference- HPC Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/05/friday-evolution-reading-writing/">Friday: Evolution reading, writing</a></h2>
+    <h4>Fri, Nov 5, 2010</h4>
     <div class="article-style">
       
-      I found the breakout sessions in the afternoon particularly fascinating for their paradigm-breaking look into the future of high performance computing. While FLOPS become free, huge scale and ultra-low-power devices (little voltage difference to identify bits) make error handling a topic of major concern, and the idea of &ldquo;wasting&rdquo; processors to perform redundant calculations to avoid errors becomes quite serious. Other ideas, like moving computation around the memory instead of the reverse, the rise of large data and questioning the role of GPU and other novel architecture was also an important theme.
+      Read through the article for Monday&rsquo;s PBG270, a 2009 Nature paper from the Plotkin lab on mutational robustness and the rate of evolution. They consider an interesting little setup. Start with a Moran model (individual born, may mutate, choses who to replace at random), but allow the following mutational structure (landscape). Of P possible genotypes, each can only move to one of K neighbors by a single mutation. Call the genotype(s) of optimal fitness C.
       
     </div>
   </div>

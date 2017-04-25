@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-20 16:53:08
-layout: post
-slug: friday-some-random-notes
-title: 'Friday: some random notes'
-redirects: [/wordpress/archives/4306, /archives/4306]
 categories:
 - computation
+comments: true
+date: 2012-03-20T16:53:08Z
+redirects:
+- /wordpress/archives/4306
+- /archives/4306
+slug: friday-some-random-notes
 tags:
 - code-tricks
+title: 'Friday: some random notes'
+url: /2012/03/20/friday-some-random-notes/
 ---
 
 ## Computational tricks

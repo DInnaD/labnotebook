@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-24 14:30:43
-layout: post
-slug: csgf-conference-notes
-title: CSGF Conference Notes
-redirects: [/wordpress/archives/2220, /archives/2220]
 categories:
 - computation
+comments: true
+date: 2011-07-24T14:30:43Z
+redirects:
+- /wordpress/archives/2220
+- /archives/2220
+slug: csgf-conference-notes
 tags:
 - conference
+title: CSGF Conference Notes
+url: /2011/07/24/csgf-conference-notes/
 ---
 
 Just returned from 5 days in Washington, DC for the annual computational science graduate fellowship conference.  No live notes/tweets, so just attempting to synthesize some of the major ideas before I get back to paper writing. Most of the conference material, including workshop slides, are [archived online](http://www.krellinst.org/conf/csgf/2011).

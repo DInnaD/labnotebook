@@ -1,9 +1,10 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2014-04-09T00:00:00Z
 tags:
 - multiple-uncertainty
-
+url: /2014/04/09/multiple-uncertainty-notes/
 ---
 
 Attempt to replicate Figure 3, but with one noise at a time

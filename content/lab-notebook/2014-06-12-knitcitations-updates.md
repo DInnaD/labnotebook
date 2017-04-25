@@ -1,12 +1,11 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-06-12T00:00:00Z
 tags:
-  - knitcitations
-
+- knitcitations
+url: /2014/06/12/knitcitations-updates/
 ---
-
-
 
 Used some down-time while traveling to hammer out a long overdue update to my [knitcitations](https://github.com/cboettig/knitcitations) package.
 

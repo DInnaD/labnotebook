@@ -1,10 +1,9 @@
 ---
-layout: post
-category: open-science
-
+categories:
+- open-science
+date: 2014-01-02T00:00:00Z
+url: /2014/01/02/open-science-literature-highlights/
 ---
-
-
 
 A student recently asked me for some recommendations for an article on an open science topic for a journal club.  Since I haven't jotted these down in one place before, though I might copy my reply here for my future reference, or in case anyone else is interested in my list.  
 

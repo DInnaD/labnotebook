@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-28T00:00:00Z
 title: Cetartiodactyle data
+url: /2010/07/28/Cetartiodactyle-data/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Exploring the cetartiodactyle data (unreleased)
 -   Nelder-Mead fails to converge or improve upon the hansen model.

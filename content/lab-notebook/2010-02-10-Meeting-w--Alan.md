@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [warning-signals, tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-10T00:00:00Z
+tags:
+- warning-signals
+- tribolium
 title: Meeting w- Alan
+url: /2010/02/10/Meeting-w--Alan/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Weekly check-in, following up on last week's meeting.
 

@@ -1,10 +1,11 @@
 ---
-layout: post
-categories: [ecology]
-tags: [multiple-uncertainty] 
-
+categories:
+- ecology
+date: 2012-08-21T00:00:00Z
+tags:
+- multiple-uncertainty
+url: /2012/08/21/pdg-control-updates/
 ---
-
 
 ## Resolving S < D 
 

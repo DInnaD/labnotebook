@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-26 13:24:34
-layout: post
-slug: tues-esa-presentation
-title: 'Tues: ESA presentation'
-redirects: [/wordpress/archives/2247, /archives/2247]
 categories:
 - ecology
+comments: true
+date: 2011-07-26T13:24:34Z
+redirects:
+- /wordpress/archives/2247
+- /archives/2247
+slug: tues-esa-presentation
 tags:
 - warning-signals
+title: 'Tues: ESA presentation'
+url: /2011/07/26/tues-esa-presentation/
 ---
 
 Working on ESA presentation.  See slides and code for details.

@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-29 22:19:43
-layout: post
-slug: friday-notes-on-labrids-notes-on-transforms-and-size-corrections
-title: 'Friday: Notes on Labrids, notes on Transforms and size-corrections'
-redirects: [/wordpress/archives/1534, /archives/1534]
 categories:
 - evolution
+comments: true
+date: 2011-04-29T22:19:43Z
+redirects:
+- /wordpress/archives/1534
+- /archives/1534
+slug: friday-notes-on-labrids-notes-on-transforms-and-size-corrections
+title: 'Friday: Notes on Labrids, notes on Transforms and size-corrections'
+url: /2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/
 ---
 
 The specific traits were:

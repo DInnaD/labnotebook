@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-09-13T00:00:00Z
 title: Peter meeting
+url: /2010/09/13/Peter-meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   [SICB](http://www.sicb.org/meetings/2011/abstracts/index.php3 "http://www.sicb.org/meetings/2011/abstracts/index.php3")
     conference

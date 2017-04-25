@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-05-11T00:00:00Z
 title: Peter Meeting
+url: /2010/05/11/Peter-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Discussed potential solution to the model choice scenario:
 

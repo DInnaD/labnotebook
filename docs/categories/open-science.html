@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,108 +141,113 @@
   
   
   <div>
-    <h2><a href="../2012/05/03/testing-out-a-jekyll-based-notebook.html">Testing out a Jekyll-based notebook</a></h2>
-    <h4>Thu, May 3, 2012</h4>
+    <h2><a href="../2014/10/08/response-to-software-discovery-index-report/"></a></h2>
+    <h4>Wed, Oct 8, 2014</h4>
     <div class="article-style">
       
-      I am trying out Jekyll as an alternative to Wordpress for powering this site and my open lab notebook. If you subscribe, the new RSS (atom) feed for the new notebook is at <a href="http://carlboettiger.info/atom.xml">http://carlboettiger.info/atom.xml</a>. I&rsquo;d love to hear any feedback, good or bad, about the switch. A recent post gives my own reflections. The site&rsquo;s source-code is available on github.
-Navigating two platforms The Wordpress site now lives at <a href="http://carlboettiger">http://carlboettiger</a>.
+      The NIH has recently announced the report of a landmark meeting which presents a vision for a Software Discovery Index (SDI). The report is both timely and focused on the key issues of locating, citing, reusing software:
+ Software developers face challenges disseminating their software and measuring its adoption. Software users have difficulty identifying the most appropriate software for their work. Journal publishers lack a consistent way to handle software citations or to ensure reproducibility of published findings.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/04/07/writing-reproducibly-in-the-open-with-knitr.html">Writing reproducibly in the open with knitr</a></h2>
-    <h4>Sat, Apr 7, 2012</h4>
+    <h2><a href="../2014/08/25/reproducible-research-environments-with-docker/">Reproducible research environments with Docker</a></h2>
+    <h4>Mon, Aug 25, 2014</h4>
     <div class="article-style">
       
-      Sweave is something of a gold standard in reproducible research. It creates a dynamic document, written in a mix of LaTeX and R code where the results of the analysis (numbers, figures, tables) are automatically generated from the code and inserted into the resulting pdf document, making them easy to update if the data or methods change. It&rsquo;s a nice idea, in principle.
-However, the practical troubles are many. Coauthors don&rsquo;t know LaTeX, publishers who don&rsquo;t accept LaTeX or pdfs.
+      Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
+Wouldn&rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/29/relevant-initiatives-from-todays-big-data-press-release.html">Relevant initiatives from today&#39;s Big Data press release</a></h2>
-    <h4>Thu, Mar 29, 2012</h4>
+    <h2><a href="../2014/08/14/docker-notes/"></a></h2>
+    <h4>Thu, Aug 14, 2014</h4>
     <div class="article-style">
       
-      An exciting day for Big Data (particularly if your Berkeley).
-NSF  Encouraging research universities to develop interdisciplinary graduate programs to prepare the next generation of data scientists and engineers; Funding a $10 million Expeditions in Computing project based at the University of California, Berkeley, that will integrate three powerful approaches for turning data into information - machine learning, cloud computing, and crowd sourcing; Providing the first round of grants to support “EarthCube” - a system that will allow geoscientists to access, analyze and share information about our planet; Convening researchers across disciplines to determine how Big Data can transform teaching and learning.
+      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/24/citations-in-markdown-using-knitr.html">Citations in markdown using knitr</a></h2>
-    <h4>Sat, Mar 24, 2012</h4>
+    <h2><a href="../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h2>
+    <h4>Fri, Aug 8, 2014</h4>
     <div class="article-style">
       
-      I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading). One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I&rsquo;d like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).
+      An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
+I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
+docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook.html">knitr, github, and a new phase for the lab notebook</a></h2>
-    <h4>Wed, Mar 21, 2012</h4>
+    <h2><a href="../2014/08/07/too-much-fun-with-docker/"></a></h2>
+    <h4>Thu, Aug 7, 2014</h4>
     <div class="article-style">
       
-      I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&rsquo;t say where in the script the command came from, and it required manually specifying the script name).
+      NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
+Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
+I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/20/citing-r-packages.html">Citing R packages</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
+    <h2><a href="../2014/07/31/notes/"></a></h2>
+    <h4>Thu, Jul 31, 2014</h4>
     <div class="article-style">
       
-      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
-citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
+      Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
+Highly recommend their paper for the first explanation I&rsquo;ve actually been able to follow that provides a definition of &ldquo;DevOpts&rdquo; (essentially, using scripts rather than documentation to manage consistent cross-platform installation) and explains the differences and similarities between the various programs operating in this sphere, sometimes as alternatives and simultaneously.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/02/28/knitr-with-flickr-and-wordpress.html">Knitr with flickr and wordpress</a></h2>
-    <h4>Tue, Feb 28, 2012</h4>
+    <h2><a href="../2014/07/10/notes-on-tricks-in-manuscript-submission-and-collaboration/"></a></h2>
+    <h4>Thu, Jul 10, 2014</h4>
     <div class="article-style">
       
-      It&rsquo;s amazing how nice it is to work with well-developed software. It took me about 20 minutes to extend Yuhui&rsquo;s interface to allow me to upload images through flickr instead of imgur, and embed them into a wordpress blog using the shortcode from the flickr gallery plugin.
-To do this, I just modified the hook used by the markdown format. First, I define a quick R function that uploads to flickr and returns the flickr identifier number.
+      Some thoughts on collaborating with markdown / dynamic document workflow Collaborating on manuscripts with other researchers when not writing in MS Word has been a perpetual nuisance for those of us not using Word (no doubt the others might say the same). When I first began writing papers I worked in LaTeX, and at that time I collaborated largely with others who already knew TeX (e.g. my mentors), so this wasn&rsquo;t much of a problem.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/02/27/using-knitr-and-rwordpress-to-publish-results-directly-from-r-6.html">Using knitr and RWordPress to publish results directly from R</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
+    <h2><a href="../2014/06/12/knitcitations-updates/"></a></h2>
+    <h4>Thu, Jun 12, 2014</h4>
     <div class="article-style">
       
-      Update: The original source file for this post, generates this output file formatted for wordpress. The source file has been knitted for markdown formatting so this post displays in Jekyll. The rendered post relies on Wordpress shortcodes, as raw the output file shows above. The markdown-based rendering shows the images and the shortcodes wordpress uses for codeblocks.
-One of the great things about knitr is its flexibility. Here I set knitr up to publish to Wordpress.
+      Used some down-time while traveling to hammer out a long overdue update to my knitcitations package.
+My first task inovled a backwards-compatible update fixing a few minor issues (see NEWS) and providing pandoc style inline citations v0.6-2, on CRAN.
+I followed this with a ground-up rewrite, as I summarize in NEWS:
+v1.0-1 This version is a ground-up rewrite of knitcitations, providing a more powerful interface while also streamlining the back end, mostly by relying more on external libraries for knitty gritty.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/02/24/visuals-for-communicating-uncertainty.html">Visuals for Communicating Uncertainty </a></h2>
-    <h4>Fri, Feb 24, 2012</h4>
+    <h2><a href="../2014/06/04/is-statistical-software-harmful/">Is statistical software harmful?</a></h2>
+    <h4>Wed, Jun 4, 2014</h4>
     <div class="article-style">
       
-      Visiting the question of communicating uncertainty in Marissa&rsquo;s lab meeting, focusing on this excellent Science article (Spiegelhalter et. al. 2011). Noam and Jamie are leading the discussion, and suggested we pick a few favorite examples. None on my list really address the challenge of communicating uncertainty directly, though the first one probably comes closest. I think they do highlight some of the potential and the challenges of good data visualization though, which is certainly one of the essential building blocks to visual communication of uncertainty.
+      Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
+Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc.html">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
+    <h2><a href="../2014/05/30/plos-data-sharing-policy-reflections/"></a></h2>
+    <h4>Fri, May 30, 2014</h4>
     <div class="article-style">
       
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
+      PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
+At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
       
     </div>
   </div>

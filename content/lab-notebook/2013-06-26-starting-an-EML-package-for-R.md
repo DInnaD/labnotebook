@@ -1,10 +1,11 @@
 ---
-layout: post
-categories: [ecology]
+categories:
+- ecology
+date: 2013-06-26T00:00:00Z
 tags:
 - ropensci
 - eml
-
+url: /2013/06/26/starting-an-EML-package-for-R/
 ---
 
 Started [`reml`](https://github.com/ropensci/reml), and R package for reading, writing, manipulating and publishing EML files.  More details and progress so far on the Github page; in particular flushing out design goals in the [issues tracker](https://github.com/ropensci/reml/issues).  

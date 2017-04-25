@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-08T00:00:00Z
 title: Evolutionary Regime Shift examples
+url: /2010/07/08/Evolutionary-Regime-Shift-examples/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Time to get more data and examples to start testing methods,
 particularly for cases in where regime shifts are hypothesized by

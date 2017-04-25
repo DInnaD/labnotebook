@@ -1,17 +1,14 @@
 ---
-comments: true
-date: 2011-04-01 15:50:05
-layout: post
-title: Thursday finishing up appendices(?)
 categories:
 - ecology
+comments: true
+date: 2011-04-01T15:50:05Z
 tags:
 - warning-signals
 - delayed-release
+title: Thursday finishing up appendices(?)
+url: /2011/04/01/thursday-finishing-up-appendices/
 ---
-
-
-
 
 ### Fresh off the cpus:
 

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-17 22:53:33
-layout: post
-slug: wednesday-migrating-codes-into-mpi
-title: 'Wednesday: migrating codes into MPI'
-redirects: [/wordpress/archives/2362, /archives/2362]
 categories:
 - computation
+comments: true
+date: 2011-08-17T22:53:33Z
+redirects:
+- /wordpress/archives/2362
+- /archives/2362
+slug: wednesday-migrating-codes-into-mpi
 tags:
 - hpc
+title: 'Wednesday: migrating codes into MPI'
+url: /2011/08/17/wednesday-migrating-codes-into-mpi/
 ---
 
 ## Parellelization/Scaling of code

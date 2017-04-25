@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2012-01-12 13:49:29
-layout: post
-slug: forage-fish
-title: Forage Fish course plan
-redirects: [/wordpress/archives/3635, /archives/3635]
 categories:
 - ecology
+comments: true
+date: 2012-01-12T13:49:29Z
+redirects:
+- /wordpress/archives/3635
+- /archives/3635
+slug: forage-fish
+title: Forage Fish course plan
+url: /2012/01/12/forage-fish/
 ---
 
 Forage fish winter quarter session starts, attempting to write the synthesis manuscript based on Fall quarter. Broke into groups to write sub-sections (2-4pgs) by 15 Feb.

@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-06-04 21:27:30
-layout: post
-slug: saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda
-title: 'Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on
-  lambda'
-redirects: [/wordpress/archives/1895, /archives/1895]
 categories:
 - evolution
+comments: true
+date: 2011-06-04T21:27:30Z
+redirects:
+- /wordpress/archives/1895
+- /archives/1895
+slug: saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda
 tags:
 - code-tricks
+title: 'Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on
+  lambda'
+url: /2011/06/04/saturday-git-with-latexdiff-treebase-and-pmc-package-updates-bounds-on-lambda/
 ---
 
 ## bounds on lambda:

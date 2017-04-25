@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-12-11 22:45:54
-layout: post
-slug: some-notes-on-open-notebooks-open-peer-review-practices
-title: Some Notes on Open Notebooks, Open peer review practices.
-redirects: [/wordpress/archives/3533, /archives/3533]
 categories:
 - open-science
+comments: true
+date: 2011-12-11T22:45:54Z
+redirects:
+- /wordpress/archives/3533
+- /archives/3533
+slug: some-notes-on-open-notebooks-open-peer-review-practices
+title: Some Notes on Open Notebooks, Open peer review practices.
+url: /2011/12/11/some-notes-on-open-notebooks-open-peer-review-practices/
 ---
 
 What follows is a collection of notes, examples, and reflections I've been meaning to write down.

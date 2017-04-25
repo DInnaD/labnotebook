@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,107 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../2011/10/17/rewrites.html">Rewrites</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h2><a href="../../../2012/06/08/notes/">Notes</a></h2>
+    <h4>Fri, Jun 8, 2012</h4>
     <div class="article-style">
       
-      Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
+      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
+ Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/17/friday-more-runs.html">Friday, more runs</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h2><a href="../../../2012/05/21/limits-to-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h2>
+    <h4>Mon, May 21, 2012</h4>
     <div class="article-style">
+      
+      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
+Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/12/wednesday-10.html">Wednesday</a></h2>
-    <h4>Wed, Oct 12, 2011</h4>
+    <h2><a href="../../../2012/05/15/fallacy/">Notes</a></h2>
+    <h4>Tue, May 15, 2012</h4>
     <div class="article-style">
+      
+      Prosecutors Fallacy Running the null distribution and add to plots
+ generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
+ knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/05/wednesday-forage-fish-cascades.html">Wednesday - forage fish &amp; cascades</a></h2>
-    <h4>Wed, Oct 5, 2011</h4>
+    <h2><a href="../../../2012/05/14/notes/">notes</a></h2>
+    <h4>Mon, May 14, 2012</h4>
     <div class="article-style">
       
-      Forage fish presentation Some simulations exploring top-down &amp; bottom up control concepts in simple models.
-$$ \frac{dN}{dt} = r N\left( 1 - \frac{N}{K} \right) - \alpha N P $$ $$ \frac{dP}{dt} = \beta \alpha N P - \mu P $$ Note that at equilibrium, N depends only on predator dynamics, P on K and r. $$\hat N = \frac{\mu}{\alpha\beta} $$ $$ \hat P = \frac{r}{\alpha}\left( 1 - \frac{N}{K} \right) $$
+      Added results into prosecutors fallacy and sent to Alex, Noam, Marissa. Ran pdf copy and sent Treebase to Duncan README added to knitcitations staticdoc documentation for knitcitations (and filed a few issues on staticdocs) Updated documentaiton on treebase, rfishbase. updated their staticdocs documentation as well. rfishbase 0.0-9 update pushed to CRAN Working on prosecutor&rsquo;s fallacy edits from Alex  Alan meeting Discuss management example with ROC curve instead of hypothesis test
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/21/van-kampen-expansion-and-stochastic-population-dynamics.html">Van Kampen Expansion and Stochastic population dynamics</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../../2012/05/12/notes/">Prosecutor&#39;s fallacy notes</a></h2>
+    <h4>Sat, May 12, 2012</h4>
     <div class="article-style">
+      
+      Mostly getting Prosecutor&rsquo;s Fallacy example to run with large enough sample sizes. Finer sampling or more replicates than current settings seems to crash MPI connections over farm cluster, probably a memory issue. Oh well, looks like I&rsquo;ve got a good enough sample size here.
+ Prosecutor&rsquo;s Fallacy  Citations on Jekyll No ideal solution here at the moment, a couple options:
+ Pandoc: My intended solution, Disadvantages: converts everything to it&rsquo;s own markdown format, which messes up my PHP Markdown tables and YAML frontmatter.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/19/monday-9.html">Monday</a></h2>
-    <h4>Mon, Sep 19, 2011</h4>
+    <h2><a href="../../../2012/04/27/ecology-notes/">Project tracking (Ecology)</a></h2>
+    <h4>Fri, Apr 27, 2012</h4>
     <div class="article-style">
+      
+      pdg-control Has become a variety of different directions:
+Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/13/2588.html">pdg-control pdg-control, Tuesday</a></h2>
-    <h4>Tue, Sep 13, 2011</h4>
+    <h2><a href="../../../2012/04/26/2012-04-20/">2012-04-20</a></h2>
+    <h4>Thu, Apr 26, 2012</h4>
     <div class="article-style">
       
-      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
-Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
-Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
-If i is played $ p_i $ becomes
-$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
-If i is played and successful $ \mu_i $ becomes
+      Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
+Added Alan&rsquo;s edits.
+ Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
+Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
+Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
+ These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/12/pretty-darn-good-control-working-group.html">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
+    <h2><a href="../../../2012/04/19/catching-up/">Catching up</a></h2>
+    <h4>Thu, Apr 19, 2012</h4>
     <div class="article-style">
       
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/07/wednesday-8.html">Wednesday</a></h2>
-    <h4>Wed, Sep 7, 2011</h4>
+    <h2><a href="../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h2>
+    <h4>Tue, Apr 10, 2012</h4>
     <div class="article-style">
       
-      Alan Meeting Next steps directions
- economics of uncertainty in early warning
- simulated data approach - insect pest dynamics.
- cod data set. fisheries depensation
-  Send Alan: Slides, CV (for post doc apps)
-Discussed some relevant literature, mostly for the warning signals in fisheries questions: (Colchero &amp; Clark, 2012), (Hutchings, 2000), HUTCHINGS &amp; REYNOLDS, 2004, (Minckley et. al. 2012), (Myers et. al. 1995), (Schröder et. al. 2012)
+      rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/01/thursday-reading.html">Thursday Reading</a></h2>
-    <h4>Thu, Sep 1, 2011</h4>
+    <h2><a href="../../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
+    <h4>Tue, Feb 28, 2012</h4>
     <div class="article-style">
       
-      Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
+      Description: an example trying to detect early warning signals in data from fisheries collapses
+Set up markdown format and image uploads.
+render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
+require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
       
     </div>
   </div>

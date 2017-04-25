@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-03-09T00:00:00Z
 tags: []
-categories: [evolution]
 title: Bodega Phylogenetics Workshop Day 3
+url: /2010/03/09/Bodega-Phylogenetics-Workshop-Day-3/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Rich Glor, Character Evolution
 ------------------------------

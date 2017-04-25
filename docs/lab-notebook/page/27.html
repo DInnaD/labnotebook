@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,124 +140,124 @@
   
   
   <div>
-    <h2><a href="../../2011/05/06/mendeley-hpc-in-r.html">Mendeley API in R</a></h2>
-    <h4>Fri, May 6, 2011</h4>
+    <h2><a href="../../2012/10/29/notes/"></a></h2>
+    <h4>Mon, Oct 29, 2012</h4>
     <div class="article-style">
       
-      Started to implement the Mendeley API in R, with much help and guidance from Prof. Duncan Temple-Lang in the Stats dept. R is a widely used statistical software environment, and this should facilitate real-time statistical analysis of the rich amount of publication data available in Mendeley.
-My motivation is primarily pedagogical at the moment- Mendeley seems to have a nice modern API with both public and authentication-required elements (using OAuth). Writing out the API gives me some good practice making GET requests in RCURL and handling JSON returns, and experiencing the bumps that go with this kind of work.
+      Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
+ Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
+ Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/05/thursday-parrotfish-analysis.html">Thursday: parrotfish analysis</a></h2>
-    <h4>Thu, May 5, 2011</h4>
+    <h2><a href="../../2012/10/25/stochastic-dynamic-programming-with-gaussian-process-approx/"></a></h2>
+    <h4>Thu, Oct 25, 2012</h4>
     <div class="article-style">
       
-      Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
-Tree: alpha is favored in all the ratio traits, sometimes substantially.
+      Here we work out an SDP solution of the Reed (1979) using a Gaussian process approximation. In this example the Gaussian process hyper-parameters haven&rsquo;t been tuned, so in principle the solution would perform even better, but this is just for illustrative purposes.
+We simulate 40 points under a stochastic growth (lognormal multiplicative noise) Beverton-Holt model and infer the Gaussian process. We start the simulation from a low stock value, giving reasonable but not perfect coverage of the state-space.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/04/weds-parrotfish-data-set-analysis.html">Weds: Parrotfish data set analysis</a></h2>
-    <h4>Wed, May 4, 2011</h4>
+    <h2><a href="../../2012/10/24/evolutionary-covariance/"></a></h2>
+    <h4>Wed, Oct 24, 2012</h4>
     <div class="article-style">
       
-      Parrotfish  Need better convergence error handling.
- Need to remedy: &ldquo;Function cannot be evaluated at initial parameters&rdquo; errors &ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
- Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.
+      Thinking through disparity measures while writing my thoughts in R&hellip;
+Load some sample data
+library(geiger) data(geospiza) dat &lt;- treedata(geospiza$geospiza.tree, geospiza$geospiza.data$wingL)  To find the disparity relative to a particular model, we must compute the variance-covariance matrix for that model
+X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, X) bm_disparity &lt;- t(X-mean_X) %<em>% V_bm %</em>% (X-mean_X)  I believe this needs to be scaled by the Brownian rate parameter of the trait, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/04/algorithms-discussion-group-mcmc.html">Algorithms Discussion Group: MCMC</a></h2>
-    <h4>Wed, May 4, 2011</h4>
+    <h2><a href="../../2012/10/24/multiple-uncertainty-value-function-iteration/"></a></h2>
+    <h4>Wed, Oct 24, 2012</h4>
     <div class="article-style">
+      
+      Multiple Uncertainty algorithm Define each of the transition matrices:
+D &lt;- matrix(NA, nrow=length(x_grid), ncol=Tmax) P &lt;- outer(x_grid, h_grid, profit) F &lt;- outer(x_grid, f(x_grid, 0, p), pdfn, sigma_g) M &lt;- outer(x_grid, x_grid, pdfn, sigma_m) I &lt;- outer(h_grid, h_grid, pdfn, sigma_i)  Probably row-normalize each:
+rownorm &lt;- function(M) t(apply(M, 1, function(x) x/sum(x))  (Note the transpose is needed since the silly function of a vector turns the column into a row. Not an issue of margin 2)
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/03/tuesday-phylogenetics-wrightscape-coding.html">Tuesday: phylogenetics- wrightscape coding</a></h2>
-    <h4>Tue, May 3, 2011</h4>
+    <h2><a href="../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/"></a></h2>
+    <h4>Tue, Oct 23, 2012</h4>
     <div class="article-style">
       
-      Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
-[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-05-03 00:00:00&rdquo; max_upload_date=&ldquo;2011-05-03 23:59:59&rdquo;]
-See code: loop_models_traits_regimes.R
-Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.
+      All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure. This means that any entry can be parsed with a generic XML parser to extract the entry content in &lt;article&gt;, the &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, etc. The &lt;head&gt; section provides &lt;title&gt; and essential &lt;meta&gt; tags declaring the character encoding (which also sets the MIME type for HTML5).
+Head In _includes/header.html we introduce some basic academic archive metadata using the Dublin Core ontology.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/03/ropensci-an-r-interface-proposal-for-ievobio.html">treeBASE R interface: proposal for #iEvoBio</a></h2>
-    <h4>Tue, May 3, 2011</h4>
+    <h2><a href="../../2012/10/23/notes/">Gaussian process inference on sample functions</a></h2>
+    <h4>Tue, Oct 23, 2012</h4>
     <div class="article-style">
       
-      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
+      This example uses the direct inversion of the covariance function. I have also been exploring the potentially faster Cholksy decomposition without success. Sometimes the match is very good, other times not, see compare-cholsky.md This example also on github as reed-example.md.
+ Basic likelihood optimization needs to be checked. See commits estimating sigma_n and estimating l. Compare the example below to a different set of fixed hyperparameters here  Example require(pdgControl) require(ggplot2)  Simulate some training data under a stochastic growth function with standard parameterization,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/03/monday-3.html">Monday</a></h2>
-    <h4>Tue, May 3, 2011</h4>
+    <h2><a href="../../2012/10/22/notes/">Comparing numerical methods</a></h2>
+    <h4>Mon, Oct 22, 2012</h4>
     <div class="article-style">
       
-      Today:
- Application for CPB travel funds. DONE
- Faxed receipts from Felsenstein&rsquo;s visit. DONE
-  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
-Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
+      require(MASS) require(ggplot2) require(kernlab)  Parameterization-specific
+X &lt;- seq(-5,5,len=50) obs &lt;- data.frame(x = c(-4, -3, -1, 0, 2), y = c(-2, 0, 1, 2, -1)) l &lt;- 1 sigma_n &lt;- 0.8  Radial basis function/Gaussian kernel:
+SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2) cov &lt;- function(X, Y) outer(X, Y, SE, l)  Cholksy method
+n &lt;- length(obs$x) K &lt;- cov(obs$x, obs$x) I &lt;- diag(1, n) L &lt;- chol(K + sigma_n^2 * I) alpha &lt;- solve(t(L), solve(L, obs$y)) k_star &lt;- cov(obs$x, X) Y &lt;- t(k_star) %<em>% alpha v &lt;- solve(L, k_star) Var &lt;- cov(X,X) - t(v) %</em>% v loglik &lt;- -.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections.html">Friday: Notes on Labrids, notes on Transforms and size-corrections</a></h2>
-    <h4>Fri, Apr 29, 2011</h4>
+    <h2><a href="../../2012/10/19/notes/"></a></h2>
+    <h4>Fri, Oct 19, 2012</h4>
     <div class="article-style">
       
-      The specific traits were:
-Oral Jaw traits
- mouth-closing lever ratio (Close),
- mouth-opening lever ratio (Open), kinematic
- transmission coefficient of the oral jaws four-bar linkage (Jaw KT),
- adductor mandibulae (AM) muscle mass,
- premaxillary protrusion distance (Prot),
- gape width (Gape),
-  Exterior to the Oral Jaws, not expected to become unconstrained:
- levator posterior (LP) muscle mass: (Pharyngeal jaw muscle)
- sterno-hyoideus (SH) muscle mass, (Primarily buccual cavity)
+      Semantic Notebook notes Reading
+ Nice collection of posts on scholarly html, but too little mention of the serious linked data stuff coming out of biscol, ievobio/nescent, etc. In particular, Martin&rsquo;s history gives some nice perspective.
+ The war for schema. Which ontologies should we choose? (e.g. schema.org&rsquo;s take  Puzzles
+ How do we mix ontologies How do we meet Google Rich Snippets requirements using FOAF? How do we avoid redundant vocabulary terms?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/28/thursday-reading-notes.html">Reading Notes, presentation prep treebase error handling</a></h2>
-    <h4>Thu, Apr 28, 2011</h4>
+    <h2><a href="../../2012/10/17/basic-regression-in-gaussian-processes/">Basic regression in Gaussian processes</a></h2>
+    <h4>Wed, Oct 17, 2012</h4>
     <div class="article-style">
       
-      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
+      Working out coded examples for basic Gaussian process regression using R. I&rsquo;ve just read through the first few chapters of Rasmussen &amp; Williams (2006), this implements the examples discussed in Chapter 2.1-2.5.
+Required R libraries (for multivariate normal, also for plotting):
+require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
+set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/27/wednesday-4.html">Wednesday</a></h2>
-    <h4>Wed, Apr 27, 2011</h4>
+    <h2><a href="../../2012/10/17/talkingpoints/">Notes</a></h2>
+    <h4>Wed, Oct 17, 2012</h4>
     <div class="article-style">
       
-      7:30-9:30 Review for Theoretical Ecology
- Profiling wrightscape   Compile with profiling (-g -pg flags, in make profile). Run
-valgrind &ndash;leak-check-full ./wrightscape.exe  to remove memory links. Run
-valgrind &ndash;tool=callgrind kcachegrind callgrind.out.&lt;###&gt;  For profiling information
-Troubleshooting implementation of restricted-domain functions. Cannot be wright_tree since they have to know their likelihood method. Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.
+      Talking points for phone interview with Lucy
+Finding warning signals in the wild
+ Gold standard &ndash; experimental group, control group Real world: We have no control group.
+  Would we know a warning signal when we saw it?
+From statistics to models: We fit a generalized models of the processes that are and aren&rsquo;t approaching a tipping point, and compare the models. The modeling approach is also more sensitive than the simple statistics.
       
     </div>
   </div>

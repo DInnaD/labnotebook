@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,121 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Saturday: working on computational scaling, ion, etc</a></h2>
+    <h4>Sat, Aug 27, 2011</h4>
     <div class="article-style">
       
-      C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
+      Can I get a generic montecarlotest function working for both warningsignals and pmc?
+Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
- Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
+      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/26/fishbase-from-r-some-xml-parsing/">FishBASE from R: some XML parsing</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
-opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
-The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
+      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
+In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/25/datacite-day-2/">DataCite Day 2</a></h2>
+    <h4>Thu, Aug 25, 2011</h4>
     <div class="article-style">
       
-      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
-Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
+      9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
+ Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
+  see great example of the ACRID database
+ Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/24/datacite-day-1/">DataCite Day 1</a></h2>
+    <h4>Wed, Aug 24, 2011</h4>
     <div class="article-style">
       
-      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
-Example call:
-gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
-n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
+      12:00pm-1:00pm Lunch
+ 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
+Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
+ 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
+ Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
+    <h4>Tue, Aug 23, 2011</h4>
     <div class="article-style">
       
-      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
- Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
+      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
+XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
+&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h2>
+    <h4>Sun, Aug 21, 2011</h4>
     <div class="article-style">
       
-      Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
-Issues not only have title and tags, but support a comment thread for progress and discussion of the issue.
+      Brief summary of events for this past academic year, as submitted to my dissertation committee.
+TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thursday: reviewing edits, ropensci, computers.</a></h2>
+    <h4>Thu, Aug 18, 2011</h4>
     <div class="article-style">
       
-      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
-Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
-$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
-And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
+      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
+Brief topic notes from today&rsquo;s meeting:
+ set up different take on layout: lambda, AIC, power
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wednesday: migrating codes into MPI</a></h2>
+    <h4>Wed, Aug 17, 2011</h4>
     <div class="article-style">
       
-      Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
+      Parellelization/Scaling of code MPI on farm cluster
+Got my MPI codes running.
+Much better way to get jobs into the queue, asking for 16 threads that don&rsquo;t have to be on the same node is much faster. Can also ask for 161 threads, but will wait longer in the queue.
+The trick to getting this to run was mostly getting the library set correctly. Setting the library path at the top of the script did the trick:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/17/wrightscape-a-brief-tutorial/">Wrightscape: a brief tutorial</a></h2>
+    <h4>Wed, Aug 17, 2011</h4>
     <div class="article-style">
       
-      Notes on structure of examples Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.
-Currently, externalized code for GP comparison experiments is in gaussian-process-control.R, and is called by may79-example.
+      While the wrightscape package is still in active development, I realize the code base doesn&rsquo;t contain any introductory examples. So as a first tutorial, here&rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
+require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.
       
     </div>
   </div>

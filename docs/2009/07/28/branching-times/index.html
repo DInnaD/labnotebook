@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2009/07/28/branching-times/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p><strong>editorial note</strong>: These notes pre-date the formal start of my online
+laboratory notebook, <a href="http://carlboettiger.info/2010/02/02/The-Lab-Notebook-Goes-Open-.html">Feb 2 2010: The Lab Notebook Goes Open</a>
+and were adapted from a LaTeX document in which I kept notes on this topic
+during my summer at <a href="http://www.iiasa.ac.at/">IIASA</a>.  Lacking a proper notebook then, documents
+like this one were updated periodically and occassionally branched into
+new ones.  The post date represents the last time the
+LaTeX document was edited in the course of that research.</p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Our calculation of the time until branching occurs consists of the
+following approach. The first requirement for branching to occur is the
+existence of two mutually invasible populations separated by an adaptive
+minimum, that is $s(y,x) &gt;0$, $s(x,y)&gt;0$ and $\partial^2<em>y s(y,x)&gt;0$.
+The minimum (curvature condition) is provided by a singular point of the
+branching type, which also assures us that there will be some pairs
+$(y,x)$ near each other $|y-x| \sim o(\sigma</em>{\mu})$. These points
+define a coexistence region in the pairwise invasibility plot, which we
+denote $P_2$. A mutant enters this region by “jumping the gap” from the
+line $y=x$ into the coexistence region. This gap diminishes in width as
+the resident trait $x$ nears the branching point, where the gap vanishes
+all together. This criterion can be evaluated directly at regular
+intervals throughout the simulation.</p>
+
+<p>Most often this condition will arise only transiently - a single mutant
+satisifying the conditions but soon lost to drift. Hence our second
+requirement must be that the mutant successfully entering the
+coexistence region then proceeds to survive drift. Defining this second
+condition rigorously is less straight-forward. For large populations,
+the probability of survival may be well approximated by the
+Galton-Watson branching process. In theory, this probability can be
+converted into an expected waiting time in a straight-forward manner. In
+simulation, this is insufficent, as we want to identify the actual
+waiting time we need more than a probability - we need to indentify
+which populations actually survive. If selection is strong, we may hope
+to identify which populations have effectively survived drift by
+establishing some low-density threshold at which we declare the
+population successful. Of course, this introduces a discrepancy in the
+definition of waiting time, as the theory calculates the time until a
+successful mutant occurs, while the simulation lags behind by the time
+required to go from one individual to the threshold size.</p>
+
+<p>If selection is strong, we can set this threshold quite low, and more
+importantly, the time to reach the threshold will be quite small
+compared to the time spent waiting for the mutation, and theory and
+simulation should match reasonably well. This latter observation is
+particularly convenient in that our calculation shouldn&rsquo;t depend much on
+the choice of threshold, as once the mutant establishes several clones
+the probability of survival quickly asymptotes to unity. If selection is
+weak, we are not so fortunate. Even relatively large mutant populations
+may be at substantial risk to extinction by drift, and this extinction
+probability will depend quite strongly on the particular choice of
+threshold. As selection becomes nearly neutral, no threshold may exist
+that can guarentee the persistence of the mutant.</p>
+
+<p>In each case, the persistence of the resident must also be considered,
+as it is also protected by a selection coefficient when rare which may
+be weaker than that of the mutant (depending on whether the mutant has
+occurred closer to or farther from the branching point). If only weakly
+protected, it too can be lost to drift. For the moment, let us consider
+only the case of strong selection, where a small, arbitrary threshold
+can reasonably guarentee the success of branching. Later we will want to
+quantify the meaning of strong, relative to the influence of drift. For
+now, it suffices that such a notion exists, and we need only focus on
+the first two steps - a mutant occurs and survives drift with
+probability given by its selective coefficent, to have a reasonable
+approximation of the waiting time between simulation and experiment.</p>
+
+<p>The loss of a mutant in the coexistence region even after invading a
+significant fraction of the population does not preclude branching. The
+population may continue to approach the branching point where such
+mutations are more common (do they have stronger selection too?) Even in
+the purely neutral case, the dimorphism may persist long enough for a
+new mutant to arise. This allows the populations to take another
+mutational steps apart, where selection may be strong enough to protect
+the dimorphism. The ability for larger populations to be able to survive
+drift long enough for this to occur may allow them to branch in face of
+weak selection where a smaller population would fail.</p>
+
+<p>(A resource kernel that is similar in width to the competition kernel
+but very wide compared to the mutational step size may approach the
+branching region only by drift - fixing weakly deleterious mutations. )</p>
+
+<h1 id="calculation">Calculation</h1>
+
+<p>The probability of such a mutant occurring in our monomorphic population
+of trait $x$ is given by the probability that any mutant occurs (given
+by the population size, approximately $K(x)$ at equilibrium, times the
+birth rate $b(x)$ times the mutation rate $\mu$) times the probability
+that the mutation lies on the opposite side of the coexistence boundary,
+which we denote as $\phi(x)$ and $\psi(x)$, which is $\phi(x)$ reflected
+across the line $y=x$. This depends on the mutational kernel, $M(y,x)$
+which gives the probability that a mutant arising from a resident
+population of trait $x$ bears trait $y$ that falls withing the
+coexistance region as follows:</p>
+
+<p>$$\int<em>{-\infty}^{\phi(x)} M(y,x) \mathrm{d}y + \int</em>{\psi(x)}^{\infty} M(y,x) \mathrm{d}y$$</p>
+
+<p>Without loss of generality let us assume that the singular strategy
+$x^* = 0$ and that we start from some trait value $x<em>0 &gt; x^*$.
+Additionally, let us we assume $M(y,x)$ is Gaussian in $y-x$ with mean 0
+and variance $\sigma</em>{\mu}^2$. However, we do not wish to consider all
+such mutants $y$, but only those that survive. We multiply the
+probability of a mutant having trait $y$, $M(y,x)$, times the
+probability that is survives drift. This probability we quote from the
+Galton-Watson branching process, $1-\tfrac{d(y,x)}{b(y,x)}$. Taking as
+our model the individual birth $b$ and death $d$ rates to be:</p>
+
+<p>$$\begin{aligned}
+b(y,x) &amp;= r<br />
+d(y,x) &amp;= r\frac{C(y,x)K(x)}{K(y)}\end{aligned}$$</p>
+
+<p>where $K$ is a Gaussian kernel with mean $x^<em>$, $K(x^</em>) = K_0$ and
+variance $\sigma^2_k$ and $C(y,x)$ a Gaussian kernel in $y-x$ with mean
+$0$, $C(0) =1$ and variance $\sigma^2_c$. Using this choice of model,
+the probability of surviving branching is</p>
+
+<p>$$1-\frac{C(y,x)K(x)}{K(y)} := S(y,x)
+\label{S}$$</p>
+
+<p>which we denote as $S(y,x)$ as indicated. Hence we modify our integral
+to consider all mutants $y &lt; x^*$ which occur with probability $M(y,x)$
+and then survive with probability $S(y,x)$, and write down the rate
+$P(x)$ at which a mutant which leads to branching occurs from our
+monomorphic population with trait $x$:</p>
+
+<p>$$P(x) := r \mu K(x)\left( \int<em>{-\infty}^{\phi(x)} M(y,x) S(y,x) \mathrm{d}y + \int</em>{\psi(x)}^{\infty} M(y,x) S(y,x) \mathrm{d}y  \right)
+\label{MSerf}$$</p>
+
+<p>Though a little cumbersome, this can be written in nearly closed form
+(using the error function). For our particular model $s(y,x)$, we can
+write the boundaries $\phi(x)$ and $\psi(x)$ as</p>
+
+<p>$$\begin{aligned}
+\phi(x) = x\frac{\frac{\sigma_k^2}{\sigma_c^2}+1}{\frac{\sigma_k^2}{\sigma_c^2}-1} \nonumber <br />
+\psi(x) = x\frac{\frac{\sigma_k^2}{\sigma_c^2}-1}{\frac{\sigma_k^2}{\sigma_c^2}+1}
+\label{phipsi}\end{aligned}$$</p>
+
+<p>Then, given a starting condition $x_0$, we can determine the expected
+trait $x$ at time $t$ of a monomorphic resident population by
+integrating the canonical equation,</p>
+
+<p>$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{1}{2} \mu \sigma_{mu}^2 N^*(x) \partial_y s(y,x)$$</p>
+
+<p>which for our model is</p>
+
+<p>$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{-x}{2\sigma<em>k^2} r \mu \sigma</em>{\mu}^2 K(x)$$</p>
+
+<p>While no closed form solution exists for $x(t)$ in this case, if we
+assume $x_0 \ll \sigma_k$ then to good approximation we can view $K(x)$
+to be constant over the interval and take our path to be:</p>
+
+<p>$$x(t) = x<em>0 \exp\left( -r \mu \sigma</em>{\mu}^2 K_0 t/\sigma_k^2\right)$$</p>
+
+<p>Using this mean path, we can write down an approximation for the rate of
+a branching mutant occurring as a function of time, $P(x(t))$. Using
+this time dependent rate, the probability of not branching after time
+$T$ is simply $\exp\left( - \int_0^T P(t)\mathrm{d}t \right)$. One minus
+this is the probability branching by time $T$; i.e. the cumulative
+density function, hence the probability density function for the waiting
+time is:</p>
+
+<p>$$\Pi(T) = P(x(T)) \exp\left( -\int_0^T P(x(t)) \right)
+\label{pdf}$$</p>
+
+<p>and the expected time until branching is
+$\int_0^{\infty} T \Pi(T) \mathrm{d}T$. This is our first analytic
+approximation.</p>
+
+<p><img src="http://farm4.staticflickr.com/3668/9624772024_ccb8ba0fb9_o.png" alt="" /></p>
+
+<p><img src="http://farm6.staticflickr.com/5535/9624772196_d3fab3e33b_o.png" alt="" /></p>
+
+<p><img src="http://farm8.staticflickr.com/7403/9624772374_7e297716ab_o.png" alt="" /></p>
+
+<p>$$\begin{gathered}
+P(x) = \frac{1}{2} \left(1+ {Erf}\left[\frac{x}{\sqrt{2} \sqrt{\sigma<em>{\mu}^2}}\right]\right)-<br />
+\Biggl(e^{\frac{\sigma</em>{\mu}^2  {\sigma<em>{c}^2} x^2}{2  {\sigma</em>{k}^2} ( {\sigma<em>{c}^2}  {\sigma</em>{k}^2}+\sigma<em>{\mu}^2 (- {\sigma</em>{c}^2}+ {\sigma<em>{k}^2}))}}  {\sigma</em>{c}^2} \Biggl(\sqrt{\frac{ {\sigma<em>{k}^2} ( {\sigma</em>{c}^2}  {\sigma<em>{k}^2}+\sigma</em>{\mu}^2 (- {\sigma<em>{c}^2}+ {\sigma</em>{k}^2})) x^2}{\sigma<em>{\mu}^2  {\sigma</em>{c}^2}}}+<br />
+\sqrt{\frac{1}{\sigma<em>{\mu}^2}+\frac{1}{ {\sigma</em>{c}^2}}-\frac{1}{ {\sigma<em>{k}^2}}}  {\sigma</em>{k}^2} x  {Erf}\left[\frac{\sqrt{-\frac{(\sigma<em>{\mu}^2+ {\sigma</em>{c}^2})^2  {\sigma<em>{k}^2} x^2}{\sigma</em>{\mu}^2  {\sigma<em>{c}^2} (\sigma</em>{\mu}^2 ( {\sigma<em>{c}^2}- {\sigma</em>{k}^2})- {\sigma<em>{c}^2}  {\sigma</em>{k}^2})}}}{\sqrt{2}}\right]\Biggr)\Biggr)/\left(2 ( {\sigma<em>{c}^2}  {\sigma</em>{k}^2}+\sigma<em>{\mu}^2 (- {\sigma</em>{c}^2}+ {\sigma<em>{k}^2})) \sqrt{\frac{x^2}{\sigma</em>{\mu}^2}}\right)\end{gathered}$$</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2009-07-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Jul 28, 2009
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/adaptive-dynamics">adaptive-dynamics</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2009/08/25/stochastic-methods/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2008/06/09/popbio-core-review-notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2009-07-28-branching-times.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/59569b32ec15935d62e0997f3424dac930132d58/content/lab-notebook/2009-07-28-branching-times.md">59569b32e</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2009\/07\/28\/branching-times\/';
+    var disqus_title = '';
+    var disqus_url = '\/2009\/07\/28\/branching-times\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

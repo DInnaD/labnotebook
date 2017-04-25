@@ -1,9 +1,9 @@
 ---
-layout: post
-category: open-science
-
+categories:
+- open-science
+date: 2013-09-05T00:00:00Z
+url: /2013/09/05/whitehouse-open-data-memorandum/
 ---
-
 
 [Open Data Policy-Managing Information as an Asset](http://www.whitehouse.gov/sites/default/files/omb/memoranda/2013/m-13-13.pdf)
 

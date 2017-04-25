@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-13T00:00:00Z
+tags:
+- tribolium
 title: Beetles workshop Day 2
+url: /2010/05/13/Beetles-workshop-Day-2/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Goals
 

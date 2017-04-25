@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-01-10 15:57:57
-layout: post
-slug: warning-signals-power-and-sufficient-statistics
-title: Warning Signals, Power and Sufficient Statistics
-redirects: [/wordpress/archives/763, /archives/763]
 categories:
 - ecology
+comments: true
+date: 2011-01-10T15:57:57Z
+redirects:
+- /wordpress/archives/763
+- /archives/763
+slug: warning-signals-power-and-sufficient-statistics
 tags:
 - warning-signals
+title: Warning Signals, Power and Sufficient Statistics
+url: /2011/01/10/warning-signals-power-and-sufficient-statistics/
 ---
 
 Working on warning signals manuscript. Looking at overall powercurves as a function of sample size and rate of stability loss in both models.  Planning to repeat that analysis with summary statistics approach to illustrate the relative loss in power of the "leading indicator" approach. (simulations just set up to run now, figures should appear below as they complete.  Click on figures for links to code).

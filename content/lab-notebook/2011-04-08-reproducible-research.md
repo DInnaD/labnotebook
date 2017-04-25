@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-08 12:48:44
-layout: post
-slug: reproducible-research
-title: Some reproducible research practices in journals
-redirects: [/wordpress/archives/1160, /archives/1160]
 categories:
 - open-science
+comments: true
+date: 2011-04-08T12:48:44Z
+redirects:
+- /wordpress/archives/1160
+- /archives/1160
+slug: reproducible-research
+title: Some reproducible research practices in journals
+url: /2011/04/08/reproducible-research/
 ---
 
 Interesting discussion on the Reproducible Research Group about rates at which the various reproducible research standards are used in the Journal of Biostatistics:

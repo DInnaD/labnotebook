@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-04T00:00:00Z
 title: Data Format functions
+url: /2010/08/04/Data-Format-functions/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Spent much of the day trying to code an intelligent
     data-preprocessing function. Seems to mostly be working now, see

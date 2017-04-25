@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-09 23:34:48
-layout: post
-slug: crashing-stocks-and-optimal-harvesting-effort-on-allee-effects
-title: Crashing stocks and optimal harvesting effort on Allee effects
-redirects: [/wordpress/archives/3252, /archives/3252]
 categories:
 - ecology
+comments: true
+date: 2011-11-09T23:34:48Z
+redirects:
+- /wordpress/archives/3252
+- /archives/3252
+slug: crashing-stocks-and-optimal-harvesting-effort-on-allee-effects
 tags:
 - warning-signals
+title: Crashing stocks and optimal harvesting effort on Allee effects
+url: /2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/
 ---
 
 ## Modeling choices

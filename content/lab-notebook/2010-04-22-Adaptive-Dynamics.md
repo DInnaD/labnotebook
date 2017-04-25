@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [adaptive-dynamics, code-tricks]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-22T00:00:00Z
+tags:
+- adaptive-dynamics
+- code-tricks
 title: Adaptive Dynamics
+url: /2010/04/22/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### compiling with R and C and parallel computing
 

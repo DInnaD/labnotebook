@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-08 13:18:10
-layout: post
-slug: 141-scientists-cant-be-wrong
-title: 141 scientists can't be wrong?
-redirects: [/wordpress/archives/2140, /archives/2140]
 categories:
 - open-science
+comments: true
+date: 2011-07-08T13:18:10Z
+redirects:
+- /wordpress/archives/2140
+- /archives/2140
+slug: 141-scientists-cant-be-wrong
 tags:
 - research-blogging
+title: 141 scientists can't be wrong?
+url: /2011/07/08/141-scientists-cant-be-wrong/
 ---
 
 Turning the author-list into a petition is becoming an almost familiar ruse in the table of contents of journals such as Nature (Simberloff, 2011), (Abbot _et. al._ 2011).  This as prompted some rather provocative commentary on whether we have begun conducting scientific debates as popularity contests rather than arguments of evidence and logic (see David Sloan Wilson on inclusive fitness theory [137 scientists can't be wrong](http://scienceblogs.com/evolution/2011/03/139_co-authors_cant_be_wrong--.php), or Chris on invasive species on [ecolog](https://listserv.umd.edu/cgi-bin/wa?A2=ind1107a&L=ecolog-l&P=4347).  As much as this appeals to the inner scientist, the response from the other side can be quite persuasive: this particular discussion is a political one, not a scientific debate, and while excellent scientific work on the topic continues, it's important the message policymakers will see is representative (i.e., to paraphrase [David Duffy](https://listserv.umd.edu/cgi-bin/wa?A2=ind1107a&L=ecolog-l&P=4764)'s reply).  

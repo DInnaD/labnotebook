@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,118 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/09/08/discriminating-early-bursts/">discriminating early bursts</a></h2>
+    <h4>Thu, Sep 8, 2011</h4>
     <div class="article-style">
       
-      I enjoyed an excellent meeting with Annette Thomas, CEO of MacMillian Publishing and Nature Publishing group at UC Davis. It was impressive to here that Annette wanted to meet with UC Davis faculty and graduate students interested in open access and open science to discuss our opinions, desires and frustrations in the scientific publishing process. It was particularly valuable to discuss some of the failed experiments in open science at Nature.
+      Looking at cases when early burst can be discriminated from OU, a la Harmon et al 2010 (Harmon et. al. 2010). Fixed models can be told apart. Rather trivially, none of these models can be told apart if initially estimated from Brownian data. Rather encouraging: models estimated from common data can be told apart. 600 taxa tree
+Still works on 60 taxa, identifying OU correctly when sim under OU (left), and EB for EB data (right):
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/09/07/memory-management-cron/">memory management, cron</a></h2>
+    <h4>Wed, Sep 7, 2011</h4>
     <div class="article-style">
       
-      Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - ht$), $x{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth. We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$. Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.
+      Create the memcheck.sh script that will write a mem.log file with the data, and agnuplot script that will plot it.
+[gist id=1201994]
+Then set up a cron job. First, set the editor to something functional:
+export EDITOR=vi  then, crontab -e to edit the cron table. Add this line to run the command every 2 minutes (see wikipedia entry for quick intro), and plot it every 15 minutes:
+*/2 * * * * /home/cboettig/.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/09/07/wednesday-8/">Wednesday</a></h2>
+    <h4>Wed, Sep 7, 2011</h4>
     <div class="article-style">
       
-      From Thursday Nov 1 through Saturday Nov 3 I attended the PLoS Altmetrics workshop as a member of the ROpensci project. An exciting meeting driven mostly by the opportunity to interact with a small and incredibly creative and innovative group of science publishers, funders, start-ups, and other researchers. Details of the event are largely recorded on the altmetrics 2012 workshop website. We also have a few slides addressing the ropensci slant.
+      Alan Meeting Next steps directions
+ economics of uncertainty in early warning
+ simulated data approach - insect pest dynamics.
+ cod data set. fisheries depensation
+  Send Alan: Slides, CV (for post doc apps)
+Discussed some relevant literature, mostly for the warning signals in fisheries questions: (Colchero &amp; Clark, 2012), (Hutchings, 2000), HUTCHINGS &amp; REYNOLDS, 2004, (Minckley et. al. 2012), (Myers et. al. 1995), (Schröder et. al. 2012)
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/09/02/rfishbase-demo/">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h2>
+    <h4>Fri, Sep 2, 2011</h4>
     <div class="article-style">
       
-      Monday  altmetrics post post for multiple uncertainty, email to Steve, Marc Marc meeting ropensci proposals Phylotastic  Notebook configuration  trying out <a href="http://greycite.knowledgeblog.org/">http://greycite.knowledgeblog.org/</a>. Add to knitcitations. Add Greycite recommended opengraph and google scholar metadata metadata.html Import metadata from _config.yml. Any custom variable defined in config can be accessed at site.varname. See updated _config.yml  Reading  Schnitzler, J., Graham, C. H., Dormann, C. F., Schiffers, K., &amp; Peter Linder, H.
+      I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
+For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/09/01/thursday-reading/">Thursday Reading</a></h2>
+    <h4>Thu, Sep 1, 2011</h4>
     <div class="article-style">
       
-      Complete IACUC training for fish room. File forms: <a href="http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html">http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html</a> Online training &ndash; possibly see <a href="https://www.citiprogram.org/Default.asp?">https://www.citiprogram.org/Default.asp?</a> Shiny: <a href="http://www.rstudio.com/shiny/">http://www.rstudio.com/shiny/</a>
- Comment piece
- Prep exit seminar
- Applied math club: Networks. Reading <a href="http://dx.doi.org/10.1155/2011/284909">http://dx.doi.org/10.1155/2011/284909</a>
-  Discussion of when network structure has made an important difference on our understanding of a problem. When have the common summary statistics of a network (degree-distribution) allowed us to compte network dynamics without fully resolving the network?
+      Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/31/wednesday-7/">Wednesday</a></h2>
+    <h4>Wed, Aug 31, 2011</h4>
     <div class="article-style">
       
-      Better tagging practices  Standardize use of tags: Match tags in notebook to project repository name. Tag papers in Mendeley by these tags as well.  I have also started tracking the medium of discovery for each paper I add to my Mendeley collection through a little set of Mendeley tags. I am curious to see through which mediums I obtain the most content, and what content. As with any ontology, I will struggle to select a vocabulary that is precise enought to be useful without being too verbose (b) to bother to continue to use this.
+      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/30/tuesday-8/">Tuesday</a></h2>
+    <h4>Tue, Aug 30, 2011</h4>
     <div class="article-style">
-      
-      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
-Is there some scalar $v_2$ such that
-$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
-e.g. a term like:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/29/algorithms-group-hidden-markov-models/">Algorithms group: Hidden Markov Models</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
     <div class="article-style">
       
-      Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
-for the covariance:
-C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
-mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
+      Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&rsquo;s awesome graph.
+As usual in the notebook, click on the graph to get link-through to the code.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
     <div class="article-style">
       
-      writing comment piece. writing writing writing.
-  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
+      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h2>
+    <h4>Sun, Aug 28, 2011</h4>
     <div class="article-style">
       
-      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
-Uniform lognormal log  A few small tweaks to probability calculations
- Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
+      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
+Set up for running primates.R in likelihood mode with abstracted parallelization:
+Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
+hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
       
     </div>
   </div>

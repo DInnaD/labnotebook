@@ -1,10 +1,12 @@
 ---
-comments: true
-date: 2012-03-19 20:21:09
-layout: post
-redirects: [/wordpress/archives/4324, /archives/4324]
 categories:
 - evolution
+comments: true
+date: 2012-03-19T20:21:09Z
+redirects:
+- /wordpress/archives/4324
+- /archives/4324
+url: /2012/03/19/monday-treebase-manuscript-writing/
 ---
 
 Catching up on unfinished work: today has been spent mostly working over my little treebase applications note.  I'm still deciding what/how to present in terms of the meta-analysis section -- looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus & Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data. Analyses along the lines of (McPeek & Brown, 2007), (Phillimore & Price, 2008).  Hard to compress a full analysis in without a full paper.  Draft sent to some folks, we'll see.

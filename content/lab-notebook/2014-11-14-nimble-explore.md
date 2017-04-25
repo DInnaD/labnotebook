@@ -1,9 +1,9 @@
 ---
-layout: post
-category: ecology
-
+categories:
+- ecology
+date: 2014-11-14T00:00:00Z
+url: /2014/11/14/nimble-explore/
 ---
-
 
 A quick first exploration of [NIMBLE](http://r-nimble.org) and some questions. 
 

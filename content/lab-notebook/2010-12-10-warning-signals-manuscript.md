@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-10 21:10:38
-layout: post
-slug: warning-signals-manuscript
-title: Warning signals manuscript
-redirects: [/wordpress/archives/563, /archives/563]
 categories:
 - ecology
+comments: true
+date: 2010-12-10T21:10:38Z
+redirects:
+- /wordpress/archives/563
+- /archives/563
+slug: warning-signals-manuscript
 tags:
 - warning-signals
+title: Warning signals manuscript
+url: /2010/12/10/warning-signals-manuscript/
 ---
 
 Meeting with Alan today to discuss outline.  Came up with basic break-down of paragraphs:

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-01 16:51:54
-layout: post
-slug: warning-signals-comparing-methods-on-climate-data
-title: 'Warning Signals: Comparing Methods on Climate Data'
-redirects: [/wordpress/archives/1145, /archives/1145]
 categories:
 - ecology
+comments: true
+date: 2011-03-01T16:51:54Z
+redirects:
+- /wordpress/archives/1145
+- /archives/1145
+slug: warning-signals-comparing-methods-on-climate-data
 tags:
 - warning-signals
+title: 'Warning Signals: Comparing Methods on Climate Data'
+url: /2011/03/01/warning-signals-comparing-methods-on-climate-data/
 ---
 
 Continuing my exploration in applying these techniques to real climate data.  Applying the Kendall's Tau based approach on real data.

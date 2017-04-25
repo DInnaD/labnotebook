@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-10-27 16:00:48
-layout: post
-slug: warning-signals-where-are-we-now
-title: Warning Signals -- Where are we now?
-redirects: [/wordpress/archives/129, /archives/129]
 categories:
 - ecology
+comments: true
+date: 2010-10-27T16:00:48Z
+redirects:
+- /wordpress/archives/129
+- /archives/129
+slug: warning-signals-where-are-we-now
 tags:
 - warning-signals
+title: Warning Signals -- Where are we now?
+url: /2010/10/27/warning-signals-where-are-we-now/
 ---
 
 The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation.  The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:

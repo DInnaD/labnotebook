@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-16 22:50:53
-layout: post
-slug: thurs-writing-section-on-comparing-to-aic
-title: 'Thurs: writing section on comparing to AIC'
-redirects: [/wordpress/archives/635, /archives/635]
 categories:
 - evolution
+comments: true
+date: 2010-12-16T22:50:53Z
+redirects:
+- /wordpress/archives/635
+- /archives/635
+slug: thurs-writing-section-on-comparing-to-aic
+title: 'Thurs: writing section on comparing to AIC'
+url: /2010/12/16/thurs-writing-section-on-comparing-to-aic/
 ---
 
 Phylogenetics writing still continues.

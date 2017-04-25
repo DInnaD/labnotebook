@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-07-07 16:40:06
-layout: post
-title: Early warning signals presentation notes
 categories:
 - ecology
+comments: true
+date: 2011-07-07T16:40:06Z
 tags:
 - warning-signals
 - delayed-release
+title: Early warning signals presentation notes
+url: /2011/07/07/early-warning-signals-presentation-notes/
 ---
 
 - motivate story of fisheries management.  

@@ -1,14 +1,14 @@
 ---
-title: "nonparametric-bayes: framing the issues for the manuscript"
-layout: post
-categories: [ecology]
+categories:
+- ecology
+date: 2013-04-11T00:00:00Z
 tags:
 - nonparametric-bayes
 - warning-signals
 - reading
-
+title: 'nonparametric-bayes: framing the issues for the manuscript'
+url: /2013/04/11/nonparametric-bayes-framing-the-issues/
 ---
-
 
 ## Marc meeting: nonparametric-bayes manuscript
 

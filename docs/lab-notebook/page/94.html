@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,104 +140,111 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
+    <h4>Wed, Mar 3, 2010</h4>
     <div class="article-style">
       
-      Current Puzzles &amp; Goals 1 rep
-100 reps
- Kendall&rsquo;s tau unreliable, exploring alternatives. Sliding window for identifying when warning is first detected? Goal is to detect any decrease in stability or distance from critical point? Chasing down data from Scheffer. Climate data reuses the CaCO3 from Dakos. Chasing down data from Dakos   Fig. 1 M Cariaco Basin, data file Vostok deuterium CaCO3 data Tropical Pacific core 1218   Warning signals examples with actual tipping points (Figures left).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
 
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/02/power-in-trees/">Power in trees</a></h2>
+    <h4>Tue, Mar 2, 2010</h4>
     <div class="article-style">
       
-      Exploring convergence in maximum likelihood model fits each on data produced by their own simulation method:
- fit1, basic OU method, converges just fine. (using L-BFGS-B method with appropriate bounding box to avoid negatives). fit2 , the linear change rate model, converges fine using Nelder-Meade (using 1e12 ~ inf likelihood return when attempting negative alpha or sigma), but throws hard errors for L-BFGS-B:   Error in optim(pars, warning.likfn, method = method, lower = lower) : non-finite finite-difference value [3]   fit3 runs on &ldquo;L-BFGS-B&rdquo; and returns reasonable values, though not meeting convergence standards.
+      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/01/teaching/"></a></h2>
+    <h4>Mon, Mar 1, 2010</h4>
     <div class="article-style">
       
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
+      Evolution of Mimicry &amp; Levels of Selection  Today my turn to help facilitate in Begun&rsquo;s Monte Carlo on designing a course on evolution for non-majors. Worked with Elizabeth on an interactive case study teaching levels of selection through the example of mimicry in butterflies. Following a brief introduction, we gave a pilot run of a hands-on activity to explore population dynamics in a predator-control-model-mimic (jay-cabbage-monarch-viceroy) system. Here&rsquo;s the description.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/03/01/parallel-at-last/">Parallel at last</a></h2>
+    <h4>Mon, Mar 1, 2010</h4>
     <div class="article-style">
       
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
+      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals----still-in-code-development.html">Warning Signals -- still in code development</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/02/28/parallelizing-code/">Parallelizing Code</a></h2>
+    <h4>Sun, Feb 28, 2010</h4>
+    <div class="article-style">
+      
+      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/02/26/friday/">Friday</a></h2>
+    <h4>Fri, Feb 26, 2010</h4>
+    <div class="article-style">
+      
+      Not much chance for progress.
+ 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/02/25/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
+    <h4>Thu, Feb 25, 2010</h4>
+    <div class="article-style">
+      
+      11am &ndash; 3pm
+ Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/02/25/thursday/">Thursday</a></h2>
+    <h4>Thu, Feb 25, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals-research.html">Warning Signals Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/02/24/derin-and-alan-meeting/"></a></h2>
+    <h4>Wed, Feb 24, 2010</h4>
     <div class="article-style">
       
-      Deuterium early warning signal used for Glaciation I-IV presented in Dakos 2008:  Deuterium signal over past 4 glaciations
- Does smoothing to remove trends &ndash; longer-scale fluctuations? Seems unnatural, many of those are part of the signal. Also applied to simulated time series &ndash; even those these are at stationarity! Bandwidth chosen by visual inspection. Get the CaCO3 presented in Scheffer 2010 and Dakos 2008. &ndash; Done: CaCO3
+      1-2pm
+ Discussion of reasons early warning signals fail   Insufficient signal-to-noise ratio for early warning Ensemble vs time average &ndash; satisfying ergodicity assumption? Role of bifurcation type. existing literature focuses mostly on 1D saddle node. Role of chaos (certainly frustrates warning signals, but not required).   How general are warning signals? Normal forms of bifurcations. Fitting a good model vs. general warning signals. Problem of extrapolation. Classification scheme of warning signals &ndash; TREE paper(?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/warning-signals-by-model-choice.html">Warning Signals by model choice</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/02/23/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
+    <h4>Tue, Feb 23, 2010</h4>
     <div class="article-style">
       
-      Finished implementation of simulation from saddle-node example Implemented simulation from transition density for all three models  Whoops  The change point model can&rsquo;t be summarized by the transition density, as this depends only on the time interval and not the absolute time. The nice description of being able to solve for the transition density when the transition occurs during the time interval specified is neither necessary nor applicable in this context!
+      Goal for today: implement analytic calculations for warning signals.
+ 10am-12pm  Abstraction/functionalizing code.
+ 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
+Recall our dynamics are d(n) = *e*n + a
+and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
+α~2~(n) = b(n) + d(n)</p>
+
+<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
       
     </div>
   </div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,116 +140,115 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/an-appropriate-amount-of-fun-with-docker.html">An appropriate amount of fun with docker?</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/29/challenges-in-estimating-phylogenetic-signal/">Challenges in estimating phylogenetic signal</a></h2>
+    <h4>Mon, Nov 29, 2010</h4>
     <div class="article-style">
       
-      An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
-I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
-docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
+      Uncertainty in estimate of lambda illustrated by simulating 1000 data sets on the Geopsiza tree under a model with lambda = 0.62. Shows the high uncertainty in estimating lambda at all, despite the power in the estimate at this value.
+(Code)
+Will fill this out further later. Will be interesting to compare at different base values of lambda used for the simulation.
+Have updated the codbase to provide bootstraps of parameters as part of the monte carlo output.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/annual-progress-report.html">Annual Progress Report</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/28/likelihoods-for-quadratic-models-cont/">Likelihoods for quadratic models cont</a></h2>
+    <h4>Sun, Nov 28, 2010</h4>
     <div class="article-style">
       
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
+      Considering the fits of the quadratic models from yesterday.
+[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
+Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/archiving-the-lab-notebook-on-figshare.html">Archiving the lab notebook on figshare</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/27/implementing-likelihoods-for-quadratic-models/">Implementing Likelihoods for quadratic models</a></h2>
+    <h4>Sat, Nov 27, 2010</h4>
     <div class="article-style">
       
-      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
+      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
+$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
+and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
+$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/automated-feeds-in-notebook-entries.html">Automated feeds in notebook entries</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/25/tweets-from-an-ecology-field-class/">Tweets from an Ecology Field class </a></h2>
+    <h4>Thu, Nov 25, 2010</h4>
     <div class="article-style">
       
-      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
-{% raw %}
-{% octokit_commits pdg_control%}  {% endraw %}
-(or even to the post template) and have the commit log for the specified repository automatically imported.
+      I just spoke with Professor Mau Stanton, a leading researcher in our field and an award-winning teacher, about the potential for using twitter in her field ecology course. Though never having used any social media before, Mau has both clear and clever idea of how she wants to apply it in this 15-student field class.
+The challenge: Students don&rsquo;t seem to read email as much any more, and are often not at a computer.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/basic-regression-in-gaussian-processes.html">Basic regression in Gaussian processes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/24/warning-signals-likelihoods-straight-up/">Warning signals: Likelihoods Straight-up</a></h2>
+    <h4>Wed, Nov 24, 2010</h4>
     <div class="article-style">
       
-      Working out coded examples for basic Gaussian process regression using R. I&rsquo;ve just read through the first few chapters of Rasmussen &amp; Williams (2006), this implements the examples discussed in Chapter 2.1-2.5.
-Required R libraries (for multivariate normal, also for plotting):
-require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
-set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
+      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/batch-data.html">Batch Data</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/22/power-in-simple-tests/">Power in simple tests</a></h2>
+    <h4>Mon, Nov 22, 2010</h4>
     <div class="article-style">
       
-      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      Exploring power in simple tree models. With the smaller tree from the _geospiza _dataset, (14 tips, left) is less than yesterday&rsquo;s in the bimaculus Anoles (with 23 tips, right)
+(code)
+Also wrote the OUCH-based wrapper function to fit tree transformation parameters. Unfortunately it currently transforms from ape to ouch format repeatedly (in order to use ape&rsquo;s tree transforms, need to write native ouch-format transforms), so it may not be any faster.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/beetle-dynamics-exploration--adjustments.html">Beetle dynamics exploration &amp; adjustments</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/21/two-questions/">Two questions</a></h2>
+    <h4>Sun, Nov 21, 2010</h4>
     <div class="article-style">
       
-      Adjusted individual based Crowley model to follow same parameterization as the macroscopic model. IBM rules had divided b and c by K in the dynamics while the macroscopic was just using rescaled dynamical rates. Now both use the rescaled rates as parameter values while the equations match.
- Variation in the Crowley model agrees between individual-based simulation and the equations.
-  Code troubleshooting  openmp private declarations perform allocs without frees!
+      I&rsquo;ve been thinking about a few elements of the Monte Carlo approach that seem to be particularly subtle in interpretation. Thought I&rsquo;d write them out here as a separate examples to help think through them. Thoughts?
+Question 1 Should the Monte Carlo simulations use the maximum likelihood test and null model estimated from the data (as in McLachlan 1987, Goldman 1993, Huelsenbeck 1996) or draw from the distribution of model parameters for each simulation?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/beetles-workshop-day-2.html">Beetles workshop Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/21/following-my-computer-simulations-on-twitter/">Making R twitter?</a></h2>
+    <h4>Sun, Nov 21, 2010</h4>
     <div class="article-style">
       
-      Goals  van Kampen expansion of LPA model, maximize noise in L while keeping A robust?   Indiv. heterogeneity issue: dividing larval class into a smaller, highly-cannibal and remainder of more weakly cannibalistic. Pulse dynamics &ndash; interspike interval, magnitude?  Potential Data  1995 Dennis et al. &ndash; 5 replicate populations (2-cycle dataset), 5 age-cycles. eight-year chaotic time series Strawbridge daily samples (single replicate), occasional disease in lines though.
+      I&rsquo;m running quite a few of my analyses on my remote server, a 16 core, 32 GB ram, Ubuntu server with Tesla GPU, named &ldquo;zero&rdquo; (we&rsquo;re creative folks). It&rsquo;s easy to start lots of simulations (from ssh), harder to track when they are finished and verify results. No longer &ndash; &ldquo;zero&rdquo; now uses social media to share what she&rsquo;s up to. Find her on twitter: @tweeting_cpu
+Social Computation  Provides automated updating of simulation status and error messages
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/big-picture-comparative-phylogenetics.html">Big Picture Comparative Phylogenetics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat: evolution -- porting tree transformations to OUCH?</a></h2>
+    <h4>Sat, Nov 20, 2010</h4>
     <div class="article-style">
       
-      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
- Follow-up discussion on:
- List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
+      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
+Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/bodega-phylogenetics-workshop-day-1.html">Bodega Phylogenetics Workshop Day 1</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri: extending Geiger to Monte Carlo method</a></h2>
+    <h4>Fri, Nov 19, 2010</h4>
     <div class="article-style">
       
-      Lecture notes for the phyolgenetics workshop. These are taken in real time, so may contain errors. I&rsquo;ll see if I keep this up throughout the course. See course website.
-Huelsenbeck 9a-11a
- Parameters θ Observation X p(X | θ) is known as the likelihood. Adjust parameter to maximize likelihood. Coin toss example  θ = prob of heads on a single toss of a coin, X is # of heads observed on n tosses.
+      Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
       
     </div>
   </div>

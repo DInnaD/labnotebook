@@ -1,12 +1,13 @@
 ---
-layout: post
-categories: [ecology]
+categories:
+- ecology
+date: 2013-07-25T00:00:00Z
 tags:
 - eml
 - semantics
 - ropensci
+url: /2013/07/25/formal-semantics-with-reml/
 ---
-
 
 A lot has been happening in the `reml` development over on our package Github page, particularly through discussion on the [issues tracker](http://ropensci.org/reml) we have been working through several of the major conceptual challenges in designing the package.
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,135 +140,111 @@
   
   
   <div>
-    <h2><a href="../../2011/03/29/monday-appendices-continue.html">Monday, appendices continue...</a></h2>
-    <h4>Tue, Mar 29, 2011</h4>
+    <h2><a href="../../2012/07/02/notes/">varying recruitment function, noise form, and harvesting cost</a></h2>
+    <h4>Mon, Jul 2, 2012</h4>
     <div class="article-style">
-      
-      Finished writing up section on correlations (time averages vs ensembles) and the following section on error types. (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:
- Must figure out what data examples are going into the supplement. Most should be reasonably straight-forward to set up, may take a while to run.
- Have to figure out what to say about likelihood-based statistical method beyond definition of Cox&rsquo;s delta,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/27/sunday-edits-and-appendices.html">Sunday -- edits and appendices</a></h2>
-    <h4>Sun, Mar 27, 2011</h4>
+    <h2><a href="../../2012/06/29/notes/">Progress this week, by project</a></h2>
+    <h4>Fri, Jun 29, 2012</h4>
     <div class="article-style">
       
-      Read over Scheffer&rsquo;s rather nice introduction(Scheffer, 2010) to the Drake paper(Drake &amp; Griffen, 2010). Last paragraph is particularly pertinenant:
- Clearly, we have just scratched the surface in exploring the possibilities and limitations of this emerging field. However, the prospect of identifying generic indicators is exciting, as the approach may provide an independent way to assess the risk of critical transitions. Expansion of our toolbox for prediction is especially welcome given the almost insurmountable problem of modelling complex systems in a quantitatively accurate way.
+      Critical transitions Must determine the correct set of comparisons:
+ Solve the SDP optim using the exact time dependent
+ Simulate under an f with the same escapement policy but different functional form, i.e. logistic with K &amp; r estimated from the May example, either analytically or directly from the data.
+ Considering the costs of &ldquo;cautious policy&rdquo; (calculates optimal harvest recursively but always selects a fraction P of the optimal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/26/saturday---appendices.html">Saturday-- Appendices</a></h2>
-    <h4>Sat, Mar 26, 2011</h4>
+    <h2><a href="../../2012/06/24/ievobio-lightning-talk-proposal/"></a></h2>
+    <h4>Sun, Jun 24, 2012</h4>
     <div class="article-style">
       
-      Appendices Working on Appendices
-Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
-Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
+      The rOpenSci Project Carl Boettiger, Scott Chamberlain, Karthik Ram Sharing scientific data is a win for individual scientists as well as for the larger enterprise of other researchers, publishers, funders, educators, and the general public. Despite the rapid increase of public data, most researchers continue to work on their own data just as before. We lack the both the tools and training to quickly and easily leverage such data. To address some of these challenges, we have created the rOpenSci project.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/25/friday-3.html">Friday</a></h2>
-    <h4>Fri, Mar 25, 2011</h4>
+    <h2><a href="../../2012/06/22/notes/">Notes on value of information runs with uniform noise</a></h2>
+    <h4>Fri, Jun 22, 2012</h4>
     <div class="article-style">
       
-      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
- Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
- Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
+      Debug Sethi with large uniform noise: needed to avoid havest &gt; stock in definition of f.
+  I ran the value of information calculations using the Sethi settings of a logistic map and uniform noise, which does indeed replicate their results, where the measurement error escapement is lower than the &ldquo;all low noise&rdquo; (&ldquo;deterministic&rdquo;) escapement until stock get above carrying capacity. results
+Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribution; I still find the lognormal noise pattern a bit more intuitive.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/24/thursday-3.html">Thursday</a></h2>
-    <h4>Thu, Mar 24, 2011</h4>
+    <h2><a href="../../2012/06/21/notes/"></a></h2>
+    <h4>Thu, Jun 21, 2012</h4>
     <div class="article-style">
       
-      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
- Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
+      Value of information  Reed with uniform large noise, logistic map Reed with uniform large noise Reed with uniform small noise Sethi with uniform small noise, logistic map. Sethi with large noise Doesn&rsquo;t work. hmm.. voi_sethi_parameters.md , running value of information setup but with small noise &amp; logistic map. Whoops, this example solves uniform noise but simulates log-normal noise, which probably explains the positive effect of growth noise once again.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/24/data-management-workshop-at-uc-davis-center-for-population-biology-video-archive.html">Data Management Workshop at UC Davis Center for Population Biology: Video archive</a></h2>
-    <h4>Thu, Mar 24, 2011</h4>
+    <h2><a href="../../2012/06/19/notes/">the week so far</a></h2>
+    <h4>Tue, Jun 19, 2012</h4>
     <div class="article-style">
       
-      Videos are now up from our workshop, The Future of Data, held at the UC Davis Center for Population Biology March 2nd-4th.
-Panel  Don Strong, Editor-in-Chief of Ecology
- Marcel Holyoak, Editor-in-Chief, **Ecology Letters **
- Jonathan Eisen, Editor-in-Chief, PLoS Biology
- Alan Hastings, founding Editor-in-Chief, Theoretical Ecology
- Robert Hijmans, Asst Professor of Environmental Science &amp; Policy
- Trisha Cruse (Director), with Associate Directors Stephen Abrams &amp; John Kunze from UC Curation Center.
+      Sunday  Sent in my review for PLoS ONE. No way to attach pdf files, had to create and send a secure link instead to provide comments on the pdf.
+ AIC discussion on r-sig-phylo. For a derivation I refer to Cavanaugh, (1997), also see Daniel Schmidt&rsquo;s slides. Aikaike&rsquo;s original paper does the derivation less deliberately than Cavanaugh but does discuss this Frequentist intepretation as the maximum expected log likelihood (Akaike, 1974).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/23/wednesday-2.html">Wednesday</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
+    <h2><a href="../../2012/06/13/sethi-policy-functions/">Policy functions and value functions under multiple uncertainty</a></h2>
+    <h4>Wed, Jun 13, 2012</h4>
     <div class="article-style">
       
-      Still to do on figures:
- Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
- Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
- separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
- bootstrap_indicators should have option of which indicators are included &ndash; DONE
- all_indicators should have option of which indicators are included &ndash; DONE
+      Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
+
+<h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
+
+<p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
+pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/23/tuesday-figures-figures-figures.html">Tuesday: Figures, figures, figures</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
+    <h2><a href="../../2012/06/08/notes/">Notes</a></h2>
+    <h4>Fri, Jun 8, 2012</h4>
     <div class="article-style">
       
-      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
+      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
+ Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/22/monday-edits-and-organization.html">Monday -- Edits and organization</a></h2>
-    <h4>Tue, Mar 22, 2011</h4>
+    <h2><a href="../../2012/05/30/knitcitations/">knitcitations</a></h2>
+    <h4>Wed, May 30, 2012</h4>
     <div class="article-style">
       
-      Skype with Alan: 9-9:4
- Figures as panels
- Write Appendix
- Finish References
- Move into Word
-   Sims  LSN m = -0.049, N =50, T=100
- LSN m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=50
- LTC m = -0.049, N =100, T=200
-  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
+      EDIT: Note that this package has evolved quite a bit from this initial post. While the basic interface is the same, support for additional features and some choices in formatting differ from what is presented here. Please see the README for the latest introduction to the package. Readers may also be interested in the more recent post discussing the introduction of several new features including semantic tools in the knitcitations package
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/03/21/sunday-manuscript-and-simulations.html">Sunday - manuscript and simulations</a></h2>
-    <h4>Mon, Mar 21, 2011</h4>
+    <h2><a href="../../2012/05/26/exploring-jekyll-layout/">Exploring Jekyll layout</a></h2>
+    <h4>Sat, May 26, 2012</h4>
     <div class="article-style">
       
-      Working on manuscript. lot of writing / editing.
-Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
- m = -0.04, N = 50, nboot = 160, (with all moments)
- m = -0.04, N = 50, nboot = 800, (with all moments)
- m = -0.05, N = 50, nboot = 800, (with all moments)
- m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
+      Jekyll works wonderfully with little knowledge beyond basic html/css to create _layout templates and then you&rsquo;re free to write beautiful pages and posts in markdown. But adding more dynamic content, the kind of cool stuff avialable in so many wordpress plugins, tends to require a little understanding of the template formatting language, Liquid. Liquid is actually super simple and powerful way to build a dynamic website. The project&rsquo;s wiki provides a great introduction, starting with
       
     </div>
   </div>

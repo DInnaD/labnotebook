@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,117 +141,113 @@
   
   
   <div>
-    <h2><a href="../../../2011/02/04/warning-signals-hpc.html">Warning signals &amp; hpc</a></h2>
-    <h4>Fri, Feb 4, 2011</h4>
+    <h2><a href="../../../2011/04/19/early-warning-signals-in-coral-dynamics-economic-analysis-of-risk/">Early Warning Signals in Coral Dynamics -- Economic analysis of risk</a></h2>
+    <h4>Tue, Apr 19, 2011</h4>
     <div class="article-style">
       
-      Morning has been rather difficult trying to get simulations up and running. Parallel library isn&rsquo;t running on zero or one, variety of errors that seemed to be machine dependent and reminiscent of the ~./sfCluster problem, 3 hrs of debugging revealed this was indeed just a bug in my updated code. (In changing to my object-oriented simulate.gauss and update.gauss functions rather than calling the specific functions directly I hadn&rsquo;t updated all the function calls).
+      Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico. Our current work focuses on quantifying the relative risk of false alarms and missed detections. While statisticians typically accept a 5% &ldquo;false alarm&rdquo; rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/03/progress-on-warning-signals.html">Progress on warning signals</a></h2>
-    <h4>Thu, Feb 3, 2011</h4>
-    <div class="article-style">
-      
-      Going several directions at once in tweaking the warning signals code to make sure I have clear comparisons that are not resulting from any limitations in the numerical algorithms. Performing a variety of error checks, etc:
- Comparing fixed models vs comparing models estimated from the data
- Ensure that const model doesn&rsquo;t attempt to estimate m (doesn&rsquo;t impact likelihood anyway
- Ensure only positive values of sigma are returned (trying use trigger in setLTC and setLSN to return infinite variance if sigma is negative)
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/01/31/warning-signals-indicators-vs-likelihood-continued.html">Warning signals: Indicators vs Likelihood continued</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
-    <div class="article-style">
-      
-      Continuing to explore examples
-Some difficulty in the &ldquo;snowfall&rdquo; parallel computation engine, removing the ~/.sfCluster directory seems to reset the error &ldquo;unable to unserialize nodes&hellip;&ldquo; Also don&rsquo;t have good handling of variable names for tracking the boostrapping of parameters. For the moment have just added a toggle to suppress these to avoid dim mismatch in rownames command. Strange that this happens to the indicator_vs_likelihood code but not to the nearly-identical call to montecarlotest() in lin_bifur_models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/01/28/warning-signals-of-differing-stregths-by-likelihood-and-by-indicator.html">Warning signals of differing stregths by likelihood and by indicator</a></h2>
-    <h4>Fri, Jan 28, 2011</h4>
+    <h2><a href="../../../2011/04/18/thursday-submitting-warning-signals-manuscript/">Thursday: submitting warning signals manuscript</a></h2>
+    <h4>Mon, Apr 18, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/27/warning-signals-vs-pmc.html">Warning signals vs model choice</a></h2>
-    <h4>Thu, Jan 27, 2011</h4>
+    <h2><a href="../../../2011/04/13/weds-final-round-edits/">Weds: Final round edits</a></h2>
+    <h4>Wed, Apr 13, 2011</h4>
     <div class="article-style">
-      
-      Continuing writing and experimentation for examples in the warning signals manuscript, figuring out how to explain the need for the likelihood-based model comparison approach rather than the standard method of summary statistics.
-The traditional approach computes a particular &ldquo;leading indicator&rdquo;, such as variance or autocorrelation, in a sliding window along the time series. If the system is loosing stability approaching a bifurcation, it&rsquo;s leading eigenvalue must go through zero and hence shows critical slowing down, with the associated pattern of increasing autocorrelation an increasing variance.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/10/warning-signals-power-and-sufficient-statistics.html">Warning Signals, Power and Sufficient Statistics</a></h2>
-    <h4>Mon, Jan 10, 2011</h4>
+    <h2><a href="../../../2011/04/12/tuesday-manuscript-and-appendix-edits/">Tuesday: manuscript and appendix edits</a></h2>
+    <h4>Tue, Apr 12, 2011</h4>
     <div class="article-style">
       
-      Working on warning signals manuscript. Looking at overall powercurves as a function of sample size and rate of stability loss in both models. Planning to repeat that analysis with summary statistics approach to illustrate the relative loss in power of the &ldquo;leading indicator&rdquo; approach. (simulations just set up to run now, figures should appear below as they complete. Click on figures for links to code).
- Power curve based on transcritical bifurcation as a function of rate of stability loss:  [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;warningsignals, LTC, stability&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-01-10 00:00:00&rdquo; max_upload_date=&ldquo;2011-01-12 23:59:59&rdquo;]
+      Today&rsquo;s log  Edited cover letter summary for public.
+ Soliciting feedback on examples in manuscript vs appendix, see Monday&rsquo;s entry. (Entry posted, images added to flickr database)
+ Jeff fixed the double-post bug in twitteR, tested update.
+ Improved initialization estimates for LSN model in fit_models (code), as identified &amp; discussed in Sunday&rsquo;s entry. Needs testing on a unit case, trying on ibm_analysis.R now&hellip; seems to work fine.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/10/warning-signals-manuscript.html">Warning signals manuscript</a></h2>
-    <h4>Fri, Dec 10, 2010</h4>
+    <h2><a href="../../../2011/04/11/monday-warning-signals-updated-graphs/">Monday: Warning Signals - Updated graphs</a></h2>
+    <h4>Mon, Apr 11, 2011</h4>
     <div class="article-style">
       
-      Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
- Intro/Abstract
- Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
- Nonlinearity not observed with infinite data
- reasons detection fails: Identifiability issue &amp; Power issue. Example signal that exists but inadequate power to detect?
- Eigenvalue story
- Probability of data vs Probability of a statistic
+      Trying a different set-up for the graphs. Added two additional datasets, trying layout of making all three figures into a panels in a single figure.
+Concerns:
+ Better than only one empirical example, but not sure that the three Glaciation data sets add that much since they are all quite similar. Five panels wide might be too much. Don&rsquo;t have an example where a transition is about to occur but the data doesn&rsquo;t have adequate power even for our Likelihood method, third panel.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/09/exploring-power-in-warning-signals.html">Exploring Power in Warning Signals</a></h2>
-    <h4>Thu, Dec 9, 2010</h4>
+    <h2><a href="../../../2011/04/11/sunday-warning-signals-edits-continue/">Sunday: Warning signals edits continue</a></h2>
+    <h4>Mon, Apr 11, 2011</h4>
     <div class="article-style">
       
-      Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
-<a href="code ids in image discription, compare to structured-popultions git log. ">flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;stochpowercurvesslides&rdquo;</a>
-Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.
+      Marissa edits &ndash; Nearly done
+ Single-figure layout &ndash; DONE
+ equations in appendix &ndash; DONE
+ convergence / likelihood agreement between constOU and constLSN (Done, see below; consider using for a better initial-condition guessing routine for better convergence)
+ Reformulate transcritical bifurcation?
+ Rewrite cover letter
+   load(&quot;5598226674.Rdat&quot;) require(warningsignals) OU &lt;- deterior_mc$null LSN &lt;- deterior_mc$test LSN_OU &lt;- updateGauss(const_LSN, OU$pars, OU$X) c(OU$loglik, LSN$loglik, LSN_OU$loglik) [1] -1038.510 -1142.539 -1162.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/04/identifying-warning-signals.html">Identifying Warning Signals</a></h2>
-    <h4>Sat, Dec 4, 2010</h4>
+    <h2><a href="../../../2011/04/08/warning-signals-3/">Warning signals</a></h2>
+    <h4>Fri, Apr 8, 2011</h4>
     <div class="article-style">
-      
-      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation.html">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
+    <h2><a href="../../../2011/04/06/warning-signals-manuscript-touch-ups/">Warning Signals - Manuscript touch-ups</a></h2>
+    <h4>Wed, Apr 6, 2011</h4>
     <div class="article-style">
       
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
+      [toc]
+Refining examples  Updating finished runs to full formats
+ Condensing/organizing code examples under the demos to follow the structure of the paper.
+ Currently plotting code for manuscript loads a menagerie of different run results from different files. Would be better to consolidate by dataset.
+  Proposed figure changes  Consider multiple empirical examples in main text
+ Consider removing skew/kurtosis examples to the supplement?
+ Consider other empirical examples
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/04/01/thursday-finishing-up-appendices/">Thursday finishing up appendices(?)</a></h2>
+    <h4>Fri, Apr 1, 2011</h4>
+    <div class="article-style">
+      
+      Fresh off the cpus: single replicate examples on the Drake data
+What&rsquo;s still running:  likelihood for IBM data with 2000 replicates, nice 19 on zero (ibm_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, nice 18 on zero (deut_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, (nice 19 on one)? (deut_likelihood.R) likelihood on sim data, Glaciation III and CaCO3: 80 replicates on one, nice 1 on one (figure3.R) and with 2000 replicates, nice 19 on one (figure3.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/30/wednesday-appendices-parameter-distributions/">Wednesday: appendices; parameter distributions</a></h2>
+    <h4>Wed, Mar 30, 2011</h4>
+    <div class="article-style">
+      
+      Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
       
     </div>
   </div>

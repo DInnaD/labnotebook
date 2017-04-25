@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-22 15:40:43
-layout: post
-slug: end-of-nceas-the-legacy-of-synthetic-data
-title: End of NCEAS & the legacy of synthetic data
-redirects: [/wordpress/archives/1788, /archives/1788]
 categories:
 - open-science
 - evolution
 - ecology
+comments: true
+date: 2011-05-22T15:40:43Z
+redirects:
+- /wordpress/archives/1788
+- /archives/1788
+slug: end-of-nceas-the-legacy-of-synthetic-data
+title: End of NCEAS & the legacy of synthetic data
+url: /2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/
 ---
 
 The upcoming termination of NSF funding for [NCEAS](http://www.nceas.ucsb.edu/) has recently been receiving a bit of attention, including this nice piece in _Science_ (Stokstad, 2011).  I was particularly intrigued by [Oikos's treatment of this](http://oikosjournal.wordpress.com/2011/05/20/its-the-end-of-nceas-as-we-know-it-and-i-feel-fine/), in which Oikos editor Jeremy Fox writes,

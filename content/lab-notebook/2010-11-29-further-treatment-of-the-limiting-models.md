@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2010-11-29 19:01:29
-layout: post
-slug: further-treatment-of-the-limiting-models
-title: Further treatment of the limiting models
-redirects: [/wordpress/archives/468, /archives/468]
 categories:
 - ecology
+comments: true
+date: 2010-11-29T19:01:29Z
+redirects:
+- /wordpress/archives/468
+- /archives/468
+slug: further-treatment-of-the-limiting-models
 tags:
 - derivation
 - warning-signals
+title: Further treatment of the limiting models
+url: /2010/11/29/further-treatment-of-the-limiting-models/
 ---
 
 Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood.  Actually I don't use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn't a stochastic model so cannot assign probabilities to the outcomes.  Allowing for these, the model becomes:

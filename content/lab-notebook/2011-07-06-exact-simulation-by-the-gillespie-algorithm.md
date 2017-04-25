@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-06 18:00:58
-layout: post
-slug: exact-simulation-by-the-gillespie-algorithm
-title: Exact Simulation by the Gillespie Algorithm
-redirects: [/wordpress/archives/2128, /archives/2128]
 categories:
 - ecology
+comments: true
+date: 2011-07-06T18:00:58Z
+redirects:
+- /wordpress/archives/2128
+- /archives/2128
+slug: exact-simulation-by-the-gillespie-algorithm
 tags:
 - warning-signals
+title: Exact Simulation by the Gillespie Algorithm
+url: /2011/07/06/exact-simulation-by-the-gillespie-algorithm/
 ---
 
 The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations

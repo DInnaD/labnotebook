@@ -1,10 +1,10 @@
 ---
-layout: post
-categories: [ecology]
+categories:
+- ecology
+date: 2012-12-15T00:00:00Z
 tag: nonparametric-bayes
-
+url: /2012/12/15/nonparametric-bayes-comparisons/
 ---
-
 
 ## Notes on structure of examples
 

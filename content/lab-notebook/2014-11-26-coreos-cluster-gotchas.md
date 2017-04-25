@@ -1,10 +1,11 @@
 ---
-layout: post
-category: computing
+categories:
+- computing
+date: 2014-11-26T00:00:00Z
 tags:
 - infrastructure
+url: /2014/11/26/coreos-cluster-gotchas/
 ---
-
 
 Overall impression is that CoreOS is a promising way to easily set up a highly available
 cluster (e.g. when most important thing is that a service stays up when a node goes down)

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [Labrids]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-27T00:00:00Z
+tags:
+- Labrids
 title: Parameter Estimates for Labrid-Parrotfish model
+url: /2010/07/27/Parameter-Estimates-for-Labrid-Parrotfish-model/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ![See fast\_boot and plot.wrightscape functions in code. Gape
 size](http://openwetware.org/images/4/41/Gape_pars.png)

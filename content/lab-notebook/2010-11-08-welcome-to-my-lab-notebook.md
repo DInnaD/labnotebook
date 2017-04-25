@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-08 02:50:02
-layout: post
-slug: welcome-to-my-lab-notebook
-title: Welcome to my Lab Notebook
-redirects: [/wordpress/archives/211, /archives/211]
 categories:
 - open-science
+comments: true
+date: 2010-11-08T02:50:02Z
+redirects:
+- /wordpress/archives/211
+- /archives/211
+slug: welcome-to-my-lab-notebook
+title: Welcome to my Lab Notebook
+url: /2010/11/08/welcome-to-my-lab-notebook/
 ---
 
 ## Disclaimer: Not a Blog

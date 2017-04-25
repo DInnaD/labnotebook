@@ -1,14 +1,15 @@
 ---
-layout: post
-title: Reproducible research environments with Docker
-subtitle:
-category: open-science
+categories:
+- open-science
+date: 2014-08-25T00:00:00Z
+subtitle: null
 tags:
 - docker
 - ropensci
 - r
+title: Reproducible research environments with Docker
+url: /2014/08/25/reproducible-research-environments-with-Docker/
 ---
-
 
 Academic research takes place in computational environments of continually
 increasing complexity.  This creates ever-higher barriers not only to

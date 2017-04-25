@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2014/12/07/workflow/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p><em>My workflow has continued to evolve a bit since I last described it in this notebook. As these posts seem particularly popular, I have attempted to update the description to something a bit more current.</em></p>
+
+<h2 id="lab-notebook">Lab Notebook</h2>
+
+<p>When I began keeping a lab notebook (on OpenWetWare) I didn&rsquo;t have Github or knitr, and though I would link to
+scripts on google-code, much of my day-to-day notes ended up directly in the notebook.  Other writing, such as papers, grants, and software, has always been in dedicated files (now in public or private repos depending on the
+nature).</p>
+
+<p>For the past two years, I have done almost all my work in project-specific repositories.  While this has made sense for more cohesive material, such as R packages or manuscripts, I think it worked less well for the early-stage (and not-so-early &ndash; this phase never really ends) exploratory analysis required in starting new work.  At first this all lived in <code>inst/examples</code> directory of my project repo, as described in my previous [workflow] notes.  This left things out of my notebook, unless copied over manually.  These files were exclusively <code>.Rmd</code> files, such that the output <code>md</code> would be rendered by Github.  This was rather limited though (e.g. svgs or equations wouldn&rsquo;t render), so I tried moving these over to the <code>gh-pages</code> branch of the project repo where things could be rendered more like notebook entries.  Unfortunately, this made things a bit complicated.  Meanwhile, with most work occuring in project repos, notebook entries themselves got rather thin. Moreover, really early-stage work wouldn&rsquo;t have an obvious project repository. I think it makes more sense to develop all of these <code>.Rmd</code> scripts in notebook directly, where they can be organized with tags to the appropriate project a bt more cohesively.</p>
+
+<p>Another reason why these files were not in my notebook is that a given .Rmd exploration frequently required several days of work on the same file and example; breaking this process up into multiple files over different days seemed counterproductive. Yet the blog structure of the notebook locks it into one point in time (usually the date it first starts). Sure, the github history captures the history of what days and what changes aleady, and in the bigger picture the roughly chronological date is still useful. The date of posts I do still write is already only an approximation anyway.</p>
+
+<h2 id="computational-environment">Computational Environment</h2>
+
+<p>I now use Docker to maintain a consistent, portable, and up-to-date computational environment. Previously this
+part of my workflow was merely implicit or only vaguely described (e.g. as depending upon &ldquo;R&rdquo; or &ldquo;Jekyll&rdquo;, but without reference to versions, dependent libraries, etc).  Meanwhile, software installation and configuration
+issues were the primary problem other users, including my later self, have faced. Using Docker means that not
+only are these details more clearly specified through Dockerfile scripts, but are also immediately portable
+to any other machine as a Docker container. It may be worth outlining how my Docker containers themselves are
+organized, though perhaps the risk of this becoming dated is greatest.</p>
+
+<p>Maintaining the official R image for Docker and the general-purpose R images for the
+<a href="https://github.com/rocker-org">rocker-org</a> provides a good base for my own work as well.  The rocker-org
+images are organized modularly. <a href="https://github.com/rocker-org/rocker/wiki">rocker/rstudio</a> extends our official <code>r-base</code> image to provide a minmal RStudio environment, and <a href="https://github.com/rocker-org/hadleyverse">rocker/hadleyverse</a> image adds the packages I use most commonly, including the <code>knitr</code>/<code>rmarkdown</code> packages with a basic LaTeX environment, and popular packages from Hadley and others for package development (<code>devtools</code>, <code>testthat</code>, <code>lineprof</code>, <code>httr</code>) and data manipulation (<code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code> etc) along with the rich set of database packages with which these interface.  I maintain an <a href="https://github.com/rocker-org/ropensci">ropensci</a> image that adds all of the released rOpenSci packages, extending <code>hadleyverse</code>.</p>
+
+<p>I maintain a custom docker image, cboettig/strata, built on <code>hadleyverse</code>, for my day-to-day computation.
+Unlike the rocker-specific
+projects, this Dockerfile changes more regularly adding and also sometimes removing components depending on what
+kind of things I&rsquo;m doing.  The Dockerfile is version managed in cboettig/dockerfiles.</p>
+
+<p>Mature projects get their own Dockerfiles, built on the <code>rstudio</code> or <code>hadleyverse</code> images.  This provides a more stable and smaller base than my custom developent environment, while still preseving most of that infrastructure (e.g. the ability to interact with the container through the RStudio GUI as well as the command line).</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2014-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Sun, Dec 7, 2014
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/12/07/self-destroy-droplet-on-completion/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/12/04/lsn-nimble/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-07-workflow.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-12-07-workflow.md">8b51c8d4c</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2014\/12\/07\/workflow\/';
+    var disqus_title = '';
+    var disqus_url = '\/2014\/12\/07\/workflow\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

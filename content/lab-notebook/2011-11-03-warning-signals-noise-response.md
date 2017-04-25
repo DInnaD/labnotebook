@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-11-03 11:27:40
-layout: post
-title: Warning signals - noise response
 categories:
 - ecology
+comments: true
+date: 2011-11-03T11:27:40Z
 tags:
 - warning-signals
 - delayed-release
+title: Warning signals - noise response
+url: /2011/11/03/warning-signals-noise-response/
 ---
 
 Dakos (Dakos _et. al._ 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation.  Evaluating around an equilibrium where $  f(x^*, p^*) = 0 $, they expand to first order (citing (Ripa & Heino, 1999)):

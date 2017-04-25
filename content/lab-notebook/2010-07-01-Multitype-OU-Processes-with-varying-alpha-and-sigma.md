@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-01T00:00:00Z
 title: Multitype OU Processes with varying alpha and sigma
+url: /2010/07/01/Multitype-OU-Processes-with-varying-alpha-and-sigma/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Been meaning to sit down and work this one out for a while; somehow
 travel and conferences helped out with that -- now I only have to

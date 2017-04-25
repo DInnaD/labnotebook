@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,127 +141,130 @@
   
   
   <div>
-    <h2><a href="../../../2011/09/13/2588.html">pdg-control pdg-control, Tuesday</a></h2>
-    <h4>Tue, Sep 13, 2011</h4>
+    <h2><a href="../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h2>
+    <h4>Sun, Nov 13, 2011</h4>
     <div class="article-style">
       
-      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
-Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
-Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
-If i is played $ p_i $ becomes
-$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
-If i is played and successful $ \mu_i $ becomes
+      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/13/2588.html">pdg-control pdg-control, Tuesday</a></h2>
-    <h4>Tue, Sep 13, 2011</h4>
+    <h2><a href="../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h2>
+    <h4>Tue, Nov 8, 2011</h4>
     <div class="article-style">
       
-      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
-Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
-Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
-If i is played $ p_i $ becomes
-$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
-If i is played and successful $ \mu_i $ becomes
+      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/12/pretty-darn-good-control-working-group.html">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
+    <h2><a href="../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h2>
+    <h4>Wed, Nov 2, 2011</h4>
     <div class="article-style">
       
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
+$$ X_{t+1} = Z_n f(X_n) $$
+$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
+$$ f(x) = \frac{A x}{1+B x} $$
+Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/12/pretty-darn-good-control-working-group.html">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
+    <h2><a href="../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      Call includes everyone except Frank &amp; Claire.
+Logistics  Meeting 2: 13-15 March
+ Review code/files on wiggio.
+ Want a group review of material / webX tutorial? Email Paul after the call.
+  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
+ Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
+ Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Let
- y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
-$$ x</em>{t+1} = z_g f(x_t) $$
-In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
+      Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h2>
+    <h4>Fri, Oct 28, 2011</h4>
     <div class="article-style">
       
-      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
-pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
+      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/27/optimal-control-next-steps/">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h2>
+    <h4>Thu, Oct 27, 2011</h4>
     <div class="article-style">
       
-      Multiple Uncertainty algorithm Define each of the transition matrices:
-D &lt;- matrix(NA, nrow=length(x_grid), ncol=Tmax) P &lt;- outer(x_grid, h_grid, profit) F &lt;- outer(x_grid, f(x_grid, 0, p), pdfn, sigma_g) M &lt;- outer(x_grid, x_grid, pdfn, sigma_m) I &lt;- outer(h_grid, h_grid, pdfn, sigma_i)  Probably row-normalize each:
-rownorm &lt;- function(M) t(apply(M, 1, function(x) x/sum(x))  (Note the transpose is needed since the silly function of a vector turns the column into a row. Not an issue of margin 2)
+      Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
+ Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
+ Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
+  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/26/monday-misc-notes/">Monday, misc notes</a></h2>
+    <h4>Wed, Oct 26, 2011</h4>
     <div class="article-style">
       
-      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
-Uniform lognormal log  A few small tweaks to probability calculations
- Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
+      R packages relevant to the optimal control problems
+ BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
+ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/24/optimal-control-training-problem-2-problem-statement/">Training problem 2: the economist&#39;s problem statement</a></h2>
+    <h4>Mon, Oct 24, 2011</h4>
     <div class="article-style">
       
-      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
- Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
+      pdg-control Problem statement: Maximize profits subject to $$\max_{h(t)} \int_0^T e^{-\rho t} \pi(x, h, t) dt $$ Subject to the state equations (biology):
+$$ \dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h $$
+Note that we consider the control variable to be effort, $h$ instead of harvest, $\mathcal{H}$, where $\mathcal{H} = h x$.
+and the constraints: $$ x(0) = X_0 \qquad x(T) = X_T $$ We have fixed boundary conditions (equalities) and equalities in the state equations, so we have a nice straight-forward problem.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/19/optimal-control-exploration/">Optimal Control Exploration</a></h2>
+    <h4>Wed, Oct 19, 2011</h4>
     <div class="article-style">
       
-      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
-Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
+      Translating Jim&rsquo;s Matlab code.
+Adapted for Octave.
+R version.
+Document review:
+ Chapter 04_Sanchirico_Final.pdf
+ SanchiricoOptimalSpace_JEEM.pdf (Sanchirico &amp; Wilen, 2005)
+ Optimal_Rebuilding_AJAE2010.pdf, Optimal_Rebuilding_Supp_Material.pdf (Sanchirico et. al. 2010)
+ Sanchirico_editsembedded.pdf: Book Chapter 1: Economically Optimal Management of a Metapopulation
+  Reviewing Bett&rsquo;s Practical Methods for Optimal Control using Nonlinear Programming. (( Practical Methods for Optimal Control and Estimation Using Nonlinear Programming, Second Edition (Advances in Design and Control) John T.
       
     </div>
   </div>

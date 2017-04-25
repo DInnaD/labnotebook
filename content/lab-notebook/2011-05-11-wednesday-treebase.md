@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-11 15:12:14
-layout: post
-slug: wednesday-ropensci
-title: 'Wednesday: Treebase'
-redirects: [/wordpress/archives/1670, /archives/1670]
 categories:
 - evolution
+comments: true
+date: 2011-05-11T15:12:14Z
+redirects:
+- /wordpress/archives/1670
+- /archives/1670
+slug: wednesday-ropensci
 tags:
 - ropensci
+title: 'Wednesday: Treebase'
+url: /2011/05/11/wednesday-treebase/
 ---
 
 [TREEBASE PACKAGE](https://github.com/cboettig/treeBASE):

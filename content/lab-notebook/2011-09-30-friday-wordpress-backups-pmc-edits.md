@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-09-30 17:51:31
-layout: post
-slug: friday-wordpress-backups-pmc-edits
-title: Friday, wordpress backups, pmc edits
-redirects: [/wordpress/archives/2799, /archives/2799]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-09-30T17:51:31Z
+redirects:
+- /wordpress/archives/2799
+- /archives/2799
+slug: friday-wordpress-backups-pmc-edits
 tags:
 - code-tricks
+title: Friday, wordpress backups, pmc edits
+url: /2011/09/30/friday-wordpress-backups-pmc-edits/
 ---
 
 ## Wordpress local copy

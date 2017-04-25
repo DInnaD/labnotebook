@@ -1,9 +1,10 @@
 ---
-layout: post
-category: computation
-tags: 
+categories:
+- computation
+date: 2013-09-11T00:00:00Z
+tags:
 - code-tricks
-
+url: /2013/09/11/extending-data-frame-class/
 ---
 
 I'd like to define a class that acts just like a `data.frame`, just like the `data.table` class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle `data.frame` objects.  

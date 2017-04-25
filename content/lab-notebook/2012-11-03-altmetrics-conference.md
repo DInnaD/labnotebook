@@ -1,8 +1,10 @@
 ---
-layout: post
-categories: [open-science]
-tags: [conference]
-
+categories:
+- open-science
+date: 2012-11-03T00:00:00Z
+tags:
+- conference
+url: /2012/11/03/altmetrics-conference/
 ---
 
 From Thursday Nov 1 through Saturday Nov 3 I attended the PLoS Altmetrics workshop as a member of the ROpensci project.  An exciting meeting driven mostly by the opportunity to interact with a small and incredibly creative and innovative group of science publishers, funders, start-ups, and other researchers. Details of the event are largely recorded on the [altmetrics 2012 workshop website](https://sites.google.com/site/altmetricsworkshop). We also have a few slides addressing the [ropensci slant](http://ropensci.org/alm/).  

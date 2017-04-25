@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-04 22:48:21
-layout: post
-slug: phylogenetics-manuscript-revisions
-title: evolution manuscript revisions
-redirects: [/wordpress/archives/1354, /archives/1354]
 categories:
 - evolution
+comments: true
+date: 2011-04-04T22:48:21Z
+redirects:
+- /wordpress/archives/1354
+- /archives/1354
+slug: phylogenetics-manuscript-revisions
+title: evolution manuscript revisions
+url: /2011/04/04/phylogenetics-manuscript-revisions/
 ---
 
 Heard back from Graham Friday on manuscript revisions.  Notes on reviewing edits:

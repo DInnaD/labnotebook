@@ -1,9 +1,12 @@
 ---
-layout: post
+categories:
+- ecology
+date: 2012-05-21T00:00:00Z
+tags:
+- warning-signals
+- my-publications
 title: Limits to the detection of early warning signals
-category: ecology
-tags: [warning-signals, my-publications]
-
+url: /2012/05/21/limits-to-detection-of-early-warning-signals/
 ---
 
 Our paper, _limits to the detection of early warning signals for

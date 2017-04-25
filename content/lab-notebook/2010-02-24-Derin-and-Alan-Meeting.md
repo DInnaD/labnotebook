@@ -1,9 +1,11 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-24T00:00:00Z
+tags:
+- warning-signals
+url: /2010/02/24/Derin-and-Alan-Meeting/
 ---
-
 
 1-2pm
 

@@ -1,19 +1,19 @@
 ---
-comments: true
-date: 2011-03-16 23:49:35
-layout: post
-slug: wednesday
-title: Wednesday
-redirects: [/wordpress/archives/1210, /archives/1210]
 categories:
 - ecology
+comments: true
+date: 2011-03-16T23:49:35Z
+redirects:
+- /wordpress/archives/1210
+- /archives/1210
+slug: wednesday
 tags:
 - warning-signals
+title: Wednesday
+url: /2011/03/16/wednesday/
 ---
 
-
-	
-  * Updated dependencies of warningsignals package.  Removed old dependencies, migrated montecarlotest into package, removing the pmc dependency.
+* Updated dependencies of warningsignals package.  Removed old dependencies, migrated montecarlotest into package, removing the pmc dependency.
 
 	
   * Updated my webpage teaching statement (lunch break)

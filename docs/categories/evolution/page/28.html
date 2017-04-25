@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,96 +141,101 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/26/still-puzzling-on-lr/">Still puzzling on LR</a></h2>
+    <h4>Fri, Mar 26, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/25/research/">Research</a></h2>
+    <h4>Thu, Mar 25, 2010</h4>
     <div class="article-style">
+      
+      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/24/parallel-r/">Parallel R</a></h2>
+    <h4>Wed, Mar 24, 2010</h4>
     <div class="article-style">
       
-      Working on likelihood ratio manuscript.  Labrid Herbivory data Parrotfish gape shows significant differences for independent OU models (alpha, theta, sigma different) than wrasses. While the two-peak ouch model gets no support, allowing alpha and sigma to very results in a strongly significant model improvement.
-code
-&gt; ws2$ ws2$alpha ws2$data ws2$loglik ws2$regimes ws2$sigma ws2$theta ws2$tree ws2$Xo &gt; ws2$theta [1] 0.2245493 0.9569619 &gt; ws2$alpha [1] 2.943846e+00 4.995744e-06 &gt; ws2$sigma [1] 0.
+      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/23/bootstrapping-likelihood-ratios/">Bootstrapping Likelihood ratios</a></h2>
+    <h4>Tue, Mar 23, 2010</h4>
     <div class="article-style">
+      
+      Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
+&gt; summary(anoles_boots) [,1] [,2] [,3] [,4] [,5] [1,] 0.500000000 0.981399498 0.26514573 0.06668672 0.018154938 [2,] 0.009580545 0.500000000 0.15610274 0.04819938 0.011616566 [3,] 0.039233893 0.075349644 0.50000000 0.05699877 0.005443493 [4,] 0.004211230 0.004592917 0.01389950 0.50000000 0.006648916 [5,] 0.173457542 0.198303402 0.38893099 0.33891430 0.500000000 &gt;  Labrids: &gt; summary(labrid_boots) [,1] [,2] [,3] [,4] [1,] 0.5000000 6.036842e-05 0.0000000 0.0 [2,] 0.5424613 5.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/22/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
+    <h4>Mon, Mar 22, 2010</h4>
     <div class="article-style">
+      
+      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/20/research/">Research</a></h2>
+    <h4>Sat, Mar 20, 2010</h4>
     <div class="article-style">
+      
+      Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/19/research/">Research</a></h2>
+    <h4>Fri, Mar 19, 2010</h4>
     <div class="article-style">
       
-      Working on likelihood ratio/phylogenetic signal manuscript.</p>
-
-<p>scrap notes from more literature combing  Cheverud 1985 autocorellational model, extended by Gittlman &amp; Kot 1990 Grafen 89, Pagen &amp; Harvey 89 extending PIC to polytomies Harvey &amp; Mace 82, Harvey &amp; Clutton Brock 85 taxonomic rather than phylogenetic  From Blomberg et al: &ldquo;The three best-justified phylogenetically based statistical methods can all be applied with a star phylogeny, in which case they yield results that are exactly the same as a conventional analysis (phylogenetically independent contrasts: Felsenstein 1985; generalized least squares: Grafen 1989; Martins and Hansen 1997; Garland and Ives 2000; Rohlf 2001; Monte Carlo simulations: Martins and Garland 1991; Garland et al.
+      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing-continues.html">Writing continues</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/18/research/">Research</a></h2>
+    <h4>Thu, Mar 18, 2010</h4>
     <div class="article-style">
+      
+      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/a-day-of-writing.html">a day of writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/17/research/">Research</a></h2>
+    <h4>Wed, Mar 17, 2010</h4>
     <div class="article-style">
       
-      Figuring out the best way to present the critique of AIC, introduction to the method, introduction to the power test. Seeking inspiration from Huelsenbeck 1996 and digging farther back into the literature:</p>
-
-<p>Cox, D.R. Further results on tests of separate families of hypotheses. Journal of the Royal Stastical Society 24, 406-424(1962). Cox, D.R. Tests of Seperate Families of Hypotheses. Proceedings of the 4th Berkeley Symposium, University of California Press 105 - 123(1961).
+      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/a-few-notes-on-various-projects.html">a few notes on various projects</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/16/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Tue, Mar 16, 2010</h4>
     <div class="article-style">
       
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
-  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
+      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
+Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
       
     </div>
   </div>

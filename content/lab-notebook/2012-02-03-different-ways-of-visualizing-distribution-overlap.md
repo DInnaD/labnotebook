@@ -1,17 +1,17 @@
 ---
-comments: true
-date: 2012-02-03 10:13:51
-layout: post
-slug: different-ways-of-visualizing-distribution-overlap
-title: Different ways of visualizing distribution overlap
-redirects: [/wordpress/archives/3785, /archives/3785]
 categories:
 - ecology
+comments: true
+date: 2012-02-03T10:13:51Z
+redirects:
+- /wordpress/archives/3785
+- /archives/3785
+slug: different-ways-of-visualizing-distribution-overlap
 tags:
 - warning-signals
+title: Different ways of visualizing distribution overlap
+url: /2012/02/03/different-ways-of-visualizing-distribution-overlap/
 ---
-
-
 
 I spend a lot of time comparing distributions.  There's lots of different ways to visualize these comparisons, I'm not sure what is the most effective & intuitive way to indicate their overlap.
 

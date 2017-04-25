@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,124 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/10/warning-signals-manuscript/">Warning signals manuscript</a></h2>
+    <h4>Fri, Dec 10, 2010</h4>
     <div class="article-style">
       
-      Public code hosting  Project code now available through Github. Advantages to public hosting: Replication of adaptive dynamics simulations can be difficult, particularly in matching various nuisance parameters. While there is certainly much pedagogical value in individual researchers implementing their own simulations, verification and reproducibility of scientific results would be greatly facilitated by adapting an accepted open source code base and adding branches, etc. Researchers could much more immediately benefit from the work of their colleagues and spend more time implementing novel research and less reproducing it.
+      Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
+ Intro/Abstract
+ Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
+ Nonlinearity not observed with infinite data
+ reasons detection fails: Identifiability issue &amp; Power issue. Example signal that exists but inadequate power to detect?
+ Eigenvalue story
+ Probability of data vs Probability of a statistic
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/09/exploring-power-in-warning-signals/">Exploring Power in Warning Signals</a></h2>
+    <h4>Thu, Dec 9, 2010</h4>
     <div class="article-style">
       
-      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
- use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
+      Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
+<a href="code ids in image discription, compare to structured-popultions git log. ">flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;stochpowercurvesslides&rdquo;</a>
+Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/08/practice-sicb-presentation/">Practice SICB Presentation</a></h2>
+    <h4>Wed, Dec 8, 2010</h4>
     <div class="article-style">
       
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
+      Gave my practice talk for Society for Integrative and Comparative Biology in Wainwright lab this afternoon, after (not quite) finishing the presentation. Trying to figure out the best way to introduce these ideas to a broad audience (same challenge as with the manuscript).
+Talk storyboard:
+Looking at other talks in my session: Macroevolution I - Methods and Character Evolution, looks like a reasonably sophisticated group.
+Good feedback from the Wainwright Lab:  Emphasize: Currently we worry that we don&rsquo;t have the right models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/07/mapping-out-sicb-presentation-is-your-phylogeny-informative/">Mapping out SICB Presentation: Is your phylogeny informative?</a></h2>
+    <h4>Tue, Dec 7, 2010</h4>
     <div class="article-style">
+      
+      Assembling material/outline for my SICB presentation in January, will be giving a practice talk in the Wainwright lab on Wednesday. 15 minute presentation with 5 minutes for questions.
+ Designing presentation in &ldquo;storyboard&rdquo; format in Inkscape. Will figure out if I convert to slides or not.
+ Simulations under the Anoles dataset to show posterior distributions of lambda. Exploring the connection between the likelihood of a parameter under each model to that of the distributions of the likelihood ratio.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/06/follow-up-from-fri-discussions-revisiting-post-predictive-evaluation/">follow up from Fri discussions: Revisiting post-predictive evaluation</a></h2>
+    <h4>Mon, Dec 6, 2010</h4>
     <div class="article-style">
       
-      Simulation Results (code)  Analytics (Analytics code)
-Notebooks and files Looking at a better way to get figures into my online notebook. I often run simulations that generate figures which I look at, make some adjustments to the code based on the figure, and then delete or overwrite the figure without uploading it to my notebook, because it isn&rsquo;t &ldquo;right&rdquo; or &ldquo;finished&rdquo; and uploading takes a lot of clicks, particularly when the code generates 36 figures in a run.
+      A few weeks ago, a seminar prompted me to take a closer look at a particular post-predictive evaluation technique applied reasonably often in our recent literature,see earlier entry. I think by phrasing the approach more concisely and precisely it will be clear what the difficulty is.
+As usual, we consider some data $ \vec X$ and a set of $ N$ models specified by parameters, $ \lbrace \vec \theta_1, \vec \theta_2, \vec \ldots \theta_N\rbrace $, then we can express the likelihood of the model as the probability of the data under the given model and parameter values:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics-updates.html">Adaptive Dynamics Updates</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/04/identifying-warning-signals/">Identifying Warning Signals</a></h2>
+    <h4>Sat, Dec 4, 2010</h4>
     <div class="article-style">
       
-      The numerical coexistence time simulations are still running, (Server rest brought down these runs two weeks ago, and they take a few weeks to do all the replicates) meanwhile here are the rest of the analytic set (and one simulation that finished). See code for parameters etc. (Below in frame)</p>
-
-<p>EVE Seminar: Brad Shaffer A rather good talk on the California Tiger salamander, emphasizing intersection of ecological and evolutionary investigation in a conservation, management-oriented context.
+      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/additional-sources-of-noise-sethi-2005.html">Additional sources of noise (Sethi 2005)</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/03/nsf-and-journal-data-archiving/">Thoughts on the New Policies for Data Archiving at NSF and in Common Journals</a></h2>
+    <h4>Fri, Dec 3, 2010</h4>
     <div class="article-style">
       
-      Sethi Model  author Carl Boettiger, cboettig@gmail.com license: CC0  Implements a numerical version of the SDP described in (Sethi et. al. 2005).
-Clear the workspace and load package dependencies:
-Define noise parameters
-sigma_g &lt;- 0.1 # Noise in population growth sigma_m &lt;- 0.1 # noise in stock assessment measurement sigma_i &lt;- 0.1 # noise in implementation of the quota  we&rsquo;ll use log normal noise functions. For Reed, only z_g will be random.
+      This post is a work in progress, a scratch pad for me to start assembling what I&rsquo;ve been learning about and resources pertaining to the new policies emerging from NSF and journals relevant to ecology and evolution. Hoping to highlight not only the policies, but the issues, opportunities, and concerns around them.
+I am hoping to help organize a workshop to discuss these issues in my department this Winter. The Davis Open Science group, is planning a series of these workshops, hoping to work with departments, the libraries and the UC Davis Office of Research and its Responsible Conduct of Research  program (in compliance with NIH/NSF ethics requirements), as well as resident faculty and editors.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/alan-meeting.html">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/01/cpb-seminar-david-collar/">CPB : David Collar</a></h2>
+    <h4>Wed, Dec 1, 2010</h4>
     <div class="article-style">
       
-      From 03/31, see below for more!
-Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
+      Identifying ecological constraint on morph and function using phylogenies. 2007 CPB grad, losos post doc, now postdoc w Rita.
+Indep origin of &lsquo;bass&rsquo; cranial morph. Also unique patterns- stonefish. Phylo comparative methods to address why and how. Three types of factors on morphology: ecological, time!, intrinsic (genetic, behavior) constraints. Outline:
+I. determinants of morph diversification.
+II. Complex traits.
+I. Diversification rate vary by habitat? (Dragon lizards- diverse morph, diverse habitat). Reconstruct history of habitat use (4 types), (assign discrete traits) then stoch character maps to reconstruct (paint) tree.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/alan-meeting.html">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
+    <h4>Tue, Nov 30, 2010</h4>
     <div class="article-style">
       
-      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
-/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
+      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
+$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
+and the transcritical bifurcation
+$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
+Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/alan-meeting.html">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
+    <h4>Mon, Nov 29, 2010</h4>
     <div class="article-style">
       
-      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
-Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
       
     </div>
   </div>

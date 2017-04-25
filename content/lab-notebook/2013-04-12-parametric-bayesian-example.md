@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
-- nonparametric-bayes
+categories:
+- ecology
 code: true
-
+date: 2013-04-12T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2013/04/12/parametric-bayesian-example/
 ---
 
 As discussed with Marc in yesterday's meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a _parametric_ Bayesian case, e.g. with the correct underlying model.  This is implemented in BUGS (jags) through the R interface as described in <span class="showtooltip" data-html="true" title="<p>Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013). &ldquo;Strategies For Fitting Nonlinear Ecological Models in R, ad Model Builder, And Bugs.&rdquo; Methods in Ecology And Evolution, pp. n/a&ndash;n/a. ."><a href="http://dx.doi.org/10.1111/2041-210X.12044" rel="http://purl.org/spar/cito/usesMethodIn" >Bolker _et. al._ (2013)</a></span> , and follows the state-space model analysis along the lines outlined in <span class="showtooltip" data-html="true" title="<p>Pedersen M, Berg C, Thygesen U, Nielsen A and Madsen H (2011). &ldquo;Estimation Methods For Nonlinear State-Space Models in Ecology.&rdquo; Ecological Modelling, 222, pp. 1394&ndash;1400. ISSN 03043800."><a href="http://dx.doi.org/10.1016/j.ecolmodel.2011.01.007" rel="http://purl.org/spar/cito/usesMethodIn" >Pedersen _et. al._ (2011)</a></span> .  

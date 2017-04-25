@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,127 +141,104 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/data-format-functions.html">Data Format functions</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/08/27/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
+    <h4>Fri, Aug 27, 2010</h4>
+    <div class="article-style">
+      
+      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
+ Create package around power analysis, including ability to test bootstraps
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/26/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
+    <h4>Thu, Aug 26, 2010</h4>
+    <div class="article-style">
+      
+      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
+0.5735 0.29 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/25/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
+    <h4>Wed, Aug 25, 2010</h4>
+    <div class="article-style">
+      
+      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
+This is great, nice to know there&rsquo;s a basis for it.
+&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/19/writing/">Writing</a></h2>
+    <h4>Thu, Aug 19, 2010</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/13/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Fri, Aug 13, 2010</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/12/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Thu, Aug 12, 2010</h4>
+    <div class="article-style">
+      
+      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/11/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Wed, Aug 11, 2010</h4>
+    <div class="article-style">
+      
+      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
+ use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/10/likelihood-ratio-update/">Likelihood ratio update</a></h2>
+    <h4>Tue, Aug 10, 2010</h4>
+    <div class="article-style">
+      
+      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/05/batch-data/">Batch Data</a></h2>
+    <h4>Thu, Aug 5, 2010</h4>
+    <div class="article-style">
+      
+      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/08/04/data-format-functions/">Data Format functions</a></h2>
+    <h4>Wed, Aug 4, 2010</h4>
     <div class="article-style">
       
       Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
  Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
  should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/entry-title.html">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Automated scripts for image uploads. Tag-based generation of a slideshow:</p>
-
-<p>Running the script:
- ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.</p>
-
-<p>This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/evolution-2010.html">Evolution 2010</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Carl Boettiger A new phylogenetic comparative method: detecting niches and transitions with continuous characters  My slides:
-A new phylogenetic comparative method: detecting niches and transitions with continuous characters
-View more presentations from cboettig.
- Joe Felsenstein A comparative method for discrete and continuous characters using the threshold model
- Lynsey McInnes: Deep-time changes to equilibrium diversity &ndash; a simulation study of th power to detect rule changes from reconstructed phylogenies
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/evolution-2010-day-2.html">Evolution 2010 Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Clay Cressler : Can you trust evolutionary parameters estimated by complex phylogenetic comparative methods? A simulation study with OUCH
- Jeet Sukumaran (Mark Holder lab) Performance and robustness of phylogeographic analytical studies
-  Tests common macroscopic models of inferring population structure (i.e. via coalescent) an individual based simulation model.
- Graham Slater, Luke Harmon, Liam Revell, Marc Suchard, Mike Alfaro. Estimating rates of phenotypic evolution and speciation from incomplete trees.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/evolution-2010-day-3.html">Evolution 2010 Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Chris Martin: Trophic innovation drives exceptional rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes  Fantastic story of exceptional rates of evolution and trophic novelty in two tropical lakes. (8:45, Adaptation 9, talk 097002)
- David Plachetzki: Deep homology and the evolution of animal senses: insights from Cnidaria  Cnidarians have homologous proteins to opsins and taste receptors!
- Jeremy Yoder: Coevolution and gene flow in obligate pollination mutualism  Two species of joshua tree each with its own pollinator yucca moth.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/evolutionary-regime-shift-examples.html">Evolutionary Regime Shift examples</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Time to get more data and examples to start testing methods, particularly for cases in where regime shifts are hypothesized by painting a tree. Starting a Mendeley public collection for the literature in Web of Science that actually applies either the OUCH or Brownie framework to identify shifts in rates of continuous trait evolution.
-Research collected using Mendeley</p>
-
-<p>now I&rsquo;ll have to see how hard it is to obtain both the trees and trait data&hellip;
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods.html">Exploring Difficulties with Existing Methods</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
- I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/exploring-difficulties-with-existing-methods-continued.html">Exploring Difficulties with Existing Methods continued</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on manuscript for this today, hope to have a draft soon.
- Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
- Sent draft to Brian and Peter, and Wainwright lab.
- Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/follow-up-on-parametric-bootstrapping.html">Follow-up on Parametric Bootstrapping</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/friday.html">Friday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
-12p - 1p
- Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
- Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
       
     </div>
   </div>

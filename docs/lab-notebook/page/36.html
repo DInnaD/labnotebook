@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,115 +140,118 @@
   
   
   <div>
-    <h2><a href="../../2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps.html">Notes on Bokma 2010: evolution in drifts and jumps</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
+    <h2><a href="../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">pdg-control Day 1 goals by training problem</a></h2>
+    <h4>Tue, Mar 13, 2012</h4>
     <div class="article-style">
       
-      Bokma 2010 asks if there is an analytic expression for the likelihood in the evolutionary model he describes.
-The trait value of the process is determined by two things &ndash; a Brownian motion random walk (diffusion) with rate parameter $ s_a^2$ and speciation events. Under a speciation event, the trait jumps to a new value that differs from it&rsquo;s parent&rsquo;s by some amount chosen from zero-mean normal distribution with variance $ s_c^2$.
+      Training Problem I / Theme 1 Policy costs  Functional forms of cost &amp; Structure of the paper Comparability (view over all costs? view expected economic benefit?)
+ Visualizations Dan&rsquo;s L1 norm story (vs stochastic, discrete time?)  Transaction Fee details in cts time, deterministic Advanced problem 1 How many spatially differentiated policies are optimal 1. formulate bioeconomic model 2. modularity methods 3. comparison of GBR &amp; Caribbean examples
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/28/warning-signals-of-differing-stregths-by-likelihood-and-by-indicator.html">Warning signals of differing stregths by likelihood and by indicator</a></h2>
-    <h4>Fri, Jan 28, 2011</h4>
+    <h2><a href="../../2012/03/13/pdg-control-training-problem-2-update-to-group/">pdg-control, Training Problem 2 update to group</a></h2>
+    <h4>Tue, Mar 13, 2012</h4>
     <div class="article-style">
+      
+      Intrinsic Stochasticity $$ x_{t+1} = z_t f(x_t, ht) $$ $$ max{h_t} \textrm{E} \left( \sum_t \Pi(h_t, x_t) \delta^t \right) $$ Measurement error $ m_t = z_m x_t $ Implementation error $ i_t = z_i h<em>t $
+Next: Uncertainty = we can learn and hence decrease the uncertainty. But state-space grows exponentially.
+Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t, a_t) P(a_t, \hat a_t, \sigmat) $$ Bayesian Learning state equations $$ \hat a{t+1} = \textrm{Posterior}(a | x) = \frac{ L(x|a) \textrm{Prior}(a)}{\int L(x|a) \textrm{Prior}(a) da } $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/28/phylogenetic-signal-metrics.html">Phylogenetic Signal metrics</a></h2>
-    <h4>Fri, Jan 28, 2011</h4>
+    <h2><a href="../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Parameter uncertainty in stochastic control problems</a></h2>
+    <h4>Sun, Mar 11, 2012</h4>
     <div class="article-style">
+      
+      Day 3 of my short-term visitor stay before the working group starts.
+ Wednesday: Travel
+ Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
+  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
+ Friday Writing up Training problem II with Jake, Michael.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/27/warning-signals-vs-pmc.html">Warning signals vs model choice</a></h2>
-    <h4>Thu, Jan 27, 2011</h4>
+    <h2><a href="../../2012/03/09/alex-pfaff-seminar-meeting/">Alex Pfaff seminar, meeting</a></h2>
+    <h4>Fri, Mar 9, 2012</h4>
     <div class="article-style">
       
-      Continuing writing and experimentation for examples in the warning signals manuscript, figuring out how to explain the need for the likelihood-based model comparison approach rather than the standard method of summary statistics.
-The traditional approach computes a particular &ldquo;leading indicator&rdquo;, such as variance or autocorrelation, in a sliding window along the time series. If the system is loosing stability approaching a bifurcation, it&rsquo;s leading eigenvalue must go through zero and hence shows critical slowing down, with the associated pattern of increasing autocorrelation an increasing variance.
+      Notes from Alex Pfaff talk at UTK (during my visit for pdg-control meeting).
+ average impact vs differential impact &ndash; must compare against what would have happened to the area if unprotected (at current time/short-timescale, or in future?)
+ Proximity is not a good proxy of similarity (i.e. bc we protect steep slopes but farm the flat land nearby)
+ Instead use simple metrics available in GIS layers - distance from nearest road, etc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/26/mcelreath-a-bayesian-approach-to-hierarchical-modeling-using-r-to-build-our-own-estimator-from-scratch.html">McElreath: A Bayesian approach to hierarchical modeling, using R to build our own estimator from scratch</a></h2>
-    <h4>Wed, Jan 26, 2011</h4>
+    <h2><a href="../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Stability analysis on fished and unfished dynamics.  </a></h2>
+    <h4>Tue, Mar 6, 2012</h4>
     <div class="article-style">
       
-      CPB workshop continues, introduction to Bayesian inference.
-McElreath discusses (slides):
- Bayes Theorem  $$ P(\theta | D) = \frac{Pr(D|\theta) Pr(\theta )}{Pr(D)} $$
- Philosophy of Priors, Uninformative Priors
- Confidence intervals / credible intervals for free
- Computing the posterior: Directly or by MCMC
-  Nice visual example of updating prior as we add data:
-[gist id=&ldquo;797795&rdquo;]
- King Markov and the chain islands.
- Evaluating: Burn in , autocorrelation.
+      In this example, we compute the distribution of the stability coefficients estimated from the fished and unfished simulations. Overall this shows little success in distinguishing between the stability of the fished and unfished populations &ndash; i.e. no hint that we are managing near an edge.
+(Originally run and posted in github notebook, but cross posting for reference here since I had trouble recalling if this was filed with the control project or the warning signals project directory.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/25/intro-ecology-lecture-at-university-of-the-pacific.html">Intro Ecology Lecture at University of the Pacific</a></h2>
-    <h4>Tue, Jan 25, 2011</h4>
+    <h2><a href="../../2012/03/06/tuesday-14/">Tuesday</a></h2>
+    <h4>Tue, Mar 6, 2012</h4>
     <div class="article-style">
       
-      I was invited to give a guest lecture on introductory ecology for an introductory environmental science course at University of the Pacific in Stockton today. This provided both a nice outreach opportunity and a chance to speak to a full introductory class for 1:45hr, which I haven&rsquo;t done before.
-I ran the class something as an experiment for myself as much as an instruction. Having spent considerable time thinking more-or-less abstractly about effective teaching strategies with carefully planned lectures, activities, objectives, and assessments, I found myself suddenly at the other end of the spectrum: faced with giving a long lecture covering pretty much my entire field with little time to prepare and only the fuzziest objectives.
+      Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
+ model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/24/mcelreath-hierarchical-models.html">McElreath Hierarchical Models</a></h2>
-    <h4>Mon, Jan 24, 2011</h4>
+    <h2><a href="../../2012/03/05/monday-17/">Monday</a></h2>
+    <h4>Mon, Mar 5, 2012</h4>
     <div class="article-style">
       
-      CPB workshop on hierarchal modeling starts off today with Richard McElreath&rsquo;s introduction.[ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets. As these notes are taken directly during seminar (on my droid phone &ndash; saves me transcribing, later) , please forgive typos and shorthand.[/ref] &ldquo;This is a workshop, not a job talk, meaning I&rsquo;m going to give away the tricks and you have to learn something.
+      Trivial example of a non-optimal but more robust policy by editing the optimal strategy directly. Note in particular that this outperforms the optimal strategy economically as well as ecologically (fewer crashed populations).
+ Running the policy-costs model with Beverton Holt instead of the Myers function seems to give a clearer picture of a system responding to policy costs. The single-replicate picture probably captures this better than the policy/replicate visualizations.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/24/felsenstein-web.html">Felsenstein (web) seminar</a></h2>
-    <h4>Mon, Jan 24, 2011</h4>
+    <h2><a href="../../2012/03/03/thursday-friday-saturday/">Thursday, Friday, Saturday</a></h2>
+    <h4>Sat, Mar 3, 2012</h4>
     <div class="article-style">
       
-      Joe Felsenstein on phyloseminar (watch here). This morning. [ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets.[/ref] Discusses bridging population genetics &amp; comparative methods: where does covariation in traits across a phylogeny come from?
-Morphometrics Using morphometrics (digitized landmarks [though now we can do spherical harmonics, CT scans, etc]) to evolve on a phylogeny under BM rather than use that data to infer phylogeny.
+      forage fish seminar - Patrick and Jay with interesting stuff. Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.  knit hooks externalization example working (based on Reed.R). Still unsure how I feel about externalization vs fully literate code. Redundant typing is bad but isn&rsquo;t that why common tasks are functionalized?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny.html">Shape as well as size influence power of phylogeny</a></h2>
-    <h4>Fri, Jan 21, 2011</h4>
+    <h2><a href="../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
+    <h4>Tue, Feb 28, 2012</h4>
     <div class="article-style">
       
-      Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.
+      Description: an example trying to detect early warning signals in data from fisheries collapses
+Set up markdown format and image uploads.
+render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
+require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees.html">Estimating phylogenetic signal (lambda) on large trees</a></h2>
-    <h4>Thu, Jan 20, 2011</h4>
+    <h2><a href="../../2012/02/28/knitr-with-flickr-and-wordpress/">Knitr with flickr and wordpress</a></h2>
+    <h4>Tue, Feb 28, 2012</h4>
     <div class="article-style">
       
-      Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5370016511 [/flickr]
-[flickr size=&ldquo;small&rdquo; float=&ldquo;right&rdquo;]5370635360 [/flickr]
-compare to 281 taxa and then 600 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5310150538 [/flickr]
-By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.
+      It&rsquo;s amazing how nice it is to work with well-developed software. It took me about 20 minutes to extend Yuhui&rsquo;s interface to allow me to upload images through flickr instead of imgur, and embed them into a wordpress blog using the shortcode from the flickr gallery plugin.
+To do this, I just modified the hook used by the markdown format. First, I define a quick R function that uploads to flickr and returns the flickr identifier number.
       
     </div>
   </div>

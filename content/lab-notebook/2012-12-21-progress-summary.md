@@ -1,12 +1,13 @@
 ---
-layout: post
-category: ecology
-tags: 
-- nonparametric-bayes 
-- pdg-control 
+categories:
+- ecology
+date: 2012-12-21T00:00:00Z
+tags:
+- nonparametric-bayes
+- pdg-control
 - multiple-uncertainty
 - warning-signals
-
+url: /2012/12/21/progress-summary/
 ---
 
 # Progress mid-October through mid-December  

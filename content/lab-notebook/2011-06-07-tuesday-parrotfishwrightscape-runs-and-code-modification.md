@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-06-07 23:47:09
-layout: post
-slug: tuesday-parrotfishwrightscape-runs-and-code-modification
-title: 'Tuesday: Parrotfish/wrightscape runs and code modification'
-redirects: [/wordpress/archives/1931, /archives/1931]
 categories:
 - evolution
+comments: true
+date: 2011-06-07T23:47:09Z
+redirects:
+- /wordpress/archives/1931
+- /archives/1931
+slug: tuesday-parrotfishwrightscape-runs-and-code-modification
+title: 'Tuesday: Parrotfish/wrightscape runs and code modification'
+url: /2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/
 ---
 
 ## Runs: Mon midnight:

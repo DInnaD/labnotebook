@@ -1,12 +1,12 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2013-07-10T00:00:00Z
 tags:
 - R
 - blog
+url: /2013/07/10/forking-the-R-journal/
 ---
-
-
 
 All I really wanted to do is cite a paper in _the R Journal_, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges.  Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL -- we do have this thing called the internet now, and citations are just links, right?  Unfortunately, nice as it is, the R journal doesn't have HTML landing pages for articles that embed the metadata.
 

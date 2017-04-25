@@ -1,10 +1,11 @@
 ---
-layout: post
+categories:
+- ecology
 code: true
-category: ecology
+date: 2013-05-01T00:00:00Z
 tags:
 - nonparametric-bayes
-
+url: /2013/05/01/bayesian-GP-regression-by-metropolis-hastings/
 ---
 
 (Development version for reference; code functions now in [R/gp_mcmc.R](https://github.com/cboettig/nonparametric-bayes/blob/331a441ca8bdf83ce660e9fc35c58bb9fb5e2a47/R/gp_mcmc.R))

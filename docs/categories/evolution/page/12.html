@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,115 +141,123 @@
   
   
   <div>
-    <h2><a href="../../../2011/02/25/phylo-luke-harmon.html">Phylo: Luke Harmon</a></h2>
-    <h4>Fri, Feb 25, 2011</h4>
+    <h2><a href="../../../2011/04/29/friday-notes-on-labrids-notes-on-transforms-and-size-corrections/">Friday: Notes on Labrids, notes on Transforms and size-corrections</a></h2>
+    <h4>Fri, Apr 29, 2011</h4>
     <div class="article-style">
       
-      My notes on Luke Harmon&rsquo;s excellent talk on Phyloseminar this morning. See the recording of Luke&rsquo;s actual talk to know what he said, below are my thoughts and notes to myself having watched the talk.
-Luke summarizes his goal rather nicely as:
- Analyzing the data that people actually have to answer the questions they actually want to know
- For him, this focuses on incomplete trees and non-Brownian models.
+      The specific traits were:
+Oral Jaw traits
+ mouth-closing lever ratio (Close),
+ mouth-opening lever ratio (Open), kinematic
+ transmission coefficient of the oral jaws four-bar linkage (Jaw KT),
+ adductor mandibulae (AM) muscle mass,
+ premaxillary protrusion distance (Prot),
+ gape width (Gape),
+  Exterior to the Oral Jaws, not expected to become unconstrained:
+ levator posterior (LP) muscle mass: (Pharyngeal jaw muscle)
+ sterno-hyoideus (SH) muscle mass, (Primarily buccual cavity)
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning.html">Bodega evolution Workshop: Continuous Characters R session planning</a></h2>
-    <h4>Sat, Feb 19, 2011</h4>
+    <h2><a href="../../../2011/04/28/thursday-reading-notes/">Reading Notes, presentation prep treebase error handling</a></h2>
+    <h4>Thu, Apr 28, 2011</h4>
     <div class="article-style">
       
-      Preparing for the Bodega Phylogenetics workshop. I&rsquo;ll be covering the R tutorial followingJusten Whittall&rsquo;s introduction to continuous characters:
- In my intro lecture i will discuss Felsenstein 1985 (including a little phylo signal), then follow with some alternatives (including the OU model). I can also discuss the tree transformations ala Pagel&rsquo;s kappa, delta, etc. and mention multivariate approaches to detecting correlated characters in a phylogenetic context.
- I&rsquo;m toying with the idea of a brief (~1hr) phylogenetic signal / model inference exercise:
+      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/18/friday.html">Friday</a></h2>
-    <h4>Fri, Feb 18, 2011</h4>
+    <h2><a href="../../../2011/04/27/wednesday-4/">Wednesday</a></h2>
+    <h4>Wed, Apr 27, 2011</h4>
     <div class="article-style">
       
-      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
+      7:30-9:30 Review for Theoretical Ecology
+ Profiling wrightscape   Compile with profiling (-g -pg flags, in make profile). Run
+valgrind &ndash;leak-check-full ./wrightscape.exe  to remove memory links. Run
+valgrind &ndash;tool=callgrind kcachegrind callgrind.out.&lt;###&gt;  For profiling information
+Troubleshooting implementation of restricted-domain functions. Cannot be wright_tree since they have to know their likelihood method. Will need an indicator to their type. Some troubleshooting of the simulation method too: my pmc&rsquo;s montecarlotest() is set up so that simulate() can return the data set directly that is passed to update() or return a list object with the dataset in $rep.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/17/thursday-4.html">Thursday</a></h2>
-    <h4>Thu, Feb 17, 2011</h4>
+    <h2><a href="../../../2011/04/26/accessing-phylognenies-in-treebase-from-r/">Accessing phylognenies in TreeBASE from R</a></h2>
+    <h4>Tue, Apr 26, 2011</h4>
     <div class="article-style">
       
-      Mostly working on manuscript revisions throughout this week. Haven&rsquo;t really learned to integrate this workflow into the notebook. In some ways it makes more sense not to, as it interrupts the flow of the research description. But then it looks like I&rsquo;m not doing anything when I have nothing meaningful in the entry. Perhaps I should just put a heading saying &ldquo;Writing.&rdquo;
-Morning&rsquo;s reading: Reproducible Research  Victoria Stodden highlights the Journal of Biostatistics approach to Reproducible Research.
+      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/14/monday.html">Monday</a></h2>
-    <h4>Mon, Feb 14, 2011</h4>
+    <h2><a href="../../../2011/04/25/treebase-interface-continued/">TreeBASE interface continued...</a></h2>
+    <h4>Mon, Apr 25, 2011</h4>
     <div class="article-style">
       
-      Excellent CPB visiting weekend with perspective students Thurs evening - Sunday morning. Hosting students, etc doesn&rsquo;t make for much of a research entry Friday. Catching up with many things today.
- ESA registration. Topics, Abstract
- Checking in with Alan
- Data workshop: create &amp; post advertisement, map out subject areas
- Reading: Syst Bio issue
- Updated pubmed author alerts
- Checking in with Peter &amp; Graham on revisions
+      Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
+Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
+Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/10/thursday-2.html">Thursday</a></h2>
-    <h4>Thu, Feb 10, 2011</h4>
+    <h2><a href="../../../2011/04/24/wrightscape-profiling/">wrightscape profiling</a></h2>
+    <h4>Sun, Apr 24, 2011</h4>
     <div class="article-style">
       
-      Organizing for Future of Data workshop. Confirming time/room booking, etc. Science makes open access a special issue on Dealing with Data  Hosting visiting prospective CPB student, scheduling events. Going over edits questions with Peter R. on phylogenetics manuscript. Editing/pruning plugins &ndash; starting to choke my Wordpress hosting. Folks at DreamHost have been very helpful, hopefully no key plugins are off. Apparently deactivating doesn&rsquo;t necessarily prevent plugin from contributing to the memory load.
+      Optimization at the R level is substantially slower than at the C level:
+system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/09/phylogenetic-monte-carlo-for-the-laser-package.html">Phylogenetic Monte Carlo for the Laser package</a></h2>
-    <h4>Wed, Feb 9, 2011</h4>
+    <h2><a href="../../../2011/04/22/release-of-constraint-in-labrids/">Release of constraint in labrids?</a></h2>
+    <h4>Fri, Apr 22, 2011</h4>
     <div class="article-style">
       
-      Laser simulations: First ensuring example has expected behaviour, can in general get the expected likelihood differences between fits of Yule and birth-death models.
-Estimated models had been appearing identical in the runs (on left), seems to have been a bug. Distributions appear roughly the same across different tree sizes and values of death rate. General pattern of likelihood tests is reminiscent of the lambda models: high variability in likelihood ratios under bd simulations relative to the pure-birth simulations.
+      Started writing outline, assembling references
+ Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
+ Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
+ Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&rsquo;t optimize the likelihood.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/08/notes-during-revisions-on-phylogenetics-manuscript.html">Notes during revisions on phylogenetics manuscript</a></h2>
-    <h4>Tue, Feb 8, 2011</h4>
+    <h2><a href="../../../2011/04/20/wednesday-3/">Wednesday</a></h2>
+    <h4>Wed, Apr 20, 2011</h4>
     <div class="article-style">
       
-      I have made the revisions to attempt to address Graham&rsquo;s annotations and Peter&rsquo;s comments. (revisions are also up on the git repo.) I have added a brief section introducing the models immediately after the introduction. I also rewrote more of the PMC method to include definitions of p and power in the context of comparing model likelihood ratios. I moved the AIC section up before I talk about the other comparisons.
+      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/31/more-phylogenetic-signal-metrics-brownie-comparison.html">more Phylogenetic signal metrics &amp; Brownie comparison</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
+    <h2><a href="../../../2011/04/17/treepar-changing-rates-of-evolution/">TreePar: changing rates of evolution</a></h2>
+    <h4>Sun, Apr 17, 2011</h4>
     <div class="article-style">
       
-      Blomberg&rsquo;s K estimates on trees of different sizes. Estimates differ across the distribution of possible data generated by BM model and generated from white noise. In principle, the K statistic should be able to distinguish between data simulated between these two. Of course, the ability to do this depends on the size and structure of the phylogenetic tree &ndash; Blomberg&rsquo;s K is not an estimate of whether the phylogeny is sufficiently structured as to be informative.
+      Review &amp; Comments on Article T. Stadler&rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
+The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps.html">Notes on Bokma 2010: evolution in drifts and jumps</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
+    <h2><a href="../../../2011/04/16/friday-4/">Friday</a></h2>
+    <h4>Sat, Apr 16, 2011</h4>
     <div class="article-style">
       
-      Bokma 2010 asks if there is an analytic expression for the likelihood in the evolutionary model he describes.
-The trait value of the process is determined by two things &ndash; a Brownian motion random walk (diffusion) with rate parameter $ s_a^2$ and speciation events. Under a speciation event, the trait jumps to a new value that differs from it&rsquo;s parent&rsquo;s by some amount chosen from zero-mean normal distribution with variance $ s_c^2$.
+      Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
+ UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.
       
     </div>
   </div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,112 +141,106 @@
   
   
   <div>
-    <h2><a href="../../../2011/12/05/monday-wrightscape-meetings-pdg-meeting.html">Monday - wrightscape meetings, PDG meeting</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
+    <h2><a href="../../../2013/08/28/rnexml-coding/"></a></h2>
+    <h4>Wed, Aug 28, 2013</h4>
     <div class="article-style">
       
-      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
-Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
+      test_ape.R unit tests now passing. Should still revise the coercion methods in nexml_write.R to something more clever. We aren&rsquo;t coercing a tree to a nexml, we are building a nexml from a tree. Likewise handling the otu assignments of species names should be done directly 11:20 am 2013/08/28 start cleaning up old read/write methods obsoleted by toNeXML/fromNeXML methods 10:59 am 2013/08/28 inherited classes now replace all the original classes 10:54 am 2013/08/28 All inheritance-based classes appearing in inst/examples/trees.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/05/more-labrid-plots.html">More labrid plots</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
+    <h2><a href="../../../2013/07/22/xml-parsing-strategies/"></a></h2>
+    <h4>Mon, Jul 22, 2013</h4>
     <div class="article-style">
+      
+      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
+Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/04/release-of-constraint.html">Release of constraint</a></h2>
-    <h4>Sun, Dec 4, 2011</h4>
+    <h2><a href="../../../2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/"></a></h2>
+    <h4>Tue, Apr 23, 2013</h4>
     <div class="article-style">
+      
+      The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/02/friday-updated-wrightscape-results.html">Friday - updated wrightscape results - simulated examples</a></h2>
-    <h4>Fri, Dec 2, 2011</h4>
+    <h2><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h2>
+    <h4>Tue, Apr 16, 2013</h4>
     <div class="article-style">
       
-      Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right). Can we correctly discriminate between these models?
-Parameter differences:
-Likelihood differences:
-Yup.
-Repeated with effect-size scaled to be roughly equivalent for both traits. Wondering if it&rsquo;s easier to plot parameters out separately like this. Error bars show median and 25&frasl;75 % quantile range, with barplots showing the means (note that high outliers makes mean often larger than median).
+      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing.html">Thrusday - corrected calculation, implementing.  </a></h2>
-    <h4>Thu, Dec 1, 2011</h4>
+    <h2><a href="../../../2013/02/14/notes/"></a></h2>
+    <h4>Thu, Feb 14, 2013</h4>
     <div class="article-style">
+      
+      Research  consolidate and revise EWS text(?) replies to Luke and Brian on model choice  Notebook meta  fix google-analytics plugin (still needs to get toggle working?) tests of notebook-parsing.Rmd. New errors on ; somehow in straight XML parsing, ignoring for the moment. Opened a few new issues around improving site semantics. (#59, #60)  ropensci  Resubmit rfishbase &ndash; silently load to local, not global namespace. Updated data cache (and ASCII-ify and compress).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation.html">Wednesday - various logistics, then checking likelihood calculation</a></h2>
-    <h4>Wed, Nov 30, 2011</h4>
+    <h2><a href="../../../2012/10/24/evolutionary-covariance/"></a></h2>
+    <h4>Wed, Oct 24, 2012</h4>
     <div class="article-style">
       
-      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
- Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
+      Thinking through disparity measures while writing my thoughts in R&hellip;
+Load some sample data
+library(geiger) data(geospiza) dat &lt;- treedata(geospiza$geospiza.tree, geospiza$geospiza.data$wingL)  To find the disparity relative to a particular model, we must compute the variance-covariance matrix for that model
+X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, X) bm_disparity &lt;- t(X-mean_X) %<em>% V_bm %</em>% (X-mean_X)  I believe this needs to be scaled by the Brownian rate parameter of the trait, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/29/tuesday-debugging.html">Tuesday debugging</a></h2>
-    <h4>Tue, Nov 29, 2011</h4>
+    <h2><a href="../../../2012/07/09/evolution-conf-summary/">Evolution and iEvobio conference notes</a></h2>
+    <h4>Mon, Jul 9, 2012</h4>
     <div class="article-style">
       
-      Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
-Unit tests.
-Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
+      Saturday  Jeremy Brown Graham Slater (Education Data Symposium) Cecile Ane Joe Felsenstein Lars Schmitz Carl Boettiger Liam Revell Brian O&rsquo;Meara (Leithan McGonigle)  Sunday  Marie-Josee Fortin Emma Goldberg 10:45 rm 209 Networks Symposium Jeremy Fox 1.30p Rm 201 (Adaptation B) Schluter 2:15p Canada 2-3 Rosie Redfield public lecture  Monday  9:00 Michael Landis, 203 9:30 Dick Gumolkiowicz 214 10:30 Dean Adams 11 (Cavender-Bares, 214) (Bolnick, 213) 11:30 Mark McPeek 214  Tuesday  Luke Harmon 9am rm 214 Luke Mahler 9am rm 210 Rafael Maia 9:15a rm 210 Sam Price 11:15a rm 210 Liam Revell 11:30 Canada 2-3 Dan Rabosky 2:30pm Canada 2-3 Tanja Stadler 3pm Canada 2-3 Chris Martin 3pm rm 213  Also: ievobio Day 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/28/monday-11.html">Monday: submodels for full traits</a></h2>
-    <h4>Mon, Nov 28, 2011</h4>
+    <h2><a href="../../../2012/07/08/evolution-day1/">Evolution 2012 Conference, Day 1</a></h2>
+    <h4>Sun, Jul 8, 2012</h4>
     <div class="article-style">
       
-      Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
-Creating unit tests:
-Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
-require(wrightscape) data(labrids) s1_spec &lt;- list(alpha = &quot;global&quot;, sigma = &quot;indep&quot;, theta = &quot;global&quot;) s1 &lt;- multiTypeOU(data = dat[&quot;close&quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &lt;- levels(pharyngeal) s1$sigma[&quot;other&quot;] &lt;- .
+      Fantastic first day at Evolution. Spent the morning in the SSB Sympossium organized by Jeremy Brown, &ldquo;Predictive approaches for assessing the fit of evolutionary models&rdquo;. Really covered both methods assessing model fit (posterior predictive simulations) and approximate likelihood approaches, which are also simulation-based. Then the afternoon in the second SSB Symposium on emerging methods for comparative phylogenetics, organized by Liam Revell and Cecile Ane, which included my talk. Lots of great talks, but Cecile&rsquo;s was perhaps the most striking results I saw presented all day.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory.html">Friday: wrightscape, ggplot, wp memory</a></h2>
-    <h4>Fri, Nov 25, 2011</h4>
+    <h2><a href="../../../2012/07/03/notes/">wrightscape / release of constraint</a></h2>
+    <h4>Tue, Jul 3, 2012</h4>
     <div class="article-style">
       
-      more sub-model comparisons wrightscape sub-models:
- a1 independent alphas, global theta, sigmas
- bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
- a2 independent alpha, theta, global sigma
- s1 indep sigma, global alpha, theta
- s2 indep sigma, theta, global alpha
-  Basic Nelder Mead Simulated annealing associated parameter estimates
-This approach is really not finding a very robust solution.
-Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
+      Here&rsquo;s a table of all the comparisons, indicating which is the preferred model in each pairwise comparison. (In my outline, Figure 4 shows the bm3 v a3 for KT and open lever ratio, and Fig 3 shows the actual parameter values for those models). This table is all for the case that allows shifts at both pharyngeal and the intramandibular transitions. I have graphs of the actual parameter values as well (which we need to see if the constraint has increased or decreased at the transition, and by how much), but gets complex quickly.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions.html">wrightscape and sensitivity to initial conditions</a></h2>
-    <h4>Thu, Nov 17, 2011</h4>
+    <h2><a href="../../../2012/05/10/notes/">Notes</a></h2>
+    <h4>Thu, May 10, 2012</h4>
     <div class="article-style">
+      
+      Partially Observable Stochastic Processes (cont.)  Reading a bit more about pomp. Looks like SCM and PMCMC offer nicely Bayesian inference tools using the same framework (rprocess and dmeasure), making a nice platform for implementing multiple methods. Almost feels like having the likelihood equation in hand again. A bit more skeptical about nonlinear forecasting and probe matching, as they feel even more heuristic or arbitrary. I suppose that&rsquo;s just the price of having only rmeasure instead of dmeasure available though.
       
     </div>
   </div>

@@ -1,9 +1,9 @@
 ---
-layout: post
-category: computation
-
+categories:
+- computation
+date: 2014-12-11T00:00:00Z
+url: /2014/12/11/rrhack-notes/
 ---
-
 
 Misc notes from #rrhack.  Much more detail under our [Github organization](https://github.com/Reproducible-Science-Curriculum), including the issues tracker & wiki for the meeting and the start of the repositories for the various teaching modules.  
 

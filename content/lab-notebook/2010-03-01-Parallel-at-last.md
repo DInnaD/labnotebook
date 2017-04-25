@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-03-01T00:00:00Z
 title: Parallel at last
+url: /2010/03/01/Parallel-at-last/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   svn revision 27 should have functional parallel code! Certainly I've
     gotten much better at openmp in the past few days. Difficult to

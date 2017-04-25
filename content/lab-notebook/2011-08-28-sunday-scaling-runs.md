@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2011-08-28 22:33:59
-layout: post
-slug: sunday-scaling-runs
-title: 'Sunday: scaling, runs'
-redirects: [/wordpress/archives/2459, /archives/2459]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-08-28T22:33:59Z
+redirects:
+- /wordpress/archives/2459
+- /archives/2459
+slug: sunday-scaling-runs
+title: 'Sunday: scaling, runs'
+url: /2011/08/28/sunday-scaling-runs/
 ---
 
 laptop: ubuntu upgrades: 10.04 LTS -> 10.10 -> 11.04, geesh.

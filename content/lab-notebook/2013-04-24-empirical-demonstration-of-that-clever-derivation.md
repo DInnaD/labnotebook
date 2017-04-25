@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-04-24T00:00:00Z
+tags:
 - derivation
-
+url: /2013/04/24/empirical-demonstration-of-that-clever-derivation/
 ---
-
 
 Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem!  Getting to that in a moment....
 

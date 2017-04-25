@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-08-15T00:00:00Z
 title: Warning Signals
+url: /2010/08/15/Warning-Signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Exploring convergence in maximum likelihood model fits each on data
 produced by their own simulation method:

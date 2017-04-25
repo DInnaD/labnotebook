@@ -1,10 +1,12 @@
 ---
-layout: post
+categories:
+- ecology
+date: 2012-05-16T00:00:00Z
+tags:
+- decision-theory
 title: Value of information, cost of bias
-category: ecology
-tags: [decision-theory]  
+url: /2012/05/16/value-of-information/
 ---
-
 
 ## Value of information
 

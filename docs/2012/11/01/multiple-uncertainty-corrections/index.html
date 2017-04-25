@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2012/11/01/multiple-uncertainty-corrections/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p>Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - h<em>t$), $x</em>{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth.  We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$.  Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.  The decision maker seeks to maximize the expected present-value of profits $\Pi(x_t,h<em>t)$ that are a function of both the actual stock $x$ and the realized harvest $h$ over some long term period $T</em>{\textrm{max}}$ subject to some discount rate $\delta$,</p>
+
+<p>$$ max_{{q<em>1 \ldots q</em>{t<em>{\textrm{max}}} }} \sum</em>{t=1}^{t=t_{\textrm{max}}} \operatorname{E}\left( \Pi(x_t,h_t) \right) $$</p>
+
+<h2 id="discrete-formulation">Discrete formulation</h2>
+
+<p>We consider this problem in a discrete state space where $y$ and $x$, $q$ and $h$ all take values on grids of $n_y$, $n_x$, $n_q$, and $n_h$ points respectively.</p>
+
+<ul>
+<li><p>Let $\mathbf{P}$ be the $n_x$ by $n_h$ matrix of all possible profits in a time step, as given by $\Pi(x_i, h_j)$, where rows represent possible stock sizes and columns possible harvests.</p></li>
+
+<li><p>Let $\mathbf{M}$ be the row-normalized $n_y$ by $n_x$ matrix whose elements are $z_m(y_i, x_j)$, the probability of observing a stock size $y_i$ from a true size $x_j$.</p></li>
+
+<li><p>Let $\mathbf{I}$ be the row-normalized $n_h$ by $n_q$ matrix whose elements are $z_i(h_i, q_j)$, the probability of implementing a harvest $h_i$ given a quota $q_j$ <strong>Edit</strong>: I had been created in the code as $n_q$ by $n_h$, so had to be transposed.</p></li>
+
+<li><p>Let $\mathbf{F}_q$ be the tensor of row-normalized $n_q$ $n_x$ by $n_x$ transition matrices given by $z_g(x_j,  \sum_i \sum_j f(x_i, h_j) \mathbf{M}[y_k, x_i] \mathbf{I}[h_j, q_l] )$.  By summing over the uncertainty in measurement and implementation, $\mathbf{F}_q$ is in the space of observed state $y<em>t$ into the true stock at the next timestep $x</em>{t+1}$, given quota $q$.  We transfer into the future measured state through another application of $\mathbf{M} \mathbf{F}_q$.</p></li>
+
+<li><p>The profits expected given a measurement of the stock $y$ for a quota $q$ are $\sum_j \sum_i \Pi(x_i, h_j) p(x_i | y) p(h_j | q)$.  Hence the matrix of expected profits for each possible combination of $y_i$ and $q_j$ is given by the matrix product $\mathbf{M} \mathbf{P} \mathbf{I} =: \mathbf{Q}$</p></li>
+
+<li><p>Let $\mathbf{V}_t$ be the $n_y$ by $n_q$ matrix at time $t$ giving the value of choosing quota $q_j$ having observed stock $y<em>i$ and having selected the optimal $q</em>{t+1} \ldots q<em>{t</em>{\textrm{max}}}$, that is:</p></li>
+</ul>
+
+<p>$$ \mathbf{V}<em>t = \mathbf{Q} + \delta \mathbf{V}</em>{t+1}(y_t) $$</p>
+
+<ul>
+<li>Let $\vec{v}_t$ be the $n_y$ vector with the maximum value of the each row (i.e. for each state $y_i$) of the matrix $\mathbf{V}_t$, and</li>
+<li>let $\vec{d}_t$ be the $n_y$ vector whose elements give the column number (e.g. the $j$ determine the choice $q_j$) of the quota that corresponds to that value.<br /></li>
+</ul>
+
+<p>Thus $\operatorname{max}_q V_t(y_t) = v_t$.  Starting from the final timepoint, we know the ending value $v_T$ as a function of the ending state $y_T$.  The probability of ending up in each possible state for $y<em>T$, given a choice of quota $q$ and the current state $y</em>{T-1}$ is given by the transition matrix $\mathbf{M}\mathbf{F}_q$. The Bellman recursion becomes</p>
+
+<p>$$ \mathbf{V}_t[,q] = \mathbf{Q}[,q] + \delta \mathbf{M} \mathbf{F}<em>q v</em>{t+1} $$</p>
+
+<h3 id="r-code-algorithm">R code algorithm:</h3>
+
+<pre><code class="language-r">    Ep &lt;- M %*% P %*% I
+    V &lt;- Ep
+    for(t in 1:Tmax){                                 
+      D[,(Tmax-t+1)] &lt;- apply(V, 1, which.max)        
+      v_t &lt;- apply(V, 1, max)                        
+      V &lt;- sapply(1:n_h, function(j){               
+        Ep[,j] + (1-delta) * M %*% F[[j]] %*% v_t  
+      })
+    }
+    D
+</code></pre>
+
+<p>Where</p>
+
+<pre><code class="language-r">    P &lt;-  outer(x_grid, h_grid, profit) 
+    M &lt;- rownorm( outer(x_grid, x_grid, pdfn, sigma_m) )
+    I &lt;- rownorm( outer(h_grid, h_grid, pdfn, sigma_i) )
+</code></pre>
+
+<p>F is a bit more complicated:</p>
+
+<pre><code class="language-r">    F &lt;- lapply(1:n_h, function(q){  
+      t(sapply(1:n_x, function(y){
+        out &lt;- numeric(n_x)
+        mu &lt;- sum(sapply(1:n_x, function(x)
+          f(x_grid[x],h_grid,p) %*% 
+            I[q,] *  # Implementation error
+            M[x,y])) # Measurement error
+        if(mu==0)
+          out[1] &lt;- 1
+        else 
+          out &lt;- dlnorm(x_grid/mu, 0, sigma_g)
+        out/sum(out)
+      }))
+    })
+</code></pre>
+
+<p>Something seems to be a mistake, since the optimal policy under uncertainty does not make sense:</p>
+
+<p><img src="http://farm8.staticflickr.com/7132/8158258480_972c8543e6.jpg" alt="policy function under each source of uncertainty" /></p>
+
+<p><a href="https://github.com/cboettig/pdg_control/blob/bbef99ec43c75ff1dca959c1511b44c5159f4f4c/inst/examples/mult_uncertainty_test.md">example script</a></p>
+
+<p><strong>Updated Edit</strong></p>
+
+<p><img src="../../../../2012/assets/figures/2012-11-17-f6c225f69f-policyfunctions.png" alt="" /></p>
+
+<p><a href="https://github.com/cboettig/pdg_control/commit/954cea9310063150bb42567b19caa272b34d32c2">See notes on code changes inline</a></p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2012-11-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Nov 1, 2012
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/multiple-uncertainty">multiple-uncertainty</a
+    >, 
+    
+    <a href="../../../../tags/decision-theory">decision-theory</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2012/11/03/altmetrics-conference/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2012/10/31/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2012-11-01-multiple-uncertainty-corrections.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/b3630889a5584cd1240e1c9d2208759615c88af4/content/lab-notebook/2012-11-01-multiple-uncertainty-corrections.md">b3630889a</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2012\/11\/01\/multiple-uncertainty-corrections\/';
+    var disqus_title = '';
+    var disqus_url = '\/2012\/11\/01\/multiple-uncertainty-corrections\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

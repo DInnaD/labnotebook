@@ -1,12 +1,13 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+code: true
+date: 2013-05-27T00:00:00Z
+tags:
 - nonparametric-bayes
 - algorithms
-code: true
+url: /2013/05/27/exploring-approximate-dynamic-programming-approaches/
 ---
-
 
 ## Introductory examples in approximate dynamic programming
 

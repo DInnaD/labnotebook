@@ -1,13 +1,13 @@
 ---
-layout: post
-title: Solarized Colors with Twitter-Bootstrap?
-categories: [open-science]
-tags: 
+categories:
+- open-science
+date: 2012-10-02T00:00:00Z
+tags:
 - notebook-technology
 - Jekyll
-
+title: Solarized Colors with Twitter-Bootstrap?
+url: /2012/10/02/solarized-colors/
 ---
-
 
 Trying out rendering my notebook using Ethan Schoonover's Solarized color scheme.  The solarized palette has been selected according to Ethan's exacting [standards](http://ethanschoonover.com/solarized#features) for contrast, symmetry, and readability.  
 

@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-06 11:56:20
-layout: post
-slug: comparative-methods-paper-statusto-do
-title: Comparative methods paper status/to-do
-redirects: [/wordpress/archives/1364, /archives/1364]
 categories:
 - evolution
+comments: true
+date: 2011-04-06T11:56:20Z
+redirects:
+- /wordpress/archives/1364
+- /archives/1364
+slug: comparative-methods-paper-statusto-do
+title: Comparative methods paper status/to-do
+url: /2011/04/06/comparative-methods-paper-statusto-do/
 ---
 
 Finished revisions yesterday after rewriting introduction considerably.  Following Graham's comment, taking a closer look at aic error along power curves:

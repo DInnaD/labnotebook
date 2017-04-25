@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [pmc, adaptive-dynamics]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-10-03T00:00:00Z
+tags:
+- pmc
+- adaptive-dynamics
 title: Likelihood Ratio Paper
+url: /2010/10/03/Likelihood-Ratio-Paper/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Higher resolution power plot for Anoles tree
 

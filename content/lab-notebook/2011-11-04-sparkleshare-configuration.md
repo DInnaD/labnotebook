@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-04 22:35:11
-layout: post
-slug: sparkleshare-configuration
-title: Sparkleshare configuration
-redirects: [/wordpress/archives/3161, /archives/3161]
 categories:
 - computation
+comments: true
+date: 2011-11-04T22:35:11Z
+redirects:
+- /wordpress/archives/3161
+- /archives/3161
+slug: sparkleshare-configuration
 tags:
 - notebook-technology
+title: Sparkleshare configuration
+url: /2011/11/04/sparkleshare-configuration/
 ---
 
 Configured sparkleshare across my linux server & laptops, and android phone.  Provides a dropbox-style syncing and version history for all files using git.  I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost.  Wonderful.

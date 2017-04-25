@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [code-tricks]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-05-31T00:00:00Z
+tags:
+- code-tricks
 title: CSGF Survey
+url: /2010/05/31/CSGF-Survey/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Wrote survey. Getting feedback and will send out this week.
 

@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-09-08T00:00:00Z
+tags:
 - ropensci
-
+url: /2013/09/08/some-rfishbase-updates/
 ---
-
 
 Ever since writing the `rfishbase` package I've been frustrated by the
 lack of a proper API from Fishbase.org that would allow access to that

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-13 21:23:56
-layout: post
-slug: pdg-control-day-1-goals-by-training-problem
-title: pdg-control Day 1 goals by training problem
-redirects: [/wordpress/archives/4298, /archives/4298]
 categories:
 - ecology
+comments: true
+date: 2012-03-13T21:23:56Z
+redirects:
+- /wordpress/archives/4298
+- /archives/4298
+slug: pdg-control-day-1-goals-by-training-problem
 tags:
 - pdg-control
+title: pdg-control Day 1 goals by training problem
+url: /2012/03/13/pdg-control-day-1-goals-by-training-problem/
 ---
 
 ## Training Problem I / Theme 1

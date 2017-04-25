@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-04 22:41:08
-layout: post
-slug: identifying-warning-signals
-title: Identifying Warning Signals
-redirects: [/wordpress/archives/516, /archives/516]
 categories:
 - ecology
+comments: true
+date: 2010-12-04T22:41:08Z
+redirects:
+- /wordpress/archives/516
+- /archives/516
+slug: identifying-warning-signals
 tags:
 - warning-signals
+title: Identifying Warning Signals
+url: /2010/12/04/identifying-warning-signals/
 ---
 
 Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code.  Now exploring the parameter range in which warning signals can be identified with accurate power.  Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2014/07/31/notes/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h2 id="berkeley-collaborative-environment">Berkeley Collaborative Environment</h2>
+
+<p>Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython
+and RStudio installed, but finely tuned to improve user experience;
+e.g. solid colors for faster remote window connections.)</p>
+
+<p>Highly recommend <a href="https://t.co/TJ9ObbL8i8">their paper</a> for the first
+explanation I&rsquo;ve actually been able to follow that provides a definition
+of &ldquo;DevOpts&rdquo; (essentially, using scripts rather than documentation
+to manage consistent cross-platform installation) and explains the
+differences and similarities between the various programs operating in
+this sphere, sometimes as alternatives and simultaneously.</p>
+
+<h4 id="virtual-machines">Virtual machines.</h4>
+
+<p>Their approach focuses on running on top of a complete
+virtual machine. Primarily considers Oracle&rsquo;s <code>virtualbox</code> for local use,
+Amazon&rsquo;s AMI for cloud use.  (For an emerging alternative to the full
+virtual machine approach, they discuss Docker).</p>
+
+<h4 id="configuration-management-cm-tools">Configuration management (CM) tools:</h4>
+
+<ul>
+<li><strong>Ansible</strong> (&ldquo;playbooks&rdquo;) used by the BCE to specify the complete
+software environment. Compares to: <strong>Chef</strong> (Ruby-based, &ldquo;recipes&rdquo;),
+<strong>Salt</strong> (Python based, &ldquo;states&rdquo;), and <strong>Puppet</strong> (&ldquo;manifests&rdquo;).</li>
+</ul>
+
+<h4 id="provisioning-tools">Provisioning tools:</h4>
+
+<ul>
+<li><p><strong>Packer</strong> Used at build time to create a machine image for the VM.
+Packer can use Ansible/Chef/Salt/Puppet files to do this.  Results in
+a nice AMI for Amazon web console or an image for the virtualbox GUI.</p></li>
+
+<li><p><strong>Vagrant</strong> Offers a different approach.  Rather than the developer
+creating a VM image using Packer and Ansible script that is ready to
+run on virtualbox or Amazon, the end user installs vagrant instead
+of virtualbox. Vagrant also handles the job of Packer, in preparing
+an environment to run (on Vagrant&rsquo;s virtual machine, rather than on
+virtualbox). (Note that conversely, Packer can create a Vagrant virtual
+machine just as easily as it can create the Oracle virtualbox or Amazon
+AMI). Vagrant feels a lot more native, as the user works within their
+familiar OS tools for editing, etc, while vagrant makes sure that
+the execution of the software happens in a controlled, identical
+environment.</p></li>
+
+<li><p><strong>Docker</strong> offers a more modular alternative to a full virtual machine,
+with performance that is more like running on &lsquo;bare metal&rsquo;, sharing the
+kernel of the native OS; though at the moment it requires that be a linux
+kernel. Docker is typically deployed using Vagrant, (though stand-alone
+setup is emerging).</p></li>
+</ul>
+
+<p>From first glance, Vagrant sounds like a more elegant approach than having
+end users install Oracle&rsquo;s virtual machine and then learn to live in a
+virtual window emulating the Ubuntu-XFCE desktop (particularly if those
+users are developers!).  However, it seems that the BCE team found that
+Vagrant was harder for students to work with, since it required knowledge
+of the commandline.</p>
+
+<p>The paper also provides a fabulous case study of a major scientific
+software project using the &ldquo;DevOpts&rdquo; philosophy but without any of these
+new and emerging tools, relying only on scripts, makefiles, and Linux
+distribution package managers.</p>
+
+<h3 id="test-drive-impressions">Test drive impressions</h3>
+
+<p>Unfortunately, no luck getting
+virtualization running on my laptop (due to <a href="ttps://github.com/dlab-berkeley/collaboratool/issues/created_by/cboettig">BIOS
+issues</a>).
+Testing on Ubuntu desktop required a newer version of virtualbox than
+what&rsquo;s in the 12.04 repos, but otherwise just worked.  It&rsquo;s straight
+forward to install additional needed software, and virtualbox gives
+the option of preserving the machine state on exit, presumably with
+the software.  Not clear how that should be managed to avoid re-creating
+the problems that using a consistent image set out to avoid in the first
+place; perhaps requires re-provisioning a divergent image?</p>
+
+<p>Nice experience testing out the Amazon machine image, but I think the
+workflow would be improved if it provided RStudio server for a more
+interactive interface.</p>
+
+<h2 id="misc-tasks">Misc tasks</h2>
+
+<ul>
+<li><p>Working on reveal.js slides</p></li>
+
+<li><p>RNeXML manuscript edits from Francois&rsquo;s comments</p></li>
+</ul>
+
+<h2 id="thoughts-on-namespaces-in-r">Thoughts on namespaces (in R)</h2>
+
+<p><em>Chatting with Scott about namespace practices, thought I&rsquo;d put
+some of this down.</em></p>
+
+<p>I go back and forth on having a small namespace (particularly vs
+convenience functions).  It is certainly easier to maintain, but from
+the user&rsquo;s perspective I think it&rsquo;s pretty easy to just ignore extra
+functions; as long as it&rsquo;s well documented what functions they need to
+know to get started.</p>
+
+<p>I guess if a user needs to know too many functions to do anything, than
+it becomes hard to keep track of. That&rsquo;s partly why I started wrapping
+exposed functions. For instance, you can just use <code>nexml_write</code> all the
+time and never use add_characters, add_trees, etc, since <code>nexml_write</code>
+takes additional trees and characters as arguments.</p>
+
+<p>But I like function calls to be as semantic as possible so the code is
+more self documenting.  Sometimes <code>add_characters(nex)</code> is more self
+explanatory than <code>nexml_write(nex, characters = characters)</code>.</p>
+
+<p>The XML package really got me started on this.  There&rsquo;s usually like
+4 or 5 ways to do the same thing. Sometimes that&rsquo;s really annoying,
+but sometimes it helps write more transparent code or less verbose code
+(e.g. adding child nodes with <code>addChildren</code> vs passing as <code>.children</code>
+argument to <code>newXMLNode</code> &ndash; the former tends to be more semantic, the
+latter often more consise).</p>
+
+<h2 id="code-tricks-vim-pandoc">Code tricks: vim pandoc</h2>
+
+<p>Vim pandoc syntax highlighting</p>
+
+<ul>
+<li>Recognize <code>.Rmd</code> as a pandoc-syntax file extension. In <code>.vimrc</code> do:</li>
+</ul>
+
+<pre><code class="language-vim">au BufRead,BufNewFile *.Rmd set filetype=pandoc
+</code></pre>
+
+<ul>
+<li>Enable syntax highlighting inside code blocks, by language. In vim session, do: <code>PandocHighlight r</code>. Unfortunately doesn&rsquo;t recognize the default <code>.Rmd</code> format used by RStudio.  This then enables syntax highlighting, folding, etc.</li>
+</ul>
+
+<p>If I recall correctly, knitr&rsquo;s default markdown syntax,</p>
+
+<pre><code>```{r}
+</code></pre>
+
+<p>was intended to be a valid markdown syntax. It seems Github Flavored
+markdown is happy to recognize this as markdown syntax for a code
+block in the R language, but while pandoc recognizes this as a code
+block, it does not recognize the language.</p>
+
+<p>I believe Pandoc does recognize the format</p>
+
+<pre><code>```{.r options}
+</code></pre>
+
+<p>as the notation to specify the R language in this notation. I like
+this notation because it means that pandoc-aware syntax highlighters
+will highlight my code chunks as R code, which does not happen in the
+default syntax.</p>
+
+<p>I realize I could define this as an input hook for knitr, but am
+reluctant to do so as it makes my code slightly less familiar/less
+portable to other users (e.g. RStudio expects and integrates with only
+the standard notation.)</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2014-07-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Jul 31, 2014
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/reading">reading</a
+    >, 
+    
+    <a href="../../../../tags/code-tricks">code-tricks</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/08/06/notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/07/21/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-07-31-notes.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-07-31-notes.md">8b51c8d4c</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2014\/07\/31\/notes\/';
+    var disqus_title = '';
+    var disqus_url = '\/2014\/07\/31\/notes\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

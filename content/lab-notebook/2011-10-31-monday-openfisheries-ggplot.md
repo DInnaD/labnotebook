@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-10-31 11:54:19
-layout: post
-slug: monday-openfisheries-ggplot
-title: 'Monday: openfisheries & ggplot'
-redirects: [/wordpress/archives/3080, /archives/3080]
 categories:
 - ecology
+comments: true
+date: 2011-10-31T11:54:19Z
+redirects:
+- /wordpress/archives/3080
+- /archives/3080
+slug: monday-openfisheries-ggplot
+title: 'Monday: openfisheries & ggplot'
+url: /2011/10/31/monday-openfisheries-ggplot/
 ---
 
 [Andrew](http://www.andrewdyck.com/) has put together the preliminary API for the openfisheries.org project. I've begun an R package, rfisheries, to interface to the openfisheries project. It would be great to incorporate data from the [RAM Legacy database](http://ramlegacy.marinebiodiversity.ca/ram-legacy-stock-assessment-database/how-to-access-the-ram-legacy-database) and the [seaaroundus.org](http://seaaroundus.org/global/1/101.aspx) project, which may be done at the level of the R package or (perhaps more flexibly) directly through the developing openfisheries API.

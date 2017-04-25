@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-06-01T00:00:00Z
 title: Gamma Waiting times on individual level
+url: /2010/06/01/Gamma-Waiting-times-on-individual-level/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Wrote the proper record structure into C code to handle reporting to
     R, including ensemble data.

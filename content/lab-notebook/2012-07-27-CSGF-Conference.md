@@ -1,11 +1,12 @@
 ---
-layout: post
-category: computation
-tags: [conference, hpc]
-
+categories:
+- computation
+date: 2012-07-27T00:00:00Z
+tags:
+- conference
+- hpc
+url: /2012/07/27/CSGF-Conference/
 ---
-
-
 
 <a href="https://lh5.googleusercontent.com/-4CHhNEHGoeo/UCLZOgy43GI/AAAAAAAAAa8/P2hgMdSR0Wg/s912/20120726_18_FellowsPosterSession_StevenChu%2520%252825%2529.jpg"><img src="https://lh5.googleusercontent.com/-4CHhNEHGoeo/UCLZOgy43GI/AAAAAAAAAa8/P2hgMdSR0Wg/s912/20120726_18_FellowsPosterSession_StevenChu%2520%252825%2529.jpg" width=150px style="float:right; margin: 0 0 15px 15px;" alt="Stephen-Chu"></a>
 

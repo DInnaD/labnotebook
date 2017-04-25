@@ -1,12 +1,12 @@
 ---
-layout: post
-title: why I sign my reviews
-category: open-science
+categories:
+- open-science
+date: 2014-05-04T00:00:00Z
 tags:
 - blog
-
+title: why I sign my reviews
+url: /2014/05/04/why-I-sign-my-reviews/
 ---
-
 
 For the past four years I have made an effort to sign all my reviews
 (which I try to keep to about one a month).  It isn't because I believe

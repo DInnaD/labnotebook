@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2014-12-03T00:00:00Z
 tags:
-  - earlywarning
+- earlywarning
+url: /2014/12/03/nimble-explore/
 ---
-
 
 Working through quick-start example in [nimble manual](http://r-nimble.org/manuals/NimbleUserManual.pdf)
 

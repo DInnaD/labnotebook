@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2010-12-20 00:05:10
-layout: post
-slug: sun-visualizing-my-coding-over-the-past-year
-title: 'Sun: Visualizing my coding over the past year'
-redirects: [/wordpress/archives/641, /archives/641]
 categories:
 - open-science
 - evolution
+comments: true
+date: 2010-12-20T00:05:10Z
+redirects:
+- /wordpress/archives/641
+- /archives/641
+slug: sun-visualizing-my-coding-over-the-past-year
+title: 'Sun: Visualizing my coding over the past year'
+url: /2010/12/20/sun-visualizing-my-coding-over-the-past-year/
 ---
 
 Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the [Mendeley's example](http://vimeo.com/17919684)).  So in the spirit of year-in-review reflections, here's my development from the past year (just for the phylogenetic statistics work).    

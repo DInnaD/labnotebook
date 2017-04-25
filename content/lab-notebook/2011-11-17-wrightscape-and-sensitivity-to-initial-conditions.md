@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-11-17 23:08:14
-layout: post
-slug: wrightscape-and-sensitivity-to-initial-conditions
-title: wrightscape and sensitivity to initial conditions
-redirects: [/wordpress/archives/3331, /archives/3331]
 categories:
 - evolution
+comments: true
+date: 2011-11-17T23:08:14Z
+redirects:
+- /wordpress/archives/3331
+- /archives/3331
+slug: wrightscape-and-sensitivity-to-initial-conditions
+title: wrightscape and sensitivity to initial conditions
+url: /2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/
 ---
 
 ![]( http://farm7.staticflickr.com/6236/6355255495_9e411fa96e_o.png )

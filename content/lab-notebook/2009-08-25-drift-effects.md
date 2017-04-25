@@ -1,9 +1,10 @@
 ---
-layout: post
-category: evolution
+categories:
+- evolution
+date: 2009-08-25T00:00:00Z
 tags:
 - adaptive-dynamics
-
+url: /2009/08/25/drift-effects/
 ---
 
 **editorial note**: These notes pre-date the formal start of my online

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/05/17/null-distribution-width-minor-puzzle/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    <p>A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor&rsquo;s fallacy.</p>
+
+<p>Load the original run of the <a href="https://github.com/cboettig/earlywarning/blob/712b63d2719839b6bbf4188d9affb34d7cec68ce/inst/examples/beer.md">ou model</a> and increase the <code>nulldt</code> data frame to use all points instead of a sample of length 5000</p>
+
+<pre><code class="language-r">load(&quot;beer_run.rda&quot;)
+
+ou_dat &lt;- dat
+ou_null &lt;- nulldat
+#ou_null_ts &lt;- nulldt
+
+null &lt;- timeseries #[1000:6010,]
+null &lt;- as.data.frame(cbind(time = 1:dim(null)[1], null))
+ndf &lt;- melt(null, id=&quot;time&quot;)
+names(ndf) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;)
+levels(ndf$reps) &lt;- 1:length(levels(ndf$reps)) # use numbers for reps instead of V1, V2, etc
+nulldt &lt;- data.table(ndf)
+ou_null_ts &lt;- nulldt
+</code></pre>
+
+<p>Plot the final distribution of indicator statistics, showing the width of the null,</p>
+
+<pre><code class="language-r">ggplot(dat) + geom_histogram(aes(value, y=..density..), binwidth=0.3, alpha=.5) +
+ facet_wrap(~variable) + xlim(c(-1, 1)) + 
+  geom_density(data=nulldat, aes(value), adjust=2) + xlab(&quot;Kendall's tau&quot;) + theme_bw()
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8558/8747591959_9944ea987d_o.png" alt="plot of chunk unnamed-chunk-4" /></p>
+
+<p>Load the <a href="https://github.com/cboettig/earlywarning/blob/712b63d2719839b6bbf4188d9affb34d7cec68ce/inst/examples/comment.md">allee model</a> and rename variables appropriately,</p>
+
+<pre><code class="language-r">load(&quot;comment_run.rda&quot;)
+allee_dat &lt;- dat
+allee_null &lt;- nulldat
+allee_null_ts &lt;- nulldt
+</code></pre>
+
+<p>For the Allee model, also plot the final distribution of indicator statistics, showing the width of the null,</p>
+
+<pre><code class="language-r">ggplot(dat) + geom_histogram(aes(value, y=..density..), binwidth=0.3, alpha=.5) +
+ facet_wrap(~variable) + xlim(c(-1, 1)) + 
+  geom_density(data=nulldat, aes(value), adjust=2) + xlab(&quot;Kendall's tau&quot;) + theme_bw()
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7315/8748715116_c9440843f1_o.png" alt="plot of chunk unnamed-chunk-6" /></p>
+
+<p>Tidy the data and plot a single replicate from each.  Note the OU process has the correspondingly much wider null distribution due to</p>
+
+<pre><code class="language-r">allee_x &lt;- subset(allee_null_ts, reps==1)
+ou_x &lt;- subset(ou_null_ts, reps==1)
+allee_x &lt;- data.frame(time = allee_x$time, value = allee_x$value)
+ou_x &lt;- data.frame(time = ou_x$time, value = ou_x$value)
+
+ggplot(allee_x, aes(time, value)) + geom_point()
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7323/8747593003_dfbd94b355_o.png" alt="plot of chunk unnamed-chunk-7" /></p>
+
+<pre><code class="language-r">ggplot(ou_x, aes(time, value)) + geom_point()
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7295/8747593115_4320618635_o.png" alt="plot of chunk unnamed-chunk-7" /></p>
+
+<p>Note that subsampling the data at coarser interval doesn&rsquo;t matter</p>
+
+<pre><code class="language-r">warningtrend(ou_x[seq(1, length(ou_x$value),by=50),], window_var)
+</code></pre>
+
+<pre><code>    tau 
+-0.5527 
+</code></pre>
+
+<p>Nor does scaling matter (recall Kendall&rsquo;s $tau$ is a rank-correlation test)</p>
+
+<pre><code class="language-r">warningtrend(data.frame(time=ou_x$time, value=(ou_x$value+1)*500), window_var)
+</code></pre>
+
+<pre><code>    tau 
+-0.5516 
+</code></pre>
+
+<pre><code class="language-r">warningtrend(data.frame(time=ou_x$time, value=ou_x$value), window_var)
+</code></pre>
+
+<pre><code>    tau 
+-0.5516 
+</code></pre>
+
+<p>Lengthening the sample suggests the sampling is not long enough to have converged in distribution of this statistic.  Computing on this fine sampling resolution over adequate length of time quickly becomes prohibitive.</p>
+
+<pre><code class="language-r">sapply(seq(1000, 20000, by=1000), function(i) warningtrend(ou_x[1:i,], window_var))
+</code></pre>
+
+<pre><code>       tau        tau        tau        tau        tau        tau 
+ 0.1802475 -0.0832527  0.6365570  0.1787726 -0.1747774 -0.5295226 
+       tau        tau        tau        tau        tau        tau 
+-0.5403782 -0.6790710 -0.6114706 -0.2950858 -0.0444861  0.0006919 
+       tau        tau        tau        tau        tau        tau 
+-0.2579410 -0.5220490 -0.6439519 -0.6221482 -0.5545048 -0.5134236 
+       tau        tau 
+-0.5265975 -0.5515807 
+</code></pre>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-05-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Fri, May 17, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/prosecutor">prosecutor</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/05/20/notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/05/16/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-05-17-null-distribution-width-minor-puzzle.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-05-17-null-distribution-width-minor-puzzle.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/05\/17\/null-distribution-width-minor-puzzle\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/05\/17\/null-distribution-width-minor-puzzle\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

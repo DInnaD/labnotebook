@@ -1,12 +1,11 @@
 ---
-layout: post
-category: evolution
-tags: 
+categories:
+- evolution
+date: 2013-04-23T00:00:00Z
+tags:
 - pmc
-
+url: /2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/
 ---
-
-
 
 The bad news is that the latest [Geiger](http://cran.r-project.org/web/packages/geiger/index.html) version (which is much improved in all respects) breaks my little [pmc](http://cran.r-project.org/web/packages/pmc/index.html) package, owing to changes in how `fitContinuous` output is structured.  The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial.  So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.  
 

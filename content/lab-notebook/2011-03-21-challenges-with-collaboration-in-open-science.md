@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-03-21 10:43:45
-layout: post
-slug: challenges-with-collaboration-in-open-science
-title: 'Challenges with Collaboration in Open Science '
-redirects: [/wordpress/archives/1229, /archives/1229]
 categories:
 - open-science
+comments: true
+date: 2011-03-21T10:43:45Z
+redirects:
+- /wordpress/archives/1229
+- /archives/1229
+slug: challenges-with-collaboration-in-open-science
+title: 'Challenges with Collaboration in Open Science '
+url: /2011/03/21/challenges-with-collaboration-in-open-science/
 ---
 
 ![](http://onsclaims.wikispaces.com/file/view/ons-acd2.png/61358142/ons-acd2.png) 

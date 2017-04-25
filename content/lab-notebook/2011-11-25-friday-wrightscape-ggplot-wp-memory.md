@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2011-11-25 20:32:59
-layout: post
-slug: friday-wrightscape-ggplot-wp-memory
-title: 'Friday: wrightscape, ggplot, wp memory'
-redirects: [/wordpress/archives/3393, /archives/3393]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-11-25T20:32:59Z
+redirects:
+- /wordpress/archives/3393
+- /archives/3393
+slug: friday-wrightscape-ggplot-wp-memory
+title: 'Friday: wrightscape, ggplot, wp memory'
+url: /2011/11/25/friday-wrightscape-ggplot-wp-memory/
 ---
 
 ## more sub-model comparisons

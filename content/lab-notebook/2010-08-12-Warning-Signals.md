@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-08-12T00:00:00Z
+tags:
+- warning-signals
 title: Warning Signals
+url: /2010/08/12/Warning-Signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Reworking code to allow standard format for:
 

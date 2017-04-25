@@ -1,8 +1,10 @@
 ---
-layout: post
-category: open-science
-tags: [blog]
-
+categories:
+- open-science
+date: 2014-03-20T00:00:00Z
+tags:
+- blog
+url: /2014/03/20/software-sustainability-issues-in-R/
 ---
 
 > **Editorial note:** The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-15T00:00:00Z
+tags:
+- pmc
 title: Parametric bootstrapping
+url: /2010/02/15/Parametric-bootstrapping/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   There are several ways we can frame the bootstrapping question. What
     is the probability that we see a given likelihood ratio statistic

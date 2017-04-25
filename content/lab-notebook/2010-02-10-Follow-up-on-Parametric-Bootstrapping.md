@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-10T00:00:00Z
+tags:
+- pmc
 title: Follow-up on Parametric Bootstrapping
+url: /2010/02/10/Follow-up-on-Parametric-Bootstrapping/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Continuing on yesterday's discussion of parametric boostrapping
     implementation. Peter sent some very helpful comments and agreed to

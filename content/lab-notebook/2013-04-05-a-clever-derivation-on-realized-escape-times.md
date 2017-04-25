@@ -1,14 +1,14 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-04-05T00:00:00Z
+tags:
 - derivation
 - prosecutor
 - warning-signals
 - adaptive-dynamics
-
+url: /2013/04/05/a-clever-derivation-on-realized-escape-times/
 ---
-
 
 I have often observed (e.g. <span class="showtooltip" title="Boettiger C and Hastings A (2012). Early Warning Signals And The
 Prosecutor'S Fallacy. _Proceedings of The Royal Society B:

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-06-02T00:00:00Z
 title: Actually starting at Arkin Lab
+url: /2010/06/02/Actually-starting-at-Arkin-Lab/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Meeting with M. Samoilov
 

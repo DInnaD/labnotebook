@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-02-03 18:30:15
-layout: post
-slug: progress-on-warning-signals
-title: Progress on warning signals
-redirects: [/wordpress/archives/936, /archives/936]
 categories:
 - ecology
+comments: true
+date: 2011-02-03T18:30:15Z
+redirects:
+- /wordpress/archives/936
+- /archives/936
+slug: progress-on-warning-signals
 tags:
 - warning-signals
+title: Progress on warning signals
+url: /2011/02/03/progress-on-warning-signals/
 ---
 
 Going several directions at once in tweaking the warning signals code to make sure I have clear comparisons that are not resulting from any limitations in the numerical algorithms.  Performing a variety of error checks, etc:

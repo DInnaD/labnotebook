@@ -1,11 +1,10 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-02-11T00:00:00Z
 tag: warning-signals
-
+url: /2013/02/11/ews-review-paper-chat/
 ---
-
-
 
 ## Skype with Alan and Noam on EWS 
 

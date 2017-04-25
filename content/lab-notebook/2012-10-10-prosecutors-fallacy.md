@@ -1,11 +1,14 @@
 ---
-layout: post
+categories:
+- ecology
+date: 2012-10-10T00:00:00Z
+tags:
+- warning-signals
+- my-publications
+- reading
 title: My Prosecutor's Fallacy paper and other recent warning signals literature
-categories: [ecology]
-tags: [warning-signals, my-publications, reading]
-
+url: /2012/10/10/prosecutors-fallacy/
 ---
-
 
 My recent paper with Alan Hastings, "Early warning signals and the prosecutor's fallacy", is now [out in PRSB](http://dx.doi.org/10.1098/rspb.2012.2085). An open access preprint can be found on the ([arXiv](http://arxiv.org/abs/1210.1204)) and accompanying ([source code](https://github.com/cboettig/earlywarning/blob/prosecutor/inst/examples/fallacy.md)) for the analysis can be found on Github.  
 

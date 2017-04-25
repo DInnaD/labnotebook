@@ -1,12 +1,9 @@
 ---
-layout: post
-category: labnotebook
-
+categories:
+- labnotebook
+date: 2014-04-24T00:00:00Z
+url: /2014/04/24/notebook-design-notes/
 ---
-
-
-
-
 
 Reading a little about Flat UI design ([1](http://www.sitepoint.com/getting-started-flat-ui-design/), [2](http://en.wikipedia.org/wiki/Flat_UI_Design)). Basic concept is that users now realize they can click on things without them looking like actual three-dimensional buttons. (Along with links, checkboxes, and forms). Frequently seems to use many different [colors](http://flatuicolors.com) on a single page to bring some life back, though this might just make the design look like Windows 8 instead. I've started noticing this everwhere now that I know what it is.
 

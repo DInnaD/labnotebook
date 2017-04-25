@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
-- nonparametric-bayes
+categories:
+- ecology
 code: true
-
+date: 2013-06-04T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/
 ---
 
 # Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach

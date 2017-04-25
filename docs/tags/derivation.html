@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,7 +141,69 @@
   
   
   <div>
-    <h2><a href="../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation.html">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
+    <h2><a href="../2013/12/10/notes/"></a></h2>
+    <h4>Tue, Dec 10, 2013</h4>
+    <div class="article-style">
+      
+      Consider the model
+$$d X_t = \alpha \left(\theta - X_t\right)dt + \sigma dB_t $$
+By Ito Isometry, we have:
+$$\langle X \rangle_t = E_t(X) = \theta \left(1 - e^{-\alpha t} \right) + X_0 e^{-\alpha t}$$
+and
+$$\langle X^2 \rangle_t - \langle X \rangle_t^2 = V<em>t(X) = \frac{\sigma^2}{2 \alpha }\left(1 - e^{-2 \alpha t} \right)$$
+If we assume discrete, uniform sampling of spacing $\tau$, then we have,
+$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp\left(-\frac{\sumt^{T-1} \left(X{t+1} - E\right)^2 }{2V}\right) $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2013/06/05/semi-analytic-posteriors/"></a></h2>
+    <h4>Wed, Jun 5, 2013</h4>
+    <div class="article-style">
+      
+      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2013/06/04/analytic-marginalizing-for-posteriors/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
+    <div class="article-style">
+      
+      Consider the model
+$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
+with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
+$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
+To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2013/04/24/empirical-demonstration-of-that-clever-derivation/"></a></h2>
+    <h4>Wed, Apr 24, 2013</h4>
+    <div class="article-style">
+      
+      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
+After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2013/04/05/a-clever-derivation-on-realized-escape-times/"></a></h2>
+    <h4>Fri, Apr 5, 2013</h4>
+    <div class="article-style">
+      
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
     <h4>Tue, Nov 30, 2010</h4>
     <div class="article-style">
       
@@ -155,7 +217,7 @@ Now to implement them for fitting by likelihood using generic $ r(t) $. I go ba
   </div>
   
   <div>
-    <h2><a href="../2010/11/29/further-treatment-of-the-limiting-models.html">Further treatment of the limiting models</a></h2>
+    <h2><a href="../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
     <h4>Mon, Nov 29, 2010</h4>
     <div class="article-style">
       
@@ -165,7 +227,7 @@ Now to implement them for fitting by likelihood using generic $ r(t) $. I go ba
   </div>
   
   <div>
-    <h2><a href="../2010/11/28/likelihoods-for-quadratic-models-cont.html">Likelihoods for quadratic models cont</a></h2>
+    <h2><a href="../2010/11/28/likelihoods-for-quadratic-models-cont/">Likelihoods for quadratic models cont</a></h2>
     <h4>Sun, Nov 28, 2010</h4>
     <div class="article-style">
       
@@ -177,7 +239,7 @@ Analysis of fits Of course these fits rely entirely on mapping the location of t
   </div>
   
   <div>
-    <h2><a href="../2010/11/24/warning-signals-likelihoods-straight-up.html">Warning signals: Likelihoods Straight-up</a></h2>
+    <h2><a href="../2010/11/24/warning-signals-likelihoods-straight-up/">Warning signals: Likelihoods Straight-up</a></h2>
     <h4>Wed, Nov 24, 2010</h4>
     <div class="article-style">
       
@@ -187,73 +249,11 @@ Analysis of fits Of course these fits rely entirely on mapping the location of t
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2009/08/25/diffusion-solution/"></a></h2>
+    <h4>Tue, Aug 25, 2009</h4>
     <div class="article-style">
       
       editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
-After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Consider the model
-$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
-with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
-$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
-To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Consider the model
-$$d X_t = \alpha \left(\theta - X_t\right)dt + \sigma dB_t $$
-By Ito Isometry, we have:
-$$\langle X \rangle_t = E_t(X) = \theta \left(1 - e^{-\alpha t} \right) + X_0 e^{-\alpha t}$$
-and
-$$\langle X^2 \rangle_t - \langle X \rangle_t^2 = V<em>t(X) = \frac{\sigma^2}{2 \alpha }\left(1 - e^{-2 \alpha t} \right)$$
-If we assume discrete, uniform sampling of spacing $\tau$, then we have,
-$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp\left(-\frac{\sumt^{T-1} \left(X{t+1} - E\right)^2 }{2V}\right) $$
       
     </div>
   </div>

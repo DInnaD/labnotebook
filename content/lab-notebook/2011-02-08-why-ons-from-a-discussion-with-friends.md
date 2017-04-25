@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-02-08 14:36:19
-layout: post
-slug: why-ons-from-a-discussion-with-friends
-title: Why ONS? From a discussion with friends
-redirects: [/wordpress/archives/955, /archives/955]
 categories:
 - open-science
+comments: true
+date: 2011-02-08T14:36:19Z
+redirects:
+- /wordpress/archives/955
+- /archives/955
+slug: why-ons-from-a-discussion-with-friends
+title: Why ONS? From a discussion with friends
+url: /2011/02/08/why-ons-from-a-discussion-with-friends/
 ---
 
 I agree that the key is open data, and it really only helps if that data is discoverable, and better if it's in a central repository. The open notebook community is pretty focused on figuring out ways to automate and link the data from the notebook. For instance, many solubilities recorded for chemicals given in wikipedia automatically link to the open notebook entries describing the experiment wherein the data was collected, check out [http://en.wikipedia.org/wiki/Benzoic_acid](http://en.wikipedia.org/wiki/Benzoic_acid).

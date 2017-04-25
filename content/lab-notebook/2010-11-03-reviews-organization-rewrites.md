@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-03 05:20:18
-layout: post
-slug: reviews-organization-rewrites
-title: Reviews, organization, rewrites
-redirects: [/wordpress/archives/173, /archives/173]
 categories:
 - open-science
+comments: true
+date: 2010-11-03T05:20:18Z
+redirects:
+- /wordpress/archives/173
+- /archives/173
+slug: reviews-organization-rewrites
+title: Reviews, organization, rewrites
+url: /2010/11/03/reviews-organization-rewrites/
 ---
 
 Today's a mixed bag of activities. Finished a journal review, comments confidential, recorded in my reviewed papers archive.  I then organized documents library (more below) and then back to paper revisions.

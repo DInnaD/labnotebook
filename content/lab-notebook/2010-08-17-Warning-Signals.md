@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-08-17T00:00:00Z
+tags:
+- warning-signals
 title: Warning Signals
+url: /2010/08/17/Warning-Signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Bootstrapping for likelihood ratios!
 -   Updated class behavior -- all simulation and fitting routines now

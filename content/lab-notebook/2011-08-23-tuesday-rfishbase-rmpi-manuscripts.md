@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-08-23 15:10:24
-layout: post
-slug: tuesday-rropensci-rmpi-manuscripts
-title: 'Tuesday: rropensci, Rmpi, manuscripts, ...'
-redirects: [/wordpress/archives/2379, /archives/2379]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-08-23T15:10:24Z
+redirects:
+- /wordpress/archives/2379
+- /archives/2379
+slug: tuesday-rropensci-rmpi-manuscripts
 tags:
 - ropensci
+title: 'Tuesday: rropensci, Rmpi, manuscripts, ...'
+url: /2011/08/23/tuesday-rfishbase-rmpi-manuscripts/
 ---
 
 ## rfishbase

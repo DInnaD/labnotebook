@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-14T00:00:00Z
 title: Wednesday
+url: /2010/04/14/Wednesday/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   10-2p Finish preparing for EDG talk.
 

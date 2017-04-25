@@ -1,8 +1,10 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2014-09-05T00:00:00Z
+tags:
 - blog
+url: /2014/09/05/thoughts-on-Harte-interview/
 ---
 
 Read this delightful [John Harte

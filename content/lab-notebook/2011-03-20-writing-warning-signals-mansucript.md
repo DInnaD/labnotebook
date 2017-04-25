@@ -1,15 +1,14 @@
 ---
-date: 2011-03-20 14:39:13
-layout: post
-slug: writing-warning-signals-mansucript
-title: 'Writing: Warning Signals Mansucript'
 categories:
-- ecology 
+- ecology
+date: 2011-03-20T14:39:13Z
+slug: writing-warning-signals-mansucript
 tags:
 - warning-signals
 - delayed-release
+title: 'Writing: Warning Signals Mansucript'
+url: /2011/03/20/writing-warning-signals-mansucript/
 ---
-
 
 Summary Paragraph
 

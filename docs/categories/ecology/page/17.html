@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,131 +141,120 @@
   
   
   <div>
-    <h2><a href="../../../2011/03/25/friday-3.html">Friday</a></h2>
-    <h4>Fri, Mar 25, 2011</h4>
+    <h2><a href="../../../2012/10/16/gaussian-processes/">Gaussian processes</a></h2>
+    <h4>Tue, Oct 16, 2012</h4>
     <div class="article-style">
       
-      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
- Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
- Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
+      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
+ Will also want to look into basis approximations for SDP acceleration.
+  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/24/thursday-3.html">Thursday</a></h2>
-    <h4>Thu, Mar 24, 2011</h4>
+    <h2><a href="../../../2012/10/11/notes/"></a></h2>
+    <h4>Thu, Oct 11, 2012</h4>
     <div class="article-style">
       
-      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
- Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
+      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
+pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/23/wednesday-2.html">Wednesday</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
+    <h2><a href="../../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
+    <h4>Wed, Oct 10, 2012</h4>
     <div class="article-style">
       
-      Still to do on figures:
- Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
- Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
- separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
- bootstrap_indicators should have option of which indicators are included &ndash; DONE
- all_indicators should have option of which indicators are included &ndash; DONE
+      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
+Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/23/tuesday-figures-figures-figures.html">Tuesday: Figures, figures, figures</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
+    <h2><a href="../../../2012/10/01/multiple-uncertainty/"></a></h2>
+    <h4>Mon, Oct 1, 2012</h4>
     <div class="article-style">
       
-      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
+      Let
+ y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
+$$ x</em>{t+1} = z_g f(x_t) $$
+In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/22/monday-edits-and-organization.html">Monday -- Edits and organization</a></h2>
-    <h4>Tue, Mar 22, 2011</h4>
+    <h2><a href="../../../2012/09/19/prosecutors-fallacy/"></a></h2>
+    <h4>Wed, Sep 19, 2012</h4>
     <div class="article-style">
       
-      Skype with Alan: 9-9:4
- Figures as panels
- Write Appendix
- Finish References
- Move into Word
-   Sims  LSN m = -0.049, N =50, T=100
- LSN m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=50
- LTC m = -0.049, N =100, T=200
-  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
+      Two years ago, I scribbled an entry into my notebook entitled Wrong Picture, Wrong Model: Why warning signals don&rsquo;t look like rare events. Months later I made some off-hand remark to Alan (my Ph.D. mentor) about how transitions found in historical records, such as the Climate examples in Dakos et. al. (2008), could actually be selecting for stochastic transitions, and this selection process might make them look like traditional warning signals &ndash; i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/21/sunday-manuscript-and-simulations.html">Sunday - manuscript and simulations</a></h2>
-    <h4>Mon, Mar 21, 2011</h4>
+    <h2><a href="../../../2012/09/14/analytic-solution-to-multiple-uncertainty/"></a></h2>
+    <h4>Fri, Sep 14, 2012</h4>
     <div class="article-style">
       
-      Working on manuscript. lot of writing / editing.
-Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
- m = -0.04, N = 50, nboot = 160, (with all moments)
- m = -0.04, N = 50, nboot = 800, (with all moments)
- m = -0.05, N = 50, nboot = 800, (with all moments)
- m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
+      No idea where I went wrong, but the final graphs are not what I expected Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions
+We consider adding additional sources of noise through observation error and implementation error to the orginal model of Reed (1979), which considers only growth error. This follows in the line of exploration taken by Clark and Kirkwood (1987), Roughgarden (1996) and Sethi (2006).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/20/writing-warning-signals-mansucript.html">Writing: Warning Signals Mansucript</a></h2>
-    <h4>Sun, Mar 20, 2011</h4>
+    <h2><a href="../../../2012/09/04/notes/"></a></h2>
+    <h4>Tue, Sep 4, 2012</h4>
     <div class="article-style">
       
-      Summary Paragraph
- Critical transitions exist (Holling, 1973), (May, 1977),(Scheffer et. al. 2001) Warning signals exist (Scheffer et. al. 2009), (Drake &amp; Griffen, 2010) Warning signals are summary statistics, critical slowing down (Wissel, 1984). Statement of general problem: double-edged sword &ndash; no quantification of the chance detection scheme will fail. We provide a way to do this We find existing methods lack sufficient power and have high false-alarm potential We provide a model-based solution using machinery of modern likelihood statistics  Background  Define CSD, standard detection scheme.
+      Fallacy paper done Dissertation filing Decision theory from the ROC curve.
+ Working group paper Jim/Mike paper
+ wrightscape paper?
+ Signature page two copies, archival paper?
+ ropensci emails: Position paper: Goals
+ misc emails
+  Fallacy paper finalizing appendices  Commit images and runs from yesterday (ibm simulation still running&hellip;)
+ clean up appendix code
+ clean up appendix text
+  Code tricks for today vim set sytnax language, useful for getting R highlighting in .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/19/warning-signals-examples-and-tracking-graphs.html">Warning Signals examples and tracking graphs</a></h2>
-    <h4>Sat, Mar 19, 2011</h4>
+    <h2><a href="../../../2012/08/29/santa-cruz-postdoc/"></a></h2>
+    <h4>Wed, Aug 29, 2012</h4>
     <div class="article-style">
       
-      Working on more examples for the notebook. Currently exploring a collection of simulated examples. In particular, would be useful to have simulated examples that look as realistic in data-density as possible (i.e. fewer sample points, also shorter sampling interval relative to timescale, so doesn&rsquo;t look like a fuzzy caterpillar. Second, would be good to include examples on data simulated from non-linearized systems made to represent some richer bifurcation examples. Finally it would be good to include as many real-data examples as reasonable.
+      Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with Steve Munch, Marc Mangel, and Alec MacCall. I will be based primarily at the National Marine Fisheries Service building, here: ` Five fantastic years of graduate school are coming to an end: I will start officially later this fall, where I will
+ join an exciting team of ecologists and applied mathematicians who work collaboratively on cutting-edge problems in ecological and evolutionary modeling through the Center for Stock Assessment Research.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/17/warning-signals-in-ecological-systems-drake-griffen-data.html">Warning Signals in Ecological Systems: Revisions and Drake &amp; Griffen Data</a></h2>
-    <h4>Thu, Mar 17, 2011</h4>
+    <h2><a href="../../../2012/08/23/notes/"></a></h2>
+    <h4>Thu, Aug 23, 2012</h4>
     <div class="article-style">
-      
-      Manuscript revisions  Heard back from Alan this morning on manuscript, need to cut wordcount in half, from 3000 to 1500 words. Should emphasize the countless and utterly arbitrary choices made in every one of these analyses. Should emphasize our approach can be applied without replicates. (also without interpolating/having evenly sampled data) Should do coefficient of variation on non-detrended data(?) should discuss?  Chemostat data This morning Alan sent me the data used by Drake &amp; Griffen (Drake &amp; Griffen, 2010).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/16/wednesday.html">Wednesday</a></h2>
-    <h4>Wed, Mar 16, 2011</h4>
+    <h2><a href="../../../2012/08/22/warning-signals-in-management/"></a></h2>
+    <h4>Wed, Aug 22, 2012</h4>
     <div class="article-style">
       
-      Updated dependencies of warningsignals package. Removed old dependencies, migrated montecarlotest into package, removing the pmc dependency.
- Updated my webpage teaching statement (lunch break)
- montecarlotest wasn&rsquo;t getting sfLibrary(warningsignals) called in yesterday&rsquo;s runs, so redoing this.
- Writing &ndash; conclusion, finalized organization, sent off to Alan.
-   To Do:  Panel for models. Appendix for model derivations.
- Panel for approach/algorithm. Appendix for algorithm implementation.
- Figure review
+      Tour of existing files (version stable links)
+ managed warning is the current direct test of this, but needs decently ranged input example where detection has a good chance to succeed.
+ criticaltransition Statistics across replicate crashes that don&rsquo;t show much promise for detection.
+ A heuristic implementation in response to the detection of a signal might use a simple rule like a fraction of the optimal harvest of a stable system.
       
     </div>
   </div>

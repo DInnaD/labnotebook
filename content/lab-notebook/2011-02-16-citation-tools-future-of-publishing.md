@@ -1,18 +1,19 @@
 ---
-comments: true
-date: 2011-02-16 23:04:50
-layout: post
-slug: citation-tools-future-of-publishing
-title: Citation tools & Future of Publishing
-redirects: [/wordpress/archives/1021, /archives/1021]
 categories:
 - open-science
-tags: 
+comments: true
+date: 2011-02-16T23:04:50Z
+redirects:
+- /wordpress/archives/1021
+- /archives/1021
+slug: citation-tools-future-of-publishing
+tags:
 - notebook-technology
-- open-science 
+- open-science
 - semantics
 - blog
-
+title: Citation tools & Future of Publishing
+url: /2011/02/16/citation-tools-future-of-publishing/
 ---
 
 There has been a lot of rapid development in scientific tools based  on a Wordpress platform recently, perhaps spurred in part by the recent  [Beyond-the-PDF](https://sites.google.com/site/beyondthepdf/) and [sessions in Science Online](http://blogs.plos.org/mfenner/2011/01/11/having-fun-with-citations-at-scienceonline2011/) conferences.  A new [discussion group](https://groups.google.com/forum/#!forum/wordpress-for-scientists) has emerged around these tools, [as described by Martin Fenner](http://blogs.plos.org/mfenner/2011/02/04/discussing-wordpress-for-scientists/).

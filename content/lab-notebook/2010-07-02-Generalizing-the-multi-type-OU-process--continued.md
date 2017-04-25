@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-02T00:00:00Z
 title: Generalizing the multi-type OU process- continued
+url: /2010/07/02/Generalizing-the-multi-type-OU-process--continued/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Efficiency updates:
 

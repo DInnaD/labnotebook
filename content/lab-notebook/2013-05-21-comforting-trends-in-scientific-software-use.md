@@ -1,11 +1,11 @@
 ---
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-05-21T00:00:00Z
+tags:
 - blog
-
+url: /2013/05/21/comforting-trends-in-scientific-software-use/
 ---
-
 
 **Author's Note**: 
 Having refrained from actually posting this for 8 months, as I think I have quite mellowed more my critique. I do believe that education and peer review are the best way forward in tackling these issues, but cannot overstate how much of a long and rocky road that process will be.  The Mozilla Science Foundation is really leading these efforts with their code review pilots (as I have discussed in posts since writing this), and through their work with Software Carpentry training. Still, I leave this post as a bookmark of my intial thoughts and a reminder of these challenges.  

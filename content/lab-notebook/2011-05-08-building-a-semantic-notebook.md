@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2011-05-08 18:39:49
-layout: post
-slug: building-a-semantic-notebook
-title: Building a semantic notebook
-redirects: [/wordpress/archives/1626, /archives/1626]
 categories:
 - open-science
+comments: true
+date: 2011-05-08T18:39:49Z
+redirects:
+- /wordpress/archives/1626
+- /archives/1626
+slug: building-a-semantic-notebook
 tags:
 - notebook-technology
 - open-science
 - semantics
+title: Building a semantic notebook
+url: /2011/05/08/building-a-semantic-notebook/
 ---
 
 What would a semantic lab notebook look like?  What would be possible with such a structure, ideally?  What is already possible now?  There's a lot that can be done with an electronic notebook that adds value over a paper notebook: browsing by categories and tags, embedding links, time-stamping entries, searching the full text, and having automated trackbacks or pingbacks when a post is mentioned in another post or appears elsewhere on the web.  Despite these advantages, I think a lot more could be possible with a semantic notebook -- where links can be identified with an ontology describing the relationship.  I've found a couple current tools very promising, and would be interested in developing some of these much further.  

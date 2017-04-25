@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,111 +140,119 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      ENSO EWS Let&rsquo;s just see what happens with the MEI data for PDO:
-dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/mei.csv&quot;">http://www.carlboettiger.info/assets/data/mei.csv&quot;</a>, header=TRUE)  For the moment let&rsquo;s ignore annual structure and just collapse this into timeseries sampled bimonthly.
-require(reshape2) dt &lt;- melt(dat, id=&quot;YEAR&quot;) X &lt;- dt$value Z &lt;- X[!is.na(X)] Z &lt;- data.frame(1:(length(Z)-1), Z[1:(length(Z)-1)])  png(&quot;mei.png&quot;) require(earlywarnings) a &lt;- generic_ews(Z, detrending=&quot;gaussian&quot;)  How about the data from MacDonald (2005)
-original data link
-dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;">http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;</a>, header=TRUE)  png(&quot;macdonald2005.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Trying to think about a more systematic way to go about varying the parameters: the underlying parametric model has 3 parameters for the stock-recruitment curve&rsquo;s deterministic skeleton, plus growth noise. (My first exploratory phase has been just to try different things. See my various tweaks in the history log Clearly time to be more systematic about both running and visualizing the various cases.)
-Should I just choose a handful of parameter combinations to test?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
-Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
-Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
- Example from 32 replicates   Distribution of yield over replicates shows the parametric model performing rather poorly, while most of the GP replicates perform nearly optimally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
-I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/16/tuesday-7/">Tuesday:</a></h2>
+    <h4>Tue, Aug 16, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/16/monday-evolution-manuscript-revisions-early-burst-models-etc/">Monday: Evolution manuscript revisions; early burst models, etc</a></h2>
+    <h4>Tue, Aug 16, 2011</h4>
     <div class="article-style">
       
-      Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
- Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
- Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
+      Evolution Manuscript Edits Received the reviews of our evolution manuscript back with relatively straight-forward edits. (Yay!)
+Need better citations of the early history in phylogenetic comparative methods, which is quite rich. Reviewer pointed me to an early book chapter by AW Edwards and LL Cavalli-Sforza introducing Brownian motion model in 1964, of which Joe Felsenstein has a nice description (of this and other work) in his 1988 review(Felsenstein, 1988).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/13/esa-personal-notes-people-goals/">ESA personal notes: people, goals</a></h2>
+    <h4>Sat, Aug 13, 2011</h4>
     <div class="article-style">
       
-      Some quick thoughts on learning Jekyll After recieving a few queries on how to get started with Jekyll I thought I&rsquo;d jot down my own opinions here. Of course there is already rather good documentation for the software and plenty of blogs providing tutorials. While no doubt more than adequate, I have more opinions on how to get started actually learning what&rsquo;s going on than I could easily fit into a tweet, and also a couple favorite links to references so I thought I&rsquo;d jot down my reply in long form here.
+      Meetings  John Drake Suzanne O&rsquo;Regan (Post-doc with John, strong dynamical systems) Justin Kinze &ndash; great post-doc at Berkeley with John Harte, should visit. Paul Armsworth &ndash; with Alan, have asked me to join NIMBioS working group on Pretty Darn Good Control (Tuesday evening). Hal Caswell &ndash; interested in some of the data management / provenance for theoretical work. (Mon) Jeremy Fox &ndash; Interesting lunch discussion, clonal interference as ecological insight?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/13/saturday/">Saturday: Post ESA, NSF Intersections post-doc?</a></h2>
+    <h4>Sat, Aug 13, 2011</h4>
     <div class="article-style">
       
-      Consider public archiving for your dissertation As researchers we spend an immense amount of time generating products other than papers. While we go through great lengths to see that our papers are published in just the right place to be seen by our colleagues (fretting about the different impact factors, percieved audience, editorial boards, open access policies, and many other factors that determine just how a paper will see the light of day), other products of our labors largely languish on forgotten hard-drives from long ago.
+      run system backup
+ reading TOCs
+ Catch up from ESA
+ Working on review for THEE
+ New phylogenetic methods in _Evolution _(Paradis, 2012), (Revell et. al. 2012)
+ Next steps for fellowship applications.
+   Post ESA  Theoretical Ecology Review
+ Revisions on Evolution manuscript
+ TreeBASE paper. See Kemp et. al. 2012
+ outline next steps on warning signals
+ wrightscape manuscript, finalize examples
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/12/esa-friday/">ESA Friday</a></h2>
+    <h4>Fri, Aug 12, 2011</h4>
     <div class="article-style">
       
-      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
-Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
+      Great last day of the conference, despite noticeably decreased attendance. Once again just pulling in my tweets, since I haven&rsquo;t had a chance to transcribe proper notes. Meanwhile, some of the bloggers have done a rather nice day-to-day coverage; no idea how they all manage to keep up. Links below, with a nice mix of those targeting more theory oriented, more application oriented and more outreach oriented sessions.
+Twitter-log    cboettig ESA should have science cafes!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/08/11/esa-thursday/">ESA Thursday</a></h2>
+    <h4>Thu, Aug 11, 2011</h4>
     <div class="article-style">
       
-      Figures have been one of the standing challenges of the open notebook. Displaying figures online requires that they are first uploaded to a server somewhere. Recently I have used automated uploads to external servers such as figshare to host all images generated in the course of my research, and simply point to those graphs which I wish to include in a notebook page using an image link. Unfortunately, this means that the images themselves are not being permanently archived when I deposit my notebook entries into their annual archives on figshare.
+      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+Twitter-log    cboettig Predicting rare; predicting ubiquitous/noxious weed species by machine learning vs GLMs #esa11
+   cboettig Beautiful thing when you know just how talk methods will proceed after 2 min of intro to problem.. but stay tuned for surprises #esa11
+   cboettig Deitterich: how to reconstruct life history patterns from abundance fluctuations #esa11 inferring what we want from what we have w models
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/10/esa-wednesday/">ESA Wednesday</a></h2>
+    <h4>Wed, Aug 10, 2011</h4>
+    <div class="article-style">
+      
+      My talk today, as well as several others from our Theory group at Davis. Journal review requirements mean posting my slides is gonna be delayed somewhat, but appreciated some excellent questions and those who laughed at my jokes in between slides. Meanwhile, automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+Twitter-log    cboettig @carlystrasser Here&rsquo;s the paper I mentioned for introducing ontologies/linked data into spreadsheetshttp://t.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/09/esa-tuesday/">ESA Tuesday</a></h2>
+    <h4>Tue, Aug 9, 2011</h4>
+    <div class="article-style">
+      
+      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+twitter-log    cboettig Great Eco Let mixer. Kudos to Marcel &amp; crew for increasing citation rates w/o decreasing acceptance. Now how bout data sharing reqs? #esa11
+   cboettig RT @IceAgeEcologist: #ESA11 Marten Scheffer gets Honorary Member Award (max 20 living awardees); Don Strong ge… (cont) <a href="http://deck">http://deck</a>.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/08/monday-esa-conference/">Monday: ESA Conference</a></h2>
+    <h4>Mon, Aug 8, 2011</h4>
+    <div class="article-style">
+      
+      Hope to process the day&rsquo;s happenings later, meanwhile just a snapshot of my twitter-stream notes. My own highlights certainly include Steve Pacala&rsquo;s fantastic plenary session in receiving the MacArthur award, and Mark Urban&rsquo;s crystal clear presentation on &ldquo;climate collisions.&rdquo; I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away. In pointing out really fundamental concepts, such details just aren&rsquo;t so important.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/02/fisheries-stock-assessments-for-early-warning/">Fisheries stock assessments for early warning</a></h2>
+    <h4>Tue, Aug 2, 2011</h4>
+    <div class="article-style">
+      
+      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
+<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
+Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
       
     </div>
   </div>

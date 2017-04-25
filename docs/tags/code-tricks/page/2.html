@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,55 +141,74 @@
   
   
   <div>
-    <h2><a href="../../../2011/05/31/tuesday-5.html">Tuesday: PMC, confidence intervals; screen code-tricks</a></h2>
-    <h4>Tue, May 31, 2011</h4>
+    <h2><a href="../../../2013/04/18/notes/"></a></h2>
+    <h4>Thu, Apr 18, 2013</h4>
     <div class="article-style">
       
-      PMC  Final read through of manuscript from me and Peter.
- Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
-sqrt(diag(solve(out$hessian)))
- See conf_interval_ex.R. i.e for Geospiza tree is:
-[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.
+      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
+ pmc functions
+  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/28/notebook-technology-file-sharing-notes.html">Site configuration: file sharing notes</a></h2>
-    <h4>Sat, May 28, 2011</h4>
+    <h2><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h2>
+    <h4>Tue, Apr 16, 2013</h4>
     <div class="article-style">
       
-      Easiest way to share files is ssh onto the carlboettiger.info server, change into the directory carlboettiger.info/ and create a new directory there &ndash; i.e. share/. This behaves as a regular static webpage directory that will list the files provided.
-Secure access can be created by going to the goodies &ndash;&gt;htaccess/WebDav page and selecting the option to make a directory or subdirectory secure, and then specifying the passwords, etc. Have created the subdirectory <a href="http://carlboettiger">http://carlboettiger</a>.
+      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/24/tuesday-4.html">Tuesday</a></h2>
-    <h4>Tue, May 24, 2011</h4>
+    <h2><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h2>
+    <h4>Wed, Apr 10, 2013</h4>
     <div class="article-style">
       
-      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
- created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
- Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
+      Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
+ Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/28/thursday-reading-notes.html">Reading Notes, presentation prep treebase error handling</a></h2>
-    <h4>Thu, Apr 28, 2011</h4>
+    <h2><a href="../../../2013/03/25/research/"></a></h2>
+    <h4>Mon, Mar 25, 2013</h4>
     <div class="article-style">
       
-      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
+      Reading  (Schreiber &amp; Killingback, 2013 ) (Warren, 2013 )  Notebook  Added SHA hashes. See notebook Issues #67 for details. modification date. #74, also involved resolving page path robustly, #73 analytics on history button, layout #72 push dreamhost-based images to flickr See #75  prosecutor Run with OU based data. Draw from sde package.
+Packages Knitcitations  Feature request for additional markup for page ranges #32  rfigshare  Handle pull request for rfigshare  code-tricks: notes on merging select files from pull request Pull request included changes to files we don&rsquo;t want to change.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/03/22/research/"></a></h2>
+    <h4>Fri, Mar 22, 2013</h4>
+    <div class="article-style">
+      
+      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/09/27/migrating-oww-posts-to-jekyll/"></a></h2>
+    <h4>Thu, Sep 27, 2012</h4>
+    <div class="article-style">
+      
+      This Open Lab Notebook started on a public MediaWiki-based site, OpenWetWare (OWW), which was created with the ambitious vision of having a single wiki for biological sciences (or at least, synthetic microbiology, since such the wiki grew out of a collection of such labs). Users could have their own pages that served as a personal website or lab group site, contribute pages on specific protocols, host course websites, and most interestingly, were encouraged to create open lab notebooks using specially designed templates for the purpose.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/09/04/notes/"></a></h2>
+    <h4>Tue, Sep 4, 2012</h4>
     <div class="article-style">
       
       Fallacy paper done Dissertation filing Decision theory from the ROC curve.
@@ -207,55 +226,36 @@ Secure access can be created by going to the goodies &ndash;&gt;htaccess/WebDav 
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/04/19/catching-up/">Catching up</a></h2>
+    <h4>Thu, Apr 19, 2012</h4>
     <div class="article-style">
       
-      This Open Lab Notebook started on a public MediaWiki-based site, OpenWetWare (OWW), which was created with the ambitious vision of having a single wiki for biological sciences (or at least, synthetic microbiology, since such the wiki grew out of a collection of such labs). Users could have their own pages that served as a personal website or lab group site, contribute pages on specific protocols, host course websites, and most interestingly, were encouraged to create open lab notebooks using specially designed templates for the purpose.
+      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/03/20/friday-some-random-notes/">Friday: some random notes</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
-function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
+      Computational tricks  tables in github markdown via knitr. clever Getting custom C/C++ CUDA working in R  Data management and sharing solutions for large files  NERSC uses globus online for interface for transferring terabytes/hr, pretty clever. NERSC also enables web hosting to share data.
+ Software-Carpentry style Data management a nice start. An open solution could stick the data on figshare (or elsewhere), write the readmes in markdown and keep them on github with links to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/27/monday-14/">Monday</a></h2>
+    <h4>Mon, Feb 27, 2012</h4>
     <div class="article-style">
       
-      Reading  (Schreiber &amp; Killingback, 2013 ) (Warren, 2013 )  Notebook  Added SHA hashes. See notebook Issues #67 for details. modification date. #74, also involved resolving page path robustly, #73 analytics on history button, layout #72 push dreamhost-based images to flickr See #75  prosecutor Run with OU based data. Draw from sde package.
-Packages Knitcitations  Feature request for additional markup for page ranges #32  rfigshare  Handle pull request for rfigshare  code-tricks: notes on merging select files from pull request Pull request included changes to files we don&rsquo;t want to change.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
- pmc functions
-  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
+      Warning Signals  Added resulting indicator distributions on finer sampling results.
+ Re-running now excluding the final dive (population below 300).
+  Treebase working on manuscript. A few examples using the improved meta-data queries:
+Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
       
     </div>
   </div>

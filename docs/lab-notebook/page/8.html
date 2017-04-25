@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,112 +140,120 @@
   
   
   <div>
-    <h2><a href="../../2011/12/08/thursday-11.html">Thursday</a></h2>
-    <h4>Thu, Dec 8, 2011</h4>
+    <h2><a href="../../2014/04/10/multiple-uncertainty-notes/"></a></h2>
+    <h4>Thu, Apr 10, 2014</h4>
     <div class="article-style">
       
-      Another day of working on 4 different projects at once.
-Warning signals  review Alan pulses manuscript
- review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
-  No way in Anchoveta data, look at time series:
-Example in the cod data using only up until 1991 data:
- Way forward &ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.
+      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
+  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/07/wednesday-11.html">Wednesday - wrightscape runs and various other things</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
+    <h2><a href="../../2014/04/09/multiple-uncertainty-notes/"></a></h2>
+    <h4>Wed, Apr 9, 2014</h4>
     <div class="article-style">
       
-      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
+      Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
+ Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/07/optimal-control-costs-to-policy-shifts.html">Optimal control -- costs to policy shifts</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
+    <h2><a href="../../2014/04/08/multiple-uncertainty-notes/"></a></h2>
+    <h4>Tue, Apr 8, 2014</h4>
     <div class="article-style">
       
-      Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy). We can imagine several scenarios that could introduce this:
- Fixed cost to change
- Cost proportional to the size of the change (L1 norm)
- Cost proportional to the square of the size (L2 norm, i.e. small changes aren&rsquo;t expensive, large ones are very expensive)
- asymmetric costs &ndash; lowering quotas may be harder than raising them
+      Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/06/tuesday-two-insights.html">Tuesday -- two insights</a></h2>
-    <h4>Tue, Dec 6, 2011</h4>
+    <h2><a href="../../2014/04/07/notes/"></a></h2>
+    <h4>Mon, Apr 7, 2014</h4>
     <div class="article-style">
       
-      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
- Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
- Bonvin approach &ndash; adjust the control instead (NCO Control).
+      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/05/monday-wrightscape-meetings-pdg-meeting.html">Monday - wrightscape meetings, PDG meeting</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
+    <h2><a href="../../2014/04/03/wisconsin-visit/"></a></h2>
+    <h4>Thu, Apr 3, 2014</h4>
     <div class="article-style">
       
-      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
-Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
+      Carl Boettiger Schedule 3-4 April
+Thursday
+   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
+   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/05/more-labrid-plots.html">More labrid plots</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
+    <h2><a href="../../2014/03/31/ropenhack-notes/"></a></h2>
+    <h4>Mon, Mar 31, 2014</h4>
     <div class="article-style">
+      
+      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
+Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/04/release-of-constraint.html">Release of constraint</a></h2>
-    <h4>Sun, Dec 4, 2011</h4>
+    <h2><a href="../../2014/03/24/review-of-progress-on-packages/"></a></h2>
+    <h4>Mon, Mar 24, 2014</h4>
     <div class="article-style">
+      
+      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
+rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/02/friday-updated-wrightscape-results.html">Friday - updated wrightscape results - simulated examples</a></h2>
-    <h4>Fri, Dec 2, 2011</h4>
+    <h2><a href="../../2014/03/20/software-sustainability-issues-in-r/"></a></h2>
+    <h4>Thu, Mar 20, 2014</h4>
     <div class="article-style">
       
-      Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right). Can we correctly discriminate between these models?
-Parameter differences:
-Likelihood differences:
-Yup.
-Repeated with effect-size scaled to be roughly equivalent for both traits. Wondering if it&rsquo;s easier to plot parameters out separately like this. Error bars show median and 25&frasl;75 % quantile range, with barplots showing the means (note that high outliers makes mean often larger than median).
+      Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
+ There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/12/01/thrusday-corrected-calculation-implementing.html">Thrusday - corrected calculation, implementing.  </a></h2>
-    <h4>Thu, Dec 1, 2011</h4>
+    <h2><a href="../../2014/03/18/notes/"></a></h2>
+    <h4>Tue, Mar 18, 2014</h4>
     <div class="article-style">
+      
+      ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
+ Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation.html">Wednesday - various logistics, then checking likelihood calculation</a></h2>
-    <h4>Wed, Nov 30, 2011</h4>
+    <h2><a href="../../2014/03/11/notes/"></a></h2>
+    <h4>Tue, Mar 11, 2014</h4>
     <div class="article-style">
       
-      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
- Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
+      Reading  NAP report on &ldquo;Abrupt impacts of climate change: anticipating suprises.&rdquo;
+ Nice overview of major climate tipping points. Interesting that the 2011 IPCC report put to rest concerns about a sudden transition of the thermohaline circulation within this century, despite good evidence that it is a bistable dynamic. Likewise appears to dismiss concerns of a tipping point related to the release of permafrost methane, thus putting aside the two most well-known and well-studied examples.
       
     </div>
   </div>

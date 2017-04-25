@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-09-15 08:59:36
-layout: post
-slug: nimbios-pdg-group-tasks
-title: pdg-control PDG group, Tasks
-redirects: [/wordpress/archives/2655, /archives/2655]
 categories:
 - ecology
+comments: true
+date: 2011-09-15T08:59:36Z
+redirects:
+- /wordpress/archives/2655
+- /archives/2655
+slug: nimbios-pdg-group-tasks
 tags:
 - pdg-control
 - pdg-control
+title: pdg-control PDG group, Tasks
+url: /2011/09/15/nimbios-pdg-group-tasks/
 ---
 
 ## Tools

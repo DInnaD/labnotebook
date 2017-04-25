@@ -1,16 +1,15 @@
 ---
-comments: true
-date: 2011-06-06 17:54:23
-layout: post
-slug: parrotfish-in-wrightscape
-title: Parrotfish in wrightscape
-redirects: [/wordpress/archives/1921, /archives/1921]
 categories:
 - evolution
+comments: true
+date: 2011-06-06T17:54:23Z
+redirects:
+- /wordpress/archives/1921
+- /archives/1921
+slug: parrotfish-in-wrightscape
+title: Parrotfish in wrightscape
+url: /2011/06/06/parrotfish-in-wrightscape/
 ---
-
-
-
 
 ## Bootstrapping option
 

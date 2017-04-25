@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,38 +141,8 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/20/research/">Research</a></h2>
+    <h4>Sat, Mar 20, 2010</h4>
     <div class="article-style">
       
       Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
@@ -181,52 +151,38 @@
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/19/research/">Research</a></h2>
+    <h4>Fri, Mar 19, 2010</h4>
     <div class="article-style">
       
-      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
+      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/18/research/">Research</a></h2>
+    <h4>Thu, Mar 18, 2010</h4>
     <div class="article-style">
       
-      Current Situation &amp; Challenges 2000 bootstraps of models fitted to simulated ou2 data
- A single data set is produced by simulation under a specified ou2 model on the Labrid tree (actually one that was fitted to the original Labrid data). Each model (Brownian motion and 1 to 5 separate OU peaks (assigned by my partition function) is fitted to this dataset. Each fitted model is used to generate 2000 replicate datasets For each replicate dataset, the model used to generate it is compared to each other model in likelihood ratio test 2(log(L~1~) − log(L~2~)), where L~1~ is the likelihood of the model that generated the data.
+      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/17/research/">Research</a></h2>
+    <h4>Wed, Mar 17, 2010</h4>
     <div class="article-style">
       
-      Graham &amp; Peter Meeting Fig 1
-Fig 2
- Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
+      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/solution-to-the-strange-behavior-in-ouch.html">Solution to the strange behavior in ouch</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
+    <h4>Wed, Mar 3, 2010</h4>
     <div class="article-style">
       
       Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
@@ -237,9 +193,55 @@ Computing / Package  LR_bootstrap and model_bootstrap should be the same functio
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/still-puzzling-on-lr.html">Still puzzling on LR</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/02/power-in-trees/">Power in trees</a></h2>
+    <h4>Tue, Mar 2, 2010</h4>
     <div class="article-style">
+      
+      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/02/20/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h2>
+    <h4>Sat, Feb 20, 2010</h4>
+    <div class="article-style">
+      
+      Code implementation in felsenstein_tree.R
+ I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/02/16/updating-manuscript/">Updating manuscript</a></h2>
+    <h4>Tue, Feb 16, 2010</h4>
+    <div class="article-style">
+      
+      The progress of the past few days has lead to substantial revision proposals in my manuscript draft. Rewriting for discussion with Brian tomorrow. Currently revised outline:
+ Intro
+ Biological Motivation Comparative Methods and Comparing Models Model choice paradigm: the right direction, but incomplete  Simple Example
+ The Star Tree Two hypotheses: stabilizing vs disruptive selection Information Criteria approach is insufficient Likelihood surfaces Likelihood ratio distribution  Anoles Example
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/02/15/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
+    <h4>Mon, Feb 15, 2010</h4>
+    <div class="article-style">
+      
+      There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/02/10/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
+    <h4>Wed, Feb 10, 2010</h4>
+    <div class="article-style">
+      
+      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
       
     </div>
   </div>

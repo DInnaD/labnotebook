@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-08T00:00:00Z
 title: Exploring Difficulties with Existing Methods continued
+url: /2010/02/08/Exploring-Difficulties-with-Existing-Methods-continued/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Working on manuscript for this today, hope to have a draft soon.
 

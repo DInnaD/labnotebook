@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-01-27 17:11:14
-layout: post
-slug: warning-signals-vs-pmc
-title: Warning signals vs model choice
-redirects: [/wordpress/archives/848, /archives/848]
 categories:
 - ecology
+comments: true
+date: 2011-01-27T17:11:14Z
+redirects:
+- /wordpress/archives/848
+- /archives/848
+slug: warning-signals-vs-pmc
 tags:
 - warning-signals
+title: Warning signals vs model choice
+url: /2011/01/27/warning-signals-vs-model-choice/
 ---
 
 Continuing writing and experimentation for examples in the warning signals manuscript, figuring out how to explain the need for  the likelihood-based model comparison approach rather than the standard method of summary statistics.

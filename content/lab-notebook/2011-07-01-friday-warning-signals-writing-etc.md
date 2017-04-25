@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-07-01 17:57:59
-layout: post
-title: Friday, warning signals writing, etc
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-07-01T17:57:59Z
+tags:
 - warning-signals
 - delayed-release
+title: Friday, warning signals writing, etc
+url: /2011/07/01/friday-warning-signals-writing-etc/
 ---
 
 - 9-10a email, etc

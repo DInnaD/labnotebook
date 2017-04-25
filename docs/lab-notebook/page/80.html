@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,101 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/graham--peter-meeting.html">Graham &amp; Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/11/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Wed, Aug 11, 2010</h4>
     <div class="article-style">
       
-      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
-Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
+      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
+ use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/graham--peter-meeting.html">Graham &amp; Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/10/likelihood-ratio-update/">Likelihood ratio update</a></h2>
+    <h4>Tue, Aug 10, 2010</h4>
     <div class="article-style">
       
-      Fantastic meeting with Graham and Peter today, covered a lot of ground.
-MNV I briefly sketched the multivariate normal solution for joint probability across the tree under the regimes model. The original regimes approach did not take advantage of the fact that the solution to the joint probability across the tree is multivariate normal given the painting. This allows the calculation to be partitioned as outlined in Saturday&rsquo;s entry:
+      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/hastings-beetle-workshop.html">Hastings Beetle Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/10/warning-signals/">Warning Signals</a></h2>
+    <h4>Tue, Aug 10, 2010</h4>
     <div class="article-style">
-      
-      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
- Morning Session, 9a - 11a
- Outline the individual based model, toolbox  Group lunch, noon-1:30
- My lab Presentation, 2p-3p
- Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
- Follow-up on understanding noise propagation in age structure dynamics.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/hastings-meeting.html">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/09/warning-signals-by-model-choice/">Warning Signals by model choice</a></h2>
+    <h4>Mon, Aug 9, 2010</h4>
     <div class="article-style">
       
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
+      Finished implementation of simulation from saddle-node example Implemented simulation from transition density for all three models  Whoops  The change point model can&rsquo;t be summarized by the transition density, as this depends only on the time interval and not the absolute time. The nice description of being able to solve for the transition density when the transition occurs during the time interval specified is neither necessary nor applicable in this context!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/hastings-meeting.html">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/08/warning-signals/">Warning Signals</a></h2>
+    <h4>Sun, Aug 8, 2010</h4>
     <div class="article-style">
       
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
+      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/isees-software-lifecycle-and-components-workshop-day-1.html">ISEES software lifecycle and components workshop, Day 1</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/07/reading/">Reading</a></h2>
+    <h4>Sat, Aug 7, 2010</h4>
     <div class="article-style">
       
-      Range of large project to the long tail.
- statistical analyses One-off models community model Services (Blast)  Science Challenges Outcomes of previous community workshops
-18 Grand Challenge areas. Highlights: Supermodels. human/biophysical systems shape and be shaped by water availability. (A vision similar to Microsoft&rsquo;s &ldquo;Model all Earth&rdquo; Purves et al)
-Functions and services areas: (priority ordering)
- Computational training (early career - all career) Assimilation and QA/QC tools Collaborative environment decisions and workflows software discovery consultants / collaborator community hub to converge on standards merging disparate tools user-friendly interfaces multiscale coupled modeling framework Software vetting (how about paper vetting?
+      Trying to make this show reading of the day, the script below shows only current reading:
+Friendfeed discussion on solving this:
+Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
+ Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/implementing-an-example-of-low-and-high-power-trees.html">Implementing an example of low and high power trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/05/batch-data/">Batch Data</a></h2>
+    <h4>Thu, Aug 5, 2010</h4>
     <div class="article-style">
       
-      Code implementation in felsenstein_tree.R
- I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
+      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/implementing-the-new-approach.html">Implementing the new approach</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/04/data-format-functions/">Data Format functions</a></h2>
+    <h4>Wed, Aug 4, 2010</h4>
     <div class="article-style">
       
-      Spent just about the entire day off and on implementing the approach described in yesterday&rsquo;s entry. Code includes the more direct implementation of the likelihood by generating trees from the process and averaging, as well as by weighting trees by their probability. Methods appear to agree reasonably well. The second approach should generate a wider variety of trees instead of using those produced by the first method. This could be done by varying the parameters of the transition rates to populate the collection.
+      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
+ Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
+ should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/implementing-warning-signals-metrics.html">Implementing warning signals metrics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/08/03/writing/">Writing</a></h2>
+    <h4>Tue, Aug 3, 2010</h4>
     <div class="article-style">
-      
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/individual-based-simulation-with-gamma-waiting-times.html">Individual based simulation with gamma waiting times</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/07/31/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
+    <h4>Sat, Jul 31, 2010</h4>
     <div class="article-style">
-      
-      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
       
     </div>
   </div>

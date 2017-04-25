@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,123 +141,106 @@
   
   
   <div>
-    <h2><a href="../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation.html">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
+    <h2><a href="../../../2012/04/25/notes/">Notes</a></h2>
+    <h4>Wed, Apr 25, 2012</h4>
     <div class="article-style">
-      
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/29/further-treatment-of-the-limiting-models.html">Further treatment of the limiting models</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../../2012/04/19/catching-up/">Catching up</a></h2>
+    <h4>Thu, Apr 19, 2012</h4>
     <div class="article-style">
       
-      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
+      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/28/likelihoods-for-quadratic-models-cont.html">Likelihoods for quadratic models cont</a></h2>
-    <h4>Sun, Nov 28, 2010</h4>
+    <h2><a href="../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h2>
+    <h4>Tue, Apr 10, 2012</h4>
     <div class="article-style">
       
-      Considering the fits of the quadratic models from yesterday.
-[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
-Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
+      rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/27/implementing-likelihoods-for-quadratic-models.html">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
+    <h2><a href="../../../2012/04/06/friday-8/">Friday</a></h2>
+    <h4>Fri, Apr 6, 2012</h4>
     <div class="article-style">
       
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
+      Fishbase  Revisions based on Duncan&rsquo;s feedback Formatting to Journal of Fish Biology guidelines Updated formatting   fixed footnotes issue in pdf version. Externalize tables in word version.
+  knit_hooks$set(chunk = function(x, options) { if (!options$split) return(x) cat(x, file = fig_path(&lsquo;.md&rsquo;, options)) }   Consider more intuitive function names rather than function arguments?  TreeBase  Needs additional functions replacing sapply queries and argument queries. Table of functions re-organize presentation  rOpenSci GSOC GSoC applications were due at noon today.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/24/warning-signals-likelihoods-straight-up.html">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
+    <h2><a href="../../../2012/04/03/mondaytuesday/">Monday/Tuesday</a></h2>
+    <h4>Tue, Apr 3, 2012</h4>
     <div class="article-style">
       
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
+      knitr + markdown + pandoc + latex Troubleshooting this workflow still&hellip;
+ Fonts xtable for html &amp; latex/pdf xtable comments display tikz device trouble Pandoc table trouble pandoc footnotes Getting a satisfactory LaTeX template.
+ Makefile   writing writing writing: Mostly writing this week, so my notebook has been lacking in entries. Trying to move several manuscripts forward: two are papers accompanying software packages for extracting, manipulating and visualizing data from online repositories (TreeBase and FishBase); part of the rOpenSci project.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/16/tues.html">Tues seminar</a></h2>
-    <h4>Tue, Nov 16, 2010</h4>
+    <h2><a href="../../../2012/03/29/data-to-knowledge-conference-uc-berkeley-application-abstract/">Data to Knowledge Conference, UC Berkeley: application </a></h2>
+    <h4>Thu, Mar 29, 2012</h4>
     <div class="article-style">
       
-      Sarah Dalrymple seminar. Rick Karban&rsquo;s excellent intro: &ldquo;unlike the rest of these seminars, Sarah will tell us something new.&rdquo; &ldquo;Sarah&rsquo;s really out there.&ldquo; Also mentions TAC and art teaching.
-Ants, Jeff pine &amp; fire Fire suppression dramatic impacts. Prescribed under story burns work! ie Angora fire in Tahoe, 2007. Discover rings of unburned soil around base of tree, reducing damage&hellip; undescribed!
-More common in recently burned ( 30 yrs. What makes the rings?
+      I&rsquo;ve just been accepted to the Data to Knowledge Conference in Berkeley this May. I think this conference will address some of the key issues facing us in Big Data today across many different fields, and I hope to learn much that could be useful to ecology and evolution. Given the audience I look forward to being a source of questions rather than answers as I put on my biologist&rsquo;s cap.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood.html">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../../2012/03/27/tuesday-pandoc-citations-notes-various/">Tuesday: pandoc citations notes, various</a></h2>
+    <h4>Tue, Mar 27, 2012</h4>
     <div class="article-style">
       
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
+      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/28/a-new-twist-on-the-approach.html">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../../2012/03/26/active-adaptive-management-solutions-belief-sdp/">Active adaptive management solutions: Belief SDP</a></h2>
+    <h4>Mon, Mar 26, 2012</h4>
     <div class="article-style">
       
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
+      Have finally gotten my active adaptive management solutions working.
+The active adaptive management solution learns very quickly and rather monotonically which model is correct, even when models differ by small amounts and the initial belief is heavily skewed to the wrong model. I&rsquo;ve implemented examples with Myers model, but in this parameter space the allee effect is well below the Reed escapement level of the alternative Beverton Holt model, so it doesn&rsquo;t exert itself.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/28/red-noise-aside-exercise.html">Red Noise (aside exercise)</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../../2012/03/22/robust-control-uncertainty-reading-notes/">Robust control &amp; uncertainty - reading notes</a></h2>
+    <h4>Thu, Mar 22, 2012</h4>
     <div class="article-style">
       
-      Consider the first-order autoregressive process: $$ X_{t+1} = \rho X_t + \sqrt{1-\rho^2}Z_t $$
-Why the funny term at the end? This comes from normalizing the variance,
-$$ \begin{multline} E( (\rho X_t + \sqrt{1-\rho^2} Z_t)^2 ) = E (\rho^2 X_t^2) + E(2 \rho X_t \sqrt{1-\rho^2}) Z_t ) + E( X_t^2 Z_t^2 (1-\rho^2) ) \end{multline}$$
-by independence:
-$$ = \rho^2 E(X_t^2) + 2 \rho \sqrt{1-\rho^2} E( X_t ) E( Z_t ) + E( X_t^2) E(Z_t^2) (1-\rho^2) $$
+      Ecologists/TREE (Fischer et. al. 2009), (Polasky et. al. 2011) give a nice overview/introduction to the problem. Perhaps most interestingly, both set up resilience approaches as a foil or alternate approach in contrast to a decision-theoretic problem. Fischer&rsquo;s group does a particularly nice job handling the case that these two are separate approaches &ndash; it&rsquo;s easy to dismiss resilience thinking as fuzzy optimization of fuzzy objective functions.
+The Polasky piece does a nice job refocusing us on the obvious but brushed-over question of the objective function.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/27/warning-signals-where-are-we-now.html">Warning Signals -- Where are we now?</a></h2>
-    <h4>Wed, Oct 27, 2010</h4>
+    <h2><a href="../../../2012/03/21/policy-costs-to-changing-mangement-tp-1b-apples-to-apples/">Policy costs to changing mangement, TP 1b: Apples to Apples</a></h2>
+    <h4>Wed, Mar 21, 2012</h4>
     <div class="article-style">
       
-      The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
-$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
-and
-$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
+      A central question of training problem 1b addressed at the working group was how to compare the different penalties. Following up on those discussions, here are a few notes on how far I&rsquo;ve gotten in the analysis regarding the best way to make these comparisons.
+ simulate_npv_curves Nice job of showing the performance of the variance ratio, clear example for L2. Correlation test should probably be applied to differences, pattern is much less clear.
       
     </div>
   </div>

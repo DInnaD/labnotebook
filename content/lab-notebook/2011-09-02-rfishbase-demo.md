@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2011-09-02 12:59:35
-layout: post
-title: 'rfishbase demo: Are there more Goby or Labrid species on reefs?'
-redirects: [/wordpress/archives/2529, /archives/2529]
 categories:
 - evolution
+comments: true
+date: 2011-09-02T12:59:35Z
+redirects:
+- /wordpress/archives/2529
+- /archives/2529
 tags:
 - ropensci
+title: 'rfishbase demo: Are there more Goby or Labrid species on reefs?'
+url: /2011/09/02/rfishbase-demo/
 ---
 
 I have updated the package to 0.0-3 alpha, having all the target functionality now.  Improved error handling, downloading of data, processing.  Get the source or windows binary [here](https://github.com/cboettig/rfishbase). I now download the full database and cache it locally for faster querying.  Just about any kind of manipulation is then possible and fast.  

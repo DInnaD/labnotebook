@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [conference]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-27T00:00:00Z
+tags:
+- conference
 title: iEvoBio lightning talk
+url: /2010/04/27/iEvoBio-lightning-talk/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Submitting a five minute lighting talk on open science. [Submitted
 version here](/images/8/89/Lightning.pdf "Lightning.pdf"), final text

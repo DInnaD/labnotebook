@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-02-27 16:24:03
-layout: post
-slug: warning-signals-on-real-data
-title: Warning Signals on Real Data?
-redirects: [/wordpress/archives/1131, /archives/1131]
 categories:
 - ecology
+comments: true
+date: 2011-02-27T16:24:03Z
+redirects:
+- /wordpress/archives/1131
+- /archives/1131
+slug: warning-signals-on-real-data
 tags:
 - warning-signals
+title: Warning Signals on Real Data?
+url: /2011/02/27/warning-signals-on-real-data/
 ---
 
 Grabbed the data used in (Dakos _et. al._ 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit _et. al._ 1999), showing transitions into the last several ice ages,  and calcium carbonate from Eocene "greenhouse" climate (Tripati _et. al._ 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000).  Data is all freely provided through NOAA.

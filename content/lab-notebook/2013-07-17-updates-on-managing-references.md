@@ -1,12 +1,11 @@
 ---
-
-layout: post
-categories: [open-science]
+categories:
+- open-science
+date: 2013-07-17T00:00:00Z
 tags:
 - site-configuration
-
+url: /2013/07/17/updates-on-managing-references/
 ---
-
 
 ### Mendeley API for Jekyll
 

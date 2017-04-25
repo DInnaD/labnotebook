@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-10-26 09:47:13
-layout: post
-slug: monday-misc-notes
-title: Monday, misc notes
-redirects: [/wordpress/archives/2994, /archives/2994]
 categories:
 - ecology
-tags: 
-- pdg-control 
+comments: true
+date: 2011-10-26T09:47:13Z
+redirects:
+- /wordpress/archives/2994
+- /archives/2994
+slug: monday-misc-notes
+tags:
+- pdg-control
 - algorithms
+title: Monday, misc notes
+url: /2011/10/26/monday-misc-notes/
 ---
 
 R packages relevant to the optimal control problems

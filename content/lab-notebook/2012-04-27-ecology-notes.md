@@ -1,11 +1,13 @@
 ---
-layout: post
+categories:
+- ecology
+date: 2012-04-27T00:00:00Z
+tags:
+- decision-theory
+- warning-signals
 title: Project tracking (Ecology)
-category: ecology
-tags: [decision-theory, warning-signals]
+url: /2012/04/27/ecology-notes/
 ---
-
-
 
 ## [pdg-control](https://github.com/cboettig/pdg-control)
 

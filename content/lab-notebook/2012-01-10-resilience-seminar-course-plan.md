@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-01-10 15:17:42
-layout: post
-slug: resilience--course-plan
-title: Resilience seminar course plan
-redirects: [/wordpress/archives/3728, /archives/3728]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2012-01-10T15:17:42Z
+redirects:
+- /wordpress/archives/3728
+- /archives/3728
+slug: resilience--course-plan
+tags:
 - coursework
+title: Resilience seminar course plan
+url: /2012/01/10/resilience-seminar-course-plan/
 ---
 
 Resilience Monte Carlo Seminar, 11am Tuesdays. Val Eviner.  

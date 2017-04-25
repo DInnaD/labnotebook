@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-08-08T00:00:00Z
+tags:
 - conference
 - open-science
-
+url: /2013/08/08/ESA-2013-notes-for-week/
 ---
-
 
 Sun
 ---

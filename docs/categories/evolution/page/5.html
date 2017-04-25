@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,112 +141,119 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/31/wednesday-7.html">Wednesday</a></h2>
-    <h4>Wed, Aug 31, 2011</h4>
-    <div class="article-style">
-      
-      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
- Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/30/tuesday-8.html">Tuesday</a></h2>
-    <h4>Tue, Aug 30, 2011</h4>
+    <h2><a href="../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/">wrightscape and sensitivity to initial conditions</a></h2>
+    <h4>Thu, Nov 17, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/29/monday-scaling-wrightscape-examples.html">Monday: scaling wrightscape examples</a></h2>
-    <h4>Mon, Aug 29, 2011</h4>
+    <h2><a href="../../../2011/11/12/of-labrids-and-dubious-convergence/">Wainwright Retreat to Hastings Reserve</a></h2>
+    <h4>Sat, Nov 12, 2011</h4>
     <div class="article-style">
       
-      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
- Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
-   Commits to taxize pushed to Scott.
-wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
+      Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
+more labrid trait evolution alpha &amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
+Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/28/sunday-scaling-runs.html">Sunday: scaling, runs</a></h2>
-    <h4>Sun, Aug 28, 2011</h4>
+    <h2><a href="../../../2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/">Auteur plots for reef fish jaws and monkey brains -- needs tweaking</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
-Set up for running primates.R in likelihood mode with abstracted parallelization:
-Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
-hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
+      Looking at the diversification patterns from Auteur. Longer rjmcmc runs aren&rsquo;t showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps? Seems to overestimate the change points.
+Remains true for the primate brains example:
+Set up to run on carver cluster, copy over the saved rda file and all files matching the random string already saved as outputs. Full labrid example on 20 cores still exceeds the allocation capacity for an R vector.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize.html">rropensci and some taxonomy in R with taxize</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
       
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
+      Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/23/tuesday-rropensci-rmpi-manuscripts.html">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
-    <h4>Tue, Aug 23, 2011</h4>
+    <h2><a href="../../../2011/11/01/labrids-parrotfish-method1/">Labrids &amp; Parrotfish, method1</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
-      
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/21/academic-year-2011-summary.html">Academic Year 2011 Summary</a></h2>
-    <h4>Sun, Aug 21, 2011</h4>
+    <h2><a href="../../../2011/10/26/labrid-submodels/">Labrid submodels</a></h2>
+    <h4>Wed, Oct 26, 2011</h4>
     <div class="article-style">
       
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
+      Updates to labrids results:
+ Results from Parrotfish tree &amp; 2-partition Labrid tree on full model.  Full model, Labrids Pharyngeal Shift
+Alphas Sigmas Full Model, Intramandibular Shift .
+Labrid tree, multi-sigma model, both shifts Surprising less powerful at identifying the differences.
+Note that this still estimates OU models, and hence has a global alpha, and unique thetas:
+LABRID TREE, MULTI-alpha, BOTH SHIFTS Parrotfish tree, multi-sigma model: Parrotfish tree, multi-alpha model: Labrid pharyngeal only, multi-sigma model: Labrid pharyngeal, multi-alpha Labrid intramandibular only, multi-sigma model: Labrid intramandibular, multi-alpha Full model plots with: method2_plots.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/18/thursday-reviewing-edits-ropensci-computers.html">Thursday: reviewing edits, ropensci, computers.</a></h2>
-    <h4>Thu, Aug 18, 2011</h4>
+    <h2><a href="../../../2011/10/25/tuesday-notes-package-work-mostly/">Tuesday notes: package work mostly.</a></h2>
+    <h4>Tue, Oct 25, 2011</h4>
     <div class="article-style">
       
-      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
-Brief topic notes from today&rsquo;s meeting:
- set up different take on layout: lambda, AIC, power
+      Treebase release  write updated tutorial.
+ cran needs mac and windows binaries.
+  Trying devtools win_builder(); emailing Kurt. Nevermind, just got the email saying the binary has been built.
+ write email announcement  rfishbase data formatting My problem turned out not to be about &ldquo;&amp;rdquo; at all, these were octal encodings of symbols used in the XML data, eg: Cape Bojador (26°N)
+which xmlValue() would read in using the octal encoding &rdquo;Cape Bojador (26\302\260N)&rdquo;
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/17/wrightscape-a-brief-tutorial.html">Wrightscape: a brief tutorial</a></h2>
-    <h4>Wed, Aug 17, 2011</h4>
+    <h2><a href="../../../2011/10/25/treebase-package-on-cran/"></a></h2>
+    <h4>Tue, Oct 25, 2011</h4>
     <div class="article-style">
       
-      While the wrightscape package is still in active development, I realize the code base doesn&rsquo;t contain any introductory examples. So as a first tutorial, here&rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
-require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.
+      My treebase package is now up on the CRAN repository. (Source code is up, the binaries should appear soon). Here&rsquo;s a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/16/tuesday-7.html">Tuesday:</a></h2>
-    <h4>Tue, Aug 16, 2011</h4>
+    <h2><a href="../../../2011/10/20/thursday-some-parrotfish-runs-on-method2/">Thursday - some parrotfish &amp; labrid runs on method2</a></h2>
+    <h4>Thu, Oct 20, 2011</h4>
     <div class="article-style">
+      
+      Running:
+ farm cluster, c0-17 method2_parrotfish.R &ndash; Done. Below.
+ farm cluster, c0-27 method2_labrids.R (with three partitions)
+ farm cluster, c0-13 method2_labrids_phar.R (two partitions)
+ farm cluster, c0-19 method2_labrids_intra.R (two partitions)
+  Parrotfish Phylogeny The .y indicates the trait has been size-corrected. Parameters reported from estimations in the full model. All sets converged except open lever ratio. Error bars indicate 1 standard deviation estimated from the likelihood curvature. Lighter color indicates the presence of an intramandibular joint, as coded in the phylogeny above.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/10/07/matt-helmus-visit/">Matt Helmus visit</a></h2>
+    <h4>Fri, Oct 7, 2011</h4>
+    <div class="article-style">
+      
+      Notes from presentation 1. Species-area curve:  Species sorting by environment. species clustering due to limited dispersal Random displacement (faster saturation) In-situ speciation looks like clustering Compare to colonization Phylogenetic species variability metric: compare phylogenetic covariance matrix to a star-phylogeny, not expected to increase with area.  $$ \frac{n \textrm{tr}C - \sum C }{n(n-1)}$$
+2. Simulations:  species sort along an environmental gradient. BM trait determining position. : closely related species clustered.
       
     </div>
   </div>

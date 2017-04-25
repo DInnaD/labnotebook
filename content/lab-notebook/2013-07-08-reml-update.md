@@ -1,11 +1,12 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+code: true
+date: 2013-07-08T00:00:00Z
 tags:
 - ropensci
 - eml
-code: true
-
+url: /2013/07/08/reml-update/
 ---
 
 Made substanial progress on the [reml](https://github.com/ropensci/reml) project. We have reached our [first milestone](https://github.com/ropensci/reml/issues?milestone=1&state=closed), being able to:

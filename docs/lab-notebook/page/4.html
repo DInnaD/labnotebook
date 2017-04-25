@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,120 +140,115 @@
   
   
   <div>
-    <h2><a href="../../2012/02/28/knitr-with-flickr-and-wordpress.html">Knitr with flickr and wordpress</a></h2>
-    <h4>Tue, Feb 28, 2012</h4>
+    <h2><a href="../../2014/10/09/lessons-learned-in-writing-dockerfiles/"></a></h2>
+    <h4>Thu, Oct 9, 2014</h4>
     <div class="article-style">
       
-      It&rsquo;s amazing how nice it is to work with well-developed software. It took me about 20 minutes to extend Yuhui&rsquo;s interface to allow me to upload images through flickr instead of imgur, and embed them into a wordpress blog using the shortcode from the flickr gallery plugin.
-To do this, I just modified the hook used by the markdown format. First, I define a quick R function that uploads to flickr and returns the flickr identifier number.
+      Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
+ Minimize the number of layers, but use \ to break commands across multiple lines,
+ Always run apt-get update &amp;&amp; apt-get install -y .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/27/using-knitr-and-rwordpress-to-publish-results-directly-from-r-6.html">Using knitr and RWordPress to publish results directly from R</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
+    <h2><a href="../../2014/10/08/response-to-software-discovery-index-report/"></a></h2>
+    <h4>Wed, Oct 8, 2014</h4>
     <div class="article-style">
       
-      Update: The original source file for this post, generates this output file formatted for wordpress. The source file has been knitted for markdown formatting so this post displays in Jekyll. The rendered post relies on Wordpress shortcodes, as raw the output file shows above. The markdown-based rendering shows the images and the shortcodes wordpress uses for codeblocks.
-One of the great things about knitr is its flexibility. Here I set knitr up to publish to Wordpress.
+      The NIH has recently announced the report of a landmark meeting which presents a vision for a Software Discovery Index (SDI). The report is both timely and focused on the key issues of locating, citing, reusing software:
+ Software developers face challenges disseminating their software and measuring its adoption. Software users have difficulty identifying the most appropriate software for their work. Journal publishers lack a consistent way to handle software citations or to ensure reproducibility of published findings.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/27/monday-14.html">Monday</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
+    <h2><a href="../../2014/10/07/notes/"></a></h2>
+    <h4>Tue, Oct 7, 2014</h4>
     <div class="article-style">
       
-      Warning Signals  Added resulting indicator distributions on finer sampling results.
- Re-running now excluding the final dive (population below 300).
-  Treebase working on manuscript. A few examples using the improved meta-data queries:
-Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
+      Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
+ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/24/visuals-for-communicating-uncertainty.html">Visuals for Communicating Uncertainty </a></h2>
-    <h4>Fri, Feb 24, 2012</h4>
+    <h2><a href="../../2014/10/02/notes/"></a></h2>
+    <h4>Thu, Oct 2, 2014</h4>
     <div class="article-style">
       
-      Visiting the question of communicating uncertainty in Marissa&rsquo;s lab meeting, focusing on this excellent Science article (Spiegelhalter et. al. 2011). Noam and Jamie are leading the discussion, and suggested we pick a few favorite examples. None on my list really address the challenge of communicating uncertainty directly, though the first one probably comes closest. I think they do highlight some of the potential and the challenges of good data visualization though, which is certainly one of the essential building blocks to visual communication of uncertainty.
+      docker 2014-09-29:
+ Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
+ Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&rsquo;s talk on our Docker work.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/23/esa-2012.html">ESA 2012 Abstract</a></h2>
-    <h4>Thu, Feb 23, 2012</h4>
+    <h2><a href="../../2014/09/24/notes/"></a></h2>
+    <h4>Wed, Sep 24, 2014</h4>
     <div class="article-style">
       
-      Submitted my abstract for ESA 2012, in Portland. Getting a title and abstract pinned down about seven months in advance is itself an exercise in decision making under uncertainty. I&rsquo;ve added some further background below.
-Unknown unknowns: management strategies under uncertainty &amp; alternate stable states Background/Question/Methods The effective management of natural resource populations such as fisheries or forests and the ecosystems in which they are embedded is a central goal of much work in both theoretical and applied ecological research.
+      rocker / docker  Talking over strategy with Dirk, see summary in #1 and follow-up issues, #3, #4, #5.  rdataone &amp; EML Trying to fix travis issues. Much craziness.
+travis.sh doesn&rsquo;t provide notes on setup for repos where the R package is in a subdirectory. Looks like cd commands are persistent though throughout a travis file. okay.
+ dataone is imported by EML but suggested by dataone. Since install_github likes to install the suggests list, this creates problems:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/22/stochastic-optimization.html">Stochastic optimization </a></h2>
-    <h4>Wed, Feb 22, 2012</h4>
+    <h2><a href="../../2014/09/22/containerizing-my-development-environment/"></a></h2>
+    <h4>Mon, Sep 22, 2014</h4>
     <div class="article-style">
       
-      Surprising heterogeneity of profit distribution under a simple Beverton-Holt model Usually I expect the alternate stable state dynamics to be the ones producing bimodal distribution of profit:
-The pattern is driven by a costs to harvesting making harvest unprofitable most of the time, while chance fluctuations push some populations across this threshold again and again. The ensemble variation in harvest is suggestive of this:
-but we really see what is going on when we color-code the population dynamics of the most profitable and least profitable realizations of the stochastic dynamics:
+      A key challenge for reproducible research is developing solutions that integrate easily into a researcher&rsquo;s existing workflow. Having to move all of one&rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&rsquo;t particularly appealing. In my experience this doesn&rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/22/wednesday-12.html">Wednesday</a></h2>
-    <h4>Wed, Feb 22, 2012</h4>
+    <h2><a href="../../2014/09/09/server-backups/"></a></h2>
+    <h4>Tue, Sep 9, 2014</h4>
     <div class="article-style">
       
-      CC0 license approved for use on CRAN
- Update my DESCRIPTION files, use the new Author@R convention.
- Rebecca&rsquo;s comment on mntd in comparative methods
- This lab notebook gets mentioned for good practices in academic workflow.
- Working on treebase paper
- ESA registration
- Lecture notes for tomorrow
- forage fish writing
-  Reading Reading over (Munch et. al. 2005). I think this is a very nice treatment, a lot clearer I think than lots of other stuff I&rsquo;ve looked at (thanks Tim &amp; Jim!
+      Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
+The process is rather manual: we have to sudo poweroff the droplet and then trigger the snapshot (the container will come back online after that, though we have to restart the services / active docker containers). We also have to delete old snapshots manually. Some of this can be automated from the API.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc.html">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
+    <h2><a href="../../2014/09/08/server-security-basics/"></a></h2>
+    <h4>Mon, Sep 8, 2014</h4>
     <div class="article-style">
       
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
+      Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
+ Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
+ Disabling root logins. (We&rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/20/finer-sampling-in-prosecutors-fallacy.html">finer sampling in prosecutor&#39;s fallacy</a></h2>
-    <h4>Mon, Feb 20, 2012</h4>
+    <h2><a href="../../2014/09/05/drone-ci-and-docker/"></a></h2>
+    <h4>Fri, Sep 5, 2014</h4>
     <div class="article-style">
       
-      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
-require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
-d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
+      Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&rsquo;t supported out of the box).
+ We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &lsquo;minion&rsquo;.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/16/prosecutors-fallacy-initial-look.html">prosecutor&#39;s fallacy initial look</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
+    <h2><a href="../../2014/09/05/thoughts-on-harte-interview/"></a></h2>
+    <h4>Fri, Sep 5, 2014</h4>
     <div class="article-style">
       
-      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
+      Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
+ From general laws flow absolutely bullet-proof insights and this is what we most need
+ I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
       
     </div>
   </div>

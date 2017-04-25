@@ -1,14 +1,17 @@
 ---
+categories:
+- evolution
 comments: true
-date: 2011-09-23 11:03:43
-layout: post
+date: 2011-09-23T11:03:43Z
+redirects:
+- /wordpress/archives/2741
+- /archives/2741
 slug: friday-ropensci-manuscript-edits
-title: 'Friday: ropensci, manuscript edits'
-redirects: [/wordpress/archives/2741, /archives/2741]
-categories: [evolution]
-tags: 
-- ropensci 
+tags:
+- ropensci
 - pmc
+title: 'Friday: ropensci, manuscript edits'
+url: /2011/09/23/friday-ropensci-manuscript-edits/
 ---
 
 ## rOpenSci Conference Call

@@ -1,13 +1,15 @@
 ---
-layout: post
-title: "Extending ape::phylo class to NeXML:"
-subtitle: Promoting an S3 class into S4 while maintaining existing methods 
-category: evolution 
-tags: 
+categories:
+- evolution
+date: 2013-10-07T00:00:00Z
+subtitle: Promoting an S3 class into S4 while maintaining existing methods
+tags:
 - R
-- code-tricks 
+- code-tricks
 - rnexml
 - ropensci
+title: 'Extending ape::phylo class to NeXML:'
+url: /2013/10/07/nexml-phylo-class-extension/
 ---
 
 While working on the [RNeXML](https://github.com/ropensci/RNeXML) package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them.  [SO:](http://stackoverflow.com/questions/17976217/make-s4-object-act-as-an-s3-class)

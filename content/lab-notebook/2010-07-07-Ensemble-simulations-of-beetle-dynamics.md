@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-07-07T00:00:00Z
+tags:
+- tribolium
 title: Ensemble simulations of beetle dynamics
+url: /2010/07/07/Ensemble-simulations-of-beetle-dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ![code Fig
 1](http://openwetware.org/images/thumb/1/15/Gamma_beetle_ensemble_ibm.png/300px-Gamma_beetle_ensemble_ibm.png)

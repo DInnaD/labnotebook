@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: [nonparametric-bayes]
-
+categories:
+- ecology
+date: 2012-12-04T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2012/12/04/tgp-mcmc-for-gaussian-processes/
 ---
-
 
 Exploring implementation through `tgp` package MCMC routine and background reading (manual, vignettes, thesis).
 

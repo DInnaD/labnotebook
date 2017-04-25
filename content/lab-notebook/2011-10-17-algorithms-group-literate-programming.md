@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-17 18:41:42
-layout: post
-slug: algorithms-group-literate-programming
-title: 'Algorithms Group: Literate programming'
-redirects: [/wordpress/archives/2913, /archives/2913]
 categories:
 - computation
+comments: true
+date: 2011-10-17T18:41:42Z
+redirects:
+- /wordpress/archives/2913
+- /archives/2913
+slug: algorithms-group-literate-programming
 tags:
 - algorithms
+title: 'Algorithms Group: Literate programming'
+url: /2011/10/17/algorithms-group-literate-programming/
 ---
 
 Algorithms group today took a brake from discussing algorithms for an aside on coding practices.  Today we focused primarily on literate programming tools for making better documented, more readable code.   We covered:

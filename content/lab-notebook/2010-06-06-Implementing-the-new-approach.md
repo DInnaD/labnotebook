@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-06T00:00:00Z
 title: Implementing the new approach
+url: /2010/06/06/Implementing-the-new-approach/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Spent just about the entire day off and on implementing the approach
     described in yesterday's entry. Code includes the more direct

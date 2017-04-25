@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
-- warning-signals
+categories:
+- ecology
 code: true
-
+date: 2013-04-11T00:00:00Z
+tags:
+- warning-signals
+url: /2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/
 ---
-
 
 In this tutorial we walk through how to use the likelihood-based approach of <span class="showtooltip" title="Boettiger C and Hastings A (2012). Quantifying Limits to
 Detection of Early Warning For Critical Transitions. _Journal of

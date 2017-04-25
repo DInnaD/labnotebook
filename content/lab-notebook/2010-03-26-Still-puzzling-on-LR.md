@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-26T00:00:00Z
+tags:
+- pmc
 title: Still puzzling on LR
+url: /2010/03/26/Still-puzzling-on-LR/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   The likelihood ratios when parameters are not held fixed, using data
     originally generated from a two peak model. Has 1000 bootstrap

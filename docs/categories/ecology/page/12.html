@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,117 +141,115 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/02/monday-8.html">Monday</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
+    <h2><a href="../../../2013/04/02/monday---tuesday/"></a></h2>
+    <h4>Tue, Apr 2, 2013</h4>
     <div class="article-style">
       
-      Peter advice  Figure out your focus. Have all the stuff from your PhD published (at least submitted), make sure your post-doc moves forward. (#1 mistake). Publish with data folks to show you have much to offer the non-theorist community Speak to potential advisers, get them excited about the work. Berkeley over Michigan over NESCent/NIMBioS. Visit Berkeley. Ackerley on sabbatical?  Review for Theoretical Ecology Working on another review. Not a bad paper, but presenting many classical results as novel.
+      Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
+ More fishery managment controversy with Halpern et. al. (2013) critiquing the &lsquo;ocean food provision index&rsquo; from Nature last year, and a subset of that team replying Halpern et. al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/30/saturday-fisheries-data-survey-warning-signals.html">Saturday: Fisheries Data Survey, Warning Signals</a></h2>
-    <h4>Sat, Jul 30, 2011</h4>
+    <h2><a href="../../../2013/03/26/research/"></a></h2>
+    <h4>Tue, Mar 26, 2013</h4>
     <div class="article-style">
       
-      Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.
-Apparently several of the data sets are problematic. All deal with catch instead of abundance and measurement error is highly significant, though it seems that some may suffer from more troublesome systematic errors. Taking a quick look over what is available. Lots of data, but despite what appears to be some rather sophisticated tools available on the sites, I&rsquo;m having a bit of difficulty finding just what I&rsquo;m looking for.
+      nonparametric-bayes writing writing &hellip;
+multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
+ multiple-uncertainty.m example  Compare to
+ R algorithm example  Matlab code shows the same pattern in which growth noise results in constant escapement, but either implementation or measurement noise cause deviations from this rule (most dramatic in the case of implementation uncertainty).
+Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline intro #78.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/29/2268.html">Friday: ESA Practice Talk</a></h2>
-    <h4>Fri, Jul 29, 2011</h4>
+    <h2><a href="../../../2013/03/25/research/"></a></h2>
+    <h4>Mon, Mar 25, 2013</h4>
     <div class="article-style">
       
-      Practice talk in Teary today; Jamie, Marissa and myself. Lots of discussion and feedback. Some good general discussion about presentations as well &ndash; Marissa mentioned the Oceanographic Institute&rsquo;s tips for speakers and other resources on her website. Brief notes on changes to make in my talk based on some excellent discussion:
- Julie and others point out I should at least reference Type I &amp; Type II Error &ndash; statement contrasting scientific hypothesis testing vs managing for collapse.
+      Reading  (Schreiber &amp; Killingback, 2013 ) (Warren, 2013 )  Notebook  Added SHA hashes. See notebook Issues #67 for details. modification date. #74, also involved resolving page path robustly, #73 analytics on history button, layout #72 push dreamhost-based images to flickr See #75  prosecutor Run with OU based data. Draw from sde package.
+Packages Knitcitations  Feature request for additional markup for page ranges #32  rfigshare  Handle pull request for rfigshare  code-tricks: notes on merging select files from pull request Pull request included changes to files we don&rsquo;t want to change.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/27/weds-manuscript.html">Weds: Manuscript</a></h2>
-    <h4>Wed, Jul 27, 2011</h4>
+    <h2><a href="../../../2013/03/22/research/"></a></h2>
+    <h4>Fri, Mar 22, 2013</h4>
     <div class="article-style">
       
-      I&rsquo;ve removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:
- Here the authors claim that by using particular structural models based on assumptions about underlying dynamics their method makes it easy to identify cases that do not conform to the assumptions. It would be interesting to evaluate this claim but it would require a substantial amount of analysis that may be beyond the scope of a short paper.
+      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits.html">Wednesday: ESA presentation, manuscript/appendix edits </a></h2>
-    <h4>Wed, Jul 27, 2011</h4>
+    <h2><a href="../../../2013/03/20/research/"></a></h2>
+    <h4>Wed, Mar 20, 2013</h4>
     <div class="article-style">
       
-      Misc morning  Site trouble, again. requested migrating servers. Done. hope we&rsquo;re more stable now. Checking in with Peter about migrating site domain. Sent request to Matt. Looking over NERSC PI application, see first allocation instructions. Emailed Mary Ann w/ questions on forms. SMB 2012 is at NIMBioS! Nick to join ropensci. Coordinating launch, advisers, etc. Karthik and Scott have done a great job editing my intro post and sprucing up the site.
+      pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/26/tues-esa-presentation.html">Tues: ESA presentation</a></h2>
-    <h4>Tue, Jul 26, 2011</h4>
+    <h2><a href="../../../2013/03/19/prosecutor-fallacy-as-large-deviations/"></a></h2>
+    <h4>Tue, Mar 19, 2013</h4>
     <div class="article-style">
       
-      Working on ESA presentation. See slides and code for details.
- Adding movie a time series which gets longer (and closer to collapse) each frame, with corresponding warning signals for the interval thus far shown below (for CV and autocorrelation). Include sparsely sampled (100) and densely sampled (1000) examples. Compare always using a sliding window-size equal to half the length of the available data (works well on longer time series) to a fixed-width sliding window (doesn&rsquo;t work well ever).
+      (Corresponds to commit 4bd8422107 in earlywarning repo)
+For the individual-based simulation, the population dynamics are given by
+$$\begin{align} \frac{dP(n,t)}{dt} &amp;= b{n-1} P(n-1,t) + d{n+1}P(n+1,t) - (b_n+d_n) P(n,t), b_n &amp;= \frac{e K n^2}{n^2 + h^2}, d_n &amp;= e n + a, \end{align}$$
+which is provided by the saddle_node_ibm model in populationdynamics.
+For each of the warning signal statistics in question, we need to generate the distibution over all replicates and then over replicates which have been selected conditional on having experienced a crash.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/25/monday-esa.html">Monday: ESA, appendix, etc</a></h2>
-    <h4>Mon, Jul 25, 2011</h4>
+    <h2><a href="../../../2013/03/19/collected-notes/">Collected notes from past few days</a></h2>
+    <h4>Tue, Mar 19, 2013</h4>
     <div class="article-style">
       
-      Reading Gene expression as a continuous phenotypic trait &ndash; establishing signal for selection over drift. (Bedford &amp; Hartl, 2009) OU vs BM (or just estimation of selection in the OU model relative to tree length) would have been an obvious way to do this, but the paper tries to make the argument that scaling the data and then comparing
-$$\frac{\sigma^2}{2\alpha} $$
-is some indication.
-Model choice section on warning signals Trying to figure out whether or not to remove this section (previously Appendix H: Model Choice and Model Adequacy).
+      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/24/sunday-appendix-edits.html">Sunday: Appendix edits</a></h2>
-    <h4>Sun, Jul 24, 2011</h4>
+    <h2><a href="../../../2013/03/14/notes/"></a></h2>
+    <h4>Thu, Mar 14, 2013</h4>
     <div class="article-style">
       
-      Appendix A. Method Summary &ndash; Basically the &ldquo;methods&rdquo; section as we had it in the Nature version, a bit updated.
- These sections are as before, with minor updates from the reviewers, etc. They&rsquo;re also probably the most important part:
- Appendix B. The data sets Appendix C. Model Derivations Appendix D. Likelihood calculations Appendix E. The likelihood statistic  Appendix F. The distributions for the ROC curves &ndash; these are the former figure 1b/c distributions used to make the ROC curve.
+      Writing  Meeting with Steve over outline Writing on nonparametric-bayes manuscript A few notes on notebook-features draft  Reading  EasyABC by Jabot et. al. (2013). While it&rsquo;s great that MEE publishes this stuff, this is unique in that the authors are updating and improving upon an existing package published by MEE the year before, Brook et. al. (2013). The authors of the recent manuscript have certainly made an important contribution which deserves the traditional recognition provided by a separate publication, but one must wonder why we need another package instead of building on the existing one.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/17/sunday-warning-signals.html">Sunday: Warning Signals</a></h2>
-    <h4>Sun, Jul 17, 2011</h4>
+    <h2><a href="../../../2013/03/13/notes/"></a></h2>
+    <h4>Wed, Mar 13, 2013</h4>
     <div class="article-style">
       
-      Continuing work on warning signals manuscript. Most entries for this work are delayed-release. Some final stages of editing today:
-Data sets for appendix  deut1
- caco3
- Other datasets? other drake? other deut?
- launched drakeI9 on farm c0-2 by ssh.
- launched ibm_stable on farm c0-1.
- launched deut2_analysis on farm c0-3, failed. needs better initial conditions to run
-  Main paper fix plots: Figure 4 needs axis labels &ndash; done.
+      Multiple-uncertainty  Created smaller version of table to simplify comparisons Switched to stationary policy comparisons only. (Running out over longer time shifts total value a bit but doesn&rsquo;t amplify scale of the differences much) Larger noise amplifies the effects (compare 0.3 levels to 0.5 levels) note that averaging over replicates gives rather consistent means. The differences between successive runs of the algorithm give results agreeing to the tenths place at least.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/17/saturday---back-to-warning-signals-ms.html">Saturday - back to Warning Signals MS</a></h2>
-    <h4>Sun, Jul 17, 2011</h4>
+    <h2><a href="../../../2013/03/12/notes/"></a></h2>
+    <h4>Tue, Mar 12, 2013</h4>
     <div class="article-style">
       
-      New outline   &rdquo;An increasing recognition&rdquo;  &ldquo;proof-of-principle&rdquo; - reliability is unknown  &ldquo;Cries wolf&rdquo;  ROC, Fig 1  tau  method  data, Fig 2  analysis, Fig 3  enough data Fig 4  disclaimer  conclusion  Former Outline  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.
+      Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
+  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
       
     </div>
   </div>

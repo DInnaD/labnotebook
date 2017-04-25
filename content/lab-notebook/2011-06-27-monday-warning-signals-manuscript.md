@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-27 12:33:21
-layout: post
-slug: monday-warning-signals-manuscript
-title: 'Monday: Warning Signals Manuscript'
-redirects: [/wordpress/archives/2065, /archives/2065]
 categories:
 - ecology
+comments: true
+date: 2011-06-27T12:33:21Z
+redirects:
+- /wordpress/archives/2065
+- /archives/2065
+slug: monday-warning-signals-manuscript
 tags:
 - warning-signals
+title: 'Monday: Warning Signals Manuscript'
+url: /2011/06/27/monday-warning-signals-manuscript/
 ---
 
 Looking at ways to visually explain receiver-operator characteristic (ROC) curves.  Should probably be done in a way that maps the curves to the points along the curve.  May make a nice graphic but perhaps unnecessary.

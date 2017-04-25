@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-12-01 23:33:55
-layout: post
-slug: thrusday-corrected-calculation-implementing
-title: 'Thrusday - corrected calculation, implementing.  '
-redirects: [/wordpress/archives/3423, /archives/3423]
 categories:
 - evolution
+comments: true
+date: 2011-12-01T23:33:55Z
+redirects:
+- /wordpress/archives/3423
+- /archives/3423
+slug: thrusday-corrected-calculation-implementing
+title: 'Thrusday - corrected calculation, implementing.  '
+url: /2011/12/01/thrusday-corrected-calculation-implementing/
 ---
 
 Implementing Wednesday night's calculations. Should transcribe full derivation from paper notebook, meanwhile (revealing how chaotic my work process really is):

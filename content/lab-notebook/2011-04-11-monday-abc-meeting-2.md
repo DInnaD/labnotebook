@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-04-11 16:21:09
-layout: post
-slug: monday-abc-meeting-2
-title: 'Monday: algorithms Meeting'
-redirects: [/wordpress/archives/1397, /archives/1397]
 categories:
 - computation
+comments: true
+date: 2011-04-11T16:21:09Z
+redirects:
+- /wordpress/archives/1397
+- /archives/1397
+slug: monday-abc-meeting-2
 tags:
 - algorithms
+title: 'Monday: algorithms Meeting'
+url: /2011/04/11/monday-abc-meeting-2/
 ---
 
 Yaniv has started an algorithms discussion group. We just met with a few  students to discuss implementing Approximate Bayesian Computing methods from scratch.  Most of us had read (Beaumont, 2010) and (Csilléry _et. al._ 2010)  but also followed [cite source="pubmed"]12524368[/cite] most helpful during the session.

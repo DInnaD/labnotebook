@@ -1,8 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: [warning-signals, decision-theory]
-
+categories:
+- ecology
+date: 2012-08-22T00:00:00Z
+tags:
+- warning-signals
+- decision-theory
+url: /2012/08/22/warning-signals-in-management/
 ---
 
 Tour of existing files (version stable links)

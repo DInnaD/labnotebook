@@ -1,12 +1,12 @@
 ---
-title: "So, you're active on Research Gate?"
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-11-14T00:00:00Z
+tags:
 - blog
-
+title: So, you're active on Research Gate?
+url: /2013/11/14/research-gate/
 ---
-
 
 I have occassionally been getting this question: 
 

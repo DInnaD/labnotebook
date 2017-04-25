@@ -1,11 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-03-08T00:00:00Z
+tags:
 - warning-signals
 - nonparametric-bayes
 - notebook-technology
-
+url: /2013/03/08/notes-from-the-week/
 ---
 
 (Working from Galveston this week while at Louise's conference, looking after little one. some progress below.)

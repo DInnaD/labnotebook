@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2012-04-03 15:59:22
-layout: post
-slug: mondaytuesday
-title: Monday/Tuesday
-redirects: [/wordpress/archives/4412, /archives/4412]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2012-04-03T15:59:22Z
+redirects:
+- /wordpress/archives/4412
+- /archives/4412
+slug: mondaytuesday
+tags:
 - workflow
 - ropensci
+title: Monday/Tuesday
+url: /2012/04/03/mondaytuesday/
 ---
 
 ## knitr + markdown + pandoc + latex

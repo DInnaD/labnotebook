@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-05-12T00:00:00Z
 title: Roi and Sam Comparative Phylogenetics R Workshop
+url: /2010/05/12/Roi-and-Sam-Comparative-Phylogenetics-R-Workshop/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 #### Day 2: 4p - 6:30p
 

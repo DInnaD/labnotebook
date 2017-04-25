@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,103 +141,127 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/hastings-meeting.html">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/27/optimal-control-next-steps/">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h2>
+    <h4>Thu, Oct 27, 2011</h4>
     <div class="article-style">
       
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
+      Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
+ Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
+ Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
+  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/hastings-meeting.html">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/26/monday-misc-notes/">Monday, misc notes</a></h2>
+    <h4>Wed, Oct 26, 2011</h4>
     <div class="article-style">
       
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
+      R packages relevant to the optimal control problems
+ BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
+ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/implementing-warning-signals-metrics.html">Implementing warning signals metrics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/24/optimal-control-training-problem-2-problem-statement/">Training problem 2: the economist&#39;s problem statement</a></h2>
+    <h4>Mon, Oct 24, 2011</h4>
     <div class="article-style">
       
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
+      pdg-control Problem statement: Maximize profits subject to $$\max_{h(t)} \int_0^T e^{-\rho t} \pi(x, h, t) dt $$ Subject to the state equations (biology):
+$$ \dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h $$
+Note that we consider the control variable to be effort, $h$ instead of harvest, $\mathcal{H}$, where $\mathcal{H} = h x$.
+and the constraints: $$ x(0) = X_0 \qquad x(T) = X_T $$ We have fixed boundary conditions (equalities) and equalities in the state equations, so we have a nice straight-forward problem.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/individual-based-simulation-with-gamma-waiting-times.html">Individual based simulation with gamma waiting times</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/21/friday-optimal-control/">Friday: Optimal Control</a></h2>
+    <h4>Fri, Oct 21, 2011</h4>
     <div class="article-style">
       
-      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
+      Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
+subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
+and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
+$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/large-intrinsic-noise.html">Large Intrinsic Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/18/mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles/">Mathematical Elements of Attack Risk Analysis for Mountain Pine tribolium</a></h2>
+    <h4>Tue, Oct 18, 2011</h4>
     <div class="article-style">
       
-      Modified Crowley model Realizing Arbitrarily large demographic noise systems??
-Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
-I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
-And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
+      (POWELL et. al. 2000)
+Regimes endemic - attack the weakling trees. epidemic
+Tree has defenses. Aggregation of beetles can exhaust these, but then must disperse to other trees to avoid larval competition.
+Mathematical Elements The cast, (after some non-dimensionalization)
+ $ \dot Q(x,y,t) = R P - Q R$ Nesting beetles
+ $ \dot H(x,y,t) = R P - H R $ Holes: measures attack success
+ $ \dot R(x,y,t) = \left( 1 - R \right) R - R H $ Resin: tree defense success
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/likelihood-calculation.html">Likelihood calculation</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/17/pnas-rewrites/">Rewrites</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
       
-      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
-&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/meeting.html">Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/17/friday-more-runs/">Friday, more runs</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/meeting-w--alan.html">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/13/thursday-fisheries-course/">Thursday, Fisheries course</a></h2>
+    <h4>Thu, Oct 13, 2011</h4>
     <div class="article-style">
       
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      Fisheries impact on forage fish. Forage fish impact on the primary fisheries.
+ Huxley, 1882: &ldquo;Great Sea Fisheries cannot be exhausted&rdquo; (full address) Worm et al., 2006: All fish will collapse by 2050 (Worm et. al. 2006)  Benguela Current upwelling (Anchovy collapse)
+Discussion of: Prey switching impact?
+Wasp-waist ecosystems
+Ecopath/ecosim vs Atlantis
+Questions:
+Can we identify the nature of control?
+Importance of wasp-waist control.
+regime switching
+Negative impact of forage fish on ground fish.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/meeting-with-alan.html">Meeting with Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/12/wednesday-10/">Wednesday</a></h2>
+    <h4>Wed, Oct 12, 2011</h4>
     <div class="article-style">
-      
-      Some discussion of references  ﻿ Ovaskainen O, Meerson B. Stochastic models of population extinction. Trends in Ecology &amp; Evolution. 2010;(Box 3):1-10. Available at: <a href="http://dx.doi.org/10.1016/j.tree.2010.07.009">http://dx.doi.org/10.1016/j.tree.2010.07.009</a>.  ﻿* Goel NS, Richter-Dyn N. Stochastic Models in Biology. The Blackburn Press; 2004:269. Available at: <a href="http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X">http://www.amazon.com/Stochastic-Models-Biology-Narendra-Goel/dp/193066592X</a>.
- Bjørnstad O, Finkenstädt B, BT. Dynamics of measles epidemics: estimating scaling of transmission rates using a time series SIR model. Ecological Monographs. 2002;72(2):169-184. Available at: <a href="http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)">http://www.esajournals.org/doi/pdf/10.1890&frasl;0012-9615(2002)072%5B0169%3ADOMEES%5D2.0.CO%3B2072%5B0169%3ADOMEES%5D2.0.CO%3B2&rdquo;)</a>. Grenfell BT, Bjørnstad ON, Finkenstädt BF.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/monday.html">Monday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/11/lou-botsford-cpb-seminar/">Loo Botsford, CPB seminar</a></h2>
+    <h4>Tue, Oct 11, 2011</h4>
     <div class="article-style">
+      
+      &ldquo;Effects of Fishing on the Sensitivity of Fisheries to Climate Variability&rdquo; Truncation of age structure.
+juvenation (younger population), maternal effects (first-year breeders are poor), genetic selection, ability to track environment (vs smoothing &ndash; averaging over longer times).
+Outline:
+Empirical evidence for increased variability, model explanations  Story begins with Hsieh, et al 2006. Long time series, increasing fluctuations. (Hsieh et. al. 2006)
+ Anderson et al no age structure model (Anderson et.
       
     </div>
   </div>

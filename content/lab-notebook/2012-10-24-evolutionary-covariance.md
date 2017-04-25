@@ -1,9 +1,9 @@
 ---
-layout: post
-category: evolution
-
+categories:
+- evolution
+date: 2012-10-24T00:00:00Z
+url: /2012/10/24/evolutionary-covariance/
 ---
-
 
 *Thinking through disparity measures while writing my thoughts in R...*
 

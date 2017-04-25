@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-30 17:26:54
-layout: post
-slug: saturday-fisheries-data-survey-warning-signals
-title: 'Saturday: Fisheries Data Survey, Warning Signals'
-redirects: [/wordpress/archives/2263, /archives/2263]
 categories:
 - ecology
+comments: true
+date: 2011-07-30T17:26:54Z
+redirects:
+- /wordpress/archives/2263
+- /archives/2263
+slug: saturday-fisheries-data-survey-warning-signals
 tags:
 - warning-signals
+title: 'Saturday: Fisheries Data Survey, Warning Signals'
+url: /2011/07/30/saturday-fisheries-data-survey-warning-signals/
 ---
 
 Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-10T00:00:00Z
 title: Likelihood ratio update
+url: /2010/08/10/Likelihood-ratio-update/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday
     08/08) and Graham Coop (Monday 08/09)

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,20 +141,18 @@
   
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/24/coreos-docker-registries-etc/"></a></h2>
+    <h4>Mon, Nov 24, 2014</h4>
     <div class="article-style">
       
-      Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
- Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
- Disabling root logins. (We&rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.
+      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/09/09/server-backups/"></a></h2>
+    <h4>Tue, Sep 9, 2014</h4>
     <div class="article-style">
       
       Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
@@ -164,11 +162,13 @@ The process is rather manual: we have to sudo poweroff the droplet and then trig
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/09/08/server-security-basics/"></a></h2>
+    <h4>Mon, Sep 8, 2014</h4>
     <div class="article-style">
       
-      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
+      Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
+ Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
+ Disabling root logins. (We&rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.
       
     </div>
   </div>

@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-10-28 23:23:12
-layout: post
-slug: optimal-control-examples-continued-bellman-dynamic-programming
-title: 'Optimal Control examples continued: Bellman,  Dynamic Programming'
-redirects: [/wordpress/archives/3076, /archives/3076]
 categories:
 - ecology
+comments: true
+date: 2011-10-28T23:23:12Z
+redirects:
+- /wordpress/archives/3076
+- /archives/3076
+slug: optimal-control-examples-continued-bellman-dynamic-programming
 tags:
 - pdg-control
 - warning-signals
+title: 'Optimal Control examples continued: Bellman,  Dynamic Programming'
+url: /2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/
 ---
 
 ### Discrete-time state equation

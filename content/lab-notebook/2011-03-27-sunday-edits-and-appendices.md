@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-27 21:34:39
-layout: post
-slug: sunday-edits-and-appendices
-title: Sunday -- edits and appendices
-redirects: [/wordpress/archives/1309, /archives/1309]
 categories:
 - ecology
+comments: true
+date: 2011-03-27T21:34:39Z
+redirects:
+- /wordpress/archives/1309
+- /archives/1309
+slug: sunday-edits-and-appendices
 tags:
 - warning-signals
+title: Sunday -- edits and appendices
+url: /2011/03/27/sunday-edits-and-appendices/
 ---
 
 Read over Scheffer's rather nice introduction(Scheffer, 2010) to the Drake paper(Drake & Griffen, 2010).  Last paragraph is particularly pertinenant:

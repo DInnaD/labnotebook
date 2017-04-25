@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-12 18:34:47
-layout: post
-slug: esa-friday
-title: ESA Friday
-redirects: [/wordpress/archives/2295, /archives/2295]
 categories:
 - ecology
+comments: true
+date: 2011-08-12T18:34:47Z
+redirects:
+- /wordpress/archives/2295
+- /archives/2295
+slug: esa-friday
 tags:
 - conference
+title: ESA Friday
+url: /2011/08/12/esa-friday/
 ---
 
 Great last day of the conference, despite noticeably decreased attendance.  Once again just pulling in my tweets, since I haven't had a chance to transcribe proper notes.  Meanwhile, some of the bloggers have done a rather nice day-to-day coverage; no idea how they all manage to keep up.  Links below, with a nice mix of those targeting more theory oriented, more application oriented and more outreach oriented sessions.

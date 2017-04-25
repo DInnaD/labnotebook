@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,127 +141,116 @@
   
   
   <div>
-    <h2><a href="../../../2011/09/19/monday-9.html">Monday</a></h2>
-    <h4>Mon, Sep 19, 2011</h4>
+    <h2><a href="../../../2013/05/09/notes/">Prep for ERE talk</a></h2>
+    <h4>Thu, May 9, 2013</h4>
     <div class="article-style">
+      
+      Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/15/nimbios-pdg-control-thursday.html">pdg-control pdg-control: Thursday</a></h2>
-    <h4>Thu, Sep 15, 2011</h4>
+    <h2><a href="../../../2013/05/07/notes/"></a></h2>
+    <h4>Tue, May 7, 2013</h4>
     <div class="article-style">
+      
+      Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/15/nimbios-pdg-group-tasks.html">pdg-control PDG group, Tasks</a></h2>
-    <h4>Thu, Sep 15, 2011</h4>
+    <h2><a href="../../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h2>
+    <h4>Fri, May 3, 2013</h4>
     <div class="article-style">
       
-      Tools  Sharing: Dropbox (Team account? 350 gigs/12 users $1670/yr)
- Common language for training development: Matlab
- Remote collaboration: GoToMeeting? Evo?
- Code collaboration GitHub?
-  Training problem I 1a) State vars &gt; Control vars: Can give solutions with chattering (periodic, possibly jumping between boundaries.)
-Short-term priorities:
-1) shared numerics. Jim looks at collocation problem: how do they perform on periodic controls on the infinite time? (If they can&rsquo;t work, we go to finite time.
+      Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
+ As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/14/training-problem-ii.html">Training Problem II</a></h2>
-    <h4>Wed, Sep 14, 2011</h4>
+    <h2><a href="../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/"></a></h2>
+    <h4>Wed, May 1, 2013</h4>
     <div class="article-style">
       
-      Consider a harvested fish population with discrete-time population dynamics under an allee effect:
-$$ N_{t+1} = N_t \exp \left( \gamma \left[ 1-\frac{N_t}{K} \right] \left[ \frac{N_t - C}{K} \right] \right) - \beta E_h N_t$$
-Note that C is the unfished allee threshold, K the carrying capacity, $E_h$ the fish harvesting effort.
-Consider that the initial population is unknown, but described by a density function whose variance can be decreased by sampling. Just to get started, let&rsquo;s assume log-normal (avoiding the chance of negative population sizes), with log-standard deviation inversely proportional to the sampling effort $E_s $.
+      (Development version for reference; code functions now in R/gp_mcmc.R)
+Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/14/nimbios-pdg-control-wednesday.html">pdg-control pdg-control: Wednesday</a></h2>
-    <h4>Wed, Sep 14, 2011</h4>
+    <h2><a href="../../../2013/05/01/integrating-over-posterior-gp/"></a></h2>
+    <h4>Wed, May 1, 2013</h4>
     <div class="article-style">
       
-      Wednesday, August 14 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Introduction to Day 3 (Donahue/Armsworth) 9:00 Training Problem Groups
-Marie-Jose reflects on the sampling problem:  Optimization between effort and data.
- Spatial autocorrelation challenges
- periodic sampling challenges.
- Fortin et al 1989
- Carl asked: Nyquist frequency?
- Spatial sampling the correct scale by maximum variance in wavelet scaling.
-  Frank reflects on our activities from a control engineer&rsquo;s perspective  MPC for fishery management - few long-sampling engineering examples.
+      Added integration over the posterior distribution of the GP
+ Added example of parametric Bayesian inference based on Ricker
+  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/13/2588.html">pdg-control pdg-control, Tuesday</a></h2>
-    <h4>Tue, Sep 13, 2011</h4>
+    <h2><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h2>
+    <h4>Tue, Apr 30, 2013</h4>
     <div class="article-style">
       
-      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
-Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
-Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
-If i is played $ p_i $ becomes
-$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
-If i is played and successful $ \mu_i $ becomes
+      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
+Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
+  Define some example priors
+lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/12/pretty-darn-good-control-working-group.html">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
+    <h2><a href="../../../2013/04/29/finishing-comparison-parametric-and-nonparametric/"></a></h2>
+    <h4>Mon, Apr 29, 2013</h4>
     <div class="article-style">
       
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      Implemented in BUGS/allen.md
+Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
+ Oh, Jeromy Anglim has a rather nice collection of jags links
+  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/07/wednesday-8.html">Wednesday</a></h2>
-    <h4>Wed, Sep 7, 2011</h4>
+    <h2><a href="../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h2>
+    <h4>Sat, Apr 27, 2013</h4>
     <div class="article-style">
       
-      Alan Meeting Next steps directions
- economics of uncertainty in early warning
- simulated data approach - insect pest dynamics.
- cod data set. fisheries depensation
-  Send Alan: Slides, CV (for post doc apps)
-Discussed some relevant literature, mostly for the warning signals in fisheries questions: (Colchero &amp; Clark, 2012), (Hutchings, 2000), HUTCHINGS &amp; REYNOLDS, 2004, (Minckley et. al. 2012), (Myers et. al. 1995), (Schröder et. al. 2012)
+      Load necessary libraries,
+library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
+library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/01/thursday-reading.html">Thursday Reading</a></h2>
-    <h4>Thu, Sep 1, 2011</h4>
+    <h2><a href="../../../2013/04/25/notes/"></a></h2>
+    <h4>Thu, Apr 25, 2013</h4>
     <div class="article-style">
       
-      Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
+      finish pmc post from Tuesday (done).
+ Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
+ Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/31/wednesday-7.html">Wednesday</a></h2>
-    <h4>Wed, Aug 31, 2011</h4>
+    <h2><a href="../../../2013/04/24/empirical-demonstration-of-that-clever-derivation/"></a></h2>
+    <h4>Wed, Apr 24, 2013</h4>
     <div class="article-style">
       
-      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
- Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
+      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
+After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
       
     </div>
   </div>

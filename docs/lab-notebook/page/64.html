@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,113 +140,133 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/27/sunday-edits-and-appendices/">Sunday -- edits and appendices</a></h2>
+    <h4>Sun, Mar 27, 2011</h4>
     <div class="article-style">
       
-      Editorial Note: Scratchpad in replying to issues raised by the NESCent reproducibility exercise that included my prosecutor&rsquo;s fallacy paper. See more developed version of this disucssion in the package issues log:
-  #1 #2 #3  @hlapp Thanks for the bug reports; I think there are quite a few good illustrations of the challenges in sharing code here go beyond [&ldquo;Publish your code, it&rsquo;s good enough&rdquo;](), despite the importance of that message.
+      Read over Scheffer&rsquo;s rather nice introduction(Scheffer, 2010) to the Drake paper(Drake &amp; Griffen, 2010). Last paragraph is particularly pertinenant:
+ Clearly, we have just scratched the surface in exploring the possibilities and limitations of this emerging field. However, the prospect of identifying generic indicators is exciting, as the approach may provide an independent way to assess the risk of critical transitions. Expansion of our toolbox for prediction is especially welcome given the almost insurmountable problem of modelling complex systems in a quantitatively accurate way.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/26/saturday-appendices/">Saturday-- Appendices</a></h2>
+    <h4>Sat, Mar 26, 2011</h4>
     <div class="article-style">
       
-      2014-02-19 R allows you to specify &gt;= in a package dependency, not ==. The Comprehensive R Archive Network, CRAN, makes no requirement that package authors do not break their previous function API. For instance, if version 0.1 of the package had a function
-foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality in say, version 0.2 without breaking the existing API with a definition that looked like:
+      Appendices Working on Appendices
+Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
+Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/25/friday-3/">Friday</a></h2>
+    <h4>Fri, Mar 25, 2011</h4>
     <div class="article-style">
       
-      Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
- Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
+      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
+ Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
+ Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/24/thursday-3/">Thursday</a></h2>
+    <h4>Thu, Mar 24, 2011</h4>
     <div class="article-style">
       
-      RNeXML merge travis integration with support for rrdf. See pull #57 Reply to Perry re nonparametric approaches 10am Andrew Skype meeting re: his manuscript rOpenSci discussion re: other services, formats. Reading Caldwell et al, Geophysical Letters. Good example of naiive data mining leading to spurious correlations from non-independent models. (/ht @FreshwaterEcology Looking over NSF&rsquo;s Data Infrastructure Building Blocks, DIBB call and previously funded work.
- Remote control for Ubuntu via android?
+      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
+ Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/24/data-management-workshop-at-uc-davis-center-for-population-biology-video-archive/">Data Management Workshop at UC Davis Center for Population Biology: Video archive</a></h2>
+    <h4>Thu, Mar 24, 2011</h4>
     <div class="article-style">
       
-      Reading  NAP report on &ldquo;Abrupt impacts of climate change: anticipating suprises.&rdquo;
- Nice overview of major climate tipping points. Interesting that the 2011 IPCC report put to rest concerns about a sudden transition of the thermohaline circulation within this century, despite good evidence that it is a bistable dynamic. Likewise appears to dismiss concerns of a tipping point related to the release of permafrost methane, thus putting aside the two most well-known and well-studied examples.
+      Videos are now up from our workshop, The Future of Data, held at the UC Davis Center for Population Biology March 2nd-4th.
+Panel  Don Strong, Editor-in-Chief of Ecology
+ Marcel Holyoak, Editor-in-Chief, **Ecology Letters **
+ Jonathan Eisen, Editor-in-Chief, PLoS Biology
+ Alan Hastings, founding Editor-in-Chief, Theoretical Ecology
+ Robert Hijmans, Asst Professor of Environmental Science &amp; Policy
+ Trisha Cruse (Director), with Associate Directors Stephen Abrams &amp; John Kunze from UC Curation Center.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/23/wednesday-2/">Wednesday</a></h2>
+    <h4>Wed, Mar 23, 2011</h4>
     <div class="article-style">
       
-      ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
- Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
+      Still to do on figures:
+ Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
+ Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
+ separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
+ bootstrap_indicators should have option of which indicators are included &ndash; DONE
+ all_indicators should have option of which indicators are included &ndash; DONE
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/23/tuesday-figures-figures-figures/">Tuesday: Figures, figures, figures</a></h2>
+    <h4>Wed, Mar 23, 2011</h4>
     <div class="article-style">
       
-      Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
- There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
+      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/22/monday-edits-and-organization/">Monday -- Edits and organization</a></h2>
+    <h4>Tue, Mar 22, 2011</h4>
     <div class="article-style">
       
-      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
-rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
+      Skype with Alan: 9-9:4
+ Figures as panels
+ Write Appendix
+ Finish References
+ Move into Word
+   Sims  LSN m = -0.049, N =50, T=100
+ LSN m = -0.049, N =100, T=100
+ LTC m = -0.049, N =100, T=100
+ LTC m = -0.049, N =100, T=50
+ LTC m = -0.049, N =100, T=200
+  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/21/sunday-manuscript-and-simulations/">Sunday - manuscript and simulations</a></h2>
+    <h4>Mon, Mar 21, 2011</h4>
     <div class="article-style">
       
-      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
-Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
+      Working on manuscript. lot of writing / editing.
+Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
+ m = -0.04, N = 50, nboot = 160, (with all moments)
+ m = -0.04, N = 50, nboot = 800, (with all moments)
+ m = -0.05, N = 50, nboot = 800, (with all moments)
+ m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/21/challenges-with-collaboration-in-open-science/">Challenges with Collaboration in Open Science </a></h2>
+    <h4>Mon, Mar 21, 2011</h4>
     <div class="article-style">
       
-      Carl Boettiger Schedule 3-4 April
-Thursday
-   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
-   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
+      On Thursday I silently switched my ONS claim from all-content, instant (aci) to all-content, delayed (acd). This wasn&rsquo;t just an admission that I&rsquo;m sometimes a day behind in posting my entries. That day&rsquo;s post was tagged private in wordpress, and didn&rsquo;t appear in the RSS feed. I updated my socialR package to include a toggle to make uploaded images from public to private, and opened a private github repository. No, nothing tragic has happened and this doesn&rsquo;t mean that everything I do will now be locked down until publication.
       
     </div>
   </div>

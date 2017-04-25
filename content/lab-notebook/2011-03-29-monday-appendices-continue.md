@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-29 01:09:43
-layout: post
-slug: monday-appendices-continue
-title: Monday, appendices continue...
-redirects: [/wordpress/archives/1317, /archives/1317]
 categories:
 - ecology
+comments: true
+date: 2011-03-29T01:09:43Z
+redirects:
+- /wordpress/archives/1317
+- /archives/1317
+slug: monday-appendices-continue
 tags:
 - warning-signals
+title: Monday, appendices continue...
+url: /2011/03/29/monday-appendices-continue/
 ---
 
 Finished writing up section on correlations (time averages vs ensembles) and the following section on error types.  (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:

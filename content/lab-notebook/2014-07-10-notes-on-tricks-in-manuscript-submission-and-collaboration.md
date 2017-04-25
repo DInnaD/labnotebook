@@ -1,8 +1,10 @@
 ---
-layout: post
-category: open-science
-tags: [workflow]
-
+categories:
+- open-science
+date: 2014-07-10T00:00:00Z
+tags:
+- workflow
+url: /2014/07/10/notes-on-tricks-in-manuscript-submission-and-collaboration/
 ---
 
 ## Some thoughts on collaborating with markdown / dynamic document workflow

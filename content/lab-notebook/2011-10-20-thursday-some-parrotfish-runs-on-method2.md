@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-10-20 16:20:14
-layout: post
-slug: thursday-some-parrotfish-runs-on-method2
-title: Thursday - some parrotfish & labrid runs on method2
-redirects: [/wordpress/archives/2960, /archives/2960]
 categories:
 - evolution
+comments: true
+date: 2011-10-20T16:20:14Z
+redirects:
+- /wordpress/archives/2960
+- /archives/2960
+slug: thursday-some-parrotfish-runs-on-method2
+title: Thursday - some parrotfish & labrid runs on method2
+url: /2011/10/20/thursday-some-parrotfish-runs-on-method2/
 ---
 
 Running:

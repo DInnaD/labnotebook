@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-12-06 21:46:16
-layout: post
-slug: tuesday-two-insights
-title: Tuesday -- two insights
-redirects: [/wordpress/archives/3487, /archives/3487]
 categories:
 - evolution
 - ecology
+comments: true
+date: 2011-12-06T21:46:16Z
+redirects:
+- /wordpress/archives/3487
+- /archives/3487
+slug: tuesday-two-insights
 tags:
 - warning-signals
+title: Tuesday -- two insights
+url: /2011/12/06/tuesday-two-insights/
 ---
 
 ## Control & Optimization

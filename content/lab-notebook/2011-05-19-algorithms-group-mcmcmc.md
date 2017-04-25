@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-19 12:52:34
-layout: post
-slug: algorithms-group-mcmcmc
-title: 'Algorithms group: MCMCMC'
-redirects: [/wordpress/archives/1736, /archives/1736]
 categories:
 - evolution
+comments: true
+date: 2011-05-19T12:52:34Z
+redirects:
+- /wordpress/archives/1736
+- /archives/1736
+slug: algorithms-group-mcmcmc
 tags:
 - algorithms
+title: 'Algorithms group: MCMCMC'
+url: /2011/05/19/algorithms-group-mcmcmc/
 ---
 
 Discussed $\text{MC}^3$, the [Metropolis coupled Markov Chain Monte Carlo](http://en.wikipedia.org/wiki/Bayesian_inference_in_phylogeny#Metropolis-coupled_MCMC_.28Geyer.29), in Monday's algorithms group meeting, just getting around to posting code.  The MrBayes paper is a good reference for this (Altekar _et. al._ 2004).  Our[ practice example](https://gist.github.com/956311) needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below.  Recall that it modifies our original MCMC in two ways.  The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.  We draw a uniform (0,1) random number and accept the move R is larger than it, where:

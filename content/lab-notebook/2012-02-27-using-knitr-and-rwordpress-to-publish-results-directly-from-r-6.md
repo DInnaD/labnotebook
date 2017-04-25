@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2012-02-27 18:31:51
-layout: post
-slug: using-knitr-and-rwordpress-to-publish-results-directly-from-r-6
-title: Using knitr and RWordPress to publish results directly from R
-redirects: [/wordpress/archives/3974, /archives/3974]
 categories:
 - open-science
+comments: true
+date: 2012-02-27T18:31:51Z
+redirects:
+- /wordpress/archives/3974
+- /archives/3974
+slug: using-knitr-and-rwordpress-to-publish-results-directly-from-r-6
+title: Using knitr and RWordPress to publish results directly from R
+url: /2012/02/27/using-knitr-and-rwordpress-to-publish-results-directly-from-r-6/
 ---
 
 **Update**: The original [source file](https://raw.github.com/cboettig/sandbox/b71f7f359164b1ff3b9609d5ded2324fafdc14b6/wordpress_knit_.md) for this post, generates [this output file](https://raw.github.com/cboettig/sandbox/b71f7f359164b1ff3b9609d5ded2324fafdc14b6/wordpress.md) formatted for wordpress.  The source file has been knitted for markdown formatting so this post displays in Jekyll. The rendered post relies on Wordpress shortcodes, as raw the output file shows above. The [markdown-based rendering](https://github.com/cboettig/sandbox/blob/b71f7f359164b1ff3b9609d5ded2324fafdc14b6/wordpress.md) shows the images and the shortcodes wordpress uses for codeblocks.  

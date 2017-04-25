@@ -1,8 +1,11 @@
 ---
-layout: post
-tags: [conference]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-29T00:00:00Z
+tags:
+- conference
 title: Open Science Summit
+url: /2010/07/29/Open-Science-Summit/
 ---
 
 First day of the Open Science Summit, began with excellent panel

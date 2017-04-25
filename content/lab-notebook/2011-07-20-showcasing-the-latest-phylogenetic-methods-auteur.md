@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-07-20 15:07:14
-layout: post
-slug: showcasing-the-latest-phylogenetic-methods-auteur
-title: 'Showcasing the latest phylogenetic methods: AUTEUR'
-redirects: [/wordpress/archives/2337, /archives/2337]
 categories:
 - evolution
+comments: true
+date: 2011-07-20T15:07:14Z
+redirects:
+- /wordpress/archives/2337
+- /archives/2337
+slug: showcasing-the-latest-phylogenetic-methods-auteur
 tags:
 - R
 - research-blogging
+title: 'Showcasing the latest phylogenetic methods: AUTEUR'
+url: /2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur/
 ---
 
 While high-speed fish feeding videos may be the signature of the lab, dig a bit deeper and you'll find a wealth of comparative phylogenetic methods sneaking in.  It's a natural union -- expert functional morphology is the key to good comparative methods, just as phylogenies hold the key to untangling the evolutionary origins of that morphology.  The lab's own former graduate, [Brian O'Meara](http://www.brianomeara.info/), made a revolutionary step forward in the land of phylogenetic methods when he unveiled _Brownie_ in 2006, allowing researchers to identify major shifts in trait diversification rates across the tree.  This work spurred not only a flood of empirical applications but also methodological innovations, such as Liam's [brownie-lite](http://phytools.blogspot.com/2011/07/more-robust-version-of-brownielite.html), and today's focus: [Jon Eastman](http://public.wsu.edu/~storfer/eastman/pages/index.html) _et al._'s auteur package.

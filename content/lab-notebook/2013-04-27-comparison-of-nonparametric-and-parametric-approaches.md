@@ -1,11 +1,13 @@
 ---
-title: A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach
-layout: post
-category: ecology
+categories:
+- ecology
+code: true
+date: 2013-04-27T00:00:00Z
 tags:
 - nonparametric-bayes
-code: true
-
+title: A comparison of nonparametric Bayesian Gaussian process estimates to standard
+  the parametric Bayesian approach
+url: /2013/04/27/comparison-of-nonparametric-and-parametric-approaches/
 ---
 
 Load necessary libraries,

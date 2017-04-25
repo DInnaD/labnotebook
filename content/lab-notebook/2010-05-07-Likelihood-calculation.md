@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-07T00:00:00Z
+tags:
+- tribolium
 title: Likelihood calculation
+url: /2010/05/07/Likelihood-calculation/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Implemented the likelihood calculation in [simulate.R
     code](http://github.com/cboettig/structured-populations/blob/master/R/simulate.R "http://github.com/cboettig/structured-populations/blob/master/R/simulate.R").

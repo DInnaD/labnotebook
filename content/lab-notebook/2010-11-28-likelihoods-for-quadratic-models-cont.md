@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2010-11-28 21:14:09
-layout: post
-slug: likelihoods-for-quadratic-models-cont
-title: Likelihoods for quadratic models cont
-redirects: [/wordpress/archives/461, /archives/461]
 categories:
 - ecology
+comments: true
+date: 2010-11-28T21:14:09Z
+redirects:
+- /wordpress/archives/461
+- /archives/461
+slug: likelihoods-for-quadratic-models-cont
 tags:
 - derivation
 - warning-signals
+title: Likelihoods for quadratic models cont
+url: /2010/11/28/likelihoods-for-quadratic-models-cont/
 ---
 
 Considering the fits of the quadratic models from yesterday.

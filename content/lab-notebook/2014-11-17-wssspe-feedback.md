@@ -1,11 +1,11 @@
 ---
-layout: post
-category: computation
+categories:
+- computation
+date: 2014-11-17T00:00:00Z
 tags:
 - conference
-
+url: /2014/11/17/wssspe-feedback/
 ---
-
 
 ### WSSSPE working groups: Reproducibility, Reuse, and Sharing (Neil Che Hong) ###
 

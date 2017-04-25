@@ -1,12 +1,12 @@
 ---
-layout: post
-category: open-science 
-tags: 
+categories:
+- open-science
+date: 2012-10-23T00:00:00Z
+exclude_from_search: true
+tags:
 - semantics
 - notebook-technology
-
-exclude_from_search: true
-
+url: /2012/10/23/semantic-markup-examples-for-the-lab-notebook/
 ---
 
 All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure.  This means that any entry can be parsed with a generic XML parser to extract the entry content in `<article>`, the `<header>`, `<footer>`, `<aside>`, etc.  The `<head>` section provides `<title>` and essential `<meta>` tags declaring the character encoding (which also sets the MIME type for HTML5).   
@@ -23,10 +23,10 @@ In `_includes/header.html` we introduce some basic academic archive metadata usi
 <meta name="keywords" content="Ecology, Evolution, Open Science, Reproducible Research" />
 <meta name="description" content="My open lab notebook: research in theoretical ecology and evolution" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>{% raw %}{{ page.title }}{% endraw %}</title>
+<title>{{ page.title }}</title>
 <!-- RDFa Metdata (in Dublin Core) -->
 <meta property="dc:creator" content="Carl Boettiger" />
-<meta property="dc:title" content="{% raw %}{{ page.title }}{% endraw %}" />
+<meta property="dc:title" content="{{ page.title }}" />
 <meta property="dc:type" content="Lab Notebook" />
 <meta property="dc:format" content="text/html" />
 <meta property="dc:language" content="en" />
@@ -39,16 +39,16 @@ More metadata is displayed in the sidebar (in an html5 `aside` element), includi
 ```html
 <aside prefix="dc: http://purl.org/dc/terms/">
 Posted on
-<time datetime="{% raw %}{{ page.date | date_to_xmlschema }}{% endraw %}" 
-      property="dc:created">{% raw %}{{ page.date | date_to_string }}{% endraw %}</time>.
+<time datetime="{{ page.date | date_to_xmlschema }}" 
+      property="dc:created">{{ page.date | date_to_string }}</time>.
 ```
 
 This puts the date in an HTML5 time element described as the `dc.created` time of the publication.  Tags and categories use a little Liquid code so Jekyll can import them from the YAML header.  The link to the tag page is described with the HTML `rel` attribute for tag, while the tag itself is given the RDFa property of a blog keyword from schema.org.  Categories are given the more formal `dc:subject` property.   (See `_includes/pagetags.html` for Jekyll/Liquid code for looping over multiple tags, etc).  
 
 ```html
-  <a rel="tag" class="tag" href="/tags.html#{% raw %}{{ tag | cgi_escape }}{% endraw %}">#<span 
-  property="http://schema.org/BlogPosting/keywords">{% raw %}{{ tag }}{% endraw %}</span></a>
-  <a rel="tag" class="category" href="/categories.html#{% raw %}{{ category | cgi_escape }}{% endraw %}"><span property="dc:subject">{% raw %}{{ category }}{% endraw %}</span></a>
+  <a rel="tag" class="tag" href="/tags.html#{{ tag | cgi_escape }}">#<span 
+  property="http://schema.org/BlogPosting/keywords">{{ tag }}</span></a>
+  <a rel="tag" class="category" href="/categories.html#{{ category | cgi_escape }}"><span property="dc:subject">{{ category }}</span></a>
 ```
 
 The next and previous buttons get the HTML5 `rel` values `next` and `prev` (see [HTML5 semantics](http://diveintohtml5.info/semantics.html)).  Note that all the Dublin Core elements are properties of the page on which they occur. 

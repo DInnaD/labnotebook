@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-12-05 10:24:36
-layout: post
-slug: more-labrid-plots
-title: More labrid plots
-redirects: [/wordpress/archives/3427, /archives/3427]
 categories:
 - evolution
+comments: true
+date: 2011-12-05T10:24:36Z
+redirects:
+- /wordpress/archives/3427
+- /archives/3427
+slug: more-labrid-plots
+title: More labrid plots
+url: /2011/12/05/more-labrid-plots/
 ---
 
 ![]( http://farm8.staticflickr.com/7010/6444379007_dbb297e7e3_o.png )

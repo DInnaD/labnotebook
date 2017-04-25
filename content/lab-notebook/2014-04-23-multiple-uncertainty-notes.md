@@ -1,12 +1,11 @@
 ---
-layout: post
-category: multiple_uncertainty
+categories:
+- multiple_uncertainty
+date: 2014-04-23T00:00:00Z
 tags:
 - multiple_uncertainty
-
-
+url: /2014/04/23/multiple-uncertainty-notes/
 ---
-
 
 ## Multiple uncertainty
 

@@ -1,17 +1,19 @@
 ---
-comments: true
-date: 2012-03-27 22:22:14
-layout: post
-slug: tuesday-pandoc-citations-notes-various
-title: 'Tuesday: pandoc citations notes, various'
-redirects: [/wordpress/archives/4382, /archives/4382]
 categories:
 - ecology
 - computation
-tags: 
+comments: true
+date: 2012-03-27T22:22:14Z
+redirects:
+- /wordpress/archives/4382
+- /archives/4382
+slug: tuesday-pandoc-citations-notes-various
+tags:
 - pdg-control
 - ropensci
-- workflow 
+- workflow
+title: 'Tuesday: pandoc citations notes, various'
+url: /2012/03/27/tuesday-pandoc-citations-notes-various/
 ---
 
 ## Markdown over latex?

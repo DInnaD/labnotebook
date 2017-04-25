@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2012/12/15/nonparametric-bayes-comparisons/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h2 id="notes-on-structure-of-examples">Notes on structure of examples</h2>
+
+<p>Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.</p>
+
+<p>Currently, externalized code for GP comparison experiments is in <a href="https://github.com/cboettig/nonparametric-bayes/blob/526b54b09e23f550198863741bce9e9cb52e9325/inst/examples/gaussian-process-control.R">gaussian-process-control.R</a>, and is called by <a href="https://github.com/cboettig/nonparametric-bayes/blob/cac79bcc42433a6b8720d5d4c5824c57a850a56c/inst/examples/may79-example.Rmd">may79-example.Rmd</a>, <a href="https://github.com/cboettig/nonparametric-bayes/blob/cac79bcc42433a6b8720d5d4c5824c57a850a56c/inst/examples/myer-example.Rmd">myer-example.Rmd</a>, and <a href="https://github.com/cboettig/nonparametric-bayes/blob/cac79bcc42433a6b8720d5d4c5824c57a850a56c/inst/examples/reed-example.Rmd">reed-example.Rmd</a>.</p>
+
+<p>Also fixed <a href="https://github.com/cboettig/knitcitations">knitcitations</a> to at least include citations in markdown files.</p>
+
+<h2 id="performance-of-gp-compared-to-ricker-on-an-underlying-allee-model">Performance of GP compared to Ricker on an underlying Allee model</h2>
+
+<h3 id="using-stationary-data-only">Using stationary data only</h3>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-f42127cba3-gp-plot.png" alt="Inferred GP" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-f42127cba3-policy_plot.png" alt="plot of policy functions" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-f42127cba3-sim-fish.png" alt="fish stock dynamics" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-f42127cba3-sim-harvest.png" alt="harvest dynamics" /></p>
+
+<p>(see <a href="https://github.com/cboettig/nonparametric-bayes/blob/a3aad15b159aae10264e39ccf3cbe0cdb8aec279/inst/examples/myer-example.md">myer-example.md</a> for code and more graphs &amp; details)</p>
+
+<h3 id="using-more-data">Using more data</h3>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-003da6e98e-gp-plot.png" alt="Inferred GP" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-003da6e98e-policy_plot.png" alt="plot of policy functions" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-003da6e98e-sim-fish.png" alt="plot of sim-fish" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-003da6e98e-sim-harvest.png" alt="plot of sim-harvest" /></p>
+
+<p>(from <a href="https://github.com/cboettig/nonparametric-bayes/blob/a1bc09a4a7a2edabbd63916416db6b095d1ead6b/inst/examples/myer-example.md">earlier myer-example.md</a>)</p>
+
+<h2 id="comparing-gp-to-estimated-ricker-on-bh-dynamics">Comparing GP to estimated Ricker on BH dynamics:</h2>
+
+<p>GP performs well, but Ricker performs adequately as well: <a href="https://github.com/cboettig/nonparametric-bayes/blob/cac79bcc42433a6b8720d5d4c5824c57a850a56c/inst/examples/reed-example.md">reed-example.md</a> (shows an example with stationary data).</p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-8b057f1f24-gp-plot.png" alt="plot of chunk gp-plot" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-8b057f1f24-policy_plot.png" alt="plot of chunk policy_plot" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-8b057f1f24-sim-fish.png" alt="plot of chunk sim-fish" /></p>
+
+<p><img src="../../../../2012/assets/figures/2012-12-15-8b057f1f24-sim-harvest.png" alt="plot of chunk sim-harvest" /></p>
+
+<h2 id="other-advances">Other advances</h2>
+
+<p>Approaches shown above address a variety of issues as well:</p>
+
+<ul>
+<li>Compares to a Ricker estimated by MLE (<a href="https://github.com/cboettig/nonparametric-bayes/issues/8">#8</a>)</li>
+<li>Considers fewer non-stationary observations, but include 0,0 as observation (<a href="https://github.com/cboettig/nonparametric-bayes/issues/13">#13</a>)</li>
+<li>Includes scrap value (<a href="https://github.com/cboettig/nonparametric-bayes/issues/10">#10</a>), though this does not guarentee no fishing under non-persistence estimation</li>
+</ul>
+
+<p>A few next steps:</p>
+
+<ul>
+<li>measurement error should be introduced in the simulations (<a href="https://github.com/cboettig/nonparametric-bayes/issues/11">#11</a>)</li>
+<li>Evaluate GP performance under larger noise conditions. (<a href="https://github.com/cboettig/nonparametric-bayes/issues/14">#14</a>)</li>
+</ul>
+
+<p>See issues log for further issues to explore and more details on closed issues. See commit log for full details, this entry summarizes progress over the latter half of the week.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2012-12-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Sat, Dec 15, 2012
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2012/12/17/random_ews_example/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2012/12/11/nonparametric-bayes-notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2012-12-15-nonparametric-bayes-comparisons.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/b3630889a5584cd1240e1c9d2208759615c88af4/content/lab-notebook/2012-12-15-nonparametric-bayes-comparisons.md">b3630889a</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2012\/12\/15\/nonparametric-bayes-comparisons\/';
+    var disqus_title = '';
+    var disqus_url = '\/2012\/12\/15\/nonparametric-bayes-comparisons\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2014-04-10T00:00:00Z
 tags:
 - ropensci
 - multiple-uncertainty
-
+url: /2014/04/10/multiple-uncertainty-notes/
 ---
-
 
 multiple uncertainty
 --------------------

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-10 10:06:11
-layout: post
-slug: thursday-writing-some-latexdiff-notes
-title: 'Thursday: writing; some latexdiff notes'
-redirects: [/wordpress/archives/3804, /archives/3804]
 categories:
-- ecology 
+- ecology
+comments: true
+date: 2012-02-10T10:06:11Z
+redirects:
+- /wordpress/archives/3804
+- /archives/3804
+slug: thursday-writing-some-latexdiff-notes
 tags:
 - code-tricks
+title: 'Thursday: writing; some latexdiff notes'
+url: /2012/02/10/thursday-writing-some-latexdiff-notes/
 ---
 
 ## Forage fish writing

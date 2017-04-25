@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-04-07 14:58:36
-layout: post
-slug: writing-reproducibly-in-the-open-with-knitr
-title: Writing reproducibly in the open with knitr
-redirects: [/wordpress/archives/4419, /archives/4419]
 categories:
 - open-science
+comments: true
+date: 2012-04-07T14:58:36Z
+redirects:
+- /wordpress/archives/4419
+- /archives/4419
+slug: writing-reproducibly-in-the-open-with-knitr
 tags:
 - R
+title: Writing reproducibly in the open with knitr
+url: /2012/04/07/writing-reproducibly-in-the-open-with-knitr/
 ---
 
 [Sweave](http://en.wikipedia.org/wiki/Sweave) is something of a gold standard in reproducible research.  It creates a _dynamic document_, written in a mix of LaTeX and R code where the results of the analysis (numbers, figures, tables) are automatically generated from the code and inserted into the resulting pdf document, making them easy to update if the data or methods change.  It's a nice idea, in principle.

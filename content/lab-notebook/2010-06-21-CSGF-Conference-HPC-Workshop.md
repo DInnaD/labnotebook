@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-21T00:00:00Z
 title: CSGF Conference- HPC Workshop
+url: /2010/06/21/CSGF-Conference-HPC-Workshop/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 I found the breakout sessions in the afternoon particularly fascinating
 for their paradigm-breaking look into the future of high performance

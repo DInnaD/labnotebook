@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-09-01 23:58:40
-layout: post
-slug: thursday-reading
-title: Thursday Reading
-redirects: [/wordpress/archives/2544, /archives/2544]
 categories:
 - ecology
+comments: true
+date: 2011-09-01T23:58:40Z
+redirects:
+- /wordpress/archives/2544
+- /archives/2544
+slug: thursday-reading
 tags:
 - reading
 - warning-signals
+title: Thursday Reading
+url: /2011/09/01/thursday-reading/
 ---
 
 Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen & Johnsen, 2010.  Argues that some of the well-known climate transitions may have been stochastic transitions instead.  Will need a closer read to better assess how they are distinguishing between such transitions in the data.

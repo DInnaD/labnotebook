@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-28T00:00:00Z
+tags:
+- tribolium
 title: Conference call w- Bob and Brett
+url: /2010/05/28/Conference-call-w--Bob-and-Brett/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   So far no large noise in larval class alone, several potential
     mechanisms we may have missed so far:

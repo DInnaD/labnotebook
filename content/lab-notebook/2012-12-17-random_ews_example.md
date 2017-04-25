@@ -1,13 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: [warning-signals]
-
+categories:
+- ecology
+date: 2012-12-17T00:00:00Z
+tags:
+- warning-signals
+url: /2012/12/17/random_ews_example/
 ---
-
-
-
-
 
 ENSO EWS
 ========================================================

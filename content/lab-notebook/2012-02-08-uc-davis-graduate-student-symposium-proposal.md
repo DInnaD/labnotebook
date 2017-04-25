@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-08 12:35:15
-layout: post
-slug: uc-davis-graduate-student-symposium-proposal
-title: UC Davis graduate student symposium proposal
-redirects: [/wordpress/archives/3800, /archives/3800]
 categories:
 - ecology
+comments: true
+date: 2012-02-08T12:35:15Z
+redirects:
+- /wordpress/archives/3800
+- /archives/3800
+slug: uc-davis-graduate-student-symposium-proposal
 tags:
 - warning-signals
+title: UC Davis graduate student symposium proposal
+url: /2012/02/08/uc-davis-graduate-student-symposium-proposal/
 ---
 
 #### Abstract

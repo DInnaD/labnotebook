@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-10-17 17:37:19
-layout: post
-title: Rewrites
 categories:
 - ecology
+comments: true
+date: 2011-10-17T17:37:19Z
 tags:
 - warning-signals
 - delayed-release
+title: Rewrites
+url: /2011/10/17/pnas-rewrites/
 ---
 
 - Add more data set examples

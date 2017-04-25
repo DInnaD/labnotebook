@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-11 18:43:02
-layout: post
-slug: esa-thursday
-title: ESA Thursday
-redirects: [/wordpress/archives/2300, /archives/2300]
 categories:
 - ecology
+comments: true
+date: 2011-08-11T18:43:02Z
+redirects:
+- /wordpress/archives/2300
+- /archives/2300
+slug: esa-thursday
 tags:
 - conference
+title: ESA Thursday
+url: /2011/08/11/esa-thursday/
 ---
 
 Just automatically generating a log form twitter since I cannot find the time to write proper notes.  Perhaps those will amended eventually...

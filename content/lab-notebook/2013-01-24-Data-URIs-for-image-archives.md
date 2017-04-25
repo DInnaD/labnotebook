@@ -1,11 +1,11 @@
 ---
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-01-24T00:00:00Z
+tags:
 - notebook-technology
-
+url: /2013/01/24/Data-URIs-for-image-archives/
 ---
-
 
 Figures have been one of the standing challenges of the open notebook.  Displaying figures online requires that they are first uploaded to a server somewhere.  Recently I have used automated uploads to external servers such as figshare to host all images generated in the course of my research, and simply point to those graphs which I wish to include in a notebook page using an image link.  Unfortunately, this means that the images themselves are not being permanently archived when I deposit my notebook entries into their annual archives on figshare.  (Because figshare provides objects with unique identifier DOIs and benefits from [CLOCKSS](http://clockss.org) archival preservation, I use it to ensure a permanent backup of the notebook contents is available). I've recently discovered Data URIs, which provide a way to embed the image data directly into HTML (or markdown) entries.  I am trying to decide if they offer a better way to address this challenge, so working through my thinking here.  
 

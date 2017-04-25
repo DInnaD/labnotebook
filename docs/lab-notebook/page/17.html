@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,123 +140,117 @@
   
   
   <div>
-    <h2><a href="../../2011/08/28/sunday-scaling-runs.html">Sunday: scaling, runs</a></h2>
-    <h4>Sun, Aug 28, 2011</h4>
+    <h2><a href="../../2013/06/04/analytic-marginalizing-for-posteriors/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
     <div class="article-style">
       
-      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
-Set up for running primates.R in likelihood mode with abstracted parallelization:
-Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
-hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
+      Consider the model
+$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
+with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
+$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
+To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/27/saturday-working-on-computational-scaling-ion-etc.html">Saturday: working on computational scaling, ion, etc</a></h2>
-    <h4>Sat, Aug 27, 2011</h4>
+    <h2><a href="../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
     <div class="article-style">
       
-      Can I get a generic montecarlotest function working for both warningsignals and pmc?
-Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
+      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
+require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
+f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize.html">rropensci and some taxonomy in R with taxize</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../2013/06/03/admb-basic-example/"></a></h2>
+    <h4>Mon, Jun 3, 2013</h4>
     <div class="article-style">
       
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
+      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
+ These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
+Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/26/ropensci-from-r-some-xml-parsing.html">FishBASE from R: some XML parsing</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../2013/06/03/doi-citable/">DOI != citable</a></h2>
+    <h4>Mon, Jun 3, 2013</h4>
     <div class="article-style">
       
-      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
-In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
+      I feel I see this kind of comment almost daily:
+Is there a way to obtain DOI for a @github repository? (for citing #opensource software packages, similar to @figshare objects) #git
+&mdash; Ahmed Moustafa (@AhmedMoustafa) May 29, 2013
+Again and again, researchers suggest that DOI to makes something &ldquo;citable&rdquo;. And this frustrates me.
+Don&rsquo;t get me wrong. I love DOIs, and I love CrossRef. And I bang on the table when I have some old journal article that doesn&rsquo;t yet have a DOI.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/25/datacite-day-2.html">DataCite Day 2</a></h2>
-    <h4>Thu, Aug 25, 2011</h4>
+    <h2><a href="../../2013/05/31/notebook-features-archiving-with-figshare/">Archiving the lab notebook on figshare</a></h2>
+    <h4>Fri, May 31, 2013</h4>
     <div class="article-style">
       
-      9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
- Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
-  see great example of the ACRID database
- Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
+      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/24/datacite-day-1.html">DataCite Day 1</a></h2>
-    <h4>Wed, Aug 24, 2011</h4>
+    <h2><a href="../../2013/05/31/notebook-features-digital-archiving/">Notebook features: digital archiving</a></h2>
+    <h4>Fri, May 31, 2013</h4>
     <div class="article-style">
       
-      12:00pm-1:00pm Lunch
- 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
-Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
- 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
- Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
+      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
+Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/23/tuesday-rropensci-rmpi-manuscripts.html">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
-    <h4>Tue, Aug 23, 2011</h4>
+    <h2><a href="../../2013/05/29/notes/"></a></h2>
+    <h4>Wed, May 29, 2013</h4>
     <div class="article-style">
       
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
+      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
+ fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
+ slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/21/academic-year-2011-summary.html">Academic Year 2011 Summary</a></h2>
-    <h4>Sun, Aug 21, 2011</h4>
+    <h2><a href="../../2013/05/28/notes/"></a></h2>
+    <h4>Tue, May 28, 2013</h4>
     <div class="article-style">
       
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
+      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/18/thursday-reviewing-edits-ropensci-computers.html">Thursday: reviewing edits, ropensci, computers.</a></h2>
-    <h4>Thu, Aug 18, 2011</h4>
+    <h2><a href="../../2013/05/27/exploring-approximate-dynamic-programming-approaches/"></a></h2>
+    <h4>Mon, May 27, 2013</h4>
     <div class="article-style">
       
-      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
-Brief topic notes from today&rsquo;s meeting:
- set up different take on layout: lambda, AIC, power
+      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/17/wednesday-migrating-codes-into-mpi.html">Wednesday: migrating codes into MPI</a></h2>
-    <h4>Wed, Aug 17, 2011</h4>
+    <h2><a href="../../2013/05/24/notes/"></a></h2>
+    <h4>Fri, May 24, 2013</h4>
     <div class="article-style">
       
-      Parellelization/Scaling of code MPI on farm cluster
-Got my MPI codes running.
-Much better way to get jobs into the queue, asking for 16 threads that don&rsquo;t have to be on the same node is much faster. Can also ask for 161 threads, but will wait longer in the queue.
-The trick to getting this to run was mostly getting the library set correctly. Setting the library path at the top of the script did the trick:
+      prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
       
     </div>
   </div>

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-12T00:00:00Z
+tags:
+- tribolium
 title: Hastings Beetle Workshop
+url: /2010/05/12/Hastings-Beetle-Workshop/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 [Bob
 Costantino](http://bill.srnr.arizona.edu/Bob_Costantino/cos1.html "http://bill.srnr.arizona.edu/Bob_Costantino/cos1.html")

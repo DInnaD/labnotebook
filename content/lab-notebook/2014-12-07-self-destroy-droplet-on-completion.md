@@ -1,9 +1,9 @@
 ---
-layout: post
-category: computation
-
+categories:
+- computation
+date: 2014-12-07T00:00:00Z
+url: /2014/12/07/self-destroy-droplet-on-completion/
 ---
-
 
 Scott's analogsea package provides a great way to script commands for 
 cloud instances on the digitalocean platform.  for instance, we can use

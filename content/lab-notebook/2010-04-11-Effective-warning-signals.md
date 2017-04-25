@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-04-11T00:00:00Z
+tags:
+- warning-signals
 title: Effective warning signals
+url: /2010/04/11/Effective-warning-signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Predicting variance of variance by direct calculation -- still need
     to crunch some math for the expected convergence.

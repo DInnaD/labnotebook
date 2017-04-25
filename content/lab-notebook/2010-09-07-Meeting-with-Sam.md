@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-09-07T00:00:00Z
 title: Meeting with Sam
+url: /2010/09/07/Meeting-with-Sam/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Discussing elements of likelihood ratio manuscript and review results
 from release of constraint data. Figure out what to include in one

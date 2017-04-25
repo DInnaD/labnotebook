@@ -1,10 +1,11 @@
 ---
-layout: post
-category: evolution
+categories:
+- evolution
+date: 2009-08-25T00:00:00Z
 tags:
 - adaptive-dynamics
 - derivation
-
+url: /2009/08/25/diffusion-solution/
 ---
 
 **editorial note**: These notes pre-date the formal start of my online

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-01-16 10:47:17
-layout: post
-slug: are-open-lab-notebooks-considered-prior-publication
-title: Are open lab notebooks considered prior publication?
-redirects: [/wordpress/archives/3641, /archives/3641]
 categories:
 - open-science
+comments: true
+date: 2012-01-16T10:47:17Z
+redirects:
+- /wordpress/archives/3641
+- /archives/3641
+slug: are-open-lab-notebooks-considered-prior-publication
 tags:
 - blog
+title: Are open lab notebooks considered prior publication?
+url: /2012/01/16/are-open-lab-notebooks-considered-prior-publication/
 ---
 
 This question invariably comes up at some point in any discussion of open notebook science.  This concern is usually voiced in reference to the high-visibility magazines, which many scientists seem to assume will have very restrictive conditions.  A quick read of their policies shows otherwise.  Here are the links to pre-publication policies of major journals, with my short summaries & comments.

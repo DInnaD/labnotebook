@@ -1,19 +1,19 @@
 ---
-comments: true
-date: 2011-06-05 16:20:26
-layout: post
-slug: sunday-warning-signals-manuscript-mostly
-title: Sunday -- warning signals manuscript (mostly)
-redirects: [/wordpress/archives/1903, /archives/1903]
 categories:
 - ecology
+comments: true
+date: 2011-06-05T16:20:26Z
+redirects:
+- /wordpress/archives/1903
+- /archives/1903
+slug: sunday-warning-signals-manuscript-mostly
 tags:
 - warning-signals
+title: Sunday -- warning signals manuscript (mostly)
+url: /2011/06/05/sunday-warning-signals-manuscript-mostly/
 ---
 
-
-	
-  * Updates to Scott's rspringer package
+* Updates to Scott's rspringer package
 
 	
   * Grabbed remaining datasets from Dakos et al., added to package

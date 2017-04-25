@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-14T00:00:00Z
 title: Organizing analyses, data, codes
+url: /2010/07/14/Organizing-analyses-data-codes/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Codes
 

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2014/11/14/nimble-explore/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    <p>A quick first exploration of <a href="http://r-nimble.org">NIMBLE</a> and some questions.</p>
+
+<pre><code class="language-r">library(&quot;nimble&quot;)
+library(&quot;sde&quot;)
+</code></pre>
+
+<p>Let&rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$</p>
+
+<pre><code class="language-r">set.seed(123)
+d &lt;- expression(0.5 * (10-x))
+s &lt;- expression(1) 
+data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))
+</code></pre>
+
+<pre><code>## sigma.x not provided, attempting symbolic derivation.
+</code></pre>
+
+<p>i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.</p>
+
+<p>Le&rsquo;t now estimate a Ricker model based upon (set aside closed-form solutions to this estimate for the moment, since we&rsquo;re investigating MCMC behavior here).</p>
+
+<pre><code class="language-r">code &lt;- modelCode({
+      K ~ dunif(0.01, 40.0)
+      r ~ dunif(0.01, 20.0)
+  sigma ~ dunif(1e-6, 100)
+
+  iQ &lt;- 1 / (sigma * sigma)
+
+  x[1] ~ dunif(0, 10)
+
+  for(t in 1:(N-1)){
+    mu[t] &lt;- log(x[t]) + r * (1 - x[t]/K) 
+    x[t+1] ~ dlnorm(mu[t], iQ) 
+  }
+})
+
+constants &lt;- list(N = length(data$x))
+inits &lt;- list(K = 6, r = 1, sigma = 1)
+
+Rmodel &lt;- nimbleModel(code=code, constants=constants, data=data, inits=inits)
+</code></pre>
+
+<p>NIMBLE certainly makes for a nice syntax so far.  Here we go now: create MCMC specification and algorithm</p>
+
+<pre><code class="language-r">mcmcspec &lt;- MCMCspec(Rmodel)
+Rmcmc &lt;- buildMCMC(mcmcspec)
+</code></pre>
+
+<p>Note that we can also query some details regarding our specification (set by default)</p>
+
+<pre><code class="language-r">mcmcspec$getSamplers()
+</code></pre>
+
+<pre><code>## [1] RW sampler;   targetNode: K,  adaptive: TRUE,  adaptInterval: 200,  scale: 1
+## [2] RW sampler;   targetNode: r,  adaptive: TRUE,  adaptInterval: 200,  scale: 1
+## [3] RW sampler;   targetNode: sigma,  adaptive: TRUE,  adaptInterval: 200,  scale: 1
+</code></pre>
+
+<pre><code class="language-r">mcmcspec$getMonitors()
+</code></pre>
+
+<pre><code>## thin = 1: K, r, sigma, x
+</code></pre>
+
+<p>Now we&rsquo;re ready to compile model and MCMC algorithm</p>
+
+<pre><code class="language-r">Cmodel &lt;- compileNimble(Rmodel)
+Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)
+</code></pre>
+
+<p>Note we could have specified the <code>Rmodel</code> as the &ldquo;project&rdquo; (as shown in the example from the Nimble website), but this is more explicit.  Rather convenient way to add to an existing model in this manner.</p>
+
+<p>And Now we can execute the MCMC algorithm in blazing fast C++ and then extract the samples</p>
+
+<pre><code class="language-r">Cmcmc(10000)
+</code></pre>
+
+<pre><code>## NULL
+</code></pre>
+
+<pre><code class="language-r">samples &lt;- as.data.frame(as.matrix(nfVar(Cmcmc, 'mvSamples')))
+</code></pre>
+
+<p>How do these estimates compare to theory:</p>
+
+<pre><code class="language-r">mean(samples$K)
+</code></pre>
+
+<pre><code>## [1] 10.05681
+</code></pre>
+
+<pre><code class="language-r">mean(samples$r)
+</code></pre>
+
+<pre><code>## [1] 0.180207
+</code></pre>
+
+<hr />
+
+<p>Some quick impressions:</p>
+
+<ul>
+<li><p>Strange that <code>Rmodel</code> call has to be repeated before we can set up a custom MCMC (<a href="http://r-nimble.org/examples">nimble docs</a>).  How/when was this object altered since it was defined in the above code?  Seems like this could be problematic for interpreting / reproducing results?</p></li>
+
+<li><p>What&rsquo;s going on with <code>getSamplers()</code> and <code>getMonitors()</code>? Guessing these are in there just to show us what the defaults will be for our model?</p></li>
+
+<li><p>why do we assign <code>Cmodel</code> if it seems we don&rsquo;t use it? (the compilation needs to be done but isn&rsquo;t explicitly passed to the next step).  Seems we can use <code>Cmodel</code> instead of <code>Rmodel</code> in the <code>Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)</code>, which makes the dependency more explicit, at least that notation is more explicit.  Seems like it should be possiple to omit the first <code>compileNimble()</code> and have the second call the <code>compileNimble</code> automatically if it gets an object whose class is that of <code>Rmodel</code> instead?</p></li>
+
+<li><p>Repeated calls to <code>Cmcmc</code> seem not to give the same results.  Are we adding additional mcmc steps by doing this?</p></li>
+
+<li><p>Thinking an <code>as.data.frame</code> would be nicer than <code>as.matrix</code> in the <code>nfVar</code> <code>mvSamples</code> coercion.</p></li>
+
+<li><p>Don&rsquo;t understand what <code>simulate</code> does (or why it always returns NULL?).</p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2014-11-14 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Fri, Nov 14, 2014
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/11/14/nimble-explore/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/11/13/discrete-grid-notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-11-14-nimble-explore.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-11-14-nimble-explore.md">8b51c8d4c</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2014\/11\/14\/nimble-explore\/';
+    var disqus_title = '';
+    var disqus_url = '\/2014\/11\/14\/nimble-explore\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

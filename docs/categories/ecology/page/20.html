@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,115 +141,121 @@
   
   
   <div>
-    <h2><a href="../../../2011/01/19/robert-hijmans-on-models-to-predict-sp-response-to-climate-change.html">Robert Hijmans on Models to predict sp response to climate change</a></h2>
-    <h4>Wed, Jan 19, 2011</h4>
+    <h2><a href="../../../2012/05/11/notes/">Computing the value of information in management of a stochastic resource</a></h2>
+    <h4>Fri, May 11, 2012</h4>
     <div class="article-style">
       
-      Notes from seminar.[ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets. [/ref] Robert speaks to an utterly packed room. Predicting future range of species: 4 topics. 1 cross-validation, 2 niches, 3 unit (sp?), 4 mechanism. Presence-absence predictions from machine learning, maxent.
-Opening: AUC for measure of fit- lousy stat!
+      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/10/warning-signals-power-and-sufficient-statistics.html">Warning Signals, Power and Sufficient Statistics</a></h2>
-    <h4>Mon, Jan 10, 2011</h4>
+    <h2><a href="../../../2012/05/09/notes/">Infering Partially Observable Markov Processes with Iterative Particle Filtering</a></h2>
+    <h4>Wed, May 9, 2012</h4>
     <div class="article-style">
       
-      Working on warning signals manuscript. Looking at overall powercurves as a function of sample size and rate of stability loss in both models. Planning to repeat that analysis with summary statistics approach to illustrate the relative loss in power of the &ldquo;leading indicator&rdquo; approach. (simulations just set up to run now, figures should appear below as they complete. Click on figures for links to code).
- Power curve based on transcritical bifurcation as a function of rate of stability loss:  [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;warningsignals, LTC, stability&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-01-10 00:00:00&rdquo; max_upload_date=&ldquo;2011-01-12 23:59:59&rdquo;]
+      Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
+Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
+POMP doesn&rsquo;t mix well in the winbugs.
+simulation-based algorithm (plug-and-play)
+Think of a process being defined by:
+ rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/06/two-routes-to-adaptive-branching.html">Two routes to adaptive branching</a></h2>
-    <h4>Thu, Jan 6, 2011</h4>
+    <h2><a href="../../../2012/05/08/notes/">Data to Knowledge Day II and other notes</a></h2>
+    <h4>Tue, May 8, 2012</h4>
     <div class="article-style">
       
-      Simulations completed, help accentuate the different paths for branching. When the most failures occur while waiting for the first mutation to enter first established dimorphism, mutation rate seems limiting (left):
-(right) With a higher mutation rate, most collapses back to monomorphism occur after a mutation successfully invades in the dimorphic population. Unfortunately these runs result in large fraction of the ensemble never reaching the final branching, those that do, do so fast:
+      Great second day at the Data to Knowledge conference (a few notes below).
+Also I have been trying to move a few projects forward during the commute and break. I&rsquo;ve sent Alan my revisions on the prosecutor&rsquo;s fallacy manuscript, getting pretty close. Following up on a query from John, ran a simulation showing the impact of having a delay in the timeseries before the slow change towards the bifurcation begins.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/30/stochastic-limits-to-evolutionary-branching.html">Stochastic limits to evolutionary branching</a></h2>
-    <h4>Thu, Dec 30, 2010</h4>
+    <h2><a href="../../../2012/05/07/notes/">Data to Knowledge Day 1</a></h2>
+    <h4>Mon, May 7, 2012</h4>
     <div class="article-style">
       
-      My last post was a bit pessimistic, sometimes I can still miss the forest for the trees. Hidden in those figures, the main point has been staring me in the face. So let&rsquo;s try this again.
-Stochastic limits to evolutionary branching is the story of two dueling timescales. The first timescale is that of the evolutionary process: the frequency of steps (mutation rate, $ \mu$) and the size of the steps (mutation kernel standard deviation $ \sigma_{\mu}$), on top of which we add the selection gradient, created by the ecology.
+      Scaling Time Series Data Mining to trillions of series Eamonn Keogh
+ Similarity search is the fundamental problem for any task This problem is now solved. As effective as possible, as efficient as possible.  What is similarity search? All about required invariances: Looking at ancient manuscripts of fish &ndash; identify multiple drawings of the same species. Invariant to color, scale, and orientation.
+(Note that rotation becomes phase, easy to handle).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/30/parameter-exploration-in-adaptive-dynamics-branching.html">Parameter exploration in adaptive dynamics branching</a></h2>
-    <h4>Thu, Dec 30, 2010</h4>
+    <h2><a href="../../../2012/05/04/notes/"></a></h2>
+    <h4>Fri, May 4, 2012</h4>
     <div class="article-style">
       
-      Ran a series of simulations overnight to explore aspects of time-to-branching at different phases of the branching process. Still using only 16 replicates per data point, though increased maximum time for a run another order of magnitude to avoid timing out runs influencing the dataset for the slow-rate parameters. Still seems to suggest a regime beyond which branching becomes completely improbable. Not clear that the transition is a sharp as the Arrhenius approximation might suggest.
+      Chris Costello Talk Presents unpublished work on value of (behavioral) adaptation, using forestry practices changing under climate change as the example. If we ignore adaptive responses, we overestimate costs and underestimate benefits.
+ Effect w/ adaptation:  $$ \frac{d V}{d \theta} = \frac{\partial f}{\partial r} \frac{\partial r }{\partial \theta} + \frac{\partial f}{\partial \theta} $$
+ Envelope theorem: optimal point is at ( df/dr = 0 ), so no value of adaptation after optimizing with respect to r.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/29/adaptive-dynamics-simulations.html">adaptive-dynamics Simulations</a></h2>
-    <h4>Wed, Dec 29, 2010</h4>
+    <h2><a href="../../../2012/05/03/notes/">Notes</a></h2>
+    <h4>Thu, May 3, 2012</h4>
     <div class="article-style">
       
-      Setting up some adaptive dynamics simulations to complete the parameter-space search. Currently the demo library contains two files, providing the coexistence-only tests and the full evolutionary simulation. This picks up from Aug 30/Sept 1 on coexistence times and Aug 12&frasl;13 entries on waiting times until branching (while still on OWW).
-coexistence times coexist_times.R creates contour plots of the coexistence time under demographic noise expected at a particular position of the pairwise invasibility plot (PIP).
+      Returned proofs for warning signals paper. Wrightscape figures sent to Peter. move fallacy to a branch off of main in earlywaring package? Running knit on the large clusters means images cannot be uploaded as they are created, since compute nodes don&rsquo;t have internet access. Saving files locally, I&rsquo;ve created a little script to parse the output file.md to find the and upload the local images, and swap the local paths for the url paths.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/24/doe-renewal-and-a-year-in-review.html">DoE renewal and a year in review</a></h2>
-    <h4>Fri, Dec 24, 2010</h4>
+    <h2><a href="../../../2012/05/02/stochastic-policy-costs/">Stochastic policy costs</a></h2>
+    <h4>Wed, May 2, 2012</h4>
     <div class="article-style">
       
-      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
-synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
+      Updated runs for various norms, added profit plots.
+ L1 L2 asymmetric: differs on the sign of the asymmetry? Penalty only for decreasing quotas. Penalty only for increasing quotas. check implementation. fixed transaction fee &ndash; whoops, fixed cost should still be free when h == h_prev.  We need to determine a the magnitude of penalty coefficient to compare between the different functional forms. For instance, for what value of c is an L2 penalty, $ c ( h_t - h_p )^2 $ comparable to the L1 penalty, $ c \operatorname{abs}(h_t - h_p ) $ ?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/10/warning-signals-manuscript.html">Warning signals manuscript</a></h2>
-    <h4>Fri, Dec 10, 2010</h4>
+    <h2><a href="../../../2012/04/30/sethi/">Additional sources of noise (Sethi 2005)</a></h2>
+    <h4>Mon, Apr 30, 2012</h4>
     <div class="article-style">
       
-      Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
- Intro/Abstract
- Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
- Nonlinearity not observed with infinite data
- reasons detection fails: Identifiability issue &amp; Power issue. Example signal that exists but inadequate power to detect?
- Eigenvalue story
- Probability of data vs Probability of a statistic
+      Sethi Model  author Carl Boettiger, cboettig@gmail.com license: CC0  Implements a numerical version of the SDP described in (Sethi et. al. 2005).
+Clear the workspace and load package dependencies:
+Define noise parameters
+sigma_g &lt;- 0.1 # Noise in population growth sigma_m &lt;- 0.1 # noise in stock assessment measurement sigma_i &lt;- 0.1 # noise in implementation of the quota  we&rsquo;ll use log normal noise functions. For Reed, only z_g will be random.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/09/exploring-power-in-warning-signals.html">Exploring Power in Warning Signals</a></h2>
-    <h4>Thu, Dec 9, 2010</h4>
+    <h2><a href="../../../2012/04/27/ecology-notes/">Project tracking (Ecology)</a></h2>
+    <h4>Fri, Apr 27, 2012</h4>
     <div class="article-style">
       
-      Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
-<a href="code ids in image discription, compare to structured-popultions git log. ">flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;stochpowercurvesslides&rdquo;</a>
-Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.
+      pdg-control Has become a variety of different directions:
+Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/04/identifying-warning-signals.html">Identifying Warning Signals</a></h2>
-    <h4>Sat, Dec 4, 2010</h4>
+    <h2><a href="../../../2012/04/26/2012-04-20/">2012-04-20</a></h2>
+    <h4>Thu, Apr 26, 2012</h4>
     <div class="article-style">
       
-      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
+      Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
+Added Alan&rsquo;s edits.
+ Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
+Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
+Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
+ These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
       
     </div>
   </div>

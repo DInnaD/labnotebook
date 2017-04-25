@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,118 +141,112 @@
   
   
   <div>
-    <h2><a href="../2012/03/19.html"></a></h2>
-    <h4>Mon, Mar 19, 2012</h4>
+    <h2><a href="../2013/11/26/notes/"></a></h2>
+    <h4>Tue, Nov 26, 2013</h4>
     <div class="article-style">
       
-      Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
+      RNeXML Character metadata EML provides a nice illustration of the kind of metadata we would want to typically accompany character trait data; at minimum, at the attribute level.
+Some of this is already there &ndash; we know if states are continuous or discrete, what possible states they can take on, and can add labels to state nodes to define what the symbols mean (however, perhaps an additional meta annotation node would be preferred).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc.html">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
+    <h2><a href="../2013/11/17/rnexml-metadata-queries/"></a></h2>
+    <h4>Sun, Nov 17, 2013</h4>
     <div class="article-style">
       
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
+      (From issue #20)
+Basic metadata queries a question of how the user queries that metadata. Currently we have a metadata function that simply extracts all the metadata at the specified level (nexml, otus, trees, tree, etc) and returns a named character string in which the name corresponds to the rel or property and the value corresponds to the content or href, e.g.:
+birds &lt;- read.nexml(&quot;birdOrders.xml&quot;) meta &lt;- get_metadata(birds)  prints the named string with the top-level (default-level) metadata elements as so:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/02/12/sunday-6.html">Sunday </a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
+    <h2><a href="../2013/10/17/rnexml-semantic-considerations/"></a></h2>
+    <h4>Thu, Oct 17, 2013</h4>
     <div class="article-style">
       
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
+      Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular #26 and #24) I only paraphrase here.
+One of the central advantages we can offer in programmatic generation of NeXML in the R environment is the ability to validate names and enhance the metadata included in the resulting nexml file using programmatic queries to taxonomic name resolution services such as ITIS, EOL, NCBI, as provided in the taxize package.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/01/19/is-your-phylogeny-informative.html">Is your phylogeny informative?</a></h2>
-    <h4>Thu, Jan 19, 2012</h4>
+    <h2><a href="../2013/10/16/notes/"></a></h2>
+    <h4>Wed, Oct 16, 2013</h4>
     <div class="article-style">
       
-      Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&rsquo;s preprint),As the open access copy doesn&rsquo;t appear on pubmed for a while, you can access my author&rsquo;s copy here. so I&rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
-I didn&rsquo;t set out to write this paper.
+      RNeXML  Example methods for metadata: <a href="https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772">https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772</a> Closes #19 <a href="https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110">https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110</a> Discussion of best identifiers for OTUs #24. Now waiting on Scott for choice of implementation  Misc R puzzle In R&rsquo;s S4 methods, I can define methods with different signatures, i.e. different object classes for the same function call. But can I alter the names and number of arguments for a method?
+As usual, see Github for details on commits and issues.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/01/04/wrightscape-examples.html">wrightscape examples</a></h2>
-    <h4>Wed, Jan 4, 2012</h4>
+    <h2><a href="../2013/10/11/is-it-time-to-retire-pagels-lambda/">Is it time to retire Pagel&#39;s lambda?</a></h2>
+    <h4>Fri, Oct 11, 2013</h4>
     <div class="article-style">
       
-      [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2012-01-03 7:00:37&rdquo; max_upload_date=&ldquo;2012-01-03 22:23:37&rdquo;]
- kt and open seem the best focal traits. Unclear what good null traits to use would be.
- Unclear if anything is gained by indep thetas in this example.
- Performance of alpha v theta?
-  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:
+      Pagel&rsquo;s $\lambda$ (lambda), introduced in Pagel 1999 as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).
+Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity. There are many issues with the statistic, some of which I attempt to summarise below.
+The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/01/03/tuesday-pmc-package-latex-to-word-attempts.html">Tuesday: pmc package, latex to word attempts</a></h2>
-    <h4>Tue, Jan 3, 2012</h4>
+    <h2><a href="../2013/10/07/nexml-phylo-class-extension/">Extending ape::phylo class to NeXML:</a></h2>
+    <h4>Mon, Oct 7, 2013</h4>
     <div class="article-style">
       
-      Back from Oz.
-Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
- tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
- pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations
+      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
+To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/12/09/friday-9.html">Friday</a></h2>
-    <h4>Fri, Dec 9, 2011</h4>
+    <h2><a href="../2013/09/23/notes/"></a></h2>
+    <h4>Mon, Sep 23, 2013</h4>
     <div class="article-style">
       
-      Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
+      nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/12/08/thursday-11.html">Thursday</a></h2>
-    <h4>Thu, Dec 8, 2011</h4>
+    <h2><a href="../2013/09/09/lost-branches/"></a></h2>
+    <h4>Mon, Sep 9, 2013</h4>
     <div class="article-style">
       
-      Another day of working on 4 different projects at once.
-Warning signals  review Alan pulses manuscript
- review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
-  No way in Anchoveta data, look at time series:
-Example in the cod data using only up until 1991 data:
- Way forward &ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.
+      Just read Lost Branches on the Tree of Life in PLoS Biology and couldn&rsquo;t agree more! I too am frequently frustrated by the lack of deposition or replies to email requests for data. The 16% reply rate seems consistent with other such studies. I agree with the general message that what is most needed is a cultural shift towards these expectations. I loved this paper overall but nonetheless cannot resist a few nitpicks.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/12/07/wednesday-11.html">Wednesday - wrightscape runs and various other things</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
+    <h2><a href="../2013/09/07/rnexml-milestone/"></a></h2>
+    <h4>Sat, Sep 7, 2013</h4>
     <div class="article-style">
       
-      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
+      We have also recently reached the first milestone in RNeXML. We can now read NeXML files into R and convert to the popular phylo format from the ape package, as well as writing the ape::phylo trees out into valid NeXML. We can also add basic metadata such as author, license, title and description to the file.
+Development notes At the heart of this package is an internal S4 representation of the schema.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/12/06/tuesday-two-insights.html">Tuesday -- two insights</a></h2>
-    <h4>Tue, Dec 6, 2011</h4>
+    <h2><a href="../2013/08/29/notes/"></a></h2>
+    <h4>Thu, Aug 29, 2013</h4>
     <div class="article-style">
       
-      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
- Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
- Bonvin approach &ndash; adjust the control instead (NCO Control).
+      Digging through some old stuff in the course of correspondance on related issues, I came across a few outstanding puzzles I&rsquo;ve been meaning to wrap up one day:
+ Drift effecs &ndash; some difficulties Waiting Time  and some actual results that could deserve some renewed attention too.
+ Phase 1 Routes to branching  Also raises an interesting new question that could be addressed in this context: can we formulate a similar approach to the stochastic escape from an adaptive peak?
       
     </div>
   </div>

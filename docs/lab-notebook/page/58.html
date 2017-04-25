@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,109 +140,113 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h2>
+    <h4>Thu, May 26, 2011</h4>
     <div class="article-style">
       
-      Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
- We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema
+      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/25/wednesday-5/">Wednesday</a></h2>
+    <h4>Wed, May 25, 2011</h4>
     <div class="article-style">
       
-      Started reml, and R package for reading, writing, manipulating and publishing EML files. More details and progress so far on the Github page; in particular flushing out design goals in the issues tracker.
-Initial goals To start, I am aiming for a proof of principle case in which we can write an R data.frame into EML (issue #2), publish to a remote repository such as figshare (issue #3), and then read the data back in as the original R object types from the EML (issue #6).
+      R packages  Trying to build Windows binaries for R packages using win-builder service.
+ First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
+ Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
+ Matt successfully installed CUDA on zero (2.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/24/tuesday-4/">Tuesday</a></h2>
+    <h4>Tue, May 24, 2011</h4>
     <div class="article-style">
       
-      Made substanial progress on the reml project. We have reached our first milestone, being able to:
- Successfully validate the EML generated (#28) Start a unit test suite write eml unit tests (#14) Extract appropriate R objects from EML dataTable read eml (#6) Add function to publish EML data through figshare publish eml (#3) Generate an EML file given a data.frame and appropriate metadata write eml (#2)  As illustrated by the example shown in the Readme:
+      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
+ created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
+ Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/23/monday-5/">Monday: some code-tricks, Algorithms group planning</a></h2>
+    <h4>Mon, May 23, 2011</h4>
     <div class="article-style">
       
-      Several weeks ago I wrote a post describing issues I commonly raise when reviewing software papers. This provoked a lively discussion among authors, editors, and other reviewers of software papers (most of us having been on at least both reviewing and authoring end), with quite varied perspectives as to whether such criteria were appropriate in this context. As I describe there, I view the concept of dedicated software papers as a somewhat necessary &ldquo;hack&rdquo; of the publishing system, and hope a more mature system will eventually come into place, as is now happening for data through efforts such as Dryad and associated journal archiving requirements.
+      Teary Some discussion on combining Greek letters with variables in R. Previously have solved this with substitute() command,
+x = 4.5 plot(1:10, main = substitute(paste(&quot;Kendall &quot;, tau == val), list(val = x[1])))  but Peter has a more elegant solution that can be vectorized:
+sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)) #for instance plot(0) legend(&quot;topright&quot;,legend=sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)),lty=2)  Better yet, bquote has a mechanism to evaluate an argument vs express the argument as a symbol, see gist id=1108159.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/22/sunday/">Sunday</a></h2>
+    <h4>Sun, May 22, 2011</h4>
     <div class="article-style">
       
-      All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
+      Reading  International Symposium on Biomathematics and Ecology: Education and Research &ndash; This looks excellent, wonder if I can make it. Besides, it&rsquo;s in Portland and the acronym is promising. Pacific Ecoinformatics and Computational Ecology Lab - Based in Berkeley, looks rather intriguing, hard to tell how active this is as a group. Ecoinformatics? So it does exist? Paraphrasing Jeremy Fox, has it done anything? A rather nice review in ARES: (Jones et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">End of NCEAS &amp; the legacy of synthetic data</a></h2>
+    <h4>Sun, May 22, 2011</h4>
     <div class="article-style">
       
-      PRSB paper is out.  TODO: Post to arxiv now that Drake&rsquo;s side is out. Update vita. Reply to Drake. Clean up prosectors-fallacy repository. Post on paper(?)
- Note: github record of earlier version of paper turns out handy in reply, (showed earlier wording about not necessary).
- Also, some quick significance testing of distributional differences associated with the patterns we show in Figure 1, for what it&rsquo;s worth (in reply to query - yay for clean workflow making this easy).
+      The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
+ that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/19/algorithms-group-mcmcmc/">Algorithms group: MCMCMC</a></h2>
+    <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
       
-      Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
- 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
+      Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/19/thursday-5/">Thursday</a></h2>
+    <h4>Thu, May 19, 2011</h4>
     <div class="article-style">
       
-      Mendeley API for Jekyll Finally finished off my Mendeley API for Jekyll (The top uses the Ruby API implementation from Michael Bus, copied here since it is not yet provided as a gem. scroll to the bottom for my plugin code). The Mendeley API implementation is remarkably clumsy. For instance, rather than allowing queries to the API that specify a user&rsquo;s folder and a sort-by field, we are forced to first query the folder for a list of IDs and then query document details on every document in the folder, after which we can sort locally.
+      Finish and post core notes from yesterday. Debugging locale problem in phylo packages = success. Emmanuel has already patched drop.fossils() in the ape package, will see if Gieger and TreeSim try to handle locale issue directly too. Problem in comparisons:  &gt; Sys.setlocale(locale = &quot;&quot;) # default locale using UTF8 # message deleted &gt; &quot;-1&quot; &gt; 0 [1] TRUE &gt; Sys.setlocale(locale = &quot;C&quot;) # message deleted &gt; &quot;-1&quot; &gt; 0 [1] FALSE   Posted MCMCMC notes from algorithms.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/18/birth-death-tutorial-for-pbg-core/">Birth-death Tutorial for PBG Core</a></h2>
+    <h4>Wed, May 18, 2011</h4>
     <div class="article-style">
       
-      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
-Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
+      Ran a introductory tutorial on birth-death models for phylogenetic trees in R today for Peter Wainwright&rsquo;s section of the Pop Bio Core sequence. Notes below, in a manner that may suggest I was better organized than reality might attest. Luckily the firsties are brilliant&hellip;
+Getting Started Code is shown section by section with results in the following examples. If you prefer, you can download my full code file here, but you will have to comment out my flickr plotting utilities before it will run.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/17/tuesday-3/">Tuesday: Parrotfish results, MCMCMC testing, APIs</a></h2>
+    <h4>Tue, May 17, 2011</h4>
     <div class="article-style">
       
-      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
-Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
+      Finished review for TE
+ Shared post on TreeBASE API
+ Reviewed Scott&rsquo;s updates to dryad R API, adjusted formatting.
+ Looking at documentation for the OAI-MPH queries, don&rsquo;t seem to be as rich as Phylo-ws queries. This is why treeBASE metadata searches tend to download the full metadata set into R and query that. Looks like we&rsquo;ll need to take a similar approach to Dryad, as it doesn&rsquo;t seem like there&rsquo;s a way to query the API by author name at all?
       
     </div>
   </div>

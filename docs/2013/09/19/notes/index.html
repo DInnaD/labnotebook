@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/09/19/notes/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<ul>
+<li>writing manuscript</li>
+<li>slides</li>
+<li>data request to Glaser.<br /></li>
+</ul>
+
+<h3 id="gpdd">gpdd</h3>
+
+<ul>
+<li><a href="http://www3.imperial.ac.uk/cpb/databases/gpdd">Global Popluation Dynamics Database</a> initiated package <a href="https://github.com/ropensci/rgpdd">rgpdd</a></li>
+<li>data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access <code>mdb</code> database.  For the moment I&rsquo;m using mdbtools: <code>mdb-tables</code> and <code>mdb-extract</code> to convert to CSV and then reading those into R.    <a href="http://cran.r-project.org/web/packages/RODBC/index.html">RODBC</a> package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R? (avoids extra dependencies).  <code>data.table</code> should speed internal computations.<br /></li>
+<li>data compression. Looks like raw data exceeds CRAN&rsquo;s 5MB limit, but <code>zx</code> compressed binaries it will be less than $&lt;0.4$ MB.  Compressing those from within R: <code>save(table_name, file=&quot;filename.rda&quot;, compress=&quot;xz&quot;)</code>.  Looks like database is essentially static with updates every few years, see <a href="http://www3.imperial.ac.uk/cpb/databases/gpdd/updates">Updates page</a>.  Together this makes a good case for distributing data directly in the package.<br /></li>
+</ul>
+
+<p>On distributing the data, note:</p>
+
+<p>&ldquo;Not all of the data in GPDD is in the public domain; some are provided under licence from the BTO.  We require permission before we can distribute some of the data sets.  The data in these datasets have been removed from the DATA table in this online version of GPDD, but the metadata in the other tables has been left in place. &ldquo;
+<a href="http://www3.imperial.ac.uk/cpb/databases/gpdd/structure">http://www3.imperial.ac.uk/cpb/databases/gpdd/structure</a></p>
+
+<p>Emailed database providers to confirm.</p>
+
+<h3 id="gpdd-related-reading">GPDD-related reading</h3>
+
+<ol>
+<li>Post, E., Brodie, J., Hebblewhite, M., Anders, A. D., Maier, J. a. K. &amp; Wilmers, C. C. 2009 Global Population Dynamics and Hot Spots of Response to Climate Change. BioScience 59, 489-497. (doi:10.1525/bio.2009.59.6.7)</li>
+<li>Knape, J. &amp; de Valpine, P. 2012 Are patterns of density dependence in the Global Population Dynamics Database driven by uncertainty about population abundance? Ecology Letters 15, 17-23. (doi:10.1111/j.1461-0248.2011.01702.x)</li>
+<li>Sibly, R. M., Barker, D., Denham, M. C., Hone, J. &amp; Pagel, M. 2005 On the regulation of populations of mammals, birds, fish, and insects. Science (New York, N.Y.) 309, 607-10. (doi:10.1126/science.1110760)</li>
+</ol>
+
+<h3 id="notebook-infrastructure">Notebook infrastructure</h3>
+
+<ul>
+<li><p>ugh should implement script to transform DOIs to links+metadata. probably <code>knitcitations</code> based, but without needing the verbose <code>r citep(&quot;</code> notation.  pity markdown doesn&rsquo;t support <code>rel</code> attribute on links.  Maybe possible already? <a href="https://drupal.org/node/421832">https://drupal.org/node/421832</a>  No luck there, though pandoc can avoid choking on this style of link attribute: <a href="https://github.com/jgm/pandoc/wiki/Pandoc-vs-Multimarkdown#image-and-link-attributes">https://github.com/jgm/pandoc/wiki/Pandoc-vs-Multimarkdown#image-and-link-attributes</a> when compiling with <code>-f markdown+link_attributes</code>.  Unfortunately this doesn&rsquo;t actually render the attributes but just silently drops them.</p></li>
+
+<li><p>Adjust link to provide turtle instead of RDF/XML (avoid the download prompt)?</p></li>
+</ul>
+
+<h3 id="interview-follow-up-links">Interview follow-up links</h3>
+
+<ul>
+<li><p>I mentioned my involvement started with <a href="http://carlboettiger.info/2013/06/13/what-I-look-for-in-software-papers.html">this post</a>; the (somewhat long) comments are useful.</p></li>
+
+<li><p>I should have mentioned that recently attended a workshop where environmental scientists were thinking about how to approach these issues related to software and code through the creation of a <a href="http://isees.nceas.ucsb.edu">Software Sustainability Center</a>.  (Of which code review could be one possible service it might provide).</p></li>
+
+<li><p>I might have mentioned that a few organizations are doing code review.  Notably, the journal of open research, published by the new UK Software Sustainability Institute. They are one of the few organziations that have <a href="http://carlboettiger.info/2013/07/09/reviewing-software-revisited.html">code review guidelines</a></p></li>
+
+<li><p>Code review was recently <a href="http://dx.doi.org/10.1126/science.1231535">proposed</a> and <a href="http://dx.doi.org/10.1126/science.341.6143.236-b">disputed</a> in a Policy Forum piece in Science Magazine discussing these issues.</p></li>
+
+<li><p>This Times Higher Ed article recently highlighted the issues with Climate code: <a href="http://www.timeshighereducation.co.uk/news/save-your-work-give-software-engineers-a-career-track/2006431.article">http://www.timeshighereducation.co.uk/news/save-your-work-give-software-engineers-a-career-track/2006431.article</a>  The Climate Code Foundation <a href="http://climatecode.org/">http://climatecode.org/</a> is doing excellent work to start addressing these issues.</p></li>
+
+<li><p>Of course several earlier articles in Nature have highlighted these issues, including the important tension between encouraging scientists to <a href="http://doi.org/10.1038/nature10836">share code even if it isn&rsquo;t &ldquo;pretty&rdquo;</a>, vs <a href="http://doi.org/10.1038/467775a">improving the quality / readability of code</a>.</p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-09-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Sep 19, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/nonparametric-bayes">nonparametric-bayes</a
+    >, 
+    
+    <a href="../../../../tags/ropensci">ropensci</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/09/23/notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/09/18/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-09-19-notes.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-09-19-notes.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/09\/19\/notes\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/09\/19\/notes\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

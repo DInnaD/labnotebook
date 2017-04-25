@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,127 +141,119 @@
   
   
   <div>
-    <h2><a href="../../../2011/10/27/optimal-control-next-steps.html">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h2>
-    <h4>Thu, Oct 27, 2011</h4>
+    <h2><a href="../../../2013/06/24/notes/"></a></h2>
+    <h4>Mon, Jun 24, 2013</h4>
     <div class="article-style">
       
-      Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
- Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
- Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
-  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
+      Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
+ We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/26/monday-misc-notes.html">Monday, misc notes</a></h2>
-    <h4>Wed, Oct 26, 2011</h4>
+    <h2><a href="../../../2013/06/23/notes-on-leveraging-the-ecological-markup-language/"></a></h2>
+    <h4>Sun, Jun 23, 2013</h4>
     <div class="article-style">
       
-      R packages relevant to the optimal control problems
- BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
-ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
+      This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
+Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
+In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/24/optimal-control-training-problem-2-problem-statement.html">Training problem 2: the economist&#39;s problem statement</a></h2>
-    <h4>Mon, Oct 24, 2011</h4>
+    <h2><a href="../../../2013/06/20/nonparametric-bayes-summary-ideas/"></a></h2>
+    <h4>Thu, Jun 20, 2013</h4>
     <div class="article-style">
       
-      pdg-control Problem statement: Maximize profits subject to $$\max_{h(t)} \int_0^T e^{-\rho t} \pi(x, h, t) dt $$ Subject to the state equations (biology):
-$$ \dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h $$
-Note that we consider the control variable to be effort, $h$ instead of harvest, $\mathcal{H}$, where $\mathcal{H} = h x$.
-and the constraints: $$ x(0) = X_0 \qquad x(T) = X_T $$ We have fixed boundary conditions (equalities) and equalities in the state equations, so we have a nice straight-forward problem.
+      If you do know the model and are simply uncertain about the parameters, you can often do all right (e.g. better than maximum likelihood approach) by doing the SDP over the Bayesian posterior distribution of the estimated model. Not surprisingly, if you don&rsquo;t have the correct model, this can fail pretty dramatically (in particular in very nonlinear models, e.g. tipping point models I have been looking at). Model choice and model averaging approaches aren&rsquo;t much help here, because often the structurally correct model doesn&rsquo;t fit the observed data any better &ndash; since the problems occur due to model inaccuracies where we don&rsquo;t have data; e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/21/friday-optimal-control.html">Friday: Optimal Control</a></h2>
-    <h4>Fri, Oct 21, 2011</h4>
+    <h2><a href="../../../2013/06/18/figure-for-summarizing-simulations/"></a></h2>
+    <h4>Tue, Jun 18, 2013</h4>
     <div class="article-style">
       
-      Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
-subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
-and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
-$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
+      Trying to find a better way to summarize outputs of simulations,
+Heavy over-plotting makes the simulation trajectories themselves hard to read, even with transparent curves. Instead, we can plot the cumulative profit (technically should be discounted first):
+We can normalize these profits as a fraction of the theoretical optimum (true), providing a comparison that is less dependent on model parameters.
+We can then attempt to plot these on a single plot, either as stacked histograms:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/18/mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles.html">Mathematical Elements of Attack Risk Analysis for Mountain Pine tribolium</a></h2>
-    <h4>Tue, Oct 18, 2011</h4>
+    <h2><a href="../../../2013/06/13/notes/"></a></h2>
+    <h4>Thu, Jun 13, 2013</h4>
     <div class="article-style">
       
-      (POWELL et. al. 2000)
-Regimes endemic - attack the weakling trees. epidemic
-Tree has defenses. Aggregation of beetles can exhaust these, but then must disperse to other trees to avoid larval competition.
-Mathematical Elements The cast, (after some non-dimensionalization)
- $ \dot Q(x,y,t) = R P - Q R$ Nesting beetles
- $ \dot H(x,y,t) = R P - H R $ Holes: measures attack success
- $ \dot R(x,y,t) = \left( 1 - R \right) R - R H $ Resin: tree defense success
+      Assembling various loose ends and some ropensci work.
+Misc things to work out and write at some date  Catch up on literature reading (unsorted list in Mendeley). Get entries into notebook.
+ Write thoughts on selecting links anchor text in the notebook knitr script workflow: externalizing chunks, cache and figure prefixes.
+ branching projects and unique repositories source code for all manuscripts into repositories clean up directories. in particular, establish separate prosecutors-fallacy repository Comments on workflow: Date-oriented (notebook) vs File-oriented (Github) explanation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/17/rewrites.html">Rewrites</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h2><a href="../../../2013/06/13/what-i-look-for-in-software-papers/">What I look for in &#39;Software Papers&#39;</a></h2>
+    <h4>Thu, Jun 13, 2013</h4>
     <div class="article-style">
       
-      Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
+      Update Thanks to the rich discussion in the comments and beyond, I&rsquo;ve revised my thoughts on this somewhat, as I discuss in this more recent post.
+I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I define as publications whose primary purpose is to publicize a piece of scientific software and provide a traditional research product with hopes that it will receive citations and recognition from other researchers in grant and job reviews.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/17/friday-more-runs.html">Friday, more runs</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h2><a href="../../../2013/06/05/semi-analytic-posteriors/"></a></h2>
+    <h4>Wed, Jun 5, 2013</h4>
     <div class="article-style">
+      
+      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/13/thursday-fisheries-course.html">Thursday, Fisheries course</a></h2>
-    <h4>Thu, Oct 13, 2011</h4>
+    <h2><a href="../../../2013/06/04/analytic-marginalizing-for-posteriors/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
     <div class="article-style">
       
-      Fisheries impact on forage fish. Forage fish impact on the primary fisheries.
- Huxley, 1882: &ldquo;Great Sea Fisheries cannot be exhausted&rdquo; (full address) Worm et al., 2006: All fish will collapse by 2050 (Worm et. al. 2006)  Benguela Current upwelling (Anchovy collapse)
-Discussion of: Prey switching impact?
-Wasp-waist ecosystems
-Ecopath/ecosim vs Atlantis
-Questions:
-Can we identify the nature of control?
-Importance of wasp-waist control.
-regime switching
-Negative impact of forage fish on ground fish.
+      Consider the model
+$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
+with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
+$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
+To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/12/wednesday-10.html">Wednesday</a></h2>
-    <h4>Wed, Oct 12, 2011</h4>
+    <h2><a href="../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
     <div class="article-style">
+      
+      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
+require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
+f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/11/lou-botsford-cpb.html">Loo Botsford, CPB seminar</a></h2>
-    <h4>Tue, Oct 11, 2011</h4>
+    <h2><a href="../../../2013/06/03/admb-basic-example/"></a></h2>
+    <h4>Mon, Jun 3, 2013</h4>
     <div class="article-style">
       
-      &ldquo;Effects of Fishing on the Sensitivity of Fisheries to Climate Variability&rdquo; Truncation of age structure.
-juvenation (younger population), maternal effects (first-year breeders are poor), genetic selection, ability to track environment (vs smoothing &ndash; averaging over longer times).
-Outline:
-Empirical evidence for increased variability, model explanations  Story begins with Hsieh, et al 2006. Long time series, increasing fluctuations. (Hsieh et. al. 2006)
- Anderson et al no age structure model (Anderson et.
+      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
+ These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
+Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
       
     </div>
   </div>

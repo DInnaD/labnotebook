@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-01-31 16:49:22
-layout: post
-slug: warning-signals-indicators-vs-likelihood-continued
-title: 'Warning signals: Indicators vs Likelihood continued'
-redirects: [/wordpress/archives/898, /archives/898]
 categories:
 - ecology
+comments: true
+date: 2011-01-31T16:49:22Z
+redirects:
+- /wordpress/archives/898
+- /archives/898
+slug: warning-signals-indicators-vs-likelihood-continued
 tags:
 - warning-signals
+title: 'Warning signals: Indicators vs Likelihood continued'
+url: /2011/01/31/warning-signals-indicators-vs-likelihood-continued/
 ---
 
 Continuing to explore examples

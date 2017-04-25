@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,123 +140,120 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/05/sunday-warning-signals-manuscript-mostly/">Sunday -- warning signals manuscript (mostly)</a></h2>
+    <h4>Sun, Jun 5, 2011</h4>
     <div class="article-style">
       
-      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
- fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
- slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
+      Updates to Scott&rsquo;s rspringer package
+ Grabbed remaining datasets from Dakos et al., added to package
+ Reading (Biggs et. al. 2009) a bit more closely
+ Writing and revisions on warning signals manuscript.
+   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/04/saturday-git-with-latexdiff-treebase-and-pmc-package-updates-bounds-on-lambda/">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h2>
+    <h4>Sat, Jun 4, 2011</h4>
     <div class="article-style">
       
-      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
- These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
-Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
+Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/03/friday-5/">Friday</a></h2>
+    <h4>Fri, Jun 3, 2011</h4>
     <div class="article-style">
       
-      Consider the model
-$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
-with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
-$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
-To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
+      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/02/thursday-warning-signals/">Thursday: Warning Signals</a></h2>
+    <h4>Thu, Jun 2, 2011</h4>
     <div class="article-style">
       
-      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
-require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
-f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      Alan Meeting Reviewing my edits.
+ Writing writing writing
+ updating graphs and package
+  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
+ This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
+ Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
+  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
+    <h4>Wed, Jun 1, 2011</h4>
     <div class="article-style">
       
-      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
+      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
+ Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/31/tuesday-5/">Tuesday: PMC, confidence intervals; screen code-tricks</a></h2>
+    <h4>Tue, May 31, 2011</h4>
     <div class="article-style">
       
-      Assembling various loose ends and some ropensci work.
-Misc things to work out and write at some date  Catch up on literature reading (unsorted list in Mendeley). Get entries into notebook.
- Write thoughts on selecting links anchor text in the notebook knitr script workflow: externalizing chunks, cache and figure prefixes.
- branching projects and unique repositories source code for all manuscripts into repositories clean up directories. in particular, establish separate prosecutors-fallacy repository Comments on workflow: Date-oriented (notebook) vs File-oriented (Github) explanation.
+      PMC  Final read through of manuscript from me and Peter.
+ Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
+sqrt(diag(solve(out$hessian)))
+ See conf_interval_ex.R. i.e for Geospiza tree is:
+[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/30/monday-6/">Monday</a></h2>
+    <h4>Mon, May 30, 2011</h4>
     <div class="article-style">
       
-      Below are my scribble notes in prep for an interview with Richard, a writier for Nature.
- Advice for early-career scientists on how to think about organizing and publishing research data online.
-Things like - why do it,
- Good for science (idealist), good for reputation (careerist), etc, but most importantly: helps you do your research.
-I had the pleasure of meeting with then Secretary of Energy Stephen Chu last summer at a small Department of Energy computational science conference.
+      Power in Phylogenies Paper (PMC)  Working through / incorporated Graham&rsquo;s edits Added confidence intervals discussion tweaks to associated pmc package Exploring confidence intervals (and lack thereof) in literature on comparative methods. Pagel (1999) (Pagel, 1999) includes them, but few other papers do. He does not include any discussion about how these are calculated. Seems Sweave makes sense for the recreate-figures code from the cached data-files, but perhaps not for the entire analysis code-base (in demos/).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/29/sunday-2/">Sunday</a></h2>
+    <h4>Sun, May 29, 2011</h4>
     <div class="article-style">
       
-      Trying to find a better way to summarize outputs of simulations,
-Heavy over-plotting makes the simulation trajectories themselves hard to read, even with transparent curves. Instead, we can plot the cumulative profit (technically should be discounted first):
-We can normalize these profits as a fraction of the theoretical optimum (true), providing a comparison that is less dependent on model parameters.
-We can then attempt to plot these on a single plot, either as stacked histograms:
+      Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/28/site-configuration-file-sharing-notes/">Site configuration: file sharing notes</a></h2>
+    <h4>Sat, May 28, 2011</h4>
     <div class="article-style">
       
-      If you do know the model and are simply uncertain about the parameters, you can often do all right (e.g. better than maximum likelihood approach) by doing the SDP over the Bayesian posterior distribution of the estimated model. Not surprisingly, if you don&rsquo;t have the correct model, this can fail pretty dramatically (in particular in very nonlinear models, e.g. tipping point models I have been looking at). Model choice and model averaging approaches aren&rsquo;t much help here, because often the structurally correct model doesn&rsquo;t fit the observed data any better &ndash; since the problems occur due to model inaccuracies where we don&rsquo;t have data; e.
+      Easiest way to share files is ssh onto the carlboettiger.info server, change into the directory carlboettiger.info/ and create a new directory there &ndash; i.e. share/. This behaves as a regular static webpage directory that will list the files provided.
+Secure access can be created by going to the goodies &ndash;&gt;htaccess/WebDav page and selecting the option to make a directory or subdirectory secure, and then specifying the passwords, etc. Have created the subdirectory <a href="http://carlboettiger">http://carlboettiger</a>.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/05/27/matt-potts-conserving-diversity-in-tropical-landscapes/">Matt Potts: Conserving Diversity in Tropical Landscapes</a></h2>
+    <h4>Fri, May 27, 2011</h4>
     <div class="article-style">
       
-      This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
-Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
-In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.
+      My notes from Matt&rsquo;s seminar: Theory and field work addressing getting beyond binary decision making. Malaysia. Tropical forest becoming oil palm, rice, rubber, tea.
+Reserve Selection vs Landscape Reserve Design Optimality of Specialized vs Uniform Forest Management Uniform (sustainable forest management) vs very protected areas, ignore what&rsquo;s done outside. More intensive disturbance.
+An important ecological nonlinearity: What&rsquo;s the most ubiquitous spatial pattern? Aggregated, random, uniform? (50 hectares is .5 km by km, or 120 English acres, tag every tree taller than 1.
       
     </div>
   </div>

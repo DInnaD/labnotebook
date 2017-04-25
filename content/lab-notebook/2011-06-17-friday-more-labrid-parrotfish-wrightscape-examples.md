@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-06-17 15:16:32
-layout: post
-slug: friday-more-labrid-parrotfish-wrightscape-examples
-title: 'Friday: more labrid & parrotfish wrightscape examples'
-redirects: [/wordpress/archives/2017, /archives/2017]
 categories:
 - evolution
+comments: true
+date: 2011-06-17T15:16:32Z
+redirects:
+- /wordpress/archives/2017
+- /archives/2017
+slug: friday-more-labrid-parrotfish-wrightscape-examples
+title: 'Friday: more labrid & parrotfish wrightscape examples'
+url: /2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/
 ---
 
 ## Runs from yesterday:

@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [tribolium, code-tricks]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-27T00:00:00Z
+tags:
+- tribolium
+- code-tricks
 title: Summary of Structured Population noise so far
+url: /2010/05/27/Summary-of-Structured-Population-noise-so-far/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ![Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13\*k, al
 = .01\*k, ap = .15\*k, cle = .2, cap = .1, cae = 5,

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-23T00:00:00Z
+tags:
+- pmc
 title: Bootstrapping Likelihood ratios
+url: /2010/03/23/Bootstrapping-Likelihood-ratios/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Bootstraps of the likelihood ratio, holding the parameters fixed,
     finally completed.

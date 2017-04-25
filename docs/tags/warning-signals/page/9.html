@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,122 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../2011/04/11/sunday-warning-signals-edits-continue.html">Sunday: Warning signals edits continue</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
+    <h2><a href="../../../2011/08/02/monday-8/">Monday</a></h2>
+    <h4>Tue, Aug 2, 2011</h4>
     <div class="article-style">
       
-      Marissa edits &ndash; Nearly done
- Single-figure layout &ndash; DONE
- equations in appendix &ndash; DONE
- convergence / likelihood agreement between constOU and constLSN (Done, see below; consider using for a better initial-condition guessing routine for better convergence)
- Reformulate transcritical bifurcation?
- Rewrite cover letter
-   load(&quot;5598226674.Rdat&quot;) require(warningsignals) OU &lt;- deterior_mc$null LSN &lt;- deterior_mc$test LSN_OU &lt;- updateGauss(const_LSN, OU$pars, OU$X) c(OU$loglik, LSN$loglik, LSN_OU$loglik) [1] -1038.510 -1142.539 -1162.
+      Peter advice  Figure out your focus. Have all the stuff from your PhD published (at least submitted), make sure your post-doc moves forward. (#1 mistake). Publish with data folks to show you have much to offer the non-theorist community Speak to potential advisers, get them excited about the work. Berkeley over Michigan over NESCent/NIMBioS. Visit Berkeley. Ackerley on sabbatical?  Review for Theoretical Ecology Working on another review. Not a bad paper, but presenting many classical results as novel.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/08/warning-signals-3.html">Warning signals</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
+    <h2><a href="../../../2011/07/30/saturday-fisheries-data-survey-warning-signals/">Saturday: Fisheries Data Survey, Warning Signals</a></h2>
+    <h4>Sat, Jul 30, 2011</h4>
     <div class="article-style">
+      
+      Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.
+Apparently several of the data sets are problematic. All deal with catch instead of abundance and measurement error is highly significant, though it seems that some may suffer from more troublesome systematic errors. Taking a quick look over what is available. Lots of data, but despite what appears to be some rather sophisticated tools available on the sites, I&rsquo;m having a bit of difficulty finding just what I&rsquo;m looking for.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/06/warning-signals-manuscript-touch-ups.html">Warning Signals - Manuscript touch-ups</a></h2>
-    <h4>Wed, Apr 6, 2011</h4>
+    <h2><a href="../../../2011/07/29/2268/">Friday: ESA Practice Talk</a></h2>
+    <h4>Fri, Jul 29, 2011</h4>
     <div class="article-style">
       
-      [toc]
-Refining examples  Updating finished runs to full formats
- Condensing/organizing code examples under the demos to follow the structure of the paper.
- Currently plotting code for manuscript loads a menagerie of different run results from different files. Would be better to consolidate by dataset.
-  Proposed figure changes  Consider multiple empirical examples in main text
- Consider removing skew/kurtosis examples to the supplement?
- Consider other empirical examples
+      Practice talk in Teary today; Jamie, Marissa and myself. Lots of discussion and feedback. Some good general discussion about presentations as well &ndash; Marissa mentioned the Oceanographic Institute&rsquo;s tips for speakers and other resources on her website. Brief notes on changes to make in my talk based on some excellent discussion:
+ Julie and others point out I should at least reference Type I &amp; Type II Error &ndash; statement contrasting scientific hypothesis testing vs managing for collapse.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/01/thursday-finishing-up-appendices.html">Thursday finishing up appendices(?)</a></h2>
-    <h4>Fri, Apr 1, 2011</h4>
+    <h2><a href="../../../2011/07/27/weds-manuscript/">Weds: Manuscript</a></h2>
+    <h4>Wed, Jul 27, 2011</h4>
     <div class="article-style">
       
-      Fresh off the cpus: single replicate examples on the Drake data
-What&rsquo;s still running:  likelihood for IBM data with 2000 replicates, nice 19 on zero (ibm_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, nice 18 on zero (deut_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, (nice 19 on one)? (deut_likelihood.R) likelihood on sim data, Glaciation III and CaCO3: 80 replicates on one, nice 1 on one (figure3.R) and with 2000 replicates, nice 19 on one (figure3.
+      I&rsquo;ve removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:
+ Here the authors claim that by using particular structural models based on assumptions about underlying dynamics their method makes it easy to identify cases that do not conform to the assumptions. It would be interesting to evaluate this claim but it would require a substantial amount of analysis that may be beyond the scope of a short paper.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/30/wednesday-appendices-parameter-distributions.html">Wednesday: appendices; parameter distributions</a></h2>
-    <h4>Wed, Mar 30, 2011</h4>
+    <h2><a href="../../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits/">Wednesday: ESA presentation, manuscript/appendix edits </a></h2>
+    <h4>Wed, Jul 27, 2011</h4>
     <div class="article-style">
       
-      Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
+      Misc morning  Site trouble, again. requested migrating servers. Done. hope we&rsquo;re more stable now. Checking in with Peter about migrating site domain. Sent request to Matt. Looking over NERSC PI application, see first allocation instructions. Emailed Mary Ann w/ questions on forms. SMB 2012 is at NIMBioS! Nick to join ropensci. Coordinating launch, advisers, etc. Karthik and Scott have done a great job editing my intro post and sprucing up the site.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/29/tuesday-simulations-appendix.html">Tuesday, simulations &amp; appendix</a></h2>
-    <h4>Tue, Mar 29, 2011</h4>
+    <h2><a href="../../../2011/07/26/tues-esa-presentation/">Tues: ESA presentation</a></h2>
+    <h4>Tue, Jul 26, 2011</h4>
     <div class="article-style">
       
-      Today mostly working over code sets for examples in appendix, and increasing replicates. Somehow more trouble than it should be, see commit history for today.
-ibm_sim.R &ndash; simulate from individual-based dynamics containing a saddle-node bifurcation (fully hysteresis model).
-ibm_analysis.R &ndash; run figure1, 2, 3 analysis (correlation test, bootstrap of test, likelihood test) on each data.
-ibm_likelihood.R &ndash; shouldn&rsquo;t be needed, all code is in deut_examples.R. Running now due to earlier parallel instance errors during montecarlotest.
+      Working on ESA presentation. See slides and code for details.
+ Adding movie a time series which gets longer (and closer to collapse) each frame, with corresponding warning signals for the interval thus far shown below (for CV and autocorrelation). Include sparsely sampled (100) and densely sampled (1000) examples. Compare always using a sliding window-size equal to half the length of the available data (works well on longer time series) to a fixed-width sliding window (doesn&rsquo;t work well ever).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/29/monday-appendices-continue.html">Monday, appendices continue...</a></h2>
-    <h4>Tue, Mar 29, 2011</h4>
+    <h2><a href="../../../2011/07/25/monday-esa/">Monday: ESA, appendix, etc</a></h2>
+    <h4>Mon, Jul 25, 2011</h4>
     <div class="article-style">
       
-      Finished writing up section on correlations (time averages vs ensembles) and the following section on error types. (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:
- Must figure out what data examples are going into the supplement. Most should be reasonably straight-forward to set up, may take a while to run.
- Have to figure out what to say about likelihood-based statistical method beyond definition of Cox&rsquo;s delta,
+      Reading Gene expression as a continuous phenotypic trait &ndash; establishing signal for selection over drift. (Bedford &amp; Hartl, 2009) OU vs BM (or just estimation of selection in the OU model relative to tree length) would have been an obvious way to do this, but the paper tries to make the argument that scaling the data and then comparing
+$$\frac{\sigma^2}{2\alpha} $$
+is some indication.
+Model choice section on warning signals Trying to figure out whether or not to remove this section (previously Appendix H: Model Choice and Model Adequacy).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/27/sunday-edits-and-appendices.html">Sunday -- edits and appendices</a></h2>
-    <h4>Sun, Mar 27, 2011</h4>
+    <h2><a href="../../../2011/07/24/sunday-appendix-edits/">Sunday: Appendix edits</a></h2>
+    <h4>Sun, Jul 24, 2011</h4>
     <div class="article-style">
       
-      Read over Scheffer&rsquo;s rather nice introduction(Scheffer, 2010) to the Drake paper(Drake &amp; Griffen, 2010). Last paragraph is particularly pertinenant:
- Clearly, we have just scratched the surface in exploring the possibilities and limitations of this emerging field. However, the prospect of identifying generic indicators is exciting, as the approach may provide an independent way to assess the risk of critical transitions. Expansion of our toolbox for prediction is especially welcome given the almost insurmountable problem of modelling complex systems in a quantitatively accurate way.
+      Appendix A. Method Summary &ndash; Basically the &ldquo;methods&rdquo; section as we had it in the Nature version, a bit updated.
+ These sections are as before, with minor updates from the reviewers, etc. They&rsquo;re also probably the most important part:
+ Appendix B. The data sets Appendix C. Model Derivations Appendix D. Likelihood calculations Appendix E. The likelihood statistic  Appendix F. The distributions for the ROC curves &ndash; these are the former figure 1b/c distributions used to make the ROC curve.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/26/saturday---appendices.html">Saturday-- Appendices</a></h2>
-    <h4>Sat, Mar 26, 2011</h4>
+    <h2><a href="../../../2011/07/17/sunday-warning-signals/">Sunday: Warning Signals</a></h2>
+    <h4>Sun, Jul 17, 2011</h4>
     <div class="article-style">
       
-      Appendices Working on Appendices
-Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
-Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
+      Continuing work on warning signals manuscript. Most entries for this work are delayed-release. Some final stages of editing today:
+Data sets for appendix  deut1
+ caco3
+ Other datasets? other drake? other deut?
+ launched drakeI9 on farm c0-2 by ssh.
+ launched ibm_stable on farm c0-1.
+ launched deut2_analysis on farm c0-3, failed. needs better initial conditions to run
+  Main paper fix plots: Figure 4 needs axis labels &ndash; done.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/25/friday-3.html">Friday</a></h2>
-    <h4>Fri, Mar 25, 2011</h4>
+    <h2><a href="../../../2011/07/17/saturday-back-to-warning-signals-ms/">Saturday - back to Warning Signals MS</a></h2>
+    <h4>Sun, Jul 17, 2011</h4>
     <div class="article-style">
       
-      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
- Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
- Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
+      New outline   &rdquo;An increasing recognition&rdquo;  &ldquo;proof-of-principle&rdquo; - reliability is unknown  &ldquo;Cries wolf&rdquo;  ROC, Fig 1  tau  method  data, Fig 2  analysis, Fig 3  enough data Fig 4  disclaimer  conclusion  Former Outline  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.
       
     </div>
   </div>

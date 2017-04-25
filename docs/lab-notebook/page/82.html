@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,101 +140,114 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/likelihood-calculation.html">Likelihood calculation</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
-&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/likelihood-ratio-todo.html">Likelihood ratio ToDo</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
- Create package around power analysis, including ability to test bootstraps
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/likelihood-ratio-update.html">Likelihood ratio update</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/limits-to-the-detection-of-early-warning-signals.html">Limits to the detection of early warning signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
-Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/lunch-with-wainwright-lab.html">Lunch with Wainwright Lab</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
- Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/maticce.html">MATICCE</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
-The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
-runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/making-slides-for-evolution-meeting.html">Making slides for Evolution meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/07/15/parrotfish-wrasse-example/">Parrotfish-Wrasse example</a></h2>
+    <h4>Thu, Jul 15, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/meeting.html">Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/07/14/organizing-analyses-data-codes/">Organizing analyses, data, codes</a></h2>
+    <h4>Wed, Jul 14, 2010</h4>
     <div class="article-style">
+      
+      Codes  Should have a suite of likelihood tools as a package Suite of data manipulation functions, mostly to and from ape/ouch<br />
+idealized workflow:
+ Read in nexus file and csv data. Call model fit for each model to be tested (BM, one peak, multiple peaks, multiple peaks with independent selective forces)<br />
+ A function checks tree and data for matches, discards those without match. This could be done automatically by the model fit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/meeting-goals.html">Meeting Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/07/13/bootstrapping-the-independent-alpha-sigma-models/">Bootstrapping the independent alpha-sigma models</a></h2>
+    <h4>Tue, Jul 13, 2010</h4>
     <div class="article-style">
+      
+      I compare in a robust framework the likelihood that species mean trait values are generated by Brownian motion, a single peak OU model, or a model with different regimes (postulated in the literature) in which the selective strength (alpha) and diversification rate (sigma) are fixed across the entire tree or allowed to vary by selective regime. (Regimes are defined as branches with different values for the selective optimum).
+The parametric bootstrap of the likelihood ratio statistic provides a rigorous way to quantify the probability that the model choice is correct: the probability that the data was produced by the test model vs the null model is assured by the Neyman-Pearson lemma.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/meeting-w--alan.html">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/07/12/multivariate-normal-random-variables/">Multivariate normal random variables</a></h2>
+    <h4>Mon, Jul 12, 2010</h4>
     <div class="article-style">
       
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/07/09/status---thoughts/">Status - Thoughts</a></h2>
+    <h4>Fri, Jul 9, 2010</h4>
+    <div class="article-style">
+      
+      Goal: BM vs OU vs proposed multipeak OU model with and without global alpha/sigma. Anoles dataset, carex dataset, labrids?
+ Added ape2ouch_all function based on maticce to convert file formats. Might be worth checking against my current implementation. Meanwhile it&rsquo;s really the converting trees back from ouch to ape that gives the ace function trouble. something about ordering of the nodes, even though that shouldn&rsquo;t matter in the phylo format.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/07/08/evolutionary-regime-shift-examples/">Evolutionary Regime Shift examples</a></h2>
+    <h4>Thu, Jul 8, 2010</h4>
+    <div class="article-style">
+      
+      Time to get more data and examples to start testing methods, particularly for cases in where regime shifts are hypothesized by painting a tree. Starting a Mendeley public collection for the literature in Web of Science that actually applies either the OUCH or Brownie framework to identify shifts in rates of continuous trait evolution.
+Research collected using Mendeley</p>
+
+<p>now I&rsquo;ll have to see how hard it is to obtain both the trees and trait data&hellip;
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/07/07/ensemble-simulations-of-beetle-dynamics/">Ensemble simulations of beetle dynamics</a></h2>
+    <h4>Wed, Jul 7, 2010</h4>
+    <div class="article-style">
+      
+      code Fig 1
+code Fig 2
+code Fig 3
+Exploring full ensemble simulations of beetle dynamics. Linear noise approximations (Fig 2) show divergent noise under oscillating conditions (Fig 2 lower panel), though this may be an artifact of the approximation, which applies only for finite time calculations.</p>
+
+<p>Note that mean dynamics agree, and oscillations damp out, Fig 1 simulation means (circles) fall exactly on predicted lines. Variance dynamics do not agree.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/07/07/multitype-ou-process-interfaces/">Multitype OU process interfaces</a></h2>
+    <h4>Wed, Jul 7, 2010</h4>
+    <div class="article-style">
+      
+      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
+ Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/07/02/generalizing-the-multi-type-ou-process--continued/">Generalizing the multi-type OU process- continued</a></h2>
+    <h4>Fri, Jul 2, 2010</h4>
+    <div class="article-style">
+      
+      Efficiency updates:
+ As expected, calculating the last common ancestor on the fly was responsible for a significant (&gt;50%) fraction of the computational effort, so it&rsquo;s worth calculating this once for the tree and storing the information. Current profiling table:   % cumulative self self total time seconds seconds calls us/call us/call name 57.14 0.08 0.08 1604986 0.05 0.05 calc_gamma 35.71 0.13 0.05 802493 0.06 0.16 calc_var 7.14 0.14 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/07/01/multitype-ou-processes-with-varying-alpha-and-sigma/">Multitype OU Processes with varying alpha and sigma</a></h2>
+    <h4>Thu, Jul 1, 2010</h4>
+    <div class="article-style">
+      
+      Been meaning to sit down and work this one out for a while; somehow travel and conferences helped out with that &ndash; now I only have to transcribe some dozen messy hotel notepad sheets to get the calculations into this lab notebook. Meanwhile, 15 hours on a train from Portland was just the right amount of time to code up the approach, which is now implemented at the C level for the Anoles dataset; code in the wrightscape project on github.
       
     </div>
   </div>

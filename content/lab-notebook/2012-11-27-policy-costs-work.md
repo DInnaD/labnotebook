@@ -1,8 +1,10 @@
 ---
-layout: post
-categories: [ecology]
-tags: [pdg-control]
-
+categories:
+- ecology
+date: 2012-11-27T00:00:00Z
+tags:
+- pdg-control
+url: /2012/11/27/policy-costs-work/
 ---
 
 Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. 

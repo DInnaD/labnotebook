@@ -1,10 +1,11 @@
 ---
-title: Reflections on the Mozilla Science Code Review Pilot
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-09-25T00:00:00Z
+tags:
 - blog
-
+title: Reflections on the Mozilla Science Code Review Pilot
+url: /2013/09/25/mozilla-software-review/
 ---
 
 I was recently interviewed a _Nature_ senior reporter [Erika Check Hayden](http://twitter.com/erica_check) on the subject of the scientific [code review project](http://kaythaney.com/2013/08/08/experiment-exploring-code-review-for-science/) being conducted by [Mozilla Science Lab](https://wiki.mozilla.org/ScienceLab).  The piece appears in this week's issue, [Hayden 2013](http://doi.org/10.1038/501472a "Mozilla plan seeks to debug scientific code").  [My blog post](http://carlboettiger.info/2013/06/13/what-I-look-for-in-software-papers.html) sharing my own approach to code review is mentioned at the beginning of the article, though it is rather Roger Peng's comments at the end that have stirred [some interesting discussion](https://twitter.com/Erika_Check/status/382911015358181376/photo/1).  

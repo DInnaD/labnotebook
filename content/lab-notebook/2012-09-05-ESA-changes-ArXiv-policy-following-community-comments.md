@@ -1,10 +1,11 @@
 ---
-layout: post
-category: open-science
-tags: 
-- open-science 
+categories:
+- open-science
+date: 2012-09-05T00:00:00Z
+tags:
+- open-science
 - blog
-
+url: /2012/09/05/ESA-changes-ArXiv-policy-following-community-comments/
 ---
 
 Earlier today, Scott Collins, the president of the Ecological Society of America has [announced](https://twitter.com/ESA_Prez2013/status/243335363693797376) that the society will now accept articles that have previously been posted on preprint servers.  This comes on the heels of a growing discussion in our community. Ethan White has a good summary over on [Jabberwocky Ecology](http://jabberwocky.weecology.org/2012/09/05/esa-journals-will-now-allow-papers-with-preprints/).  

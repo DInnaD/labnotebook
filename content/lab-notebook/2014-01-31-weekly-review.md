@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2014-01-31T00:00:00Z
+tags:
 - multiple-uncertainty
 - ropensci
-
+url: /2014/01/31/weekly-review/
 ---
-
 
 EML
 ===

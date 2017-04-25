@@ -1,13 +1,13 @@
 ---
-title: Archiving the lab notebook on figshare
+categories:
+- open-science
+date: 2013-05-31T00:00:00Z
 subtitle: Advantages and challenges
-layout: post
-category: open-science
-tags: 
+tags:
 - notebook-technology
 - blog
-
-
+title: Archiving the lab notebook on figshare
+url: /2013/05/31/notebook-features-archiving-with-figshare/
 ---
 
 ## Robust archiving through CLOCKSS

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,122 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../2011/11/12/of-labrids-and-dubious-convergence.html">Wainwright Retreat to Hastings Reserve</a></h2>
-    <h4>Sat, Nov 12, 2011</h4>
+    <h2><a href="../../../2012/04/27/evolution-notes/">Project tracking (Evolution)</a></h2>
+    <h4>Fri, Apr 27, 2012</h4>
     <div class="article-style">
       
-      Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
-more labrid trait evolution alpha &amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
-Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).
+      Evolution I&rsquo;m also still wrapping up a variety of projects on the Evolution front.
+treebase  Dynamic manuscript. Reorganize, simplify? add, document, employ the additional functions to avoid sapply commands. Prune examples? iEvoBio challenge entry?  Wrightscape  Start synthesizing documents Evidence for release in open lever ratio and kt Illustrating the different models Consider updated data format outputs and graphical processing functions for the model choice steps  fishbase  submitted!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking.html">Auteur plots for reef fish jaws and monkey brains -- needs tweaking</a></h2>
-    <h4>Thu, Nov 10, 2011</h4>
+    <h2><a href="../../../2012/03/19/monday-treebase-manuscript-writing/"></a></h2>
+    <h4>Mon, Mar 19, 2012</h4>
     <div class="article-style">
       
-      Looking at the diversification patterns from Auteur. Longer rjmcmc runs aren&rsquo;t showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps? Seems to overestimate the change points.
-Remains true for the primate brains example:
-Set up to run on carver cluster, copy over the saved rda file and all files matching the random string already saved as outputs. Full labrid example on 20 cores still exceeds the allocation capacity for an R vector.
+      Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/04/fridays-reading.html">Friday&#39;s reading</a></h2>
-    <h4>Fri, Nov 4, 2011</h4>
+    <h2><a href="../../../2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
+    <h4>Tue, Feb 21, 2012</h4>
     <div class="article-style">
       
-      Reading Catching up on journal table-of-contents/rss readings.
-News Australia Researchers unhappy (unknown, 2011)
-Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
- Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
+      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
+ Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/01/labrids-parrotfish-method1.html">Labrids &amp; Parrotfish, method1</a></h2>
-    <h4>Tue, Nov 1, 2011</h4>
+    <h2><a href="../../../2012/02/12/sunday-6/">Sunday </a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
+      
+      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/26/labrid-submodels.html">Labrid submodels</a></h2>
-    <h4>Wed, Oct 26, 2011</h4>
+    <h2><a href="../../../2012/01/19/is-your-phylogeny-informative/">Is your phylogeny informative?</a></h2>
+    <h4>Thu, Jan 19, 2012</h4>
     <div class="article-style">
       
-      Updates to labrids results:
- Results from Parrotfish tree &amp; 2-partition Labrid tree on full model.  Full model, Labrids Pharyngeal Shift
-Alphas Sigmas Full Model, Intramandibular Shift .
-Labrid tree, multi-sigma model, both shifts Surprising less powerful at identifying the differences.
-Note that this still estimates OU models, and hence has a global alpha, and unique thetas:
-LABRID TREE, MULTI-alpha, BOTH SHIFTS Parrotfish tree, multi-sigma model: Parrotfish tree, multi-alpha model: Labrid pharyngeal only, multi-sigma model: Labrid pharyngeal, multi-alpha Labrid intramandibular only, multi-sigma model: Labrid intramandibular, multi-alpha Full model plots with: method2_plots.
+      Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&rsquo;s preprint),As the open access copy doesn&rsquo;t appear on pubmed for a while, you can access my author&rsquo;s copy here. so I&rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
+I didn&rsquo;t set out to write this paper.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/25/tuesday-notes-package-work-mostly.html">Tuesday notes: package work mostly.</a></h2>
-    <h4>Tue, Oct 25, 2011</h4>
+    <h2><a href="../../../2012/01/04/wrightscape-examples/">wrightscape examples</a></h2>
+    <h4>Wed, Jan 4, 2012</h4>
     <div class="article-style">
       
-      Treebase release  write updated tutorial.
- cran needs mac and windows binaries.
-  Trying devtools win_builder(); emailing Kurt. Nevermind, just got the email saying the binary has been built.
- write email announcement  rfishbase data formatting My problem turned out not to be about &ldquo;&amp;rdquo; at all, these were octal encodings of symbols used in the XML data, eg: Cape Bojador (26°N)
-which xmlValue() would read in using the octal encoding &rdquo;Cape Bojador (26\302\260N)&rdquo;
+      [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2012-01-03 7:00:37&rdquo; max_upload_date=&ldquo;2012-01-03 22:23:37&rdquo;]
+ kt and open seem the best focal traits. Unclear what good null traits to use would be.
+ Unclear if anything is gained by indep thetas in this example.
+ Performance of alpha v theta?
+  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/25.html"></a></h2>
-    <h4>Tue, Oct 25, 2011</h4>
+    <h2><a href="../../../2012/01/03/tuesday-pmc-package-latex-to-word-attempts/">Tuesday: pmc package, latex to word attempts</a></h2>
+    <h4>Tue, Jan 3, 2012</h4>
     <div class="article-style">
       
-      My treebase package is now up on the CRAN repository. (Source code is up, the binaries should appear soon). Here&rsquo;s a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows.
+      Back from Oz.
+Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
+ tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
+ pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/20/thursday-some-parrotfish-runs-on-method2.html">Thursday - some parrotfish &amp; labrid runs on method2</a></h2>
-    <h4>Thu, Oct 20, 2011</h4>
+    <h2><a href="../../../2011/12/09/friday-9/">Friday</a></h2>
+    <h4>Fri, Dec 9, 2011</h4>
     <div class="article-style">
       
-      Running:
- farm cluster, c0-17 method2_parrotfish.R &ndash; Done. Below.
- farm cluster, c0-27 method2_labrids.R (with three partitions)
- farm cluster, c0-13 method2_labrids_phar.R (two partitions)
- farm cluster, c0-19 method2_labrids_intra.R (two partitions)
-  Parrotfish Phylogeny The .y indicates the trait has been size-corrected. Parameters reported from estimations in the full model. All sets converged except open lever ratio. Error bars indicate 1 standard deviation estimated from the likelihood curvature. Lighter color indicates the presence of an intramandibular joint, as coded in the phylogeny above.
+      Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/07/matt-helmus-visit.html">Matt Helmus visit</a></h2>
-    <h4>Fri, Oct 7, 2011</h4>
+    <h2><a href="../../../2011/12/08/thursday-11/">Thursday</a></h2>
+    <h4>Thu, Dec 8, 2011</h4>
     <div class="article-style">
       
-      Notes from presentation 1. Species-area curve:  Species sorting by environment. species clustering due to limited dispersal Random displacement (faster saturation) In-situ speciation looks like clustering Compare to colonization Phylogenetic species variability metric: compare phylogenetic covariance matrix to a star-phylogeny, not expected to increase with area.  $$ \frac{n \textrm{tr}C - \sum C }{n(n-1)}$$
-2. Simulations:  species sort along an environmental gradient. BM trait determining position. : closely related species clustered.
+      Another day of working on 4 different projects at once.
+Warning signals  review Alan pulses manuscript
+ review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
+  No way in Anchoveta data, look at time series:
+Example in the cod data using only up until 1991 data:
+ Way forward &ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/04/tuesday-9.html">Tuesday</a></h2>
-    <h4>Tue, Oct 4, 2011</h4>
+    <h2><a href="../../../2011/12/07/wednesday-11/">Wednesday - wrightscape runs and various other things</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      Hastings seminar: Forest Pest Outbreaks Schedule
-Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&rsquo;s NY Times piece, (and see author&rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp; Management (Gypsy moth). * Review review (Taylor &amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).
+      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
       
     </div>
   </div>

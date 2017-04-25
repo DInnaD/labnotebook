@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-11 14:35:05
-layout: post
-slug: warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data
-title: 'Warning signals: summary stats vs likelihood on real and simulated data'
-redirects: [/wordpress/archives/1177, /archives/1177]
 categories:
 - ecology
+comments: true
+date: 2011-03-11T14:35:05Z
+redirects:
+- /wordpress/archives/1177
+- /archives/1177
+slug: warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data
 tags:
 - warning-signals
+title: 'Warning signals: summary stats vs likelihood on real and simulated data'
+url: /2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data/
 ---
 
 Added bar of observed tau on real data to the tau distributions.

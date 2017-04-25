@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,85 +141,92 @@
   
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/12/29/steps-to-a-more-portable-workflow/"></a></h2>
+    <h4>Mon, Dec 29, 2014</h4>
     <div class="article-style">
-      
-      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/24/coreos-docker-registries-etc/"></a></h2>
+    <h4>Mon, Nov 24, 2014</h4>
     <div class="article-style">
       
-      Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&rsquo;t supported out of the box).
- We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &lsquo;minion&rsquo;.
+      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/07/dear-docker-hub-users/">Dear DockerHub users: please configure your repository links</a></h2>
+    <h4>Fri, Nov 7, 2014</h4>
     <div class="article-style">
       
-      Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
- Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
- Disabling root logins. (We&rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.
+      The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
+Unfortunately, far fewer users configure Repository Links to trigger builds to update even when the resulting Dockerfile is unchanged.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/05/notes/">linking binaries from other containers</a></h2>
+    <h4>Wed, Nov 5, 2014</h4>
     <div class="article-style">
       
-      Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
-The process is rather manual: we have to sudo poweroff the droplet and then trigger the snapshot (the container will come back online after that, though we have to restart the services / active docker containers). We also have to delete old snapshots manually. Some of this can be automated from the API.
+      Been thinking about this for a while, but @benmarwick &rsquo;s examples with &ndash;volumes-from convinced me to give this a try.
+While there&rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&rsquo;t have it built in, like rocker/rstudio.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/03/three-interfaces-for-docker/"></a></h2>
+    <h4>Mon, Nov 3, 2014</h4>
     <div class="article-style">
       
-      A key challenge for reproducible research is developing solutions that integrate easily into a researcher&rsquo;s existing workflow. Having to move all of one&rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&rsquo;t particularly appealing. In my experience this doesn&rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.
+      Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/10/29/the-viability-of-dockerized-research/"></a></h2>
+    <h4>Wed, Oct 29, 2014</h4>
     <div class="article-style">
       
-      docker 2014-09-29:
- Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
- Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&rsquo;s talk on our Docker work.
+      In the spirit of Greg&rsquo;s post &amp; the discussion here, I&rsquo;d be interested in hearing more on people&rsquo;s thoughts about the viability of Dockerized software both in the teaching classroom and beyond, as students continue in their research.
+To start off, I thought I&rsquo;d share a few of my own impressions, largely to give a target for anyone to push back against. In doing so I will also try to outline what I see as the features and potential workflow would look like, in hopes that it does not require any actual experience with docker to have an opinion on whether or not a particular strategy makes sense pedagogically.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/10/21/docker-and-user-permissions-crazyness/"></a></h2>
+    <h4>Tue, Oct 21, 2014</h4>
     <div class="article-style">
       
-      Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
-ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
+      Lots of crazyness getting to the bottom of permissions changes, as discussed in:
+ rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
+Here&rsquo;s the SO version of the question, for my reference:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/10/14/rocker-versioning/"></a></h2>
+    <h4>Tue, Oct 14, 2014</h4>
+    <div class="article-style">
+      
+      Been looking into building versioned images for previous R releases using Docker, based on somewhat common requests to our recently begun rocker project. Versioning is under early development and the best way to go about this is not yet clear. Getting the correct version of R installed is not always trivial but is relatively straight forward, and I outline two approaches below.
+Getting the correct version of packages (or even merely any compatible version of the package) to install is a considerably more difficult problem, which I&rsquo;ll discuss later.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2014/10/09/lessons-learned-in-writing-dockerfiles/"></a></h2>
+    <h4>Thu, Oct 9, 2014</h4>
     <div class="article-style">
       
       Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
@@ -230,24 +237,12 @@ ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /l
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/10/07/notes/"></a></h2>
+    <h4>Tue, Oct 7, 2014</h4>
     <div class="article-style">
       
-      Been looking into building versioned images for previous R releases using Docker, based on somewhat common requests to our recently begun rocker project. Versioning is under early development and the best way to go about this is not yet clear. Getting the correct version of R installed is not always trivial but is relatively straight forward, and I outline two approaches below.
-Getting the correct version of packages (or even merely any compatible version of the package) to install is a considerably more difficult problem, which I&rsquo;ll discuss later.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Lots of crazyness getting to the bottom of permissions changes, as discussed in:
- rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
-Here&rsquo;s the SO version of the question, for my reference:
+      Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
+ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
       
     </div>
   </div>

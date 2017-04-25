@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-16T00:00:00Z
 title: General matrix form and correcting equations
+url: /2010/05/16/General-matrix-form-and-correcting-equations/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Pursuing a matrix form, seems I had missed some terms in the covariance
 equations Friday, which are suggested by the nice symmetry of this

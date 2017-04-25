@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-19 23:01:10
-layout: post
-slug: optimal-control-exploration
-title: Optimal Control Exploration
-redirects: [/wordpress/archives/2944, /archives/2944]
 categories:
 - computation
+comments: true
+date: 2011-10-19T23:01:10Z
+redirects:
+- /wordpress/archives/2944
+- /archives/2944
+slug: optimal-control-exploration
 tags:
 - pdg-control
+title: Optimal Control Exploration
+url: /2011/10/19/optimal-control-exploration/
 ---
 
 Translating Jim's Matlab code.

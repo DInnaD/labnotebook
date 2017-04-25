@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,110 +141,126 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/alan-meeting.html">Alan Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/12/07/optimal-control-costs-to-policy-shifts/">Optimal control -- costs to policy shifts</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
-Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy). We can imagine several scenarios that could introduce this:
+ Fixed cost to change
+ Cost proportional to the size of the change (L1 norm)
+ Cost proportional to the square of the size (L2 norm, i.e. small changes aren&rsquo;t expensive, large ones are very expensive)
+ asymmetric costs &ndash; lowering quotas may be harder than raising them
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/annual-progress-report.html">Annual Progress Report</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/12/06/tuesday-two-insights/">Tuesday -- two insights</a></h2>
+    <h4>Tue, Dec 6, 2011</h4>
     <div class="article-style">
       
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
+      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
+ Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
+ Bonvin approach &ndash; adjust the control instead (NCO Control).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/beetle-dynamics-exploration--adjustments.html">Beetle dynamics exploration &amp; adjustments</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/12/05/monday-wrightscape-meetings-pdg-meeting/">Monday - wrightscape meetings, PDG meeting</a></h2>
+    <h4>Mon, Dec 5, 2011</h4>
     <div class="article-style">
       
-      Adjusted individual based Crowley model to follow same parameterization as the macroscopic model. IBM rules had divided b and c by K in the dynamics while the macroscopic was just using rescaled dynamical rates. Now both use the rescaled rates as parameter values while the equations match.
- Variation in the Crowley model agrees between individual-based simulation and the equations.
-  Code troubleshooting  openmp private declarations perform allocs without frees!
+      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
+Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/beetles-workshop-day-2.html">Beetles workshop Day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h2>
+    <h4>Wed, Nov 30, 2011</h4>
     <div class="article-style">
       
-      Goals  van Kampen expansion of LPA model, maximize noise in L while keeping A robust?   Indiv. heterogeneity issue: dividing larval class into a smaller, highly-cannibal and remainder of more weakly cannibalistic. Pulse dynamics &ndash; interspike interval, magnitude?  Potential Data  1995 Dennis et al. &ndash; 5 replicate populations (2-cycle dataset), 5 age-cycles. eight-year chaotic time series Strawbridge daily samples (single replicate), occasional disease in lines though.
+      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/bug-fixed.html">Bug fixed!</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h2>
+    <h4>Mon, Nov 28, 2011</h4>
     <div class="article-style">
       
-      Wasn&rsquo;t taking the Jacobian of the transition terms. Fixes the unstable behavior and disagreement between simulations and theory. Other note: the &ldquo;hastings.c&rdquo; model can trivially be obtained from the standard crowley-form metapopulation model by taking b_1 = 0.  For the crowley class of models at least, seems that while the two-step vs one-step involved different dynamics, this difference exists only in transients while equilbrium covariances agree.
+      I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
+$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/code-development-for-exploring-regimes-shifts.html">Code Development for Exploring Regimes Shifts</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h2>
+    <h4>Wed, Nov 23, 2011</h4>
     <div class="article-style">
       
-      Just committed changes to the google project. warning_signals.c now provides a fully functional, ensemble enabled simulation written with functional API for general Gillespie simulations (at last! I&rsquo;ve come quite a way in my C coding from those early Gillespie simulations for adaptive dynamics two years ago). Still need to pull the API out of the single file. Doxygen-compatible literate programming included, but needs significant expansion before it can really be used effectively as an API for other users.
+      Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
+$$x_{t+1} = z_t f(x_t) $$
+where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
+$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/comparing-to-analytic-dynamics.html">Comparing to Analytic Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/18/friday-7/">Friday</a></h2>
+    <h4>Fri, Nov 18, 2011</h4>
     <div class="article-style">
       
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
-
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
+      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/computing-the-value-of-information-in-management-of-a-stochastic-resource.html">Computing the value of information in management of a stochastic resource</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Steve Pacala - Storer lecture</a></h2>
+    <h4>Thu, Nov 17, 2011</h4>
     <div class="article-style">
       
-      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
+      Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
+Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
+ Carbon sink is half ocean, half terrestrial
+  A grim future:
+ 450ppm not feasible
+ 500ppm best case
+ 550ppm is likely even if we are largely successful
+  Even worse if the terrestrial sink collapses.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/conference-call-w--bob-and-brett.html">Conference call w- Bob and Brett</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/15/tuesday-10/">Tues: Sources of stochastic variation in optimal control</a></h2>
+    <h4>Tue, Nov 15, 2011</h4>
     <div class="article-style">
+      
+      Adding stochasticity seems to have a small history.
+Reed 1979 Reed, 1979 Uncertainty in next year&rsquo;s stock, &ldquo;growth uncertainty&rdquo; at the time of determining harvest. Constant escapement policy, no chance of extinction.
+Clark &amp; Kirkwood 1986 Clark &amp; Kirkwood, 1986 Uncertainty in this year&rsquo;s stock, &ldquo;measurement uncertainty&rdquo; when determining harvest.
+Roughgarden &amp; Smith (1996) consider both, and add uncertainty in harvest. Sethi et al. 2005 (Sethi et. al. 2005) consider the economist&rsquo;s optimization of this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/demographic-noise.html">Demographic Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h2>
+    <h4>Sun, Nov 13, 2011</h4>
     <div class="article-style">
       
-      Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
+      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
       
     </div>
   </div>

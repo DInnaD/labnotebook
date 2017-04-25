@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [warning-signals, code-tricks]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-09T00:00:00Z
+tags:
+- warning-signals
+- code-tricks
 title: Warning Signals with SDEs
+url: /2010/05/09/Warning-Signals-with-SDEs/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Summary
 

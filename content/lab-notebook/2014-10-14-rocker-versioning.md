@@ -1,10 +1,9 @@
 ---
-layout: post
+date: 2014-10-14T00:00:00Z
 tags:
 - docker
-
+url: /2014/10/14/rocker-versioning/
 ---
-
 
 Been looking into building versioned images for previous R releases using
 Docker, based on somewhat common requests to our recently begun [rocker](http://github.com/rocker-org)

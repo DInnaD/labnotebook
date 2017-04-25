@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-16 19:34:55
-layout: post
-slug: squiggles
-title: Squiggles
-redirects: [/wordpress/archives/3863, /archives/3863]
 categories:
 - ecology
+comments: true
+date: 2012-02-16T19:34:55Z
+redirects:
+- /wordpress/archives/3863
+- /archives/3863
+slug: squiggles
 tags:
 - warning-signals
+title: Squiggles
+url: /2012/02/16/squiggles/
 ---
 
 Variability in the appearance of a trend

@@ -1,10 +1,11 @@
 ---
-layout: post
-category: open-science
-tags: [conference]
-
+categories:
+- open-science
+date: 2012-06-24T00:00:00Z
+tags:
+- conference
+url: /2012/06/24/ievobio-lightning-talk-proposal/
 ---
-
 
 ## The rOpenSci Project
 ### Carl Boettiger, Scott Chamberlain, Karthik Ram

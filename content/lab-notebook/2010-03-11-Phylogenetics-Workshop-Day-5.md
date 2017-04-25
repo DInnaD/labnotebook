@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-03-11T00:00:00Z
 tags: []
-categories: [evolution]
 title: Phylogenetics Workshop Day 5
+url: /2010/03/11/Phylogenetics-Workshop-Day-5/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Last day of lectures: Lineage Diversification
 

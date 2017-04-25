@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-19T00:00:00Z
+tags:
+- pmc
 title: Wainwright Meeting
+url: /2010/07/19/Wainwright-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Discussed goals and appropriate approach. Settled on linear order rather
 than trying to directly implement the full MCMC over paintings solution

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,123 +140,126 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/06/warning-signals-manuscript-touch-ups/">Warning Signals - Manuscript touch-ups</a></h2>
+    <h4>Wed, Apr 6, 2011</h4>
     <div class="article-style">
       
-      Coding  fishbase API discussions rfishbase updates pushed to CRAN Merges and minor bug fixes for rfigshare
- RNeXML: After some cooperative sleuth-work, we successfully resolved issue #23, uncovering a bug (missing feature really) in xmllint.
-  as usual, detailed activity on github.
-Reading  The sudden collapse of pollinator communities - Jelle Lever - 2014 - Ecology Letters - Wiley Online Library <a href="http://goo.gl/ZKuKsj">http://goo.gl/ZKuKsj</a> Github has traffic stats again.
+      [toc]
+Refining examples  Updating finished runs to full formats
+ Condensing/organizing code examples under the demos to follow the structure of the paper.
+ Currently plotting code for manuscript loads a menagerie of different run results from different files. Would be better to consolidate by dataset.
+  Proposed figure changes  Consider multiple empirical examples in main text
+ Consider removing skew/kurtosis examples to the supplement?
+ Consider other empirical examples
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/06/comparative-methods-paper-statusto-do/">Comparative methods paper status/to-do</a></h2>
+    <h4>Wed, Apr 6, 2011</h4>
     <div class="article-style">
       
-      fishbase API discussions continue some discussion / work on rfigshare continues (As Karthik writes comprehensive test suite, yay).
- Possible ontological term for simulated data? modeling and simulation operation looking for example using this term now&hellip;
- Request for term on OBI
- Moore DDD investigators, full call
-  .@NOAA gives a glimpse of what the future of scipub could be w/ web native format for this peer-reviewed report: <a href="http://t">http://t</a>.
+      Finished revisions yesterday after rewriting introduction considerably. Following Graham&rsquo;s comment, taking a closer look at aic error along power curves:
+&gt; load(&quot;../../pmc/demos/5594495254.Rdat&quot;) &gt; require(pmc) &gt; aic &lt;- 2 &gt; aic_errors_size &lt;- sapply(1:(length(n)), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) &gt; aic_errors_shape &lt;- sapply(1:length(lambda), function(i) sum(shape[[i]]$null_dist &gt; aic)/shape[[i]]$nboot ) &gt; data.frame(n, aic_errors_size) n aic_errors_size 1 10 0.1945 2 20 0.2405 3 40 0.1800 4 60 0.1590 5 80 0.0750 6 100 0.1015 7 150 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/05/updates-to-socialr-package/">Updates to socialR package</a></h2>
+    <h4>Tue, Apr 5, 2011</h4>
     <div class="article-style">
       
-      Note: posting this considerably after the fact as I did not have a chance to make a proper entry during the conference.
- Full program, abstracts, etc.
- President&rsquo;s debate: are ecological communities saturated in species diversity? Watch the whole debate on youtube tweet log, maybe?. Or from the editor&rsquo;s desk  Some highlights (such as on the top of my head 2 months later anyway, certainly others I&rsquo;ve forgotten to mention.
+      Talking with Nick a bit about the socialR package, hope to find a chance to streamline the package a bit, move away from all system calls and interface directly with the APIs for Flickr, twitter, etc from R. This should avoid the command-line program dependencies and configurations I need to use currently.
+Building my own API interfaces looks like it will require a good bit of work, meanwhile significant hope the community might develop reasonable packages to pull this off &ndash; basic packages already exist for twitter and flickr.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/04/phylogenetics-manuscript-revisions/">evolution manuscript revisions</a></h2>
+    <h4>Mon, Apr 4, 2011</h4>
     <div class="article-style">
       
-      Scientific Research: Moving beyond bubbles to platforms. The Economist contrasts the current start-up culture to that of the dotcom bubble. Their special report argues that while the dotcom bubble was characterized by heavy investment in a single idea with a &ldquo;Build it and they will come&rdquo; attitude, the current generation of startups is characterized by tinkering and rapid experimentation. They argue that this is possible thanks to the cheaply available &ldquo;platforms&rdquo; of open source software, cloud computing, APIs, and social media dissemination.
+      Heard back from Graham Friday on manuscript revisions. Notes on reviewing edits:
+ Reconsider title? (Currently: &ldquo;is your phylogeny informative? estimating power in phylogenetic trees&rdquo;). Suggestions from Graham/Brian?
+ 1000 taxa, 500 taxa seem to break the ouch package inferences.
+ Add table for AIC comparisons etc
+ Does AIC work better/worse on the lambda = 0 trees?
+n[1:3] [1] 10 50 100 aic_errors_size &lt;- sapply(1:(length(n)-2), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) aic_errors_size [1] 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/01/thursday-finishing-up-appendices/">Thursday finishing up appendices(?)</a></h2>
+    <h4>Fri, Apr 1, 2011</h4>
     <div class="article-style">
       
-      Scratch notes on uncertainty.
-Function definition: multiple_uncertainty.m
-Settings:
-f=@(x, h) max( (x-h) * (1 - (x-h) ./ 100) + (x-h), 0); x_grid = [0:5:100]; h_grid = x_grid; % Must be same dimensions as x_grid, or L91 errors&hellip; Tmax = 5; sigma_g = 0.1; sigma_m = 0.; sigma_i = 0.0; delta = 0.05; pdf = @(p,mu,s) lognpdf(p ./ mu, 0, s); %pdf = @(p,mu,s) unifpdf(p, mu .* (1 - s), mu .
+      Fresh off the cpus: single replicate examples on the Drake data
+What&rsquo;s still running:  likelihood for IBM data with 2000 replicates, nice 19 on zero (ibm_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, nice 18 on zero (deut_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, (nice 19 on one)? (deut_likelihood.R) likelihood on sim data, Glaciation III and CaCO3: 80 replicates on one, nice 1 on one (figure3.R) and with 2000 replicates, nice 19 on one (figure3.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/31/a-few-large-data-problems-in-ecology-evolution/">A few large data problems in Ecology &amp; Evolution</a></h2>
+    <h4>Thu, Mar 31, 2011</h4>
     <div class="article-style">
       
-      EML  bug fixes and replies to various input from community on EML package
- Thoughts on understanding and using EML in research, including Dryad. See <a href="https://github.com/ropensci/EML/issues/82#issuecomment-33558301">https://github.com/ropensci/EML/issues/82#issuecomment-33558301</a>
-  multiple-uncertainty Jim and Mike meeting  Why the steps in the optimal solution of the deterministic case? Irregularities in value function in first iteration: sometimes not exact ties; actually preferring to fish at almost 0 rather than 0.
- address range constraints on h and x.
+      I&rsquo;ve joined a student-led seminar with Gabriel Becker in the Statistics department on dealing with large data, primarily in R. Offered to say a few words about large data problems in my field for a few minutes, so making some notes.
+Large dataBases  Genebank: $ &gt; 10^8$ sequences. Phylogenetic inference
+ Morphological databases: Specialized databases with semantic tools (Dahdul et. al. 2010)
+ NEON observatories data Keller et. al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phyloseminar/">Brian O&#39;Meara discusses new algorithms approaches on Phylo</a></h2>
+    <h4>Wed, Mar 30, 2011</h4>
     <div class="article-style">
       
-      Goals  Develop ideas for larger synthesis across systems Introduce scientists to the concept of workflow systems Introduce scientists to open data and methods sharing Gather requirements for collaboration tools that would allow scientists to use them and share data and workflows.  Participants  Ilkay Altintas, UC San Diego, Carl Boettiger, UC Davis, Erica Christensen, Utah State, Elsa Cleland, UCSD, Scott Collins, U New Mexico, Sam Fey, Dartmouth, Corinna Gries, U Wisconsin, Lauren Hallett, Berkeley, Stan Harpole, Iowa State, Dave Harris, UC Davis, Matt Jones, UC Santa Barbara, Sydney Jones, U New Mexico, Julie Ripplinger, Arizona State University, Andrew Rypel, WDNR, David Seekell, UVa, Elizabeth Siddon, U.
+      Brian gave an excellent overview of Approximate Bayesian Computing (ABC) and described the TreEvo software he is developing with post-doc Barb Banbury. My notes from the seminar, with my own comments italics and a few added references
+Intro / Motivation  Rates of model innovation is rather slow
+ Can be impossible to specify in closed form (can&rsquo;t specify median of binomial in closed form)
+ Perhaps it would be faster if we didn&rsquo;t have to wait for someone to come up with all the likelihood functions
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/30/wednesday-appendices-parameter-distributions/">Wednesday: appendices; parameter distributions</a></h2>
+    <h4>Wed, Mar 30, 2011</h4>
     <div class="article-style">
       
-      (Day 2 work) Hack-a-thon; no notebook entry but all progress appears in group Github repo: github.com/NCEAS/commdyn/. 78 Commits in 2 days, nice work team.
-Discussion of challenges and opportunities in open data and ecological workflows
-Synthesis and Reporting back
-Group 1.5 Plan Product 1: Paper: Visualizing global change in long term community ecology studies: the strawmen?
- Lead: Sydney Jones  Long-term ecological research (LTER) sites have been collecting and publishing raw community ecology data for over 30 years from across the US and across a wide array of taxa.
+      Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/29/tuesday-simulations-appendix/">Tuesday, simulations &amp; appendix</a></h2>
+    <h4>Tue, Mar 29, 2011</h4>
     <div class="article-style">
       
-      Scratch notes for my seminar
-Part I: Tipping Points: Early Warning signals and decision theory Global change threats. So what do we do? This is a pendulum. easy to predict. Not a pendulum. Oscillations not easy to predict. Crashes Tipping points No equation for $f_i(s,h)$ Everything matters. Data is good, getting better. Crushing our data under parameters. Stop throwing out the data. Early Warning signals Optimal Control problem &ndash; Model the descision process!
+      Today mostly working over code sets for examples in appendix, and increasing replicates. Somehow more trouble than it should be, see commit history for today.
+ibm_sim.R &ndash; simulate from individual-based dynamics containing a saddle-node bifurcation (fully hysteresis model).
+ibm_analysis.R &ndash; run figure1, 2, 3 analysis (correlation test, bootstrap of test, likelihood test) on each data.
+ibm_likelihood.R &ndash; shouldn&rsquo;t be needed, all code is in deut_examples.R. Running now due to earlier parallel instance errors during montecarlotest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/03/29/monday-appendices-continue/">Monday, appendices continue...</a></h2>
+    <h4>Tue, Mar 29, 2011</h4>
     <div class="article-style">
       
-      pomdp Write Iadine, send example code (Reed example in multiple_uncertainty)
-multiple-uncertainty Check in with Jim on how results compare to Sethi. See commit log for multiple_uncertainty
-open-science  #PublishPerish14 continues Comments on software publishing <a href="https://github.com/mozillascience/code-research-object/issues/2#issuecomment-35109160">https://github.com/mozillascience/code-research-object/issues/2#issuecomment-35109160</a>  Reading:  Drake, J. M. 2014 Tail probabilities of extinction time in a large number of experimental populations. Ecology , 140206083444001. (doi:10.1890&frasl;13-1107.1)  Neat result. thinking how this relates to predictions of Mangel and Tier 1993; probably still a significant deviation?
+      Finished writing up section on correlations (time averages vs ensembles) and the following section on error types. (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:
+ Must figure out what data examples are going into the supplement. Most should be reasonably straight-forward to set up, may take a while to run.
+ Have to figure out what to say about likelihood-based statistical method beyond definition of Cox&rsquo;s delta,
       
     </div>
   </div>

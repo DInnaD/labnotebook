@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-26T00:00:00Z
+tags:
+- tribolium
 title: Rethinking Beetles Noise
+url: /2010/05/26/Rethinking-Beetles-Noise/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Noise in the larval class is damped by ![ \\partial\_L f\_L
     ](http://openwetware.org/images/math/d/0/8/d084393ee59f54a76685ec96a58d5713.png)

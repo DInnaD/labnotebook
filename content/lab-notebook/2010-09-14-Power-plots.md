@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-09-14T00:00:00Z
 title: Power plots
+url: /2010/09/14/Power-plots/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 [![image](http://farm5.static.flickr.com/4125/4990607836_ed7ab13d3d.jpg)](http://www.flickr.com/photos/cboettig/4990607836/)
 

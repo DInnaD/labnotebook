@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-06-05T00:00:00Z
 tags: []
-categories: [evolution]
 title: Likelihood Calculation
+url: /2010/06/05/Likelihood-Calculation/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Direct Calculation of the Joint Probability
 

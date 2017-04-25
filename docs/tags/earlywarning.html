@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,32 +141,8 @@
   
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working through quick-start example in nimble manual
-library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working through quick-start example in nimble manual
-The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/12/04/lsn-nimble/"></a></h2>
+    <h4>Thu, Dec 4, 2014</h4>
     <div class="article-style">
       
       some sample data
@@ -176,8 +152,8 @@ library(sde) ## Loading required package: MASS ## Loading required package: stat
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/12/04/lsn-nimble/"></a></h2>
+    <h4>Thu, Dec 4, 2014</h4>
     <div class="article-style">
       
       some sample data
@@ -188,8 +164,32 @@ lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) 
   </div>
   
   <div>
-    <h2><a href="../1/01/01/ou-model-in-nimble.html">OU model in Nimble</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/12/03/nimble-explore/"></a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
+    <div class="article-style">
+      
+      Working through quick-start example in nimble manual
+library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2014/12/03/nimble-explore/"></a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
+    <div class="article-style">
+      
+      Working through quick-start example in nimble manual
+The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
     <div class="article-style">
       
       Sanity test with a simple model, Start with some sample data from an OU process:
@@ -199,8 +199,8 @@ library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required p
   </div>
   
   <div>
-    <h2><a href="../1/01/01/ou-model-in-nimble.html">OU model in Nimble</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
     <div class="article-style">
       
       Sanity test with a simple model, Start with some sample data from an OU process:

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,115 +141,111 @@
   
   
   <div>
-    <h2><a href="../../../2011/09/02/rfishbase-demo-are-there-more-goby-or-labrid-species-on-reefs.html">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h2>
-    <h4>Fri, Sep 2, 2011</h4>
+    <h2><a href="../../../2013/11/04/mbi-notes/"></a></h2>
+    <h4>Mon, Nov 4, 2013</h4>
     <div class="article-style">
       
-      I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
-For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
+      SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
+ NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
+ language barriers: What&rsquo;s a model?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize.html">rropensci and some taxonomy in R with taxize</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../../2013/10/17/rnexml-semantic-considerations/"></a></h2>
+    <h4>Thu, Oct 17, 2013</h4>
     <div class="article-style">
       
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
+      Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular #26 and #24) I only paraphrase here.
+One of the central advantages we can offer in programmatic generation of NeXML in the R environment is the ability to validate names and enhance the metadata included in the resulting nexml file using programmatic queries to taxonomic name resolution services such as ITIS, EOL, NCBI, as provided in the taxize package.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/26/ropensci-from-r-some-xml-parsing.html">FishBASE from R: some XML parsing</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../../2013/10/16/notes/"></a></h2>
+    <h4>Wed, Oct 16, 2013</h4>
     <div class="article-style">
       
-      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
-In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
+      RNeXML  Example methods for metadata: <a href="https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772">https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772</a> Closes #19 <a href="https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110">https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110</a> Discussion of best identifiers for OTUs #24. Now waiting on Scott for choice of implementation  Misc R puzzle In R&rsquo;s S4 methods, I can define methods with different signatures, i.e. different object classes for the same function call. But can I alter the names and number of arguments for a method?
+As usual, see Github for details on commits and issues.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/23/tuesday-rropensci-rmpi-manuscripts.html">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
-    <h4>Tue, Aug 23, 2011</h4>
+    <h2><a href="../../../2013/10/10/notes/"></a></h2>
+    <h4>Thu, Oct 10, 2013</h4>
     <div class="article-style">
       
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
+      Authenticating via DataOne API Matt Jones provides a nice dataone package to handle accessing and posting data to DataOne nodes such as the KNB from R. Uploading files through the API requires authentication, which in turn requires a certificate from CILogin. As this process proved a bit tricky to me, I add some documentation here. I am using a Ubuntu (13.04) system, so the procedure might differ slightly for other systems.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/18/thursday-reviewing-edits-ropensci-computers.html">Thursday: reviewing edits, ropensci, computers.</a></h2>
-    <h4>Thu, Aug 18, 2011</h4>
+    <h2><a href="../../../2013/10/09/notes/"></a></h2>
+    <h4>Wed, Oct 9, 2013</h4>
     <div class="article-style">
       
-      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
-Brief topic notes from today&rsquo;s meeting:
- set up different take on layout: lambda, AIC, power
+      ugh, most journals don&rsquo;t seem to hold to their own data publication policies.
+PNAS theoretically endorses UPSIDE, r citet(&quot;10.1073/pnas.0400437101&quot;) principles from the National Academy of Science:
+ Principle 1. Authors should include in their publications the data, algorithms, or other information that is central or integral to the publication—that is, whatever is necessary to support the major claims of the paper and would enable one skilled in the art to verify or replicate the claims.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/22/ievobio-day-2.html">#ievobio Day 2</a></h2>
-    <h4>Wed, Jun 22, 2011</h4>
+    <h2><a href="../../../2013/10/07/nexml-phylo-class-extension/">Extending ape::phylo class to NeXML:</a></h2>
+    <h4>Mon, Oct 7, 2013</h4>
     <div class="article-style">
       
-      Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it&rsquo;s way to the web:
- Nico Cellinese
- Scott Chamberlain
- Rob Guralnick
-  Meanwhile, my scratchpad of notes from day 2, tweet-style.
-My Lightning Talk Gave my lightning talk in this session, slides:
-R interface to TreeBASE
+      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
+To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/03/friday-5.html">Friday</a></h2>
-    <h4>Fri, Jun 3, 2011</h4>
+    <h2><a href="../../../2013/09/23/notes/"></a></h2>
+    <h4>Mon, Sep 23, 2013</h4>
     <div class="article-style">
       
-      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
+      nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/29/sunday-2.html">Sunday</a></h2>
-    <h4>Sun, May 29, 2011</h4>
+    <h2><a href="../../../2013/09/19/notes/"></a></h2>
+    <h4>Thu, Sep 19, 2013</h4>
     <div class="article-style">
       
-      Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
+      writing manuscript slides data request to Glaser.
+  gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/26/thursday-6.html">Thursday Meetings: Duncan; Alan</a></h2>
-    <h4>Thu, May 26, 2011</h4>
+    <h2><a href="../../../2013/09/18/notes/"></a></h2>
+    <h4>Wed, Sep 18, 2013</h4>
     <div class="article-style">
       
-      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
+      nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
+  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
+ code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/22/sunday.html">Sunday</a></h2>
-    <h4>Sun, May 22, 2011</h4>
+    <h2><a href="../../../2013/09/16/notes/"></a></h2>
+    <h4>Mon, Sep 16, 2013</h4>
     <div class="article-style">
       
-      Reading  International Symposium on Biomathematics and Ecology: Education and Research &ndash; This looks excellent, wonder if I can make it. Besides, it&rsquo;s in Portland and the acronym is promising. Pacific Ecoinformatics and Computational Ecology Lab - Based in Berkeley, looks rather intriguing, hard to tell how active this is as a group. Ecoinformatics? So it does exist? Paraphrasing Jeremy Fox, has it done anything? A rather nice review in ARES: (Jones et.
+      class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
       
     </div>
   </div>

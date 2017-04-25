@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-10-12T00:00:00Z
 title: a day of writing
+url: /2010/10/12/a-day-of-writing/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Figuring out the best way to present the critique of AIC, introduction
 to the method, introduction to the power test. Seeking inspiration from

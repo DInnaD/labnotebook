@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2014/12/07/self-destroy-droplet-on-completion/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    <p>Scott&rsquo;s analogsea package provides a great way to script commands for
+cloud instances on the digitalocean platform.  for instance, we can use
+analogsea to automatically start an instance of the desired size, submit
+a computationally intensive task, and then terminate the instance when the
+task completes successfully.  This last step is particularly convenient
+since it makes it easier to use a very powerful (and thus expensive)
+instance for a short time, knowing it will terminate and avoid extra
+charges while idle.</p>
+
+<p>To avoid first having to install the necessary software environment on
+the newly created digitalocean instance, we will simply pull a docker
+image that has already been provisioned.  This is particularly useful
+in both keeping what we information we need to send to the cloud machine
+consise (no need to list all dependencies) and fast (particularly in
+the case of installing any packages from source, such as R packages from
+CRAN. Thee complete installation process to generate the image we use
+here can take over an hour itself).</p>
+
+<p>The analogsea package provides nice functions for working with docker
+as well, as we will illustrate here.</p>
+
+<p>First, we can define a custom little function that will pull a given Github
+repo, run the script specified, and push the results back up.</p>
+
+<pre><code class="language-r">task &lt;- function(REPO, PATH, SCRIPT, USER = Sys.getenv(&quot;USER&quot;), 
+                 GH_TOKEN = Sys.getenv(&quot;GH_TOKEN&quot;), 
+                 EMAIL = paste0(USER, &quot;@&quot;, USER, &quot;.com&quot;),
+                 IMG = &quot;rocker/hadleyverse&quot;){
+  paste(
+  paste0(&quot;-it &quot;, IMG, &quot; bash -c \&quot;&quot;, &quot;git config --global user.name &quot;, USER),
+  paste0(&quot;git config --global user.email &quot;, EMAIL),
+  paste0(&quot;git clone &quot;, &quot;https://&quot;, USER, &quot;:&quot;, GH_TOKEN, &quot;@github.com/&quot;, USER, &quot;/&quot;, REPO, &quot;.git&quot;),
+  paste0(&quot;cd &quot;, REPO),
+  paste0(&quot;cd &quot;, PATH),
+  paste0(&quot;Rscript &quot;, SCRIPT),
+  &quot;git add -A&quot;,
+  &quot;git commit -a -m 'runs from droplet'&quot;,
+  &quot;git push origin master&quot;,
+  &quot;\&quot;&quot;,
+  sep=&quot;; &quot;)
+}
+</code></pre>
+
+<p>This could probably be made a bit more elegant, but the idea is simple. Note
+that we will clone over https, assuming a Github authentication token is available
+in the environment (e.g. in <code>.Rprofile</code>) as <code>GH_TOKEN</code>.</p>
+
+<p>To use this function to run the script <code>knit.R</code> in the <code>inst/examples</code>
+directory of my <code>template</code> repo, I do:</p>
+
+<pre><code class="language-r">tsk &lt;- task(&quot;template&quot;, &quot;inst/examples&quot;, &quot;knit.R&quot;, IMG=&quot;cboettig/strata&quot;)
+</code></pre>
+
+<p>which returns the commands we&rsquo;ll need to run as a string.  In this case I
+have set a custom docker image <code>cboettig/strata</code> that contains my standard
+development environment in use on my laptop, strata.</p>
+
+<p>If we have Docker installed on the local system, we can verify this script works
+locally first:</p>
+
+<pre><code class="language-r">system(paste(&quot;docker run --rm&quot;, tsk))
+</code></pre>
+
+<p>Now we&rsquo;re ready for the analogsea part to submit this job to a digitalocean
+machine which it will create and destroy on the fly.  Note that this assumes
+we have a digitalocean account and have saved a personal authentication token
+to our environment as <code>DO_PAT</code> (otherwise analogsea will simply prompt us to
+autheticate manually in the browser).  This also requires we have an ssh key
+added to our account already (at least at this time).</p>
+
+<pre><code class="language-r">library(analogsea)
+docklet_create(size='512mb') %&gt;%
+  docklet_run(tsk) %&gt;%
+  droplet_delete()
+</code></pre>
+
+<p>analogsea will first create the droplet of the desired size (analogsea refers
+to digitalocean droplets which have Docker software installed as &ldquo;docklets&rdquo;),
+then run our command and destroy the droplet.</p>
+
+<p>Note that the functions will only continue to the next step if the previous is
+successful. Consequently, if the script fails for some reason, the instance
+will perist and we can attempt to debug if we so choose.  If we want the instance
+to be destroyed whether the script succeeds or fails, we can simply drop the last
+<code>%&gt;%</code> pipe and the destroy command will still run. (Otherwise some error handling
+would be reuired aroun the <code>docklet_run</code> code tomake sure it continues.</p>
+
+<p>Sometimes the droplet login will fail due to having had a previous digitalocean
+instance with the same ip (causing ssh to warn that the host identity has changed)
+or to allow the token to be approved.  In this case, it may help to create the
+the droplet in a separate step, ssh into the ip returned vy <code>droplets()</code> manually
+outside of R, and then return to R to launch the task:</p>
+
+<pre><code class="language-r">d &lt;- droplets()
+d[[2]] %&gt;%  
+  docklet_run(tsk) %&gt;%
+  droplet_delete()
+</code></pre>
+
+<p>This assumes our desired droplet is the second in the list (hence <code>d[[2]]</code>).</p>
+
+<p>Of course our R instance needs to persist long enough for the job to complete,
+so we need to be sure to run this from a machine that will itslef remain up,
+such as a desktop or even another server.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2014-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Sun, Dec 7, 2014
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/computation">computation</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/12/11/rrhack-notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/12/07/workflow/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-07-self-destroy-droplet-on-completion.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-12-07-self-destroy-droplet-on-completion.md">8b51c8d4c</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2014\/12\/07\/self-destroy-droplet-on-completion\/';
+    var disqus_title = '';
+    var disqus_url = '\/2014\/12\/07\/self-destroy-droplet-on-completion\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

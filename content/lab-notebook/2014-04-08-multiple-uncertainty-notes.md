@@ -1,14 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2014-04-08T00:00:00Z
 tags:
 - multiple-uncertainty
-
-
+url: /2014/04/08/multiple-uncertainty-notes/
 ---
-
-
-
 
 Growth Noise Only
 ------------------

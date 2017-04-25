@@ -1,23 +1,14 @@
 ---
-layout: post
-tags: [pmc, Labrids, code-tricks]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-24T00:00:00Z
+tags:
+- pmc
+- Labrids
+- code-tricks
 title: Parallel R
+url: /2010/03/24/Parallel-R/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Parallelized LR\_bootstrap\_all() and model\_bootstrap\_all()
     bootstrapping functions. Lets the bootstrapping of different models

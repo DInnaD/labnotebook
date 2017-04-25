@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [adaptive-dynamics, open-science]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-21T00:00:00Z
+tags:
+- adaptive-dynamics
+- open-science
 title: Adaptive Dynamics
+url: /2010/04/21/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Wrapping up paper on waiting time to branching in adaptive dynamics.
 -   Cleaning up code from summer. Now in a local git repository in

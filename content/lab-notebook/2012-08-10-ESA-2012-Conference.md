@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: [conference]
-
+categories:
+- ecology
+date: 2012-08-10T00:00:00Z
+tags:
+- conference
+url: /2012/08/10/ESA-2012-Conference/
 ---
-
 
 * **[My Schedule](/assets/files/ESA2012_cboettig_schedule.pdf)**
 * Meetings/discussion with Don Strong, Tony Ives, Marten Scheffer, Justin Yeakel, Karen Abbott, Jarrett Byrnes, Christopher Lortie.   

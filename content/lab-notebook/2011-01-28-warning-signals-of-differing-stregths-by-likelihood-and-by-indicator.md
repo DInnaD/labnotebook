@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-01-28 17:59:25
-layout: post
-slug: warning-signals-of-differing-stregths-by-likelihood-and-by-indicator
-title: Warning signals of differing stregths by likelihood and by indicator
-redirects: [/wordpress/archives/883, /archives/883]
 categories:
 - ecology
+comments: true
+date: 2011-01-28T17:59:25Z
+redirects:
+- /wordpress/archives/883
+- /archives/883
+slug: warning-signals-of-differing-stregths-by-likelihood-and-by-indicator
 tags:
 - warning-signals
+title: Warning signals of differing stregths by likelihood and by indicator
+url: /2011/01/28/warning-signals-of-differing-stregths-by-likelihood-and-by-indicator/
 ---
 
 Strong indicator example: m=-0.049, T=100, Ro=5

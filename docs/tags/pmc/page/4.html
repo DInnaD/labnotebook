@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,22 +141,23 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/updating-manuscript.html">Updating manuscript</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/02/09/meeting-with-graham-and-peter/">Meeting with Graham and Peter</a></h2>
+    <h4>Tue, Feb 9, 2010</h4>
     <div class="article-style">
       
-      The progress of the past few days has lead to substantial revision proposals in my manuscript draft. Rewriting for discussion with Brian tomorrow. Currently revised outline:
- Intro
- Biological Motivation Comparative Methods and Comparing Models Model choice paradigm: the right direction, but incomplete  Simple Example
- The Star Tree Two hypotheses: stabilizing vs disruptive selection Information Criteria approach is insufficient Likelihood surfaces Likelihood ratio distribution  Anoles Example
+      Discussion of Model Comparisons Primary focus of today&rsquo;s discussion was rooted in Sunday&rsquo;s entry
+ On plotting quirks, haven&rsquo;t figured out lattice but here&rsquo;s yet another newer plotting engine for R I need to revisit how OUCH computes likelihood ratios and P values. Since some parameters are bounded to the positive real line (and may be small) the standard chi square isn&rsquo;t correct. I should repeat the AIC-style analysis for likelihood ratios, though this is just a shift of where I put the zero line.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wainwright-meeting.html">Wainwright Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/02/07/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
+    <h4>Sun, Feb 7, 2010</h4>
     <div class="article-style">
+      
+      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
+ I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
       
     </div>
   </div>

@@ -1,18 +1,13 @@
 ---
-layout: post
-tags: [Labrids, open-science, pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-08T00:00:00Z
+tags:
+- Labrids
+- open-science
+- pmc
+url: /2010/04/08/Comparative-Phylogenetics-Notebook/
 ---
-
-
-
-
-
- 
-
-
-
-
 
 Research
 --------

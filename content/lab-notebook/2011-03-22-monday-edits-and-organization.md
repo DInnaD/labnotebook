@@ -1,22 +1,19 @@
 ---
-comments: true
-date: 2011-03-22 09:07:36
-layout: post
-slug: monday-edits-and-organization
-title: Monday -- Edits and organization
-redirects: [/wordpress/archives/1267, /archives/1267]
 categories:
 - ecology
+comments: true
+date: 2011-03-22T09:07:36Z
+redirects:
+- /wordpress/archives/1267
+- /archives/1267
+slug: monday-edits-and-organization
 tags:
 - warning-signals
+title: Monday -- Edits and organization
+url: /2011/03/22/monday-edits-and-organization/
 ---
 
-
-
-
-
-	
-  * Skype with Alan: 9-9:4
+* Skype with Alan: 9-9:4
 
 	
   * Figures as panels

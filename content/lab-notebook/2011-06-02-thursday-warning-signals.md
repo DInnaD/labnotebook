@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-02 21:31:39
-layout: post
-slug: thursday-warning-signals
-title: 'Thursday: Warning Signals'
-redirects: [/wordpress/archives/1890, /archives/1890]
 categories:
 - ecology
+comments: true
+date: 2011-06-02T21:31:39Z
+redirects:
+- /wordpress/archives/1890
+- /archives/1890
+slug: thursday-warning-signals
 tags:
 - warning-signals
+title: 'Thursday: Warning Signals'
+url: /2011/06/02/thursday-warning-signals/
 ---
 
 ## Alan Meeting

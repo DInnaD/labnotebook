@@ -1,10 +1,11 @@
 ---
-layout: post
-category: computation
-tags: 
+categories:
+- computation
+date: 2013-09-10T00:00:00Z
+tags:
 - conference
 - open-science
-
+url: /2013/09/10/ISEES-training-workshop-day-1/
 ---
 
 Education / Workforce Development Group

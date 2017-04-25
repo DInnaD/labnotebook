@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-09-08 23:08:33
-layout: post
-slug: discriminating-early-bursts
-title: discriminating early bursts
-redirects: [/wordpress/archives/2558, /archives/2558]
 categories:
 - evolution
+comments: true
+date: 2011-09-08T23:08:33Z
+redirects:
+- /wordpress/archives/2558
+- /archives/2558
+slug: discriminating-early-bursts
+title: discriminating early bursts
+url: /2011/09/08/discriminating-early-bursts/
 ---
 
 Looking at cases when early burst can be discriminated from OU, a la Harmon et al 2010 (Harmon _et. al._ 2010). Fixed models can be told apart. Rather trivially, none of these models can be told apart if initially estimated from Brownian data. Rather encouraging: models estimated from common data can be told apart. 600 taxa tree

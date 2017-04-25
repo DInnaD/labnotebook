@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-29 22:45:28
-layout: post
-slug: tuesday-simulations-appendix
-title: Tuesday, simulations & appendix
-redirects: [/wordpress/archives/1326, /archives/1326]
 categories:
 - ecology
+comments: true
+date: 2011-03-29T22:45:28Z
+redirects:
+- /wordpress/archives/1326
+- /archives/1326
+slug: tuesday-simulations-appendix
 tags:
 - warning-signals
+title: Tuesday, simulations & appendix
+url: /2011/03/29/tuesday-simulations-appendix/
 ---
 
 Today mostly working over code sets for examples in appendix, and increasing replicates.  Somehow more trouble than it should be, see [commit history](https://github.com/cboettig/structured-populations/commits/) for today.

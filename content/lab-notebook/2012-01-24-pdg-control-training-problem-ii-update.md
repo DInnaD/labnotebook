@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-01-24 16:55:18
-layout: post
-slug: pdg-control-training-problem-ii-update
-title: pdg-control Training Problem II update
-redirects: [/wordpress/archives/3718, /archives/3718]
 categories:
 - ecology
+comments: true
+date: 2012-01-24T16:55:18Z
+redirects:
+- /wordpress/archives/3718
+- /archives/3718
+slug: pdg-control-training-problem-ii-update
 tags:
 - pdg-control
+title: pdg-control Training Problem II update
+url: /2012/01/24/pdg-control-training-problem-ii-update/
 ---
 
 Basically we've done some simple stuff and now would be a good time to think about tools for some heavy-lifting computational challenges standing in the way.  Michael & Jim have been a great help on this, and Jake has also helped with theoretical underpinnings.

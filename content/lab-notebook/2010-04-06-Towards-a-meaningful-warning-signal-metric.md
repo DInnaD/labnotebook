@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-04-06T00:00:00Z
 title: Towards a meaningful warning signal metric
+url: /2010/04/06/Towards-a-meaningful-warning-signal-metric/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Most papers do not give a statistical approach, but merely argue for
     the existence of a trend.

@@ -1,10 +1,11 @@
 ---
-layout: post
-title: Do we need a culture of Data Science in Academia? 
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-11-13T00:00:00Z
+tags:
 - blog
-
+title: Do we need a culture of Data Science in Academia?
+url: /2013/11/13/Data-Science-Center/
 ---
 
 Just my draft copy of a [Guest blog post](http://dynamicecology.wordpress.com/2013/11/25/do-we-need-a-culture-of-data-science-in-academia-guest-post/) I wrote for Dynamic Ecology.  

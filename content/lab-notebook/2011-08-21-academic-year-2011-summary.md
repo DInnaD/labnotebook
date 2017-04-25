@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-08-21 23:46:13
-layout: post
-slug: academic-year-2011-summary
-title: Academic Year 2011 Summary
-redirects: [/wordpress/archives/2063, /archives/2063]
 categories:
 - evolution
 - ecology
-tags: 
+comments: true
+date: 2011-08-21T23:46:13Z
+redirects:
+- /wordpress/archives/2063
+- /archives/2063
+slug: academic-year-2011-summary
+tags:
 - progress-summary
+title: Academic Year 2011 Summary
+url: /2011/08/21/academic-year-2011-summary/
 ---
 
 Brief summary of events for this past academic year, as submitted to my dissertation committee.

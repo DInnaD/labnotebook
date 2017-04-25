@@ -1,13 +1,15 @@
 ---
+categories:
+- open-science
 comments: true
-date: 2011-03-24 16:30:24
-layout: post
+date: 2011-03-24T16:30:24Z
+redirects:
+- /wordpress/archives/1284
+- /archives/1284
 slug: data-management-workshop-at-uc-davis-center-for-population-biology-video-archive
 title: 'Data Management Workshop at UC Davis Center for Population Biology: Video
   archive'
-redirects: [/wordpress/archives/1284, /archives/1284]
-categories:
-- open-science
+url: /2011/03/24/data-management-workshop-at-uc-davis-center-for-population-biology-video-archive/
 ---
 
 Videos are now up from our workshop, The Future of Data, held at the UC Davis Center for Population Biology March 2nd-4th.

@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-10-18 08:00:46
-layout: post
-slug: mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles
-title: Mathematical Elements of Attack Risk Analysis for Mountain Pine tribolium
-redirects: [/wordpress/archives/2910, /archives/2910]
 categories:
 - ecology
+comments: true
+date: 2011-10-18T08:00:46Z
+redirects:
+- /wordpress/archives/2910
+- /archives/2910
+slug: mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles
+title: Mathematical Elements of Attack Risk Analysis for Mountain Pine tribolium
+url: /2011/10/18/mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles/
 ---
 
 (POWELL _et. al._ 2000)

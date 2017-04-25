@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,102 +140,124 @@
   
   
   <div>
-    <h2><a href="../../2010/10/21.html"></a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
+    <h2><a href="../../2011/11/12/of-labrids-and-dubious-convergence/">Wainwright Retreat to Hastings Reserve</a></h2>
+    <h4>Sat, Nov 12, 2011</h4>
     <div class="article-style">
       
-      Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
- Proper handling of trends
- Best model for eigenvalue change
-  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
+      Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
+more labrid trait evolution alpha &amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
+Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/10/21/spatial-warning-signals-power-etc.html">Spatial Warning Signals, power, etc</a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
+    <h2><a href="../../2011/11/10/thursday-12/">Thursday</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation. Weakening stability across a set of coupled patches should result in increased autocorrelation. Decided to test this with a little visualization with help of a quick R script. Time progresses across the x-axis, 1-D space (on S1) across the y-axis. Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.
+      Forage Fish dynamics
+ Forage fish consumption: who consumes, how important is it. e.g. Africa imports more quantity of fish, but of low value. net exports based on value.
+ food security / undernourished regions
+ forage fish substitutable? Study in Asia: Pretty inelastic.
+ income elasticity vs wealth elasticity (not a real difference. but patterns of consumption of a rich person aren&rsquo;t same as poor person with a windfall, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/10/20.html"></a></h2>
-    <h4>Wed, Oct 20, 2010</h4>
+    <h2><a href="../../2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/">Auteur plots for reef fish jaws and monkey brains -- needs tweaking</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Adaptive dynamics is a set of recently developed techniques for understanding phenotypic evolution, using a dynamical systems approach to concepts from evolutionary game theory. In contrast to population genetics, this approach tends to explore richer ecological interactions and simpler genetic assumptions, with significant controversy. My own work has focused on a particular element of the theory known as the canonical equation, a macroscopic equation describing the deterministic rate of evolution.
+      Looking at the diversification patterns from Auteur. Longer rjmcmc runs aren&rsquo;t showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps? Seems to overestimate the change points.
+Remains true for the primate brains example:
+Set up to run on carver cluster, copy over the saved rda file and all files matching the random string already saved as outputs. Full labrid example on 20 cores still exceeds the allocation capacity for an R vector.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/10/20/ecology-abstract.html">ecology Abstract</a></h2>
-    <h4>Wed, Oct 20, 2010</h4>
+    <h2><a href="../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Ecological population sizes fluctuate not only in response to environmental fluctuations but because of the stochastic nature of natural births and deaths. While in very large populations these fluctuations have negligible impact, ecology rarely obliges us by satisfying this limit. Age and stage structure in populations serve to amplify the effect, where the fate of the population is determined by a smaller subset of, say, the fecund adults alone. Demographic noise is probably responsible for the ultimate extinction of many populations once reduced to a small size.
+      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
+parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/09/07/lab-notebooks.html">Lab Notebooks</a></h2>
-    <h4>Tue, Sep 7, 2010</h4>
+    <h2><a href="../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h2>
+    <h4>Wed, Nov 9, 2011</h4>
     <div class="article-style">
       
-      I strive for a transparent and reproducible research process. My lab notebooks are kept on an open wiki (via OpenWetWare). I curate the literature I read into several public lists (Mendeley), maintain my research source code and simulations on a collective database for open source development (Github), and am active on academic forums and mailing lists. These web-based tools make a largely automated, interlinked archive of my work I can search, update and share easily.
+      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/09/04/hello-world-2.html">evolution Research Abstract</a></h2>
-    <h4>Sat, Sep 4, 2010</h4>
+    <h2><a href="../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h2>
+    <h4>Tue, Nov 8, 2011</h4>
     <div class="article-style">
       
-      Comparative methods in evolutionary biology use phylogenetic trees to explore the origins and maintenance of biodiversity. I develop methods to extend the kinds of questions we can ask and also to test the statistical limits of our ability to make evolutionary inferences through such a periscope into the past. I am particularly interested in detecting evolutionary regime shifts &ndash; locations in evolutionary history where the governing rules or parameters shift suddenly &ndash; as well as more general questions of model choice, informativeness &amp; identifiability in phylogenetic inference.
+      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/01/10/cpb-thesis-proposal.html">CPB thesis proposal</a></h2>
-    <h4>Sun, Jan 10, 2010</h4>
+    <h2><a href="../../2011/11/06/sunday-5/">Sunday</a></h2>
+    <h4>Sun, Nov 6, 2011</h4>
     <div class="article-style">
       
-      In the spirit of archiving work in the lab notebook, this was my PhD dissertation proposal, a requirement to advance to candidacy submitted before our oral defense in the second or third year. Following some excellent advice, this is focused more narrowly than my actual dissertation. As a historical note, I started keeping an open lab notebook the month following this, on OpenWetWare (so work leading up to this isn&rsquo;t archived, though admittedly first two years were largely coursework).
+      Computing notes A few configuration related things from migrating to the new laptop.
+Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
+make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
+mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/11/04/sparkleshare-configuration/">Sparkleshare configuration</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
+      
+      Configured sparkleshare across my linux server &amp; laptops, and android phone. Provides a dropbox-style syncing and version history for all files using git. I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost. Wonderful.
+Basic setup Get sparkleshare working on a server is dead simple, Can also use a github server, gitorious server, etc. Setup is clearly documented, which is really just doing a bunch of standard stuff if you have a server or github already set up.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
       
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
+      Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h2>
+    <h4>Thu, Nov 3, 2011</h4>
     <div class="article-style">
       
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
+      Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
       
     </div>
   </div>

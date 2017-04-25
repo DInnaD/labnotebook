@@ -1,16 +1,17 @@
 ---
-comments: true
-date: 2012-03-20 10:02:09
-layout: post
-slug: citing-r-packages
-title: Citing R packages
-redirects: [/wordpress/archives/4259, /archives/4259]
 categories:
 - open-science
+comments: true
+date: 2012-03-20T10:02:09Z
+redirects:
+- /wordpress/archives/4259
+- /archives/4259
+slug: citing-r-packages
 tags:
 - R
 - blog
-
+title: Citing R packages
+url: /2012/03/20/citing-r-packages/
 ---
 
 I'm not always careful in citing all the R packages I use.  R actually has some rather nice built-in mechanisms to support this, so I really have no excuse.  Here's some quick examples:

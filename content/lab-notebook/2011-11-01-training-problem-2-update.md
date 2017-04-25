@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-01 14:20:08
-layout: post
-slug: training-problem-2-update
-title: Training Problem 2 update
-redirects: [/wordpress/archives/3094, /archives/3094]
 categories:
 - ecology
+comments: true
+date: 2011-11-01T14:20:08Z
+redirects:
+- /wordpress/archives/3094
+- /archives/3094
+slug: training-problem-2-update
 tags:
 - pdg-control
+title: Training Problem 2 update
+url: /2011/11/01/training-problem-2-update/
 ---
 
 ## Problem Statement

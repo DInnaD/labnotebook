@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2011-04-28 13:59:43
-layout: post
-slug: thursday-reading-notes
-title: Reading Notes, presentation prep treebase error handling
-redirects: [/wordpress/archives/1522, /archives/1522]
 categories:
 - evolution
 - ecology
+comments: true
+date: 2011-04-28T13:59:43Z
+redirects:
+- /wordpress/archives/1522
+- /archives/1522
+slug: thursday-reading-notes
 tags:
 - code-tricks
 - reading
+title: Reading Notes, presentation prep treebase error handling
+url: /2011/04/28/thursday-reading-notes/
 ---
 
 ## Reading

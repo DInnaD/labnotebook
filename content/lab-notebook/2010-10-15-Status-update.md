@@ -1,22 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-10-15T00:00:00Z
 title: Status update
+url: /2010/10/15/Status-update/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
 
 -   Actually out of town this day, but draft off to co-authors, will
     review Friday. meanwhile time to get back to some warning signals

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h1 id="comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach">Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach</h1>
+
+<p>Plotting and knitr options, (can generally be ignored)</p>
+
+<pre><code class="language-r">require(modeest)
+posterior.mode &lt;- function(x) {
+  mlv(x, method=&quot;shorth&quot;)$M
+}
+</code></pre>
+
+<h3 id="model-and-parameters">Model and parameters</h3>
+
+<p>Uses the model derived in <code>citet(&quot;10.1080/10236190412331335373&quot;)</code>, of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,</p>
+
+<pre><code class="language-r">f &lt;- RickerAllee
+p &lt;- c(2, 8, 5)
+K &lt;- 10  # approx, a li'l' less
+allee &lt;- 5 # approx, a li'l' less
+</code></pre>
+
+<p>Various parameters defining noise dynamics, grid, and policy costs.</p>
+
+<pre><code class="language-r">sigma_g &lt;- 0.05
+sigma_m &lt;- 0.0
+z_g &lt;- function() rlnorm(1, 0, sigma_g)
+z_m &lt;- function() 1+(2*runif(1, 0,  1)-1) * sigma_m
+x_grid &lt;- seq(0, 1.5 * K, length=50)
+h_grid &lt;- x_grid
+profit &lt;- function(x,h) pmin(x, h)
+delta &lt;- 0.01
+OptTime &lt;- 50  # stationarity with unstable models is tricky thing
+reward &lt;- 0
+xT &lt;- 0
+Xo &lt;-  allee+.5# observations start from
+x0 &lt;- K # simulation under policy starts from
+Tobs &lt;- 40
+</code></pre>
+
+<h3 id="sample-data">Sample Data</h3>
+
+<pre><code class="language-r">  set.seed(1234)
+  #harvest &lt;- sort(rep(seq(0, .5, length=7), 5))
+  x &lt;- numeric(Tobs)
+  x[1] &lt;- Xo
+  nz &lt;- 1
+  for(t in 1:(Tobs-1))
+    x[t+1] = z_g() * f(x[t], h=0, p=p)
+  obs &lt;- data.frame(x = c(rep(0,nz), 
+                          pmax(rep(0,Tobs-1), x[1:(Tobs-1)])), 
+                    y = c(rep(0,nz), 
+                          x[2:Tobs]))
+raw_plot &lt;- ggplot(data.frame(time = 1:Tobs, x=x), aes(time,x)) + geom_line()
+raw_plot
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7406/8954616307_5e7a9d3e27_o.png" alt="plot of chunk obs" /></p>
+
+<h2 id="maximum-likelihood">Maximum Likelihood</h2>
+
+<pre><code class="language-r">set.seed(12345)
+estf &lt;- function(p){ 
+    mu &lt;- f(obs$x,0,p)
+    -sum(dlnorm(obs$y, log(mu), p[4]), log=TRUE)
+}
+par &lt;- c(p[1]*rlnorm(1,0,.4), 
+         p[2]*rlnorm(1,0,.3), 
+         p[3]*rlnorm(1,0, .3), 
+         sigma_g * rlnorm(1,0,.3))
+o &lt;- optim(par, estf, method=&quot;L&quot;, lower=c(1e-5,1e-5,1e-5,1e-5))
+f_alt &lt;- f
+p_alt &lt;- c(as.numeric(o$par[1]), as.numeric(o$par[2]), as.numeric(o$par[3]))
+sigma_g_alt &lt;- as.numeric(o$par[4])
+
+est &lt;- list(f = f_alt, p = p_alt, sigma_g = sigma_g_alt, mloglik=o$value)
+</code></pre>
+
+<p>Mean predictions</p>
+
+<pre><code class="language-r">true_means &lt;- sapply(x_grid, f, 0, p)
+est_means &lt;- sapply(x_grid, est$f, 0, est$p)
+</code></pre>
+
+<h2 id="non-parametric-bayes">Non-parametric Bayes</h2>
+
+<pre><code class="language-r">#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2)
+s2.p &lt;- c(5,5)  
+d.p = c(10, 1/0.1)
+</code></pre>
+
+<p>Estimate the Gaussian Process (nonparametric Bayesian fit)</p>
+
+<pre><code class="language-r">gp &lt;- gp_mcmc(obs$x, y=obs$y, n=1e5, s2.p = s2.p, d.p = d.p)
+gp_dat &lt;- gp_predict(gp, x_grid, burnin=1e4, thin=300)
+</code></pre>
+
+<p>Show traces and posteriors against priors</p>
+
+<pre><code class="language-r">plots &lt;- summary_gp_mcmc(gp, burnin=1e4, thin=300)
+</code></pre>
+
+<p><img src="figure/process-noise-only-gp_traces_densities1.png" alt="plot of chunk gp_traces_densities" /> <img src="http://farm4.staticflickr.com/3687/8954616527_4c7cefe499_o.png" alt="plot of chunk gp_traces_densities" /></p>
+
+<pre><code class="language-r"># Summarize the GP model
+tgp_dat &lt;- 
+    data.frame(  x = x_grid, 
+                 y = gp_dat$E_Ef, 
+                 ymin = gp_dat$E_Ef - 2 * sqrt(gp_dat$E_Vf), 
+                 ymax = gp_dat$E_Ef + 2 * sqrt(gp_dat$E_Vf) )
+</code></pre>
+
+<h2 id="parametric-bayesian-models">Parametric Bayesian Models</h2>
+
+<p>We use the JAGS Gibbs sampler, a recent open source BUGS
+implementation with an R interface that works on most platforms.
+We initialize the usual MCMC parameters; see <code>?jags</code> for details.</p>
+
+<p>All parametric Bayesian estimates use the following basic parameters for the JAGS MCMC:</p>
+
+<pre><code class="language-r">y &lt;- x 
+N &lt;- length(x);
+jags.data &lt;- list(&quot;N&quot;,&quot;y&quot;)
+n.chains &lt;- 6
+n.iter &lt;- 1e6
+n.burnin &lt;- floor(10000)
+n.thin &lt;- max(1, floor(n.chains * (n.iter - n.burnin)/1000))
+n.update &lt;- 10
+</code></pre>
+
+<p>We will use the same priors for process and observation noise in each model,</p>
+
+<pre><code class="language-r">stdQ_prior_p &lt;- c(1e-6, 100)
+stdR_prior_p &lt;- c(1e-6, .1)
+stdQ_prior  &lt;- function(x) dunif(x, stdQ_prior_p[1], stdQ_prior_p[2])
+stdR_prior  &lt;- function(x) dunif(x, stdR_prior_p[1], stdR_prior_p[2])
+</code></pre>
+
+<h3 id="parametric-bayes-of-correct-allen-model">Parametric Bayes of correct (Allen) model</h3>
+
+<p>We initiate the MCMC chain (<code>init_p</code>) using the true values of the
+parameters <code>p</code> from the simulation.  While impossible in real data, this
+gives the parametric Bayesian approach the best chance at succeeding.
+<code>y</code> is the timeseries (recall <code>obs</code> has the $x<em>t$, $x</em>{t+1}$ pairs)</p>
+
+<p>The actual model is defined in a <code>model.file</code> that contains an R function
+that is automatically translated into BUGS code by <em>R2WinBUGS</em>.  The file
+defines the priors and the model. We write the file from R as follows:</p>
+
+<pre><code class="language-r">K_prior_p &lt;- c(0.01, 40.0)
+logr0_prior_p &lt;- c(-6.0, 6.0)
+logtheta_prior_p &lt;- c(-6.0, 6.0)
+
+bugs.model &lt;- 
+paste(sprintf(
+&quot;model{
+  K     ~ dunif(%s, %s)
+  logr0    ~ dunif(%s, %s)
+  logtheta ~ dunif(%s, %s)
+  stdQ ~ dunif(%s, %s)&quot;, 
+  K_prior_p[1], K_prior_p[2],
+  logr0_prior_p[1], logr0_prior_p[2],
+  logtheta_prior_p[1], logtheta_prior_p[2],
+  stdQ_prior_p[1], stdQ_prior_p[2]),
+
+  &quot;
+  iQ &lt;- 1 / (stdQ * stdQ);
+  r0 &lt;- exp(logr0)
+  theta &lt;- exp(logtheta)
+  y[1] ~ dunif(0, 10)
+  for(t in 1:(N-1)){
+    mu[t] &lt;- y[t] * exp(r0 * (1 - y[t]/K)* (y[t] - theta) / K )
+    y[t+1] ~ dnorm(mu[t], iQ) 
+  }
+}&quot;)
+writeLines(bugs.model, &quot;allen_process.bugs&quot;)
+</code></pre>
+
+<p>Write the priors into a list for later reference</p>
+
+<pre><code class="language-r">K_prior     &lt;- function(x) dunif(x, K_prior_p[1], K_prior_p[2])
+logr0_prior &lt;- function(x) dunif(x, logr0_prior_p[1], logr0_prior_p[2])
+logtheta_prior &lt;- function(x) dunif(x, logtheta_prior_p[1], logtheta_prior_p[2])
+par_priors  &lt;- list(K = K_prior, deviance = function(x) 0 * x, 
+                    logr0 = logr0_prior, logtheta = logtheta_prior,
+                    stdQ = stdQ_prior)
+</code></pre>
+
+<p>We define which parameters to keep track of, and set the initial values of
+parameters in the transformed space used by the MCMC.  We use logarithms
+to maintain strictly positive values of parameters where appropriate.</p>
+
+<pre><code class="language-r">jags.params=c(&quot;K&quot;,&quot;logr0&quot;,&quot;logtheta&quot;,&quot;stdQ&quot;) # be sensible about the order here
+jags.inits &lt;- function(){
+  list(&quot;K&quot;= 8 * rlnorm(1,0, 0.1),
+       &quot;logr0&quot;=log(2 * rlnorm(1,0, 0.1) ),
+       &quot;logtheta&quot;=log(  5 * rlnorm(1,0, 0.1) ), 
+       &quot;stdQ&quot;= abs( 0.1 * rlnorm(1,0, 0.1)),
+       .RNG.name=&quot;base::Wichmann-Hill&quot;, .RNG.seed=123)
+}
+
+set.seed(1234)
+# parallel refuses to take variables as arguments (e.g. n.iter = 1e5 works, but n.iter = n doesn't)
+allen_jags &lt;- do.call(jags.parallel, list(data=jags.data, inits=jags.inits, 
+                                      jags.params, n.chains=n.chains, 
+                                      n.iter=n.iter, n.thin=n.thin, 
+                                      n.burnin=n.burnin, 
+                                      model.file=&quot;allen_process.bugs&quot;))
+
+# Run again iteratively if we haven't met the Gelman-Rubin convergence criterion
+recompile(allen_jags) # required for parallel
+allen_jags &lt;- do.call(autojags, list(object=allen_jags, n.update=n.update, 
+                                     n.iter=n.iter, n.thin = n.thin))
+</code></pre>
+
+<h4 id="convergence-diagnostics-for-allen-model">Convergence diagnostics for Allen model</h4>
+
+<p>R notes: this strips classes from the <code>mcmc.list</code> object (so that we have list of matrices; objects that <code>reshape2::melt</code> can handle intelligently), and then combines chains into one array. In this array each parameter is given its value at each sample from the posterior (index) for each chain.</p>
+
+<pre><code class="language-r">tmp &lt;- lapply(as.mcmc(allen_jags), as.matrix) # strip classes the hard way...
+allen_posteriors &lt;- melt(tmp, id = colnames(tmp[[1]])) 
+names(allen_posteriors) = c(&quot;index&quot;, &quot;variable&quot;, &quot;value&quot;, &quot;chain&quot;)
+ggplot(allen_posteriors) + geom_line(aes(index, value)) + 
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=1)
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7432/8954617241_ee7c8ab2c6_o.png" alt="plot of chunk allen-traces" /></p>
+
+<pre><code class="language-r">allen_priors &lt;- ddply(allen_posteriors, &quot;variable&quot;, function(dd){
+    grid &lt;- seq(min(dd$value), max(dd$value), length = 100) 
+    data.frame(value = grid, density = par_priors[[dd$variable[1]]](grid))
+})
+
+ggplot(allen_posteriors, aes(value)) + 
+  stat_density(geom=&quot;path&quot;, position=&quot;identity&quot;, alpha=0.7) +
+  geom_line(data=allen_priors, aes(x=value, y=density), col=&quot;red&quot;) + 
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=3)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8128/8954617519_134c3da154_o.png" alt="plot of chunk allen-posteriors" /></p>
+
+<p>Reshape the posterior parameter distribution data, transform back into original space, and calculate the mean parameters and mean function</p>
+
+<pre><code class="language-r">A &lt;- allen_posteriors
+A$index &lt;- A$index + A$chain * max(A$index) # Combine samples across chains by renumbering index 
+pardist &lt;- acast(A, index ~ variable)
+# pardist &lt;- acast(allen_posteriors[2:3], 1:table(allen_posteriors$variable)[1] ~ variable) # NOT SURE WHY THIS FAILS 
+# transform model parameters back first
+pardist[,&quot;logr0&quot;] = exp(pardist[,&quot;logr0&quot;]) 
+pardist[,&quot;logtheta&quot;] = exp(pardist[,&quot;logtheta&quot;])
+colnames(pardist)[colnames(pardist)==&quot;logtheta&quot;] = &quot;theta&quot;
+colnames(pardist)[colnames(pardist)==&quot;logr0&quot;] = &quot;r0&quot;
+bayes_coef &lt;- apply(pardist,2, posterior.mode) 
+bayes_pars &lt;- unname(c(bayes_coef[&quot;r0&quot;], bayes_coef[&quot;K&quot;], bayes_coef[&quot;theta&quot;])) # parameters formatted for f
+allen_f &lt;- function(x,h,p) unname(RickerAllee(x,h, unname(p[c(&quot;r0&quot;, &quot;K&quot;, &quot;theta&quot;)])))
+allen_means &lt;- sapply(x_grid, f, 0, bayes_pars)
+bayes_pars
+</code></pre>
+
+<pre><code>[1] 0.01929 7.72010 0.06654
+</code></pre>
+
+<pre><code class="language-r">head(pardist)
+</code></pre>
+
+<pre><code>         K deviance       r0    theta   stdQ
+170 21.327    45.03 0.010484 3.826031 0.3737
+171 14.261    45.02 0.029587 0.019707 0.4387
+172  7.828    40.50 0.129248 2.769482 0.3795
+173 29.450    45.66 0.044378 0.006615 0.4461
+174 37.580    44.89 0.006334 1.252886 0.3766
+175 20.168    45.05 0.033854 0.144171 0.4294
+</code></pre>
+
+<h2 id="parametric-bayes-based-on-the-structurally-wrong-model-ricker">Parametric Bayes based on the structurally wrong model (Ricker)</h2>
+
+<pre><code class="language-r">K_prior_p &lt;- c(0.01, 40.0)
+logr0_prior_p &lt;- c(-6.0, 6.0)
+
+bugs.model &lt;- 
+paste(sprintf(
+&quot;model{
+  K    ~ dunif(%s, %s)
+  logr0    ~ dunif(%s, %s)
+  stdQ ~ dunif(%s, %s)&quot;, 
+  K_prior_p[1], K_prior_p[2],
+  logr0_prior_p[1], logr0_prior_p[2],
+  stdQ_prior_p[1], stdQ_prior_p[2]),
+
+  &quot;
+  iQ &lt;- 1 / (stdQ * stdQ);
+  r0 &lt;- exp(logr0)
+  y[1] ~ dunif(0, 10)
+  for(t in 1:(N-1)){
+    mu[t] &lt;- y[t] * exp(r0 * (1 - y[t]/K) )
+    y[t+1] ~ dnorm(mu[t], iQ) 
+  }
+}&quot;)
+writeLines(bugs.model, &quot;ricker_process.bugs&quot;)
+</code></pre>
+
+<p>Compute prior curves</p>
+
+<pre><code class="language-r">K_prior     &lt;- function(x) dunif(x, K_prior_p[1], K_prior_p[2])
+logr0_prior &lt;- function(x) dunif(x, logr0_prior_p[1], logr0_prior_p[2])
+par_priors &lt;- list(K = K_prior, deviance = function(x) 0 * x, 
+                   logr0 = logr0_prior, stdQ = stdQ_prior)
+</code></pre>
+
+<p>We define which parameters to keep track of, and set the initial values of
+parameters in the transformed space used by the MCMC.  We use logarithms
+to maintain strictly positive values of parameters where appropriate.</p>
+
+<pre><code class="language-r"># Uniform priors on standard deviation terms
+jags.params=c(&quot;K&quot;,&quot;logr0&quot;, &quot;stdQ&quot;)
+jags.inits &lt;- function(){
+  list(&quot;K&quot;=10 * rlnorm(1,0,.5),
+       &quot;logr0&quot;=log(1) * rlnorm(1,0,.5),
+       &quot;stdQ&quot;=sqrt(0.05) * rlnorm(1,0,.5),
+       .RNG.name=&quot;base::Wichmann-Hill&quot;, .RNG.seed=123)
+}
+set.seed(12345) 
+ricker_jags &lt;- do.call(jags.parallel, 
+                       list(data=jags.data, inits=jags.inits, 
+                            jags.params, n.chains=n.chains, 
+                            n.iter=n.iter, n.thin=n.thin, n.burnin=n.burnin,
+                            model.file=&quot;ricker_process.bugs&quot;))
+recompile(ricker_jags)
+</code></pre>
+
+<pre><code>Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 251
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 251
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 251
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 251
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 251
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 251
+
+Initializing model
+</code></pre>
+
+<pre><code class="language-r">ricker_jags &lt;- do.call(autojags, 
+                       list(object=ricker_jags, n.update=n.update, n.iter=n.iter, 
+                            n.thin = n.thin, progress.bar=&quot;none&quot;))
+</code></pre>
+
+<h4 id="convergence-diagnostics-for-parametric-bayes-ricker-model">Convergence diagnostics for parametric bayes Ricker model</h4>
+
+<pre><code class="language-r">tmp &lt;- lapply(as.mcmc(ricker_jags), as.matrix) # strip classes the hard way...
+ricker_posteriors &lt;- melt(tmp, id = colnames(tmp[[1]])) 
+names(ricker_posteriors) = c(&quot;index&quot;, &quot;variable&quot;, &quot;value&quot;, &quot;chain&quot;)
+
+ggplot(ricker_posteriors) + geom_line(aes(index, value)) + 
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=1)
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7354/8954617787_8743f7915f_o.png" alt="plot of chunk ricker-traces" /></p>
+
+<pre><code class="language-r">ricker_priors &lt;- ddply(ricker_posteriors, &quot;variable&quot;, function(dd){
+    grid &lt;- seq(min(dd$value), max(dd$value), length = 100) 
+    data.frame(value = grid, density = par_priors[[dd$variable[1]]](grid))
+})
+# plot posterior distributions
+ggplot(ricker_posteriors, aes(value)) + 
+  stat_density(geom=&quot;path&quot;, position=&quot;identity&quot;, alpha=0.7) +
+  geom_line(data=ricker_priors, aes(x=value, y=density), col=&quot;red&quot;) + 
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=2)
+</code></pre>
+
+<p><img src="http://farm6.staticflickr.com/5326/8954618029_911b481fc8_o.png" alt="plot of chunk ricker-posteriors" /></p>
+
+<p>Reshape posteriors data, transform back, calculate mode and corresponding function.</p>
+
+<pre><code class="language-r">A &lt;- ricker_posteriors
+A$index &lt;- A$index + A$chain * max(A$index) # Combine samples across chains by renumbering index 
+ricker_pardist &lt;- acast(A, index ~ variable)
+ricker_pardist[,&quot;logr0&quot;] = exp(ricker_pardist[,&quot;logr0&quot;]) # transform model parameters back first
+colnames(ricker_pardist)[colnames(ricker_pardist)==&quot;logr0&quot;] = &quot;r0&quot;
+bayes_coef &lt;- apply(ricker_pardist,2, posterior.mode) # much better estimates from mode then mean
+ricker_bayes_pars &lt;- unname(c(bayes_coef[&quot;r0&quot;], bayes_coef[&quot;K&quot;]))
+
+ricker_f &lt;- function(x,h,p){
+  sapply(x, function(x){ 
+    x &lt;- pmax(0, x-h) 
+    pmax(0, x * exp(p[&quot;r0&quot;] * (1 - x / p[&quot;K&quot;] )) )
+  })
+}
+ricker_means &lt;- sapply(x_grid, Ricker, 0, ricker_bayes_pars[c(1,2)])
+
+head(ricker_pardist)
+</code></pre>
+
+<pre><code>         K deviance       r0   stdQ
+170 30.871    44.59 0.011138 0.4164
+171 15.920    44.30 0.003492 0.4062
+172  8.630    46.04 0.040291 0.4962
+173  7.935    37.59 0.172355 0.3977
+174  8.622    42.76 0.096497 0.3325
+175  8.279    40.48 0.143866 0.4316
+</code></pre>
+
+<pre><code class="language-r">ricker_bayes_pars
+</code></pre>
+
+<pre><code>[1] 0.008073 8.011228
+</code></pre>
+
+<h2 id="myers-parametric-bayes">Myers Parametric Bayes</h2>
+
+<pre><code class="language-r">logr0_prior_p &lt;- c(-6.0, 6.0)
+logtheta_prior_p &lt;- c(-6.0, 6.0)
+logK_prior_p &lt;- c(-6.0, 6.0)
+
+bugs.model &lt;- 
+paste(sprintf(
+&quot;model{
+  logr0    ~ dunif(%s, %s)
+  logtheta    ~ dunif(%s, %s)
+  logK    ~ dunif(%s, %s)
+  stdQ ~ dunif(%s, %s)&quot;, 
+  logr0_prior_p[1], logr0_prior_p[2],
+  logtheta_prior_p[1], logtheta_prior_p[2],
+  logK_prior_p[1], logK_prior_p[2],
+  stdQ_prior_p[1], stdQ_prior_p[2]),
+
+  &quot;
+  iQ &lt;- 1 / (stdQ * stdQ);
+  r0 &lt;- exp(logr0)
+  theta &lt;- exp(logtheta)
+  K &lt;- exp(logK)
+
+  y[1] ~ dunif(0, 10)
+  for(t in 1:(N-1)){
+    mu[t] &lt;- r0 * pow(abs(y[t]), theta) / (1 + pow(abs(y[t]), theta) / K)
+    y[t+1] ~ dnorm(mu[t], iQ) 
+  }
+}&quot;)
+writeLines(bugs.model, &quot;myers_process.bugs&quot;)
+</code></pre>
+
+<pre><code class="language-r">logK_prior     &lt;- function(x) dunif(x, logK_prior_p[1], logK_prior_p[2])
+logr_prior     &lt;- function(x) dunif(x, logr0_prior_p[1], logr0_prior_p[2])
+logtheta_prior &lt;- function(x) dunif(x, logtheta_prior_p[1], logtheta_prior_p[2])
+par_priors &lt;- list( deviance = function(x) 0 * x, logK = logK_prior,
+                    logr0 = logr_prior, logtheta = logtheta_prior, 
+                    stdQ = stdQ_prior)
+</code></pre>
+
+<pre><code class="language-r">jags.params=c(&quot;logr0&quot;, &quot;logtheta&quot;, &quot;logK&quot;, &quot;stdQ&quot;)
+jags.inits &lt;- function(){
+  list(&quot;logr0&quot;=log(rlnorm(1,0,.1)), 
+       &quot;logK&quot;=log(10 * rlnorm(1,0,.1)),
+       &quot;logtheta&quot; = log(2 * rlnorm(1,0,.1)),  
+       &quot;stdQ&quot;=sqrt(0.5) * rlnorm(1,0,.1),
+       .RNG.name=&quot;base::Wichmann-Hill&quot;, .RNG.seed=123)
+}
+set.seed(12345)
+myers_jags &lt;- do.call(jags.parallel, 
+                      list(data=jags.data, inits=jags.inits, jags.params, 
+                           n.chains=n.chains, n.iter=n.iter, n.thin=n.thin,
+                           n.burnin=n.burnin, model.file=&quot;myers_process.bugs&quot;))
+recompile(myers_jags)
+</code></pre>
+
+<pre><code>Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 291
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 291
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 291
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 291
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 291
+
+Initializing model
+
+Compiling model graph
+   Resolving undeclared variables
+   Allocating nodes
+   Graph Size: 291
+
+Initializing model
+</code></pre>
+
+<pre><code class="language-r">myers_jags &lt;- do.call(autojags, 
+                      list(myers_jags, n.update=n.update, n.iter=n.iter, 
+                           n.thin = n.thin, progress.bar=&quot;none&quot;))
+</code></pre>
+
+<p>Convergence diagnostics for parametric bayes</p>
+
+<pre><code class="language-r">tmp &lt;- lapply(as.mcmc(myers_jags), as.matrix) # strip classes the hard way...
+myers_posteriors &lt;- melt(tmp, id = colnames(tmp[[1]])) 
+names(myers_posteriors) = c(&quot;index&quot;, &quot;variable&quot;, &quot;value&quot;, &quot;chain&quot;)
+
+ggplot(myers_posteriors) + geom_line(aes(index, value)) +
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=1)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8134/8955814112_feb5f6abb2_o.png" alt="plot of chunk myers-traces" /></p>
+
+<pre><code class="language-r">par_prior_curves &lt;- ddply(myers_posteriors, &quot;variable&quot;, function(dd){
+    grid &lt;- seq(min(dd$value), max(dd$value), length = 100) 
+    data.frame(value = grid, density = par_priors[[dd$variable[1]]](grid))
+})
+
+ggplot(myers_posteriors, aes(value)) + 
+  stat_density(geom=&quot;path&quot;, position=&quot;identity&quot;, alpha=0.7) +
+  geom_line(data=par_prior_curves, aes(x=value, y=density), col=&quot;red&quot;) + 
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=3)
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3772/8955814344_b654594c98_o.png" alt="plot of chunk myers-posteriors" /></p>
+
+<pre><code class="language-r">A &lt;- myers_posteriors
+A$index &lt;- A$index + A$chain * max(A$index) # Combine samples across chains by renumbering index 
+myers_pardist &lt;- acast(A, index ~ variable)
+### myers_pardist &lt;- acast(myers_posteriors[2:3], 1:table(myers_posteriors$variable) ~ variable) 
+myers_pardist[,&quot;logK&quot;] = exp(myers_pardist[,&quot;logK&quot;]) # transform model parameters back first
+myers_pardist[,&quot;logr0&quot;] = exp(myers_pardist[,&quot;logr0&quot;]) # transform model parameters back first
+myers_pardist[,&quot;logtheta&quot;] = exp(myers_pardist[,&quot;logtheta&quot;]) # transform model parameters back first
+colnames(myers_pardist)[colnames(myers_pardist)==&quot;logK&quot;] = &quot;K&quot;
+colnames(myers_pardist)[colnames(myers_pardist)==&quot;logr0&quot;] = &quot;r0&quot;
+colnames(myers_pardist)[colnames(myers_pardist)==&quot;logtheta&quot;] = &quot;theta&quot;
+
+
+bayes_coef &lt;- apply(myers_pardist,2, posterior.mode) # much better estimates
+myers_bayes_pars &lt;- unname(c(bayes_coef[2], bayes_coef[3], bayes_coef[1]))
+myers_means &lt;- sapply(x_grid, Myer_harvest, 0, myers_bayes_pars)
+myers_f &lt;- function(x,h,p) Myer_harvest(x, h, p[c(&quot;r0&quot;, &quot;theta&quot;, &quot;K&quot;)])
+head(myers_pardist)
+</code></pre>
+
+<pre><code>    deviance      K      r0 theta   stdQ
+170    37.69  32.42 0.32913 2.156 0.2818
+171    32.99  51.72 0.20896 2.373 0.3612
+172    40.26  52.83 0.22398 2.260 0.4654
+173    32.80  76.54 0.12968 2.749 0.3711
+174    32.81 216.04 0.04136 3.512 0.3907
+175    32.55 330.07 0.02654 3.813 0.3118
+</code></pre>
+
+<pre><code class="language-r">myers_bayes_pars
+</code></pre>
+
+<pre><code>[1] 31.8192  0.1065 34.4760
+</code></pre>
+
+<h3 id="phase-space-diagram-of-the-expected-dynamics">Phase-space diagram of the expected dynamics</h3>
+
+<pre><code class="language-r">models &lt;- data.frame(x=x_grid, 
+                     GP=tgp_dat$y, 
+                     True=true_means, 
+                     MLE=est_means, 
+                     Ricker=ricker_means, 
+                     Allen = allen_means,
+                     Myers = myers_means)
+models &lt;- melt(models, id=&quot;x&quot;)
+
+# some labels
+names(models) &lt;- c(&quot;x&quot;, &quot;method&quot;, &quot;value&quot;)
+
+# labels for the colorkey too
+model_names = c(&quot;GP&quot;, &quot;True&quot;, &quot;MLE&quot;, &quot;Ricker&quot;, &quot;Allen&quot;, &quot;Myers&quot;)
+colorkey=cbPalette
+names(colorkey) = model_names 
+</code></pre>
+
+<pre><code class="language-r">plot_gp &lt;- ggplot(tgp_dat) + geom_ribbon(aes(x,y,ymin=ymin,ymax=ymax), fill=&quot;gray80&quot;) +
+    geom_line(data=models, aes(x, value, col=method), lwd=1, alpha=0.8) + 
+    geom_point(data=obs, aes(x,y), alpha=0.8) + 
+    xlab(expression(X[t])) + ylab(expression(X[t+1])) +
+    scale_colour_manual(values=cbPalette) 
+print(plot_gp)
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3820/8954618731_61ebc877be_o.png" alt="plot of chunk Figure1" /></p>
+
+<h2 id="goodness-of-fit">Goodness of fit</h2>
+
+<p>This shows only the mean predictions.  For the Bayesian cases, we can instead loop over the posteriors of the parameters (or samples from the GP posterior) to get the distribution of such curves in each case.</p>
+
+<pre><code class="language-r">require(MASS)
+step_ahead &lt;- function(x, f, p){
+  h = 0
+  x_predict &lt;- sapply(x, f, h, p)
+  n &lt;- length(x_predict) - 1
+  y &lt;- c(x[1], x_predict[1:n])
+  y
+}
+step_ahead_posteriors &lt;- function(x){
+gp_f_at_obs &lt;- gp_predict(gp, x, burnin=1e4, thin=300)
+df_post &lt;- melt(lapply(sample(100), 
+  function(i){
+    data.frame(time = 1:length(x), stock = x, 
+                GP = mvrnorm(1, gp_f_at_obs$Ef_posterior[,i], gp_f_at_obs$Cf_posterior[[i]]),
+                True = step_ahead(x,f,p),  
+                MLE = step_ahead(x,f,est$p), 
+                Allen = step_ahead(x, allen_f, pardist[i,]), 
+                Ricker = step_ahead(x, ricker_f, ricker_pardist[i,]), 
+                Myers = step_ahead(x, myers_f, myers_pardist[i,]))
+  }), id=c(&quot;time&quot;, &quot;stock&quot;))
+}
+
+df_post &lt;- step_ahead_posteriors(x)
+
+ggplot(df_post) + geom_point(aes(time, stock)) + 
+  geom_line(aes(time, value, col=variable, group=interaction(L1,variable)), alpha=.1) + 
+  scale_colour_manual(values=colorkey, guide = guide_legend(override.aes = list(alpha = 1))) 
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3792/8954618965_9b92db0892_o.png" alt="plot of chunk Figureb" /></p>
+
+<h2 id="optimal-policies-by-value-iteration">Optimal policies by value iteration</h2>
+
+<p>Compute the optimal policy under each model using stochastic dynamic programming. We begin with the policy based on the GP model,</p>
+
+<pre><code class="language-r">MaxT = 1000
+# uses expected values from GP, instead of integrating over posterior
+#matrices_gp &lt;- gp_transition_matrix(gp_dat$E_Ef, gp_dat$E_Vf, x_grid, h_grid)
+
+# Integrate over posteriors 
+matrices_gp &lt;- gp_transition_matrix(gp_dat$Ef_posterior, gp_dat$Vf_posterior, x_grid, h_grid) 
+
+# Solve the SDP using the GP-derived transition matrix
+opt_gp &lt;- value_iteration(matrices_gp, x_grid, h_grid, MaxT, xT, profit, delta, reward)
+</code></pre>
+
+<p>Determine the optimal policy based on the allen and MLE models</p>
+
+<pre><code class="language-r">matrices_true &lt;- f_transition_matrix(f, p, x_grid, h_grid, sigma_g)
+opt_true &lt;- value_iteration(matrices_true, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+
+matrices_estimated &lt;- f_transition_matrix(est$f, est$p, x_grid, h_grid, est$sigma_g)
+opt_estimated &lt;- value_iteration(matrices_estimated, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+</code></pre>
+
+<p>Determine the optimal policy based on Bayesian Allen model</p>
+
+<pre><code class="language-r">matrices_allen &lt;- parameter_uncertainty_SDP(allen_f, x_grid, h_grid, pardist, 4)
+opt_allen &lt;- value_iteration(matrices_allen, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+</code></pre>
+
+<p>Bayesian Ricker</p>
+
+<pre><code class="language-r">matrices_ricker &lt;- parameter_uncertainty_SDP(ricker_f, x_grid, h_grid, as.matrix(ricker_pardist), 3)
+opt_ricker &lt;- value_iteration(matrices_ricker, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+</code></pre>
+
+<p>Bayesian Myers model</p>
+
+<pre><code class="language-r">matrices_myers &lt;- parameter_uncertainty_SDP(myers_f, x_grid, h_grid, as.matrix(myers_pardist), 4)
+myers_alt &lt;- value_iteration(matrices_myers, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+</code></pre>
+
+<p>Assemble the data</p>
+
+<pre><code class="language-r">OPT = data.frame(GP = opt_gp$D, True = opt_true$D, MLE = opt_estimated$D, Ricker = opt_ricker$D, Allen = opt_allen$D, Myers = myers_alt$D)
+colorkey=cbPalette
+names(colorkey) = names(OPT) 
+</code></pre>
+
+<h2 id="graph-of-the-optimal-policies">Graph of the optimal policies</h2>
+
+<pre><code class="language-r">policies &lt;- melt(data.frame(stock=x_grid, sapply(OPT, function(x) x_grid[x])), id=&quot;stock&quot;)
+names(policies) &lt;- c(&quot;stock&quot;, &quot;method&quot;, &quot;value&quot;)
+
+ggplot(policies, aes(stock, stock - value, color=method)) +
+  geom_line(lwd=1.2, alpha=0.8) + xlab(&quot;stock size&quot;) + ylab(&quot;escapement&quot;)  +
+  scale_colour_manual(values=colorkey)
+</code></pre>
+
+<p><img src="http://farm8.staticflickr.com/7348/8954619233_e007f06eab_o.png" alt="plot of chunk Figure2" /></p>
+
+<h2 id="simulate-100-realizations-managed-under-each-of-the-policies">Simulate 100 realizations managed under each of the policies</h2>
+
+<pre><code class="language-r">sims &lt;- lapply(OPT, function(D){
+  set.seed(1)
+  lapply(1:100, function(i) 
+    ForwardSimulate(f, p, x_grid, h_grid, x0, D, z_g, profit=profit, OptTime=OptTime)
+  )
+})
+
+dat &lt;- melt(sims, id=names(sims[[1]][[1]]))
+dt &lt;- data.table(dat)
+setnames(dt, c(&quot;L1&quot;, &quot;L2&quot;), c(&quot;method&quot;, &quot;reps&quot;)) 
+# Legend in original ordering please, not alphabetical: 
+dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))
+</code></pre>
+
+<pre><code class="language-r">ggplot(dt) + 
+  geom_line(aes(time, fishstock, group=interaction(reps,method), color=method), alpha=.1) +
+  scale_colour_manual(values=colorkey, guide = guide_legend(override.aes = list(alpha = 1)))
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3808/8955815586_814e0c50d6_o.png" alt="plot of chunk Figure3" /></p>
+
+<pre><code class="language-r">Profit &lt;- dt[, sum(profit), by=c(&quot;reps&quot;, &quot;method&quot;)]
+Profit[, mean(V1), by=&quot;method&quot;]
+</code></pre>
+
+<pre><code>   method     V1
+1:     GP 24.908
+2:   True 26.532
+3:    MLE  4.420
+4: Ricker  8.363
+5:  Allen  7.041
+6:  Myers  7.347
+</code></pre>
+
+<pre><code class="language-r">ggplot(Profit, aes(V1)) + geom_histogram() + 
+  facet_wrap(~method, scales = &quot;free_y&quot;) + guides(legend.position = &quot;none&quot;) + xlab(&quot;Total profit by replicate&quot;)
+</code></pre>
+
+<p><img src="http://farm3.staticflickr.com/2881/8954620001_2722b7d9d9_o.png" alt="plot of chunk totalprofits" /></p>
+
+<pre><code class="language-r">allen_deviance &lt;- posterior.mode(pardist[,'deviance'])
+ricker_deviance &lt;- posterior.mode(ricker_pardist[,'deviance'])
+myers_deviance &lt;- posterior.mode(myers_pardist[,'deviance'])
+true_deviance &lt;- 2*estf(c(p, sigma_g))
+mle_deviance &lt;- 2*estf(c(est$p, est$sigma_g))
+
+c(allen = allen_deviance, ricker=ricker_deviance, myers=myers_deviance, true=true_deviance, mle=mle_deviance)
+</code></pre>
+
+<pre><code>  allen  ricker   myers    true     mle 
+  45.26   44.78   34.48  -61.08 -287.60 
+</code></pre>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-06-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Jun 4, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/nonparametric-bayes">nonparametric-bayes</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/06/04/analytic-marginalizing-for-posteriors/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/06/03/admb-basic-example/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-06-04-sensitivity-of-gp-comparisons-in-further-examples.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-06-04-sensitivity-of-gp-comparisons-in-further-examples.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/06\/04\/sensitivity-of-gp-comparisons-in-further-examples\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/06\/04\/sensitivity-of-gp-comparisons-in-further-examples\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

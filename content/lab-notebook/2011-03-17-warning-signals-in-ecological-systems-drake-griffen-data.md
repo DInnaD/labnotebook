@@ -1,15 +1,15 @@
 ---
-comments: true
-date: 2011-03-17 09:59:18
-layout: post
-modified: 2013-02-26 
-slug: warning-signals-in-ecological-systems-drake-griffen-data
-title: 'Warning Signals in Ecological Systems: Revisions and Drake & Griffen Data'
 categories:
-- ecology 
+- ecology
+comments: true
+date: 2011-03-17T09:59:18Z
+modified: 2013-02-26
+slug: warning-signals-in-ecological-systems-drake-griffen-data
 tags:
 - warning-signals
 - delayed-release
+title: 'Warning Signals in Ecological Systems: Revisions and Drake & Griffen Data'
+url: /2011/03/17/warning-signals-in-ecological-systems-drake-griffen-data/
 ---
 
 ## Manuscript revisions

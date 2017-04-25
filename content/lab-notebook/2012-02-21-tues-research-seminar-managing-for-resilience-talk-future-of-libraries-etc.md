@@ -1,20 +1,22 @@
 ---
-comments: true
-date: 2012-02-21 19:20:40
-layout: post
-slug: tues-research--managing-for-resilience-talk-future-of-libraries-etc
-title: 'Tues: Research, seminar (managing for resilience), talk (future of libraries),
-  etc...'
-redirects: [/wordpress/archives/3909, /archives/3909]
 categories:
 - ecology
 - evolution
 - open-science
-tags: 
+comments: true
+date: 2012-02-21T19:20:40Z
+redirects:
+- /wordpress/archives/3909
+- /archives/3909
+slug: tues-research--managing-for-resilience-talk-future-of-libraries-etc
+tags:
 - warning-signals
 - ropensci
 - pmc
 - seminar
+title: 'Tues: Research, seminar (managing for resilience), talk (future of libraries),
+  etc...'
+url: /2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/
 ---
 
 ## research Stuff

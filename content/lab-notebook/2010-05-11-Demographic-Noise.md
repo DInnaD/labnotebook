@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-11T00:00:00Z
+tags:
+- tribolium
 title: Demographic Noise
+url: /2010/05/11/Demographic-Noise/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Crowley Model
 

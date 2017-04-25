@@ -1,14 +1,13 @@
 ---
-title: "Difficulties with tgp; taking custom mcmc approach for GPs"
-layout: post
-category: ecology
+categories:
+- ecology
+code: true
+date: 2013-04-30T00:00:00Z
 tags:
 - nonparametric-bayes
-
-code: true
-
+title: Difficulties with tgp; taking custom mcmc approach for GPs
+url: /2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/
 ---
-
 
 Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.  
 

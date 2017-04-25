@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2010-10-21 
-layout: post
-title: Spatial Warning Signals, power, etc
-redirects: [/wordpress/archives/63, /archives/63]
 categories:
 - ecology
+comments: true
+date: 2010-10-21T00:00:00Z
+redirects:
+- /wordpress/archives/63
+- /archives/63
 tags:
 - warning-signals
+title: Spatial Warning Signals, power, etc
+url: /2010/10/21/spatial-warning-signals-power-etc/
 ---
 
 Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation.  Weakening stability across a set of coupled patches should result in increased autocorrelation.  Decided to test this with a little visualization with help of [a quick R script](http://github.com/cboettig/structured-populations/blob/6f2393b74b60ddc090c18c617a1134ee313cd667/demos/noam.R).  ![](http://farm2.static.flickr.com/1069/5101483914_5ee14d6b3e_b.jpg)

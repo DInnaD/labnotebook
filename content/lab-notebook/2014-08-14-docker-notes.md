@@ -1,12 +1,12 @@
 ---
-layout: post
-categories: [open-science]
+categories:
+- open-science
+date: 2014-08-14T00:00:00Z
 tags:
 - blog
 - docker
-
+url: /2014/08/14/docker-notes/
 ---
-
 
 Ticking through a few more of the challenges I raised in my [first post on
 docker](http://www.carlboettiger.info/2014/08/07/too-much-fun-with-docker.html);

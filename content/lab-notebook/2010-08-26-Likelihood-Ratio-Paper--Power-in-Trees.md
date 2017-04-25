@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-26T00:00:00Z
+tags:
+- pmc
 title: Likelihood Ratio Paper- Power in Trees
+url: /2010/08/26/Likelihood-Ratio-Paper--Power-in-Trees/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 \
 

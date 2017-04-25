@@ -1,10 +1,12 @@
 ---
-title: "Dear DockerHub users: please configure your repository links"
-subtitle: "(for security's sake!)"
-layout: post
-category: computation
-tags: 
+categories:
+- computation
+date: 2014-11-07T00:00:00Z
+subtitle: (for security's sake!)
+tags:
 - docker
+title: 'Dear DockerHub users: please configure your repository links'
+url: /2014/11/07/dear-docker-hub-users/
 ---
 
 The DockerHub is a great resource for discovering and distributing

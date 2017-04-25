@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-07 16:45:05
-layout: post
-slug: segue-easy-cloud-hpc-in-r-now-with-custom-packages
-title: 'Segue: Easy cloud hpc in R, now with custom packages'
-redirects: [/wordpress/archives/2133, /archives/2133]
 categories:
 - computation
+comments: true
+date: 2011-07-07T16:45:05Z
+redirects:
+- /wordpress/archives/2133
+- /archives/2133
+slug: segue-easy-cloud-hpc-in-r-now-with-custom-packages
 tags:
 - hpc
+title: 'Segue: Easy cloud hpc in R, now with custom packages'
+url: /2011/07/07/segue-easy-cloud-computing-in-r-now-with-custom-packages/
 ---
 
 After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages.  The package is [available](http://code.google.com/p/segue/source/checkout) on Google code.  With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud.  For a basic introduction to the package see Jeff Breen's [post](http://jeffreybreen.wordpress.com/2011/01/10/segue-r-to-amazon-elastic-mapreduce-hadoop/).

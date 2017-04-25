@@ -1,11 +1,12 @@
 ---
-title: "Is statistical software harmful?"
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-06-04T00:00:00Z
 tags:
 - blog
 - R
-
+title: Is statistical software harmful?
+url: /2014/06/04/is-statistical-software-harmful/
 ---
 
 Ben Bolker has an excellent post on this complex issue over [at Dynamic Ecology](http://dynamicecology.wordpress.com/2014/06/04/guest-post-is-statistical-software-harmful), which got me thinking about writing my own thoughts on the topic in reply.

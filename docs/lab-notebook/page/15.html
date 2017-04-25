@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,125 +140,114 @@
   
   
   <div>
-    <h2><a href="../../2011/09/21/van-kampen-expansion-and-stochastic-population-dynamics.html">Van Kampen Expansion and Stochastic population dynamics</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../2013/07/28/nonparametric-bayes-wrapping-up-sensitivity/"></a></h2>
+    <h4>Sun, Jul 28, 2013</h4>
     <div class="article-style">
+      
+      Remote RStudio configuration (keep forgetting options and ports).
+ssh -o &quot;ExitOnForwardFailure yes&quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
+ sensitivity.md (Myers) sensitivity-allen.md  Overall:
+ggplot(yields_dat) + geom_density(aes(value))  Compare over 12 simulation configurations with different parameters and different training data, the GP does consistently well. Only one case has relatively poor outcomes.
+ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=as.factor(simulation)), alpha=.5)   Run data backup to local disk NSF expense accounting calendar updates software paper policies email Luke Arbor reply looking at quick way to check out solutions to sums of Fisher wave equation over different diffusion coefficients (heterogenous dispersal rates), e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/21/tuesday-visit-to-berkeley.html">Tuesday: Visit to Berkeley</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../2013/07/25/formal-semantics-with-reml/"></a></h2>
+    <h4>Thu, Jul 25, 2013</h4>
     <div class="article-style">
       
-      Train to Berkeley 7:15-8:32 (6:35a)  9-10:30 Harte lab meeting: Chloe presented her work on mima mounds and pocket gofers 10:30 - noon Justin (coffee, tour campus). Discussed grant opportunities: Lab has a recent NSF and likely will get a Moore grant to extend maximum entropy work. (Not to be confused with species distribution modeling maxent). noon-1p Erica (lunch). 1p-2:15 John. 2:15-3:30 Andy. Great discussions about phylogenetic methods and hierarchical models, regime shifts, open science.
+      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
+Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/19/monday-9.html">Monday</a></h2>
-    <h4>Mon, Sep 19, 2011</h4>
+    <h2><a href="../../2013/07/22/xml-parsing-strategies/"></a></h2>
+    <h4>Mon, Jul 22, 2013</h4>
     <div class="article-style">
+      
+      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
+Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/15/nimbios-pdg-control-thursday.html">pdg-control pdg-control: Thursday</a></h2>
-    <h4>Thu, Sep 15, 2011</h4>
+    <h2><a href="../../2013/07/19/notes/">Notes from chat with Duncan</a></h2>
+    <h4>Fri, Jul 19, 2013</h4>
     <div class="article-style">
+      
+      Keep metadata as part of the object Recursion problem coming up.
+  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
+  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
+ Schema to create S4 objects Create R objects first, and then toXML
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/15/nimbios-pdg-group-tasks.html">pdg-control PDG group, Tasks</a></h2>
-    <h4>Thu, Sep 15, 2011</h4>
+    <h2><a href="../../2013/07/17/updates-on-managing-references/"></a></h2>
+    <h4>Wed, Jul 17, 2013</h4>
     <div class="article-style">
       
-      Tools  Sharing: Dropbox (Team account? 350 gigs/12 users $1670/yr)
- Common language for training development: Matlab
- Remote collaboration: GoToMeeting? Evo?
- Code collaboration GitHub?
-  Training problem I 1a) State vars &gt; Control vars: Can give solutions with chattering (periodic, possibly jumping between boundaries.)
-Short-term priorities:
-1) shared numerics. Jim looks at collocation problem: how do they perform on periodic controls on the infinite time? (If they can&rsquo;t work, we go to finite time.
+      Mendeley API for Jekyll Finally finished off my Mendeley API for Jekyll (The top uses the Ruby API implementation from Michael Bus, copied here since it is not yet provided as a gem. scroll to the bottom for my plugin code). The Mendeley API implementation is remarkably clumsy. For instance, rather than allowing queries to the API that specify a user&rsquo;s folder and a sort-by field, we are forced to first query the folder for a list of IDs and then query document details on every document in the folder, after which we can sort locally.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/14/training-problem-ii.html">Training Problem II</a></h2>
-    <h4>Wed, Sep 14, 2011</h4>
+    <h2><a href="../../2013/07/11/visit-to-whoi/"></a></h2>
+    <h4>Thu, Jul 11, 2013</h4>
     <div class="article-style">
       
-      Consider a harvested fish population with discrete-time population dynamics under an allee effect:
-$$ N_{t+1} = N_t \exp \left( \gamma \left[ 1-\frac{N_t}{K} \right] \left[ \frac{N_t - C}{K} \right] \right) - \beta E_h N_t$$
-Note that C is the unfished allee threshold, K the carrying capacity, $E_h$ the fish harvesting effort.
-Consider that the initial population is unknown, but described by a density function whose variance can be decreased by sampling. Just to get started, let&rsquo;s assume log-normal (avoiding the chance of negative population sizes), with log-standard deviation inversely proportional to the sampling effort $E_s $.
+      Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
+ 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/14/nimbios-pdg-control-wednesday.html">pdg-control pdg-control: Wednesday</a></h2>
-    <h4>Wed, Sep 14, 2011</h4>
+    <h2><a href="../../2013/07/10/forking-the-r-journal/"></a></h2>
+    <h4>Wed, Jul 10, 2013</h4>
     <div class="article-style">
       
-      Wednesday, August 14 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Introduction to Day 3 (Donahue/Armsworth) 9:00 Training Problem Groups
-Marie-Jose reflects on the sampling problem:  Optimization between effort and data.
- Spatial autocorrelation challenges
- periodic sampling challenges.
- Fortin et al 1989
- Carl asked: Nyquist frequency?
- Spatial sampling the correct scale by maximum variance in wavelet scaling.
-  Frank reflects on our activities from a control engineer&rsquo;s perspective  MPC for fishery management - few long-sampling engineering examples.
+      All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/13/2588.html">pdg-control pdg-control, Tuesday</a></h2>
-    <h4>Tue, Sep 13, 2011</h4>
+    <h2><a href="../../2013/07/10/notes/"></a></h2>
+    <h4>Wed, Jul 10, 2013</h4>
     <div class="article-style">
       
-      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
-Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
-Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
-If i is played $ p_i $ becomes
-$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
-If i is played and successful $ \mu_i $ becomes
+      PRSB paper is out.  TODO: Post to arxiv now that Drake&rsquo;s side is out. Update vita. Reply to Drake. Clean up prosectors-fallacy repository. Post on paper(?)
+ Note: github record of earlier version of paper turns out handy in reply, (showed earlier wording about not necessary).
+ Also, some quick significance testing of distributional differences associated with the patterns we show in Figure 1, for what it&rsquo;s worth (in reply to query - yay for clean workflow making this easy).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/12/pretty-darn-good-control-working-group.html">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
+    <h2><a href="../../2013/07/09/reviewing-software-revisited/"></a></h2>
+    <h4>Tue, Jul 9, 2013</h4>
     <div class="article-style">
       
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      Several weeks ago I wrote a post describing issues I commonly raise when reviewing software papers. This provoked a lively discussion among authors, editors, and other reviewers of software papers (most of us having been on at least both reviewing and authoring end), with quite varied perspectives as to whether such criteria were appropriate in this context. As I describe there, I view the concept of dedicated software papers as a somewhat necessary &ldquo;hack&rdquo; of the publishing system, and hope a more mature system will eventually come into place, as is now happening for data through efforts such as Dryad and associated journal archiving requirements.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/09/10/likelihood-expressions-for-branching-processes.html">Likelihood expressions for branching processes</a></h2>
-    <h4>Sat, Sep 10, 2011</h4>
+    <h2><a href="../../2013/07/08/reml-update/"></a></h2>
+    <h4>Mon, Jul 8, 2013</h4>
     <div class="article-style">
       
-      Lineage-through-time approach Nee, then Paradis (Paradis, 2003) introduces unresolved tips
-Distribution of branch-lengths approach Note that in any Markov branching process, only node depth, not topology, influence the likelihood.
-See also:  Notes on bootstrapping in laser
- Earlier Notes on distribution derivation from Kendall 1948
- My derivation of the analytic probability of N individuals in pure birth (from van Kampen approximation)
-  (manual list)
-Refs Kendall, D.
+      Made substanial progress on the reml project. We have reached our first milestone, being able to:
+ Successfully validate the EML generated (#28) Start a unit test suite write eml unit tests (#14) Extract appropriate R objects from EML dataTable read eml (#6) Add function to publish EML data through figshare publish eml (#3) Generate an EML file given a data.frame and appropriate metadata write eml (#2)  As illustrated by the example shown in the Readme:
       
     </div>
   </div>

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-09T00:00:00Z
 title: Code Development for Exploring Regimes Shifts
+url: /2010/02/09/Code-Development-for-Exploring-Regimes-Shifts/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Just [committed
     changes](http://code.google.com/p/popdyn/source/list "http://code.google.com/p/popdyn/source/list")

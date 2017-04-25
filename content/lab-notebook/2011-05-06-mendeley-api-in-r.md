@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-05-06 11:21:10
-layout: post
-slug: mendeley-hpc-in-r
-title: Mendeley API in R
-redirects: [/wordpress/archives/1614, /archives/1614]
 categories:
 - open-science
+comments: true
+date: 2011-05-06T11:21:10Z
+redirects:
+- /wordpress/archives/1614
+- /archives/1614
+slug: mendeley-hpc-in-r
+title: Mendeley API in R
+url: /2011/05/06/mendeley-api-in-r/
 ---
 
 Started to implement the [Mendeley API](http://apidocs.mendeley.com/home/public-resources) in R, with much help and guidance from Prof. [Duncan Temple-Lang](http://www.stat.ucdavis.edu/~duncan/) in the Stats dept.  [R](http://www.r-project.org/) is a widely used statistical software environment, and this should facilitate real-time statistical analysis of the rich amount of publication data available in Mendeley.

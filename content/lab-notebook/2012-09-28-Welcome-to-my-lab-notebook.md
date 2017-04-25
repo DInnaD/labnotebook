@@ -1,12 +1,13 @@
 ---
-layout: post
-title: Welcome to my Lab Notebook - Reloaded
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2012-09-28T00:00:00Z
+tags:
 - notebook-technology
-- Jekyll 
+- Jekyll
 - blog
-
+title: Welcome to my Lab Notebook - Reloaded
+url: /2012/09/28/Welcome-to-my-lab-notebook/
 ---
 
 Welcome to my lab notebook, version 3.0.  My [original open lab notebooks](http://openwetware.org/wiki/User:Carl_Boettiger/Notebook) began on the wiki platform [OpenWetWare](http://openwetware.org), moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform ([site-config](http://www.carlboettiger.info/README.html)), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here.  Quoting from [my original introduction](http://www.carlboettiger.info/archives/211) to the Wordpress notebook:

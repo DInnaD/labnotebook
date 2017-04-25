@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,124 +141,108 @@
   
   
   <div>
-    <h2><a href="../../../2011/07/04/warning-signals-writing-organization-appendices.html">Warning Signals writing, organization, appendices</a></h2>
-    <h4>Mon, Jul 4, 2011</h4>
+    <h2><a href="../../../2011/11/18/friday-7/">Friday</a></h2>
+    <h4>Fri, Nov 18, 2011</h4>
     <div class="article-style">
       
-      main text Summary Sentence. Abstract
-Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
+      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/01/friday-warning-signals-writing-etc.html">Friday, warning signals writing, etc</a></h2>
-    <h4>Fri, Jul 1, 2011</h4>
+    <h2><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h2>
+    <h4>Wed, Nov 9, 2011</h4>
     <div class="article-style">
       
-      9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
-   launched ibm_analysis.R on zero, n10.
- Writing writing&hellip; first full text draft done.
-  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
+      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/30/thursday-7.html">Thursday: Warning Signals writing, figures, segue</a></h2>
-    <h4>Thu, Jun 30, 2011</h4>
+    <h2><a href="../../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h2>
+    <h4>Thu, Nov 3, 2011</h4>
     <div class="article-style">
       
-      Alan meeting Figure 1: Introducing the ROC Curve Figure 2: Standard approach Figure 3: ROC curves corresponding to standard approach Do we show the distributions? &ndash; Create for each, but log in appendix
-ROC curves corresponding to increased sampling &ndash; our method, other stats? organize how?
-Computational Runs Running at constant sample points rather than sample effort.
- On eleven: n5ibm_stable.R 6pm On zero, n10 drake_analysis.R 6pm On zero, n19 deut_analysis.
+      Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort.html">Warning signals: summary statistic performance at varying sampling effort</a></h2>
-    <h4>Wed, Jun 29, 2011</h4>
+    <h2><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h2>
+    <h4>Fri, Oct 28, 2011</h4>
     <div class="article-style">
       
-      oikos post launch case of increased sampling on sim data for autocorrelation (is our approach more robust to model differences?)  IBM data Example Using data from the individual-based model simulation of a system approaching a saddle-node.
-Variance While the initial example with variance shows almost no signal, increasing the sampling effort substantially improves the performance. This can be seen in the ROC curves and as a tightening and spreading out of the null and test distributions as the sampling effort is increased.
+      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/29/warning-signals-writing.html">Warning Signals writing</a></h2>
-    <h4>Wed, Jun 29, 2011</h4>
+    <h2><a href="../../../2011/10/21/friday-optimal-control/">Friday: Optimal Control</a></h2>
+    <h4>Fri, Oct 21, 2011</h4>
+    <div class="article-style">
+      
+      Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
+subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
+and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
+$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/10/17/pnas-rewrites/">Rewrites</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
+    <div class="article-style">
+      
+      Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/10/17/friday-more-runs/">Friday, more runs</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/27/monday-warning-signals-manuscript.html">Monday: Warning Signals Manuscript</a></h2>
-    <h4>Mon, Jun 27, 2011</h4>
-    <div class="article-style">
-      
-      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
-Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
-Analyses  Maximization algorithm failing at initial conditions on deut2
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/06/12/sunday-3.html">Sunday</a></h2>
-    <h4>Sun, Jun 12, 2011</h4>
+    <h2><a href="../../../2011/10/12/wednesday-10/">Wednesday</a></h2>
+    <h4>Wed, Oct 12, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/10/friday-6.html">Friday</a></h2>
-    <h4>Fri, Jun 10, 2011</h4>
+    <h2><a href="../../../2011/10/05/wednesday-forage-fish-cascades/">Wednesday - forage fish &amp; cascades</a></h2>
+    <h4>Wed, Oct 5, 2011</h4>
     <div class="article-style">
       
-      Finish updates to socialR and wrote post.
- reply to Richard on DataONE workflow internship
- really should meet Bertram, re: workflow, dataONE, open science, etc.
- wrote an avereps fn to replace limma dependency. hmmf.
- setup analysis.R to run complete analysis sets. still testing.
-   To Do  consider returning myCall information on most standard functions
- Review model implementations
- model convergence error handling.
+      Forage fish presentation Some simulations exploring top-down &amp; bottom up control concepts in simple models.
+$$ \frac{dN}{dt} = r N\left( 1 - \frac{N}{K} \right) - \alpha N P $$ $$ \frac{dP}{dt} = \beta \alpha N P - \mu P $$ Note that at equilibrium, N depends only on predator dynamics, P on K and r. $$\hat N = \frac{\mu}{\alpha\beta} $$ $$ \hat P = \frac{r}{\alpha}\left( 1 - \frac{N}{K} \right) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/05/sunday-warning-signals-manuscript-mostly.html">Sunday -- warning signals manuscript (mostly)</a></h2>
-    <h4>Sun, Jun 5, 2011</h4>
+    <h2><a href="../../../2011/09/21/van-kampen-expansion-and-stochastic-population-dynamics/">Van Kampen Expansion and Stochastic population dynamics</a></h2>
+    <h4>Wed, Sep 21, 2011</h4>
     <div class="article-style">
-      
-      Updates to Scott&rsquo;s rspringer package
- Grabbed remaining datasets from Dakos et al., added to package
- Reading (Biggs et. al. 2009) a bit more closely
- Writing and revisions on warning signals manuscript.
-   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/06/02/thursday-warning-signals.html">Thursday: Warning Signals</a></h2>
-    <h4>Thu, Jun 2, 2011</h4>
-    <div class="article-style">
-      
-      Alan Meeting Reviewing my edits.
- Writing writing writing
- updating graphs and package
-  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
- This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
- Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
-  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
       
     </div>
   </div>

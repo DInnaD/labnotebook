@@ -1,13 +1,12 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+code: true
+date: 2013-05-17T00:00:00Z
 tags:
 - prosecutor
-
-code: true
-
+url: /2013/05/17/null-distribution-width-minor-puzzle/
 ---
-
 
 A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor's fallacy.  
 

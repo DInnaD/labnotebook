@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-10-28 16:08:25
-layout: post
-slug: a-new-twist-on-the-approach
-title: A new twist on the approach
-redirects: [/wordpress/archives/144, /archives/144]
 categories:
 - ecology
+comments: true
+date: 2010-10-28T16:08:25Z
+redirects:
+- /wordpress/archives/144
+- /archives/144
+slug: a-new-twist-on-the-approach
 tags:
 - warning-signals
+title: A new twist on the approach
+url: /2010/10/28/a-new-twist-on-the-approach/
 ---
 
 Matching the warning signal to different SDE models couldn't retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-28T00:00:00Z
 title: Parallelizing Code
+url: /2010/02/28/Parallelizing-Code/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### A solution!
 

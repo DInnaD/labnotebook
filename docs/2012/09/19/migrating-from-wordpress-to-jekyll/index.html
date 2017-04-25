@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2012/09/19/migrating-from-wordpress-to-jekyll/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p>Thanks to a recent bugfix in the <a href="https://github.com/thomasf/exitwp">exitwp</a> scripts I was able to export all my Wordpress entries.  The script pulls the entries from the Wordpress database and formats them in markdown, along with extracting all metadata such as timestamp, tags, categories, publication status, and Wordpress id number, which are all embedded as YAML header information.</p>
+
+<h3 id="why-migrate-the-old-entries">Why migrate the old entries?</h3>
+
+<p>When I moved to the Jekyll notebook, I left the Wordpress site standing with all its existing content and simply remapped the home pages. While it was nice to have the Wordpress system as a fall back while I got used to Jekyll, it meant that I couldn&rsquo;t benefit from the faster and lighter nature of Jekyll while much of my traffic occurred on the Wordpress pages.  I was running a dedicated virtual private server for the Wordpress hosting, and still the site wasn&rsquo;t very responsive.  To get an idea, try &ldquo;flipping through the pages&rdquo; of the new Jekyll notebook using the &ldquo;next&rdquo; and &ldquo;previous&rdquo; post buttons.  The new pages load immediately, making it easy to flip through looking for some word or image I can&rsquo;t find with tags or searches. Flipping through pages is the time-honored way of interacting with paper notebooks, so I&rsquo;m glad that the new system is responsive enough to imitate this well.</p>
+
+<h3 id="converting-shortcodes-from-wordpress-plugins">Converting shortcodes from Wordpress Plugins</h3>
+
+<p>Migrating files using <code>exitwp</code> is a relatively seamless affair.  Unfortunately, my Wordpress posts make rather heavy use of plugins, which work through shortcodes that still appear in the converted files, such as <code>[flickr]</code>, <code>[latex]</code>, <code>[code lang=&quot;r&quot;]</code>, and <code>[cite]</code>, for image embedding, equation embedding, syntax highlighting, and citations by DOI, respectively.  While a suite of Jekyll plugins exist for each of these tasks, I&rsquo;d like my regular posts to be pure markdown (other than the YAML header), making it easy to migrate or reuse the content in the future in different platforms.  Here is the <a href="https://github.com/cboettig/sandbox/blob/c489da83ca7a78345b7981be4de5933ae7d63ac0/shortcodes.R">R script I used for converting my shortcodes</a>, as described below.</p>
+
+<h4 id="syntax-highlighting-short-codes">Syntax Highlighting short-codes</h4>
+
+<p>For instance, several markdown extension languages including, Github-flavored markdown, already allow for syntax-highlighting with fenced code blocks.  I wrote a short script to replace all (most) of the shortcodes in use on my Wordpress site.  (Over the years, I&rsquo;d actually used a variety of different syntax highlighting plugins, making it necessary to match a variety of different shortcodes).  Other than matching a lot of patterns, this was pretty straight forward.</p>
+
+<h4 id="flickr-images">flickr images</h4>
+
+<p>My workflow pushes all the images and graphs I create to flickr when the script runs.  (I could also automatically push the images to Wordpress, or simply to my own site, but started using flickr pretty early on for this.  The SOAP API is excellent, as is the Rflickr R package)  Images were embedded into my Wordpress site using the shortcode and image ID number. To generate stand-alone markdown, I wanted tp replace all the image codes with the flickr URLs to the images, which is a trivial task with the API and Rflickr.</p>
+
+<h4 id="latex-mathjax-equations">LaTeX/Mathjax Equations</h4>
+
+<p>Again I had used a variety of shortcodes for latex plugins before discovering MathJax, so I had to handle a variety of syntaxes here. Previously I&rsquo;ve tried to write equations in a manner compatible with the redcarpet markdown parser that powers Github-Flavored Markdown (see the <a href="https://github.com/nono/Jekyll-plugins">corresponding Jekyll plugin</a>), e.g. surrounding equations with <code>&lt;div&gt;</code> blocks to avoid the parser mangling them.  Instead, I&rsquo;ve found it easier now to switch to pandoc for my markdown parser (and <a href="https://github.com/dsanson/jekyll-pandoc-plugin">corresponding Jekyll Plugin</a>).  Pandoc uses the basic TeX <code>$</code> and <code>$$</code> for inline and display equations, rendering it into the MathJax (and modern LaTeX standard) <code>\(</code> and <code>\[</code> on conversion. Being pandoc-compatible is quite nice, making it easy to create an e-book, epub, or latex-based pdf of my notebook.  I hate having to use a markdown syntax that isn&rsquo;t compatible with most other extended markdown parsers, but with so many different, inconsistent parsers this cannot be easily avoided. Regardless, replacing the various shortcodes to the Pandoc syntax is just a simple regexpr step.</p>
+
+<h4 id="citations">Citations</h4>
+
+<p>Many of my posts relied on kcite to generate bibliographies for the post using DOIs.  A short call to my <a href="http://www.carlboettiger.info/2012/05/30/knitcitations.html">knitcitations</a> package allowed me to generate the parenthetical citations and bibliographies instead. In principle this step could be run at the time I compile the site with Jekyll.  Pages would be valid <code>.Rmd</code>, needing knitr as &ldquo;markdown&rdquo; interpreter. This is an intriguing way to go, but probably too complicated for the moment.  Running additional R code would be nice, but could slow the time needed to build the site, even with knitr&rsquo;s caching.  Meanwhile, converted pages simply have the citations already processed and the bibliography added in as HTML at the end of the post.</p>
+
+<h3 id="url-redirects">URL Redirects</h3>
+
+<p>My Jekyll site uses the SEO recommended structure of year/month/day/page-title for URLs, while my Wordpress site used simple random id numbers.  To ensure that links to the old Wordpress pages resolve to the newly migrated pages, I added a little Jekyll plugin, <a href="https://github.com/cboettig/labnotebook/blob/master/_plugins/redirects.rb">redirects.rb</a>. One of the elegant things about Jekyll is the ability to create such plugins that do this just the way you would image doing so &ndash; creating auxiliary pages at each of the redirect URLs with a simple redirect command. To install, place <code>redirects.rb</code> in <code>_plugins</code>, <code>redirects.html</code> in <code>_layouts</code>, and in <code>_config.yml</code> add the line <code>redirects: yes</code> (see <a href="https://github.com/cboettig/labnotebook">site source</a>).</p>
+
+<h3 id="comments">Comments</h3>
+
+<p>I am using Disqus as the comment engine for entries.  Since URLs change in the above step and I do not provide a unique disqus code to each page, I am attempting to migrate comments using the <a href="http://help.disqus.com/customer/portal/articles/286778-using-the-migration-tools">Disqus &ldquo;migrate threads&rdquo; tool</a>, which simply takes a csv file listing old and new urls in consecutive columns.  Will have to wait and see if this works.</p>
+
+<h3 id="private-entries">Private entries</h3>
+
+<p>Several entries on the Wordpress site were marked private, and only visible after administrative login. Most of these entries are actually solicited journal reviews of various manuscripts which I cannot make public. <code>exitwp</code> marks these posts as <code>published: false</code> in the metadata, so it is easy to remove them from the Jekyll source site. They can be managed in a separate Github-excluded directory (so that they cannot be seen on the website source pages on Github either) that can be <code>.htaccess</code> password protected.</p>
+
+<h3 id="categories-and-tags">Categories and Tags</h3>
+
+<p>Categories and tags are handled automatically in the conversion.  One of the greatest things about having all the content on a common system is the ability to share a common tag-pool.</p>
+
+<h3 id="rss">RSS</h3>
+
+<p>If you follow the notebook through RSS feeds, all the migrated posts will be showing up as new unread entries, as the atom feed dates entries by when they appear, not the stated post date.  My apologies!</p>
+
+<h3 id="rough-edges">Rough edges</h3>
+
+<p>A couple posts have rare shortcodes which are probably easier to correct by hand.  My apologies for any rough edges resulting from the conversion (or the exchange of markdown parsers).  Hopefully I&rsquo;ll get these ironed out in the near future, but feel free to leave a comment on the page or the issues tracker on any such errors.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2012-09-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Wed, Sep 19, 2012
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/notebook-technology">notebook-technology</a
+    >, 
+    
+    <a href="../../../../tags/jekyll">Jekyll</a
+    >, 
+    
+    <a href="../../../../tags/blog">blog</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2012/09/27/migrating-oww-posts-to-jekyll/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2012/09/19/prosecutors-fallacy/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2012-09-19-migrating-from-wordpress-to-jekyll.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/92a71bd5e69d32f0f00961692649c154e2f6c862/content/lab-notebook/2012-09-19-migrating-from-wordpress-to-jekyll.md">92a71bd5e</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2012\/09\/19\/migrating-from-wordpress-to-jekyll\/';
+    var disqus_title = '';
+    var disqus_url = '\/2012\/09\/19\/migrating-from-wordpress-to-jekyll\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

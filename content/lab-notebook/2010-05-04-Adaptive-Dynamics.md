@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [adaptive-dynamics]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-05-04T00:00:00Z
+tags:
+- adaptive-dynamics
 title: Adaptive Dynamics
+url: /2010/05/04/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Wide gap, flat landscape
 

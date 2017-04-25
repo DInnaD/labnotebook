@@ -1,9 +1,10 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-08-07T00:00:00Z
 tags:
 - blog
-
+url: /2014/08/07/too-much-fun-with-docker/
 ---
 
 **NOTE:** This post was originally drafted as a set of questions to the revived [ropensci-discuss list](https://groups.google.com/forum/#!forum/ropensci-discuss), hopefully readers might join the discussion from there.

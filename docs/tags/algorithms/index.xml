@@ -6,17 +6,51 @@
     <description>Recent content in Algorithms on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Oct 2011 09:47:13 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 May 2013 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title></title>
+      <link>/2013/05/27/exploring-approximate-dynamic-programming-approaches/</link>
+      <pubDate>Mon, 27 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/05/27/exploring-approximate-dynamic-programming-approaches/</guid>
+      <description>Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&amp;rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2013/03/20/research/</link>
+      <pubDate>Wed, 20 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/03/20/research/</guid>
+      <description>pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&amp;quot;simulate&amp;quot;, &amp;quot;pomp&amp;quot;) access help file on available methods: method?show(&amp;quot;pomp&amp;quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).</description>
+    </item>
+    
+    <item>
+      <title>Infering Partially Observable Markov Processes with Iterative Particle Filtering</title>
+      <link>/2012/05/09/notes/</link>
+      <pubDate>Wed, 09 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/2012/05/09/notes/</guid>
+      <description>Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
+Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
+POMP doesn&amp;rsquo;t mix well in the winbugs.
+simulation-based algorithm (plug-and-play)
+Think of a process being defined by:
+ rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:</description>
+    </item>
+    
+    <item>
       <title>Monday, misc notes</title>
-      <link>/2011/10/26/monday-misc-notes.html</link>
+      <link>/2011/10/26/monday-misc-notes/</link>
       <pubDate>Wed, 26 Oct 2011 09:47:13 +0000</pubDate>
       
-      <guid>/2011/10/26/monday-misc-notes.html</guid>
+      <guid>/2011/10/26/monday-misc-notes/</guid>
       <description>R packages relevant to the optimal control problems
  BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp;amp; visiting professor from Ottowa, Frithjof Lutscher.
 ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.</description>
@@ -24,10 +58,10 @@ ADG (algorithm discussion group)  Reviewed github, basic git commands. Added rox
     
     <item>
       <title>Algorithms Group: Literate programming</title>
-      <link>/2011/10/17/algorithms-group-literate-programming.html</link>
+      <link>/2011/10/17/algorithms-group-literate-programming/</link>
       <pubDate>Mon, 17 Oct 2011 18:41:42 +0000</pubDate>
       
-      <guid>/2011/10/17/algorithms-group-literate-programming.html</guid>
+      <guid>/2011/10/17/algorithms-group-literate-programming/</guid>
       <description>Algorithms group today took a brake from discussing algorithms for an aside on coding practices. Today we focused primarily on literate programming tools for making better documented, more readable code. We covered:
  Sweave
  Google style guide, also see R core-team developer Hadley Wickam&amp;rsquo;sstyle guide (modified from Google)
@@ -38,10 +72,10 @@ ADG (algorithm discussion group)  Reviewed github, basic git commands. Added rox
     
     <item>
       <title>Algorithms Group, HMM meets EM</title>
-      <link>/2011/10/10/algorithms-group-hmm-meets-em.html</link>
+      <link>/2011/10/10/algorithms-group-hmm-meets-em/</link>
       <pubDate>Mon, 10 Oct 2011 18:42:03 +0000</pubDate>
       
-      <guid>/2011/10/10/algorithms-group-hmm-meets-em.html</guid>
+      <guid>/2011/10/10/algorithms-group-hmm-meets-em/</guid>
       <description>Alisa reviews HMM, EM, and shows us how to combine them.
 The EM version treats the transition probabilities (exchanging coins) and emission probabilities (chance of heads/tails under each coin) as unknowns. Make a guess, calculate the blue line from before. This can be used to calculate a new guess that will hill climb to the locally optimum solution (EM).
 New guess for the transition probability is:
@@ -50,20 +84,20 @@ $$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$</description>
     
     <item>
       <title>Algorithms group: Hidden Markov Models</title>
-      <link>/2011/08/29/algorithms-group-hidden-markov-models.html</link>
+      <link>/2011/08/29/algorithms-group-hidden-markov-models/</link>
       <pubDate>Mon, 29 Aug 2011 21:43:42 +0000</pubDate>
       
-      <guid>/2011/08/29/algorithms-group-hidden-markov-models.html</guid>
+      <guid>/2011/08/29/algorithms-group-hidden-markov-models/</guid>
       <description>Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&amp;rsquo;s awesome graph.
 As usual in the notebook, click on the graph to get link-through to the code.</description>
     </item>
     
     <item>
       <title>Monday: Algorithms Discussion Group, EM finished</title>
-      <link>/2011/07/25/monday-algorithms-discussion-group-em-finished.html</link>
+      <link>/2011/07/25/monday-algorithms-discussion-group-em-finished/</link>
       <pubDate>Mon, 25 Jul 2011 17:58:55 +0000</pubDate>
       
-      <guid>/2011/07/25/monday-algorithms-discussion-group-em-finished.html</guid>
+      <guid>/2011/07/25/monday-algorithms-discussion-group-em-finished/</guid>
       <description>Finished up the EM algorithm today. Key was getting the right function to maximize. Turns out wikipedia has a very nice write up of this very example, but in our notation:
 $$ E_p \log(p f_1) + (1-E_p) \log( (1-p) f_2 )$$
 Where $E_p$ comes from the expectation step.
@@ -72,10 +106,10 @@ Jamie has joined us and has set up a github repository for the discussion group.
     
     <item>
       <title>EM Algorithm</title>
-      <link>/2011/06/13/em-algorithm-2.html</link>
+      <link>/2011/06/13/em-algorithm-2/</link>
       <pubDate>Mon, 13 Jun 2011 22:39:32 +0000</pubDate>
       
-      <guid>/2011/06/13/em-algorithm-2.html</guid>
+      <guid>/2011/06/13/em-algorithm-2/</guid>
       <description>Yaniv ran us through our second session on EM algorithms. We implemented a simple case described in this tutorial.
 [gist id=1028113]
 Code doesn&amp;rsquo;t reflect the abstraction of the algorithm into a proper Expectation step and Maximization step. We attempted this generalization:
@@ -85,19 +119,19 @@ Missed something in framing this correctly, since the maximization step includes
     
     <item>
       <title>Algorithms group: MCMCMC</title>
-      <link>/2011/05/19/algorithms-group-mcmcmc.html</link>
+      <link>/2011/05/19/algorithms-group-mcmcmc/</link>
       <pubDate>Thu, 19 May 2011 12:52:34 +0000</pubDate>
       
-      <guid>/2011/05/19/algorithms-group-mcmcmc.html</guid>
+      <guid>/2011/05/19/algorithms-group-mcmcmc/</guid>
       <description>Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&amp;rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.</description>
     </item>
     
     <item>
       <title>Monday: meetings, notebook</title>
-      <link>/2011/05/09/monday-4.html</link>
+      <link>/2011/05/09/monday-4/</link>
       <pubDate>Mon, 09 May 2011 23:56:35 +0000</pubDate>
       
-      <guid>/2011/05/09/monday-4.html</guid>
+      <guid>/2011/05/09/monday-4/</guid>
       <description>Coop &amp;amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
 Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
 $$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
@@ -107,29 +141,29 @@ Uses a Dirchlet process model for clustering genes by topologies. All genes in 
     
     <item>
       <title>Algorithms Discussion Group: MCMC</title>
-      <link>/2011/05/04/algorithms-discussion-group-mcmc.html</link>
+      <link>/2011/05/04/algorithms-discussion-group-mcmc/</link>
       <pubDate>Wed, 04 May 2011 17:32:42 +0000</pubDate>
       
-      <guid>/2011/05/04/algorithms-discussion-group-mcmc.html</guid>
+      <guid>/2011/05/04/algorithms-discussion-group-mcmc/</guid>
       <description>Implemented a basic MCMC routine in our little algorithms discussion group today, works quite nicely once you remember to use differences of log probabilities instead of ratios. Code and results below.
 [gist id=956311]</description>
     </item>
     
     <item>
       <title>Algorithms Discussion Group: algorithms Continued</title>
-      <link>/2011/04/18/algorithms-discussion-group-abc-continued.html</link>
+      <link>/2011/04/18/algorithms-discussion-group-abc-continued/</link>
       <pubDate>Mon, 18 Apr 2011 14:11:24 +0000</pubDate>
       
-      <guid>/2011/04/18/algorithms-discussion-group-abc-continued.html</guid>
+      <guid>/2011/04/18/algorithms-discussion-group-abc-continued/</guid>
       <description>Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &amp;ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&amp;rsquo;s gist and started editing during today&amp;rsquo;s session &amp;ndash; when I save it I get a new version ID, so last week&amp;rsquo;s post still points to last week&amp;rsquo;s code, but it doesn&amp;rsquo;t create a second copy, so you can tell if you have the right version.</description>
     </item>
     
     <item>
       <title>Monday: algorithms Meeting</title>
-      <link>/2011/04/11/monday-abc-meeting-2.html</link>
+      <link>/2011/04/11/monday-abc-meeting-2/</link>
       <pubDate>Mon, 11 Apr 2011 16:21:09 +0000</pubDate>
       
-      <guid>/2011/04/11/monday-abc-meeting-2.html</guid>
+      <guid>/2011/04/11/monday-abc-meeting-2/</guid>
       <description>Yaniv has started an algorithms discussion group. We just met with a few students to discuss implementing Approximate Bayesian Computing methods from scratch. Most of us had read (Beaumont, 2010) and (Csilléry et. al. 2010) but also followed [cite source=&amp;ldquo;pubmed&amp;rdquo;]12524368[/cite] most helpful during the session.
 [gist id=914487]
 This gets us as far as the regression step, Figure 1 of (Csilléry et. al. 2010). This in part distinguishes the approach from simple rejection sampling.</description>
@@ -137,48 +171,14 @@ This gets us as far as the regression step, Figure 1 of (Csilléry et. al. 2010)
     
     <item>
       <title>Brian O&#39;Meara discusses new algorithms approaches on Phylo</title>
-      <link>/2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phylo.html</link>
+      <link>/2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phyloseminar/</link>
       <pubDate>Wed, 30 Mar 2011 20:52:04 +0000</pubDate>
       
-      <guid>/2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phylo.html</guid>
+      <guid>/2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phyloseminar/</guid>
       <description>Brian gave an excellent overview of Approximate Bayesian Computing (ABC) and described the TreEvo software he is developing with post-doc Barb Banbury. My notes from the seminar, with my own comments italics and a few added references
 Intro / Motivation  Rates of model innovation is rather slow
  Can be impossible to specify in closed form (can&amp;rsquo;t specify median of binomial in closed form)
  Perhaps it would be faster if we didn&amp;rsquo;t have to wait for someone to come up with all the likelihood functions</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
-      <description>pomp Exploring pomp for examples tomorrow. See pomp-example
- To access help on S4 methods  print method source code: getMethod(&amp;quot;simulate&amp;quot;, &amp;quot;pomp&amp;quot;) access help file on available methods: method?show(&amp;quot;pomp&amp;quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01.html</guid>
-      <description>Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&amp;rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
-Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p</description>
-    </item>
-    
-    <item>
-      <title>Infering Partially Observable Markov Processes with Iterative Particle Filtering</title>
-      <link>/1/01/01/infering-partially-observable-markov-processes-with-iterative-particle-filtering.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01/infering-partially-observable-markov-processes-with-iterative-particle-filtering.html</guid>
-      <description>Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
-Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
-POMP doesn&amp;rsquo;t mix well in the winbugs.
-simulation-based algorithm (plug-and-play)
-Think of a process being defined by:
- rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:</description>
     </item>
     
   </channel>

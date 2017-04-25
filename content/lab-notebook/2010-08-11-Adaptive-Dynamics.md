@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [adaptive-dynamics]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-11T00:00:00Z
+tags:
+- adaptive-dynamics
 title: Adaptive Dynamics
+url: /2010/08/11/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Adding demos directory for the simulations to create the figures in
     User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03

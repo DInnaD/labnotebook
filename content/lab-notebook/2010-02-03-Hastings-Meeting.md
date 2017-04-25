@@ -1,10 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-03T00:00:00Z
+tags:
+- tribolium
 title: Hastings Meeting
+url: /2010/02/03/Hastings-Meeting/
 ---
-
 
 -   Meeting with Dr. Alan Hastings soon to discuss progress on this
     project. We'll also see what he thinks of the open lab notebook.

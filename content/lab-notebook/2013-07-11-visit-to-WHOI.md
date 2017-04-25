@@ -1,13 +1,12 @@
 ---
-layout: post
-categories: [ecology]
-tags: 
+categories:
+- ecology
+date: 2013-07-11T00:00:00Z
+tags:
 - nonparametric-bayes
-- conference 
-
-
+- conference
+url: /2013/07/11/visit-to-WHOI/
 ---
-
 
 Presented my work from the [nonparametric-bayes](/tags/#nonparametric-bayes) project, _Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach_ at the [Woods Hole Oceangraphic Institution](http://www.whoi.edu/) as part of their weekly Biology Department Seminar Series.  
 

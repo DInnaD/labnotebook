@@ -1,7 +1,8 @@
 ---
-layout: post
-category: evolution
-
+categories:
+- evolution
+date: 2013-09-09T00:00:00Z
+url: /2013/09/09/lost-branches/
 ---
 
 Just read [Lost Branches on the Tree of Life](http://10.1371/journal.pbio.1001636) in _PLoS Biology_ and couldn't agree more! I too am frequently frustrated by the lack of deposition or replies to email requests for data. The 16% reply rate seems consistent with other such studies.  I agree with the general message that what is most needed is a cultural shift towards these expectations.  I loved this paper overall but nonetheless cannot resist a few nitpicks.  

@@ -1,21 +1,20 @@
 ---
-comments: true
-date: 2011-08-29 18:27:20
-layout: post
-slug: monday-scaling-wrightscape-examples
-title: 'Monday: scaling wrightscape examples'
-redirects: [/wordpress/archives/2473, /archives/2473]
 categories:
 - computation
 - evolution
+comments: true
+date: 2011-08-29T18:27:20Z
+redirects:
+- /wordpress/archives/2473
+- /archives/2473
+slug: monday-scaling-wrightscape-examples
 tags:
 - hpc
+title: 'Monday: scaling wrightscape examples'
+url: /2011/08/29/monday-scaling-wrightscape-examples/
 ---
 
-
-
-	
-  * syntaxHighligher isn't working. no idea why, posted to forums.
+* syntaxHighligher isn't working. no idea why, posted to forums.
 
 	
   * Still no luck compiling gsl on carver.  Can't install gsl R package or compile wrightscape C code.  posted C issue to NERSC, R issue to statscicomp.  

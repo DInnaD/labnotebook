@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-04-05 15:48:44
-layout: post
-slug: jordans-bigdata-talk-in-mathstats-series
-title: Jordan's bigdata talk in Math/Stats series
-redirects: [/wordpress/archives/4418, /archives/4418]
 categories:
 - computation
-tags: 
+comments: true
+date: 2012-04-05T15:48:44Z
+redirects:
+- /wordpress/archives/4418
+- /archives/4418
+slug: jordans-bigdata-talk-in-mathstats-series
+tags:
 - seminar
+title: Jordan's bigdata talk in Math/Stats series
+url: /2012/04/05/jordans-bigdata-talk-in-mathstats-series/
 ---
 
 Really excellent talk by Professor Michael Jordan from the Berkeley Statistics department visiting us at Davis yesterday. Haven't seen a talk cover technical content with remarkable clarity for the algorithms and insights involved, while also covering such a breadth of material. My notes didn't really keep up, but transcribing some of my scribbling into electronic form will have to wait until I have more time. (Their pubs are probably a better reference anyway.)

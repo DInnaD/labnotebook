@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-04-12 23:40:28
-layout: post
-slug: tuesday-manuscript-and-appendix-edits
-title: 'Tuesday: manuscript and appendix edits'
-redirects: [/wordpress/archives/1409, /archives/1409]
 categories:
 - ecology
+comments: true
+date: 2011-04-12T23:40:28Z
+redirects:
+- /wordpress/archives/1409
+- /archives/1409
+slug: tuesday-manuscript-and-appendix-edits
 tags:
 - warning-signals
+title: 'Tuesday: manuscript and appendix edits'
+url: /2011/04/12/tuesday-manuscript-and-appendix-edits/
 ---
 
 ## Today's log

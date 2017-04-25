@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,114 +141,128 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/effective-warning-signals.html">Effective warning signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/10/thursday-12/">Thursday</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
- Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
+      Forage Fish dynamics
+ Forage fish consumption: who consumes, how important is it. e.g. Africa imports more quantity of fish, but of low value. net exports based on value.
+ food security / undernourished regions
+ forage fish substitutable? Study in Asia: Pretty inelastic.
+ income elasticity vs wealth elasticity (not a real difference. but patterns of consumption of a rich person aren&rsquo;t same as poor person with a windfall, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/ensemble-simulations-of-beetle-dynamics.html">Ensemble simulations of beetle dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h2>
+    <h4>Wed, Nov 9, 2011</h4>
     <div class="article-style">
       
-      code Fig 1
-code Fig 2
-code Fig 3
-Exploring full ensemble simulations of beetle dynamics. Linear noise approximations (Fig 2) show divergent noise under oscillating conditions (Fig 2 lower panel), though this may be an artifact of the approximation, which applies only for finite time calculations.</p>
-
-<p>Note that mean dynamics agree, and oscillations damp out, Fig 1 simulation means (circles) fall exactly on predicted lines. Variance dynamics do not agree.
+      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/entry-title.html">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h2>
+    <h4>Tue, Nov 8, 2011</h4>
     <div class="article-style">
+      
+      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/entry-title.html">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
+      
+      Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/entry-title.html">Entry title</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h2>
+    <h4>Thu, Nov 3, 2011</h4>
     <div class="article-style">
+      
+      Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/friday.html">Friday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h2>
+    <h4>Wed, Nov 2, 2011</h4>
     <div class="article-style">
       
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
+      Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
+$$ X_{t+1} = Z_n f(X_n) $$
+$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
+$$ f(x) = \frac{A x}{1+B x} $$
+Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/gamma-waiting-times-on-individual-level.html">Gamma Waiting times on individual level</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Wrote the proper record structure into C code to handle reporting to R, including ensemble data. Wrote the R interface to the dynamics. Needs exploration.  Version-stable code for parameters. Run using defaults, graph as:
-png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1,1]], type=&lsquo;l&rsquo;, col=&quot;yellow&quot;) lines(o$times, o$mv[[1,2]], col=&quot;yellowgreen&quot;) lines(o$times, o$mv[[1,3]], col=&quot;lightgreen&quot;) lines(o$times, o$mv[[1,4]], col=&quot;darkgreen&quot;) dev.off() o$parameters b ue ul up ua ae al ap cle cap 5.000 0.000 0.001 0.000 0.010 1.
+      Call includes everyone except Frank &amp; Claire.
+Logistics  Meeting 2: 13-15 March
+ Review code/files on wiggio.
+ Want a group review of material / webX tutorial? Email Paul after the call.
+  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
+ Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
+ Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/general-matrix-form-and-correcting-equations.html">General matrix form and correcting equations</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Pursuing a matrix form, seems I had missed some terms in the covariance equations Friday, which are suggested by the nice symmetry of this representation: (sometimes chalk and a camera are faster than tex).
-This suggests the general form looks like
-<em>dM</em> = <em>JM</em> + (*J*M)^T^ + g
-Where M is the covariance matrix and J the Jacobian of f as before. dM is the matrix of derivative terms, though clearly not a rigorous notation.
+      Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/goals.html">Goals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/31/monday-openfisheries-ggplot/">Monday: openfisheries &amp; ggplot</a></h2>
+    <h4>Mon, Oct 31, 2011</h4>
     <div class="article-style">
       
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
+      Andrew has put together the preliminary API for the openfisheries.org project. I&rsquo;ve begun an R package, rfisheries, to interface to the openfisheries project. It would be great to incorporate data from the RAM Legacy database and the seaaroundus.org project, which may be done at the level of the R package or (perhaps more flexibly) directly through the developing openfisheries API.
+Here&rsquo;s a quick proof-of-principle example for Andrew&rsquo;s API:
+(Code linked from image as usual).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/hastings-beetle-workshop.html">Hastings Beetle Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h2>
+    <h4>Fri, Oct 28, 2011</h4>
     <div class="article-style">
       
-      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
- Morning Session, 9a - 11a
- Outline the individual based model, toolbox  Group lunch, noon-1:30
- My lab Presentation, 2p-3p
- Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
- Follow-up on understanding noise propagation in age structure dynamics.
+      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
       
     </div>
   </div>

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [ Labrids]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-12T00:00:00Z
+tags:
+- Labrids
 title: Bodega Workshop Presentations
+url: /2010/03/12/Bodega-Workshop-Presentations/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Final day of Bodega Phylogenetics workshop: a full day of student
 presentations. (High resolution images for the trees available by

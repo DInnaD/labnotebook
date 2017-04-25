@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-09-14 14:54:29
-layout: post
-slug: nimbios-pdg-control-wednesday
-title: 'pdg-control pdg-control: Wednesday'
-redirects: [/wordpress/archives/2590, /archives/2590]
 categories:
 - ecology
+comments: true
+date: 2011-09-14T14:54:29Z
+redirects:
+- /wordpress/archives/2590
+- /archives/2590
+slug: nimbios-pdg-control-wednesday
 tags:
 - pdg-control
 - pdg-control
+title: 'pdg-control pdg-control: Wednesday'
+url: /2011/09/14/nimbios-pdg-control-wednesday/
 ---
 
 Wednesday, August 14

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [Primates]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-29T00:00:00Z
+tags:
+- Primates
 title: Adaptive Dynamics
+url: /2010/04/29/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Manuscript writing.
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,114 +141,112 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/03/08/notes-from-the-week/"></a></h2>
+    <h4>Fri, Mar 8, 2013</h4>
     <div class="article-style">
       
-      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
-require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
-f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/02/28/notes/"></a></h2>
+    <h4>Thu, Feb 28, 2013</h4>
     <div class="article-style">
       
-      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
+      Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
+ classical approaches are to fix relationship of stock recruitment.
+ parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
+ A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
+ How much data we need.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/02/21/notes/"></a></h2>
+    <h4>Thu, Feb 21, 2013</h4>
     <div class="article-style">
       
-      Trying to find a better way to summarize outputs of simulations,
-Heavy over-plotting makes the simulation trajectories themselves hard to read, even with transparent curves. Instead, we can plot the cumulative profit (technically should be discounted first):
-We can normalize these profits as a fraction of the theoretical optimum (true), providing a comparison that is less dependent on model parameters.
-We can then attempt to plot these on a single plot, either as stacked histograms:
+      Applied Math Club meeting (See reading material from Tuesday.
+ Start with stable age distribtution (indep of stock-recrutiment) Consider the Entropy of that probability distribution, as function of mortality, by max age Now consider the same for fecundity: the fraction/density of the population von Bertalanffy growth (fecundity) effective mortality rate - mortality rate in an unfished population, distributed with same entropy as the fished population, Kullback-Leibler distance to measure fishing influence?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/02/13/notes/"></a></h2>
+    <h4>Wed, Feb 13, 2013</h4>
     <div class="article-style">
       
-      If you do know the model and are simply uncertain about the parameters, you can often do all right (e.g. better than maximum likelihood approach) by doing the SDP over the Bayesian posterior distribution of the estimated model. Not surprisingly, if you don&rsquo;t have the correct model, this can fail pretty dramatically (in particular in very nonlinear models, e.g. tipping point models I have been looking at). Model choice and model averaging approaches aren&rsquo;t much help here, because often the structurally correct model doesn&rsquo;t fit the observed data any better &ndash; since the problems occur due to model inaccuracies where we don&rsquo;t have data; e.
+      ropensci  rfishbase: 0.1-1 released to CRAN: bugfix updating server address. (Broke updateCache()). See NEWS for details.
+ rfigshare: 0.2-4 released to CRAN: added method to remove attached files (issue #42), see NEWS for details  Misc  My reply to John on Prosecutor&rsquo;s Fallacy piece. Thinking about a better way to provide convenient, stable access to code and data. Should provide csv versions of data.table outputs used to create each of the figures.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/02/12/notes/"></a></h2>
+    <h4>Tue, Feb 12, 2013</h4>
     <div class="article-style">
       
-      Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
- 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
+      Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/27/notes/"></a></h2>
+    <h4>Thu, Dec 27, 2012</h4>
     <div class="article-style">
       
-      Remote RStudio configuration (keep forgetting options and ports).
-ssh -o &quot;ExitOnForwardFailure yes&quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
- sensitivity.md (Myers) sensitivity-allen.md  Overall:
-ggplot(yields_dat) + geom_density(aes(value))  Compare over 12 simulation configurations with different parameters and different training data, the GP does consistently well. Only one case has relatively poor outcomes.
-ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=as.factor(simulation)), alpha=.5)   Run data backup to local disk NSF expense accounting calendar updates software paper policies email Luke Arbor reply looking at quick way to check out solutions to sums of Fisher wave equation over different diffusion coefficients (heterogenous dispersal rates), e.
+      Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
+ Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
+ Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/23/notes/"></a></h2>
+    <h4>Sun, Dec 23, 2012</h4>
     <div class="article-style">
-      
-      Guess it&rsquo;s that time of year again. Just saw the reminder for this year&rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &ldquo;Mathematical Biology&rdquo; track through last year&rsquo;s call, I have received a few requests for materials and advice. I&rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&rsquo;ll give it a shot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/21/progress-summary/"></a></h2>
+    <h4>Fri, Dec 21, 2012</h4>
     <div class="article-style">
       
-      nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
-  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
- code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
+      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/20/results-comparing-gp-to-parametric/"></a></h2>
+    <h4>Thu, Dec 20, 2012</h4>
     <div class="article-style">
       
-      writing manuscript slides data request to Glaser.
-  gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?
+      Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
+Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
+Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
+ Example from 32 replicates   Distribution of yield over replicates shows the parametric model performing rather poorly, while most of the GP replicates perform nearly optimally.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/12/11/nonparametric-bayes-notes/"></a></h2>
+    <h4>Tue, Dec 11, 2012</h4>
     <div class="article-style">
       
-      nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.
+      Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
       
     </div>
   </div>

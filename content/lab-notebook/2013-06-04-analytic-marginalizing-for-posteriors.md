@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-06-04T00:00:00Z
 tags:
 - nonparametric-bayes
 - derivation
-
+url: /2013/06/04/analytic-marginalizing-for-posteriors/
 ---
 
 Consider the model

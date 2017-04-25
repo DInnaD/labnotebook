@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-09-04 16:51:53
-layout: post
-slug: hello-world-2
-title: evolution Research Abstract
-redirects: [/wordpress/archives/5, /archives/5]
 categories:
 - evolution
+comments: true
+date: 2010-09-04T16:51:53Z
+redirects:
+- /wordpress/archives/5
+- /archives/5
+slug: hello-world-2
+title: evolution Research Abstract
+url: /2010/09/04/hello-world-2/
 ---
 
 Comparative methods in evolutionary biology use phylogenetic trees to explore the origins and maintenance of biodiversity. I develop methods to extend the kinds of questions we can ask and also to test the statistical limits of our ability to make evolutionary inferences through such a periscope into the past.  I am particularly interested in detecting evolutionary regime shifts -- locations in evolutionary history where the governing rules or parameters shift suddenly -- as well as more general questions of model choice, informativeness & identifiability in phylogenetic inference.

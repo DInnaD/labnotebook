@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,126 +141,115 @@
   
   
   <div>
-    <h2><a href="../../../2011/12/07/optimal-control-costs-to-policy-shifts.html">Optimal control -- costs to policy shifts</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
+    <h2><a href="../../../2013/09/19/notes/"></a></h2>
+    <h4>Thu, Sep 19, 2013</h4>
     <div class="article-style">
       
-      Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy). We can imagine several scenarios that could introduce this:
- Fixed cost to change
- Cost proportional to the size of the change (L1 norm)
- Cost proportional to the square of the size (L2 norm, i.e. small changes aren&rsquo;t expensive, large ones are very expensive)
- asymmetric costs &ndash; lowering quotas may be harder than raising them
+      writing manuscript slides data request to Glaser.
+  gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/06/tuesday-two-insights.html">Tuesday -- two insights</a></h2>
-    <h4>Tue, Dec 6, 2011</h4>
+    <h2><a href="../../../2013/09/18/notes/"></a></h2>
+    <h4>Wed, Sep 18, 2013</h4>
     <div class="article-style">
       
-      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
- Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
- Bonvin approach &ndash; adjust the control instead (NCO Control).
+      nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
+  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
+ code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/05/monday-wrightscape-meetings-pdg-meeting.html">Monday - wrightscape meetings, PDG meeting</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
+    <h2><a href="../../../2013/09/16/notes/"></a></h2>
+    <h4>Mon, Sep 16, 2013</h4>
     <div class="article-style">
       
-      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
-Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
+      class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation.html">Wednesday - various logistics, then checking likelihood calculation</a></h2>
-    <h4>Wed, Nov 30, 2011</h4>
+    <h2><a href="../../../2013/09/08/some-rfishbase-updates/"></a></h2>
+    <h4>Sun, Sep 8, 2013</h4>
     <div class="article-style">
       
-      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
- Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
+      Ever since writing the rfishbase package I&rsquo;ve been frustrated by the lack of a proper API from Fishbase.org that would allow access to that wealth of information that is not exposed in the &ldquo;Summary XML&rdquo; files from which rfishbase extracts its content. Since writing the paper in Journal of Fish Biology, I continue to receive user requests asking if or how such-and-such a data element might be extracted. Usually this involves a disappointing boiler-plate reply about how the package is limited to the &ldquo;Summary XML&rdquo; data and that improved query potential must wait for a proper API from Fishbase.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/28/handling-other-sources-of-noise.html">Handling other sources of noise</a></h2>
-    <h4>Mon, Nov 28, 2011</h4>
+    <h2><a href="../../../2013/09/06/nsf-math-bio-postdoc/"></a></h2>
+    <h4>Fri, Sep 6, 2013</h4>
     <div class="article-style">
       
-      I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
-$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
+      Guess it&rsquo;s that time of year again. Just saw the reminder for this year&rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &ldquo;Mathematical Biology&rdquo; track through last year&rsquo;s call, I have received a few requests for materials and advice. I&rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&rsquo;ll give it a shot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/23/getting-the-right-distributions.html">Getting the right distributions</a></h2>
-    <h4>Wed, Nov 23, 2011</h4>
+    <h2><a href="../../../2013/09/02/reml-milestone/"></a></h2>
+    <h4>Mon, Sep 2, 2013</h4>
     <div class="article-style">
       
-      Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
-$$x_{t+1} = z_t f(x_t) $$
-where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
-$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
+      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
+An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/18/friday-7.html">Friday</a></h2>
-    <h4>Fri, Nov 18, 2011</h4>
+    <h2><a href="../../../2013/08/26/notes/"></a></h2>
+    <h4>Mon, Aug 26, 2013</h4>
     <div class="article-style">
       
-      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
-Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
-Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
-Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
+      misc tricks Always forget how to see the function definition of an S4 method:
+showMethods(&quot;xmlToS4&quot;, includeDefs=TRUE)  ropensci  Closed rfigshare issue #50 Still retooling reml to S4 and ReXML to inheritance-based S4 classes building classes on the schema&rsquo;s inheritance model 10:49 am 2013/08/26  In behavioral ecology we usually equate optimality with expected behavior arising from natural selection &ndash; i.e. the extent to which the observed behavior deviates from the optimal behavior is assumed to be due to modeling inaccuracies (optimizing the wrong thing).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/17/steve-pacala-storer-lecture.html">Steve Pacala - Storer lecture</a></h2>
-    <h4>Thu, Nov 17, 2011</h4>
+    <h2><a href="../../../2013/08/23/notes/"></a></h2>
+    <h4>Fri, Aug 23, 2013</h4>
     <div class="article-style">
       
-      Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
-Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
- Carbon sink is half ocean, half terrestrial
-  A grim future:
- 450ppm not feasible
- 500ppm best case
- 550ppm is likely even if we are largely successful
-  Even worse if the terrestrial sink collapses.
+      Work Work  Finished review for R Journal (Wednesday) Finished review for TE. Began review for NSF updated service list (vita) Handling reimbursement of expenses  Misc  Whoa, we can/should now use <a href="http://doi.org">http://doi.org</a> instead of <a href="http://dx.doi.org">http://dx.doi.org</a>  Software Sustainability materials Seems like a popular new item, listing a couple recent articles in one place here:
+ Perspective in Science Magazine; also a critique and author&rsquo;s rebuttal in a later edition.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/15/tuesday-10.html">Tues: Sources of stochastic variation in optimal control</a></h2>
-    <h4>Tue, Nov 15, 2011</h4>
+    <h2><a href="../../../2013/08/14/isees-day-2/"></a></h2>
+    <h4>Wed, Aug 14, 2013</h4>
     <div class="article-style">
       
-      Adding stochasticity seems to have a small history.
-Reed 1979 Reed, 1979 Uncertainty in next year&rsquo;s stock, &ldquo;growth uncertainty&rdquo; at the time of determining harvest. Constant escapement policy, no chance of extinction.
-Clark &amp; Kirkwood 1986 Clark &amp; Kirkwood, 1986 Uncertainty in this year&rsquo;s stock, &ldquo;measurement uncertainty&rdquo; when determining harvest.
-Roughgarden &amp; Smith (1996) consider both, and add uncertainty in harvest. Sethi et al. 2005 (Sethi et. al. 2005) consider the economist&rsquo;s optimization of this.
+      Other services: Tangible infrastructure support services  Discovery registration system. Includes:  Software review and certification Use and quality metrics Ticket tracking Seed funding to join the ecosystem   Community Building  user defined registry  // Hackathon?
+Consulting services  Support software lifecycle
+ Function: Assist in full lifecycle software development: e.g. (and order notwithstanding) initiation, licensing, maintenance, hardening, extensible, release, decommissioning
+ Mechanisms:
+ Call for Proposals - to solicit consulting help (or to nominate a project to receive help) (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions.html">non-optimal outcomes of optimal solutions</a></h2>
-    <h4>Sun, Nov 13, 2011</h4>
+    <h2><a href="../../../2013/08/13/isees-day-1/">ISEES software lifecycle and components workshop, Day 1</a></h2>
+    <h4>Tue, Aug 13, 2013</h4>
     <div class="article-style">
       
-      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
+      Range of large project to the long tail.
+ statistical analyses One-off models community model Services (Blast)  Science Challenges Outcomes of previous community workshops
+18 Grand Challenge areas. Highlights: Supermodels. human/biophysical systems shape and be shaped by water availability. (A vision similar to Microsoft&rsquo;s &ldquo;Model all Earth&rdquo; Purves et al)
+Functions and services areas: (priority ordering)
+ Computational training (early career - all career) Assimilation and QA/QC tools Collaborative environment decisions and workflows software discovery consultants / collaborator community hub to converge on standards merging disparate tools user-friendly interfaces multiscale coupled modeling framework Software vetting (how about paper vetting?
       
     </div>
   </div>

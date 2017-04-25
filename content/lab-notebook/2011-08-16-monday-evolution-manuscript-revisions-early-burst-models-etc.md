@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-08-16 12:13:46
-layout: post
-slug: monday-evolution-manuscript-revisions-early-burst-models-etc
-title: 'Monday: Evolution manuscript revisions; early burst models, etc'
-redirects: [/wordpress/archives/2340, /archives/2340]
 categories:
 - evolution
+comments: true
+date: 2011-08-16T12:13:46Z
+redirects:
+- /wordpress/archives/2340
+- /archives/2340
+slug: monday-evolution-manuscript-revisions-early-burst-models-etc
+title: 'Monday: Evolution manuscript revisions; early burst models, etc'
+url: /2011/08/16/monday-evolution-manuscript-revisions-early-burst-models-etc/
 ---
 
 ###  Evolution Manuscript Edits 

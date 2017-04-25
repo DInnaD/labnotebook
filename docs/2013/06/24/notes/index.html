@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/06/24/notes/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h2 id="exploring-xml-schema-in-r">Exploring XML Schema in R</h2>
+
+<p>I danced around the room after reading these lines in the excellent <a href="http://www.springer.com/statistics/computational+statistics/book/978-1-4614-7899-7">XML and Web Technologies for Data Sciences with R</a> book:</p>
+
+<blockquote>
+<p>We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema</p>
+</blockquote>
+
+<p>Wow.  Automatically turn EML objects into R objects and vice versa! Generate a NeXML parser for R automatically.  The world is your oyster now!</p>
+
+<h2 id="diving-in">Diving in</h2>
+
+<p>Using <code>install_github(&quot;XMLSchema&quot;, &quot;omegahat&quot;)</code>.</p>
+
+<p>Trouble so far.</p>
+
+<h3 id="eml">EML</h3>
+
+<pre><code class="language-r">readSchema(&quot;eml.xsd&quot;)
+</code></pre>
+
+<p>From Duncan:</p>
+
+<blockquote>
+<p>As I suspected from just the description of the problem, there is a recursive
+circularity in the schema files - eml-documentation.xsd imports eml-text.xsd
+which imports eml-documentation.xsd.
+I&rsquo;ll try to find some time to handle this.</p>
+</blockquote>
+
+<p>Staying tuned&hellip;</p>
+
+<h3 id="nexml">NexML</h3>
+
+<p>This is a schema for phylogenetic trees.  Being able to use this schema would be a big improvement over the current approach of our treebase package, which queries a vertically integrated database that is far less expressive then the NeXML schema.</p>
+
+<p>I tried this schema, but cannot download the file for some reason:</p>
+
+<pre><code class="language-r">nex &lt;- readSchema(&quot;http://www.nexml.org/2009/nexml.xsd&quot;)
+failed to load HTTP resource
+Error: 1: failed to load HTTP resource
+&gt; 
+</code></pre>
+
+<p>I download a copy from here and set its xsd/ directory as my working directory:</p>
+
+<pre><code class="language-r">&gt; nex &lt;- readSchema(&quot;nexml.xsd&quot;)
+Error: XML content does not seem to be XML: './continuous.xsd'
+</code></pre>
+
+<p>because the path should be <code>characters/continuous.xsd</code>.  Not sure why I&rsquo;m not managing to navigate the paths correctly here.</p>
+
+<h3 id="kml-example-from-book">KML example from book</h3>
+
+<p>I cannot load the KML schema directly from the website:</p>
+
+<pre><code class="language-r">&gt; kx = &quot;https://developers.google.com/kml/schema/kml21.xsd&quot;
+&gt; kml = readSchema(kx)
+Error: XML content does not seem to be XML: 'https://developers.google.com/kml/schema/kml21.xsd'
+</code></pre>
+
+<p>Likewise,</p>
+
+<pre><code class="language-r">kml = readSchema( &quot;http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd&quot;)
+failed to load HTTP resource
+Error: 1: failed to load HTTP resource
+</code></pre>
+
+<p>fails, though the other example works</p>
+
+<pre><code class="language-r">pmml = readSchema(&quot;http://www.dmg.org/v4-1/pmml-4-1.xsd&quot;)
+</code></pre>
+
+<p>If I wget the xsd and save it locally first, then I can readSchema on the local file.  If I have <code>options(error = recover)</code> set, then</p>
+
+<pre><code class="language-r"> defineClasses(kml)
+</code></pre>
+
+<p>gets me deep into the debugger. If I run it with <code>options(error=NULL)</code>, then I get warnings:</p>
+
+<pre><code class="language-r">&gt; defineClasses(kml)
+character(0)
+Warning messages:
+1: In (function (className, baseType, where = globalenv())  :
+  http://earth.google.com/kml/2.1.Object is an existing class
+2: In (function (className, baseType, where = globalenv())  :
+  http://earth.google.com/kml/2.1.Feature is an existing class
+3: In (function (className, baseType, where = globalenv())  :
+  http://earth.google.com/kml/2.1.LookAt is an existing class
+4: In (function (className, baseType, where = globalenv())  :
+  http://earth.google.com/kml/2.1.Geometry is an existing class
+5: In (function (className, baseType, where = globalenv())  :
+  http://earth.google.com/kml/2.1.StyleSelector is an existing class
+6: In (function (className, baseType, where = globalenv())  :
+  http://earth.google.com/kml/2.1.TimePrimitive is an existing class
+&gt; 
+</code></pre>
+
+<p>I load an minimal <a href="http://en.wikipedia.org/wiki/Keyhole_Markup_Language">example file</a>  and try fromXML, but hit an error:</p>
+
+<pre><code>&gt; doc &lt;- xmlParse(&quot;kmlexample.xml&quot;)
+&gt; fromXML(doc)
+Error in UseMethod(&quot;xmlAttrs&quot;, node) : 
+  no applicable method for 'xmlAttrs' applied to an object of class &quot;c('XMLInternalDocument', 'XMLAbstractDocument')&quot;
+</code></pre>
+
+<p>Stay tuned for more from Duncan on getting this rolling..</p>
+
+<h3 id="reading">Reading</h3>
+
+<ul>
+<li><p>Early warning signals in multivariate dynamics: <code>r citet(&quot;http://arxiv.org/abs/1306.3465&quot;, &quot;discusses&quot;)</code>. Population size grows as approaches collapse, multidemensional data needed to detect slowing down (eigenvalue estimates from multidimensional autoregressive model)</p></li>
+
+<li><p>Little grants are more bang for the buck than big grants: <code>r citet(&quot;10.1371/journal.pone.0065263&quot;, &quot;discusses&quot;)</code></p></li>
+</ul>
+
+<h3 id="code-tricks">Code tricks</h3>
+
+<p>From Egan, on getting a useful version of rvm on Ubuntu 12.04 (lets me install <code>bundle install</code> on the lab-notebook gemfile so I can deploy from <code>zero.ucdavis</code>, etc.)</p>
+
+<blockquote>
+<p>RVM has to be installed locally because the packaged version is broken.
+Before installation, the following packages need to be installed
+globally (unless you have root access in which case the installer will
+take care of them):</p>
+</blockquote>
+
+<pre><code>    bison
+    libyaml-dev
+    libgdbm-dev
+    gawk
+    sqlite
+</code></pre>
+
+<blockquote>
+<p>To install RVM, run:</p>
+</blockquote>
+
+<pre><code>    \curl -L https://get.rvm.io | bash -s stable --ruby --autolibs=enable --auto-dotfiles
+</code></pre>
+
+<blockquote>
+<p>which takes a while because it downloads and builds a lot. The installer
+takes care of the configuration automatically and all you need to do
+after installation is log into a fresh shell to source the required
+functions and environment.</p>
+</blockquote>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-06-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Jun 24, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/ropensci">ropensci</a
+    >, 
+    
+    <a href="../../../../tags/eml">eml</a
+    >, 
+    
+    <a href="../../../../tags/reading">reading</a
+    >, 
+    
+    <a href="../../../../tags/code-tricks">code-tricks</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/06/26/starting-an-eml-package-for-r/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/06/23/notes-on-leveraging-the-ecological-markup-language/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-06-24-notes.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-06-24-notes.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/06\/24\/notes\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/06\/24\/notes\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

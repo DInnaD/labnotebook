@@ -1,15 +1,15 @@
 ---
-comments: true
-date: 2011-07-25 23:22:37
-layout: post
-slug: monday-esa
-title: 'Monday: ESA, appendix, etc'
 categories:
 - ecology
 - evolution
+comments: true
+date: 2011-07-25T23:22:37Z
+slug: monday-esa
 tags:
 - warning-signals
 - delayed-release
+title: 'Monday: ESA, appendix, etc'
+url: /2011/07/25/monday-esa/
 ---
 
 ## Reading

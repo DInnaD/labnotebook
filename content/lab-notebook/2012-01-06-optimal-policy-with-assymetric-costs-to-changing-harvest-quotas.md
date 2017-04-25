@@ -1,18 +1,18 @@
 ---
-comments: true
-date: 2012-01-06 13:52:22
-layout: post
-slug: optimal-policy-with-assymetric-costs-to-changing-harvest-quotas
-title: Optimal policy with assymetric costs to changing harvest quotas
-redirects: [/wordpress/archives/3595, /archives/3595]
 categories:
 - ecology
+comments: true
+date: 2012-01-06T13:52:22Z
+redirects:
+- /wordpress/archives/3595
+- /archives/3595
+slug: optimal-policy-with-assymetric-costs-to-changing-harvest-quotas
 tags:
 - pdg-control
 - warning-signals
+title: Optimal policy with assymetric costs to changing harvest quotas
+url: /2012/01/06/optimal-policy-with-assymetric-costs-to-changing-harvest-quotas/
 ---
-
-
 
 The optimal policy with symmetric L1 costs to changing the quotas results in the solutions that stop changing, sometimes at no harvest (if there's scrap value), or at some fixed high harvest if no scrap value. (See earlier [notes](http://www.carlboettiger.info/archives/3492)). Asymmetric costs of comparable magnitude result in more crashes.
 

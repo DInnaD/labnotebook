@@ -1,11 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: [nonparametric-bayes]
+categories:
+- ecology
+date: 2012-11-28T00:00:00Z
+tags:
+- nonparametric-bayes
 title: early results in nonparametric-bayes approaches to optimal policy
-
+url: /2012/11/28/nonparametric-bayes-work/
 ---
-
 
 ## Resolving Numerical and Computational issues
 

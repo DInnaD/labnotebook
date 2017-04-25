@@ -1,11 +1,12 @@
 ---
-layout: post
-categories: [ecology]
-tags: [decision-theory, pdg-control]
-
+categories:
+- ecology
+date: 2012-10-24T00:00:00Z
+tags:
+- decision-theory
+- pdg-control
+url: /2012/10/24/multiple-uncertainty-value-function-iteration/
 ---
-
-
 
 ### Multiple Uncertainty algorithm
 

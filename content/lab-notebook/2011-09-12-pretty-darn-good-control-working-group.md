@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2011-09-12 12:49:39
-layout: post
-slug: pretty-darn-good-control-working-group
-title: Pretty Darn Good Control Working Group
-redirects: [/wordpress/archives/2585, /archives/2585]
 categories:
 - ecology
+comments: true
+date: 2011-09-12T12:49:39Z
+redirects:
+- /wordpress/archives/2585
+- /archives/2585
+slug: pretty-darn-good-control-working-group
 tags:
 - pdg-control
 - pdg-control
 - warning-signals
+title: Pretty Darn Good Control Working Group
+url: /2011/09/12/pretty-darn-good-control-working-group/
 ---
 
 Monday, August 12

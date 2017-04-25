@@ -1,13 +1,13 @@
 ---
-layout: post
-title: "What I look for in 'Software Papers'"
-subtitle: "pet peeves and faux pas"
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-06-13T00:00:00Z
+subtitle: pet peeves and faux pas
+tags:
 - blog
-
+title: What I look for in 'Software Papers'
+url: /2013/06/13/what-I-look-for-in-software-papers/
 ---
-
 
 **Update** Thanks to the rich discussion in the comments and beyond,
 I've revised my thoughts on this somewhat, as I discuss in [this more

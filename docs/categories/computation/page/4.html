@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,101 +141,135 @@
   
   
   <div>
-    <h2><a href="../../../2011/07/24/csgf-2010-hpc-practices-survey-summary.html">CSGF 2010 Computing Practices Survey Summary</a></h2>
-    <h4>Sun, Jul 24, 2011</h4>
+    <h2><a href="../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
     <div class="article-style">
       
-      Thanks to everyone who participated in the CSGF 2010 Survey.With too many things going on this year, I didn&rsquo;t conduct a survey at the 2011 Conference. But as people were asking about the survey, I thought I could at least make last year&rsquo;s summary a bit more accessible. The following comes from the pdf report I submitted to Krell and a few example figures from data.This year&rsquo;s survey was longer and broader, recieving over 90 responses from fellows and alumni.
+      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
+parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/07/segue-easy-cloud-hpc-in-r-now-with-custom-packages.html">Segue: Easy cloud hpc in R, now with custom packages</a></h2>
-    <h4>Thu, Jul 7, 2011</h4>
+    <h2><a href="../../../2011/11/06/sunday-5/">Sunday</a></h2>
+    <h4>Sun, Nov 6, 2011</h4>
     <div class="article-style">
       
-      After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages. The package is available on Google code. With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud. For a basic introduction to the package see Jeff Breen&rsquo;s post.
-Quick notes on updating using mercurial: Since I&rsquo;ve already pulled the code using
+      Computing notes A few configuration related things from migrating to the new laptop.
+Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
+make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
+mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/13/em-algorithm-2.html">EM Algorithm</a></h2>
-    <h4>Mon, Jun 13, 2011</h4>
+    <h2><a href="../../../2011/11/04/sparkleshare-configuration/">Sparkleshare configuration</a></h2>
+    <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
+      
+      Configured sparkleshare across my linux server &amp; laptops, and android phone. Provides a dropbox-style syncing and version history for all files using git. I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost. Wonderful.
+Basic setup Get sparkleshare working on a server is dead simple, Can also use a github server, gitorious server, etc. Setup is clearly documented, which is really just doing a bunch of standard stuff if you have a server or github already set up.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/26/thursday-6.html">Thursday Meetings: Duncan; Alan</a></h2>
-    <h4>Thu, May 26, 2011</h4>
+    <h2><a href="../../../2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify/">server file management from bowser: ajaxplorer, mollify</a></h2>
+    <h4>Tue, Nov 1, 2011</h4>
     <div class="article-style">
       
-      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
+      A few notes on trying out some server-based file sharing solutions.
+ajaXplorer Kind of amazingly good and easy to install, with configuration-free functionality like previews of images and playing mp3s. More secure file sharing (at least, public link not generated until asked for, can have password assigned to it). Sharing is the only step not activated by default. Create a folder called &ldquo;public&rdquo; in the ajaxplorer directory, and this feature will appear.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/23/monday-5.html">Monday: some code-tricks, Algorithms group planning</a></h2>
-    <h4>Mon, May 23, 2011</h4>
+    <h2><a href="../../../2011/10/19/optimal-control-exploration/">Optimal Control Exploration</a></h2>
+    <h4>Wed, Oct 19, 2011</h4>
     <div class="article-style">
       
-      Teary Some discussion on combining Greek letters with variables in R. Previously have solved this with substitute() command,
-x = 4.5 plot(1:10, main = substitute(paste(&quot;Kendall &quot;, tau == val), list(val = x[1])))  but Peter has a more elegant solution that can be vectorized:
-sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)) #for instance plot(0) legend(&quot;topright&quot;,legend=sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)),lty=2)  Better yet, bquote has a mechanism to evaluate an argument vs express the argument as a symbol, see gist id=1108159.
+      Translating Jim&rsquo;s Matlab code.
+Adapted for Octave.
+R version.
+Document review:
+ Chapter 04_Sanchirico_Final.pdf
+ SanchiricoOptimalSpace_JEEM.pdf (Sanchirico &amp; Wilen, 2005)
+ Optimal_Rebuilding_AJAE2010.pdf, Optimal_Rebuilding_Supp_Material.pdf (Sanchirico et. al. 2010)
+ Sanchirico_editsembedded.pdf: Book Chapter 1: Economically Optimal Management of a Metapopulation
+  Reviewing Bett&rsquo;s Practical Methods for Optimal Control using Nonlinear Programming. (( Practical Methods for Optimal Control and Estimation Using Nonlinear Programming, Second Edition (Advances in Design and Control) John T.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/04/algorithms-discussion-group-mcmc.html">Algorithms Discussion Group: MCMC</a></h2>
-    <h4>Wed, May 4, 2011</h4>
+    <h2><a href="../../../2011/10/17/algorithms-group-literate-programming/">Algorithms Group: Literate programming</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
     <div class="article-style">
+      
+      Algorithms group today took a brake from discussing algorithms for an aside on coding practices. Today we focused primarily on literate programming tools for making better documented, more readable code. We covered:
+ Sweave
+ Google style guide, also see R core-team developer Hadley Wickam&rsquo;sstyle guide (modified from Google)
+ R coding practices grab-bag: using functionalized code, {&hellip;}, S3 vs S4 classes.
+ roxygen, roxygen2
+  Next time: Github, then we&rsquo;ll spend 30 minutes collaboratively adding roxygen documentation to our existing codes and committing changes over git.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/24/wrightscape-profiling.html">wrightscape profiling</a></h2>
-    <h4>Sun, Apr 24, 2011</h4>
+    <h2><a href="../../../2011/10/12/rfishbase-tutorial-updated-extended/">rfishbase Tutorial - updated &amp; extended</a></h2>
+    <h4>Wed, Oct 12, 2011</h4>
     <div class="article-style">
       
-      Optimization at the R level is substantially slower than at the C level:
-system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
+      Updated rfishbase package. Include querying for a list of scientific names and the addition of more quantitative traits, though the selection is still somewhat limited. Demo includes how to grab some data to match a phylogenetic tree, and some regular expression (grep) searches for feeding behavior.
+Source code
+Windows binary also available.</p>
+
+<h1 id="demo-r-rm-list-ls-require-rfishbase-grabbing-loading-amp-caching-fishbase-data-download-and-parse-data-for-first-40-ids-36-fish-fish">demo.R rm(list=ls()) require(rfishbase) ###### Grabbing, Loading &amp; Caching Fishbase Data ###### ## Download and parse data for first 40 ids (36 fish) #fish.</h1>
+
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/18/algorithms-discussion-group-abc-continued.html">Algorithms Discussion Group: algorithms Continued</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
+    <h2><a href="../../../2011/10/10/algorithms-group-hmm-meets-em/">Algorithms Group, HMM meets EM</a></h2>
+    <h4>Mon, Oct 10, 2011</h4>
     <div class="article-style">
       
-      Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&rsquo;s gist and started editing during today&rsquo;s session &ndash; when I save it I get a new version ID, so last week&rsquo;s post still points to last week&rsquo;s code, but it doesn&rsquo;t create a second copy, so you can tell if you have the right version.
+      Alisa reviews HMM, EM, and shows us how to combine them.
+The EM version treats the transition probabilities (exchanging coins) and emission probabilities (chance of heads/tails under each coin) as unknowns. Make a guess, calculate the blue line from before. This can be used to calculate a new guess that will hill climb to the locally optimum solution (EM).
+New guess for the transition probability is:
+$$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/11/monday-abc-meeting-2.html">Monday: algorithms Meeting</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
+    <h2><a href="../../../2011/09/30/friday-wordpress-backups-pmc-edits/">Friday, wordpress backups, pmc edits</a></h2>
+    <h4>Fri, Sep 30, 2011</h4>
     <div class="article-style">
       
-      Yaniv has started an algorithms discussion group. We just met with a few students to discuss implementing Approximate Bayesian Computing methods from scratch. Most of us had read (Beaumont, 2010) and (Csilléry et. al. 2010) but also followed [cite source=&ldquo;pubmed&rdquo;]12524368[/cite] most helpful during the session.
-[gist id=914487]
-This gets us as far as the regression step, Figure 1 of (Csilléry et. al. 2010). This in part distinguishes the approach from simple rejection sampling.
+      Wordpress local copy  configured mysqldump backup, following dreamhost wiki (added cron job manually instead of in panel).  edit local wp-config.php to use localhost. Get the database name, user name and password from the lines above it, which are used later.
+define(&lsquo;DB_HOST&rsquo;, &lsquo;localhost&rsquo;); // &hellip;and the server MySQL is running on  create user: log in as root
+mysql -u root -p  and create user
+mysql&gt; create database database_name mysql&gt; create user &lsquo;username&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;password&rsquo;; mysql&gt; create database database_name mysql&gt; grant usage on *.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/07/memory-management-cron/">memory management, cron</a></h2>
+    <h4>Wed, Sep 7, 2011</h4>
     <div class="article-style">
+      
+      Create the memcheck.sh script that will write a mem.log file with the data, and agnuplot script that will plot it.
+[gist id=1201994]
+Then set up a cron job. First, set the editor to something functional:
+export EDITOR=vi  then, crontab -e to edit the cron table. Add this line to run the command every 2 minutes (see wikipedia entry for quick intro), and plot it every 15 minutes:
+*/2 * * * * /home/cboettig/.
       
     </div>
   </div>
@@ -247,6 +281,8 @@ This gets us as far as the regression step, Figure 1 of (Csilléry et. al. 2010)
     
     <li><a href="../../../categories/computation/page/3.html">&laquo; Previous</a></li>
     
+    
+    <li><a href="../../../categories/computation/page/5.html">Next &raquo;</a></li>
     
   </ul>
 </nav>

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-17T00:00:00Z
+tags:
+- warning-signals
 title: Hastings Meeting
+url: /2010/02/17/Hastings-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Discussion of cases where variance decreases before crash --
     misleading warning signals. Schreiber 2003

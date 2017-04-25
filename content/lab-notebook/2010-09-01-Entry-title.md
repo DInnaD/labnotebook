@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [open-science, code-tricks]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-09-01T00:00:00Z
+tags:
+- open-science
+- code-tricks
 title: Entry title
+url: /2010/09/01/Entry-title/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Automated scripts for image uploads. Tag-based generation of a
 slideshow:

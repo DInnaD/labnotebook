@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-11-01 08:57:15
-layout: post
-slug: labrids-parrotfish-method1
-title: Labrids & Parrotfish, method1
-redirects: [/wordpress/archives/3088, /archives/3088]
 categories:
 - evolution
+comments: true
+date: 2011-11-01T08:57:15Z
+redirects:
+- /wordpress/archives/3088
+- /archives/3088
+slug: labrids-parrotfish-method1
+title: Labrids & Parrotfish, method1
+url: /2011/11/01/labrids-parrotfish-method1/
 ---
 
 ## Parrotfish only:

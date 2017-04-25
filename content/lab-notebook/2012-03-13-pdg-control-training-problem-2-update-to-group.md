@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-13 20:17:25
-layout: post
-slug: pdg-control-training-problem-2-update-to-group
-title: pdg-control, Training Problem 2 update to group
-redirects: [/wordpress/archives/4294, /archives/4294]
 categories:
 - ecology
+comments: true
+date: 2012-03-13T20:17:25Z
+redirects:
+- /wordpress/archives/4294
+- /archives/4294
+slug: pdg-control-training-problem-2-update-to-group
 tags:
 - pdg-control
+title: pdg-control, Training Problem 2 update to group
+url: /2012/03/13/pdg-control-training-problem-2-update-to-group/
 ---
 
 ### Intrinsic Stochasticity

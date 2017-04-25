@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,21 +141,21 @@
   
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/26/coreos-cluster-gotchas/"></a></h2>
+    <h4>Wed, Nov 26, 2014</h4>
     <div class="article-style">
       
-      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
+      Overall impression is that CoreOS is a promising way to easily set up a highly available cluster (e.g. when most important thing is that a service stays up when a node goes down) since it can migrate a containerized app to a new machine rather than having to already have the same app running on all machines. Either way a load-balancer needs to handle the addressing, which is do-able but somewhat tricky.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../2014/11/24/coreos-docker-registries-etc/"></a></h2>
+    <h4>Mon, Nov 24, 2014</h4>
     <div class="article-style">
       
-      Overall impression is that CoreOS is a promising way to easily set up a highly available cluster (e.g. when most important thing is that a service stays up when a node goes down) since it can migrate a containerized app to a new machine rather than having to already have the same app running on all machines. Either way a load-balancer needs to handle the addressing, which is do-able but somewhat tricky.
+      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
       
     </div>
   </div>

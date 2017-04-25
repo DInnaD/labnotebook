@@ -1,11 +1,11 @@
 ---
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2012-11-30T00:00:00Z
+tags:
 - notebook-technology
-
+url: /2012/11/30/Note-on-notebook-figures/
 ---
-
 
 ## plots for the notebook
 

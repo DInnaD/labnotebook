@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-21T00:00:00Z
+tags:
+- tribolium
 title: Puzzled over the two-step jump process results
+url: /2010/05/21/Puzzled-over-the-two-step-jump-process-results/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 The variance dynamics are slightly different if the continuous time
 Markov process allows events to contain two steps (such as a transition

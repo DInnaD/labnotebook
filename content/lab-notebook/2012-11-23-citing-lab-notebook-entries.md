@@ -1,14 +1,15 @@
 ---
-layout: post
-categories: [open-science]
-tags: 
+categories:
+- open-science
+date: 2012-11-23T00:00:00Z
+tags:
 - notebook-technology
 - semantics
 - blog
-
+url: /2012/11/23/citing-lab-notebook-entries/
 ---
 
-  C. Titus Brown has an excellent [post](http://ivory.idyll.org/blog/posting-blog-entries-to-figshare.html) discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare.  The [`rfigshare` package](https://github.com/ropensci/rfigshare) written by [Ted Hart](http://emhart.github.com/) and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn't mention it, you can get a programmatic list of available categories from [http://api.figshare.com/v1/categories](http://api.figshare.com/v1/categories).  Figshare can also take code as a fileset or dataset, and may soon add a type for it.  The coolest thing about figshare is perhaps the way they add types in response to how they see users using the service).  
+C. Titus Brown has an excellent [post](http://ivory.idyll.org/blog/posting-blog-entries-to-figshare.html) discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare.  The [`rfigshare` package](https://github.com/ropensci/rfigshare) written by [Ted Hart](http://emhart.github.com/) and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn't mention it, you can get a programmatic list of available categories from [http://api.figshare.com/v1/categories](http://api.figshare.com/v1/categories).  Figshare can also take code as a fileset or dataset, and may soon add a type for it.  The coolest thing about figshare is perhaps the way they add types in response to how they see users using the service).  
 
 
   The real discussion, though, is not about *how*, but *why*? Currently figshare doesn't render the html or markdown/restructured-text source (other than as plain text), so it's not a great place to *read* the posts.  This may change in the near future as well, but the primary motivation for doing this seems to be on the ability to get an honest-to-goodness DOI for your entry.  So why a DOI?  

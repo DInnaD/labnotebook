@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-20T00:00:00Z
+tags:
+- pmc
 title: Implementing an example of low and high power trees
+url: /2010/02/20/Implementing-an-example-of-low-and-high-power-trees/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Code implementation in felsenstein\_tree.R
 

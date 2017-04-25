@@ -1,12 +1,12 @@
 ---
-layout: post
-category: computation
-tags: 
+categories:
+- computation
+date: 2013-09-11T00:00:00Z
+tags:
 - conference
 - open-science
-
+url: /2013/09/11/ISEES-Workforce-Development-Day-2/
 ---
-
 
 Near the end of another excellent day of discussions we were asked to put pen to paper to outline our own views in writing.  My own contribution was the following notebook scribble.  
 

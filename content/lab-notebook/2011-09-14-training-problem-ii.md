@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-09-14 22:47:29
-layout: post
-slug: training-problem-ii
-title: Training Problem II
-redirects: [/wordpress/archives/2652, /archives/2652]
 categories:
 - ecology
+comments: true
+date: 2011-09-14T22:47:29Z
+redirects:
+- /wordpress/archives/2652
+- /archives/2652
+slug: training-problem-ii
 tags:
 - pdg-control
+title: Training Problem II
+url: /2011/09/14/training-problem-ii/
 ---
 
 Consider a harvested fish population with discrete-time population dynamics under an allee effect:

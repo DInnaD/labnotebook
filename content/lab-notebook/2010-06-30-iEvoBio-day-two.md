@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-30T00:00:00Z
 title: iEvoBio day two
+url: /2010/06/30/iEvoBio-day-two/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Program:
 

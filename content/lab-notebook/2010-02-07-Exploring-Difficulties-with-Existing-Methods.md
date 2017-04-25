@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-07T00:00:00Z
+tags:
+- pmc
 title: Exploring Difficulties with Existing Methods
+url: /2010/02/07/Exploring-Difficulties-with-Existing-Methods/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Model choice plays an increasingly dominant role in comparative
     phylogenetics. The software OUCH of Butler and King (2004) is built

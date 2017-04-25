@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [adaptive-dynamics]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-09-30T00:00:00Z
+tags:
+- adaptive-dynamics
 title: Adaptive Dynamics Updates
+url: /2010/09/30/Adaptive-Dynamics-Updates/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 The numerical coexistence time simulations are still running, (Server
 rest brought down these runs two weeks ago, and they take a few weeks to

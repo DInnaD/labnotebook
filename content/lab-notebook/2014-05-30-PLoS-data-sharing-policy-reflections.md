@@ -1,8 +1,10 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-05-30T00:00:00Z
 tags:
 - blog
+url: /2014/05/30/PLoS-data-sharing-policy-reflections/
 ---
 
 PLOS has posted an [excellent

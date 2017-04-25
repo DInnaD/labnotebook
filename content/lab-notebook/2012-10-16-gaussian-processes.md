@@ -1,9 +1,11 @@
 ---
-layout: post
+categories:
+- ecology
+date: 2012-10-16T00:00:00Z
+tags:
+- nonparametric-bayes
 title: Gaussian processes
-category: ecology
-tags: [nonparametric-bayes]
-
+url: /2012/10/16/gaussian-processes/
 ---
 
 * Great methods tutorial/overview with Steve.  Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.  

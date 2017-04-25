@@ -1,12 +1,12 @@
 ---
-layout: post
+categories:
+- computation
+date: 2014-10-29T00:00:00Z
 published: false
-category: computation
 tags:
 - docker
+url: /2014/10/29/the-viability-of-dockerized-research/
 ---
-
-
 
 In the spirit of Greg's post & the discussion here, I'd be interested
 in hearing more on people's thoughts about the viability of Dockerized

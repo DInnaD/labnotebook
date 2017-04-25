@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-14 11:18:59
-layout: post
-slug: warning-signals-monday
-title: Warning Signals, Monday
-redirects: [/wordpress/archives/1185, /archives/1185]
 categories:
 - ecology
+comments: true
+date: 2011-03-14T11:18:59Z
+redirects:
+- /wordpress/archives/1185
+- /archives/1185
+slug: warning-signals-monday
 tags:
 - warning-signals
+title: Warning Signals, Monday
+url: /2011/03/14/warning-signals-monday/
 ---
 
 Set up a few long runs of simulated data to better illustrate the effects of sampling time and density, and better resolve the distributions.

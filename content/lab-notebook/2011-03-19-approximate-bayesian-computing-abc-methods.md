@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-03-19 11:07:50
-layout: post
-slug: approximate-bayesian-hpc-abc-methods
-title: Approximate Bayesian Computing (algorithms) methods
-redirects: [/wordpress/archives/1221, /archives/1221]
 categories:
 - evolution
+comments: true
+date: 2011-03-19T11:07:50Z
+redirects:
+- /wordpress/archives/1221
+- /archives/1221
+slug: approximate-bayesian-hpc-abc-methods
+title: Approximate Bayesian Computing (algorithms) methods
+url: /2011/03/19/approximate-bayesian-computing-abc-methods/
 ---
 
 [Erick Matsen ](http://matsen.fhcrc.org/) asked me about the question at the end of Luke Harmon's phyloseminar critiquing Approximate Bayesian Computing ABC methods.  The question wasn't any more specific, though Luke recognized the paper.  Searching the literature didn't turn anything up, asking [Leo](http://www.mendeley.com/profiles/leonardo-de-oliveira-martins/) through the [MCMC group](http://www.mendeley.com/groups/517931/bayesian-mcmc/) on Mendeley I think this is the paper:

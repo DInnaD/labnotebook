@@ -1,12 +1,12 @@
 ---
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2014-02-19T00:00:00Z
+tags:
 - code-tricks
 - reproducible-research
-
+url: /2014/02/19/CRAN-and-package-dependencies/
 ---
-
 
 ## 2014-02-19
 

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-08T00:00:00Z
 title: Updates to Code
+url: /2010/02/08/Updates-to-Code/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Mostly organizational updates at the moment. Restructured the
     directory tree, and added proper [literate

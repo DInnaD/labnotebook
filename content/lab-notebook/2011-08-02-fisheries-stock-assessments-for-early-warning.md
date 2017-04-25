@@ -1,15 +1,14 @@
 ---
-comments: true
-date: 2011-08-02 16:59:14
-layout: post
-title: Fisheries stock assessments for early warning
 categories:
 - ecology
+comments: true
+date: 2011-08-02T16:59:14Z
 tags:
 - warning-signals
 - delayed-release
+title: Fisheries stock assessments for early warning
+url: /2011/08/02/fisheries-stock-assessments-for-early-warning/
 ---
-
 
 > 
 > What you want to look for are stock assessments.  For example, for the species closest to home, under the Pacific Fisheries Management Council:

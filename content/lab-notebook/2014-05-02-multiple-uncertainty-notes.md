@@ -1,11 +1,9 @@
 ---
-layout: post
-category: multiple_uncertainty
+categories:
+- multiple_uncertainty
+date: 2014-05-02T00:00:00Z
+url: /2014/05/02/multiple-uncertainty-notes/
 ---
-
-
-
-
 
 ### Logistic recruitment, uniform noise
 

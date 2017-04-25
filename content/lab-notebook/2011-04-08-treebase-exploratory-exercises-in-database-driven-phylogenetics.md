@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-04-08 15:18:02
-layout: post
-slug: ropensci-exploratory-exercises-in-database-driven-phylogenetics
-title: 'TreeBase: exploratory exercises in database-driven phylogenetics'
-redirects: [/wordpress/archives/1382, /archives/1382]
 categories:
 - evolution
-tags: 
+comments: true
+date: 2011-04-08T15:18:02Z
+redirects:
+- /wordpress/archives/1382
+- /archives/1382
+slug: ropensci-exploratory-exercises-in-database-driven-phylogenetics
+tags:
 - ropensci
+title: 'TreeBase: exploratory exercises in database-driven phylogenetics'
+url: /2011/04/08/treebase-exploratory-exercises-in-database-driven-phylogenetics/
 ---
 
 Taking a look at the [TreeBase](http://www.treebase.org/treebase-web/urlAPI.html) database for potential project with Gabe & Duncan's Large Data seminar.  It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy.  Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.  Access to larger data-sets than typically available in any individual lab, and the ability to test hypotheses across multiple phylogenies could be rather useful.

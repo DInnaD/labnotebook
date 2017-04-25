@@ -1,9 +1,8 @@
 ---
-layout: post
+date: 2014-12-01T00:00:00Z
 published: false
-
+url: /2014/12/01/drone-vs-travis/
 ---
-
 
 <!--
 Should probably flush this out more into a 'what I want from CI' style post.

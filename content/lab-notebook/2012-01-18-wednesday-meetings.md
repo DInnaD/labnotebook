@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2012-01-18 23:22:49
-layout: post
-slug: wednesday-meetings
-title: Wednesday -- meetings
-redirects: [/wordpress/archives/3680, /archives/3680]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2012-01-18T23:22:49Z
+redirects:
+- /wordpress/archives/3680
+- /archives/3680
+slug: wednesday-meetings
+tags:
 - ropensci
-- warning-signals 
+- warning-signals
 - code-tricks
+title: Wednesday -- meetings
+url: /2012/01/18/wednesday-meetings/
 ---
 
 ### Alan meeting

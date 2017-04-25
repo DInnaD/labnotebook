@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,114 +140,109 @@
   
   
   <div>
-    <h2><a href="../../2010/11/19/fri-extending-geiger-to-monte-carlo-method.html">Fri: extending Geiger to Monte Carlo method</a></h2>
-    <h4>Fri, Nov 19, 2010</h4>
+    <h2><a href="../../2011/12/07/wednesday-11/">Wednesday - wrightscape runs and various other things</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
+      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/18/thurs-phylogenetics-likelihood.html">Thurs: evolution likelihood</a></h2>
-    <h4>Thu, Nov 18, 2010</h4>
+    <h2><a href="../../2011/12/07/optimal-control-costs-to-policy-shifts/">Optimal control -- costs to policy shifts</a></h2>
+    <h4>Wed, Dec 7, 2011</h4>
     <div class="article-style">
       
-      Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
-The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
+      Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy). We can imagine several scenarios that could introduce this:
+ Fixed cost to change
+ Cost proportional to the size of the change (L1 norm)
+ Cost proportional to the square of the size (L2 norm, i.e. small changes aren&rsquo;t expensive, large ones are very expensive)
+ asymmetric costs &ndash; lowering quotas may be harder than raising them
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/18/weds.html">Weds</a></h2>
-    <h4>Thu, Nov 18, 2010</h4>
+    <h2><a href="../../2011/12/06/tuesday-two-insights/">Tuesday -- two insights</a></h2>
+    <h4>Tue, Dec 6, 2011</h4>
     <div class="article-style">
       
-      Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
-Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
+      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
+ Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
+ Bonvin approach &ndash; adjust the control instead (NCO Control).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/16/tues.html">Tues seminar</a></h2>
-    <h4>Tue, Nov 16, 2010</h4>
+    <h2><a href="../../2011/12/05/monday-wrightscape-meetings-pdg-meeting/">Monday - wrightscape meetings, PDG meeting</a></h2>
+    <h4>Mon, Dec 5, 2011</h4>
     <div class="article-style">
       
-      Sarah Dalrymple seminar. Rick Karban&rsquo;s excellent intro: &ldquo;unlike the rest of these seminars, Sarah will tell us something new.&rdquo; &ldquo;Sarah&rsquo;s really out there.&ldquo; Also mentions TAC and art teaching.
-Ants, Jeff pine &amp; fire Fire suppression dramatic impacts. Prescribed under story burns work! ie Angora fire in Tahoe, 2007. Discover rings of unburned soil around base of tree, reducing damage&hellip; undescribed!
-More common in recently burned ( 30 yrs. What makes the rings?
+      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
+Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc.html">evolution today:  Discussion groups, writing, etc</a></h2>
-    <h4>Mon, Nov 15, 2010</h4>
+    <h2><a href="../../2011/12/05/more-labrid-plots/">More labrid plots</a></h2>
+    <h4>Mon, Dec 5, 2011</h4>
     <div class="article-style">
-      
-      Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
-Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
-Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures.html">Thursday: Post-predictive verification exploration; writing and figures</a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
+    <h2><a href="../../2011/12/04/release-of-constraint/">Release of constraint</a></h2>
+    <h4>Sun, Dec 4, 2011</h4>
     <div class="article-style">
-      
-      On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
-[latex] \frac{dN}{dt} = (\lambda - \mu) N 
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/11/phylogenetics-statistics.html">evolution statistics </a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
+    <h2><a href="../../2011/12/02/friday-updated-wrightscape-results/">Friday - updated wrightscape results - simulated examples</a></h2>
+    <h4>Fri, Dec 2, 2011</h4>
     <div class="article-style">
       
-      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
-Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
-The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
+      Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right). Can we correctly discriminate between these models?
+Parameter differences:
+Likelihood differences:
+Yup.
+Repeated with effect-size scaled to be roughly equivalent for both traits. Wondering if it&rsquo;s easier to plot parameters out separately like this. Error bars show median and 25&frasl;75 % quantile range, with barplots showing the means (note that high outliers makes mean often larger than median).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics.html">Tuesday - SDEs then back to phylogenetics</a></h2>
-    <h4>Wed, Nov 10, 2010</h4>
+    <h2><a href="../../2011/12/01/thrusday-corrected-calculation-implementing/">Thrusday - corrected calculation, implementing.  </a></h2>
+    <h4>Thu, Dec 1, 2011</h4>
     <div class="article-style">
-      
-      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
-With regards the SDE problem, note that it reduces to:
-$$ dX_1 = B_2 d B_1 $$
-and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/08/monday-and-some-phylogenetics.html">Monday and some phylogenetics</a></h2>
-    <h4>Mon, Nov 8, 2010</h4>
+    <h2><a href="../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h2>
+    <h4>Wed, Nov 30, 2011</h4>
     <div class="article-style">
       
-      Working on paper revisions. Added a separate demo file just for generating the figures and analysis used in the manuscript, called likelihood_manuscript.R Need to clean and reorganize the package files and demos.
-Added full species names and islands to the tip labels of the tree. Adjusting which example paintings/regimes to include, currently focusing on the original OU.LP model (now calling it OU.3 following Brian&rsquo;s recommendation for simplicity), OU.4, (originally OU.
+      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2010/11/08/welcome-to-my-lab-notebook.html">Welcome to my Lab Notebook</a></h2>
-    <h4>Mon, Nov 8, 2010</h4>
+    <h2><a href="../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h2>
+    <h4>Tue, Nov 29, 2011</h4>
     <div class="article-style">
       
-      Disclaimer: Not a Blog Welcome to my open lab notebook. This is the active, permanent record of all my scientific research, standing in place of the traditional bound lab notebook. It is a record of ideas, and intuitions; results and mistakes. Please bear in mind that the notebook is primarily a tool for me to do science, not communicate it. I write my entries with the hope that they are intelligible to my future self; and maybe intelligible to my collaborators and experts in my field.
+      Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
+Unit tests.
+Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
       
     </div>
   </div>

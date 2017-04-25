@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-07-17 10:59:43
-layout: post
-title: Saturday - back to Warning Signals MS
 categories:
 - ecology
+comments: true
+date: 2011-07-17T10:59:43Z
 tags:
 - warning-signals
 - delayed-release
+title: Saturday - back to Warning Signals MS
+url: /2011/07/17/saturday-back-to-warning-signals-ms/
 ---
 
 #### New outline

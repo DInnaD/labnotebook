@@ -1,18 +1,20 @@
 ---
-comments: true
-date: 2012-04-19 10:39:06
-layout: post
-slug: catching-up
-title: Catching up
-redirects: [/wordpress/archives/4451, /archives/4451]
 categories:
 - ecology
+comments: true
+date: 2012-04-19T10:39:06Z
+redirects:
+- /wordpress/archives/4451
+- /archives/4451
+slug: catching-up
 tags:
 - ropensci
 - warning-signals
 - notebook-technology
 - wrightscape
 - code-tricks
+title: Catching up
+url: /2012/04/19/catching-up/
 ---
 
 Catching up on notebook entries for last week and the beginning of this week in one go here.  In the process of wrapping up a variety of older projects, so this is kinda all over the place.

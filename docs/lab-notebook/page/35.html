@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,106 +140,107 @@
   
   
   <div>
-    <h2><a href="../../2011/02/10/thursday-2.html">Thursday</a></h2>
-    <h4>Thu, Feb 10, 2011</h4>
+    <h2><a href="../../2012/03/27/tuesday-pandoc-citations-notes-various/">Tuesday: pandoc citations notes, various</a></h2>
+    <h4>Tue, Mar 27, 2012</h4>
     <div class="article-style">
       
-      Organizing for Future of Data workshop. Confirming time/room booking, etc. Science makes open access a special issue on Dealing with Data  Hosting visiting prospective CPB student, scheduling events. Going over edits questions with Peter R. on phylogenetics manuscript. Editing/pruning plugins &ndash; starting to choke my Wordpress hosting. Folks at DreamHost have been very helpful, hopefully no key plugins are off. Apparently deactivating doesn&rsquo;t necessarily prevent plugin from contributing to the memory load.
+      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/09/phylogenetic-monte-carlo-for-the-laser-package.html">Phylogenetic Monte Carlo for the Laser package</a></h2>
-    <h4>Wed, Feb 9, 2011</h4>
+    <h2><a href="../../2012/03/26/active-adaptive-management-solutions-belief-sdp/">Active adaptive management solutions: Belief SDP</a></h2>
+    <h4>Mon, Mar 26, 2012</h4>
     <div class="article-style">
       
-      Laser simulations: First ensuring example has expected behaviour, can in general get the expected likelihood differences between fits of Yule and birth-death models.
-Estimated models had been appearing identical in the runs (on left), seems to have been a bug. Distributions appear roughly the same across different tree sizes and values of death rate. General pattern of likelihood tests is reminiscent of the lambda models: high variability in likelihood ratios under bd simulations relative to the pure-birth simulations.
+      Have finally gotten my active adaptive management solutions working.
+The active adaptive management solution learns very quickly and rather monotonically which model is correct, even when models differ by small amounts and the initial belief is heavily skewed to the wrong model. I&rsquo;ve implemented examples with Myers model, but in this parameter space the allee effect is well below the Reed escapement level of the alternative Beverton Holt model, so it doesn&rsquo;t exert itself.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/08/why-ons-from-a-discussion-with-friends.html">Why ONS? From a discussion with friends</a></h2>
-    <h4>Tue, Feb 8, 2011</h4>
+    <h2><a href="../../2012/03/24/citations-in-markdown-using-knitr/">Citations in markdown using knitr</a></h2>
+    <h4>Sat, Mar 24, 2012</h4>
     <div class="article-style">
       
-      I agree that the key is open data, and it really only helps if that data is discoverable, and better if it&rsquo;s in a central repository. The open notebook community is pretty focused on figuring out ways to automate and link the data from the notebook. For instance, many solubilities recorded for chemicals given in wikipedia automatically link to the open notebook entries describing the experiment wherein the data was collected, check out <a href="http://en">http://en</a>.
+      I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading). One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I&rsquo;d like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/08/notes-during-revisions-on-phylogenetics-manuscript.html">Notes during revisions on phylogenetics manuscript</a></h2>
-    <h4>Tue, Feb 8, 2011</h4>
+    <h2><a href="../../2012/03/22/robust-control-uncertainty-reading-notes/">Robust control &amp; uncertainty - reading notes</a></h2>
+    <h4>Thu, Mar 22, 2012</h4>
     <div class="article-style">
       
-      I have made the revisions to attempt to address Graham&rsquo;s annotations and Peter&rsquo;s comments. (revisions are also up on the git repo.) I have added a brief section introducing the models immediately after the introduction. I also rewrote more of the PMC method to include definitions of p and power in the context of comparing model likelihood ratios. I moved the AIC section up before I talk about the other comparisons.
+      Ecologists/TREE (Fischer et. al. 2009), (Polasky et. al. 2011) give a nice overview/introduction to the problem. Perhaps most interestingly, both set up resilience approaches as a foil or alternate approach in contrast to a decision-theoretic problem. Fischer&rsquo;s group does a particularly nice job handling the case that these two are separate approaches &ndash; it&rsquo;s easy to dismiss resilience thinking as fuzzy optimization of fuzzy objective functions.
+The Polasky piece does a nice job refocusing us on the obvious but brushed-over question of the objective function.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/04/warning-signals-hpc.html">Warning signals &amp; hpc</a></h2>
-    <h4>Fri, Feb 4, 2011</h4>
+    <h2><a href="../../2012/03/21/policy-costs-to-changing-mangement-tp-1b-apples-to-apples/">Policy costs to changing mangement, TP 1b: Apples to Apples</a></h2>
+    <h4>Wed, Mar 21, 2012</h4>
     <div class="article-style">
       
-      Morning has been rather difficult trying to get simulations up and running. Parallel library isn&rsquo;t running on zero or one, variety of errors that seemed to be machine dependent and reminiscent of the ~./sfCluster problem, 3 hrs of debugging revealed this was indeed just a bug in my updated code. (In changing to my object-oriented simulate.gauss and update.gauss functions rather than calling the specific functions directly I hadn&rsquo;t updated all the function calls).
+      A central question of training problem 1b addressed at the working group was how to compare the different penalties. Following up on those discussions, here are a few notes on how far I&rsquo;ve gotten in the analysis regarding the best way to make these comparisons.
+ simulate_npv_curves Nice job of showing the performance of the variance ratio, clear example for L2. Correlation test should probably be applied to differences, pattern is much less clear.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/03/progress-on-warning-signals.html">Progress on warning signals</a></h2>
-    <h4>Thu, Feb 3, 2011</h4>
+    <h2><a href="../../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/">knitr, github, and a new phase for the lab notebook</a></h2>
+    <h4>Wed, Mar 21, 2012</h4>
     <div class="article-style">
       
-      Going several directions at once in tweaking the warning signals code to make sure I have clear comparisons that are not resulting from any limitations in the numerical algorithms. Performing a variety of error checks, etc:
- Comparing fixed models vs comparing models estimated from the data
- Ensure that const model doesn&rsquo;t attempt to estimate m (doesn&rsquo;t impact likelihood anyway
- Ensure only positive values of sigma are returned (trying use trigger in setLTC and setLSN to return infinite variance if sigma is negative)
+      I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&rsquo;t say where in the script the command came from, and it required manually specifying the script name).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/01/to-podcast-or-not-to-podcast-university-lectures.html">To podcast or not to podcast university lectures</a></h2>
-    <h4>Tue, Feb 1, 2011</h4>
+    <h2><a href="../../2012/03/20/tuesday-active-adaptive-management-a-first-solution/">Tuesday: active adaptive management, a first solution</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      Today in graduate teaching community we&rsquo;re discussing the value of podcasts which rapidly becoming the standard expectation of in university lectures. There weren&rsquo;t podcasts when I was a student, at least never in the classes I&rsquo;d taken -though I&rsquo;ve often wished I had access to complete recordings of my university lectures. Most wouldn&rsquo;t be valuable, but some I would still wish to go back to long after the fact, not so much to recall content but to remember the styles and stories my notes fail to capture.
+      Spent way more of today than I wanted to hammering out the active adaptive management implementation for a trivial model-choice problem using the discretized belief-SDP approach.
+We have alternate models $f_1$ and $f2$ of the state equations (population growth dynamics) $$ x{t+1} = z_t f(x_t) $$ and introduce a continuously valued belief probability $p$ that model 1 is correct. This lends itself to a Bayesian updating rule for our belief based on observing a transition from $x$ to $y$,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/02/01/the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies.html">The Future of Data: Plans for a UC Davis workshop</a></h2>
-    <h4>Tue, Feb 1, 2011</h4>
+    <h2><a href="../../2012/03/20/friday-some-random-notes/">Friday: some random notes</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      I have been working with several of the faculty of UC Davis to prepare a workshop for our department to (1) help make our researchers aware of the new requirements for NSF proposals and journal submissions with regard to data archiving, (2) To explore what new opportunities this creates and what tools exist that will help our researchers take maximum advantage of it, and (3) to engage our research community in the discussion of future standards for sharing, standardizing, rewarding and funding the archiving of data.
+      Computational tricks  tables in github markdown via knitr. clever Getting custom C/C++ CUDA working in R  Data management and sharing solutions for large files  NERSC uses globus online for interface for transferring terabytes/hr, pretty clever. NERSC also enables web hosting to share data.
+ Software-Carpentry style Data management a nice start. An open solution could stick the data on figshare (or elsewhere), write the readmes in markdown and keep them on github with links to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/31/warning-signals-indicators-vs-likelihood-continued.html">Warning signals: Indicators vs Likelihood continued</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
+    <h2><a href="../../2012/03/20/citing-r-packages/">Citing R packages</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      Continuing to explore examples
-Some difficulty in the &ldquo;snowfall&rdquo; parallel computation engine, removing the ~/.sfCluster directory seems to reset the error &ldquo;unable to unserialize nodes&hellip;&ldquo; Also don&rsquo;t have good handling of variable names for tracking the boostrapping of parameters. For the moment have just added a toggle to suppress these to avoid dim mismatch in rownames command. Strange that this happens to the indicator_vs_likelihood code but not to the nearly-identical call to montecarlotest() in lin_bifur_models.
+      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
+citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/01/31/more-phylogenetic-signal-metrics-brownie-comparison.html">more Phylogenetic signal metrics &amp; Brownie comparison</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
+    <h2><a href="../../2012/03/19/monday-treebase-manuscript-writing/"></a></h2>
+    <h4>Mon, Mar 19, 2012</h4>
     <div class="article-style">
       
-      Blomberg&rsquo;s K estimates on trees of different sizes. Estimates differ across the distribution of possible data generated by BM model and generated from white noise. In principle, the K statistic should be able to distinguish between data simulated between these two. Of course, the ability to do this depends on the size and structure of the phylogenetic tree &ndash; Blomberg&rsquo;s K is not an estimate of whether the phylogeny is sufficiently structured as to be informative.
+      Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
       
     </div>
   </div>

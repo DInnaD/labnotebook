@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-05T00:00:00Z
 title: Batch Data
+url: /2010/08/05/Batch-Data/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Some of the nexus files don't seem to read into R. Opening and
     saving the file in figtree solves this.

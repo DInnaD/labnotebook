@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-09 16:31:56
-layout: post
-slug: warning-signals-data-examples
-title: Warning Signals data examples
-redirects: [/wordpress/archives/1166, /archives/1166]
 categories:
 - ecology
+comments: true
+date: 2011-03-09T16:31:56Z
+redirects:
+- /wordpress/archives/1166
+- /archives/1166
+slug: warning-signals-data-examples
 tags:
 - warning-signals
+title: Warning Signals data examples
+url: /2011/03/09/warning-signals-data-examples/
 ---
 
 Working on a little data exploration while writing up manuscript. I have been puzzled why it appears that most estimates of tau on the CaCO3 data infer negative correlation, as in

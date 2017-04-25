@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-10-25 19:18:09
-layout: post
-slug: tuesday-notes-package-work-mostly
-title: 'Tuesday notes: package work mostly.'
-redirects: [/wordpress/archives/3020, /archives/3020]
 categories:
 - evolution
+comments: true
+date: 2011-10-25T19:18:09Z
+redirects:
+- /wordpress/archives/3020
+- /archives/3020
+slug: tuesday-notes-package-work-mostly
+title: 'Tuesday notes: package work mostly.'
+url: /2011/10/25/tuesday-notes-package-work-mostly/
 ---
 
 ## Treebase release

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,119 +141,106 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/30/tuesday-8.html">Tuesday</a></h2>
-    <h4>Tue, Aug 30, 2011</h4>
+    <h2><a href="../../../2013/04/19/bayesian-parametric-uncertainty-sdp/"></a></h2>
+    <h4>Fri, Apr 19, 2013</h4>
+    <div class="article-style">
+      
+      Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
+f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &lt;- dim(pardist) indices &lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &lt;- sapply(indices, function(i){ # For each parameter value p &lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &lt;- f(x_t,h,p) est_sigma_g &lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &lt; x_grid[2]){ # handle the degenerate case out &lt;- numeric(length(x_grid)) out[1] &lt;- 1 out } else { out &lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &lt;- t(F_true) } snap_to_grid &lt;- function(x, grid) sapply(x, function(x) grid[which.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/04/18/notes/"></a></h2>
+    <h4>Thu, Apr 18, 2013</h4>
+    <div class="article-style">
+      
+      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
+ pmc functions
+  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/04/17/notes/"></a></h2>
+    <h4>Wed, Apr 17, 2013</h4>
+    <div class="article-style">
+      
+      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h2>
+    <h4>Tue, Apr 16, 2013</h4>
+    <div class="article-style">
+      
+      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/04/15/notes/"></a></h2>
+    <h4>Mon, Apr 15, 2013</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/21/academic-year-2011-summary.html">Academic Year 2011 Summary</a></h2>
-    <h4>Sun, Aug 21, 2011</h4>
+    <h2><a href="../../../2013/04/12/parametric-bayesian-example/"></a></h2>
+    <h4>Fri, Apr 12, 2013</h4>
     <div class="article-style">
       
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
+      As discussed with Marc in yesterday&rsquo;s meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a parametric Bayesian case, e.g. with the correct underlying model. This is implemented in BUGS (jags) through the R interface as described in Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/13/esa-personal-notes-people-goals.html">ESA personal notes: people, goals</a></h2>
-    <h4>Sat, Aug 13, 2011</h4>
+    <h2><a href="../../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/"></a></h2>
+    <h4>Thu, Apr 11, 2013</h4>
     <div class="article-style">
       
-      Meetings  John Drake Suzanne O&rsquo;Regan (Post-doc with John, strong dynamical systems) Justin Kinze &ndash; great post-doc at Berkeley with John Harte, should visit. Paul Armsworth &ndash; with Alan, have asked me to join NIMBioS working group on Pretty Darn Good Control (Tuesday evening). Hal Caswell &ndash; interested in some of the data management / provenance for theoretical work. (Mon) Jeremy Fox &ndash; Interesting lunch discussion, clonal interference as ecological insight?
+      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/13/saturday.html">Saturday: Post ESA, NSF Intersections post-doc?</a></h2>
-    <h4>Sat, Aug 13, 2011</h4>
+    <h2><a href="../../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h2>
+    <h4>Thu, Apr 11, 2013</h4>
     <div class="article-style">
       
-      run system backup
- reading TOCs
- Catch up from ESA
- Working on review for THEE
- New phylogenetic methods in _Evolution _(Paradis, 2012), (Revell et. al. 2012)
- Next steps for fellowship applications.
-   Post ESA  Theoretical Ecology Review
- Revisions on Evolution manuscript
- TreeBASE paper. See Kemp et. al. 2012
- outline next steps on warning signals
- wrightscape manuscript, finalize examples
+      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
+ Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/12/esa-friday.html">ESA Friday</a></h2>
-    <h4>Fri, Aug 12, 2011</h4>
+    <h2><a href="../../../2013/04/05/a-clever-derivation-on-realized-escape-times/"></a></h2>
+    <h4>Fri, Apr 5, 2013</h4>
     <div class="article-style">
       
-      Great last day of the conference, despite noticeably decreased attendance. Once again just pulling in my tweets, since I haven&rsquo;t had a chance to transcribe proper notes. Meanwhile, some of the bloggers have done a rather nice day-to-day coverage; no idea how they all manage to keep up. Links below, with a nice mix of those targeting more theory oriented, more application oriented and more outreach oriented sessions.
-Twitter-log    cboettig ESA should have science cafes!
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/11/esa-thursday.html">ESA Thursday</a></h2>
-    <h4>Thu, Aug 11, 2011</h4>
+    <h2><a href="../../../2013/04/03/further-examples-managing-tipping-points-with-gp/"></a></h2>
+    <h4>Wed, Apr 3, 2013</h4>
     <div class="article-style">
       
-      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-Twitter-log    cboettig Predicting rare; predicting ubiquitous/noxious weed species by machine learning vs GLMs #esa11
-   cboettig Beautiful thing when you know just how talk methods will proceed after 2 min of intro to problem.. but stay tuned for surprises #esa11
-   cboettig Deitterich: how to reconstruct life history patterns from abundance fluctuations #esa11 inferring what we want from what we have w models
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/10/esa-wednesday.html">ESA Wednesday</a></h2>
-    <h4>Wed, Aug 10, 2011</h4>
-    <div class="article-style">
-      
-      My talk today, as well as several others from our Theory group at Davis. Journal review requirements mean posting my slides is gonna be delayed somewhat, but appreciated some excellent questions and those who laughed at my jokes in between slides. Meanwhile, automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-Twitter-log    cboettig @carlystrasser Here&rsquo;s the paper I mentioned for introducing ontologies/linked data into spreadsheetshttp://t.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/09/esa-tuesday.html">ESA Tuesday</a></h2>
-    <h4>Tue, Aug 9, 2011</h4>
-    <div class="article-style">
-      
-      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-twitter-log    cboettig Great Eco Let mixer. Kudos to Marcel &amp; crew for increasing citation rates w/o decreasing acceptance. Now how bout data sharing reqs? #esa11
-   cboettig RT @IceAgeEcologist: #ESA11 Marten Scheffer gets Honorary Member Award (max 20 living awardees); Don Strong ge… (cont) <a href="http://deck">http://deck</a>.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/08/monday-esa-conference.html">Monday: ESA Conference</a></h2>
-    <h4>Mon, Aug 8, 2011</h4>
-    <div class="article-style">
-      
-      Hope to process the day&rsquo;s happenings later, meanwhile just a snapshot of my twitter-stream notes. My own highlights certainly include Steve Pacala&rsquo;s fantastic plenary session in receiving the MacArthur award, and Mark Urban&rsquo;s crystal clear presentation on &ldquo;climate collisions.&rdquo; I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away. In pointing out really fundamental concepts, such details just aren&rsquo;t so important.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/02/fisheries-stock-assessments-for-early-warning.html">Fisheries stock assessments for early warning</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
-    <div class="article-style">
-      
-      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
-<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
-Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
+      See also:
+ <a href="http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html">http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html</a>  Example with fixed priors on hyperparameters, fixed model type.
+#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2) s2.p &lt;- c(5,5) tau2.p &lt;- c(5,1) d.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) nug.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) # gamma mean s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &lt;- function(x) dinvgamma(x, tau2.
       
     </div>
   </div>

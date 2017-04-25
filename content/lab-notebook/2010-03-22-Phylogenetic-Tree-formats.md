@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-03-22T00:00:00Z
 tags: []
-categories: [evolution]
 title: Phylogenetic Tree formats
+url: /2010/03/22/Phylogenetic-Tree-formats/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Consider a tree with N nodes. has ![ \\frac{N+1}{2}
     ](http://openwetware.org/images/math/8/0/6/806f2a93c92cf6d7d9f090494e22ca5c.png)

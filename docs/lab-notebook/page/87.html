@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,112 +140,109 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/peter-meeting.html">Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/10/alan-meeting/">Alan Meeting</a></h2>
+    <h4>Mon, May 10, 2010</h4>
     <div class="article-style">
       
-      Discussed potential solution to the model choice scenario:
- Consider an ordered list of models, A, B, C, D Then the Neyman-Pearson Lemma (see earlier entry on this) lets us walk through the list in the following fashion: We generate the simulated data sets under model A and compare likelihood ratios in each case. If the likelihood ratio of the observed data falls outside the 95% confidence interval, than it with this confidence that we are saying the data justify the alternate model (model B).
+      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/peter-meeting.html">Peter meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/09/warning-signals-with-sdes/">Warning Signals with SDEs</a></h2>
+    <h4>Sun, May 9, 2010</h4>
     <div class="article-style">
       
-      SICB conference  Abstract &ndash; sent   Phylogenetic comparative methods have become all but ubiquitous in only a few decades, forcing us to reconsider if information from a phylogenetic tree can justify the results. Existing approaches to this question have been inadequate and do not scale with tree size or the ability to resolve branches. For instance, selection between phylogenetic models typically based on information criteria fails to adequately reflect this uncertainty, and can lead to preference for arbitrarily complicated models.
+      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/phylogenetic-tree-formats.html">Phylogenetic Tree formats</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/07/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Fri, May 7, 2010</h4>
     <div class="article-style">
       
-      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
+      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/phylogenetics-workshop-day-5.html">Phylogenetics Workshop Day 5</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/06/goals/">Goals</a></h2>
+    <h4>Thu, May 6, 2010</h4>
     <div class="article-style">
       
-      Last day of lectures: Lineage Diversification
-Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
- Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/policy-functions-and-value-functions-under-multiple-uncertainty.html">Policy functions and value functions under multiple uncertainty</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
+      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
+*d*α~t~ = − β</p>
 
-<h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
-
-<p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
-pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
+<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/post-workshop.html">Post-Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/05/primates/">Primates</a></h2>
+    <h4>Wed, May 5, 2010</h4>
     <div class="article-style">
       
-      Working on a couple new ideas:
- Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
+      Primates project now has a Github repository. Updates are embedded from here.
+ Experimenting with distributing code and data effectively. Pluses and minuses of three options:
+   zipped file with R code and data. Requires setting working directory, harder to update. Subsequent uploads must include all the data, rather than incremental. Directly grab repository over github. Simple to update and access, stores only incremental changes. Requires knowledge of git R package: Nicely integrates data, code, and documentation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/power-in-trees.html">Power in Trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/05/wednesday/">Wednesday</a></h2>
+    <h4>Wed, May 5, 2010</h4>
     <div class="article-style">
       
-      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
-Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
+      Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/power-in-trees.html">Power in trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/04/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Tue, May 4, 2010</h4>
     <div class="article-style">
       
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
+      Wide gap, flat landscape  Waiting times on a flatter landscape: sigma_c ~ sigma_k. Waiting times are dominated by the number of times phase 3 collapses: the established invader in a dimorphic population (right panels). Collapse of phase 2: collapse of the dimorphism before third population can establish is much rarer (about an order of magnitude).   from the run3 dataset, with parameters.  Narrower gap, steeper landscape  with sigma_c &lt;&lt; sigma_k, branching is easy, neither phase is particularly limiting, though single collapses from both phases are very common.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/power-in-trees-continues.html">Power in trees continues</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/04/alan-meeting/">Alan Meeting</a></h2>
+    <h4>Tue, May 4, 2010</h4>
     <div class="article-style">
       
-      Discussion of power in trees need a counterpoint to the example of the star tree as being devoid of information content. The best example here is probably the example tree used in the introduction of Felsenstein 1985: two star trees sharing a common ancestor. Implemented the basic creation of a balanced tree of arbitrary depth having this structure. The balanced tree has 2^h^ − 1 nodes, all internal nodes occuring at time = 1&frasl;2 and all tips at time = 1.
+      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/power-plots.html">Power plots</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/03/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Mon, May 3, 2010</h4>
     <div class="article-style">
       
-      Testing power code. currently null and test distributions of likelihood scores are distinguishable even for small beta on the long time scale. See code for run.
- running on shorter timescale. Note that parameters match but small code differences in repository code on the last commit since I committed the version on the local machine (my laptop, for development) but ran a slightly tweaked code (typo in reps vs nboot, .
+      Working on simulation based approach to summarize distribution of waiting times across different phases. What to do about zeros in phase two (when first dimorphism survives long enough to be invaded&hellip;) Quantify number/distribution of failed attempts at each phase? How to represent these distributions across a parameter space in sigma_c, sigma_k, sigma_mu, and mu?  library(BranchingTime) sim &lt;- branching_time(rep=1000, cpu=8) save(file = &quot;run1.Rdat&quot;) pdf(&quot;distribution.pdf&quot;) m &lt;- max(sim$data) plot(density(sim$data[1,]), xlim = c(0,m), col=&quot;black&quot; ) lines(density(sim$data[2,] ), col = &quot;blue&quot;) lines(density(sim$data[3,] ), col = &quot;green&quot;) lines(density(sim$data[4,] ), col = &quot;red&quot;) legend(&lsquo;topright&rsquo;, c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;), col=c(&quot;black&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;), pch = 15) dev.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/05/01/coexistence-of-the-early-dimorphism/"></a></h2>
+    <h4>Sat, May 1, 2010</h4>
+    <div class="article-style">
+      
+      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
       
     </div>
   </div>

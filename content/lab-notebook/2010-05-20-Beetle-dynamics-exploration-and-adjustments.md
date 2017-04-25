@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-20T00:00:00Z
+tags:
+- tribolium
 title: Beetle dynamics exploration & adjustments
+url: /2010/05/20/Beetle-dynamics-exploration-and-adjustments/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Adjusted individual based Crowley model to follow same
     parameterization as the macroscopic model. IBM rules had divided b

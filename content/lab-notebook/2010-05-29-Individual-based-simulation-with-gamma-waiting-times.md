@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-29T00:00:00Z
 title: Individual based simulation with gamma waiting times
+url: /2010/05/29/Individual-based-simulation-with-gamma-waiting-times/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Began implementing the individual-based simulation of gamma waiting
 times by subdividing the first three age classes into K subclasses.

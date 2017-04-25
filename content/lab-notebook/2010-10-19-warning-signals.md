@@ -1,13 +1,11 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-10-19T00:00:00Z
+tags:
+- warning-signals
+url: /2010/10/19/warning-signals/
 ---
-
-
-
-
-
 
 ### Working examples
 

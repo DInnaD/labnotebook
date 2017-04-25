@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-04 23:16:29
-layout: post
-slug: weds-parrotfish-data-set-analysis
-title: 'Weds: Parrotfish data set analysis'
-redirects: [/wordpress/archives/1578, /archives/1578]
 categories:
 - evolution
+comments: true
+date: 2011-05-04T23:16:29Z
+redirects:
+- /wordpress/archives/1578
+- /archives/1578
+slug: weds-parrotfish-data-set-analysis
 tags:
 - notebook-technology
+title: 'Weds: Parrotfish data set analysis'
+url: /2011/05/04/weds-parrotfish-data-set-analysis/
 ---
 
 ## Parrotfish

@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-10-05 23:38:52
-layout: post
-slug: wednesday-forage-fish-cascades
-title: Wednesday - forage fish & cascades
-redirects: [/wordpress/archives/2832, /archives/2832]
 categories:
 - ecology
+comments: true
+date: 2011-10-05T23:38:52Z
+redirects:
+- /wordpress/archives/2832
+- /archives/2832
+slug: wednesday-forage-fish-cascades
 tags:
 - coursework
 - warning-signals
+title: Wednesday - forage fish & cascades
+url: /2011/10/05/wednesday-forage-fish-cascades/
 ---
 
 ### Forage fish presentation

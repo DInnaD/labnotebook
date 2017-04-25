@@ -1,16 +1,17 @@
 ---
-comments: true
-date: 2011-11-28 09:16:28
-layout: post
-slug: handling-other-sources-of-noise
-title: Handling other sources of noise
-redirects: [/wordpress/archives/3398, /archives/3398]
 categories:
 - ecology
+comments: true
+date: 2011-11-28T09:16:28Z
+redirects:
+- /wordpress/archives/3398
+- /archives/3398
+slug: handling-other-sources-of-noise
 tags:
 - pdg-control
+title: Handling other sources of noise
+url: /2011/11/28/handling-other-sources-of-noise/
 ---
-
 
 I'm now computing the optimal solution under three sources of noise (compare with my [earlier examples](http://www.carlboettiger.info/archives/3296) of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources).  See the [statement of problem details](http://www.carlboettiger.info/archives/3313), essentially:
 

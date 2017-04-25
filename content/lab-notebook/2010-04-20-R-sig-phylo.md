@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-20T00:00:00Z
 title: R-sig-phylo
+url: /2010/04/20/R-sig-phylo/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   A couple [interesting
     discussions](https://mailman.stat.ethz.ch/pipermail/r-sig-phylo/2010-April/ "https://mailman.stat.ethz.ch/pipermail/r-sig-phylo/2010-April/")

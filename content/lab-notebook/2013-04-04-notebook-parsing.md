@@ -1,15 +1,15 @@
 ---
-layout: post
-title: "Notebook Features: parsing linked data in the semantic notebook"
+categories:
+- open-science
 code: true
-category: open-science
-tags: 
+date: 2013-04-04T00:00:00Z
+tags:
 - notebook-technology
 - semantics
 - blog
-
+title: 'Notebook Features: parsing linked data in the semantic notebook'
+url: /2013/04/04/notebook-parsing/
 ---
-
 
 In a [post a while back](/2011/05/08/building-a-semantic-notebook.html) I originally put forward the idea of a semantic lab notebook.  Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication.  I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my [#semantics](http://www.carlboettiger.info/tags.html#semantics) tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can *do* with it.  This really just scratches the surface of possibilities, but should at least illustrate the general idea. 
 

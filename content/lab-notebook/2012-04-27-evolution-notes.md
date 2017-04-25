@@ -1,8 +1,9 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2012-04-27T00:00:00Z
 title: Project tracking (Evolution)
-category: evolution
-
+url: /2012/04/27/evolution-notes/
 ---
 
 # Evolution

@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-03-08T00:00:00Z
 tags: []
-categories: [evolution]
 title: Bodega Phylogenetics Workshop Day 2
+url: /2010/03/08/Bodega-Phylogenetics-Workshop-Day-2/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Marine lab researchers are back, and network speeds have just about
 given up (down to bytes/s). This post is composed offline and will be

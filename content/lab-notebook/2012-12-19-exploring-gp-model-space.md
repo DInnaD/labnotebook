@@ -1,8 +1,9 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2012-12-19T00:00:00Z
 tag: nonparametric-bayes
-
+url: /2012/12/19/exploring-gp-model-space/
 ---
 
 Trying to think about a more systematic way to go about varying the parameters: the underlying parametric model has 3 parameters for the stock-recruitment curve's deterministic skeleton, plus growth noise. (My first exploratory phase has been just to try different things. See my [various tweaks in the history log](https://github.com/cboettig/nonparametric-bayes/commits/master/inst/examples/myer-example.md) Clearly time to be more systematic about both running and visualizing the various cases.)

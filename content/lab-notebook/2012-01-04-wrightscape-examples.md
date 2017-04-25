@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2012-01-04 12:48:29
-layout: post
-slug: wrightscape-examples
-title: wrightscape examples
-redirects: [/wordpress/archives/3565, /archives/3565]
 categories:
 - evolution
+comments: true
+date: 2012-01-04T12:48:29Z
+redirects:
+- /wordpress/archives/3565
+- /archives/3565
+slug: wrightscape-examples
+title: wrightscape examples
+url: /2012/01/04/wrightscape-examples/
 ---
 
 [flickr-gallery mode="search" tags="phylogenetics" min_upload_date="2012-01-03 7:00:37" max_upload_date="2012-01-03 22:23:37"]

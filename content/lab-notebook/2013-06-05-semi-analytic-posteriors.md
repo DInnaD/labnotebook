@@ -1,13 +1,13 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+code: true
+date: 2013-06-05T00:00:00Z
+tags:
 - nonparametric-bayes
 - derivation
-code: true
-
+url: /2013/06/05/semi-analytic-posteriors/
 ---
-
 
 The difficulty in comparing the nonparametric Bayesian inference against
 parametric Bayesian inference is ensuring that the poorer performance

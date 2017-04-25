@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,114 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../2010/11/21/two-questions.html">Two questions</a></h2>
-    <h4>Sun, Nov 21, 2010</h4>
+    <h2><a href="../../../2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps/">Notes on Bokma 2010: evolution in drifts and jumps</a></h2>
+    <h4>Mon, Jan 31, 2011</h4>
     <div class="article-style">
       
-      I&rsquo;ve been thinking about a few elements of the Monte Carlo approach that seem to be particularly subtle in interpretation. Thought I&rsquo;d write them out here as a separate examples to help think through them. Thoughts?
-Question 1 Should the Monte Carlo simulations use the maximum likelihood test and null model estimated from the data (as in McLachlan 1987, Goldman 1993, Huelsenbeck 1996) or draw from the distribution of model parameters for each simulation?
+      Bokma 2010 asks if there is an analytic expression for the likelihood in the evolutionary model he describes.
+The trait value of the process is determined by two things &ndash; a Brownian motion random walk (diffusion) with rate parameter $ s_a^2$ and speciation events. Under a speciation event, the trait jumps to a new value that differs from it&rsquo;s parent&rsquo;s by some amount chosen from zero-mean normal distribution with variance $ s_c^2$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch.html">Sat: evolution -- porting tree transformations to OUCH?</a></h2>
-    <h4>Sat, Nov 20, 2010</h4>
+    <h2><a href="../../../2011/01/28/phylogenetic-signal-metrics/">Phylogenetic Signal metrics</a></h2>
+    <h4>Fri, Jan 28, 2011</h4>
     <div class="article-style">
-      
-      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
-Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method.html">Fri: extending Geiger to Monte Carlo method</a></h2>
-    <h4>Fri, Nov 19, 2010</h4>
+    <h2><a href="../../../2011/01/24/felsenstein-web-seminar/">Felsenstein (web) seminar</a></h2>
+    <h4>Mon, Jan 24, 2011</h4>
     <div class="article-style">
       
-      Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
+      Joe Felsenstein on phyloseminar (watch here). This morning. [ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets.[/ref] Discusses bridging population genetics &amp; comparative methods: where does covariation in traits across a phylogeny come from?
+Morphometrics Using morphometrics (digitized landmarks [though now we can do spherical harmonics, CT scans, etc]) to evolve on a phylogeny under BM rather than use that data to infer phylogeny.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/18/thurs-phylogenetics-likelihood.html">Thurs: evolution likelihood</a></h2>
-    <h4>Thu, Nov 18, 2010</h4>
+    <h2><a href="../../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/">Shape as well as size influence power of phylogeny</a></h2>
+    <h4>Fri, Jan 21, 2011</h4>
     <div class="article-style">
       
-      Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
-The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
+      Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/18/weds.html">Weds</a></h2>
-    <h4>Thu, Nov 18, 2010</h4>
+    <h2><a href="../../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/">Estimating phylogenetic signal (lambda) on large trees</a></h2>
+    <h4>Thu, Jan 20, 2011</h4>
     <div class="article-style">
       
-      Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
-Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
+      Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
+[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5370016511 [/flickr]
+[flickr size=&ldquo;small&rdquo; float=&ldquo;right&rdquo;]5370635360 [/flickr]
+compare to 281 taxa and then 600 taxa:
+[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5310150538 [/flickr]
+By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc.html">evolution today:  Discussion groups, writing, etc</a></h2>
-    <h4>Mon, Nov 15, 2010</h4>
+    <h2><a href="../../../2011/01/11/phylogenetics-wrightscape/">evolution- wrightscape</a></h2>
+    <h4>Tue, Jan 11, 2011</h4>
     <div class="article-style">
       
-      Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
-Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
-Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
+      Interesting meeting with Peter to discuss a variety of issues in comparative phylogenetics. Short notes:
+ Transforming data, log data
+ Trends in directions in convergent traits
+ multivariate inference
+ Manuscript
+  Wrightscape First have to test PMC to make sure it works with OUCH classes. Also adding PMC-required wrappers for wrightscape. Ended up modifying PMC to handle the case of simulate functions that return replicates, like these packages do.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures.html">Thursday: Post-predictive verification exploration; writing and figures</a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
+    <h2><a href="../../../2011/01/09/phylo-monte-carlo-for-diversification-rates/">Phylo Monte Carlo for diversification rates</a></h2>
+    <h4>Sun, Jan 9, 2011</h4>
     <div class="article-style">
       
-      On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
-[latex] \frac{dN}{dt} = (\lambda - \mu) N 
+      Writing function wrappers for geiger functions to perform Phylogenetic Monte Carlo. Any object that has methods defined for update.objecttype (object, data) and simulate.objecttype(data), and loglik.object(object) should be able to use the montecarlotest() function. OUCH almost does this but not quite, since the datatype returned by &lsquo;simulate&rsquo; doesn&rsquo;t match that needed by &lsquo;update&rsquo;. OUCH also uses S4 class styles.
+Wrote wrappers for ouch functions such that the ouch models will work with the same montecarlotest() code.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/11/phylogenetics-statistics.html">evolution statistics </a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
+    <h2><a href="../../../2011/01/02/finishing-up-my-sicb-presentation/">Finishing up my #SICB Presentation</a></h2>
+    <h4>Sun, Jan 2, 2011</h4>
     <div class="article-style">
       
-      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
-Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
-The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
+      Finished up my SICB presentation tweaks, slides now up on slideshare, flying off to the conference tomorrow. Created this in OpenOffice, started adding animations and then decided it would be more reliable to just duplicate slides to have parts appear (really just for the explanation of the likelihood ratio distributions under each model). Next time think I&rsquo;ll stick with my usual inkscape slides tied together with latex beamer, the lack of vector images in this one is not ideal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics.html">Tuesday - SDEs then back to phylogenetics</a></h2>
-    <h4>Wed, Nov 10, 2010</h4>
+    <h2><a href="../../../2010/12/31/comparative-phylogenetics-is-the-data-informative/">Comparative evolution: Is the data informative?</a></h2>
+    <h4>Fri, Dec 31, 2010</h4>
     <div class="article-style">
       
-      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
-With regards the SDE problem, note that it reduces to:
-$$ dX_1 = B_2 d B_1 $$
-and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
+      Working on my SICB talk, going a little further into the example of fitting the lambda model on the Anoles data to illustrate the ways in which we may lack sufficient data for the question.
+ The dataset may not contain adequate signal of the parameter / phenomenon in question
+ The dataset may not be adequately large
+  Anoles data set (23 taxa):
+This first image shows the distribution of lambda values estimated from many datasets all simulated under a lambda = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/08/monday-and-some-phylogenetics.html">Monday and some phylogenetics</a></h2>
-    <h4>Mon, Nov 8, 2010</h4>
+    <h2><a href="../../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h2>
+    <h4>Fri, Dec 24, 2010</h4>
     <div class="article-style">
       
-      Working on paper revisions. Added a separate demo file just for generating the figures and analysis used in the manuscript, called likelihood_manuscript.R Need to clean and reorganize the package files and demos.
-Added full species names and islands to the tip labels of the tree. Adjusting which example paintings/regimes to include, currently focusing on the original OU.LP model (now calling it OU.3 following Brian&rsquo;s recommendation for simplicity), OU.4, (originally OU.
+      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
+synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
       
     </div>
   </div>

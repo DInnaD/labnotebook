@@ -1,14 +1,15 @@
 ---
-title: Collected notes from past few days
+categories:
+- ecology
+date: 2013-03-19T00:00:00Z
 subtitle: some writing, some exchange on prosecutor's fallacy, some ropensci, etc
-layout: post
-category: ecology
 tags:
 - prosecutor
 - warning-signals
 - ropensci
-- nonparametric-bayes 
-
+- nonparametric-bayes
+title: Collected notes from past few days
+url: /2013/03/19/collected-notes/
 ---
 
 ## Friday

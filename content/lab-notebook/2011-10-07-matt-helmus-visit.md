@@ -1,12 +1,12 @@
 ---
-comments: true
-date: 2011-10-07 14:36:33
-layout: post
-title: Matt Helmus visit
 categories:
 - evolution
-tags: 
+comments: true
+date: 2011-10-07T14:36:33Z
+tags:
 - seminar
+title: Matt Helmus visit
+url: /2011/10/07/matt-helmus-visit/
 ---
 
 ## Notes from presentation

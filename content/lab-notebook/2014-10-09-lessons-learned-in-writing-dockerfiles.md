@@ -1,11 +1,11 @@
 ---
-layout: page
-category: computation
-tags: 
+categories:
+- computation
+date: 2014-10-09T00:00:00Z
+tags:
 - docker
-
+url: /2014/10/09/lessons-learned-in-writing-dockerfiles/
 ---
-
 
 Writing dockerfiles is pretty straight forward. Nevertheless, a little
 extra care goes a long way.  Docker's own [Best

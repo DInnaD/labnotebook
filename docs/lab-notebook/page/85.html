@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,108 +140,110 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/29/individual-based-simulation-with-gamma-waiting-times/">Individual based simulation with gamma waiting times</a></h2>
+    <h4>Sat, May 29, 2010</h4>
+    <div class="article-style">
+      
+      Began implementing the individual-based simulation of gamma waiting times by subdividing the first three age classes into K subclasses. Required rewriting gillespie function so as to intelligently calculate rates rather than writing 3K+1 functions. This leads to an alternative gillespie simulation interface that takes a function to calculate rates, producing cumulative sum (though perhaps that step should be moved into the raw gillespie code) of rates for each event, and an outcome function that will execute the outcome of each of those events.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2010/05/28/conference-call-w--bob-and-brett/">Conference call w- Bob and Brett</a></h2>
+    <h4>Fri, May 28, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/27/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
+    <h4>Thu, May 27, 2010</h4>
     <div class="article-style">
       
-      Returned proofs for warning signals paper. Wrightscape figures sent to Peter. move fallacy to a branch off of main in earlywaring package? Running knit on the large clusters means images cannot be uploaded as they are created, since compute nodes don&rsquo;t have internet access. Saving files locally, I&rsquo;ve created a little script to parse the output file.md to find the and upload the local images, and swap the local paths for the url paths.
+      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
+Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
+
+<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/26/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
+    <h4>Wed, May 26, 2010</h4>
     <div class="article-style">
       
-      Partially Observable Stochastic Processes (cont.)  Reading a bit more about pomp. Looks like SCM and PMCMC offer nicely Bayesian inference tools using the same framework (rprocess and dmeasure), making a nice platform for implementing multiple methods. Almost feels like having the likelihood equation in hand again. A bit more skeptical about nonlinear forecasting and probe matching, as they feel even more heuristic or arbitrary. I suppose that&rsquo;s just the price of having only rmeasure instead of dmeasure available though.
+      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
+where β~i~ is the intrinsic noise of the age class.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/25/bug-fixed/">Bug fixed!</a></h2>
+    <h4>Tue, May 25, 2010</h4>
     <div class="article-style">
       
-      Prosecutors Fallacy Running the null distribution and add to plots
- generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
- knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
+      Wasn&rsquo;t taking the Jacobian of the transition terms. Fixes the unstable behavior and disagreement between simulations and theory. Other note: the &ldquo;hastings.c&rdquo; model can trivially be obtained from the standard crowley-form metapopulation model by taking b_1 = 0.  For the crowley class of models at least, seems that while the two-step vs one-step involved different dynamics, this difference exists only in transients while equilbrium covariances agree.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/24/status-on-structured-populations/">Status on Structured Populations</a></h2>
+    <h4>Mon, May 24, 2010</h4>
     <div class="article-style">
       
-      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
- Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
+      Model roundup  metapop Two populations with one-step transitions. IBM in C code, R interface to IBM and linear noise approximation. crowley One-step transitions version of metapop. R interface to IBM and linear noise. beetles Two-step transitions with exponential waiting times in age classes. R interface completed in ind_based_models.R hastings Simple two-step model. no R interfaces yet. tribolium Non-markov aging process. R interface completed in simulate.R. includes likelihood inference as well.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notes-from-chat-with-duncan.html">Notes from chat with Duncan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/21/puzzled-over-the-two-step-jump-process-results/">Puzzled over the two-step jump process results</a></h2>
+    <h4>Fri, May 21, 2010</h4>
     <div class="article-style">
       
-      Keep metadata as part of the object Recursion problem coming up.
-  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
-  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
- Schema to create S4 objects Create R objects first, and then toXML
+      The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/notes-on-value-of-information-runs-with-uniform-noise.html">Notes on value of information runs with uniform noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/20/beetle-dynamics-exploration-and-adjustments/">Beetle dynamics exploration &amp; adjustments</a></h2>
+    <h4>Thu, May 20, 2010</h4>
     <div class="article-style">
       
-      Debug Sethi with large uniform noise: needed to avoid havest &gt; stock in definition of f.
-  I ran the value of information calculations using the Sethi settings of a logistic map and uniform noise, which does indeed replicate their results, where the measurement error escapement is lower than the &ldquo;all low noise&rdquo; (&ldquo;deterministic&rdquo;) escapement until stock get above carrying capacity. results
-Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribution; I still find the lognormal noise pattern a bit more intuitive.
+      Adjusted individual based Crowley model to follow same parameterization as the macroscopic model. IBM rules had divided b and c by K in the dynamics while the macroscopic was just using rescaled dynamical rates. Now both use the rescaled rates as parameter values while the equations match.
+ Variation in the Crowley model agrees between individual-based simulation and the equations.
+  Code troubleshooting  openmp private declarations perform allocs without frees!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/ou-model-in-nimble.html">OU model in Nimble</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/19/noisy-beetles/">Noisy Beetles</a></h2>
+    <h4>Wed, May 19, 2010</h4>
     <div class="article-style">
       
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
+      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
+ Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
+ Methods write-up, read/compare to other examples.
+ Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/ou-model-in-nimble.html">OU model in Nimble</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/05/18/noisy-beetles/">Noisy beetles</a></h2>
+    <h4>Tue, May 18, 2010</h4>
     <div class="article-style">
       
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
-ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../1/01/01/open-science-summit.html">Open Science Summit</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
+      Fig 1: Noise in lavae dominate
+Fig: 2 lower mortality, higher noise
+ Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
       
     </div>
   </div>

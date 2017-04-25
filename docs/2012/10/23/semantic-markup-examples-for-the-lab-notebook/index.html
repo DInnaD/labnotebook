@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p>All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure.  This means that any entry can be parsed with a generic XML parser to extract the entry content in <code>&lt;article&gt;</code>, the <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;aside&gt;</code>, etc.  The <code>&lt;head&gt;</code> section provides <code>&lt;title&gt;</code> and essential <code>&lt;meta&gt;</code> tags declaring the character encoding (which also sets the MIME type for HTML5).</p>
+
+<h3 id="head">Head</h3>
+
+<p>In <code>_includes/header.html</code> we introduce some basic academic archive metadata using the Dublin Core ontology. The html5 <code>&lt;header&gt;</code> seems like a good place for <code>dc:title</code>.  Other metadata is added invisibly using <code>content</code> in a <code>meta</code> tag.</p>
+
+<pre><code class="language-html">&lt;head prefix=&quot;dc: http://purl.org/dc/terms/&quot;&gt;
+&lt;!-- HTML5 metadata --&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt; &lt;!--same as &lt;meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'&gt; --&gt;
+&lt;meta name=&quot;author&quot; content=&quot;Carl Boettiger&quot; /&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;Ecology, Evolution, Open Science, Reproducible Research&quot; /&gt;
+&lt;meta name=&quot;description&quot; content=&quot;My open lab notebook: research in theoretical ecology and evolution&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&lt;title&gt;{{ page.title }}&lt;/title&gt;
+&lt;!-- RDFa Metdata (in Dublin Core) --&gt;
+&lt;meta property=&quot;dc:creator&quot; content=&quot;Carl Boettiger&quot; /&gt;
+&lt;meta property=&quot;dc:title&quot; content=&quot;{{ page.title }}&quot; /&gt;
+&lt;meta property=&quot;dc:type&quot; content=&quot;Lab Notebook&quot; /&gt;
+&lt;meta property=&quot;dc:format&quot; content=&quot;text/html&quot; /&gt;
+&lt;meta property=&quot;dc:language&quot; content=&quot;en&quot; /&gt;
+</code></pre>
+
+<h3 id="sidebar">Sidebar</h3>
+
+<p>More metadata is displayed in the sidebar (in an html5 <code>aside</code> element), including date, tags and category.  I&rsquo;ve added the following RDFa to describe these (see examples with the Jekyll liquid code in <code>_includes/sidebar.html</code>)</p>
+
+<pre><code class="language-html">&lt;aside prefix=&quot;dc: http://purl.org/dc/terms/&quot;&gt;
+Posted on
+&lt;time datetime=&quot;{{ page.date | date_to_xmlschema }}&quot; 
+      property=&quot;dc:created&quot;&gt;{{ page.date | date_to_string }}&lt;/time&gt;.
+</code></pre>
+
+<p>This puts the date in an HTML5 time element described as the <code>dc.created</code> time of the publication.  Tags and categories use a little Liquid code so Jekyll can import them from the YAML header.  The link to the tag page is described with the HTML <code>rel</code> attribute for tag, while the tag itself is given the RDFa property of a blog keyword from schema.org.  Categories are given the more formal <code>dc:subject</code> property.   (See <code>_includes/pagetags.html</code> for Jekyll/Liquid code for looping over multiple tags, etc).</p>
+
+<pre><code class="language-html">  &lt;a rel=&quot;tag&quot; class=&quot;tag&quot; href=&quot;/tags.html#{{ tag | cgi_escape }}&quot;&gt;#&lt;span 
+  property=&quot;http://schema.org/BlogPosting/keywords&quot;&gt;{{ tag }}&lt;/span&gt;&lt;/a&gt;
+  &lt;a rel=&quot;tag&quot; class=&quot;category&quot; href=&quot;/categories.html#{{ category | cgi_escape }}&quot;&gt;&lt;span property=&quot;dc:subject&quot;&gt;{{ category }}&lt;/span&gt;&lt;/a&gt;
+</code></pre>
+
+<p>The next and previous buttons get the HTML5 <code>rel</code> values <code>next</code> and <code>prev</code> (see <a href="http://diveintohtml5.info/semantics.html">HTML5 semantics</a>).  Note that all the Dublin Core elements are properties of the page on which they occur.</p>
+
+<h3 id="footer">Footer</h3>
+
+<p>The <code>&lt;footer&gt;</code> contains licenses and contact information through social media.  I&rsquo;ve used the FOAF vocabulary to indicate my membership to the various social networks provided in the links. The social networks are properties of a <code>FOAF:person</code>, (me), which is indicated in the RDFa <code>resource</code>:</p>
+
+<pre><code class="language-html">&lt;div class=&quot;span4&quot; vocab=&quot;http://xmlns.com/foaf/0.1/&quot; typeof=&quot;Person&quot;
+resource=&quot;http://www.carlboettiger.info#me&quot;&gt;
+  &lt;a property=&quot;account&quot; href=&quot;mailto:cboettig@gmail.com&quot;&gt;&lt;img
+  src=&quot;/assets/img/icon-email.png&quot; alt=&quot;email&quot;&gt; &lt;/a&gt;
+  &lt;a property=&quot;account&quot; href=&quot;https://twitter.com/cboettig&quot;&gt;&lt;img
+  src=&quot;/assets/img/icon-twitter.png&quot; alt=&quot;twitter&quot;&gt; &lt;/a&gt;
+  &lt;a property=&quot;account&quot; href=&quot;https://github.com/cboettig&quot;&gt;&lt;img
+  src=&quot;{{site.url}}/assets/img/icon-github.png&quot;
+  alt=&quot;github&quot;&gt; &lt;/a&gt; &lt;a property=&quot;account&quot;
+  href=&quot;http://www.mendeley.com/profiles/carl-boettiger&quot;&gt;&lt;img
+  src=&quot;/assets/img/icon-mendeley.png&quot; alt=&quot;mendeley&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;/atom.xml&quot;&gt;&lt;img src=&quot;/assets/img/icon-rss.png&quot;
+alt=&quot;feed&quot;&gt;&lt;/a&gt; &lt;/div&gt;
+</code></pre>
+
+<p>It might be worth adding more FOAF terms describing the relationship of these networks (such as distinguishing my profile name and the base url) using meta elements to avoid adding clutter text. I use the Creative Commons namespace to identify my CC0 license.  The license is a property of the page on which it is found, like the Dublin Core metadata.</p>
+
+<pre><code class="language-html">&lt;a property=&quot;http://creativecommons.org/ns#license&quot;
+href=&quot;http://creativecommons.org/publicdomain/zero/1.0/&quot;&gt;&lt;img
+src=&quot;http://i.creativecommons.org/l/zero/1.0/88x31.png&quot; alt=&quot;CC0&quot;
+style=&quot;float:right&quot;&gt;&lt;/a&gt;
+</code></pre>
+
+<p><img src="../../../../2012/assets/figures/post-rdfa.png" alt="When these elements are combined in a given entry, the RDFa generates this structure" /></p>
+
+<h3 id="easily-entering-rdfa">Easily entering RDFa</h3>
+
+<p>All of this markup content is either generally static or filled in programatically by Jekyll from the YAML headers (e.g. title, categories, tags, date), leaving me free to put the RDFa into the template files just once and forget about it.  In this way I can continue to write everything in Markdown, rather than the more cumbersome HTML riddled by the addition of RDFa attributes. Unfortunately there is no easy way to escape this in writing the Homepage markup, described below, but a single case isn&rsquo;t so bad.</p>
+
+<p>Another obvious candidate for linked data in the posts is the citation information.  This markup can probably be automatically generated for each post using scripts (see <a href="http://www.carlboettiger.info/2012/10/05/notes.html">Automated feeds in notebook entries</a>), so I plan to add this to my knitcitations package when I get a chance (including CiTO support!).</p>
+
+<h3 id="homepage">Homepage</h3>
+
+<p>My homepage contains a brief description about me that is ripe for FOAF and schema.org. While this content is reasonably static, it does mean writing directly in HTML+RDFa, with the markup making the source almost unreadable.  (It might be possible to force more of this data into YAML header and have it added through the invisible <code>meta</code> tags, but that seems rather convoluted).  Capturing the &ldquo;buisness card&rdquo; information as well as the &ldquo;social&rdquo; information requires mixing ontologies, which can lead to some interesting complications.  To make a long story short:</p>
+
+<p>a. Implicit logic <em>is possible</em> with linked data: we can infer that <code>schema:jobTitle</code> can be a property of a <code>foaf:Person</code> because it is a property of a <code>schema:Person</code> and someone declares them as <code>owl:equivalentProperty</code>.<br />
+b. In practice it may be most robust to explicitly declare the relation by exploiting the fact that we can give multiple arguments to attributes like <code>property</code> and <code>typeof</code>.</p>
+
+<pre><code class="language-html">&lt;div id=&quot;me&quot; prefix=&quot;foaf: http://xmlns.com/foaf/0.1/&quot; prefix=&quot;schema:
+http://schema.org/Person&quot; typeof=&quot;foaf:Person schema:Person&quot;
+resource=&quot;http://www.carlboettiger.info#me&quot;&gt; 
+I am  &lt;a property=&quot;foaf:homepage schema:url&quot;
+href=&quot;http://www.carlboettiger.info&quot;&gt;&lt;span property=&quot;foaf:name
+schema:name&quot;&gt;&lt;span property=&quot;foaf:givenName schema:givenName&quot;&gt;Carl&lt;/span&gt;
+&lt;span property=&quot;foaf:familyName schema:familyName&quot;&gt;Boettiger&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;, &lt;span
+property=&quot;schema:jobTitle&quot;&gt;a graduate student&lt;/span&gt;
+</code></pre>
+
+<p>(This excerpt gives the general flavor, see the html source of <a href="http://www.carlboettiger.info">index.html</a> for a full example.)</p>
+
+<p><img src="../../../../2012/assets/figures/homepage-rdfa.png" alt="The homepage generates this RDFa structured graph (from rdfa.info/play)" /></p>
+
+<h2 id="notes">Notes</h2>
+
+<p>Some background reading on semantics</p>
+
+<ul>
+<li>Nice <a href="http://scholarlyhtml.org/faq/">collection of posts on scholarly html</a>, but too little mention of the serious linked data stuff coming out of biscol, ievobio/nescent, etc. In particular, Martin&rsquo;s <a href="http://blogs.plos.org/mfenner/2011/03/19/a-very-brief-history-of-scholarly-html/">history</a> gives some nice perspective.<br /></li>
+<li>The war for schema.  Which ontologies should we choose? (e.g. <a href="http://blogs.plos.org/mfenner/2011/06/07/schema-org-for-scholarly-html/">schema.org&rsquo;s take</a></li>
+<li>On <a href="http://manu.sporny.org/2011/false-choice/">the good &amp; the bad of schema.org and the role of search giants</a></li>
+</ul>
+
+<p>Mixing ontologies had me very confused.</p>
+
+<ul>
+<li>How do we  <a href="http://stackoverflow.com/questions/12983766">mix ontologies</a></li>
+<li>How do we meet <a href="http://answers.semanticweb.com/questions/19200/satisfy-google-rich-snippets-person-standard-using-foaf">Google Rich Snippets requirements using FOAF?</a></li>
+<li>How do we <a href="http://answers.semanticweb.com/questions/19275/what-to-do-about-redundant-rdfa-or-machines-that-speak-only-one-language">avoid redundant vocabulary terms?</a></li>
+<li>We can avoid the redundancy using implicit reasoning (exploiting the logic of linked data), but we may prefer to be explict.  <a href="http://vimeo.com/28667500">This video</a> does a nice job of explaining these concepts. If we do semantics right, we should be able to &ldquo;dereference&rdquo; an object away from a particular ontology.<br /></li>
+</ul>
+
+<h3 id="tools-and-resources">Tools and Resources</h3>
+
+<ul>
+<li><a href="http://www.google.com/webmasters/tools/richsnippets">Google rich snippets</a></li>
+<li><a href="http://getschema.org/rdfaliteextractor/about">rdfa extractor</a> (into RDF, JSON, n3).  Also has validator, but doesn&rsquo;t point to the <code>nu</code> variant for html5.</li>
+<li><a href="http://rdfa.info/play/">RDFa Play</a>. Wow, very nice.<br /></li>
+<li><a href="http://sameas.org">sameAs.org</a> &ndash; search onotologies for an existing term, identify identical terms in different ontologies, etc.  Simply brilliant, what I&rsquo;ve always wanted!</li>
+</ul>
+
+<h3 id="knitcitations-update-adding-formats-an-semantics">knitcitations update: adding formats an semantics.</h3>
+
+<ul>
+<li>Looking at citeproc / <a href="http://citationstyles.org/">CSL</a> <a href="https://github.com/citation-style-language">github page</a>.<br /></li>
+<li>Raw citeproc is an XML stylesheet, XSLT, which can render XML into HTML (and much more).  Possible other options are using something like citeproc-js or citeproc-ruby, or writing citeproc-R.<br /></li>
+<li>Not quite clear how to take a CSL and a set of references and generate HTML; aforementioned packages may address this.<br /></li>
+<li>For the moment, probably easier to convert R <code>bibitem</code> to display with RDFa with scholarlyhtml recommended ontology than to enter raw XML reference and format via citeproc.  Should also support adding in the cito tags.  With full addresses in property, should be able to avoid any need for namespace/header modifications.<br /></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2012-10-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Oct 23, 2012
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/semantics">semantics</a
+    >, 
+    
+    <a href="../../../../tags/notebook-technology">notebook-technology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2012/10/24/multiple-uncertainty-value-function-iteration/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2012/10/23/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2012-10-23-semantic-markup-examples-for-the-lab-notebook.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/b3630889a5584cd1240e1c9d2208759615c88af4/content/lab-notebook/2012-10-23-semantic-markup-examples-for-the-lab-notebook.md">b3630889a</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2012\/10\/23\/semantic-markup-examples-for-the-lab-notebook\/';
+    var disqus_title = '';
+    var disqus_url = '\/2012\/10\/23\/semantic-markup-examples-for-the-lab-notebook\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

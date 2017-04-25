@@ -1,11 +1,13 @@
 ---
-layout: post
-category: ecology
-tags: [multiple-uncertainty, decision-theory]
+categories:
+- ecology
+date: 2012-11-01T00:00:00Z
+tags:
+- multiple-uncertainty
+- decision-theory
 updated: 2012-11-09
-
+url: /2012/11/01/multiple-uncertainty-corrections/
 ---
-
 
 Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - h_t$), $x_{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth.  We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$.  Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.  The decision maker seeks to maximize the expected present-value of profits $\Pi(x_t,h_t)$ that are a function of both the actual stock $x$ and the realized harvest $h$ over some long term period $T_{\textrm{max}}$ subject to some discount rate $\delta$,
 

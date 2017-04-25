@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-02-28 12:08:03
-layout: post
-slug: warning-signals-on-real-data-continued
-title: Warning Signals on Real data continued
-redirects: [/wordpress/archives/1135, /archives/1135]
 categories:
 - ecology
+comments: true
+date: 2011-02-28T12:08:03Z
+redirects:
+- /wordpress/archives/1135
+- /archives/1135
+slug: warning-signals-on-real-data-continued
 tags:
 - warning-signals
+title: Warning Signals on Real data continued
+url: /2011/02/28/warning-signals-on-real-data-continued/
 ---
 
 Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos _et. al._ 2008).  After adjusting my code to deal with variably spaced sampling intervals, I reread the [supplement](http://www.pnas.org/cgi/data/0802430105/DCSupplemental/Supplemental_PDF#nameddest=STXT) -- I had forgotten that they don't actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.

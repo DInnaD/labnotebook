@@ -1,14 +1,13 @@
 ---
-title: "DOI != citable"
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-06-03T00:00:00Z
+tags:
 - notebook-technology
 - blog
-
+title: DOI != citable
+url: /2013/06/03/DOI-citable/
 ---
-
-
 
 I feel I see this kind of comment almost daily:
 

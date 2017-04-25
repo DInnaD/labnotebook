@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-17 23:38:23
-layout: post
-slug: sunday-warning-signals
-title: 'Sunday: Warning Signals'
-redirects: [/wordpress/archives/2211, /archives/2211]
 categories:
 - ecology
+comments: true
+date: 2011-07-17T23:38:23Z
+redirects:
+- /wordpress/archives/2211
+- /archives/2211
+slug: sunday-warning-signals
 tags:
 - warning-signals
+title: 'Sunday: Warning Signals'
+url: /2011/07/17/sunday-warning-signals/
 ---
 
 Continuing work on warning signals manuscript.  Most entries for this work are [delayed-release](http://www.carlboettiger.info/archives/1229).  Some final stages of editing today:

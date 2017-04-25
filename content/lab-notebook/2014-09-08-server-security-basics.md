@@ -1,11 +1,12 @@
 ---
-layout: post
-category: computing
+categories:
+- computing
+date: 2014-09-08T00:00:00Z
 tags:
 - digitalocean
 - docker
+url: /2014/09/08/server-security-basics/
 ---
-
 
 ## Security configuration
 

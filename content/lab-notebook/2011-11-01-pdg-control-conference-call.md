@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-01 16:53:46
-layout: post
-slug: pdg-control-conference-call
-title: pdg-control Conference Call
-redirects: [/wordpress/archives/3109, /archives/3109]
 categories:
 - ecology
+comments: true
+date: 2011-11-01T16:53:46Z
+redirects:
+- /wordpress/archives/3109
+- /archives/3109
+slug: pdg-control-conference-call
 tags:
 - pdg-control
+title: pdg-control Conference Call
+url: /2011/11/01/pdg-control-conference-call/
 ---
 
 Call includes everyone except Frank & Claire.

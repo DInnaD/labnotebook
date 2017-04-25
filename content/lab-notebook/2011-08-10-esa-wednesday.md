@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-10 18:46:00
-layout: post
-slug: esa-wednesday
-title: ESA Wednesday
-redirects: [/wordpress/archives/2301, /archives/2301]
 categories:
 - ecology
+comments: true
+date: 2011-08-10T18:46:00Z
+redirects:
+- /wordpress/archives/2301
+- /archives/2301
+slug: esa-wednesday
 tags:
 - conference
+title: ESA Wednesday
+url: /2011/08/10/esa-wednesday/
 ---
 
 My talk today, as well as several others from our Theory group at Davis.  Journal review requirements mean posting my slides is gonna be delayed somewhat, but appreciated some excellent questions and those who laughed at my jokes in between slides.  Meanwhile, automatically generating a log form twitter since I cannot find the time to write proper notes.  Perhaps those will amended eventually...

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,115 +141,123 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/27/monday-14/">Monday</a></h2>
+    <h4>Mon, Feb 27, 2012</h4>
     <div class="article-style">
       
-      Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with Steve Munch, Marc Mangel, and Alec MacCall. I will be based primarily at the National Marine Fisheries Service building, here: ` Five fantastic years of graduate school are coming to an end: I will start officially later this fall, where I will
- join an exciting team of ecologists and applied mathematicians who work collaboratively on cutting-edge problems in ecological and evolutionary modeling through the Center for Stock Assessment Research.
+      Warning Signals  Added resulting indicator distributions on finer sampling results.
+ Re-running now excluding the final dive (population below 300).
+  Treebase working on manuscript. A few examples using the improved meta-data queries:
+Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/24/visuals-for-communicating-uncertainty/">Visuals for Communicating Uncertainty </a></h2>
+    <h4>Fri, Feb 24, 2012</h4>
     <div class="article-style">
       
-      No idea where I went wrong, but the final graphs are not what I expected Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions
-We consider adding additional sources of noise through observation error and implementation error to the orginal model of Reed (1979), which considers only growth error. This follows in the line of exploration taken by Clark and Kirkwood (1987), Roughgarden (1996) and Sethi (2006).
+      Visiting the question of communicating uncertainty in Marissa&rsquo;s lab meeting, focusing on this excellent Science article (Spiegelhalter et. al. 2011). Noam and Jamie are leading the discussion, and suggested we pick a few favorite examples. None on my list really address the challenge of communicating uncertainty directly, though the first one probably comes closest. I think they do highlight some of the potential and the challenges of good data visualization though, which is certainly one of the essential building blocks to visual communication of uncertainty.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/23/esa-2012-abstract/">ESA 2012 Abstract</a></h2>
+    <h4>Thu, Feb 23, 2012</h4>
     <div class="article-style">
       
-      Let
- y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
-$$ x</em>{t+1} = z_g f(x_t) $$
-In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
+      Submitted my abstract for ESA 2012, in Portland. Getting a title and abstract pinned down about seven months in advance is itself an exercise in decision making under uncertainty. I&rsquo;ve added some further background below.
+Unknown unknowns: management strategies under uncertainty &amp; alternate stable states Background/Question/Methods The effective management of natural resource populations such as fisheries or forests and the ecosystems in which they are embedded is a central goal of much work in both theoretical and applied ecological research.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/22/stochastic-optimization/">Stochastic optimization </a></h2>
+    <h4>Wed, Feb 22, 2012</h4>
     <div class="article-style">
       
-      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
-pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
+      Surprising heterogeneity of profit distribution under a simple Beverton-Holt model Usually I expect the alternate stable state dynamics to be the ones producing bimodal distribution of profit:
+The pattern is driven by a costs to harvesting making harvest unprofitable most of the time, while chance fluctuations push some populations across this threshold again and again. The ensemble variation in harvest is suggestive of this:
+but we really see what is going on when we color-code the population dynamics of the most profitable and least profitable realizations of the stochastic dynamics:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/22/wednesday-12/">Wednesday</a></h2>
+    <h4>Wed, Feb 22, 2012</h4>
     <div class="article-style">
       
-      Multiple Uncertainty algorithm Define each of the transition matrices:
-D &lt;- matrix(NA, nrow=length(x_grid), ncol=Tmax) P &lt;- outer(x_grid, h_grid, profit) F &lt;- outer(x_grid, f(x_grid, 0, p), pdfn, sigma_g) M &lt;- outer(x_grid, x_grid, pdfn, sigma_m) I &lt;- outer(h_grid, h_grid, pdfn, sigma_i)  Probably row-normalize each:
-rownorm &lt;- function(M) t(apply(M, 1, function(x) x/sum(x))  (Note the transpose is needed since the silly function of a vector turns the column into a row. Not an issue of margin 2)
+      CC0 license approved for use on CRAN
+ Update my DESCRIPTION files, use the new Author@R convention.
+ Rebecca&rsquo;s comment on mntd in comparative methods
+ This lab notebook gets mentioned for good practices in academic workflow.
+ Working on treebase paper
+ ESA registration
+ Lecture notes for tomorrow
+ forage fish writing
+  Reading Reading over (Munch et. al. 2005). I think this is a very nice treatment, a lot clearer I think than lots of other stuff I&rsquo;ve looked at (thanks Tim &amp; Jim!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
+    <h4>Tue, Feb 21, 2012</h4>
     <div class="article-style">
       
-      Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
- Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
- Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
+      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
+ Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/20/finer-sampling-in-prosecutors-fallacy/">finer sampling in prosecutor&#39;s fallacy</a></h2>
+    <h4>Mon, Feb 20, 2012</h4>
     <div class="article-style">
       
-      Monday  altmetrics post post for multiple uncertainty, email to Steve, Marc Marc meeting ropensci proposals Phylotastic  Notebook configuration  trying out <a href="http://greycite.knowledgeblog.org/">http://greycite.knowledgeblog.org/</a>. Add to knitcitations. Add Greycite recommended opengraph and google scholar metadata metadata.html Import metadata from _config.yml. Any custom variable defined in config can be accessed at site.varname. See updated _config.yml  Reading  Schnitzler, J., Graham, C. H., Dormann, C. F., Schiffers, K., &amp; Peter Linder, H.
+      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
+require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
+d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
     <div class="article-style">
       
-      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
- Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
+      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/16/squiggles/">Squiggles</a></h2>
+    <h4>Thu, Feb 16, 2012</h4>
     <div class="article-style">
       
-      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
-Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
-$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
-And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
+      Variability in the appearance of a trend
+nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
+X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h2>
+    <h4>Wed, Feb 15, 2012</h4>
     <div class="article-style">
       
-      Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
+      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
+Run the individual based simulation
+require(populationdynamics)  [code] Loading required package: populationdynamics
+ ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
       
     </div>
   </div>

@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-10-21 
-layout: post
-redirects: [/wordpress/archives/76, /archives/76]
 categories:
 - ecology
+comments: true
+date: 2010-10-21T00:00:00Z
+redirects:
+- /wordpress/archives/76
+- /archives/76
 tags:
 - warning-signals
+url: /2010/10/21/warning-signals-2/
 ---
 
 Trying to select clear examples of sufficient and sufficient power in detecting warning signals.  Addressing a couple side issues today as well:

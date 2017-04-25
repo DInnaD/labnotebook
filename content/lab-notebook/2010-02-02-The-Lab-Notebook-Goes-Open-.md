@@ -1,14 +1,13 @@
 ---
-layout: post
-tags: [tribolium, warning-signals]
-categories: [ecology]
-title: The Lab Notebook Goes Open 
+categories:
+- ecology
+date: 2010-02-02T00:00:00Z
+tags:
+- tribolium
+- warning-signals
+title: The Lab Notebook Goes Open
+url: /2010/02/02/The-Lab-Notebook-Goes-Open-/
 ---
-
-
-
-
-
 
 (Originally posted on OpenWetWare)
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,117 +141,121 @@
   
   
   <div>
-    <h2><a href="../../../2011/01/28/phylogenetic-signal-metrics.html">Phylogenetic Signal metrics</a></h2>
-    <h4>Fri, Jan 28, 2011</h4>
+    <h2><a href="../../../2011/04/08/treebase-exploratory-exercises-in-database-driven-phylogenetics/">TreeBase: exploratory exercises in database-driven phylogenetics</a></h2>
+    <h4>Fri, Apr 8, 2011</h4>
     <div class="article-style">
+      
+      Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/24/felsenstein-web.html">Felsenstein (web) seminar</a></h2>
-    <h4>Mon, Jan 24, 2011</h4>
+    <h2><a href="../../../2011/04/06/comparative-methods-paper-statusto-do/">Comparative methods paper status/to-do</a></h2>
+    <h4>Wed, Apr 6, 2011</h4>
     <div class="article-style">
       
-      Joe Felsenstein on phyloseminar (watch here). This morning. [ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets.[/ref] Discusses bridging population genetics &amp; comparative methods: where does covariation in traits across a phylogeny come from?
-Morphometrics Using morphometrics (digitized landmarks [though now we can do spherical harmonics, CT scans, etc]) to evolve on a phylogeny under BM rather than use that data to infer phylogeny.
+      Finished revisions yesterday after rewriting introduction considerably. Following Graham&rsquo;s comment, taking a closer look at aic error along power curves:
+&gt; load(&quot;../../pmc/demos/5594495254.Rdat&quot;) &gt; require(pmc) &gt; aic &lt;- 2 &gt; aic_errors_size &lt;- sapply(1:(length(n)), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) &gt; aic_errors_shape &lt;- sapply(1:length(lambda), function(i) sum(shape[[i]]$null_dist &gt; aic)/shape[[i]]$nboot ) &gt; data.frame(n, aic_errors_size) n aic_errors_size 1 10 0.1945 2 20 0.2405 3 40 0.1800 4 60 0.1590 5 80 0.0750 6 100 0.1015 7 150 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny.html">Shape as well as size influence power of phylogeny</a></h2>
-    <h4>Fri, Jan 21, 2011</h4>
+    <h2><a href="../../../2011/04/04/phylogenetics-manuscript-revisions/">evolution manuscript revisions</a></h2>
+    <h4>Mon, Apr 4, 2011</h4>
     <div class="article-style">
       
-      Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.
+      Heard back from Graham Friday on manuscript revisions. Notes on reviewing edits:
+ Reconsider title? (Currently: &ldquo;is your phylogeny informative? estimating power in phylogenetic trees&rdquo;). Suggestions from Graham/Brian?
+ 1000 taxa, 500 taxa seem to break the ouch package inferences.
+ Add table for AIC comparisons etc
+ Does AIC work better/worse on the lambda = 0 trees?
+n[1:3] [1] 10 50 100 aic_errors_size &lt;- sapply(1:(length(n)-2), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) aic_errors_size [1] 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees.html">Estimating phylogenetic signal (lambda) on large trees</a></h2>
-    <h4>Thu, Jan 20, 2011</h4>
+    <h2><a href="../../../2011/03/31/a-few-large-data-problems-in-ecology-evolution/">A few large data problems in Ecology &amp; Evolution</a></h2>
+    <h4>Thu, Mar 31, 2011</h4>
     <div class="article-style">
       
-      Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5370016511 [/flickr]
-[flickr size=&ldquo;small&rdquo; float=&ldquo;right&rdquo;]5370635360 [/flickr]
-compare to 281 taxa and then 600 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5310150538 [/flickr]
-By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.
+      I&rsquo;ve joined a student-led seminar with Gabriel Becker in the Statistics department on dealing with large data, primarily in R. Offered to say a few words about large data problems in my field for a few minutes, so making some notes.
+Large dataBases  Genebank: $ &gt; 10^8$ sequences. Phylogenetic inference
+ Morphological databases: Specialized databases with semantic tools (Dahdul et. al. 2010)
+ NEON observatories data Keller et. al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/11/phylogenetics-wrightscape.html">evolution- wrightscape</a></h2>
-    <h4>Tue, Jan 11, 2011</h4>
+    <h2><a href="../../../2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phyloseminar/">Brian O&#39;Meara discusses new algorithms approaches on Phylo</a></h2>
+    <h4>Wed, Mar 30, 2011</h4>
     <div class="article-style">
       
-      Interesting meeting with Peter to discuss a variety of issues in comparative phylogenetics. Short notes:
- Transforming data, log data
- Trends in directions in convergent traits
- multivariate inference
- Manuscript
-  Wrightscape First have to test PMC to make sure it works with OUCH classes. Also adding PMC-required wrappers for wrightscape. Ended up modifying PMC to handle the case of simulate functions that return replicates, like these packages do.
+      Brian gave an excellent overview of Approximate Bayesian Computing (ABC) and described the TreEvo software he is developing with post-doc Barb Banbury. My notes from the seminar, with my own comments italics and a few added references
+Intro / Motivation  Rates of model innovation is rather slow
+ Can be impossible to specify in closed form (can&rsquo;t specify median of binomial in closed form)
+ Perhaps it would be faster if we didn&rsquo;t have to wait for someone to come up with all the likelihood functions
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/09/phylo-monte-carlo-for-diversification-rates.html">Phylo Monte Carlo for diversification rates</a></h2>
-    <h4>Sun, Jan 9, 2011</h4>
+    <h2><a href="../../../2011/03/19/approximate-bayesian-computing-abc-methods/">Approximate Bayesian Computing (algorithms) methods</a></h2>
+    <h4>Sat, Mar 19, 2011</h4>
     <div class="article-style">
       
-      Writing function wrappers for geiger functions to perform Phylogenetic Monte Carlo. Any object that has methods defined for update.objecttype (object, data) and simulate.objecttype(data), and loglik.object(object) should be able to use the montecarlotest() function. OUCH almost does this but not quite, since the datatype returned by &lsquo;simulate&rsquo; doesn&rsquo;t match that needed by &lsquo;update&rsquo;. OUCH also uses S4 class styles.
-Wrote wrappers for ouch functions such that the ouch models will work with the same montecarlotest() code.
+      Erick Matsen  asked me about the question at the end of Luke Harmon&rsquo;s phyloseminar critiquing Approximate Bayesian Computing ABC methods. The question wasn&rsquo;t any more specific, though Luke recognized the paper. Searching the literature didn&rsquo;t turn anything up, asking Leo through the MCMC group on Mendeley I think this is the paper:
+﻿Robert, C.P. et al. Lack of confidence in ABC model choice. PNAS I, 8(2011). (arXiv)
+Seems a more pointed critique to ABC then Templeton&rsquo;s discussion (Templeton, 2010) particularly as the lead author is a critic of Templeton (Berger et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/01/02/finishing-up-my-sicb-presentation.html">Finishing up my #SICB Presentation</a></h2>
-    <h4>Sun, Jan 2, 2011</h4>
+    <h2><a href="../../../2011/03/18/friday-2/">Sam&#39;s Practice talk</a></h2>
+    <h4>Fri, Mar 18, 2011</h4>
     <div class="article-style">
       
-      Finished up my SICB presentation tweaks, slides now up on slideshare, flying off to the conference tomorrow. Created this in OpenOffice, started adding animations and then decided it would be more reliable to just duplicate slides to have parts appear (really just for the explanation of the likelihood ratio distributions under each model). Next time think I&rsquo;ll stick with my usual inkscape slides tied together with latex beamer, the lack of vector images in this one is not ideal.
+      Notes from: Sam Price&rsquo;s Practice Job Talk for Hull, UK, next week, in Wainwright lab:
+ Diversification of mammals predated KT event(Bininda-Emonds et. al. 2007) (also considerably later, but not right after) Ecological shift in wrasses to parrotfishes(Price et. al. 2010). No evidence of elevate rates of evolution. But, scraping parrotfishes do show difference (starting from base of Hipposcarus-Scarus common ancestor). Multiple transitions to/from reef living. 2x faster on coral reefs!
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/31/comparative-phylogenetics-is-the-data-informative.html">Comparative evolution: Is the data informative?</a></h2>
-    <h4>Fri, Dec 31, 2010</h4>
+    <h2><a href="../../../2011/03/15/models-in-phylogenetic-inference/">Model identifiability in phylogenetic inference GTR&#43;I&#43;G</a></h2>
+    <h4>Tue, Mar 15, 2011</h4>
     <div class="article-style">
       
-      Working on my SICB talk, going a little further into the example of fitting the lambda model on the Anoles data to illustrate the ways in which we may lack sufficient data for the question.
- The dataset may not contain adequate signal of the parameter / phenomenon in question
- The dataset may not be adequately large
-  Anoles data set (23 taxa):
-This first image shows the distribution of lambda values estimated from many datasets all simulated under a lambda = 0.
+      Another phylogenetics paper (Perelman et. al. 2011) using GTR+I+G inspired me to look back over the discussion and objections with this model. This model is the basis of 100s of publications, 40 alone in Sys Bio in 2006(Allman et. al. 2008). There&rsquo;s a decent discussion on Dechronization about the issue. There&rsquo;s some treatment of identifiability on this issue, such as 2001 Sys Bio (Rogers, 2001) which suggests this is possible and a nice paper in Adv.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/24/doe-renewal-and-a-year-in-review.html">DoE renewal and a year in review</a></h2>
-    <h4>Fri, Dec 24, 2010</h4>
+    <h2><a href="../../../2011/03/14/peters-talk/">Peter&#39;s talk </a></h2>
+    <h4>Mon, Mar 14, 2011</h4>
     <div class="article-style">
       
-      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
-synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
+      Peter spoke in Sebastian&rsquo;s lab meeting about a spatially explicit Moran model, for which he derives Fisher&rsquo;s wave equation and an ancestry process. Here&rsquo;s what he says,
+ the general plan is to describe a simple spatial model of adaptation (or, could be of invasion&hellip;); and use it to derive (Fisher&rsquo;s) traveling wave; the corrections that arise if you don&rsquo;t assume the population is infinitely large; and describe how to follow lineages back through the expanding wave.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/12/20/sun-visualizing-my-coding-over-the-past-year.html">Sun: Visualizing my coding over the past year</a></h2>
-    <h4>Mon, Dec 20, 2010</h4>
+    <h2><a href="../../../2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/">Bodega evolution Tutorial: behind the scenes difficulties in R packages</a></h2>
+    <h4>Mon, Mar 7, 2011</h4>
     <div class="article-style">
       
-      Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the Mendeley&rsquo;s example). So in the spirit of year-in-review reflections, here&rsquo;s my development from the past year (just for the phylogenetic statistics work).
-Quality is a little too poor to read file names, more entertaining than practical. Other user icons appear in December corresponding with my move to running the code from Amazon cloud.
+      Just finished my tutorial for comparative methods on continuous traits in R, which I&rsquo;ll be presenting on Wednesday with Justen Whittall. The tutorial is up on the Bodega Phylogenetics Wiki, together with the necessary data files.
+Errors that shouldn&rsquo;t happen: a few package bugs in simulation functions Assembling the tutorial exposed a few more frustrations in the R packages. Consider simulating OU with rTraitCont:</p>
+
+<h2 id="load-the-libraries-simulate-a-tree-require-geiger-require-treesim-tree-lt-sim">Load the libraries, simulate a tree require(geiger) require(TreeSim) tree &lt;- sim.</h2>
+
       
     </div>
   </div>

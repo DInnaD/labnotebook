@@ -1,16 +1,17 @@
 ---
-comments: true
-date: 2011-02-01 09:40:59
-layout: post
-slug: the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies
-title: 'The Future of Data: Plans for a UC Davis workshop'
-redirects: [/wordpress/archives/905, /archives/905]
 categories:
 - open-science
+comments: true
+date: 2011-02-01T09:40:59Z
+redirects:
+- /wordpress/archives/905
+- /archives/905
+slug: the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies
 tags:
 - seminar
 - blog
-
+title: 'The Future of Data: Plans for a UC Davis workshop'
+url: /2011/02/01/the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies/
 ---
 
 I have been working with several of the faculty of UC Davis to prepare a

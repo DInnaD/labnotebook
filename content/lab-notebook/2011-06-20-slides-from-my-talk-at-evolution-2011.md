@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-20 20:59:59
-layout: post
-slug: slides-from-my-talk-at-evolution-2011
-title: Slides from my talk at Evolution 2011
-redirects: [/wordpress/archives/2027, /archives/2027]
 categories:
 - evolution
+comments: true
+date: 2011-06-20T20:59:59Z
+redirects:
+- /wordpress/archives/2027
+- /archives/2027
+slug: slides-from-my-talk-at-evolution-2011
 tags:
 - conference
+title: Slides from my talk at Evolution 2011
+url: /2011/06/20/slides-from-my-talk-at-evolution-2011/
 ---
 
 **[A general model of continuous character evolution](http://www.slideshare.net/cboettig/a-general-model-of-continuous-character-evolution)** [iframe http://www.slideshare.net/slideshow/embed_code/8371419 425 355] 

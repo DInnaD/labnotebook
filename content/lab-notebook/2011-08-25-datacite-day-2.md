@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-25 08:14:58
-layout: post
-slug: datacite-day-2
-title: DataCite Day 2
-redirects: [/wordpress/archives/2385, /archives/2385]
 categories:
 - open-science
+comments: true
+date: 2011-08-25T08:14:58Z
+redirects:
+- /wordpress/archives/2385
+- /archives/2385
+slug: datacite-day-2
 tags:
 - conference
+title: DataCite Day 2
+url: /2011/08/25/datacite-day-2/
 ---
 
 #### 9:00am-10:30am Session 4: Data and the Scholarly Output

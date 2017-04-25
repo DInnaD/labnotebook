@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-26T00:00:00Z
 title: Parrotfish Model choice
+url: /2010/07/26/Parrotfish-Model-choice/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ![code, Gape
 data](http://openwetware.org/images/thumb/6/66/Labrid_gape.png/800px-Labrid_gape.png)

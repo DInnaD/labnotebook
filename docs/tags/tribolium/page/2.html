@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,85 +141,8 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/hastings-meeting.html">Hastings Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/likelihood-calculation.html">Likelihood calculation</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
-&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/meeting-w--alan.html">Meeting w- Alan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/noisy-beetles.html">Noisy Beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Goals  individual-based simulation via my gillespie C library with 2-step transitions.
- Integrate the function definitions from R? Use of R formula language? Conversely, have the R code use the C functions?  Handle population-size scaling correctly
- Methods write-up, read/compare to other examples.
- Exploration/demonstration of the significance of two-step process vs two one-step processes. Highlight which examples will show largest differences, and in which terms (means vs variances/covariances, etc).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/noisy-beetles.html">Noisy beetles</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Fig 1: Noise in lavae dominate
-Fig: 2 lower mortality, higher noise
- Success! My first full implementation of the four stage (EPLA) beetle model, so far without any adaptation, and the noise of the larval class dominates (Fig 1). Without the time delays the stationary dynamics are stable nodes, at least in this part of parameter space, with a large adult class clamping tightly down on the other classes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/puzzled-over-the-two-step-jump-process-results.html">Puzzled over the two-step jump process results</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      The variance dynamics are slightly different if the continuous time Markov process allows events to contain two steps (such as a transition of an individual from one age class to another, or one patch to another, etc) as well as one step birth/death) transitions. *V*τ~*i*j~(X / V) to represent the rate of transitions from state i to state j. We change variables for our state space from the discrete count state variable X by dividing by the system size (volume) V, to obtain the continuous, mean-field approximation of the density p = X/V.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/rethinking-beetles-noise.html">Rethinking Beetles Noise</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/structured-population-dynamics.html">Structured Population Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/05/14/structured-population-dynamics/">Structured Population Dynamics</a></h2>
+    <h4>Fri, May 14, 2010</h4>
     <div class="article-style">
       
       Beetle Model Macroscopic equations:
@@ -232,26 +155,99 @@ and define variance-covariance matrix M and the Jacobian matrix of f as J. Then 
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/summary-of-structured-population-noise-so-far.html">Summary of Structured Population noise so far</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/05/13/beetles-workshop-day-2/">Beetles workshop Day 2</a></h2>
+    <h4>Thu, May 13, 2010</h4>
     <div class="article-style">
       
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
+      Goals  van Kampen expansion of LPA model, maximize noise in L while keeping A robust?   Indiv. heterogeneity issue: dividing larval class into a smaller, highly-cannibal and remainder of more weakly cannibalistic. Pulse dynamics &ndash; interspike interval, magnitude?  Potential Data  1995 Dennis et al. &ndash; 5 replicate populations (2-cycle dataset), 5 age-cycles. eight-year chaotic time series Strawbridge daily samples (single replicate), occasional disease in lines though.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/the-lab-notebook-goes-open.html">The Lab Notebook Goes Open</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/05/12/hastings-beetle-workshop/">Hastings Beetle Workshop</a></h2>
+    <h4>Wed, May 12, 2010</h4>
     <div class="article-style">
       
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
+      Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
+ Morning Session, 9a - 11a
+ Outline the individual based model, toolbox  Group lunch, noon-1:30
+ My lab Presentation, 2p-3p
+ Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
+ Follow-up on understanding noise propagation in age structure dynamics.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/11/demographic-noise/">Demographic Noise</a></h2>
+    <h4>Tue, May 11, 2010</h4>
+    <div class="article-style">
+      
+      Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/10/alan-meeting/">Alan Meeting</a></h2>
+    <h4>Mon, May 10, 2010</h4>
+    <div class="article-style">
+      
+      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/07/likelihood-calculation/">Likelihood calculation</a></h2>
+    <h4>Fri, May 7, 2010</h4>
+    <div class="article-style">
+      
+      Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/05/wednesday/">Wednesday</a></h2>
+    <h4>Wed, May 5, 2010</h4>
+    <div class="article-style">
+      
+      Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/04/alan-meeting/">Alan Meeting</a></h2>
+    <h4>Tue, May 4, 2010</h4>
+    <div class="article-style">
+      
+      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/02/10/meeting-w--alan/">Meeting w- Alan</a></h2>
+    <h4>Wed, Feb 10, 2010</h4>
+    <div class="article-style">
+      
+      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/02/03/hastings-meeting/">Hastings Meeting</a></h2>
+    <h4>Wed, Feb 3, 2010</h4>
+    <div class="article-style">
+      
+      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
       
     </div>
   </div>

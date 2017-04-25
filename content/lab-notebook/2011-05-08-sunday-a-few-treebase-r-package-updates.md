@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-05-08 23:16:24
-layout: post
-slug: sunday-a-few-ropensci-r-package-updates
-title: 'Sunday: a few Treebase R package updates'
-redirects: [/wordpress/archives/1632, /archives/1632]
 categories:
 - evolution
+comments: true
+date: 2011-05-08T23:16:24Z
+redirects:
+- /wordpress/archives/1632
+- /archives/1632
+slug: sunday-a-few-ropensci-r-package-updates
 tags:
 - ropensci
+title: 'Sunday: a few Treebase R package updates'
+url: /2011/05/08/sunday-a-few-treebase-r-package-updates/
 ---
 
 Working on a few updates to the TreeBASE package.  This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options.  Meanwhile, going to start looking at the metadata side with the [OAI-PMH](http://www.openarchives.org/pmh/) API.  With this I should be able to grab metadata associated with a tree or the tree associated with the metadata.  Should also be able to extend the queries over to other databases such as Dryad.

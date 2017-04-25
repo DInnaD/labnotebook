@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-04-07 17:09:29
-layout: post
-slug: steve-ellners-
-title: Steve Ellner's seminar
-redirects: [/wordpress/archives/1374, /archives/1374]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-04-07T17:09:29Z
+redirects:
+- /wordpress/archives/1374
+- /archives/1374
+slug: steve-ellners-
+tags:
 - seminar
+title: Steve Ellner's seminar
+url: /2011/04/07/steve-ellners-seminar/
 ---
 
 What started as three men and a chemostat...

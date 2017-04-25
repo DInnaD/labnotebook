@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,121 +140,112 @@
   
   
   <div>
-    <h2><a href="../../2011/06/06/parrotfish-in-wrightscape.html">Parrotfish in wrightscape</a></h2>
-    <h4>Mon, Jun 6, 2011</h4>
+    <h2><a href="../../2013/01/12/tipping-points-comment-in-nature/"></a></h2>
+    <h4>Sat, Jan 12, 2013</h4>
     <div class="article-style">
       
-      Bootstrapping option Needs a method to pass the optional optim arguments to the update function, such that update uses the same algorithm as the initial fit. Required being a little clever:
-[gist id=&ldquo;1010999&rdquo;]
-Done. but perhaps we won&rsquo;t always want to bootstrap under this? I suppose it is good practice but slow! Shoot, now I need a lot of really large computers really soon.
-Excellent suggestion for better ways to do this from statscicomp list.
+      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
+Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/05/sunday-warning-signals-manuscript-mostly.html">Sunday -- warning signals manuscript (mostly)</a></h2>
-    <h4>Sun, Jun 5, 2011</h4>
+    <h2><a href="../../2013/01/08/haldanes-sieve-guest-post/"></a></h2>
+    <h4>Tue, Jan 8, 2013</h4>
     <div class="article-style">
       
-      Updates to Scott&rsquo;s rspringer package
- Grabbed remaining datasets from Dakos et al., added to package
- Reading (Biggs et. al. 2009) a bit more closely
- Writing and revisions on warning signals manuscript.
-   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
+      Consider public archiving for your dissertation As researchers we spend an immense amount of time generating products other than papers. While we go through great lengths to see that our papers are published in just the right place to be seen by our colleagues (fretting about the different impact factors, percieved audience, editorial boards, open access policies, and many other factors that determine just how a paper will see the light of day), other products of our labors largely languish on forgotten hard-drives from long ago.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/04/saturday-git-with-latexdiff-ropensci-and-pmc-package-updates-bounds-on-lambda.html">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h2>
-    <h4>Sat, Jun 4, 2011</h4>
+    <h2><a href="../../2012/12/27/notes/"></a></h2>
+    <h4>Thu, Dec 27, 2012</h4>
     <div class="article-style">
       
-      bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
-Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
+      Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
+ Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
+ Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/03/friday-5.html">Friday</a></h2>
-    <h4>Fri, Jun 3, 2011</h4>
+    <h2><a href="../../2012/12/23/notes/"></a></h2>
+    <h4>Sun, Dec 23, 2012</h4>
     <div class="article-style">
-      
-      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/02/thursday-warning-signals.html">Thursday: Warning Signals</a></h2>
-    <h4>Thu, Jun 2, 2011</h4>
+    <h2><a href="../../2012/12/21/progress-summary/"></a></h2>
+    <h4>Fri, Dec 21, 2012</h4>
     <div class="article-style">
       
-      Alan Meeting Reviewing my edits.
- Writing writing writing
- updating graphs and package
-  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
- This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
- Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
-  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
+      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted.html">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
-    <h4>Wed, Jun 1, 2011</h4>
+    <h2><a href="../../2012/12/20/results-comparing-gp-to-parametric/"></a></h2>
+    <h4>Thu, Dec 20, 2012</h4>
     <div class="article-style">
       
-      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
- Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
+      Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
+Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
+Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
+ Example from 32 replicates   Distribution of yield over replicates shows the parametric model performing rather poorly, while most of the GP replicates perform nearly optimally.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/31/tuesday-5.html">Tuesday: PMC, confidence intervals; screen code-tricks</a></h2>
-    <h4>Tue, May 31, 2011</h4>
+    <h2><a href="../../2012/12/19/exploring-gp-model-space/"></a></h2>
+    <h4>Wed, Dec 19, 2012</h4>
     <div class="article-style">
       
-      PMC  Final read through of manuscript from me and Peter.
- Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
-sqrt(diag(solve(out$hessian)))
- See conf_interval_ex.R. i.e for Geospiza tree is:
-[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.
+      Trying to think about a more systematic way to go about varying the parameters: the underlying parametric model has 3 parameters for the stock-recruitment curve&rsquo;s deterministic skeleton, plus growth noise. (My first exploratory phase has been just to try different things. See my various tweaks in the history log Clearly time to be more systematic about both running and visualizing the various cases.)
+Should I just choose a handful of parameter combinations to test?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/30/monday-6.html">Monday</a></h2>
-    <h4>Mon, May 30, 2011</h4>
+    <h2><a href="../../2012/12/17/random_ews_example/"></a></h2>
+    <h4>Mon, Dec 17, 2012</h4>
     <div class="article-style">
       
-      Power in Phylogenies Paper (PMC)  Working through / incorporated Graham&rsquo;s edits Added confidence intervals discussion tweaks to associated pmc package Exploring confidence intervals (and lack thereof) in literature on comparative methods. Pagel (1999) (Pagel, 1999) includes them, but few other papers do. He does not include any discussion about how these are calculated. Seems Sweave makes sense for the recreate-figures code from the cached data-files, but perhaps not for the entire analysis code-base (in demos/).
+      ENSO EWS Let&rsquo;s just see what happens with the MEI data for PDO:
+dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/mei.csv&quot;">http://www.carlboettiger.info/assets/data/mei.csv&quot;</a>, header=TRUE)  For the moment let&rsquo;s ignore annual structure and just collapse this into timeseries sampled bimonthly.
+require(reshape2) dt &lt;- melt(dat, id=&quot;YEAR&quot;) X &lt;- dt$value Z &lt;- X[!is.na(X)] Z &lt;- data.frame(1:(length(Z)-1), Z[1:(length(Z)-1)])  png(&quot;mei.png&quot;) require(earlywarnings) a &lt;- generic_ews(Z, detrending=&quot;gaussian&quot;)  How about the data from MacDonald (2005)
+original data link
+dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;">http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;</a>, header=TRUE)  png(&quot;macdonald2005.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/29/sunday-2.html">Sunday</a></h2>
-    <h4>Sun, May 29, 2011</h4>
+    <h2><a href="../../2012/12/15/nonparametric-bayes-comparisons/"></a></h2>
+    <h4>Sat, Dec 15, 2012</h4>
     <div class="article-style">
       
-      Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
+      Notes on structure of examples Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.
+Currently, externalized code for GP comparison experiments is in gaussian-process-control.R, and is called by may79-example.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/28/notebook-technology-file-sharing-notes.html">Site configuration: file sharing notes</a></h2>
-    <h4>Sat, May 28, 2011</h4>
+    <h2><a href="../../2012/12/11/nonparametric-bayes-notes/"></a></h2>
+    <h4>Tue, Dec 11, 2012</h4>
     <div class="article-style">
       
-      Easiest way to share files is ssh onto the carlboettiger.info server, change into the directory carlboettiger.info/ and create a new directory there &ndash; i.e. share/. This behaves as a regular static webpage directory that will list the files provided.
-Secure access can be created by going to the goodies &ndash;&gt;htaccess/WebDav page and selecting the option to make a directory or subdirectory secure, and then specifying the passwords, etc. Have created the subdirectory <a href="http://carlboettiger">http://carlboettiger</a>.
+      Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
       
     </div>
   </div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,8 +141,8 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/multitype-ou-processes-with-varying-alpha-and-sigma.html">Multitype OU Processes with varying alpha and sigma</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/07/01/multitype-ou-processes-with-varying-alpha-and-sigma/">Multitype OU Processes with varying alpha and sigma</a></h2>
+    <h4>Thu, Jul 1, 2010</h4>
     <div class="article-style">
       
       Been meaning to sit down and work this one out for a while; somehow travel and conferences helped out with that &ndash; now I only have to transcribe some dozen messy hotel notepad sheets to get the calculations into this lab notebook. Meanwhile, 15 hours on a train from Portland was just the right amount of time to code up the approach, which is now implemented at the C level for the Anoles dataset; code in the wrightscape project on github.
@@ -151,92 +151,90 @@
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/multitype-ou-process-interfaces.html">Multitype OU process interfaces</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Removing old implementations from the R package, so will need to grab them from the version history from now on to access the original linear implementations.
- Nelder-Mead simplex algorithm seems quite sensitive to starting conditions. Seeding it with values fit from the hansen algorithm (global alpha and sigma), it rapidly improves the log likelihood score (going up from 25 to 30, which is just barely significant according to AIC).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/multivariate-normal-random-variables.html">Multivariate normal random variables</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      GSL lacks a multivariate normal random variable option, so have implemented one using the eigenvalue decomposition (default method in the R function rmvnorm). Function should consider doing error handling (i.e. warning if covariance matrix isn&rsquo;t positive definite or if the vectors given don&rsquo;t match dimensions), though these may be mostly unnecessary cost. Also uses a general blas matrix multiplication when one of the matrices is just sqrt(eigenvalues) on the diagonal, so this could possibly be sped up considerably using the correct blas matrix multiply.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/open-science-summit.html">Open Science Summit</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/30/ievobio-day-two/">iEvoBio day two</a></h2>
+    <h4>Wed, Jun 30, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/open-science-summit-day-3.html">Open Science Summit Day 3</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/29/ievobio-day-one/">iEvoBio day one</a></h2>
+    <h4>Tue, Jun 29, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/open-science-summit-day-2.html">Open Science Summit day 2</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/28/evolution-2010-day-3/">Evolution 2010 Day 3</a></h2>
+    <h4>Mon, Jun 28, 2010</h4>
+    <div class="article-style">
+      
+      Chris Martin: Trophic innovation drives exceptional rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes  Fantastic story of exceptional rates of evolution and trophic novelty in two tropical lakes. (8:45, Adaptation 9, talk 097002)
+ David Plachetzki: Deep homology and the evolution of animal senses: insights from Cnidaria  Cnidarians have homologous proteins to opsins and taste receptors!
+ Jeremy Yoder: Coevolution and gene flow in obligate pollination mutualism  Two species of joshua tree each with its own pollinator yucca moth.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/06/27/evolution-2010-day-2/">Evolution 2010 Day 2</a></h2>
+    <h4>Sun, Jun 27, 2010</h4>
+    <div class="article-style">
+      
+      Clay Cressler : Can you trust evolutionary parameters estimated by complex phylogenetic comparative methods? A simulation study with OUCH
+ Jeet Sukumaran (Mark Holder lab) Performance and robustness of phylogeographic analytical studies
+  Tests common macroscopic models of inferring population structure (i.e. via coalescent) an individual based simulation model.
+ Graham Slater, Luke Harmon, Liam Revell, Marc Suchard, Mike Alfaro. Estimating rates of phenotypic evolution and speciation from incomplete trees.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/06/26/evolution-2010/">Evolution 2010</a></h2>
+    <h4>Sat, Jun 26, 2010</h4>
+    <div class="article-style">
+      
+      Carl Boettiger A new phylogenetic comparative method: detecting niches and transitions with continuous characters  My slides:
+A new phylogenetic comparative method: detecting niches and transitions with continuous characters
+View more presentations from cboettig.
+ Joe Felsenstein A comparative method for discrete and continuous characters using the threshold model
+ Lynsey McInnes: Deep-time changes to equilibrium diversity &ndash; a simulation study of th power to detect rule changes from reconstructed phylogenies
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/06/24/csgf-conference-thursday/">CSGF Conference Thursday</a></h2>
+    <h4>Thu, Jun 24, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/organizing-analyses-data-codes.html">Organizing analyses, data, codes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/23/doe-csgf-conference-day-2/">CSGF Conference Day 2</a></h2>
+    <h4>Wed, Jun 23, 2010</h4>
     <div class="article-style">
-      
-      Codes  Should have a suite of likelihood tools as a package Suite of data manipulation functions, mostly to and from ape/ouch<br />
-idealized workflow:
- Read in nexus file and csv data. Call model fit for each model to be tested (BM, one peak, multiple peaks, multiple peaks with independent selective forces)<br />
- A function checks tree and data for matches, discards those without match. This could be done automatically by the model fit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/parallel-r.html">Parallel R</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/22/csgf-conference-tuesday/">CSGF Conference- Tuesday</a></h2>
+    <h4>Tue, Jun 22, 2010</h4>
     <div class="article-style">
-      
-      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/parameter-estimates-for-labrid-parrotfish-model.html">Parameter Estimates for Labrid-Parrotfish model</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/21/csgf-conference-hpc-workshop/">CSGF Conference- HPC Workshop</a></h2>
+    <h4>Mon, Jun 21, 2010</h4>
     <div class="article-style">
       
-      See fast_boot and plot.wrightscape functions in code. Gape size</p>
-
-<p>See fast_boot and plot.wrightscape functions in code Jaw Protrusion
-Figures show strong evidence for the relax of constraint hypothesis, as the strength of selection (alpha parameters) appears to have substantially weakened in both morphological traits in the parrotfish clade relative to the wrasses clade. The wrasses show strong preference for OU model with substantial stabilizing selection, while the Parrotfish estimate almost zero stabilizing selection (Brownian model, clear phylogenetic signal).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/parametric-bootstrapping.html">Parametric bootstrapping</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.
+      I found the breakout sessions in the afternoon particularly fascinating for their paradigm-breaking look into the future of high performance computing. While FLOPS become free, huge scale and ultra-low-power devices (little voltage difference to identify bits) make error handling a topic of major concern, and the idea of &ldquo;wasting&rdquo; processors to perform redundant calculations to avoid errors becomes quite serious. Other ideas, like moving computation around the memory instead of the reverse, the rise of large data and questioning the role of GPU and other novel architecture was also an important theme.
       
     </div>
   </div>

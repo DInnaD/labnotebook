@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-16T00:00:00Z
 title: Wainwright Lab Meeting
+url: /2010/06/16/Wainwright-Lab-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Presented a revised version of my talk for Evolution 2010, focusing on
 the inadequacy of information-criteria heuristics for model choice in

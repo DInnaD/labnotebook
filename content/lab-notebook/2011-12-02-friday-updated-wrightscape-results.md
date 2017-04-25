@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-12-02 22:35:24
-layout: post
-slug: friday-updated-wrightscape-results
-title: Friday - updated wrightscape results - simulated examples
-redirects: [/wordpress/archives/3424, /archives/3424]
 categories:
 - evolution
+comments: true
+date: 2011-12-02T22:35:24Z
+redirects:
+- /wordpress/archives/3424
+- /archives/3424
+slug: friday-updated-wrightscape-results
+title: Friday - updated wrightscape results - simulated examples
+url: /2011/12/02/friday-updated-wrightscape-results/
 ---
 
 Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right).  Can we correctly discriminate between these models?

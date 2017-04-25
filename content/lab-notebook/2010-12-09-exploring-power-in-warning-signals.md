@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-09 23:03:40
-layout: post
-slug: exploring-power-in-warning-signals
-title: Exploring Power in Warning Signals
-redirects: [/wordpress/archives/559, /archives/559]
 categories:
 - ecology
+comments: true
+date: 2010-12-09T23:03:40Z
+redirects:
+- /wordpress/archives/559
+- /archives/559
+slug: exploring-power-in-warning-signals
 tags:
 - warning-signals
+title: Exploring Power in Warning Signals
+url: /2010/12/09/exploring-power-in-warning-signals/
 ---
 
 Started trying to get the power curves for sample-size and rate of change.  Currently focusing on the transcritical bifurcation model.  This first pass uses just 100 replicates, which appears to be not nearly enough.  Need some troubleshooting on handling to get power curves out.  Scroll through, the set has 65 different images:

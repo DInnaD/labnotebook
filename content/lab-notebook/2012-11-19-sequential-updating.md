@@ -1,10 +1,11 @@
 ---
-layout: post
-tags: [nonparametric-bayes]
-category: ecology
-
+categories:
+- ecology
+date: 2012-11-19T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2012/11/19/sequential-updating/
 ---
-
 
 Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion).  Currently defined as the function recursion:
 

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-07-24 14:11:07
-layout: post
-slug: csgf-2010-hpc-practices-survey-summary
-title: CSGF 2010 Computing Practices Survey Summary
-redirects: [/wordpress/archives/2221, /archives/2221]
 categories:
 - computation
+comments: true
+date: 2011-07-24T14:11:07Z
+redirects:
+- /wordpress/archives/2221
+- /archives/2221
+slug: csgf-2010-hpc-practices-survey-summary
 tags:
 - conference
+title: CSGF 2010 Computing Practices Survey Summary
+url: /2011/07/24/csgf-2010-computing-practices-survey-summary/
 ---
 
 Thanks to everyone who participated in the CSGF 2010 Survey.With too many things going on this year, I didn't conduct a survey at the 2011 Conference.  But as people were asking about the survey, I thought I could at least make last year's summary a bit more accessible.  The following comes from the pdf report I submitted to Krell and a few example figures from data.This year's survey was longer and broader, recieving over 90 responses from fellows and alumni. Thanks to everyone who wrote in useful comments from last year, many appear as multiple choice options this year. This survey started out of my own ignorance about many of the methods and languages discussed at my first CSGF conference. Without what I've picked up from other fellows my answers to most of the survey questions would have been “never heard of it.”

@@ -1,22 +1,10 @@
 ---
-layout: post
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-22T00:00:00Z
 title: CSGF Conference- Tuesday
+url: /2010/06/22/CSGF-Conference-Tuesday/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 [Conference
 Agenda](http://www.krellinst.org/conf/csgf/2010-conference/conference-agenda "http://www.krellinst.org/conf/csgf/2010-conference/conference-agenda")

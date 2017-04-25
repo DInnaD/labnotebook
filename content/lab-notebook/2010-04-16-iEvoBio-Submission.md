@@ -1,15 +1,13 @@
 ---
-layout: post
-tags: [code-tricks, conference ]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-16T00:00:00Z
+tags:
+- code-tricks
+- conference
 title: iEvoBio Submission
+url: /2010/04/16/iEvoBio-Submission/
 ---
-
-
-
-
-
-
 
 ### Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal
 

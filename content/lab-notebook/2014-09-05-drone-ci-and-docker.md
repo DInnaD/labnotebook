@@ -1,8 +1,10 @@
 ---
-layout: post
-category: computation
+categories:
+- computation
+date: 2014-09-05T00:00:00Z
 tags:
 - docker
+url: /2014/09/05/drone-ci-and-docker/
 ---
 
 ## Drone CI: Continous integration in custom docker environments

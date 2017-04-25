@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,112 +140,112 @@
   
   
   <div>
-    <h2><a href="../../2011/07/07/segue-easy-cloud-hpc-in-r-now-with-custom-packages.html">Segue: Easy cloud hpc in R, now with custom packages</a></h2>
-    <h4>Thu, Jul 7, 2011</h4>
+    <h2><a href="../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/"></a></h2>
+    <h4>Thu, Apr 11, 2013</h4>
     <div class="article-style">
       
-      After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages. The package is available on Google code. With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud. For a basic introduction to the package see Jeff Breen&rsquo;s post.
-Quick notes on updating using mercurial: Since I&rsquo;ve already pulled the code using
+      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/07/early-warning-signals-presentation-notes.html">Early warning signals presentation notes</a></h2>
-    <h4>Thu, Jul 7, 2011</h4>
+    <h2><a href="../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h2>
+    <h4>Thu, Apr 11, 2013</h4>
     <div class="article-style">
+      
+      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
+ Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/06/exact-simulation-by-the-gillespie-algorithm.html">Exact Simulation by the Gillespie Algorithm</a></h2>
-    <h4>Wed, Jul 6, 2011</h4>
+    <h2><a href="../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h2>
+    <h4>Wed, Apr 10, 2013</h4>
     <div class="article-style">
       
-      The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
-where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
+      Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
+ Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/06/wednesday-data-wrangling-into-graphs.html">Wednesday: Data wrangling into graphs</a></h2>
-    <h4>Wed, Jul 6, 2011</h4>
+    <h2><a href="../../2013/04/05/a-clever-derivation-on-realized-escape-times/"></a></h2>
+    <h4>Fri, Apr 5, 2013</h4>
     <div class="article-style">
       
-      Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
-running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/05/tuesday-warning-signals-data-wrangling.html">Tuesday: Warning Signals Data Wrangling</a></h2>
-    <h4>Tue, Jul 5, 2011</h4>
+    <h2><a href="../../2013/04/04/notebook-parsing/">Notebook Features: parsing linked data in the semantic notebook</a></h2>
+    <h4>Thu, Apr 4, 2013</h4>
     <div class="article-style">
       
-      Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
- wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
+      In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/04/open-f1000-reviews.html">Open F1000 reviews?</a></h2>
-    <h4>Mon, Jul 4, 2011</h4>
+    <h2><a href="../../2013/04/03/further-examples-managing-tipping-points-with-gp/"></a></h2>
+    <h4>Wed, Apr 3, 2013</h4>
     <div class="article-style">
       
-      Sebastian has started posting article reviews on his website, and invites us (Teary - our theoretical ecology tea mailing list) to do likewise. He uses a rather nifty Jabref converter to display the reviews created as bibtex entries, using the format indicated below.
-These reviews are cross-posted from the reviews he (and associates) submit to Faculty of 1000, a commercial, subscription-based service. While this gives F1000 some publicity directly from his own site, it also means individuals can access these reviews freely.
+      See also:
+ <a href="http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html">http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html</a>  Example with fixed priors on hyperparameters, fixed model type.
+#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2) s2.p &lt;- c(5,5) tau2.p &lt;- c(5,1) d.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) nug.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) # gamma mean s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &lt;- function(x) dinvgamma(x, tau2.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/04/warning-signals-writing-organization-appendices.html">Warning Signals writing, organization, appendices</a></h2>
-    <h4>Mon, Jul 4, 2011</h4>
+    <h2><a href="../../2013/04/02/monday---tuesday/"></a></h2>
+    <h4>Tue, Apr 2, 2013</h4>
     <div class="article-style">
       
-      main text Summary Sentence. Abstract
-Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
+      Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
+ More fishery managment controversy with Halpern et. al. (2013) critiquing the &lsquo;ocean food provision index&rsquo; from Nature last year, and a subset of that team replying Halpern et. al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/01/friday-warning-signals-writing-etc.html">Friday, warning signals writing, etc</a></h2>
-    <h4>Fri, Jul 1, 2011</h4>
+    <h2><a href="../../2013/03/26/research/"></a></h2>
+    <h4>Tue, Mar 26, 2013</h4>
     <div class="article-style">
       
-      9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
-   launched ibm_analysis.R on zero, n10.
- Writing writing&hellip; first full text draft done.
-  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
+      nonparametric-bayes writing writing &hellip;
+multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
+ multiple-uncertainty.m example  Compare to
+ R algorithm example  Matlab code shows the same pattern in which growth noise results in constant escapement, but either implementation or measurement noise cause deviations from this rule (most dramatic in the case of implementation uncertainty).
+Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline intro #78.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/30/thursday-7.html">Thursday: Warning Signals writing, figures, segue</a></h2>
-    <h4>Thu, Jun 30, 2011</h4>
+    <h2><a href="../../2013/03/25/research/"></a></h2>
+    <h4>Mon, Mar 25, 2013</h4>
     <div class="article-style">
       
-      Alan meeting Figure 1: Introducing the ROC Curve Figure 2: Standard approach Figure 3: ROC curves corresponding to standard approach Do we show the distributions? &ndash; Create for each, but log in appendix
-ROC curves corresponding to increased sampling &ndash; our method, other stats? organize how?
-Computational Runs Running at constant sample points rather than sample effort.
- On eleven: n5ibm_stable.R 6pm On zero, n10 drake_analysis.R 6pm On zero, n19 deut_analysis.
+      Reading  (Schreiber &amp; Killingback, 2013 ) (Warren, 2013 )  Notebook  Added SHA hashes. See notebook Issues #67 for details. modification date. #74, also involved resolving page path robustly, #73 analytics on history button, layout #72 push dreamhost-based images to flickr See #75  prosecutor Run with OU based data. Draw from sde package.
+Packages Knitcitations  Feature request for additional markup for page ranges #32  rfigshare  Handle pull request for rfigshare  code-tricks: notes on merging select files from pull request Pull request included changes to files we don&rsquo;t want to change.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort.html">Warning signals: summary statistic performance at varying sampling effort</a></h2>
-    <h4>Wed, Jun 29, 2011</h4>
+    <h2><a href="../../2013/03/22/research/"></a></h2>
+    <h4>Fri, Mar 22, 2013</h4>
     <div class="article-style">
       
-      oikos post launch case of increased sampling on sim data for autocorrelation (is our approach more robust to model differences?)  IBM data Example Using data from the individual-based model simulation of a system approaching a saddle-node.
-Variance While the initial example with variance shows almost no signal, increasing the sampling effort substantially improves the performance. This can be seen in the ROC curves and as a tightening and spreading out of the null and test distributions as the sampling effort is increased.
+      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
       
     </div>
   </div>

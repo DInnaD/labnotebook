@@ -1,13 +1,13 @@
 ---
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2012-09-27T00:00:00Z
+tags:
 - notebook-technology
 - Jekyll
 - code-tricks
-
+url: /2012/09/27/Migrating-OWW-posts-to-Jekyll/
 ---
-
 
 This Open Lab Notebook started on a public MediaWiki-based site, [OpenWetWare](http://openwetware.org) (OWW), which was created with the ambitious vision of having a single wiki for biological sciences (or at least, synthetic microbiology, since such the wiki grew out of a collection of such labs).  Users could have their own pages that served as a personal website or lab group site, contribute pages on specific protocols, host course websites, and most interestingly, were encouraged to create open lab notebooks using specially designed templates for the purpose.  From January through October of 2010, I kept all my notes in two separate OWW notebooks: one for entries on my [Comparative Phylogenetics](http://openwetware.org/wiki/User:Carl_Boettiger/Notebook/Comparative_Phylogenetics) research, and a seperate one for entries in [Stochastic Population Dynamics](http://openwetware.org/wiki/User:Carl_Boettiger/Notebook/Stochastic_Population_Dynamics). Each notebook had a cover page and then entries by day, linked by the calendar box on the cover page.  This was a neat idea an excellent introduction into the world of open lab notebooks.  
 

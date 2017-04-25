@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,116 +140,106 @@
   
   
   <div>
-    <h2><a href="../../1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/29/adaptive-dynamics-simulations/">adaptive-dynamics Simulations</a></h2>
+    <h4>Wed, Dec 29, 2010</h4>
     <div class="article-style">
       
-      Load necessary libraries,
-library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
-library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
+      Setting up some adaptive dynamics simulations to complete the parameter-space search. Currently the demo library contains two files, providing the coexistence-only tests and the full evolutionary simulation. This picks up from Aug 30/Sept 1 on coexistence times and Aug 12&frasl;13 entries on waiting times until branching (while still on OWW).
+coexistence times coexist_times.R creates contour plots of the coexistence time under demographic noise expected at a particular position of the pairwise invasibility plot (PIP).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/actually-starting-at-arkin-lab.html">Actually starting at Arkin Lab</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h2>
+    <h4>Fri, Dec 24, 2010</h4>
     <div class="article-style">
       
-      Meeting with M. Samoilov  Kurtz Theorems: two limits, timescale and system size, often taken in the wrong order in practice. Einstein-Smoluchowski debate regarding Langevin correspondence to Ito vs Statonvich representations resolved: [theorem]. (Statonvich is the more natural interpretation of the way in which we measure data to compare to Langevin. Of course Ito and Stratonvich can be mapped back and forth anyway). Of course this difference doesn&rsquo;t exist, and nothing goes wrong / no stochastic surprises if dynamics are linear.
+      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
+synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/23/writing-cloud-computing-and-scio11/">Writing, Cloud Computing, and #scio11</a></h2>
+    <h4>Thu, Dec 23, 2010</h4>
     <div class="article-style">
       
-      Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
+      Working on a few things in today&rsquo;s lab notebook entry. Some more notes on exploring cloud computing tools, sketching out some ideas for my #scio11 science online panel discussion on open notebook science, and otherwise working on my phylogenetics mansucript.
+Cloud Computing An interesting package was announced over the r-sig-hpc list today, creating an arbitrarily large Hadoop cluster out of Amazon EC2 instances directly from the R command line. JD Long has been very responsive to my naive questions on setting it up, so I was able to quickly activate an Elastic Map Reduce account via Amazon Web Services and run the example code.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/20/sun-visualizing-my-coding-over-the-past-year/">Sun: Visualizing my coding over the past year</a></h2>
+    <h4>Mon, Dec 20, 2010</h4>
     <div class="article-style">
       
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
+      Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the Mendeley&rsquo;s example). So in the spirit of year-in-review reflections, here&rsquo;s my development from the past year (just for the phylogenetic statistics work).
+Quality is a little too poor to read file names, more entertaining than practical. Other user icons appear in December corresponding with my move to running the code from Amazon cloud.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/16/thurs-writing-section-on-comparing-to-aic/">Thurs: writing section on comparing to AIC</a></h2>
+    <h4>Thu, Dec 16, 2010</h4>
     <div class="article-style">
-      
-      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
- seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/15/weds-example-sets-more-ec2/">Weds: Example sets &amp; more EC2</a></h2>
+    <h4>Wed, Dec 15, 2010</h4>
     <div class="article-style">
       
-      Matching theoretical approximations to simulation:
- Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
+      A bit delayed from having to rerun analyses on EC2 (still learning&hellip;) More to run today (lambda trials for Anoles &ndash; should really recode this in C!).
+Trying to decide if its best to start off with the power curves and work backwards or build up from the basics. Probably doesn&rsquo;t matter too much which. Also figuring out which examples to present first:
+Where the painted trees are the following:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/14/tues-phylogenetics-thoughts-while-writing/">Tues: evolution thoughts while writing...</a></h2>
+    <h4>Tue, Dec 14, 2010</h4>
     <div class="article-style">
       
-      Manuscript writing.  Phylogenetics Submitted Lightning talk to iEvoBio
-PDG group will be discussing
- Rabosky DL and Lovette IJ. .&rdquo;) pmid:18611849. PubMed HubMed [1]  tomorrow, along with critique and response.
- Waiting to hear back from Peter on manuscript. Should follow up with Ralph on likelihood ratio discussion with Ethan. Transcluding exploratory work on primate phylogeny data:  Embedded:</p>
-
-<p>Primate Phylogeny Carl Boettiger 00:37, 30 April 2010 (EDT):
+      Again spending most of the day writing. (Maybe) processing some ideas in writing by writing in my notebook as I make my edits.
+Ideas I&rsquo;m trying to get across in today&rsquo;s edits Parameter estimation is more demanding of the data than model choice. Knowing if a value is different from zero is easier than knowing what it is.
+Code updates to-do  Need to add S3 wrapper functions for ouch so both can call montecarlotest() in the pmc package.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/13/back-to-writing/">Back to Writing</a></h2>
+    <h4>Mon, Dec 13, 2010</h4>
     <div class="article-style">
-      
-      Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
- Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/11/citations/">Citations</a></h2>
+    <h4>Sat, Dec 11, 2010</h4>
     <div class="article-style">
       
-      Working on simulation based approach to summarize distribution of waiting times across different phases. What to do about zeros in phase two (when first dimorphism survives long enough to be invaded&hellip;) Quantify number/distribution of failed attempts at each phase? How to represent these distributions across a parameter space in sigma_c, sigma_k, sigma_mu, and mu?  library(BranchingTime) sim &lt;- branching_time(rep=1000, cpu=8) save(file = &quot;run1.Rdat&quot;) pdf(&quot;distribution.pdf&quot;) m &lt;- max(sim$data) plot(density(sim$data[1,]), xlim = c(0,m), col=&quot;black&quot; ) lines(density(sim$data[2,] ), col = &quot;blue&quot;) lines(density(sim$data[3,] ), col = &quot;green&quot;) lines(density(sim$data[4,] ), col = &quot;red&quot;) legend(&lsquo;topright&rsquo;, c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;), col=c(&quot;black&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;), pch = 15) dev.
+      This evening I&rsquo;m testing extensions to find a better way to include citations in my entries. Thus far I&rsquo;ve use Mendeley&rsquo;s convenient copy-paste citation tool to paste the whole citation in, which I suppose could work reasonably smoothly with the nice footnotes plugin I recently adopted. However, this still requires a couple more steps than I need to cite in my LaTeX text editor or in OpenOffice.
+Using the papercite plugin, I can add citations to posts in much the same way that I add them to my latex documents, using the citation key created Mendeley when it makes my bibtex file.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2010/12/11/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools/">socialR: Reproducible Research &amp; Notebook integration with R</a></h2>
+    <h4>Sat, Dec 11, 2010</h4>
     <div class="article-style">
       
-      Wide gap, flat landscape  Waiting times on a flatter landscape: sigma_c ~ sigma_k. Waiting times are dominated by the number of times phase 3 collapses: the established invader in a dimorphic population (right panels). Collapse of phase 2: collapse of the dimorphism before third population can establish is much rarer (about an order of magnitude).   from the run3 dataset, with parameters.  Narrower gap, steeper landscape  with sigma_c &lt;&lt; sigma_k, branching is easy, neither phase is particularly limiting, though single collapses from both phases are very common.
+      I&rsquo;ve created an R package that uses social media tools for reproducible research. The goal of the package is this: whenever I run a code, output figures are automatically added to my figure repository (Flickr), linked to the timestamped version of the code that produced them in the code repository. Figures should be tagged by project and be embedded selectively or automatically into this lab notebook. The basic workflow of the notebook looks like this:[ref]Diagram of my notebook as presented at Science Online, 2011, see other slides in my entry on this.
       
     </div>
   </div>

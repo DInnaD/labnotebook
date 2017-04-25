@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-03-19 20:52:26
-layout: post
-slug: warning-signals-examples-and-tracking-graphs
-title: Warning Signals examples and tracking graphs
-redirects: [/wordpress/archives/1228, /archives/1228]
 categories:
 - ecology
+comments: true
+date: 2011-03-19T20:52:26Z
+redirects:
+- /wordpress/archives/1228
+- /archives/1228
+slug: warning-signals-examples-and-tracking-graphs
 tags:
 - warning-signals
+title: Warning Signals examples and tracking graphs
+url: /2011/03/19/warning-signals-examples-and-tracking-graphs/
 ---
 
 Working on more examples for the notebook.  Currently exploring a collection of simulated examples.  In particular, would be useful to have simulated examples that look as realistic in data-density as possible (i.e. fewer sample points, also shorter sampling interval relative to timescale, so doesn't look like a fuzzy caterpillar.  Second, would be good to include examples on data simulated from non-linearized systems made to represent some richer bifurcation examples.  Finally it would be good to include as many real-data examples as reasonable.

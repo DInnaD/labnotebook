@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-07 22:42:08
-layout: post
-slug: mapping-out-sicb-presentation-is-your-phylogeny-informative
-title: 'Mapping out SICB Presentation: Is your phylogeny informative?'
-redirects: [/wordpress/archives/535, /archives/535]
 categories:
 - evolution
+comments: true
+date: 2010-12-07T22:42:08Z
+redirects:
+- /wordpress/archives/535
+- /archives/535
+slug: mapping-out-sicb-presentation-is-your-phylogeny-informative
+title: 'Mapping out SICB Presentation: Is your phylogeny informative?'
+url: /2010/12/07/mapping-out-sicb-presentation-is-your-phylogeny-informative/
 ---
 
 Assembling material/outline for my SICB presentation in January, will be giving a practice talk in the Wainwright lab on Wednesday.  15 minute presentation with 5 minutes for questions.

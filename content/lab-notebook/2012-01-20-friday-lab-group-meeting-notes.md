@@ -1,12 +1,14 @@
 ---
+categories:
+- ecology
 comments: true
-date: 2012-01-20 17:09:09
-layout: post
+date: 2012-01-20T17:09:09Z
+redirects:
+- /wordpress/archives/3694
+- /archives/3694
 slug: friday-lab-group-meeting-notes
 title: Friday (lab group meeting notes)
-redirects: [/wordpress/archives/3694, /archives/3694]
-categories:
-- ecology 
+url: /2012/01/20/friday-lab-group-meeting-notes/
 ---
 
 Theme inspired by Jane Lubchenco's talk last week: how do we connect science to management?  We're breaking down this topic, with individual leaders for each week, as follows:

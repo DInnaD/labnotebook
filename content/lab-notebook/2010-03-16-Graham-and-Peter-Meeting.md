@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-16T00:00:00Z
 title: Graham & Peter Meeting
+url: /2010/03/16/Graham-and-Peter-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Discussed inverse problem approach.
 -   Discussed bootstrapping likelihoods directly vs bootstrapping

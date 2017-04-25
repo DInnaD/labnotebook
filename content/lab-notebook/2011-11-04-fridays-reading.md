@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-11-04 13:14:24
-layout: post
-slug: fridays-reading
-title: Friday's reading
-redirects: [/wordpress/archives/3145, /archives/3145]
 categories:
 - ecology
 - evolution
+comments: true
+date: 2011-11-04T13:14:24Z
+redirects:
+- /wordpress/archives/3145
+- /archives/3145
+slug: fridays-reading
 tags:
 - reading
+title: Friday's reading
+url: /2011/11/04/fridays-reading/
 ---
 
 ## Reading

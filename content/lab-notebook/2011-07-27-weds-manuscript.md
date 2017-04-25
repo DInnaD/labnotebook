@@ -1,14 +1,14 @@
 ---
-comments: true
-date: 2011-07-27 22:38:55
-layout: post
-slug: weds-manuscript
-title: 'Weds: Manuscript'
 categories:
 - ecology
+comments: true
+date: 2011-07-27T22:38:55Z
+slug: weds-manuscript
 tags:
 - warning-signals
 - delayed-release
+title: 'Weds: Manuscript'
+url: /2011/07/27/weds-manuscript/
 ---
 
 I've removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:

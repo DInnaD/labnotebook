@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-30T00:00:00Z
 title: Open Science Summit day 2
+url: /2010/07/30/Open-Science-Summit-day-2/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Full day (really -- no breaks, lunch served during talks) of talks at
 the open science summit...

@@ -1,11 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-07-28T00:00:00Z
+tags:
 - nonparametric-bayes
 - code-tricks
+url: /2013/07/28/nonparametric-bayes-wrapping-up-sensitivity/
 ---
-
 
 Remote RStudio configuration (keep forgetting options and ports).  
 

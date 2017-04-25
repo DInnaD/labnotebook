@@ -1,9 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
-  - warning-signals
-  - my-publications
+categories:
+- ecology
+date: 2013-01-12T00:00:00Z
+tags:
+- warning-signals
+- my-publications
+url: /2013/01/12/tipping-points-comment-in-nature/
 ---
 
 On Wednesday my comment piece with Alan, [*Tipping points: from patterns to predictions*](http://www.nature.com/nature/journal/v493/n7431/full/493157a.html) appeared in Nature (next to a nice [comment by Heather Piwowar](http://www.nature.com/nature/journal/v493/n7431/full/493159a.html) on NSF's move to recognizing products of research more broadly than publications alone).  

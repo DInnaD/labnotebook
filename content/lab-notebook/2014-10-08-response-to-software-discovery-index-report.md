@@ -1,9 +1,10 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2014-10-08T00:00:00Z
 tags:
 - blog
-
+url: /2014/10/08/response-to-software-discovery-index-report/
 ---
 
 The NIH has recently announced the

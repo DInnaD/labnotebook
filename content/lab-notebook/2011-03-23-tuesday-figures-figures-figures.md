@@ -1,13 +1,13 @@
 ---
-date: 2011-03-23 10:37:35
-layout: post
-modified: 2013-02-22
-title: 'Tuesday: Figures, figures, figures'
 categories:
-- ecology 
+- ecology
+date: 2011-03-23T10:37:35Z
+modified: 2013-02-22
 tags:
 - warning-signals
 - delayed-release
+title: 'Tuesday: Figures, figures, figures'
+url: /2011/03/23/tuesday-figures-figures-figures/
 ---
 
 Today working mostly on selecting examples of data sets to include in the figure patterns.  Working with the idea of three figures -- data, bootstraps of Tau, bootstraps of likelihood -- in panels for several examples: some real data sets and some simulated data sets with and without warning.  In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.

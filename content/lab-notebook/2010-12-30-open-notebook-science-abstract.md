@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-30 17:54:37
-layout: post
-slug: open-notebook-science-
-title: Open Notebook Science Abstract
-redirects: [/wordpress/archives/706, /archives/706]
 categories:
 - open-science
+comments: true
+date: 2010-12-30T17:54:37Z
+redirects:
+- /wordpress/archives/706
+- /archives/706
+slug: open-notebook-science-
+title: Open Notebook Science Abstract
+url: /2010/12/30/open-notebook-science-abstract/
 ---
 
 In addition to my primary research categories, I make some entries in my lab notebook  to document and reflect on my experiment in open notebook science.  This includes my notes on tools I try out for open and collaborative science, including uses of social media, cloud computing, and scientific databases and repositories.

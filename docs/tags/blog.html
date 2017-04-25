@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,109 +141,110 @@
   
   
   <div>
-    <h2><a href="../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook.html">knitr, github, and a new phase for the lab notebook</a></h2>
-    <h4>Wed, Mar 21, 2012</h4>
+    <h2><a href="../2014/11/03/three-interfaces-for-docker/"></a></h2>
+    <h4>Mon, Nov 3, 2014</h4>
     <div class="article-style">
       
-      I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&rsquo;t say where in the script the command came from, and it required manually specifying the script name).
+      Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/20/citing-r-packages.html">Citing R packages</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
+    <h2><a href="../2014/10/08/response-to-software-discovery-index-report/"></a></h2>
+    <h4>Wed, Oct 8, 2014</h4>
     <div class="article-style">
       
-      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
-citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
+      The NIH has recently announced the report of a landmark meeting which presents a vision for a Software Discovery Index (SDI). The report is both timely and focused on the key issues of locating, citing, reusing software:
+ Software developers face challenges disseminating their software and measuring its adoption. Software users have difficulty identifying the most appropriate software for their work. Journal publishers lack a consistent way to handle software citations or to ensure reproducibility of published findings.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration.html">Journey to freedom - a code&#39;s tale of open source license migration</a></h2>
-    <h4>Tue, Jan 31, 2012</h4>
+    <h2><a href="../2014/09/05/thoughts-on-harte-interview/"></a></h2>
+    <h4>Fri, Sep 5, 2014</h4>
     <div class="article-style">
       
-      My software wants to be free. It wants to be seen and used and loved by as many people as possible. When first it heard of open source licenses, it set sail to join the company of great software in the promised land, but finding true freedom has been a tortured journey.
-In the clutches of the GPL Created and defended by the Free Software Foundation and used by such venerable institutions as the Linux Kernel, the gcc compiler, and the R statistical environment, the GNU&rsquo;s General Public License seemed like a gold standard to call home.
+      Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
+ From general laws flow absolutely bullet-proof insights and this is what we most need
+ I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/01/16/are-open-lab-notebooks-considered-prior-publication.html">Are open lab notebooks considered prior publication?</a></h2>
-    <h4>Mon, Jan 16, 2012</h4>
+    <h2><a href="../2014/08/14/docker-notes/"></a></h2>
+    <h4>Thu, Aug 14, 2014</h4>
     <div class="article-style">
       
-      This question invariably comes up at some point in any discussion of open notebook science. This concern is usually voiced in reference to the high-visibility magazines, which many scientists seem to assume will have very restrictive conditions. A quick read of their policies shows otherwise. Here are the links to pre-publication policies of major journals, with my short summaries &amp; comments.
-Nature - Go right ahead. Explicit protection clause for open/collaborative blogs/wikis.
+      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/09/09/how-google-views-me-by-search-terms-or-citation-counts.html">How google views me: by search terms or citation counts?</a></h2>
-    <h4>Fri, Sep 9, 2011</h4>
+    <h2><a href="../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h2>
+    <h4>Fri, Aug 8, 2014</h4>
     <div class="article-style">
       
-      How Google search views me: here&rsquo;s a word cloud of search terms reaching my site in August. Word cloud produced with R: click-through for link to source-code. Uses the rather convenient tm package for text-mining functions in R. Note that this shows the frequency of individual words used in searches, rather than the whole search term.
-Code:
-require&trade; require(wordcloud) require(RColorBrewer) carl &lt;- read.csv(&quot;searchterms.csv&quot;, colClasses=c(&quot;character&quot;, &quot;numeric&quot;)) words &lt;- character(sum(carl[[2]])) m &lt;- 1 for(i in 1:length(carl[[1]])){ n &lt;- carl[[2]][i] x &lt;- carl[[1]][i] words[m:(m+(n-1))] &lt;- rep(x, n) m &lt;- m+n } carl &lt;- Corpus(DataframeSource(carl)) carl &lt;- tm_map(carl, removePunctuation) carl &lt;- tm_map(carl, tolower) carl.
+      An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
+I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
+docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/02/16/citation-tools-future-of-publishing.html">Citation tools &amp; Future of Publishing</a></h2>
-    <h4>Wed, Feb 16, 2011</h4>
+    <h2><a href="../2014/08/07/too-much-fun-with-docker/"></a></h2>
+    <h4>Thu, Aug 7, 2014</h4>
     <div class="article-style">
       
-      There has been a lot of rapid development in scientific tools based on a Wordpress platform recently, perhaps spurred in part by the recent Beyond-the-PDF and sessions in Science Online conferences. A new discussion group has emerged around these tools, as described by Martin Fenner.
-I have been exploring better tools for citation management within my lab notebook. Recently I have been using the papercite plugin to add citations from my BibTeX files, which are generated from Mendeley, as I described earlier.
+      NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
+Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
+I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/02/16/data-mangement-on-uc3-merritt-repository.html">Data Mangement on UC3 Merritt Repository</a></h2>
-    <h4>Wed, Feb 16, 2011</h4>
+    <h2><a href="../2014/06/04/is-statistical-software-harmful/">Is statistical software harmful?</a></h2>
+    <h4>Wed, Jun 4, 2014</h4>
     <div class="article-style">
       
-      I&rsquo;ve been trying to learn a little more about the potential for data management solutions through the UC3 Merritt repository, and decide how this compares to commercial alternatives such as Amazon S3, Picasa/Flickr (obviously for images only), and field-specific and publication specific repositories such as Dryad. Merritt email support have been very helpful in answering my questions and concerns.
- Persistence: of the data itself, of the URLs &amp; object identifiers, of access to the data?
+      Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
+Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/02/01/the-future-of-data-preparing-researchers-to-face-new-funding-and-publishing-policies.html">The Future of Data: Plans for a UC Davis workshop</a></h2>
-    <h4>Tue, Feb 1, 2011</h4>
+    <h2><a href="../2014/05/30/plos-data-sharing-policy-reflections/"></a></h2>
+    <h4>Fri, May 30, 2014</h4>
     <div class="article-style">
       
-      I have been working with several of the faculty of UC Davis to prepare a workshop for our department to (1) help make our researchers aware of the new requirements for NSF proposals and journal submissions with regard to data archiving, (2) To explore what new opportunities this creates and what tools exist that will help our researchers take maximum advantage of it, and (3) to engage our research community in the discussion of future standards for sharing, standardizing, rewarding and funding the archiving of data.
+      PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
+At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2011/01/15/reflections-from-scio11-saturdays-open-science-track.html">Reflections from #scio11: Saturday&#39;s Open Science Track</a></h2>
-    <h4>Sat, Jan 15, 2011</h4>
+    <h2><a href="../2014/05/07/integrating-github-project-repos-into-the-notebook/"></a></h2>
+    <h4>Wed, May 7, 2014</h4>
     <div class="article-style">
       
-      Have just returned from the amazing and energetic science online 2011 conference, where I will now, like the rest of the attendees, turn to catching up on sleep, following new online acquaintances, struggling not to append #scio11 to everything I write, and composing that nearly obligatory post-event blog entry we all use like a glass of water after a party; with the hope in may help me metabolize the experience.
+      For a while now most of my active research is developed through .Rmd scripts connected to a particular project repository (something I discuss at length in deep challenges with knitr workflows). In the previous post I discuss creating a template package with a more transparent organization of files, such as moving manuscripts from inst/doc/ to simply manuscripts/. This left these exploratory analysis scripts in inst/examples in a similarly unintuitive place.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2010/12/03/nsf-and-journal-data-archiving.html">Thoughts on the New Policies for Data Archiving at NSF and in Common Journals</a></h2>
-    <h4>Fri, Dec 3, 2010</h4>
+    <h2><a href="../2014/05/06/steps-to-a-more-portable-workflow/"></a></h2>
+    <h4>Tue, May 6, 2014</h4>
     <div class="article-style">
       
-      This post is a work in progress, a scratch pad for me to start assembling what I&rsquo;ve been learning about and resources pertaining to the new policies emerging from NSF and journals relevant to ecology and evolution. Hoping to highlight not only the policies, but the issues, opportunities, and concerns around them.
-I am hoping to help organize a workshop to discuss these issues in my department this Winter. The Davis Open Science group, is planning a series of these workshops, hoping to work with departments, the libraries and the UC Davis Office of Research and its Responsible Conduct of Research  program (in compliance with NIH/NSF ethics requirements), as well as resident faculty and editors.
+      While I have made my workflow for most of my ongoing projects available on Github for some time, this does not mean that it has been particularly easy to follow. Further, as I move from project to project I have slowly improved how I handle projects. For instance, I have since added unit tests (with testthat) and continuous integration (with travis-ci) to my repositories, and my handling of manuscripts has gotten more automated, with richer latex templates, yaml metadata, and simpler and more powerful makefiles.
       
     </div>
   </div>

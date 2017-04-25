@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-02-04 18:30:12
-layout: post
-slug: warning-signals-hpc
-title: Warning signals & hpc
-redirects: [/wordpress/archives/938, /archives/938]
 categories:
 - ecology
+comments: true
+date: 2011-02-04T18:30:12Z
+redirects:
+- /wordpress/archives/938
+- /archives/938
+slug: warning-signals-hpc
 tags:
 - warning-signals
+title: Warning signals & hpc
+url: /2011/02/04/warning-signals-computing/
 ---
 
 Morning has been rather difficult trying to get simulations up and running.  Parallel library isn't running on zero or one, variety of errors that seemed to be machine dependent and reminiscent of the ~./sfCluster problem, 3 hrs of debugging revealed this was indeed just a bug in my updated code.  (In changing to my object-oriented simulate.gauss and update.gauss functions rather than calling the specific functions directly I hadn't updated all the function calls).

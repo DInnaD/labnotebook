@@ -1,11 +1,9 @@
 ---
-layout: post
-category: ecology
-
+categories:
+- ecology
+date: 2014-11-13T00:00:00Z
+url: /2014/11/13/discrete-grid-notes/
 ---
-
-
-
 
 Smoothing post-policy calc?
 

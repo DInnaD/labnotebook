@@ -1,13 +1,14 @@
 ---
-layout: post
-title: "Deep challenges to dynamic documentation in daily workflows"
-category: open-science
+categories:
+- open-science
+date: 2014-05-05T00:00:00Z
 tags:
 - blog
 - open-science
 - workflow
 - R
-
+title: Deep challenges to dynamic documentation in daily workflows
+url: /2014/05/05/knitr-workflow-challenges/
 ---
 
 We often discuss dynamic documents such as `Sweave` and `knitr` in reference

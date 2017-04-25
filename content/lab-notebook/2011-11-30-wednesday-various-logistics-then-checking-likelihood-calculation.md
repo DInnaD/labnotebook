@@ -1,19 +1,21 @@
 ---
-comments: true
-date: 2011-11-30 20:20:42
-layout: post
-slug: wednesday-various-logistics-then-checking-likelihood-calculation
-title: Wednesday - various logistics, then checking likelihood calculation
-redirects: [/wordpress/archives/3419, /archives/3419]
 categories:
-- ecology 
+- ecology
 - evolution
-tags: 
+comments: true
+date: 2011-11-30T20:20:42Z
+redirects:
+- /wordpress/archives/3419
+- /archives/3419
+slug: wednesday-various-logistics-then-checking-likelihood-calculation
+tags:
 - ropensci
 - seminar
 - warning-signals
 - pmc
 - pdg-control
+title: Wednesday - various logistics, then checking likelihood calculation
+url: /2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/
 ---
 
 ## rOpenSci

@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2012-03-29 12:08:51
-layout: post
-slug: data-to-knowledge-conference-uc-berkeley-application-
-title: 'Data to Knowledge Conference, UC Berkeley: application '
-redirects: [/wordpress/archives/4390, /archives/4390]
 categories:
 - ecology
+comments: true
+date: 2012-03-29T12:08:51Z
+redirects:
+- /wordpress/archives/4390
+- /archives/4390
+slug: data-to-knowledge-conference-uc-berkeley-application-
 tags:
-- 
+- null
 - conference
+title: 'Data to Knowledge Conference, UC Berkeley: application '
+url: /2012/03/29/data-to-knowledge-conference-uc-berkeley-application-abstract/
 ---
 
 I've just been accepted to the [Data to Knowledge Conference](http://lyra.berkeley.edu/CDIConf/registration.html) in Berkeley this May.  I think this conference will address some of the key issues facing us in Big Data today across many different fields, and I hope to learn much that could be useful to ecology and evolution.  Given the audience I look forward to being a source of questions rather than answers as I put on my biologist's cap.  Berkeley's particular leadership in this area is probably evident in the millions of dollars they are receiving from the various initiatives coming out of today's Big Data [announcement](http://www.whitehouse.gov/blog/2012/03/29/big-data-big-deal).  What better day to apply?

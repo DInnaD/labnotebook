@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,118 +140,116 @@
   
   
   <div>
-    <h2><a href="../../2011/06/29/warning-signals-writing.html">Warning Signals writing</a></h2>
-    <h4>Wed, Jun 29, 2011</h4>
+    <h2><a href="../../2013/03/20/research/"></a></h2>
+    <h4>Wed, Mar 20, 2013</h4>
     <div class="article-style">
+      
+      pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/27/monday-warning-signals-manuscript.html">Monday: Warning Signals Manuscript</a></h2>
-    <h4>Mon, Jun 27, 2011</h4>
+    <h2><a href="../../2013/03/19/prosecutor-fallacy-as-large-deviations/"></a></h2>
+    <h4>Tue, Mar 19, 2013</h4>
     <div class="article-style">
       
-      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
-Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
-Analyses  Maximization algorithm failing at initial conditions on deut2
+      (Corresponds to commit 4bd8422107 in earlywarning repo)
+For the individual-based simulation, the population dynamics are given by
+$$\begin{align} \frac{dP(n,t)}{dt} &amp;= b{n-1} P(n-1,t) + d{n+1}P(n+1,t) - (b_n+d_n) P(n,t), b_n &amp;= \frac{e K n^2}{n^2 + h^2}, d_n &amp;= e n + a, \end{align}$$
+which is provided by the saddle_node_ibm model in populationdynamics.
+For each of the warning signal statistics in question, we need to generate the distibution over all replicates and then over replicates which have been selected conditional on having experienced a crash.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/22/ievobio-day-2.html">#ievobio Day 2</a></h2>
-    <h4>Wed, Jun 22, 2011</h4>
+    <h2><a href="../../2013/03/19/collected-notes/">Collected notes from past few days</a></h2>
+    <h4>Tue, Mar 19, 2013</h4>
     <div class="article-style">
       
-      Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it&rsquo;s way to the web:
- Nico Cellinese
- Scott Chamberlain
- Rob Guralnick
-  Meanwhile, my scratchpad of notes from day 2, tweet-style.
-My Lightning Talk Gave my lightning talk in this session, slides:
-R interface to TreeBASE
+      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/21/evolution-day-4-ievobio-day-1.html">Evolution Day 4 / #ievobio Day 1</a></h2>
-    <h4>Tue, Jun 21, 2011</h4>
+    <h2><a href="../../2013/03/14/notes/"></a></h2>
+    <h4>Thu, Mar 14, 2013</h4>
     <div class="article-style">
       
-      Start of the ievobio conference, simultaneously the forth day of evolution. ievobio conference was very busy, luckily given the nature of the conference it is also largely well documented online. My notes are again archived primarily in tweet form below. My personal highlights of the day included the Keynote by Cladio Silva on Provenance &ndash; essentially supporting reproducible research workflows &ndash; and examples through his vistrails software, and Mark Yoder&rsquo;s demonstration of mx at the software bazaar.
+      Writing  Meeting with Steve over outline Writing on nonparametric-bayes manuscript A few notes on notebook-features draft  Reading  EasyABC by Jabot et. al. (2013). While it&rsquo;s great that MEE publishes this stuff, this is unique in that the authors are updating and improving upon an existing package published by MEE the year before, Brook et. al. (2013). The authors of the recent manuscript have certainly made an important contribution which deserves the traditional recognition provided by a separate publication, but one must wonder why we need another package instead of building on the existing one.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/20/evolution-day-3.html">Evolution Day 3</a></h2>
-    <h4>Mon, Jun 20, 2011</h4>
+    <h2><a href="../../2013/03/13/notes/"></a></h2>
+    <h4>Wed, Mar 13, 2013</h4>
     <div class="article-style">
       
-      Talks  David Babst: Patterns of diversification on large species level supertree of extinct graptolites &ndash; Actually, more on methods for making such a supertree for extinct taxa than on diversification analysis, but excellent talk.
- Gene Hunt: _Using fossils to test the link between speciation and phenotypic evolution &ndash; _another highlight of the talks, really looking at cladeogeneic vs anaogenic models of evolutionary change, modifying the approach of Folmer Bokma
+      Multiple-uncertainty  Created smaller version of table to simplify comparisons Switched to stationary policy comparisons only. (Running out over longer time shifts total value a bit but doesn&rsquo;t amplify scale of the differences much) Larger noise amplifies the effects (compare 0.3 levels to 0.5 levels) note that averaging over replicates gives rather consistent means. The differences between successive runs of the algorithm give results agreeing to the tenths place at least.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/20/slides-from-my-talk-at-evolution-2011.html">Slides from my talk at Evolution 2011</a></h2>
-    <h4>Mon, Jun 20, 2011</h4>
+    <h2><a href="../../2013/03/12/notes/"></a></h2>
+    <h4>Tue, Mar 12, 2013</h4>
     <div class="article-style">
       
-      A general model of continuous character evolution [iframe <a href="http://www.slideshare.net/slideshow/embed_code/8371419">http://www.slideshare.net/slideshow/embed_code/8371419</a> 425 355]
-View more presentations from Carl Boettiger
-As highlighted in the last slide (following acknowledgments), clicking on the results graphs will take you to the image repository, which records when the result was generated in my workstream, and provides a link to the script, software package and data to replicate. Code is parallel, examples shown took between 2 and 12 hours on a 16-core cpu.
+      Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
+  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/19/evolution-day-2.html">Evolution Day 2</a></h2>
-    <h4>Sun, Jun 19, 2011</h4>
+    <h2><a href="../../2013/03/08/notes-from-the-week/"></a></h2>
+    <h4>Fri, Mar 8, 2013</h4>
     <div class="article-style">
       
-      Second day of the conference. Many of the talks I most want to see are coming up Monday and Tuesday, and I have a bit more to do to prepare my own talk, so I take it a bit light on sessions. Highlight of the day was definitely the discussion with Mark McPeek and the other journal editors during and following the &ldquo;Happy hour with the editors&rdquo; session, which was perhaps the best event of the conference, despite a rather unimpressive attendance.
+      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/18/evolution-conference-day-1.html">Evolution Conference Day 1</a></h2>
-    <h4>Sat, Jun 18, 2011</h4>
+    <h2><a href="../../2013/03/02/delayed-release-archives/"></a></h2>
+    <h4>Sat, Mar 2, 2013</h4>
     <div class="article-style">
       
-      Morning Sessions SSB Symposium 8:30 - noon: Unified Approaches for Understanding Patterns of Character Evolution and Diversification  Stacey Smith (U. of Nebraska-Lincoln) and Boris Igic (U.of Illinois-Chicago) - &ldquo;Introduction to models of character state-dependent diversification&rdquo;  Introduces the BiSSE model.
- Richard Fitzjohn (U. of British Columbia) - &ldquo;Stochastic mapping incorporating differential diversification&rdquo;  BiSSE comparison to traditional discrete-trait transition rate which ignores the correlation.
- Folmer Bokma (Umeå University) - &ldquo;Estimating speciation and extinction with incomplete phylogenies&rdquo;   Emma Goldberg (University of Illinois-Chicago) - &ldquo;Modes of speciation and character change from phylogenetic trees&rdquo;
+      Today I dug out a handful (37) posts from the past two years that were published as #delayed-release content (and have all been tagged as such to indicate they were not public at their publication date). Many of these were connected to the #warning-signals project but involved results that I or Alan weren&rsquo;t ready to provide ahead of publication, as I discussed in a post when I first began marking some posts for delayed release, challenges with collaboration in open science These posts were created while on the Wordpress platform and had been marked private, so that they would be invisible to public browsing.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples.html">Friday: more labrid &amp; parrotfish wrightscape examples</a></h2>
-    <h4>Fri, Jun 17, 2011</h4>
+    <h2><a href="../../2013/02/28/notes/"></a></h2>
+    <h4>Thu, Feb 28, 2013</h4>
     <div class="article-style">
       
-      Runs from yesterday: MLE comparison of full labrid pharyngeal innovation (all parrotfish), alpha-v-sigma: Unfortunately, the all-variable mcmc over labrid tree was unsuccessful.
-Pure-brownie vs pure diversification ends up with the surprisingly opposite conclusion from the sigmas-alphas on parrotfish close ratio:
-Clearly a convergence problem but with which model? (see parameter distributions adjacent; following in photostream archive).
-Luckily this is not the case in the full labrid (size-corrected, protrusion, pharyngeal innovation) model set:
+      Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
+ classical approaches are to fix relationship of stock recruitment.
+ parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
+ A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
+ How much data we need.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres.html">Wrightscape labrid/parrotfish results; Evolution pres</a></h2>
-    <h4>Thu, Jun 16, 2011</h4>
+    <h2><a href="../../2013/02/27/notes/"></a></h2>
+    <h4>Wed, Feb 27, 2013</h4>
     <div class="article-style">
       
-      Analysis Summarizing recently completed runs:  Reviewing last night&rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&rsquo;t seem to want to run)
- the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
-  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
-Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&rsquo;s when theta could also vary.
+      Reviewing arg, reviewing. so much time.
+Seminar Kate Richerson gave a fanstastic presentation to mega group yesterday showing her integration of behavior and dispersal in krill dynamics. She derives the krill&rsquo;s behavioral movement patterns through a stochastic dynamic programming solution rather than just dictate it to the dispersal model directly.
+Reading .
+ Provicative stuff in PNAS Perretti et. al. (2013). It would be nice to see the comparison against the generating model.
       
     </div>
   </div>

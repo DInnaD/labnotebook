@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-20 22:31:42
-layout: post
-slug: tuesday-active-adaptive-management-a-first-solution
-title: 'Tuesday: active adaptive management, a first solution'
-redirects: [/wordpress/archives/4311, /archives/4311]
 categories:
 - ecology
+comments: true
+date: 2012-03-20T22:31:42Z
+redirects:
+- /wordpress/archives/4311
+- /archives/4311
+slug: tuesday-active-adaptive-management-a-first-solution
 tags:
 - pdg-control
+title: 'Tuesday: active adaptive management, a first solution'
+url: /2012/03/20/tuesday-active-adaptive-management-a-first-solution/
 ---
 
 Spent way more of today than I wanted to hammering out the active adaptive management implementation for a trivial model-choice problem using the discretized belief-SDP approach.  

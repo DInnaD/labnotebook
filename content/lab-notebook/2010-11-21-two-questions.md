@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-21 21:53:44
-layout: post
-slug: two-questions
-title: Two questions
-redirects: [/wordpress/archives/386, /archives/386]
 categories:
 - evolution
+comments: true
+date: 2010-11-21T21:53:44Z
+redirects:
+- /wordpress/archives/386
+- /archives/386
+slug: two-questions
+title: Two questions
+url: /2010/11/21/two-questions/
 ---
 
 I've been thinking about a few elements of the Monte Carlo approach that seem to be particularly subtle in interpretation. Thought I'd write them out here as a separate examples to help think through them.  Thoughts?

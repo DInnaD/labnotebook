@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-06 21:24:00
-layout: post
-slug: follow-up-from-fri-discussions-revisiting-post-predictive-evaluation
-title: 'follow up from Fri discussions: Revisiting post-predictive evaluation'
-redirects: [/wordpress/archives/523, /archives/523]
 categories:
 - evolution
+comments: true
+date: 2010-12-06T21:24:00Z
+redirects:
+- /wordpress/archives/523
+- /archives/523
+slug: follow-up-from-fri-discussions-revisiting-post-predictive-evaluation
+title: 'follow up from Fri discussions: Revisiting post-predictive evaluation'
+url: /2010/12/06/follow-up-from-fri-discussions-revisiting-post-predictive-evaluation/
 ---
 
 A few weeks ago, a seminar prompted me to take a closer look at a particular post-predictive evaluation technique applied reasonably often in our recent literature,[ see earlier entry](http://www.carlboettiger.info/archives/299).  I think by phrasing the approach more concisely and precisely it will be clear what the difficulty is.

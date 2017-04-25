@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,113 +140,117 @@
   
   
   <div>
-    <h2><a href="../../2011/04/16/friday-4.html">Friday</a></h2>
-    <h4>Sat, Apr 16, 2011</h4>
+    <h2><a href="../../2012/09/19/migrating-from-wordpress-to-jekyll/"></a></h2>
+    <h4>Wed, Sep 19, 2012</h4>
     <div class="article-style">
       
-      Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
- UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.
+      Thanks to a recent bugfix in the exitwp scripts I was able to export all my Wordpress entries. The script pulls the entries from the Wordpress database and formats them in markdown, along with extracting all metadata such as timestamp, tags, categories, publication status, and Wordpress id number, which are all embedded as YAML header information.
+Why migrate the old entries? When I moved to the Jekyll notebook, I left the Wordpress site standing with all its existing content and simply remapped the home pages.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/13/weds-final-round-edits.html">Weds: Final round edits</a></h2>
-    <h4>Wed, Apr 13, 2011</h4>
+    <h2><a href="../../2012/09/19/prosecutors-fallacy/"></a></h2>
+    <h4>Wed, Sep 19, 2012</h4>
     <div class="article-style">
+      
+      Two years ago, I scribbled an entry into my notebook entitled Wrong Picture, Wrong Model: Why warning signals don&rsquo;t look like rare events. Months later I made some off-hand remark to Alan (my Ph.D. mentor) about how transitions found in historical records, such as the Climate examples in Dakos et. al. (2008), could actually be selecting for stochastic transitions, and this selection process might make them look like traditional warning signals &ndash; i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/12/tuesday-manuscript-and-appendix-edits.html">Tuesday: manuscript and appendix edits</a></h2>
-    <h4>Tue, Apr 12, 2011</h4>
+    <h2><a href="../../2012/09/14/analytic-solution-to-multiple-uncertainty/"></a></h2>
+    <h4>Fri, Sep 14, 2012</h4>
     <div class="article-style">
       
-      Today&rsquo;s log  Edited cover letter summary for public.
- Soliciting feedback on examples in manuscript vs appendix, see Monday&rsquo;s entry. (Entry posted, images added to flickr database)
- Jeff fixed the double-post bug in twitteR, tested update.
- Improved initialization estimates for LSN model in fit_models (code), as identified &amp; discussed in Sunday&rsquo;s entry. Needs testing on a unit case, trying on ibm_analysis.R now&hellip; seems to work fine.
+      No idea where I went wrong, but the final graphs are not what I expected Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions
+We consider adding additional sources of noise through observation error and implementation error to the orginal model of Reed (1979), which considers only growth error. This follows in the line of exploration taken by Clark and Kirkwood (1987), Roughgarden (1996) and Sethi (2006).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/12/a-bit-of-work-on-my-socialr-package-for-reproducible-research.html">A bit of work on my socialR package for reproducible research</a></h2>
-    <h4>Tue, Apr 12, 2011</h4>
-    <div class="article-style">
-      
-      A few small updates on my socialR package, (continued from my earlier entries) which should hopefully help it evolve from a personal tool to a portable package one day. Starting by incorporating support for native R packages to handle the API interface to flickr, twitter, and github, rather than just calling command-line scripts. Jeff Gentry has just released an ROAuth package for authentication, which can be used by his twitteR package.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2011/04/11/monday-warning-signals-updated-graphs.html">Monday: Warning Signals - Updated graphs</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
-    <div class="article-style">
-      
-      Trying a different set-up for the graphs. Added two additional datasets, trying layout of making all three figures into a panels in a single figure.
-Concerns:
- Better than only one empirical example, but not sure that the three Glaciation data sets add that much since they are all quite similar. Five panels wide might be too much. Don&rsquo;t have an example where a transition is about to occur but the data doesn&rsquo;t have adequate power even for our Likelihood method, third panel.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2011/04/11/monday-abc-meeting-2.html">Monday: algorithms Meeting</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
-    <div class="article-style">
-      
-      Yaniv has started an algorithms discussion group. We just met with a few students to discuss implementing Approximate Bayesian Computing methods from scratch. Most of us had read (Beaumont, 2010) and (Csilléry et. al. 2010) but also followed [cite source=&ldquo;pubmed&rdquo;]12524368[/cite] most helpful during the session.
-[gist id=914487]
-This gets us as far as the regression step, Figure 1 of (Csilléry et. al. 2010). This in part distinguishes the approach from simple rejection sampling.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2011/04/11/sunday-warning-signals-edits-continue.html">Sunday: Warning signals edits continue</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
-    <div class="article-style">
-      
-      Marissa edits &ndash; Nearly done
- Single-figure layout &ndash; DONE
- equations in appendix &ndash; DONE
- convergence / likelihood agreement between constOU and constLSN (Done, see below; consider using for a better initial-condition guessing routine for better convergence)
- Reformulate transcritical bifurcation?
- Rewrite cover letter
-   load(&quot;5598226674.Rdat&quot;) require(warningsignals) OU &lt;- deterior_mc$null LSN &lt;- deterior_mc$test LSN_OU &lt;- updateGauss(const_LSN, OU$pars, OU$X) c(OU$loglik, LSN$loglik, LSN_OU$loglik) [1] -1038.510 -1142.539 -1162.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2011/04/08/warning-signals-3.html">Warning signals</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
+    <h2><a href="../../2012/09/12/notes/"></a></h2>
+    <h4>Wed, Sep 12, 2012</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/08/ropensci-exploratory-exercises-in-database-driven-phylogenetics.html">TreeBase: exploratory exercises in database-driven phylogenetics</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
+    <h2><a href="../../2012/09/05/esa-changes-arxiv-policy-following-community-comments/"></a></h2>
+    <h4>Wed, Sep 5, 2012</h4>
     <div class="article-style">
       
-      Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
+      Earlier today, Scott Collins, the president of the Ecological Society of America has announced that the society will now accept articles that have previously been posted on preprint servers. This comes on the heels of a growing discussion in our community. Ethan White has a good summary over on Jabberwocky Ecology.
+Many voices have joined the discussion over the past month, and it is exciting and vindicating to see the Society engage and discuss these questions.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/04/08/reproducible-research.html">Some reproducible research practices in journals</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
+    <h2><a href="../../2012/09/04/notes/"></a></h2>
+    <h4>Tue, Sep 4, 2012</h4>
     <div class="article-style">
       
-      Interesting discussion on the Reproducible Research Group about rates at which the various reproducible research standards are used in the Journal of Biostatistics:
-from unknown, 2010, which provides a great basis for recommendations to authors, publishers, and funders to ensure reproducible research. Victoria Stodden describes two journals with Open Review and two with Associate Editors of Reproducible Research.
-Some of the articles from Biostatistics discussing this practice: (Baker et. al.
+      Fallacy paper done Dissertation filing Decision theory from the ROC curve.
+ Working group paper Jim/Mike paper
+ wrightscape paper?
+ Signature page two copies, archival paper?
+ ropensci emails: Position paper: Goals
+ misc emails
+  Fallacy paper finalizing appendices  Commit images and runs from yesterday (ibm simulation still running&hellip;)
+ clean up appendix code
+ clean up appendix text
+  Code tricks for today vim set sytnax language, useful for getting R highlighting in .
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2012/08/29/santa-cruz-postdoc/"></a></h2>
+    <h4>Wed, Aug 29, 2012</h4>
+    <div class="article-style">
+      
+      Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with Steve Munch, Marc Mangel, and Alec MacCall. I will be based primarily at the National Marine Fisheries Service building, here: ` Five fantastic years of graduate school are coming to an end: I will start officially later this fall, where I will
+ join an exciting team of ecologists and applied mathematicians who work collaboratively on cutting-edge problems in ecological and evolutionary modeling through the Center for Stock Assessment Research.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2012/08/23/notes/"></a></h2>
+    <h4>Thu, Aug 23, 2012</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2012/08/22/warning-signals-in-management/"></a></h2>
+    <h4>Wed, Aug 22, 2012</h4>
+    <div class="article-style">
+      
+      Tour of existing files (version stable links)
+ managed warning is the current direct test of this, but needs decently ranged input example where detection has a good chance to succeed.
+ criticaltransition Statistics across replicate crashes that don&rsquo;t show much promise for detection.
+ A heuristic implementation in response to the detection of a signal might use a simple rule like a fraction of the optimal harvest of a stable system.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2012/08/22/notes/">Revisions on Prosecutors Fallacy</a></h2>
+    <h4>Wed, Aug 22, 2012</h4>
+    <div class="article-style">
+      
+      Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
+ Proof corrections for rfishbase manuscript. Done.
+ Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
+  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
+&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
       
     </div>
   </div>

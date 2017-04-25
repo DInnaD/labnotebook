@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-21 23:15:08
-layout: post
-slug: friday-optimal-control
-title: 'Friday: Optimal Control'
-redirects: [/wordpress/archives/2972, /archives/2972]
 categories:
 - ecology
+comments: true
+date: 2011-10-21T23:15:08Z
+redirects:
+- /wordpress/archives/2972
+- /archives/2972
+slug: friday-optimal-control
 tags:
 - warning-signals
+title: 'Friday: Optimal Control'
+url: /2011/10/21/friday-optimal-control/
 ---
 
 ## Optimal control

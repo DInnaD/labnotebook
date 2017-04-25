@@ -1,23 +1,11 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2010-03-10T00:00:00Z
 tags: []
-categories: [evolution]
 title: Bodega Workshop Day 4
+url: /2010/03/10/Bodega-Workshop-Day-4/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Morphological Evolution Day:
 

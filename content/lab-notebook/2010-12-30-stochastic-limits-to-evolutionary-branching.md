@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-30 22:12:47
-layout: post
-slug: stochastic-limits-to-evolutionary-branching
-title: Stochastic limits to evolutionary branching
-redirects: [/wordpress/archives/715, /archives/715]
 categories:
 - ecology
+comments: true
+date: 2010-12-30T22:12:47Z
+redirects:
+- /wordpress/archives/715
+- /archives/715
+slug: stochastic-limits-to-evolutionary-branching
 tags:
 - adaptive-dynamics
+title: Stochastic limits to evolutionary branching
+url: /2010/12/30/stochastic-limits-to-evolutionary-branching/
 ---
 
 My last post was a bit pessimistic, sometimes I can still miss the forest for the trees.  Hidden in those figures, the main point has been staring me in the face.  So let's try this again.

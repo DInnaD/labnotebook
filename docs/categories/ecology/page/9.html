@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,104 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../2011/10/05/wednesday-forage-fish-cascades.html">Wednesday - forage fish &amp; cascades</a></h2>
-    <h4>Wed, Oct 5, 2011</h4>
+    <h2><a href="../../../2013/05/29/notes/"></a></h2>
+    <h4>Wed, May 29, 2013</h4>
     <div class="article-style">
       
-      Forage fish presentation Some simulations exploring top-down &amp; bottom up control concepts in simple models.
-$$ \frac{dN}{dt} = r N\left( 1 - \frac{N}{K} \right) - \alpha N P $$ $$ \frac{dP}{dt} = \beta \alpha N P - \mu P $$ Note that at equilibrium, N depends only on predator dynamics, P on K and r. $$\hat N = \frac{\mu}{\alpha\beta} $$ $$ \hat P = \frac{r}{\alpha}\left( 1 - \frac{N}{K} \right) $$
+      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
+ fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
+ slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/04/tuesday-9.html">Tuesday</a></h2>
-    <h4>Tue, Oct 4, 2011</h4>
+    <h2><a href="../../../2013/05/28/notes/"></a></h2>
+    <h4>Tue, May 28, 2013</h4>
     <div class="article-style">
       
-      Hastings seminar: Forest Pest Outbreaks Schedule
-Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&rsquo;s NY Times piece, (and see author&rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp; Management (Gypsy moth). * Review review (Taylor &amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).
+      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/29/thursday-10.html">Thursday</a></h2>
-    <h4>Thu, Sep 29, 2011</h4>
+    <h2><a href="../../../2013/05/27/exploring-approximate-dynamic-programming-approaches/"></a></h2>
+    <h4>Mon, May 27, 2013</h4>
     <div class="article-style">
       
-      9-9:20 Updating research statement (home page). 9:20 -9:40 Updating notebook: Review, Tuesday &amp; Wednesday meetings coffee 9:50 Application. 10-11:30:  Forage fish dynamics, Sanchirico and Essington Jim gives the broad overview, central question: What are the benefits/costs of a % reduction in the catch C of forage fish N:
-$$ \Delta C \downarrow \to \Delta N \to \Delta F, \Delta M \Delta S$$
-F predator commercial fisheries, M marine mammals, S seabirds.
+      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/27/tuesday-berkeley-visits.html">Tuesday - Berkeley visits</a></h2>
-    <h4>Tue, Sep 27, 2011</h4>
+    <h2><a href="../../../2013/05/24/notes/"></a></h2>
+    <h4>Fri, May 24, 2013</h4>
     <div class="article-style">
+      
+      prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/24/saturday-2.html">Saturday</a></h2>
-    <h4>Sat, Sep 24, 2011</h4>
+    <h2><a href="../../../2013/05/23/notes/"></a></h2>
+    <h4>Thu, May 23, 2013</h4>
     <div class="article-style">
       
-      NIMBioS Working group follow-up:  Install pdf plugin (pdf24, Kalin&rsquo;s pdf, epub all don&rsquo;t display equations) &hellip; Posted issue to wordpress-for-scientists list. Solution: simply print to file (pdf) from google-chrome. (Doesn&rsquo;t work when printing from firefox 6.0) Reply to Paul, add pdf of notes on wiggio.  Fellowship stuff  Email Alan, David, George, John, Perry  Reviews  Answer request to review for Ecology Answer request to review for Evolution _**Working on reviews (see private notes) **_3-6pm  Misc  Testing Droideley.
+      Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
+ Some edits to adapt the extraction of posteriors from the multiple chains.
+ Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
+  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
+module load gcc R jags  This appears to result in greater uncertainty:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/22/thursday-9.html">Thursday</a></h2>
-    <h4>Thu, Sep 22, 2011</h4>
+    <h2><a href="../../../2013/05/22/notes/"></a></h2>
+    <h4>Wed, May 22, 2013</h4>
     <div class="article-style">
       
-      Sent off review. finally.
-Sanchirico seminar with Tim Essington (U Washington). Goal: Prepare for a review on forage fisheries.
-Outline  background background Fishery interactions marine mammal/seabird interactions Climate &amp; forage fish Fishmeal (Demand side) direct consumption (Demand side) Vitamin supp / health benefits (Demand side) Non-market value marine mammals Synthesis  Forage-fish: &ldquo;foundation species&rdquo; in marine ecosystems, get energy from zooplankton/upwelling to high-level predators (high-market target fisheries). Sardines/pilchards, anchovies, sandeels, krill, herrings, capelin, menhaden.
+      Nonparametric-bayes  Establishing chunck dependencies, simplifying and abstracting code.
+ still need to fix up Allen MCMC convergence when underlying model is Myers 10:18 am 2013/05/22
+ replicate runs on data from allen and myers model 08:39 pm 2013/05/21
+  Clean code for complicated scripts Pseudo-code somewhat captured by the chuncks. Ideal would be:
+ Define models Define parameters Simulate data Estimate MLE Estimate under GPP Allen MCMC Ricker MCMC Myers MCMC Determine optimal policy for each&hellip; Simulation Graphs  A preponderance of preprint servers Having sent in my review for IEE, do I also post it on the peerJ preprint?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/21/wednesday-9.html">Wednesday</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../../2013/05/20/notes/"></a></h2>
+    <h4>Mon, May 20, 2013</h4>
     <div class="article-style">
       
-      Alan meeting  Sanchirico course, Hastings course Berkeley visits NIMBioS working group Lab website, lab group meeting.  To Do  Finish THEE review Evolution edits Miller Application Berkeley visits emails. File ESA reimbursements. File NIMBioS reimbursements.  Next steps  Paper for treebase/rfishbase packages? wrightscape paper. Training problem II. Economics warning signals. Costs of errors. Updating (multiple decision points). Mitigation strategy.  Inferring the uncertainty in model, adaptive management.
+      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/21/colored-noise-some-classic-results-in-ecology.html">Colored noise: some classic results in ecology</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../../2013/05/17/null-distribution-width-minor-puzzle/"></a></h2>
+    <h4>Fri, May 17, 2013</h4>
     <div class="article-style">
       
-      Some of my early notes &amp; derivations on the impact of red environmental noise on population dynamics as pdf:
- Roughgarden&rsquo;s paper Fieberg &amp; Ellner, (2000) &ldquo;When is it Meaningful to Estimate an Extinction Probability?&rdquo; Ecology, 81. doi. Lawton, J. H. (1988). More time means more variation. Nature, 334, 563. Petchey, O. L., Gonzalez, A., &amp; Wilson, H. B. (1997). Effects on population persistence: the interaction between environmental noise colour, intraspecific competition and space.
+      A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor&rsquo;s fallacy.
+Load the original run of the ou model and increase the nulldt data frame to use all points instead of a sample of length 5000
+load(&quot;beer_run.rda&quot;) ou_dat &lt;- dat ou_null &lt;- nulldat #ou_null_ts &lt;- nulldt null &lt;- timeseries #[1000:6010,] null &lt;- as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/21/van-kampen-expansion-and-stochastic-population-dynamics.html">Van Kampen Expansion and Stochastic population dynamics</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../../2013/05/16/notes/"></a></h2>
+    <h4>Thu, May 16, 2013</h4>
     <div class="article-style">
+      
+      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/09/21/tuesday-visit-to-berkeley.html">Tuesday: Visit to Berkeley</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
+    <h2><a href="../../../2013/05/14/notes/"></a></h2>
+    <h4>Tue, May 14, 2013</h4>
     <div class="article-style">
       
-      Train to Berkeley 7:15-8:32 (6:35a)  9-10:30 Harte lab meeting: Chloe presented her work on mima mounds and pocket gofers 10:30 - noon Justin (coffee, tour campus). Discussed grant opportunities: Lab has a recent NSF and likely will get a Moore grant to extend maximum entropy work. (Not to be confused with species distribution modeling maxent). noon-1p Erica (lunch). 1p-2:15 John. 2:15-3:30 Andy. Great discussions about phylogenetic methods and hierarchical models, regime shifts, open science.
+      Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
+One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
+opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.
       
     </div>
   </div>

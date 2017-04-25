@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-13 22:39:32
-layout: post
-slug: em-algorithm-2
-title: EM Algorithm
-redirects: [/wordpress/archives/1980, /archives/1980]
 categories:
-- computation 
+- computation
+comments: true
+date: 2011-06-13T22:39:32Z
+redirects:
+- /wordpress/archives/1980
+- /archives/1980
+slug: em-algorithm-2
 tags:
 - algorithms
+title: EM Algorithm
+url: /2011/06/13/em-algorithm-2/
 ---
 
 Yaniv ran us through our second session on EM algorithms.  We implemented a simple case described in [this tutorial](http://www.stat.uiowa.edu/~kcowles/s166_2007/chang166.pdf).

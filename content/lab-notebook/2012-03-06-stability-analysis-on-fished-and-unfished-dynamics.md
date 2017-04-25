@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2012-03-06 22:18:16
-layout: post
-slug: stability-analysis-on-fished-and-unfished-dynamics
-title: 'Stability analysis on fished and unfished dynamics.  '
-redirects: [/wordpress/archives/4443, /archives/4443]
 categories:
 - ecology
+comments: true
+date: 2012-03-06T22:18:16Z
+redirects:
+- /wordpress/archives/4443
+- /archives/4443
+slug: stability-analysis-on-fished-and-unfished-dynamics
+title: 'Stability analysis on fished and unfished dynamics.  '
+url: /2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/
 ---
 
 In this example, we compute the distribution of the stability coefficients estimated from the fished and unfished simulations.  Overall this shows little success in distinguishing between the stability of the fished and unfished populations -- i.e. no hint that we are managing near an edge.

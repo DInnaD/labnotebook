@@ -1,10 +1,11 @@
 ---
-layout: post
-title: Basic regression in Gaussian processes 
-category: ecology
-tag: nonparametric-bayes
+categories:
+- ecology
 code: true
-
+date: 2012-10-17T00:00:00Z
+tag: nonparametric-bayes
+title: Basic regression in Gaussian processes
+url: /2012/10/17/basic-regression-in-gaussian-processes/
 ---
 
 Working out coded examples for basic Gaussian process regression using R.  I've just read through the first few chapters of [Rasmussen & Williams (2006)](http://www.GaussianProcess.org/gpml), this implements the examples discussed in Chapter 2.1-2.5.  

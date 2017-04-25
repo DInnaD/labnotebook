@@ -1,11 +1,13 @@
 ---
-layout: post
-title: Semantic Lab Notebook
-categories: [open-science]
-tags: 
+categories:
+- open-science
+date: 2012-10-14T00:00:00Z
+tags:
 - semantics
 - notebook-technology
 - blog
+title: Semantic Lab Notebook
+url: /2012/10/14/semantic-lab-notebook/
 ---
 
 As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software.  This is the concept of *linked data*, or a *semantic notebook*.  I have explored this this idea before in the context of a [wordpress-based platform](2011/05/08/building-a-semantic-notebook.html), but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.  

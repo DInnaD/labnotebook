@@ -1,11 +1,12 @@
 ---
-layout: post
-title: Evolution and iEvobio conference notes 
-category: evolution
-tags: [conference]
-
+categories:
+- evolution
+date: 2012-07-09T00:00:00Z
+tags:
+- conference
+title: Evolution and iEvobio conference notes
+url: /2012/07/09/Evolution-Conf-Summary/
 ---
-
 
 Saturday
 --------

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-14T00:00:00Z
 title: Post-Workshop
+url: /2010/03/14/Post-Workshop/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Working on a couple new ideas:
 

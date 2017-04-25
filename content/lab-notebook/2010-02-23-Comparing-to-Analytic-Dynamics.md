@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-23T00:00:00Z
+tags:
+- warning-signals
 title: Comparing to Analytic Dynamics
+url: /2010/02/23/Comparing-to-Analytic-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Goal for today: implement analytic calculations for warning signals.
 

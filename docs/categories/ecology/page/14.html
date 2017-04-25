@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,126 +141,113 @@
   
   
   <div>
-    <h2><a href="../../../2011/06/27/monday-warning-signals-manuscript.html">Monday: Warning Signals Manuscript</a></h2>
-    <h4>Mon, Jun 27, 2011</h4>
+    <h2><a href="../../../2013/02/04/updates-across-various-projects/"></a></h2>
+    <h4>Mon, Feb 4, 2013</h4>
     <div class="article-style">
       
-      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
-Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
-Analyses  Maximization algorithm failing at initial conditions on deut2
+      At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I&rsquo;ve moved forward in the wee hours. Covers the past several days.
+XML and RDFa parsing I have been using the lab notebook to explore technology for scientific communication, including making use of semantic and linked data concepts. To illustrate some of the potential these tools can offer I&rsquo;ve started working on a short post with examples parsing and exploring the XML and RDFa data in the notebook.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/12/sunday-3.html">Sunday</a></h2>
-    <h4>Sun, Jun 12, 2011</h4>
+    <h2><a href="../../../2013/01/12/tipping-points-comment-in-nature/"></a></h2>
+    <h4>Sat, Jan 12, 2013</h4>
+    <div class="article-style">
+      
+      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
+Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/27/notes/"></a></h2>
+    <h4>Thu, Dec 27, 2012</h4>
+    <div class="article-style">
+      
+      Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
+ Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
+ Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/23/notes/"></a></h2>
+    <h4>Sun, Dec 23, 2012</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/10/friday-6.html">Friday</a></h2>
-    <h4>Fri, Jun 10, 2011</h4>
+    <h2><a href="../../../2012/12/21/progress-summary/"></a></h2>
+    <h4>Fri, Dec 21, 2012</h4>
     <div class="article-style">
       
-      Finish updates to socialR and wrote post.
- reply to Richard on DataONE workflow internship
- really should meet Bertram, re: workflow, dataONE, open science, etc.
- wrote an avereps fn to replace limma dependency. hmmf.
- setup analysis.R to run complete analysis sets. still testing.
-   To Do  consider returning myCall information on most standard functions
- Review model implementations
- model convergence error handling.
+      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/05/sunday-warning-signals-manuscript-mostly.html">Sunday -- warning signals manuscript (mostly)</a></h2>
-    <h4>Sun, Jun 5, 2011</h4>
+    <h2><a href="../../../2012/12/20/results-comparing-gp-to-parametric/"></a></h2>
+    <h4>Thu, Dec 20, 2012</h4>
     <div class="article-style">
       
-      Updates to Scott&rsquo;s rspringer package
- Grabbed remaining datasets from Dakos et al., added to package
- Reading (Biggs et. al. 2009) a bit more closely
- Writing and revisions on warning signals manuscript.
-   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
+      Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
+Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
+Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
+ Example from 32 replicates   Distribution of yield over replicates shows the parametric model performing rather poorly, while most of the GP replicates perform nearly optimally.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/02/thursday-warning-signals.html">Thursday: Warning Signals</a></h2>
-    <h4>Thu, Jun 2, 2011</h4>
+    <h2><a href="../../../2012/12/19/exploring-gp-model-space/"></a></h2>
+    <h4>Wed, Dec 19, 2012</h4>
     <div class="article-style">
       
-      Alan Meeting Reviewing my edits.
- Writing writing writing
- updating graphs and package
-  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
- This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
- Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
-  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
+      Trying to think about a more systematic way to go about varying the parameters: the underlying parametric model has 3 parameters for the stock-recruitment curve&rsquo;s deterministic skeleton, plus growth noise. (My first exploratory phase has been just to try different things. See my various tweaks in the history log Clearly time to be more systematic about both running and visualizing the various cases.)
+Should I just choose a handful of parameter combinations to test?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted.html">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
-    <h4>Wed, Jun 1, 2011</h4>
+    <h2><a href="../../../2012/12/17/random_ews_example/"></a></h2>
+    <h4>Mon, Dec 17, 2012</h4>
     <div class="article-style">
       
-      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
- Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
+      ENSO EWS Let&rsquo;s just see what happens with the MEI data for PDO:
+dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/mei.csv&quot;">http://www.carlboettiger.info/assets/data/mei.csv&quot;</a>, header=TRUE)  For the moment let&rsquo;s ignore annual structure and just collapse this into timeseries sampled bimonthly.
+require(reshape2) dt &lt;- melt(dat, id=&quot;YEAR&quot;) X &lt;- dt$value Z &lt;- X[!is.na(X)] Z &lt;- data.frame(1:(length(Z)-1), Z[1:(length(Z)-1)])  png(&quot;mei.png&quot;) require(earlywarnings) a &lt;- generic_ews(Z, detrending=&quot;gaussian&quot;)  How about the data from MacDonald (2005)
+original data link
+dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;">http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;</a>, header=TRUE)  png(&quot;macdonald2005.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/27/matt-potts-conserving-diversity-in-tropical-landscapes.html">Matt Potts: Conserving Diversity in Tropical Landscapes</a></h2>
-    <h4>Fri, May 27, 2011</h4>
+    <h2><a href="../../../2012/12/15/nonparametric-bayes-comparisons/"></a></h2>
+    <h4>Sat, Dec 15, 2012</h4>
     <div class="article-style">
       
-      My notes from Matt&rsquo;s seminar: Theory and field work addressing getting beyond binary decision making. Malaysia. Tropical forest becoming oil palm, rice, rubber, tea.
-Reserve Selection vs Landscape Reserve Design Optimality of Specialized vs Uniform Forest Management Uniform (sustainable forest management) vs very protected areas, ignore what&rsquo;s done outside. More intensive disturbance.
-An important ecological nonlinearity: What&rsquo;s the most ubiquitous spatial pattern? Aggregated, random, uniform? (50 hectares is .5 km by km, or 120 English acres, tag every tree taller than 1.
+      Notes on structure of examples Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.
+Currently, externalized code for GP comparison experiments is in gaussian-process-control.R, and is called by may79-example.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/05/26/thursday-6.html">Thursday Meetings: Duncan; Alan</a></h2>
-    <h4>Thu, May 26, 2011</h4>
+    <h2><a href="../../../2012/12/11/nonparametric-bayes-notes/"></a></h2>
+    <h4>Tue, Dec 11, 2012</h4>
     <div class="article-style">
       
-      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/05/25/wednesday-5.html">Wednesday</a></h2>
-    <h4>Wed, May 25, 2011</h4>
-    <div class="article-style">
-      
-      R packages  Trying to build Windows binaries for R packages using win-builder service.
- First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
- Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
- Matt successfully installed CUDA on zero (2.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/05/24/tuesday-4.html">Tuesday</a></h2>
-    <h4>Tue, May 24, 2011</h4>
-    <div class="article-style">
-      
-      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
- created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
- Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
+      Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
       
     </div>
   </div>

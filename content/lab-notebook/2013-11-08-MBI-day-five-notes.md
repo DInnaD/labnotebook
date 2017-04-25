@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2013-11-08T00:00:00Z
+tags:
 - conference
 - ropensci
-
+url: /2013/11/08/MBI-day-five-notes/
 ---
 
 Panel discussion

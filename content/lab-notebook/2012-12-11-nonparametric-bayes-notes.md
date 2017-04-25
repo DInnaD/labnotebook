@@ -1,8 +1,10 @@
 ---
-layout: post
-tags: [nonparametric-bayes]
-categories: [ecology]
-
+categories:
+- ecology
+date: 2012-12-11T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2012/12/11/nonparametric-bayes-notes/
 ---
 
 * Code `gp_transition_matrix` for generic multi-dimensional case

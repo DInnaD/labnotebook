@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-12-23 19:08:58
-layout: post
-slug: writing-cloud-hpc-and-scio11
-title: 'Writing, Cloud Computing, and #scio11'
-redirects: [/wordpress/archives/660, /archives/660]
 categories:
 - open-science
+comments: true
+date: 2010-12-23T19:08:58Z
+redirects:
+- /wordpress/archives/660
+- /archives/660
+slug: writing-cloud-hpc-and-scio11
+title: 'Writing, Cloud Computing, and #scio11'
+url: /2010/12/23/writing-cloud-computing-and-scio11/
 ---
 
 Working on a few things in today's lab notebook entry.  Some more notes on exploring cloud computing tools, sketching out some ideas for my #scio11 science online panel discussion on open notebook science, and otherwise working on my phylogenetics mansucript.

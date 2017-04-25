@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-17 23:16:30
-layout: post
-slug: steve-pacala-storer-lecture
-title: Steve Pacala - Storer lecture
-redirects: [/wordpress/archives/3336, /archives/3336]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-11-17T23:16:30Z
+redirects:
+- /wordpress/archives/3336
+- /archives/3336
+slug: steve-pacala-storer-lecture
+tags:
 - seminar
+title: Steve Pacala - Storer lecture
+url: /2011/11/17/steve-pacala-storer-lecture/
 ---
 
 Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.

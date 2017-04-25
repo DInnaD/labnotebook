@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,123 +141,128 @@
   
   
   <div>
-    <h2><a href="../../../2011/03/14/warning-signals-monday.html">Warning Signals, Monday</a></h2>
-    <h4>Mon, Mar 14, 2011</h4>
+    <h2><a href="../../../2011/06/27/monday-warning-signals-manuscript/">Monday: Warning Signals Manuscript</a></h2>
+    <h4>Mon, Jun 27, 2011</h4>
     <div class="article-style">
       
-      Set up a few long runs of simulated data to better illustrate the effects of sampling time and density, and better resolve the distributions.
- Longer baseline run, nice 19, indicator_vs_likelihood.R 1600 reps, m=-0.015, N=500, T=100
- Longer sampling, same interval: nice 18, stronger_signal.R 160 reps m=-0.015, N = 2500, T=500
-  Fails to compute, looks like poor estimates of model fits.
- Denser sampling, nice 17: indicator_vs_likelihood.R 160 reps, m=-0.
+      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
+Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
+Analyses  Maximization algorithm failing at initial conditions on deut2
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data.html">Warning signals: summary stats vs likelihood on real and simulated data</a></h2>
-    <h4>Fri, Mar 11, 2011</h4>
+    <h2><a href="../../../2011/06/12/sunday-3/">Sunday</a></h2>
+    <h4>Sun, Jun 12, 2011</h4>
     <div class="article-style">
-      
-      Added bar of observed tau on real data to the tau distributions. Fixed the tau-distribution method, running new data and real examples now.
-Simulated data: can tell tau apart for instance, for autocorrelation (see photostream for variance, code hash for parameters, etc). While can&rsquo;t really tell anything based on the tau on the autocorrelation for the Deuterium data for Glaciation III (which has just about the clearest signal of the deuterium set): Waiting to see how the likelihood statistics compare on these examples.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models.html">Numerical challenges in likelihood estimation of time-dep OU models</a></h2>
-    <h4>Thu, Mar 10, 2011</h4>
+    <h2><a href="../../../2011/06/10/friday-6/">Friday</a></h2>
+    <h4>Fri, Jun 10, 2011</h4>
     <div class="article-style">
       
-      Worried about accurate maximum likelihood estimates of parameters, as the optimization could still converge on values not far from the starting conditions (not as surprising as the starting parameters are estimated intelligently first from the summary statistics) but could also vary depending on initial conditions.
-Second, while it requires some re-parameterization, the stationary model for both linearized transcritical (LTC) bifurcation model and the linearized saddle-node (LSN) model are identically Ornstein-Uhlenbeck models.
+      Finish updates to socialR and wrote post.
+ reply to Richard on DataONE workflow internship
+ really should meet Bertram, re: workflow, dataONE, open science, etc.
+ wrote an avereps fn to replace limma dependency. hmmf.
+ setup analysis.R to run complete analysis sets. still testing.
+   To Do  consider returning myCall information on most standard functions
+ Review model implementations
+ model convergence error handling.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/09/warning-signals-data-examples.html">Warning Signals data examples</a></h2>
-    <h4>Wed, Mar 9, 2011</h4>
+    <h2><a href="../../../2011/06/05/sunday-warning-signals-manuscript-mostly/">Sunday -- warning signals manuscript (mostly)</a></h2>
+    <h4>Sun, Jun 5, 2011</h4>
     <div class="article-style">
       
-      Working on a little data exploration while writing up manuscript. I have been puzzled why it appears that most estimates of tau on the CaCO3 data infer negative correlation, as in
-Despite the fact that there seems to be a loss of stability in the model:
-require(warningsignals) load(&quot;CaCO3.Rdat&quot;) timedep$pars Ro m theta sigma 8.36841588 -0.03347119 -2.86194248 282.03234042  So m is negative, so that the system is loosing stability, but only very gradually.
+      Updates to Scott&rsquo;s rspringer package
+ Grabbed remaining datasets from Dakos et al., added to package
+ Reading (Biggs et. al. 2009) a bit more closely
+ Writing and revisions on warning signals manuscript.
+   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/03/01/warning-signals-comparing-methods-on-climate-data.html">Warning Signals: Comparing Methods on Climate Data</a></h2>
-    <h4>Tue, Mar 1, 2011</h4>
+    <h2><a href="../../../2011/06/02/thursday-warning-signals/">Thursday: Warning Signals</a></h2>
+    <h4>Thu, Jun 2, 2011</h4>
     <div class="article-style">
       
-      Continuing my exploration in applying these techniques to real climate data. Applying the Kendall&rsquo;s Tau based approach on real data.
-Greenhouse Earth, CaCO3 data:
-Glaciation I-IV (deuterium data)
-These use the unadjusted timeseries, and hence don&rsquo;t reproduce the values of Kendall&rsquo;s tau statistic reported in (Dakos et. al. 2008). In fact they don&rsquo;t even agree on the sign &ndash; visually many of the datasets are certainly decreasing in variance. I ran the Monte-Carlo distributions for tau on models estimated from these data-sets with and without warning, for variance (left) and autocorrelation (right), in the CaCO3 data:
+      Alan Meeting Reviewing my edits.
+ Writing writing writing
+ updating graphs and package
+  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
+ This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
+ Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
+  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/28/warning-signals-on-real-data-continued.html">Warning Signals on Real data continued</a></h2>
-    <h4>Mon, Feb 28, 2011</h4>
+    <h2><a href="../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
+    <h4>Wed, Jun 1, 2011</h4>
     <div class="article-style">
       
-      Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos et. al. 2008). After adjusting my code to deal with variably spaced sampling intervals, I reread the supplement &ndash; I had forgotten that they don&rsquo;t actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.
-Obviously this is not ideal. It is true that the autocorrelation would be impacted by non-equally spaced data, while there is no reason to do so for the variance indicator.
+      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
+ Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/27/warning-signals-on-real-data.html">Warning Signals on Real Data?</a></h2>
-    <h4>Sun, Feb 27, 2011</h4>
+    <h2><a href="../../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h2>
+    <h4>Thu, May 26, 2011</h4>
     <div class="article-style">
       
-      Grabbed the data used in (Dakos et. al. 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit et. al. 1999), showing transitions into the last several ice ages, and calcium carbonate from Eocene &ldquo;greenhouse&rdquo; climate (Tripati et. al. 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000). Data is all freely provided through NOAA.
- CaCO3 data file (Tripati et. al. 2005), NOAA entry.
+      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/23/esa-2011.html">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h2>
-    <h4>Wed, Feb 23, 2011</h4>
+    <h2><a href="../../../2011/05/25/wednesday-5/">Wednesday</a></h2>
+    <h4>Wed, May 25, 2011</h4>
     <div class="article-style">
       
-      Just submitted my abstract to for an oral presentation at the Ecological Society of America 2011 meeting in Austin, based on my recent work on early warning signals. Here it is:
-Limits to Detection of Early Warning Signals of Population Collapse Background/Question/Methods The recognition that ecosystems can undergo sudden shifts to alternate, less desirable stable states has led to the desire to identify early warning signs of these impending collapses.
+      R packages  Trying to build Windows binaries for R packages using win-builder service.
+ First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
+ Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
+ Matt successfully installed CUDA on zero (2.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/16/weds-framing-warning-signals-manuscript.html">Weds &amp; Framing warning signals manuscript</a></h2>
-    <h4>Wed, Feb 16, 2011</h4>
+    <h2><a href="../../../2011/05/24/tuesday-4/">Tuesday</a></h2>
+    <h4>Tue, May 24, 2011</h4>
     <div class="article-style">
       
-      Alan Meeting, 10a Good meeting discussing warning signals manuscript details and organization. Particularly on the best way to present some of the major conceptual and semantic elements: there are many ways to describe the same thing, each of which carries a lot of semantic baggage.
-Do we choose to present this as:
-As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produced by the MLE model of no stability loss), hypothesis = there is (distribution produced by, MLE model with stability loss) determine p value for falsely rejecting the null and the power of the statistical test.
+      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
+ created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
+ Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/14/monday.html">Monday</a></h2>
-    <h4>Mon, Feb 14, 2011</h4>
+    <h2><a href="../../../2011/05/03/monday-3/">Monday</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      Excellent CPB visiting weekend with perspective students Thurs evening - Sunday morning. Hosting students, etc doesn&rsquo;t make for much of a research entry Friday. Catching up with many things today.
- ESA registration. Topics, Abstract
- Checking in with Alan
- Data workshop: create &amp; post advertisement, map out subject areas
- Reading: Syst Bio issue
- Updated pubmed author alerts
- Checking in with Peter &amp; Graham on revisions
+      Today:
+ Application for CPB travel funds. DONE
+ Faxed receipts from Felsenstein&rsquo;s visit. DONE
+  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
+Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
       
     </div>
   </div>

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-02T00:00:00Z
+tags:
+- pmc
 title: Power in trees
+url: /2010/03/02/Power-in-trees/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Back to Phylogenetics after a week with only population dynamics.
 

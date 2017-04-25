@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,117 +140,108 @@
   
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/25/treebase-interface-continued/">TreeBASE interface continued...</a></h2>
+    <h4>Mon, Apr 25, 2011</h4>
     <div class="article-style">
       
-      writing manuscript slides data request to Glaser.
-  gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?
+      Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
+Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
+Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/24/wrightscape-profiling/">wrightscape profiling</a></h2>
+    <h4>Sun, Apr 24, 2011</h4>
     <div class="article-style">
       
-      nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.
+      Optimization at the R level is substantially slower than at the C level:
+system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/22/release-of-constraint-in-labrids/">Release of constraint in labrids?</a></h2>
+    <h4>Fri, Apr 22, 2011</h4>
     <div class="article-style">
       
-      Scratching out some thoughts here to address an issue that continues to bug me with the way the literature discusses these two very different issues.
-The ecological literature on early warning signals and related subjects continually seems to confuse the concept of state and regime.
-Let&rsquo;s get this straight.
-Regime $=$ Attractor
- State $\neq$ Attractor
- Nonlinear state change $\neq$ Regime shift
-Evidence that a regime shift occurred, and when the shift occurred (e.
+      Started writing outline, assembling references
+ Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
+ Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
+ Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&rsquo;t optimize the likelihood.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/20/wednesday-3/">Wednesday</a></h2>
+    <h4>Wed, Apr 20, 2011</h4>
     <div class="article-style">
       
-      Fisheries data from Glaser et al. (2013) available at IchthyoDB Larvae and egg counts. About 4 GB, initialized in calcofi repo (local only).
-Reading early warning with &ldquo;Quickest Detection&rdquo; algorithm described in Carpenter et al. (2013) and used by Batt et al. (2013), which includes a rather friendly explanation in the appendix (SI).
-Uses a likelihood based method along with rather simple models of the probability of being in each state, and interestingly relies on the presence of a control system that has already experienced the transition.
+      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/19/tuesday-reading-and-thoughts/">Tuesday: Reading and thoughts</a></h2>
+    <h4>Tue, Apr 19, 2011</h4>
     <div class="article-style">
       
-      ugh, most journals don&rsquo;t seem to hold to their own data publication policies.
-PNAS theoretically endorses UPSIDE, r citet(&quot;10.1073/pnas.0400437101&quot;) principles from the National Academy of Science:
- Principle 1. Authors should include in their publications the data, algorithms, or other information that is central or integral to the publication—that is, whatever is necessary to support the major claims of the paper and would enable one skilled in the art to verify or replicate the claims.
+      Reading Taking twenty minutes to take down some notes and reactions to this morning&rsquo;s reading.
+Interdisciplinary Science Meeting Great post by the AAAS on theScience on FIRE meeting. Think the focus on young faculty and undergraduate education is dead on. However , the lack of emphasis (or even inclusion) of ecology and evolution material in &ldquo;exemplar programs&rdquo; such as CIMB (not be confused with UC Davis&rsquo;s CLIMB, which does this balance very well) is tragic, given that (a) these fields have a richer and longer quantitative history than mol bio, (b) undergraduate ed in these areas shares the same general lack of emphasis in computation and mathematics skills as it&rsquo;s molecular brethren classes &copy; world challenges in these areas are at least on par with challenges in medicine, and deserve attention (despite the differences in funding).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/19/early-warning-signals-in-coral-dynamics-economic-analysis-of-risk/">Early Warning Signals in Coral Dynamics -- Economic analysis of risk</a></h2>
+    <h4>Tue, Apr 19, 2011</h4>
     <div class="article-style">
       
-      Authenticating via DataOne API Matt Jones provides a nice dataone package to handle accessing and posting data to DataOne nodes such as the KNB from R. Uploading files through the API requires authentication, which in turn requires a certificate from CILogin. As this process proved a bit tricky to me, I add some documentation here. I am using a Ubuntu (13.04) system, so the procedure might differ slightly for other systems.
+      Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico. Our current work focuses on quantifying the relative risk of false alarms and missed detections. While statisticians typically accept a 5% &ldquo;false alarm&rdquo; rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/18/thursday-submitting-warning-signals-manuscript/">Thursday: submitting warning signals manuscript</a></h2>
+    <h4>Mon, Apr 18, 2011</h4>
     <div class="article-style">
-      
-      RNeXML  Example methods for metadata: <a href="https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772">https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772</a> Closes #19 <a href="https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110">https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110</a> Discussion of best identifiers for OTUs #24. Now waiting on Scott for choice of implementation  Misc R puzzle In R&rsquo;s S4 methods, I can define methods with different signatures, i.e. different object classes for the same function call. But can I alter the names and number of arguments for a method?
-As usual, see Github for details on commits and issues.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/18/algorithms-discussion-group-abc-continued/">Algorithms Discussion Group: algorithms Continued</a></h2>
+    <h4>Mon, Apr 18, 2011</h4>
     <div class="article-style">
       
-      Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular #26 and #24) I only paraphrase here.
-One of the central advantages we can offer in programmatic generation of NeXML in the R environment is the ability to validate names and enhance the metadata included in the resulting nexml file using programmatic queries to taxonomic name resolution services such as ITIS, EOL, NCBI, as provided in the taxize package.
+      Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&rsquo;s gist and started editing during today&rsquo;s session &ndash; when I save it I get a new version ID, so last week&rsquo;s post still points to last week&rsquo;s code, but it doesn&rsquo;t create a second copy, so you can tell if you have the right version.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/17/treepar-changing-rates-of-evolution/">TreePar: changing rates of evolution</a></h2>
+    <h4>Sun, Apr 17, 2011</h4>
     <div class="article-style">
       
-      SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
- NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
- language barriers: What&rsquo;s a model?
+      Review &amp; Comments on Article T. Stadler&rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
+The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../2011/04/16/friday-4/">Friday</a></h2>
+    <h4>Sat, Apr 16, 2011</h4>
     <div class="article-style">
       
-      MBI Workshop Paul Armsworth Very nice example of control in creating a market for ecosystem services for landowners. Key feature is that multiple land-owners respond by adjusting their prices, and so payments can be divided into fraction going into subsidy and fraction going into conservation. When one land-owner controls land that is particularly good cost per conservation accomplished, they also stand to gain largest value.
-Also looked at auction mechanism and impact of cooperation among landowners to create hold outs.
+      Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
+ UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.
       
     </div>
   </div>

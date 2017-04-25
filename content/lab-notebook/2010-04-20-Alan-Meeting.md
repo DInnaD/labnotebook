@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-04-20T00:00:00Z
+tags:
+- warning-signals
 title: Alan Meeting
+url: /2010/04/20/Alan-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 *From 03/31, see [below](#Updated_Outline) for more!*
 

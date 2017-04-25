@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [code-tricks, ]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-04T00:00:00Z
+tags:
+- code-tricks
 title: Big Picture Comparative Phylogenetics
+url: /2010/03/04/Big-Picture-Comparative-Phylogenetics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   A [Task
     View](http://www.bio.unc.edu/faculty/vision/lab/CPM_taskview.html "http://www.bio.unc.edu/faculty/vision/lab/CPM_taskview.html")

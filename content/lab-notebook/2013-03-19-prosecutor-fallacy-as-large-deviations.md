@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
 code: true
+date: 2013-03-19T00:00:00Z
 tags:
 - prosecutor
-
+url: /2013/03/19/prosecutor-fallacy-as-large-deviations/
 ---
 
 (Corresponds to commit [4bd8422107](https://github.com/cboettig/earlywarning/blob/4bd84221078df738034e1611b23d7c5aca48de3f/inst/examples/comment.md) in [earlywarning](https://github.com/cboettig/earlywarning/blob/prosecutor) repo)

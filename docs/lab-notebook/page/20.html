@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,118 +140,106 @@
   
   
   <div>
-    <h2><a href="../../2011/07/24/csgf-conference-notes.html">CSGF Conference Notes</a></h2>
-    <h4>Sun, Jul 24, 2011</h4>
+    <h2><a href="../../2013/04/26/notebook-features-reproducible-code/">Notebook features: reproducible code</a></h2>
+    <h4>Fri, Apr 26, 2013</h4>
     <div class="article-style">
       
-      Just returned from 5 days in Washington, DC for the annual computational science graduate fellowship conference. No live notes/tweets, so just attempting to synthesize some of the major ideas before I get back to paper writing. Most of the conference material, including workshop slides, are archived online.
-The high performance computing workshop made two things clear to me &ndash; a lot of parallel computing can be done without lots of communication between nodes (i.
+      I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/24/csgf-2010-hpc-practices-survey-summary.html">CSGF 2010 Computing Practices Survey Summary</a></h2>
-    <h4>Sun, Jul 24, 2011</h4>
+    <h2><a href="../../2013/04/25/notes/"></a></h2>
+    <h4>Thu, Apr 25, 2013</h4>
     <div class="article-style">
       
-      Thanks to everyone who participated in the CSGF 2010 Survey.With too many things going on this year, I didn&rsquo;t conduct a survey at the 2011 Conference. But as people were asking about the survey, I thought I could at least make last year&rsquo;s summary a bit more accessible. The following comes from the pdf report I submitted to Krell and a few example figures from data.This year&rsquo;s survey was longer and broader, recieving over 90 responses from fellows and alumni.
+      finish pmc post from Tuesday (done).
+ Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
+ Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur.html">Showcasing the latest phylogenetic methods: AUTEUR</a></h2>
-    <h4>Wed, Jul 20, 2011</h4>
+    <h2><a href="../../2013/04/24/empirical-demonstration-of-that-clever-derivation/"></a></h2>
+    <h4>Wed, Apr 24, 2013</h4>
     <div class="article-style">
       
-      While high-speed fish feeding videos may be the signature of the lab, dig a bit deeper and you&rsquo;ll find a wealth of comparative phylogenetic methods sneaking in. It&rsquo;s a natural union &ndash; expert functional morphology is the key to good comparative methods, just as phylogenies hold the key to untangling the evolutionary origins of that morphology. The lab&rsquo;s own former graduate, Brian O&rsquo;Meara, made a revolutionary step forward in the land of phylogenetic methods when he unveiled Brownie in 2006, allowing researchers to identify major shifts in trait diversification rates across the tree.
+      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
+After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/17/sunday-warning-signals.html">Sunday: Warning Signals</a></h2>
-    <h4>Sun, Jul 17, 2011</h4>
+    <h2><a href="../../2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/"></a></h2>
+    <h4>Tue, Apr 23, 2013</h4>
     <div class="article-style">
       
-      Continuing work on warning signals manuscript. Most entries for this work are delayed-release. Some final stages of editing today:
-Data sets for appendix  deut1
- caco3
- Other datasets? other drake? other deut?
- launched drakeI9 on farm c0-2 by ssh.
- launched ibm_stable on farm c0-1.
- launched deut2_analysis on farm c0-3, failed. needs better initial conditions to run
-  Main paper fix plots: Figure 4 needs axis labels &ndash; done.
+      The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/17/saturday---back-to-warning-signals-ms.html">Saturday - back to Warning Signals MS</a></h2>
-    <h4>Sun, Jul 17, 2011</h4>
+    <h2><a href="../../2013/04/19/bayesian-parametric-uncertainty-sdp/"></a></h2>
+    <h4>Fri, Apr 19, 2013</h4>
     <div class="article-style">
       
-      New outline   &rdquo;An increasing recognition&rdquo;  &ldquo;proof-of-principle&rdquo; - reliability is unknown  &ldquo;Cries wolf&rdquo;  ROC, Fig 1  tau  method  data, Fig 2  analysis, Fig 3  enough data Fig 4  disclaimer  conclusion  Former Outline  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.
+      Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
+f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &lt;- dim(pardist) indices &lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &lt;- sapply(indices, function(i){ # For each parameter value p &lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &lt;- f(x_t,h,p) est_sigma_g &lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &lt; x_grid[2]){ # handle the degenerate case out &lt;- numeric(length(x_grid)) out[1] &lt;- 1 out } else { out &lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &lt;- t(F_true) } snap_to_grid &lt;- function(x, grid) sapply(x, function(x) grid[which.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/14/the-case-for-better-data-citation-practices.html">The Case for Better Data Citation Practices?</a></h2>
-    <h4>Thu, Jul 14, 2011</h4>
+    <h2><a href="../../2013/04/18/notes/"></a></h2>
+    <h4>Thu, Apr 18, 2013</h4>
     <div class="article-style">
       
-      An excellent question came up on ecoinformatics list today on data citation from Kyle Kwaiser at the Michigan Biological Station
- I am working with graduate students this summer to archive their work at our field station. I want to tell them to cite their datasets on their CV&rsquo;s but I know this is not yet the norm.
- Any general thoughts on how close we are to including datasets on CV&rsquo;s?
+      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
+ pmc functions
+  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/13/uc-davis-student-assembled-panel-on-data-management-issues.html">UC Davis Student Assembled Panel on Data Management Issues</a></h2>
-    <h4>Wed, Jul 13, 2011</h4>
+    <h2><a href="../../2013/04/17/notes/"></a></h2>
+    <h4>Wed, Apr 17, 2013</h4>
     <div class="article-style">
       
-      Panel Members (listed left to right)
- Paul Gepts: UC Davis Professor of Plant Science: evolution of plants on domestication.
- Mario Biagioli: Professor of Law in Science and Technology, Director of Science and Innovation, formerly Professor of History of Science at Harvard; written extensively on the role of secrecy in science.
- John Kunze: Preservation Technologist and Ass. Director of California Digital Library.
- Phoebe Ayers: UC Davis Librarian, Wikimedia Foundation Board of Trustees.
+      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/08/141-scientists-cant-be-wrong.html">141 scientists can&#39;t be wrong?</a></h2>
-    <h4>Fri, Jul 8, 2011</h4>
+    <h2><a href="../../2013/04/16/notes/">a few notes on various projects</a></h2>
+    <h4>Tue, Apr 16, 2013</h4>
     <div class="article-style">
       
-      Turning the author-list into a petition is becoming an almost familiar ruse in the table of contents of journals such as Nature (Simberloff, 2011), (Abbot et. al. 2011). This as prompted some rather provocative commentary on whether we have begun conducting scientific debates as popularity contests rather than arguments of evidence and logic (see David Sloan Wilson on inclusive fitness theory 137 scientists can&rsquo;t be wrong, or Chris on invasive species on ecolog.
+      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/08/friday-writing-post-doc-applications.html">Friday: writing post-doc applications</a></h2>
-    <h4>Fri, Jul 8, 2011</h4>
+    <h2><a href="../../2013/04/15/notes/"></a></h2>
+    <h4>Mon, Apr 15, 2013</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/07/thursday-8.html">Thursday: sending off paper draft, starting applications</a></h2>
-    <h4>Thu, Jul 7, 2011</h4>
+    <h2><a href="../../2013/04/12/parametric-bayesian-example/"></a></h2>
+    <h4>Fri, Apr 12, 2013</h4>
     <div class="article-style">
       
-      Add re-sampling blurb to appendix. Done
- Read over manuscript &amp; send to Marissa and Marcel. Done
- Now to spend today working on fellowship applications: research statement and proposal&hellip;
-   Appendix edits  Add distributions to the appendix.
- Show where where the data actually fall in the distribution, as would be used in traditional hypothesis testing framework.
- Add extra examples to the appendix.
+      As discussed with Marc in yesterday&rsquo;s meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a parametric Bayesian case, e.g. with the correct underlying model. This is implemented in BUGS (jags) through the R interface as described in Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013).
       
     </div>
   </div>

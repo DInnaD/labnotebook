@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2010-12-24 03:24:40
-layout: post
-slug: doe-renewal-and-a-year-in-review
-title: DoE renewal and a year in review
-redirects: [/wordpress/archives/667, /archives/667]
 categories:
 - ecology
 - evolution
+comments: true
+date: 2010-12-24T03:24:40Z
+redirects:
+- /wordpress/archives/667
+- /archives/667
+slug: doe-renewal-and-a-year-in-review
 tags:
-- progress-summary 
+- progress-summary
+title: DoE renewal and a year in review
+url: /2010/12/24/doe-renewal-and-a-year-in-review/
 ---
 
 This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work.  Seemed like a good idea to jot these down in my notebook as well:

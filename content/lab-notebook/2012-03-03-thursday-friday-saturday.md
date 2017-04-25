@@ -1,19 +1,19 @@
 ---
-comments: true
-date: 2012-03-03 22:21:36
-layout: post
-slug: thursday-friday-saturday
-title: Thursday, Friday, Saturday
-redirects: [/wordpress/archives/4041, /archives/4041]
 categories:
 - ecology
+comments: true
+date: 2012-03-03T22:21:36Z
+redirects:
+- /wordpress/archives/4041
+- /archives/4041
+slug: thursday-friday-saturday
 tags:
 - pdg-control
+title: Thursday, Friday, Saturday
+url: /2012/03/03/thursday-friday-saturday/
 ---
 
-
-
-  * forage fish seminar - Patrick and Jay with interesting stuff.  Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.
+* forage fish seminar - Patrick and Jay with interesting stuff.  Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.
   * knit hooks
   * externalization example working (based on Reed.R).  Still unsure how I feel about externalization vs fully literate code.  Redundant typing is bad but isn't that why common tasks are functionalized?
   * pmc-0.5 posted to CRAN (use `check --as-cran` in tests)

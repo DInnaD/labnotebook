@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-04-19 11:53:23
-layout: post
-title: Early Warning Signals in Coral Dynamics -- Economic analysis of risk
 categories:
 - ecology
+comments: true
+date: 2011-04-19T11:53:23Z
 tags:
 - warning-signals
 - delayed-release
+title: Early Warning Signals in Coral Dynamics -- Economic analysis of risk
+url: /2011/04/19/early-warning-signals-in-coral-dynamics-economic-analysis-of-risk/
 ---
 
 Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico.  Our current work focuses on quantifying the relative risk of false alarms and missed detections.  While statisticians typically accept a 5% "false alarm" rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.  Including the details of a particular system would be ideal, as it may allow us to assess the appropriateness of the assumptions in the warning signals approach more accurately as well.

@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [conference]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-09T00:00:00Z
+tags:
+- conference
 title: Graham & Peter Meeting
+url: /2010/06/09/Graham-and-Peter-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Fantastic meeting with Graham and Peter today, covered a lot of ground.
 

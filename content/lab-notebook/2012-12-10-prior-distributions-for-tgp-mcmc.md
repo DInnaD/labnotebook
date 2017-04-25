@@ -1,11 +1,12 @@
 ---
-layout: post
-categories: [ecology]
-tags: [nonparametric-bayes]
+categories:
+- ecology
+date: 2012-12-10T00:00:00Z
 modified: 2012-12-12
-
+tags:
+- nonparametric-bayes
+url: /2012/12/10/prior-distributions-for-tgp-mcmc/
 ---
-
 
 I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
 

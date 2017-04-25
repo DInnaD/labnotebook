@@ -1,20 +1,12 @@
 ---
-layout: post
-tags: [Primates]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-04-12T00:00:00Z
+tags:
+- Primates
 title: Primate chronogram
+url: /2010/04/12/Primate-chronogram/
 ---
-
-
-
-
-
-
- 
-
-
-
-
 
 From User:Daniel Mietchen/Notebook/Evolutionary MRI/2010/04/12:
 

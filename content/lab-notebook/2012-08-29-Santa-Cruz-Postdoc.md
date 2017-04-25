@@ -1,8 +1,10 @@
 ---
-layout: post
-categories: [ecology]
-tags: [nonparametric-bayes]
-
+categories:
+- ecology
+date: 2012-08-29T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2012/08/29/Santa-Cruz-Postdoc/
 ---
 
 Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with [Steve Munch](http://www.somas.stonybrook.edu/people/munch.html), [Marc Mangel](http://users.soe.ucsc.edu/~msmangel/), and [Alec MacCall](http://swfsc.noaa.gov/staff.aspx?id=689).  I will be based primarily at the National Marine Fisheries Service building, here:

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-22 21:44:35
-layout: post
-slug: stochastic-optimization
-title: 'Stochastic optimization '
-redirects: [/wordpress/archives/3925, /archives/3925]
 categories:
 - ecology
+comments: true
+date: 2012-02-22T21:44:35Z
+redirects:
+- /wordpress/archives/3925
+- /archives/3925
+slug: stochastic-optimization
 tags:
 - pdg-control
+title: 'Stochastic optimization '
+url: /2012/02/22/stochastic-optimization/
 ---
 
 ##  Surprising heterogeneity of profit distribution under a simple Beverton-Holt model 

@@ -1,10 +1,9 @@
 ---
-layout: post
-category: computation
-
+categories:
+- computation
+date: 2014-11-13T00:00:00Z
+url: /2014/11/13/draft-wssspe-thoughts/
 ---
-
-
 
 Scratching out notes for lightning talk at WSSSPE...
 

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [ecology]
+categories:
+- ecology
+date: 2010-04-03T00:00:00Z
 title: Warning Signals Research
+url: /2010/04/03/Warning-Signals-Research/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Deuterium early warning signal used for Glaciation I-IV presented in
     [Dakos

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-09-07 21:28:03
-layout: post
-slug: memory-management-cron
-title: memory management, cron
-redirects: [/wordpress/archives/2546, /archives/2546]
 categories:
 - computation
+comments: true
+date: 2011-09-07T21:28:03Z
+redirects:
+- /wordpress/archives/2546
+- /archives/2546
+slug: memory-management-cron
 tags:
 - notebook-technology
+title: memory management, cron
+url: /2011/09/07/memory-management-cron/
 ---
 
 Create the memcheck.sh script that will write a mem.log file with the data, and a[ gnuplot script](http://t16web.lanl.gov/Kawano/gnuplot/datetime-e.html) that will plot it.

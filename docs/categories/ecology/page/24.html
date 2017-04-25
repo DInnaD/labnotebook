@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,112 +141,111 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h2>
+    <h4>Tue, Feb 14, 2012</h4>
     <div class="article-style">
       
-      Notes on structure of examples Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.
-Currently, externalized code for GP comparison experiments is in gaussian-process-control.R, and is called by may79-example.
+      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
+Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/13/monday-16/">Monday</a></h2>
+    <h4>Mon, Feb 13, 2012</h4>
     <div class="article-style">
-      
-      At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I&rsquo;ve moved forward in the wee hours. Covers the past several days.
-XML and RDFa parsing I have been using the lab notebook to explore technology for scientific communication, including making use of semantic and linked data concepts. To illustrate some of the potential these tools can offer I&rsquo;ve started working on a short post with examples parsing and exploring the XML and RDFa data in the notebook.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/12/sunday-6/">Sunday </a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
+      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Saturday: projects, reading, markdown notebook-technology</a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      Research  consolidate and revise EWS text(?) replies to Luke and Brian on model choice  Notebook meta  fix google-analytics plugin (still needs to get toggle working?) tests of notebook-parsing.Rmd. New errors on ; somehow in straight XML parsing, ignoring for the moment. Opened a few new issues around improving site semantics. (#59, #60)  ropensci  Resubmit rfishbase &ndash; silently load to local, not global namespace. Updated data cache (and ASCII-ify and compress).
+      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
+ People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
+ Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h2>
+    <h4>Fri, Feb 10, 2012</h4>
     <div class="article-style">
       
-      Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
- classical approaches are to fix relationship of stock recruitment.
- parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
- A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
- How much data we need.
+      Forage fish writing See doc, FF dropbox PopDyn
+Warning signals edits  Alan edits Figure captions, titles.
+ Text changes from Noam.
+  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
+git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">UC Davis graduate student symposium proposal</a></h2>
+    <h4>Wed, Feb 8, 2012</h4>
     <div class="article-style">
       
-      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
+      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Different ways of visualizing distribution overlap</a></h2>
+    <h4>Fri, Feb 3, 2012</h4>
     <div class="article-style">
-      
-      This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
-Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
-In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/02/02/thursday-13/">Thursday</a></h2>
+    <h4>Thu, Feb 2, 2012</h4>
     <div class="article-style">
       
-      Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
- We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema
+      rOpenSci  Dryad submission xml parsing example to Scott essentially see (fishbase example , and xpath tutoral ) knitr and latex figure placement (use float package with H to enforce placement). cc0 &amp; OSI &hellip; pmc purchase order, dryad data id approval. &amp; writing writing writing&hellip; Re-formating data for ggplot version of graphs, realized I should be specifying id.vars to melt (example from my Q on SO)  Reading  Great special feature on the data era in TREE ((which I mention despite it&rsquo;s misfortune of being connected to Elsivier right now)) (Page, 2012), (Michener &amp; Jones, 2012), (Porter et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/01/30/monday-15/">Monday</a></h2>
+    <h4>Mon, Jan 30, 2012</h4>
     <div class="article-style">
       
-      Started reml, and R package for reading, writing, manipulating and publishing EML files. More details and progress so far on the Github page; in particular flushing out design goals in the issues tracker.
-Initial goals To start, I am aiming for a proof of principle case in which we can write an R data.frame into EML (issue #2), publish to a remote repository such as figshare (issue #3), and then read the data back in as the original R object types from the EML (issue #6).
+      pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
+view sourcecode, Reed.R
+NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2012/01/24/pdg-control-training-problem-ii-update/">pdg-control Training Problem II update</a></h2>
+    <h4>Tue, Jan 24, 2012</h4>
     <div class="article-style">
       
-      Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
- 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
+      Basically we&rsquo;ve done some simple stuff and now would be a good time to think about tools for some heavy-lifting computational challenges standing in the way. Michael &amp; Jim have been a great help on this, and Jake has also helped with theoretical underpinnings.
+Statement of problem
+We consider the impact of uncertainty in the harvesting of fisheries which involve alternative stable state dynamics.
+Current Findings
+ Adding uncertainty in current state means optimal escapement isn&rsquo;t the optimal solution (contrary to Reed model) (Sethi et.
       
     </div>
   </div>

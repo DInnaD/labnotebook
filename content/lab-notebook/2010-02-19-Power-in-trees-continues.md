@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-19T00:00:00Z
 title: Power in trees continues
+url: /2010/02/19/Power-in-trees-continues/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Discussion of power in trees need a counterpoint to the example of the
 star tree as being devoid of information content. The best example here

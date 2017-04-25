@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,111 +141,106 @@
   
   
   <div>
-    <h2><a href="../../../2012/02/16/squiggles.html">Squiggles</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
+    <h2><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h2>
+    <h4>Tue, Apr 16, 2013</h4>
     <div class="article-style">
       
-      Variability in the appearance of a trend
-nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
-X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
+      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/15/getting-signal-from-autocorrelation.html">getting signal from autocorrelation</a></h2>
-    <h4>Wed, Feb 15, 2012</h4>
-    <div class="article-style">
-      
-      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
-Run the individual based simulation
-require(populationdynamics)  [code] Loading required package: populationdynamics
- ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/02/14/further-examples-for-appendices.html">Further examples for appendices</a></h2>
-    <h4>Tue, Feb 14, 2012</h4>
-    <div class="article-style">
-      
-      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
-Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/02/13/monday-16.html">Monday</a></h2>
-    <h4>Mon, Feb 13, 2012</h4>
+    <h2><a href="../../../2013/04/15/notes/"></a></h2>
+    <h4>Mon, Apr 15, 2013</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/12/sunday-6.html">Sunday </a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
+    <h2><a href="../../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/"></a></h2>
+    <h4>Thu, Apr 11, 2013</h4>
     <div class="article-style">
       
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
+      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/12/saturday-projects-reading-markdown-notebook-technology.html">Saturday: projects, reading, markdown notebook-technology</a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
+    <h2><a href="../../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h2>
+    <h4>Thu, Apr 11, 2013</h4>
     <div class="article-style">
       
-      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
- People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
- Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
+      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
+ Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal.html">UC Davis graduate student symposium proposal</a></h2>
-    <h4>Wed, Feb 8, 2012</h4>
+    <h2><a href="../../../2013/04/05/a-clever-derivation-on-realized-escape-times/"></a></h2>
+    <h4>Fri, Apr 5, 2013</h4>
     <div class="article-style">
       
-      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/03/different-ways-of-visualizing-distribution-overlap.html">Different ways of visualizing distribution overlap</a></h2>
-    <h4>Fri, Feb 3, 2012</h4>
+    <h2><a href="../../../2013/03/22/research/"></a></h2>
+    <h4>Fri, Mar 22, 2013</h4>
     <div class="article-style">
+      
+      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/01/24/tuesday-11.html">Tuesday</a></h2>
-    <h4>Tue, Jan 24, 2012</h4>
+    <h2><a href="../../../2013/03/19/collected-notes/">Collected notes from past few days</a></h2>
+    <h4>Tue, Mar 19, 2013</h4>
     <div class="article-style">
       
-      Resilience seminar  the unhelpful resilience of invaded systems (ecosystem engineers anyone? Cheatgrass change the fire regime, salt-cedar ) Examples in cheatgrass invading sagebrush, and saltcedar invading cottonwoods. Variables on axes? Problem of dimensionality? resilient to what? Carpenter&rsquo;s rigidity trap (need to eliminate something) vs poverty trap (something is missing) promote a small disturbance to reset the system &ndash; when are small disturbances stabilizing? (escape the rachet?)  pdg-control  Summary for Training Problem II  Warning Signals  Figures for Alan paper.
+      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/01/18/wednesday-meetings.html">Wednesday -- meetings</a></h2>
-    <h4>Wed, Jan 18, 2012</h4>
+    <h2><a href="../../../2013/03/08/notes-from-the-week/"></a></h2>
+    <h4>Fri, Mar 8, 2013</h4>
     <div class="article-style">
       
-      Alan meeting write write write
-Duncan Meeting Troubleshooting S3 and S4 Try adding methods? Changing order on NAMESPACE?
-Leaving ouch off the import list: no errors, but within functions, don&rsquo;t get S4 method. import but don&rsquo;t depend on ouch: error. accurate, since simulate is left as an s3 function at the user level.
-What a headache. See stackQ.
-manuscript Duncan&rsquo;s feedback
-Meredith Meeting Run a science policy workshop with Davis open science group?
+      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/01/12/tipping-points-comment-in-nature/"></a></h2>
+    <h4>Sat, Jan 12, 2013</h4>
+    <div class="article-style">
+      
+      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
+Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/21/progress-summary/"></a></h2>
+    <h4>Fri, Dec 21, 2012</h4>
+    <div class="article-style">
+      
+      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
       
     </div>
   </div>

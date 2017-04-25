@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-10-26 15:49:27
-layout: post
-slug: labrid-submodels
-title: Labrid submodels
-redirects: [/wordpress/archives/3037, /archives/3037]
 categories:
 - evolution
+comments: true
+date: 2011-10-26T15:49:27Z
+redirects:
+- /wordpress/archives/3037
+- /archives/3037
+slug: labrid-submodels
+title: Labrid submodels
+url: /2011/10/26/labrid-submodels/
 ---
 
 Updates to labrids results:

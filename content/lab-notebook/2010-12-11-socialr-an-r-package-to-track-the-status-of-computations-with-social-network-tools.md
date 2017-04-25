@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-11 03:44:54
-layout: post
-slug: socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools
-title: 'socialR: Reproducible Research & Notebook integration with R'
-redirects: [/wordpress/archives/565, /archives/565]
 categories:
 - open-science
+comments: true
+date: 2010-12-11T03:44:54Z
+redirects:
+- /wordpress/archives/565
+- /archives/565
+slug: socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools
 tags:
 - R
+title: 'socialR: Reproducible Research & Notebook integration with R'
+url: /2010/12/11/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools/
 ---
 
 I've created an R package that uses social media tools for reproducible research.  The goal of the package is this: whenever I run a code, output figures are automatically added to my figure repository (Flickr), linked to the timestamped version of the code that produced them in the code repository.  Figures should be tagged by project and be embedded selectively or automatically into this lab notebook.  The basic workflow of the notebook looks like this:[ref]Diagram of my notebook as presented at Science Online, 2011, see other slides in my [entry on this](http://www.carlboettiger.info/archives/792).[/ref]

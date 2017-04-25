@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [warning-signals, code-tricks]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-08-16T00:00:00Z
+tags:
+- warning-signals
+- code-tricks
 title: Warning Signals
+url: /2010/08/16/Warning-Signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   bootstrapping models implemented
 -   improved handling of model classes -- included T, t0, N, and X0 in

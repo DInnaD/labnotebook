@@ -1,17 +1,17 @@
 ---
-comments: true
-date: 2011-06-15 22:36:07
-layout: post
-slug: wednesday-mcmc-and-mles-for-wrightscape
-title: Wednesday MCMC and MLEs for wrightscape
-redirects: [/wordpress/archives/1988, /archives/1988]
 categories:
 - evolution
+comments: true
+date: 2011-06-15T22:36:07Z
+redirects:
+- /wordpress/archives/1988
+- /archives/1988
+slug: wednesday-mcmc-and-mles-for-wrightscape
+title: Wednesday MCMC and MLEs for wrightscape
+url: /2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/
 ---
 
-
-	
-  * Wrote plotting function for wrightscape MCMC analysis
+* Wrote plotting function for wrightscape MCMC analysis
 
 	
   * added support to write MCMC to a file.

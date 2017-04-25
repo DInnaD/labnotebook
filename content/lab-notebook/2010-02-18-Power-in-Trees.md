@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [Primates]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-18T00:00:00Z
+tags:
+- Primates
 title: Power in Trees
+url: /2010/02/18/Power-in-Trees/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Following up after yesterday's meeting, I am working on implementing the
 confidence interval analysis and quantifying information in trees. This

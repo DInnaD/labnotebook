@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-17T00:00:00Z
 title: Meeting Goals
+url: /2010/02/17/Meeting-Goals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Discussion of information in phyologenetic trees analysis
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,123 +141,121 @@
   
   
   <div>
-    <h2><a href="../../../2012/02/27/monday-14.html">Monday</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
+    <h2><a href="../../../2014/04/08/multiple-uncertainty-notes/"></a></h2>
+    <h4>Tue, Apr 8, 2014</h4>
     <div class="article-style">
       
-      Warning Signals  Added resulting indicator distributions on finer sampling results.
- Re-running now excluding the final dive (population below 300).
-  Treebase working on manuscript. A few examples using the improved meta-data queries:
-Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
+      Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/24/visuals-for-communicating-uncertainty.html">Visuals for Communicating Uncertainty </a></h2>
-    <h4>Fri, Feb 24, 2012</h4>
+    <h2><a href="../../../2014/04/07/notes/"></a></h2>
+    <h4>Mon, Apr 7, 2014</h4>
     <div class="article-style">
       
-      Visiting the question of communicating uncertainty in Marissa&rsquo;s lab meeting, focusing on this excellent Science article (Spiegelhalter et. al. 2011). Noam and Jamie are leading the discussion, and suggested we pick a few favorite examples. None on my list really address the challenge of communicating uncertainty directly, though the first one probably comes closest. I think they do highlight some of the potential and the challenges of good data visualization though, which is certainly one of the essential building blocks to visual communication of uncertainty.
+      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/23/esa-2012.html">ESA 2012 Abstract</a></h2>
-    <h4>Thu, Feb 23, 2012</h4>
+    <h2><a href="../../../2014/04/03/wisconsin-visit/"></a></h2>
+    <h4>Thu, Apr 3, 2014</h4>
     <div class="article-style">
       
-      Submitted my abstract for ESA 2012, in Portland. Getting a title and abstract pinned down about seven months in advance is itself an exercise in decision making under uncertainty. I&rsquo;ve added some further background below.
-Unknown unknowns: management strategies under uncertainty &amp; alternate stable states Background/Question/Methods The effective management of natural resource populations such as fisheries or forests and the ecosystems in which they are embedded is a central goal of much work in both theoretical and applied ecological research.
+      Carl Boettiger Schedule 3-4 April
+Thursday
+   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
+   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/22/stochastic-optimization.html">Stochastic optimization </a></h2>
-    <h4>Wed, Feb 22, 2012</h4>
+    <h2><a href="../../../2014/03/24/review-of-progress-on-packages/"></a></h2>
+    <h4>Mon, Mar 24, 2014</h4>
     <div class="article-style">
       
-      Surprising heterogeneity of profit distribution under a simple Beverton-Holt model Usually I expect the alternate stable state dynamics to be the ones producing bimodal distribution of profit:
-The pattern is driven by a costs to harvesting making harvest unprofitable most of the time, while chance fluctuations push some populations across this threshold again and again. The ensemble variation in harvest is suggestive of this:
-but we really see what is going on when we color-code the population dynamics of the most profitable and least profitable realizations of the stochastic dynamics:
+      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
+rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/22/wednesday-12.html">Wednesday</a></h2>
-    <h4>Wed, Feb 22, 2012</h4>
+    <h2><a href="../../../2014/03/18/notes/"></a></h2>
+    <h4>Tue, Mar 18, 2014</h4>
     <div class="article-style">
       
-      CC0 license approved for use on CRAN
- Update my DESCRIPTION files, use the new Author@R convention.
- Rebecca&rsquo;s comment on mntd in comparative methods
- This lab notebook gets mentioned for good practices in academic workflow.
- Working on treebase paper
- ESA registration
- Lecture notes for tomorrow
- forage fish writing
-  Reading Reading over (Munch et. al. 2005). I think this is a very nice treatment, a lot clearer I think than lots of other stuff I&rsquo;ve looked at (thanks Tim &amp; Jim!
+      ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
+ Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/21/tues-research--managing-for-resilience-talk-future-of-libraries-etc.html">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
+    <h2><a href="../../../2014/03/11/notes/"></a></h2>
+    <h4>Tue, Mar 11, 2014</h4>
     <div class="article-style">
       
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
+      Reading  NAP report on &ldquo;Abrupt impacts of climate change: anticipating suprises.&rdquo;
+ Nice overview of major climate tipping points. Interesting that the 2011 IPCC report put to rest concerns about a sudden transition of the thermohaline circulation within this century, despite good evidence that it is a bistable dynamic. Likewise appears to dismiss concerns of a tipping point related to the release of permafrost methane, thus putting aside the two most well-known and well-studied examples.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/20/finer-sampling-in-prosecutors-fallacy.html">finer sampling in prosecutor&#39;s fallacy</a></h2>
-    <h4>Mon, Feb 20, 2012</h4>
+    <h2><a href="../../../2014/03/10/notes/"></a></h2>
+    <h4>Mon, Mar 10, 2014</h4>
     <div class="article-style">
       
-      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
-require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
-d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
+      RNeXML merge travis integration with support for rrdf. See pull #57 Reply to Perry re nonparametric approaches 10am Andrew Skype meeting re: his manuscript rOpenSci discussion re: other services, formats. Reading Caldwell et al, Geophysical Letters. Good example of naiive data mining leading to spurious correlations from non-independent models. (/ht @FreshwaterEcology Looking over NSF&rsquo;s Data Infrastructure Building Blocks, DIBB call and previously funded work.
+ Remote control for Ubuntu via android?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/16/prosecutors-fallacy-initial-look.html">prosecutor&#39;s fallacy initial look</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
+    <h2><a href="../../../2014/03/07/notes/"></a></h2>
+    <h4>Fri, Mar 7, 2014</h4>
     <div class="article-style">
       
-      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
+      Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
+ Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/16/squiggles.html">Squiggles</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
+    <h2><a href="../../../2014/02/14/notes/"></a></h2>
+    <h4>Fri, Feb 14, 2014</h4>
     <div class="article-style">
       
-      Variability in the appearance of a trend
-nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
-X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
+      pomdp Write Iadine, send example code (Reed example in multiple_uncertainty)
+multiple-uncertainty Check in with Jim on how results compare to Sethi. See commit log for multiple_uncertainty
+open-science  #PublishPerish14 continues Comments on software publishing <a href="https://github.com/mozillascience/code-research-object/issues/2#issuecomment-35109160">https://github.com/mozillascience/code-research-object/issues/2#issuecomment-35109160</a>  Reading:  Drake, J. M. 2014 Tail probabilities of extinction time in a large number of experimental populations. Ecology , 140206083444001. (doi:10.1890&frasl;13-1107.1)  Neat result. thinking how this relates to predictions of Mangel and Tier 1993; probably still a significant deviation?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2012/02/15/getting-signal-from-autocorrelation.html">getting signal from autocorrelation</a></h2>
-    <h4>Wed, Feb 15, 2012</h4>
+    <h2><a href="../../../2014/02/10/scratch-notes-while-outlining-talk/"></a></h2>
+    <h4>Mon, Feb 10, 2014</h4>
     <div class="article-style">
       
-      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
-Run the individual based simulation
-require(populationdynamics)  [code] Loading required package: populationdynamics
- ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
+      Scratch notes for my seminar
+Part I: Tipping Points: Early Warning signals and decision theory Global change threats. So what do we do? This is a pendulum. easy to predict. Not a pendulum. Oscillations not easy to predict. Crashes Tipping points No equation for $f_i(s,h)$ Everything matters. Data is good, getting better. Crushing our data under parameters. Stop throwing out the data. Early Warning signals Optimal Control problem &ndash; Model the descision process!
       
     </div>
   </div>

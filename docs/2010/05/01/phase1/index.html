@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2010/05/01/phase1/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    <p><strong>editorial note</strong>: These notes pre-date the formal start of my online
+laboratory notebook, <a href="http://carlboettiger.info/2010/02/02/The-Lab-Notebook-Goes-Open-.html">Feb 2 2010: The Lab Notebook Goes Open</a>
+and were adapted from a LaTeX document in which I kept notes on this topic
+during my summer at <a href="http://www.iiasa.ac.at/">IIASA</a>.  Lacking a proper notebook then, documents
+like this one were updated periodically and occassionally branched into
+new ones.  The post date represents the last time the
+LaTeX document was edited in the course of that research.</p>
+
+<hr />
+
+<p>We consider the classic adaptive dynamics model for evolutionary
+branching under competition for a limiting resource by Dieckmann and
+Doebeli (1999). The population dynamics of $N(x,t)$ individuals each
+with focal trait $x$ are given by a continuous time birth-death process
+with rates</p>
+
+<p>$$\begin{aligned}
+b(N) = &amp; r \nonumber <br />
+d(N) = &amp; r \frac{\sum_yN(y,t)C(x,y)}{K(x)} .\label{general_logistic}\end{aligned}$$</p>
+
+<p>The focal trait $x$ can be thought of as some continuous phenotypic
+variable, such as beak size, which affects resource consumption. Niche
+differences driving speciation arise from differences in this trait. In
+the model, $K(x)$ is the resource kernel which determines the
+equilibrium population density and $C(x,y)$ is a the competition kernel,
+describing the relative change in death rate of individuals of type $x$
+due to competition by individuals of type $y$. Given $C(x,x)=1$, the
+equilibrium density of a monomorphic population is $N^{\ast}(x)=K(x)$.
+We assume the following Gaussian forms,</p>
+
+<p>$$K(x)=K_0e^{-x^2/(2\sigma_k^2)}, \label{K}$$</p>
+
+<p>and</p>
+
+<p>$$C(x,y)=e^{-(x-y)^2/(2\sigma_c^2)}, \label{C}$$</p>
+
+<p>where $\sigma_k$ and $\sigma_c$ are scale factors for the resource
+distribution and competition kernels respectively. $\sigma_c$ can be
+though of as the niche size. We focus on the case $\sigma_k&gt;\sigma_c$,
+for which the model has an evolutionary branching point at $x=0$</p>
+
+<p>The evolutionary dynamics are specified only at the phenotypic level: We
+assume that with probability $\mu$ an individual birth results in a
+mutant offspring, and that the mutant trait is chosen from a Gaussian
+distribution centered at the trait value of the parents and with a
+variance $\sigma_{\mu}^2$.</p>
+
+<p>Classically, the approach to the branching point is governed by the
+canonical equation of adaptive dynamics. To account for branching we
+have to revisit the original derivation of this equation where we relax
+the limit of small mutational steps sufficiently to allow mutants to
+enter the coexitence region, $P_2$. The derivation of the canonical
+equation integrates only over those mutants that fall into the
+invasion-substitution region, $P_1$. However, since the derivation is
+done in the limit of small mutational step sizes, this encompasses
+essentially all of the weight of the mutational kernel, and to good
+approximation can thus be replaced with the entire $P_1 \cup P_2$
+region. Recall that in the derivation of the canonical equation,
+deleterious mutations are given zero probability of fixing (from the
+branching process approximation), and hence this corresponds to
+integrating over half of the real line $\mathbb{R}$.</p>
+
+<p>$$\begin{aligned}
+\frac{\mathrm{d}\bar x}{\mathrm{d}t} = \mu N^*(x) \phantom \cdot \partial_y s(y,x) \Big|<em>x \int</em>{P_1} [y-x]^2 M(y-x) \mathrm{d}[y-x]
+\label{canonical}\end{aligned}$$</p>
+
+<p>The probability of such a mutant occurring in our monomorphic population
+of trait $x$ is given by the probability that any mutant occurs (given
+by the population size, approximately $K(x)$ at equilibrium, times the
+birth rate $b(x)$ times the mutation rate $\mu$) times the probability
+that the mutation lies on the opposite side of the coexistence boundary,
+which we denote as $\phi(x)$ and $\psi(x)$, which is $\phi(x)$ reflected
+across the line $y=x$. This depends on the mutational kernel, $M(y,x)$
+which gives the probability that a mutant arising from a resident
+population of trait $x$ bears trait $y$ that falls withing the
+coexistance region as follows:</p>
+
+<p>$$\int<em>{-\infty}^{\phi(x)} M(y,x) \mathrm{d}y + \int</em>{\psi(x)}^{\infty} M(y,x) \mathrm{d}y$$</p>
+
+<p>Without loss of generality let us assume that the singular strategy
+$x^* = 0$ and that we start from some trait value $x<em>0 &gt; x^*$.
+Additionally, let us we assume $M(y,x)$ is Gaussian in $y-x$ with mean 0
+and variance $\sigma</em>{\mu}^2$. However, we do not wish to consider all
+such mutants $y$, but only those that survive. We multiply the
+probability of a mutant having trait $y$, $M(y,x)$, times the
+probability that is survives drift. This probability we quote from the
+Galton-Watson branching process, $1-\tfrac{d(y,x)}{b(y,x)}$. Using our
+model for birth and death rates , the probability of surviving branching
+is</p>
+
+<p>$$1-\frac{C(y,x)K(x)}{K(y)} := S(y,x)
+\label{S}$$</p>
+
+<p>which we denote as $S(y,x)$ as indicated. Hence we modify our integral
+to consider all mutants $y &lt; x^*$ which occur with probability $M(y,x)$
+and then survive with probability $S(y,x)$, and write down the rate
+$P(x)$ at which a mutant which leads to branching occurs from our
+monomorphic population with trait $x$:</p>
+
+<p>$$P(x) := r \mu K(x)\left( \int<em>{-\infty}^{\phi(x)} M(y,x) S(y,x) \mathrm{d}y + \int</em>{\psi(x)}^{\infty} M(y,x) S(y,x) \mathrm{d}y  \right)
+\label{MSerf}$$</p>
+
+<p>Though a little cumbersome, this can be written in nearly closed form
+(using the error function). For our particular model $s(y,x)$, we can
+write the boundaries $\phi(x)$ and $\psi(x)$ as</p>
+
+<p>$$\begin{aligned}
+\phi(x) = x\frac{\frac{\sigma_k^2}{\sigma_c^2}+1}{\frac{\sigma_k^2}{\sigma_c^2}-1} \nonumber <br />
+\psi(x) = x\frac{\frac{\sigma_k^2}{\sigma_c^2}-1}{\frac{\sigma_k^2}{\sigma_c^2}+1}
+\label{phipsi}\end{aligned}$$</p>
+
+<p>Then, given a starting condition $x_0$, we can determine the expected
+trait $x$ at time $t$ of a monomorphic resident population by
+integrating the canonical equation,</p>
+
+<p>$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{1}{2} \mu \sigma_{mu}^2 N^*(x) \partial_y s(y,x)$$</p>
+
+<p>which for our model is</p>
+
+<p>$$\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{-x}{2\sigma<em>k^2} r \mu \sigma</em>{\mu}^2 K(x)$$</p>
+
+<p>While no closed form solution exists for $x(t)$ in this case, if we
+assume $x_0 \ll \sigma_k$ then to good approximation we can view $K(x)$
+to be constant over the interval and take our path to be:</p>
+
+<p>$$x(t) = x<em>0 \exp\left( -r \mu \sigma</em>{\mu}^2 K_0 t/\sigma_k^2\right)$$</p>
+
+<p>Using this mean path, we can write down an approximation for the rate of
+a branching mutant occurring as a function of time, $P(x(t))$. Using
+this time dependent rate, the probability of not branching after time
+$T$ is simply $\exp\left( - \int_0^T P(t)\mathrm{d}t \right)$. One minus
+this is the probability branching by time $T$; i.e. the cumulative
+density function, hence the probability density function for the waiting
+time is:</p>
+
+<p>$$\Pi(T) = P(x(T)) \exp\left( -\int_0^T P(x(t)) \right)
+\label{pdf}$$</p>
+
+<p>and the expected time to complete phases 1 and 2 is
+$\int_0^{\infty} T \Pi(T) \mathrm{d}T$. This is our first analytic
+approximation.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-05-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Sat, May 1, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/adaptive-dynamics">adaptive-dynamics</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2010/05/01/coexistence-of-the-early-dimorphism/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2010/04/30/adaptive-dynamics/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-05-01-phase1.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-05-01-phase1.md">2785abfe8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2010\/05\/01\/phase1\/';
+    var disqus_title = '';
+    var disqus_url = '\/2010\/05\/01\/phase1\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

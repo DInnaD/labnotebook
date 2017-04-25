@@ -1,11 +1,11 @@
 ---
-layout: post
-categories: [ecology]
-tags: 
+categories:
+- ecology
+date: 2013-09-02T00:00:00Z
+tags:
 - ropensci
-
+url: /2013/09/02/reml-milestone/
 ---
-
 
 Reached a [milestone](https://github.com/ropensci/reml/issues/milestones?state=closed&with_issues=yes) in [reml](https://github.com/ropensci/reml) development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.  
 

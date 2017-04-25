@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-11-08 12:40:31
-layout: post
-slug: sdp-solution-for-allee-model
-title: SDP solution for allee model
-redirects: [/wordpress/archives/3176, /archives/3176]
 categories:
 - ecology
+comments: true
+date: 2011-11-08T12:40:31Z
+modified: 2013-02-01
+redirects:
+- /wordpress/archives/3176
+- /archives/3176
+slug: sdp-solution-for-allee-model
 tags:
 - pdg-control
-modified: 2013-02-01
+title: SDP solution for allee model
+url: /2011/11/08/sdp-solution-for-allee-model/
 ---
 
 Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman's equation (don't need Hamilton-Jacobi-Bellman formulation).

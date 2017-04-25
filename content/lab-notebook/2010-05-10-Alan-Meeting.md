@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [tribolium, warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-10T00:00:00Z
+tags:
+- tribolium
+- warning-signals
 title: Alan Meeting
+url: /2010/05/10/Alan-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Updates
 

@@ -1,13 +1,14 @@
 ---
-layout: post
-title: "An appropriate amount of fun with docker?"
-category: open-science
+categories:
+- open-science
+date: 2014-08-08T00:00:00Z
 tags:
 - blog
 - R
 - docker
+title: An appropriate amount of fun with docker?
+url: /2014/08/08/an-appropriate-amount-of-fun-with-docker/
 ---
-
 
 _An update on my exploration with Docker. Title courtesy of [Ted](https://twitter.com/DistribEcology/status/497523435371638784), with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though_
 

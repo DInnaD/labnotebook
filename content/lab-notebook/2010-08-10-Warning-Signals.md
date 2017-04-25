@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-08-10T00:00:00Z
+tags:
+- warning-signals
 title: Warning Signals
+url: /2010/08/10/Warning-Signals/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Alternate models
 

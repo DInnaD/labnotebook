@@ -1,9 +1,9 @@
 ---
-layout: post
-category: open-science
-
+categories:
+- open-science
+date: 2014-02-18T00:00:00Z
+url: /2014/02/18/real-world-challenges-in-reproducible-research-code/
 ---
-
 
 > **Editorial Note:** Scratchpad in replying to issues raised by the NESCent reproducibility exercise that included my prosecutor's fallacy paper.  See more developed version of this disucssion in the package issues log:
 

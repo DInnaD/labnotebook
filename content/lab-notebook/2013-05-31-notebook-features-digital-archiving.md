@@ -1,11 +1,12 @@
 ---
-title: "Notebook features: digital archiving"
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-05-31T00:00:00Z
+tags:
 - notebook-technology
 - blog
-
+title: 'Notebook features: digital archiving'
+url: /2013/05/31/notebook-features-digital-archiving/
 ---
 
 Note: this entry is part of a [series of

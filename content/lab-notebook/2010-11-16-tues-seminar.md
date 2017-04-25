@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-11-16 17:47:39
-layout: post
-slug: tues-
-title: Tues seminar
-redirects: [/wordpress/archives/337, /archives/337]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2010-11-16T17:47:39Z
+redirects:
+- /wordpress/archives/337
+- /archives/337
+slug: tues-
+tags:
 - seminar
+title: Tues seminar
+url: /2010/11/16/tues-seminar/
 ---
 
 Sarah Dalrymple seminar.  Rick Karban's excellent intro: "unlike the rest of these seminars, Sarah will tell us something new."    "Sarah's really out there."  Also mentions TAC and art teaching.

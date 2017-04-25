@@ -1,12 +1,12 @@
 ---
-layout: post
-category: ecology
-tags: 
-- nonparametric-bayes
+categories:
+- ecology
 code: true
+date: 2013-06-03T00:00:00Z
+tags:
+- nonparametric-bayes
+url: /2013/06/03/ADMB-basic-example/
 ---
-
-
 
 After a few [iterations](https://github.com/cboettig/nonparametric-bayes/commits/b4576cfc0b5a0c87701348976875c8657f0fd048/inst/examples/admb-example.md) I have a working minimal example (below).  Hoping that ADMB is a bit more robust than vanilla `optim` out of R as I loop over data sets for the sensitivity analysis ([#32](https://github.com/cboettig/nonparametric-bayes/issues/32)). Does not seem to hold in simple example here, not sure why.   
 

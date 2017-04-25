@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [warning-signals, code-tricks]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-25T00:00:00Z
+tags:
+- warning-signals
+- code-tricks
 title: The Ergodicity Question- Time averaging vs Ensemble averaging
+url: /2010/02/25/The-Ergodicity-Question--Time-averaging-vs-Ensemble-averaging/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 11am -- 3pm
 

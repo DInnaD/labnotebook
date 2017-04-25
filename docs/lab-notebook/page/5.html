@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,116 +140,112 @@
   
   
   <div>
-    <h2><a href="../../2012/02/16/squiggles.html">Squiggles</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
+    <h2><a href="../../2014/08/29/docker-notes/">Docker tricks of the trade and best practices thoughts</a></h2>
+    <h4>Fri, Aug 29, 2014</h4>
     <div class="article-style">
       
-      Variability in the appearance of a trend
-nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
-X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
+      Best practices questions Here are some tricks that may or may not be in keeping with best practices, input would be appreciated.
+ Keep images small: use the &ndash;no-install-recommends option for apt-get, install true dependencies rather than big metapackages (like texlive-full). Avoid creating additional AUFS layers by combining RUN commands, etc? (limit was once 42, but is now at least 127). Can use RUN git clone &hellip; to add data to a container in place of ADD, which invalidates caching.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/15/getting-signal-from-autocorrelation.html">getting signal from autocorrelation</a></h2>
-    <h4>Wed, Feb 15, 2012</h4>
+    <h2><a href="../../2014/08/25/reproducible-research-environments-with-docker/">Reproducible research environments with Docker</a></h2>
+    <h4>Mon, Aug 25, 2014</h4>
     <div class="article-style">
       
-      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
-Run the individual based simulation
-require(populationdynamics)  [code] Loading required package: populationdynamics
- ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
+      Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
+Wouldn&rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/14/further-examples-for-appendices.html">Further examples for appendices</a></h2>
-    <h4>Tue, Feb 14, 2012</h4>
+    <h2><a href="../../2014/08/14/docker-notes/"></a></h2>
+    <h4>Thu, Aug 14, 2014</h4>
     <div class="article-style">
       
-      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
-Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
+      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/13/monday-16.html">Monday</a></h2>
-    <h4>Mon, Feb 13, 2012</h4>
+    <h2><a href="../../2014/08/14/pdg-controlfest-notes/"></a></h2>
+    <h4>Thu, Aug 14, 2014</h4>
     <div class="article-style">
+      
+      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
+I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/12/sunday-6.html">Sunday </a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
+    <h2><a href="../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h2>
+    <h4>Fri, Aug 8, 2014</h4>
     <div class="article-style">
       
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
+      An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
+I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
+docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/12/saturday-projects-reading-markdown-notebook-technology.html">Saturday: projects, reading, markdown notebook-technology</a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
+    <h2><a href="../../2014/08/07/too-much-fun-with-docker/"></a></h2>
+    <h4>Thu, Aug 7, 2014</h4>
     <div class="article-style">
       
-      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
- People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
- Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
+      NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
+Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
+I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/12/elegant-fast-data-manipulation-with-data-table.html">Elegant &amp; fast data manipulation with data.table</a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
+    <h2><a href="../../2014/08/06/notes/"></a></h2>
+    <h4>Wed, Aug 6, 2014</h4>
     <div class="article-style">
       
-      Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
-One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
-time &lt;- rep(1:10, 10) replicate &lt;- sort(time) value &lt;- rnorm(100) df &lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
-sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use
+      Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
+ Attempted to add Travis builds to the Docker repo (just for fun, eh?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/10/thursday-writing-some-latexdiff-notes.html">Thursday: writing; some latexdiff notes</a></h2>
-    <h4>Fri, Feb 10, 2012</h4>
+    <h2><a href="../../2014/07/31/notes/"></a></h2>
+    <h4>Thu, Jul 31, 2014</h4>
     <div class="article-style">
       
-      Forage fish writing See doc, FF dropbox PopDyn
-Warning signals edits  Alan edits Figure captions, titles.
- Text changes from Noam.
-  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
-git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
+      Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
+Highly recommend their paper for the first explanation I&rsquo;ve actually been able to follow that provides a definition of &ldquo;DevOpts&rdquo; (essentially, using scripts rather than documentation to manage consistent cross-platform installation) and explains the differences and similarities between the various programs operating in this sphere, sometimes as alternatives and simultaneously.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/08/uc-davis-graduate-student-symposium-proposal.html">UC Davis graduate student symposium proposal</a></h2>
-    <h4>Wed, Feb 8, 2012</h4>
+    <h2><a href="../../2014/07/21/notes/"></a></h2>
+    <h4>Mon, Jul 21, 2014</h4>
     <div class="article-style">
       
-      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
+      Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
+Remote conferencing (Based on earlier unposted notes). With so much going on, it&rsquo;s nice to be able to follow highlights from some conferences remotely
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2012/02/06/some-collaborative-tools-for-science.html">Some Collaborative Tools for Science</a></h2>
-    <h4>Mon, Feb 6, 2012</h4>
+    <h2><a href="../../2014/07/21/ups-and-data-vs-optimal-control/">UPS and data vs optimal control</a></h2>
+    <h4>Mon, Jul 21, 2014</h4>
     <div class="article-style">
       
-      Ania Truszczynski invited me to give a little talk on the use of various collaborative tools for scientists. I enjoyed presenting this as a chalk-talk, but alas no slides to link so here&rsquo;s a list of reference. Rather than the impossible attempt to be comprehensive, this is restricted to resources I use regularly and have found to be the best of their class. All are freely available.
-Tools   Science Blogs (e.
+      Random idea for possible further exploration:
+The use of &lsquo;big data&rsquo; by UPS to perform lots of small efficiency gains seems to be everybody&rsquo;s favorite example (NPR, The Economist). During a typical applications of optimal control for ecological conservation talk yesterday I couldn&rsquo;t help thinking back to that story. The paradigm shift is not so much the kind or amount of the data being used as it is the control levers themselves.
       
     </div>
   </div>

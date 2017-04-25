@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-26 10:51:29
-layout: post
-slug: ropensci-from-r-some-xml-parsing
-title: 'FishBASE from R: some XML parsing'
-redirects: [/wordpress/archives/2745, /archives/2745]
 categories:
 - computation
+comments: true
+date: 2011-08-26T10:51:29Z
+redirects:
+- /wordpress/archives/2745
+- /archives/2745
+slug: ropensci-from-r-some-xml-parsing
 tags:
 - ropensci
+title: 'FishBASE from R: some XML parsing'
+url: /2011/08/26/fishbase-from-r-some-xml-parsing/
 ---
 
 [cross-posted](http://fishlab.ucdavis.edu/?p=395) from Wainwright Lab blog, archiving in the notebook here.  This early tutorial includes some background on XML parsing from R using XPath.  See the later rfishbase [tutorial](http://www.carlboettiger.info/archives/2529) for more functionality.  

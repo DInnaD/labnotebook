@@ -1,19 +1,19 @@
 ---
-comments: true
-date: 2011-04-11 08:13:05
-layout: post
-slug: sunday-warning-signals-edits-continue
-title: 'Sunday: Warning signals edits continue'
-redirects: [/wordpress/archives/1389, /archives/1389]
 categories:
 - ecology
+comments: true
+date: 2011-04-11T08:13:05Z
+redirects:
+- /wordpress/archives/1389
+- /archives/1389
+slug: sunday-warning-signals-edits-continue
 tags:
 - warning-signals
+title: 'Sunday: Warning signals edits continue'
+url: /2011/04/11/sunday-warning-signals-edits-continue/
 ---
 
-
-	
-  * Marissa edits -- Nearly done 
+* Marissa edits -- Nearly done 
 
 	
   * Single-figure layout -- DONE 

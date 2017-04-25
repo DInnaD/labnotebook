@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-01 20:18:38
-layout: post
-slug: server-file-management-from-bowser-ajaxplorer-mollify
-title: 'server file management from bowser: ajaxplorer, mollify'
-redirects: [/wordpress/archives/3116, /archives/3116]
 categories:
 - computation
+comments: true
+date: 2011-11-01T20:18:38Z
+redirects:
+- /wordpress/archives/3116
+- /archives/3116
+slug: server-file-management-from-bowser-ajaxplorer-mollify
 tags:
 - notebook-technology
+title: 'server file management from bowser: ajaxplorer, mollify'
+url: /2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify/
 ---
 
 A few notes on trying out some server-based file sharing solutions.  

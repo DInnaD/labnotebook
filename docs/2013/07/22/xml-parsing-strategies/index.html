@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2013/07/22/xml-parsing-strategies/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<p>Writing out some advice for our GSOC student on XML parsing.  (Now filed as <a href="https://github.com/shumelchyk/RNeXML/issues/11">RNeXML/#11</a></p>
+
+<hr />
+
+<p>Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with.  We can use S4 classes, R&rsquo;s native <code>data.frame</code> and <code>list</code> types, or extract specific terms of interest with xpath.  I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.</p>
+
+<p>It would be good to decide on which strategy you want.  As you seem to be leaning to the S4 already, note how I have made the slot labels correspond exactly to the attribute and node labels of the NeXML.  This lets us use the <code>xmlToS4</code> method:</p>
+
+<h2 id="using-s4-classes">Using S4 classes</h2>
+
+<p>We can define S4 class structures to correspond to the elements we want to extract.  Elements omitted from our definition will be ignored.</p>
+
+<pre><code class="language-r">setClass(&quot;node&quot;,
+    representation(id    = &quot;character&quot;,
+                   label = &quot;character&quot;,
+                   otu   = &quot;character&quot;,
+                   about = &quot;character&quot;,
+                   meta = &quot;meta&quot;))
+</code></pre>
+
+<p>Note that class &ldquo;meta&rdquo; is not yet defined, we will define it below.  Note also that we could omit any slots we don&rsquo;t care about, and they would simply be ignored.  (Try deleting the <code>meta</code> line, or the <code>about</code> line.)</p>
+
+<pre><code class="language-r">setClass(&quot;edge&quot;,
+    representation(source = &quot;character&quot;,
+                   target = &quot;character&quot;,
+                   id     = &quot;character&quot;,
+                   length = &quot;numeric&quot;))
+</code></pre>
+
+<pre><code class="language-r">setClass(&quot;meta&quot;,
+         representation(id =&quot;character&quot;,
+                        property=&quot;character&quot;,
+                        content=&quot;logical&quot;,
+                        'xsi:type'=&quot;character&quot;,
+                        datatype=&quot;character&quot;))
+
+setAs(&quot;XMLInternalElementNode&quot;, &quot;meta&quot;, function(from) xmlToS4(from))
+</code></pre>
+
+<p>In order for <code>xmlToS4</code> to work on nodes, I need the Coercion method for <code>meta</code> too, defined above.  We are now ready to rock and roll:</p>
+
+<pre><code class="language-r">require(XML)
+doc &lt;- xmlParse(&quot;tests/examples/trees.xml&quot;)
+
+edges &lt;- getNodeSet(doc, &quot;//x:tree[@id = 'tree1']/x:edge&quot;, namespaces=&quot;x&quot;)
+edges &lt;- lapply(edges, xmlToS4)
+
+nodes &lt;- getNodeSet(doc, &quot;//x:tree[@id = 'tree1']/x:node&quot;, namespaces=&quot;x&quot;)
+nodes &lt;- lapply(nodes, xmlToS4)
+</code></pre>
+
+<p>My opinion is that we should not bother writing validator methods etc for these classes we have just defined at this time.  We can already validate the XML produced against the schema, and as the class definitions follow those from the schema, we should be reasonably robust.  Happy to hear counter-arguments.</p>
+
+<h2 id="extracting-attributes-or-values-directly-by-xpath-query">Extracting Attributes or values directly by xpath query</h2>
+
+<p>A different route does not define class types at all, but just extracts the attributes we want.  This is a bit more fast and loose.</p>
+
+<pre><code class="language-r">edges = xpathSApply(doc, &quot;//x:tree[@id = 'tree1']/x:edge&quot;, namespaces = &quot;x&quot;, xmlAttrs)
+nodes = xpathSApply(doc, &quot;//x:tree[@id = 'tree1']/x:node&quot;, namespaces = &quot;x&quot;, 
+  function(x) 
+    c(xmlGetAttr(x, &quot;id&quot;, NA, as.character),  
+      xmlGetAttr(x, &quot;otu&quot;, NA, as.character)))
+</code></pre>
+
+<h2 id="coercing-into-standard-r-forms">Coercing into standard R forms</h2>
+
+<p>This approach can be very quick and powerful if the data conforms to this structure.</p>
+
+<pre><code class="language-r">XML:::xmlAttrsToDataFrame(getNodeSet(doc, &quot;//x:tree[@id = 'tree1']/x:node&quot;, namespaces=&quot;x&quot;))
+XML:::xmlAttrsToDataFrame(getNodeSet(doc, &quot;//x:tree[@id = 'tree1']/x:edge&quot;, namespaces=&quot;x&quot;))
+</code></pre>
+
+<h2 id="without-xpath">without XPath</h2>
+
+<p>We can skip over XPath based expressions by using xmlToList immediately:</p>
+
+<pre><code class="language-r">nex &lt;- xmlToList(doc)
+</code></pre>
+
+<p>Unfortunately, this will do some possibly unexpected things: for instance, attributes are converted to list elements (<code>node$id</code>, <code>node$otu</code>, etc) on simple nodes (e.g. <code>&lt;nodes&gt;</code> without a <code>&lt;meta&gt;</code> node), while if they contain another node, attributes are one sub-list and the containing nodes another (e.g. <code>node$meta</code> and <code>node$.attr</code>, etc)</p>
+
+<p>Also note that instead of xpath queries as in the <code>xpathSApply</code> and  <code>getNodeSet</code> examples above, we can index nodes the way would lists:</p>
+
+<p>e.g.  <code>xmlRoot(doc)[[&quot;trees&quot;]][[&quot;tree&quot;]]</code> instead of <code>getNodeSet(doc, &quot;//trees/tree&quot;)[[1]]</code> (note that the former returns the first <code>&lt;tree&gt;</code> node in the <code>&lt;trees&gt;</code> node, while the latter returns all <code>&lt;tree&gt;</code> nodes unless we just ask for the <code>[[1]]</code></p>
+
+<p>So this gives us a table of all node and edge elements:</p>
+
+<pre><code class="language-r">XML:::xmlAttrsToDataFrame(xmlRoot(doc)[[&quot;trees&quot;]][[&quot;tree&quot;]])
+</code></pre>
+
+<p>Which gives us:</p>
+
+<pre><code class="language-r">   id label root  otu about source target  length
+1  n1    n1 true &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+2  n2    n2 &lt;NA&gt;   t1  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+3  n3    n3 &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+4  n4    n4 &lt;NA&gt; &lt;NA&gt;   #n4   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+5  n5    n5 &lt;NA&gt;   t3  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+6  n6    n6 &lt;NA&gt;   t2  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+7  n7    n7 &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+8  n8    n8 &lt;NA&gt;   t5  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+9  n9    n9 &lt;NA&gt;   t4  &lt;NA&gt;   &lt;NA&gt;   &lt;NA&gt;    &lt;NA&gt;
+10 e1  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n1     n3 0.34534
+11 e2  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n1     n2  0.4353
+12 e3  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n3     n4   0.324
+13 e4  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n3     n7  0.3247
+14 e5  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n4     n5   0.234
+15 e6  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n4     n6  0.3243
+16 e7  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n7     n8 0.32443
+17 e8  &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;  &lt;NA&gt;     n7     n9  0.2342
+</code></pre>
+
+<p>Sometimes this notation is cleaner than the xpath, sort of up to you.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2013-07-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Jul 22, 2013
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/ropensci">ropensci</a
+    >, 
+    
+    <a href="../../../../tags/open-science">open-science</a
+    >, 
+    
+    <a href="../../../../tags/xml-standards">xml-standards</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2013/07/25/formal-semantics-with-reml/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2013/07/19/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-07-22-XML-parsing-strategies.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-07-22-XML-parsing-strategies.md">cd98680d8</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2013\/07\/22\/xml-parsing-strategies\/';
+    var disqus_title = '';
+    var disqus_url = '\/2013\/07\/22\/xml-parsing-strategies\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

@@ -1,11 +1,10 @@
 ---
-layout: post
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-23T00:00:00Z
 title: CSGF Conference Day 2
-
+url: /2010/06/23/DoE-CSGF-Conference-Day-2/
 ---
-
-
 
 [DoE CSGF Conference](http---www.krellinst.org-conf-csgf- "http---www.krellinst.org-conf-csgf-"), Day 2
 

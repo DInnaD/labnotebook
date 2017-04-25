@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-11-10 19:17:00
-layout: post
-slug: tuesday-sdes-then-back-to-phylogenetics
-title: Tuesday - SDEs then back to phylogenetics
-redirects: [/wordpress/archives/272, /archives/272]
 categories:
 - evolution
+comments: true
+date: 2010-11-10T19:17:00Z
+redirects:
+- /wordpress/archives/272
+- /archives/272
+slug: tuesday-sdes-then-back-to-phylogenetics
+title: Tuesday - SDEs then back to phylogenetics
+url: /2010/11/10/tuesday-sdes-then-back-to-phylogenetics/
 ---
 
 Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate [SDE problem Peter posed ](http://www.carlboettiger.info/archives/151)Oct 30th. No solutions yet but some ideas to get started.

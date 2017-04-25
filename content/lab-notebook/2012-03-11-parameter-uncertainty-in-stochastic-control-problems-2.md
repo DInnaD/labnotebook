@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2012-03-11 23:52:23
-layout: post
-slug: parameter-uncertainty-in-stochastic-control-problems-2
-title: Parameter uncertainty in stochastic control problems
-redirects: [/wordpress/archives/4276, /archives/4276]
 categories:
 - ecology
+comments: true
+date: 2012-03-11T23:52:23Z
+redirects:
+- /wordpress/archives/4276
+- /archives/4276
+slug: parameter-uncertainty-in-stochastic-control-problems-2
 tags:
 - pdg-control
 - reading
+title: Parameter uncertainty in stochastic control problems
+url: /2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/
 ---
 
 Day 3 of my short-term visitor stay before the working group starts.

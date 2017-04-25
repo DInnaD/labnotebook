@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2009/08/25/drift-effects/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    <p><strong>editorial note</strong>: These notes pre-date the formal start of my online
+laboratory notebook, <a href="http://carlboettiger.info/2010/02/02/The-Lab-Notebook-Goes-Open-.html">Feb 2 2010: The Lab Notebook Goes Open</a>
+and were adapted from a LaTeX document in which I kept notes on this topic
+during my summer at <a href="http://www.iiasa.ac.at/">IIASA</a>.  Lacking a proper notebook then, documents
+like this one were updated periodically and occassionally branched into
+new ones.  The post date represents the last time the
+LaTeX document was edited in the course of that research.</p>
+
+<hr />
+
+<p>We wish to establish the fate of a population into which a rare mutant
+is introduced near a branching point. Far from the branching point, we
+had only one concern - will the mutant survive? Near the branching
+point, we now have two concerns - the fate of the mutant and the fate of
+the original resident. For branching to proceed, both must persist. The
+traditional framework of density-independent diffusion theory is
+insuffient to handle this case. We must consider both resident and
+mutant populations, with abundances $N_1$ and $N_2$ respectively. Under
+a series of approximations, we can again write this case as a one
+dimensional equation in the frequency of the mutant, $p$; however, this
+time the equation will necessarily be nonlinear to have an additional
+intermediate stable state $0&lt;p&lt;1$ in addition to the boundaries $p=0$
+and $p=1$. We briefly review the necessary approximations as an
+understanding of them is essential to develop the proper picture.</p>
+
+<p>While the argument could be expressed in greater generality of generic
+birth and death rates, working with our particular example is
+instructive. For a dimorphic population, the master equations governing
+the probability distributions are:</p>
+
+<p>$$\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d}t} P(N_1,t) &amp;= (\mathbb{E}_1 - 1) r N_1 \frac{N_1 + C(x_1, x_2) N_2}{K(x_1) }P(N_1) + (\mathbb{E}_1^{-1} - 1)r N_1 P(N_1) \nonumber <br />
+\frac{\mathrm{d}}{\mathrm{d}t} P(N_2,t) &amp;= (\mathbb{E}_2 - 1) r N_2 \frac{N_2 + C(x_2, x_1) N_1}{K(x_2) }P(N_2) + (\mathbb{E}_2^{-1} - 1)r N_2 P(N_2),
+\label{mastereq}\end{aligned}$$</p>
+
+<p>where $E_i^k$ is the step operator taking $f(N<em>i) \to f(N</em>{i+k})$. We
+apply van Kampen&rsquo;s expansion of the master equation to linear order in
+the system size $K_0$, the carrying capacity at the singular strategy.
+While several other options are possible, it is important to note that
+this approximation, which gives rise to a diffusion equation, is <em>not</em>
+based on the assumption of a large <em>population</em> size, but a large
+<em>system</em> size. Confusing the two is common in the literature. For
+instance, if the system size is an area, then the transformed variable
+that obeys the diffusion equation is the density of individuals (a
+naturally continuous quantity), not the number of individuals, and the
+approximation becomes better when larger areas are considered, not
+larger numbers in the same area (which just means a higher density).
+Having stated this, we take $n_i = N_i/K_0$ and apply the expansion to
+recover the following stochastic differential equation (Itô expression)</p>
+
+<p>$$\begin{aligned}
+\mathrm{d}n_1 = r n_1 \left(1 -  \frac{n_1 + C(x_1, x_2) n_2}{K(x_1) } \right) \mathrm{d}t + \frac{1}{\sqrt{K_o} } \sqrt{r n_1 \left(1 +  \frac{n_1 + C(x_1, x_2) n_2}{K(x_1) } \right) } \mathrm{d}W_1
+\label{sde}\end{aligned}$$</p>
+
+<p>and $n_2$ similarly. This approximation is rigorously justified in the
+limit $K_0 \to \infty$. The next approximation is only heuristically
+justified at the moment, changing variables into $p = n_1/(n_1+n_2)$.
+The approximation makes two assumptions which are not strictly valid but
+justifable under the right conditions. The first is that the total
+population size is a constant, $n_1 + n_2 = n$. Even at stationary
+state, this is not valid as the populations fluctuate according to , but
+these fluctuations become negligible for large $K_0$. However, the
+system is only near stationary state when $p$ is at it&rsquo;s equilibrium
+value - it is not valid for all $p$. This is more problematic, as the
+resulting SDE will depend only on $k_1$ and not $k_2$. Only when
+$k_1 = k_2$ is this equation valid for any value of $p$. If mutational
+steps are small this will be approximately true. As we will see, smaller
+mutational steps will require larger populations and/or tighter
+competition kernels for branching to occur at all. Simplying notation by
+$C(x_1, x<em>2) = C</em>{1,2}$ and $K(X_i) = k_i$, this gives us the
+one-dimensional nonlinear SDE in the frequency $p$:</p>
+
+<p>$$\begin{aligned}
+\mathrm{d}p = r p \left(1 -  n \frac{p + c_{1,2}(1-p) }{k_1 } \right) \mathrm{d}t + \frac{1}{\sqrt{K<em>o n} } \sqrt{r p \left(1 +  n\frac{p + c</em>{1,2} (1-p) }{k_1 } \right) } \mathrm{d}W_1\end{aligned}$$</p>
+
+<p>The extinction probability $u(p,t)$ for this expression is given by the
+Backwards equation for the generator,</p>
+
+<p>$$\frac{\mathrm{d}}{\mathrm{d}t} u(p,t) = r p \left(1 -  n \frac{p + c_{12}(1-p) }{k_1 } \right) \partial_p u(p,t) + \frac{1}{2K<em>o n } r p \left(1 +  n\frac{p + c</em>{12} (1-p) }{k_1 } \right) \partial_p^2 u(p,t)
+\label{u}$$</p>
+
+<p>with the boundary conditions $u(0) = 1$ and $u(1) = 1$ being absorbing.</p>
+
+<p>After some rearrangement we can rewrite this as</p>
+
+<p>$$\begin{gathered}
+\frac{\mathrm{d}}{\mathrm{d}t} u(p,t) = \left( rp \left( 1-\frac{n c_{12}}{k_1} \right) - \frac{r n}{k<em>1} p^2 (1 - c</em>{12} )\right)  \partial<em>p u(p,t) <br />
++ \left( rp \left(1+\frac{n c</em>{12}}{k_1}\right)  + \frac{r n }{k<em>1} p^2 (1 - c</em>{12} ) \right) \frac{\partial_p^2 u(p,t)}{2K_0 n}\end{gathered}$$</p>
+
+<p>Note then for $p$ small we can neglect the terms quadratic in $p$ and we
+are left with the backwards equation from the density independent case,</p>
+
+<p>$$\frac{\mathrm{d}}{\mathrm{d}t} u(p,t) =  rp \left( 1-\frac{n c_{12}}{k_1} \right)   \partial<em>p u(p,t) + rp \left(1+\frac{n c</em>{12}}{k_1}\right)   \frac{\partial_p^2 u(p,t)}{2K_0 n}$$</p>
+
+<p>Setting equal to zero we have a simple ordinary differential equation
+for the stationary extinction probability:</p>
+
+<p>$$\begin{aligned}
+u &amp;= 1 - e^{-2sp K<em>0 n} <br />
+s &amp;= \frac{r\left( 1-\frac{n c</em>{12}}{k<em>1} \right) }{ r\left(1+\frac{n c</em>{12}}{k_1}\right)} \end{aligned}$$</p>
+
+<p>and particularly for a frequency $p$ corresponding to a single
+individual, a frequency of
+$p=1/(N_1+N_2) =(1/K_0)/(n_1+n_2) = 1/(K_0 n)$, this reduces to</p>
+
+<p>$$u = 1-e^{-2s}$$</p>
+
+<p>Assuming $ rp \left( 1-\frac{n c_{12}}{k_1} \right) \neq 0$, the
+time-dependent solution is:</p>
+
+<p>$$\begin{aligned}
+u &amp;= 1-e^{-p \psi(t) } <br />
+\psi(t) &amp;= \frac{2 s K<em>0 n}{1-e^{ r\left( 1-\frac{n c</em>{12}}{k_1} \right) t } }
+\label{timedep}\end{aligned}$$</p>
+
+<p>This tells us nothing about the survival of the resident. In most
+applications of this approach, it is assumed the resident quickly goes
+extinct once $p \sim o(1)$. If we consider the asymptotic behavior of
+the nonlinear PDE, Eq. , we find not suprisingly that the asymptotic
+behavior is sure absorbtion at one boundary or the other. The asymptotic
+behavior needn&rsquo;t concern us; as we really want to know how the expected
+lifetime of this dimporphic state compares with the rate at which
+mutants are entering this population. To do so we need the time
+dependent solution to the nonlinear equation .</p>
+
+<p>This poses some trouble in choosing $p = 1/(nK_0)$ as the initial mutant
+frequency. In the linear case, this always canceled perfectly with the
+noise term, $nK_0$, leaving a fixation probability that did not depend
+on the population size (system size), given that it was large enough to
+justify the linear noise approximation in the first place. This is no
+longer the case. Larger populations result in the mutant frequency $p$
+being much smaller. While the noise also decreases, we do not observe
+the perfect balance of the linear system. While an analytic,
+time-dependent solution for $u$ in this case is not possible, numerical
+solutions illustrate the much smaller populations having significantly
+higher survival probability, due to the higher value of $p$ from which
+they start given a single mutation.</p>
+
+<p>This seems unreasonable. A smaller population should be more suseptible
+to the accidental loss of a set of coexisting types, as observed in the
+simulations. I am unclear as to the explanation.</p>
+
+<p><img src="http://farm4.staticflickr.com/3726/9621550031_05054cdb02_o.png" alt="" /></p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2009-08-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Aug 25, 2009
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/adaptive-dynamics">adaptive-dynamics</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2009/08/25/diffusion-solution/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2009/08/25/stochastic-methods/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2009-08-25-drift-effects.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/59569b32ec15935d62e0997f3424dac930132d58/content/lab-notebook/2009-08-25-drift-effects.md">59569b32e</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2009\/08\/25\/drift-effects\/';
+    var disqus_title = '';
+    var disqus_url = '\/2009\/08\/25\/drift-effects\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

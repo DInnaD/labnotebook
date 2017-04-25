@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-01-31 17:58:08
-layout: post
-slug: journey-to-freedom-a-codes-tale-of-open-source-license-migration
-title: Journey to freedom - a code's tale of open source license migration
-redirects: [/wordpress/archives/3765, /archives/3765]
 categories:
 - open-science
-tags: 
+comments: true
+date: 2012-01-31T17:58:08Z
+redirects:
+- /wordpress/archives/3765
+- /archives/3765
+slug: journey-to-freedom-a-codes-tale-of-open-source-license-migration
+tags:
 - blog
+title: Journey to freedom - a code's tale of open source license migration
+url: /2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration/
 ---
 
 My software wants to be free. It wants to be seen and used and loved by as many people as possible. When first it heard of open source licenses, it set sail to join the company of great software in the promised land, but finding true freedom has been a tortured journey.

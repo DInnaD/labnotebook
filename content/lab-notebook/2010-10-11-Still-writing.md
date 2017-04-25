@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-10-11T00:00:00Z
 title: Still writing
+url: /2010/10/11/Still-writing/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Ah, back after being in bed almost a week with flu. Back to writing
 manuscript, reworking the presentation of the actual method. Much of the

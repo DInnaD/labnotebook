@@ -1,11 +1,13 @@
 ---
-layout: post
-category: ecology
-tags: [pdg-control, decision-theory]
+categories:
+- ecology
+date: 2012-12-03T00:00:00Z
 modified: 2012-12-04
-
+tags:
+- pdg-control
+- decision-theory
+url: /2012/12/03/Figures-3-and-4-for-policycosts/
 ---
-
 
 Straight-forward tasks can sometimes take forever.  In advance of our upcoming conference call for the Pretty Darn Good Control (`pdg-control`) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.  
 

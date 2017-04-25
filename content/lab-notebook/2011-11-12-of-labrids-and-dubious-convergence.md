@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-11-12 21:36:51
-layout: post
-slug: of-labrids-and-dubious-convergence
-title: Wainwright Retreat to Hastings Reserve
-redirects: [/wordpress/archives/3292, /archives/3292]
 categories:
 - evolution
+comments: true
+date: 2011-11-12T21:36:51Z
+redirects:
+- /wordpress/archives/3292
+- /archives/3292
+slug: of-labrids-and-dubious-convergence
+title: Wainwright Retreat to Hastings Reserve
+url: /2011/11/12/of-labrids-and-dubious-convergence/
 ---
 
 Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.

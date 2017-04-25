@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,102 +141,109 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/parrotfish-model-choice.html">Parrotfish Model choice</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/16/wainwright-lab-meeting/">Wainwright Lab Meeting</a></h2>
+    <h4>Wed, Jun 16, 2010</h4>
+    <div class="article-style">
+      
+      Presented a revised version of my talk for Evolution 2010, focusing on the inadequacy of information-criteria heuristics for model choice in phylogenetic comparative methods and presenting the likelihood-ratio based approach I&rsquo;ve been working on. Much better received this time. (The last two weeks have been pretty dedicated to preparing for the upcoming conferences, mostly for this presentation, so not much in the way of new research. Will be able to return to new stuff in July, following iEvoBio).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/06/09/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h2>
+    <h4>Wed, Jun 9, 2010</h4>
+    <div class="article-style">
+      
+      Fantastic meeting with Graham and Peter today, covered a lot of ground.
+MNV I briefly sketched the multivariate normal solution for joint probability across the tree under the regimes model. The original regimes approach did not take advantage of the fact that the solution to the joint probability across the tree is multivariate normal given the painting. This allows the calculation to be partitioned as outlined in Saturday&rsquo;s entry:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/06/08/making-slides-for-evolution-meeting/">Making slides for Evolution meeting</a></h2>
+    <h4>Tue, Jun 8, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/parrotfish-wrasse-example.html">Parrotfish-Wrasse example</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/06/implementing-the-new-approach/">Implementing the new approach</a></h2>
+    <h4>Sun, Jun 6, 2010</h4>
     <div class="article-style">
+      
+      Spent just about the entire day off and on implementing the approach described in yesterday&rsquo;s entry. Code includes the more direct implementation of the likelihood by generating trees from the process and averaging, as well as by weighting trees by their probability. Methods appear to agree reasonably well. The second approach should generate a wider variety of trees instead of using those produced by the first method. This could be done by varying the parameters of the transition rates to populate the collection.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/peter-meeting.html">Peter Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/06/05/likelihood-calculation/">Likelihood Calculation</a></h2>
+    <h4>Sat, Jun 5, 2010</h4>
+    <div class="article-style">
+      
+      Direct Calculation of the Joint Probability Fig 1 Sample tree
+ This is the approach implemented in the wrightscape project matrix_method.c. Consider an example phylogenetic tree (Fig 1) over which a stochastic process describes the evolution of trait x, defined by the transition probability rate w. Then the joint probability for a set of observed traits under this process can be written:   The transition density from any state to any state can be represented as a matrix over the domain of the integral.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/06/04/comparative-phylogenetics-talk/">Comparative Phylogenetics Talk</a></h2>
+    <h4>Fri, Jun 4, 2010</h4>
+    <div class="article-style">
+      
+      Practice talk in Wainwright lab meeting next Weds. 12 minutes.
+ Introduce question: Inferring the number of regimes Context relative to existing methods Statistical challenges &ndash; model-dependent phylogenetic signal problem Labrid example  Frameworks for approaching regimes question  wrightscape phylogenetically corrected clustering
+ speed/feasibility concerns, rate limiting steps.
+ model realism / representation concerns
+ statistical concerns
+  Returning to Wrightscape approach Haven&rsquo;t worked on the full problem of inferring multiple peaks directly from comparative data using the joint probability calculation since the beginning of this notebook, so about time to return to the direct problem and compare with the more heuristic approach of &ldquo;phylogenetically corrected clustering&rdquo; and also synthesize the work on uncertainty which has been a dominate theme thus far (add category label for this group!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/31/csgf-survey/">CSGF Survey</a></h2>
+    <h4>Mon, May 31, 2010</h4>
+    <div class="article-style">
+      
+      Wrote survey. Getting feedback and will send out this week.  previous comments
+Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/13/adaptive-dynamics/">Adaptive Dynamics</a></h2>
+    <h4>Thu, May 13, 2010</h4>
+    <div class="article-style">
+      
+      Public code hosting  Project code now available through Github. Advantages to public hosting: Replication of adaptive dynamics simulations can be difficult, particularly in matching various nuisance parameters. While there is certainly much pedagogical value in individual researchers implementing their own simulations, verification and reproducibility of scientific results would be greatly facilitated by adapting an accepted open source code base and adding branches, etc. Researchers could much more immediately benefit from the work of their colleagues and spend more time implementing novel research and less reproducing it.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/12/roi-and-sam-comparative-phylogenetics-r-workshop/">Roi and Sam Comparative Phylogenetics R Workshop</a></h2>
+    <h4>Wed, May 12, 2010</h4>
+    <div class="article-style">
+      
+      Day 2: 4p - 6:30p  Attending the R workshop by Roi Holzmann and Sam Price from the Wainwright lab. Missed the introductory session on Monday. Course data currently available here. Resources: Springer R books pdfs available through UC Davis. In particular: R book w/ ape.  Speciation &amp; Diversification 3rd session (4:10 - 5:10 pm): Packages: Laser, Geiger, Ape, apTreeshape &amp; Diversitree
+ Lineage through time plots ape and laser:   ltt.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/05/11/peter-meeting/">Peter Meeting</a></h2>
+    <h4>Tue, May 11, 2010</h4>
     <div class="article-style">
       
       Discussed potential solution to the model choice scenario:
  Consider an ordered list of models, A, B, C, D Then the Neyman-Pearson Lemma (see earlier entry on this) lets us walk through the list in the following fashion: We generate the simulated data sets under model A and compare likelihood ratios in each case. If the likelihood ratio of the observed data falls outside the 95% confidence interval, than it with this confidence that we are saying the data justify the alternate model (model B).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/peter-meeting.html">Peter meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      SICB conference  Abstract &ndash; sent   Phylogenetic comparative methods have become all but ubiquitous in only a few decades, forcing us to reconsider if information from a phylogenetic tree can justify the results. Existing approaches to this question have been inadequate and do not scale with tree size or the ability to resolve branches. For instance, selection between phylogenetic models typically based on information criteria fails to adequately reflect this uncertainty, and can lead to preference for arbitrarily complicated models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/phylogenetic-tree-formats.html">Phylogenetic Tree formats</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/phylogenetics-workshop-day-5.html">Phylogenetics Workshop Day 5</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Last day of lectures: Lineage Diversification
-Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
- Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/post-workshop.html">Post-Workshop</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on a couple new ideas:
- Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/power-in-trees.html">Power in Trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
-Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/power-in-trees.html">Power in trees</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/power-in-trees-continues.html">Power in trees continues</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Discussion of power in trees need a counterpoint to the example of the star tree as being devoid of information content. The best example here is probably the example tree used in the introduction of Felsenstein 1985: two star trees sharing a common ancestor. Implemented the basic creation of a balanced tree of arbitrary depth having this structure. The balanced tree has 2^h^ − 1 nodes, all internal nodes occuring at time = 1&frasl;2 and all tips at time = 1.
       
     </div>
   </div>

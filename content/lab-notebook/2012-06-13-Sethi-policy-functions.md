@@ -1,17 +1,14 @@
 ---
-layout: post
-title: Policy functions and value functions under multiple uncertainty
-category: ecology
-tags: 
+categories:
+- ecology
+code: true
+date: 2012-06-13T00:00:00Z
+tags:
 - decision-theory
 - multiple-uncertainty
-code: true
-
+title: Policy functions and value functions under multiple uncertainty
+url: /2012/06/13/Sethi-policy-functions/
 ---
-
-
-
-
 
 Implements a numerical version of the SDP described in (Sethi _et. al._ 2005).
 

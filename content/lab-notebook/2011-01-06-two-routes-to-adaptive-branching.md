@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-01-06 10:56:11
-layout: post
-slug: two-routes-to-adaptive-branching
-title: Two routes to adaptive branching
-redirects: [/wordpress/archives/733, /archives/733]
 categories:
 - ecology
+comments: true
+date: 2011-01-06T10:56:11Z
+redirects:
+- /wordpress/archives/733
+- /archives/733
+slug: two-routes-to-adaptive-branching
 tags:
 - adaptive-dynamics
+title: Two routes to adaptive branching
+url: /2011/01/06/two-routes-to-adaptive-branching/
 ---
 
 Simulations completed, help accentuate the different paths for branching.  When the most failures occur while waiting for the first mutation to enter first established dimorphism, mutation rate seems limiting (left):

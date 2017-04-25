@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [warning-signals, tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-04T00:00:00Z
+tags:
+- warning-signals
+- tribolium
 title: Alan Meeting
+url: /2010/05/04/Alan-Meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Goals next week: Bob & Brian beetle data: what an analysis would be
     with complete stochastic description.

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-21 23:44:26
-layout: post
-slug: evolution-day-4-ievobio-day-1
-title: 'Evolution Day 4 / #ievobio Day 1'
-redirects: [/wordpress/archives/2042, /archives/2042]
 categories:
 - evolution
+comments: true
+date: 2011-06-21T23:44:26Z
+redirects:
+- /wordpress/archives/2042
+- /archives/2042
+slug: evolution-day-4-ievobio-day-1
 tags:
 - conference
+title: 'Evolution Day 4 / #ievobio Day 1'
+url: /2011/06/21/evolution-day-4-ievobio-day-1/
 ---
 
 Start of the ievobio conference, simultaneously the forth day of evolution.  ievobio conference was very busy, luckily given the nature of the conference it is also largely well documented online.  My notes are again archived primarily in tweet form below.  My personal highlights of the day included the Keynote by Cladio Silva on Provenance -- essentially supporting reproducible research workflows -- and examples through his [vistrails software](http://www.vistrails.org/index.php/Main_Page), and Mark Yoder's demonstration of [mx](http://mx.phenomix.org/) at the software bazaar.  Something like that might really get us past the era of spreadsheets in comparative methods.  See the link to the full program and visit the [repository of slides](http://www.slideshare.net/event/ievobio11) from all the talks.  

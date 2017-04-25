@@ -1,8 +1,9 @@
 ---
-layout: post
+categories:
+- open-science
+date: 2012-05-06T00:00:00Z
 title: My research workflow, based on Github
-category: open-science
-
+url: /2012/05/06/research-workflow/
 ---
 
 This post outlines my current research workflow.  This has evolved

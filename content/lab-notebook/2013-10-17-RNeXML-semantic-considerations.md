@@ -1,10 +1,11 @@
 ---
-layout: post
-category: evolution
+categories:
+- evolution
+date: 2013-10-17T00:00:00Z
 tags:
 - rnexml
 - ropensci
-
+url: /2013/10/17/RNeXML-semantic-considerations/
 ---
 
 Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular [#26](https://github.com/ropensci/RNeXML/issues/26) and [#24](https://github.com/ropensci/RNeXML/issues/24)) I only paraphrase here.  

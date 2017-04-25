@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2014-04-03T00:00:00Z
 tags:
 - seminar
-
+url: /2014/04/03/Wisconsin-visit/
 ---
-
 
 Carl Boettiger Schedule 3-4 April 
  

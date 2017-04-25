@@ -1,14 +1,14 @@
 ---
-comments: true
-date: 2011-08-13 19:22:27
-layout: post
-slug: esa-personal-notes-people-goals
-title: 'ESA personal notes: people, goals'
 categories:
 - ecology
-tags: 
+comments: true
+date: 2011-08-13T19:22:27Z
+slug: esa-personal-notes-people-goals
+tags:
 - conference
 - delayed-release
+title: 'ESA personal notes: people, goals'
+url: /2011/08/13/esa-personal-notes-people-goals/
 ---
 
 ### Meetings

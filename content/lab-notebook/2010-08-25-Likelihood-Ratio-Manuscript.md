@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-25T00:00:00Z
 title: Likelihood Ratio Manuscript
+url: /2010/08/25/Likelihood-Ratio-Manuscript/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Graham & Peter Meeting
 

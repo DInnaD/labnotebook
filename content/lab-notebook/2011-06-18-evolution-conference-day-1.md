@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-18 21:34:01
-layout: post
-slug: evolution-conference-day-1
-title: Evolution Conference Day 1
-redirects: [/wordpress/archives/2024, /archives/2024]
 categories:
 - evolution
+comments: true
+date: 2011-06-18T21:34:01Z
+redirects:
+- /wordpress/archives/2024
+- /archives/2024
+slug: evolution-conference-day-1
 tags:
 - conference
+title: Evolution Conference Day 1
+url: /2011/06/18/evolution-conference-day-1/
 ---
 
 ## Morning Sessions

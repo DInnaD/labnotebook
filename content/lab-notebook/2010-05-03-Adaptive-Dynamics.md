@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [adaptive-dynamics]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-05-03T00:00:00Z
+tags:
+- adaptive-dynamics
 title: Adaptive Dynamics
+url: /2010/05/03/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   Working on simulation based approach to summarize distribution of
     waiting times across different phases.

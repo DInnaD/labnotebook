@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,114 +141,122 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/06/04/analytic-marginalizing-for-posteriors/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
     <div class="article-style">
+      
+      Consider the model
+$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
+with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
+$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
+To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
     <div class="article-style">
       
-      Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
- Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
- Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
+      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
+require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
+f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/06/03/admb-basic-example/"></a></h2>
+    <h4>Mon, Jun 3, 2013</h4>
     <div class="article-style">
       
-      Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
+      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
+ These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
+Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/29/notes/"></a></h2>
+    <h4>Wed, May 29, 2013</h4>
     <div class="article-style">
       
-      ropensci  rfishbase: 0.1-1 released to CRAN: bugfix updating server address. (Broke updateCache()). See NEWS for details.
- rfigshare: 0.2-4 released to CRAN: added method to remove attached files (issue #42), see NEWS for details  Misc  My reply to John on Prosecutor&rsquo;s Fallacy piece. Thinking about a better way to provide convenient, stable access to code and data. Should provide csv versions of data.table outputs used to create each of the figures.
+      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
+ fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
+ slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/28/notes/"></a></h2>
+    <h4>Tue, May 28, 2013</h4>
     <div class="article-style">
       
-      Applied Math Club meeting (See reading material from Tuesday.
- Start with stable age distribtution (indep of stock-recrutiment) Consider the Entropy of that probability distribution, as function of mortality, by max age Now consider the same for fecundity: the fraction/density of the population von Bertalanffy growth (fecundity) effective mortality rate - mortality rate in an unfished population, distributed with same entropy as the fished population, Kullback-Leibler distance to measure fishing influence?
+      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/27/exploring-approximate-dynamic-programming-approaches/"></a></h2>
+    <h4>Mon, May 27, 2013</h4>
     <div class="article-style">
       
-      Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
- classical approaches are to fix relationship of stock recruitment.
- parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
- A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
- How much data we need.
+      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/24/notes/"></a></h2>
+    <h4>Fri, May 24, 2013</h4>
     <div class="article-style">
       
-      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
-Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/23/notes/"></a></h2>
+    <h4>Thu, May 23, 2013</h4>
     <div class="article-style">
       
-      Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
-  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
+      Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
+ Some edits to adapt the extraction of posteriors from the multiple chains.
+ Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
+  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
+module load gcc R jags  This appears to result in greater uncertainty:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/22/notes/"></a></h2>
+    <h4>Wed, May 22, 2013</h4>
     <div class="article-style">
       
-      pomp Exploring pomp for examples tomorrow. See pomp-example
- To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
+      Nonparametric-bayes  Establishing chunck dependencies, simplifying and abstracting code.
+ still need to fix up Allen MCMC convergence when underlying model is Myers 10:18 am 2013/05/22
+ replicate runs on data from allen and myers model 08:39 pm 2013/05/21
+  Clean code for complicated scripts Pseudo-code somewhat captured by the chuncks. Ideal would be:
+ Define models Define parameters Simulate data Estimate MLE Estimate under GPP Allen MCMC Ricker MCMC Myers MCMC Determine optimal policy for each&hellip; Simulation Graphs  A preponderance of preprint servers Having sent in my review for IEE, do I also post it on the peerJ preprint?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2013/05/14/notes/"></a></h2>
+    <h4>Tue, May 14, 2013</h4>
     <div class="article-style">
       
-      nonparametric-bayes writing writing &hellip;
-multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
- multiple-uncertainty.m example  Compare to
- R algorithm example  Matlab code shows the same pattern in which growth noise results in constant escapement, but either implementation or measurement noise cause deviations from this rule (most dramatic in the case of implementation uncertainty).
-Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline intro #78.
+      Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
+One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
+opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.
       
     </div>
   </div>

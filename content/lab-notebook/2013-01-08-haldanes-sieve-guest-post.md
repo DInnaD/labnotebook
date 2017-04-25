@@ -1,10 +1,10 @@
 ---
-layout: post
-category: open-science
+categories:
+- open-science
+date: 2013-01-08T00:00:00Z
 tag: blog-post
-
+url: /2013/01/08/haldanes-sieve-guest-post/
 ---
-
 
 # Consider public archiving for your dissertation
 

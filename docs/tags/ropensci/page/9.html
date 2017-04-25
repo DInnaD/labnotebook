@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,101 +141,98 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/22/sunday/">Sunday</a></h2>
+    <h4>Sun, May 22, 2011</h4>
     <div class="article-style">
       
-      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
-  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
+      Reading  International Symposium on Biomathematics and Ecology: Education and Research &ndash; This looks excellent, wonder if I can make it. Besides, it&rsquo;s in Portland and the acronym is promising. Pacific Ecoinformatics and Computational Ecology Lab - Based in Berkeley, looks rather intriguing, hard to tell how active this is as a group. Ecoinformatics? So it does exist? Paraphrasing Jeremy Fox, has it done anything? A rather nice review in ARES: (Jones et.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/16/treebase-in-r-a-first-tutorial/">TreeBASE in R: a first tutorial</a></h2>
+    <h4>Mon, May 16, 2011</h4>
     <div class="article-style">
       
-      labnotebook Updates to configuration to be more portable and lightweight:
- Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
+      My TreeBASE R package is essentially functional now. Here&rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
+TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/11/wednesday-treebase/">Wednesday: Treebase</a></h2>
+    <h4>Wed, May 11, 2011</h4>
     <div class="article-style">
       
-      nonparametric-bayes  nonparametric-bayes sensitivity-trends runs. nonparametric-bayes sensitivity.R runs: explore facets to see what setting causes the below-perfect performance cluster.  knitcitations  updates to knitcitations (paste fron NEWS) Looking at adapting CSL for inline text formatting csl/issues/33 Implemented pandoc rendering  ropensci  Use of .Renviron vs .Rprofile for API keys  Seems the difference between .Rprofile and .Renviron is that (a) the latter is just a named character vector, and (b) the latter is accessed by Sys.
+      TREEBASE PACKAGE:
+ Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
+ Modified the package with the option to return only max number of trees,
+try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_trees, &quot;]&quot;, sep=&quot;&quot;), function(x){  &hellip;
+ Modified to check for branch lengths and remove trees without branch lengths from the returned set.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/10/interfaces-for-databases-treebase-dryad-dataone/">Interfaces for databases: TreeBASE, Dryad, DataONE</a></h2>
+    <h4>Tue, May 10, 2011</h4>
     <div class="article-style">
       
-      rocker / docker  Talking over strategy with Dirk, see summary in #1 and follow-up issues, #3, #4, #5.  rdataone &amp; EML Trying to fix travis issues. Much craziness.
-travis.sh doesn&rsquo;t provide notes on setup for repos where the R package is in a subdirectory. Looks like cd commands are persistent though throughout a travis file. okay.
- dataone is imported by EML but suggested by dataone. Since install_github likes to install the suggests list, this creates problems:
+      Next Steps Treebase  (See Sunday&rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
+ RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
+ Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/collected-notes-from-past-few-days.html">Collected notes from past few days</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/08/sunday-a-few-treebase-r-package-updates/">Sunday: a few Treebase R package updates</a></h2>
+    <h4>Sun, May 8, 2011</h4>
     <div class="article-style">
       
-      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
- ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
+      Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/extending-apephylo-class-to-nexml.html">Extending ape::phylo class to NeXML:</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/03/treebase-an-r-interface-proposal-for-ievobio/">treeBASE R interface: proposal for #iEvoBio</a></h2>
+    <h4>Tue, May 3, 2011</h4>
     <div class="article-style">
       
-      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
-To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
+      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notes.html">Notes</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/04/26/accessing-phylognenies-in-treebase-from-r/">Accessing phylognenies in TreeBASE from R</a></h2>
+    <h4>Tue, Apr 26, 2011</h4>
     <div class="article-style">
       
-      Partially Observable Stochastic Processes (cont.)  Reading a bit more about pomp. Looks like SCM and PMCMC offer nicely Bayesian inference tools using the same framework (rprocess and dmeasure), making a nice platform for implementing multiple methods. Almost feels like having the likelihood equation in hand again. A bit more skeptical about nonlinear forecasting and probe matching, as they feel even more heuristic or arbitrary. I suppose that&rsquo;s just the price of having only rmeasure instead of dmeasure available though.
+      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/notes-from-chat-with-duncan.html">Notes from chat with Duncan</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/04/20/wednesday-3/">Wednesday</a></h2>
+    <h4>Wed, Apr 20, 2011</h4>
     <div class="article-style">
       
-      Keep metadata as part of the object Recursion problem coming up.
-  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
-  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
- Schema to create S4 objects Create R objects first, and then toXML
+      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/reproducible-research-environments-with-docker.html">Reproducible research environments with Docker</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/04/08/treebase-exploratory-exercises-in-database-driven-phylogenetics/">TreeBase: exploratory exercises in database-driven phylogenetics</a></h2>
+    <h4>Fri, Apr 8, 2011</h4>
     <div class="article-style">
       
-      Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
-Wouldn&rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?
+      Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
       
     </div>
   </div>

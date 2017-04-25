@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-20 19:12:13
-layout: post
-slug: finer-sampling-in-prosecutors-fallacy
-title: finer sampling in prosecutor's fallacy
-redirects: [/wordpress/archives/3905, /archives/3905]
 categories:
 - ecology
+comments: true
+date: 2012-02-20T19:12:13Z
+redirects:
+- /wordpress/archives/3905
+- /archives/3905
+slug: finer-sampling-in-prosecutors-fallacy
 tags:
 - warning-signals
+title: finer sampling in prosecutor's fallacy
+url: /2012/02/20/finer-sampling-in-prosecutors-fallacy/
 ---
 
 Create the data.  We'll save files as some of these code chunks need to be run on the cluster for large memory use.  

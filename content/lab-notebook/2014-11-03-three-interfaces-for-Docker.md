@@ -1,9 +1,11 @@
 ---
-layout: post
-category: computation
+categories:
+- computation
+date: 2014-11-03T00:00:00Z
 tags:
 - docker
 - blog
+url: /2014/11/03/three-interfaces-for-Docker/
 ---
 
 Here I outline three broad, different strategies for incorporating Docker into a user's workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations.  The options require progressively more setup and result in a progressively more 'native' feel to running Docker.  My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.

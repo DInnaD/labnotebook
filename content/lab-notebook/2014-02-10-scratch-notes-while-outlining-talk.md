@@ -1,9 +1,9 @@
 ---
-layout: post
-category: ecology
-
+categories:
+- ecology
+date: 2014-02-10T00:00:00Z
+url: /2014/02/10/scratch-notes-while-outlining-talk/
 ---
-
 
 Scratch notes for my seminar
 

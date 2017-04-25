@@ -1,12 +1,11 @@
 ---
-layout: post
-category: open-science
-tags: 
-- interview 
-
-
+categories:
+- open-science
+date: 2013-06-17T00:00:00Z
+tags:
+- interview
+url: /2013/06/17/notes-for-van-noorden-chat/
 ---
-
 
 Below are my scribble notes in prep for an interview with Richard, a writier for Nature. 
 

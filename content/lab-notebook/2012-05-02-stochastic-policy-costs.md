@@ -1,10 +1,12 @@
 ---
-layout: post
+categories:
+- ecology
+date: 2012-05-02T00:00:00Z
+tags:
+- decision-theory
 title: Stochastic policy costs
-category: ecology
-tags: [decision-theory] 
+url: /2012/05/02/stochastic-policy-costs/
 ---
-
 
 Updated runs for various norms, added profit plots.
 

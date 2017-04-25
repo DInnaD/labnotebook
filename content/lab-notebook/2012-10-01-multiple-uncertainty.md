@@ -1,10 +1,13 @@
 ---
-layout: post
-categories: [ecology]
-tags: [decision-theory, pdg-control]
-
-
+categories:
+- ecology
+date: 2012-10-01T00:00:00Z
+tags:
+- decision-theory
+- pdg-control
+url: /2012/10/01/multiple-uncertainty/
 ---
+
 Let
 
 * `y` be measured stock size, subject to measurement error from true stock `x`

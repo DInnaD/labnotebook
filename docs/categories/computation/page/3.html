@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,116 +141,117 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/29/algorithms-group-hidden-markov-models.html">Algorithms group: Hidden Markov Models</a></h2>
-    <h4>Mon, Aug 29, 2011</h4>
+    <h2><a href="../../../2012/04/05/jordans-bigdata-talk-in-mathstats-series/">Jordan&#39;s bigdata talk in Math/Stats series</a></h2>
+    <h4>Thu, Apr 5, 2012</h4>
     <div class="article-style">
       
-      Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&rsquo;s awesome graph.
-As usual in the notebook, click on the graph to get link-through to the code.
+      Really excellent talk by Professor Michael Jordan from the Berkeley Statistics department visiting us at Davis yesterday. Haven&rsquo;t seen a talk cover technical content with remarkable clarity for the algorithms and insights involved, while also covering such a breadth of material. My notes didn&rsquo;t really keep up, but transcribing some of my scribbling into electronic form will have to wait until I have more time. (Their pubs are probably a better reference anyway.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/29/monday-scaling-wrightscape-examples.html">Monday: scaling wrightscape examples</a></h2>
-    <h4>Mon, Aug 29, 2011</h4>
+    <h2><a href="../../../2012/03/29/relevant-initiatives-from-todays-big-data-press-release/">Relevant initiatives from today&#39;s Big Data press release</a></h2>
+    <h4>Thu, Mar 29, 2012</h4>
     <div class="article-style">
       
-      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
- Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
-   Commits to taxize pushed to Scott.
-wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
+      An exciting day for Big Data (particularly if your Berkeley).
+NSF  Encouraging research universities to develop interdisciplinary graduate programs to prepare the next generation of data scientists and engineers; Funding a $10 million Expeditions in Computing project based at the University of California, Berkeley, that will integrate three powerful approaches for turning data into information - machine learning, cloud computing, and crowd sourcing; Providing the first round of grants to support “EarthCube” - a system that will allow geoscientists to access, analyze and share information about our planet; Convening researchers across disciplines to determine how Big Data can transform teaching and learning.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/28/sunday-scaling-runs.html">Sunday: scaling, runs</a></h2>
-    <h4>Sun, Aug 28, 2011</h4>
+    <h2><a href="../../../2012/03/27/tuesday-pandoc-citations-notes-various/">Tuesday: pandoc citations notes, various</a></h2>
+    <h4>Tue, Mar 27, 2012</h4>
     <div class="article-style">
       
-      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
-Set up for running primates.R in likelihood mode with abstracted parallelization:
-Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
-hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
+      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/27/saturday-working-on-computational-scaling-ion-etc.html">Saturday: working on computational scaling, ion, etc</a></h2>
-    <h4>Sat, Aug 27, 2011</h4>
+    <h2><a href="../../../2012/03/24/citations-in-markdown-using-knitr/">Citations in markdown using knitr</a></h2>
+    <h4>Sat, Mar 24, 2012</h4>
     <div class="article-style">
       
-      Can I get a generic montecarlotest function working for both warningsignals and pmc?
-Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
+      I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading). One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I&rsquo;d like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/26/rropensci-and-some-taxonomy-in-r-with-taxize.html">rropensci and some taxonomy in R with taxize</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../../2012/03/20/friday-some-random-notes/">Friday: some random notes</a></h2>
+    <h4>Tue, Mar 20, 2012</h4>
     <div class="article-style">
       
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
+      Computational tricks  tables in github markdown via knitr. clever Getting custom C/C++ CUDA working in R  Data management and sharing solutions for large files  NERSC uses globus online for interface for transferring terabytes/hr, pretty clever. NERSC also enables web hosting to share data.
+ Software-Carpentry style Data management a nice start. An open solution could stick the data on figshare (or elsewhere), write the readmes in markdown and keep them on github with links to the data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/26/ropensci-from-r-some-xml-parsing.html">FishBASE from R: some XML parsing</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
+    <h2><a href="../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Elegant &amp; fast data manipulation with data.table</a></h2>
+    <h4>Sun, Feb 12, 2012</h4>
     <div class="article-style">
       
-      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
-In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
+      Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
+One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
+time &lt;- rep(1:10, 10) replicate &lt;- sort(time) value &lt;- rnorm(100) df &lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
+sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/23/tuesday-rropensci-rmpi-manuscripts.html">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
-    <h4>Tue, Aug 23, 2011</h4>
+    <h2><a href="../../../2012/01/09/monday-13/">Monday - Sweave workflow</a></h2>
+    <h4>Mon, Jan 9, 2012</h4>
     <div class="article-style">
       
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
+      Bibtex, Mendeley &amp; Sweave Mendeley&rsquo;s repeated entries in the bibfile is particularly annoying with my sweave workflow, as it throws an error from bibtex command that Make doesn&rsquo;t want to ignore.
+Also, in writing the documentation I&rsquo;d like to point the .Rnw file to my global library&rsquo;s bibtex document, but then this means having the .Rnw/tex file generated to by the package pointing to a file that&rsquo;s outside the package.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi.html">Wednesday: migrating codes into MPI</a></h2>
-    <h4>Wed, Aug 17, 2011</h4>
+    <h2><a href="../../../2011/12/12/better-sweave-dynamic-documents-with-syntax-highlighting-easier-tools/">Better dynamic documents (Sweave) with syntax highlighting, caching, etc</a></h2>
+    <h4>Mon, Dec 12, 2011</h4>
     <div class="article-style">
       
-      Parellelization/Scaling of code MPI on farm cluster
-Got my MPI codes running.
-Much better way to get jobs into the queue, asking for 16 threads that don&rsquo;t have to be on the same node is much faster. Can also ask for 161 threads, but will wait longer in the queue.
-The trick to getting this to run was mostly getting the library set correctly. Setting the library path at the top of the script did the trick:
+      The highlight package is a simple solution for very nice syntax highlighted code boxes in latex documents. Requires switching the driver, which is best done from within R and requires creating a makefile though. Needs the &ldquo;highlight&rdquo; package installed. Here&rsquo;s a simple makefile.
+A wealth/mess of Sweave related packages on the CRAN taskview for Reproducible Research (now what other software platform has a the equivalent of a Reproducible Research task view?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/25/monday-algorithms-discussion-group-em-finished.html">Monday: Algorithms Discussion Group, EM finished</a></h2>
-    <h4>Mon, Jul 25, 2011</h4>
+    <h2><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Friday: wrightscape, ggplot, wp memory</a></h2>
+    <h4>Fri, Nov 25, 2011</h4>
     <div class="article-style">
+      
+      more sub-model comparisons wrightscape sub-models:
+ a1 independent alphas, global theta, sigmas
+ bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
+ a2 independent alpha, theta, global sigma
+ s1 indep sigma, global alpha, theta
+ s2 indep sigma, theta, global alpha
+  Basic Nelder Mead Simulated annealing associated parameter estimates
+This approach is really not finding a very robust solution.
+Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/07/24/csgf-conference-notes.html">CSGF Conference Notes</a></h2>
-    <h4>Sun, Jul 24, 2011</h4>
+    <h2><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">some configuration notes: RStudio setup, syntax highlighting in sweave</a></h2>
+    <h4>Tue, Nov 22, 2011</h4>
     <div class="article-style">
       
-      Just returned from 5 days in Washington, DC for the annual computational science graduate fellowship conference. No live notes/tweets, so just attempting to synthesize some of the major ideas before I get back to paper writing. Most of the conference material, including workshop slides, are archived online.
-The high performance computing workshop made two things clear to me &ndash; a lot of parallel computing can be done without lots of communication between nodes (i.
+      Installing R-Studio on my dreamhost VPS server. Dreamhost runs debian lenny, which is a bit dated, making it necessary to install from source. (Would be easy on a modern ubuntu server). Here we go.
+First, we probably want to install R from source to begin with (Lenny comes with cutting-edge R 2.7.1&hellip;). This needs to be done with shared libs enabled. Also I needed to run it without recommended-packages to get the initial install working
       
     </div>
   </div>

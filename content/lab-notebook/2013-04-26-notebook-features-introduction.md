@@ -1,13 +1,13 @@
 ---
-title: "Notebook features: an introduction"
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-04-26T00:00:00Z
+tags:
 - notebook-technology
 - blog
-
+title: 'Notebook features: an introduction'
+url: /2013/04/26/notebook-features-introduction/
 ---
-
 
 In keeping this open lab notebook, I have sought to address three goals
 (in addition to all the traditional reasons for keeping a lab notebook)

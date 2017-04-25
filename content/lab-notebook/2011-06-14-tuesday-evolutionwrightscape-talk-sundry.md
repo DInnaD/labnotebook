@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-06-14 23:29:48
-layout: post
-slug: tuesday-evolutionwrightscape-talk-sundry
-title: Tuesday - Evolution/wrightscape talk & sundry
-redirects: [/wordpress/archives/1983, /archives/1983]
 categories:
 - evolution
+comments: true
+date: 2011-06-14T23:29:48Z
+redirects:
+- /wordpress/archives/1983
+- /archives/1983
+slug: tuesday-evolutionwrightscape-talk-sundry
+title: Tuesday - Evolution/wrightscape talk & sundry
+url: /2011/06/14/tuesday-evolutionwrightscape-talk-sundry/
 ---
 
 ## Computing

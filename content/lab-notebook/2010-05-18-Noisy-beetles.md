@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [tribolium]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-18T00:00:00Z
+tags:
+- tribolium
 title: Noisy beetles
+url: /2010/05/18/Noisy-beetles/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ![Fig 1: Noise in lavae
 dominate](http://openwetware.org/images/thumb/3/30/Beetles_noise.png/400px-Beetles_noise.png)

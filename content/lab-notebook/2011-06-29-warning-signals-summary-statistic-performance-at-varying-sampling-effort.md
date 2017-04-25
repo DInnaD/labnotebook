@@ -1,14 +1,14 @@
 ---
-comments: true
-date: 2011-06-29 22:08:01
-layout: post
-slug: warning-signals-summary-statistic-performance-at-varying-sampling-effort
-title: 'Warning signals: summary statistic performance at varying sampling effort'
 categories:
 - ecology
+comments: true
+date: 2011-06-29T22:08:01Z
+slug: warning-signals-summary-statistic-performance-at-varying-sampling-effort
 tags:
 - warning-signals
 - delayed-release
+title: 'Warning signals: summary statistic performance at varying sampling effort'
+url: /2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort/
 ---
 
 * oikos post

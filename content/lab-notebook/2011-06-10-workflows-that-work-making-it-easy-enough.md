@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-06-10 13:31:07
-layout: post
-slug: workflows-that-work-making-it-easy-enough
-title: 'Workflows that Work: making it "easy enough"'
-redirects: [/wordpress/archives/1957, /archives/1957]
 categories:
 - open-science
+comments: true
+date: 2011-06-10T13:31:07Z
+redirects:
+- /wordpress/archives/1957
+- /archives/1957
+slug: workflows-that-work-making-it-easy-enough
+title: 'Workflows that Work: making it "easy enough"'
+url: /2011/06/10/workflows-that-work-making-it-easy-enough/
 ---
 
 I thought I had already fixed this problem.  I thought I already had a way to recover the code and parameter values of figures saved in my image log.  Grab the SHA hash from the comment, go to the relevant repository on github, search the commit history for the commit, find the version of that file that was current at that time of commit (which could be in an earlier version if nothing had changed...) and so forth...  Instead, I would catch myself re-running the code with parameters I knew (I'd scribble somewhere), just so I could be sure.   And these are not fast codes to re-run.  Sure, it was _possible_.  It just wasn't _easy enough_.  So I took a few hours to rewrite my socialR package to handle this properly.  Goodbye SHA hash and search, hello direct links.

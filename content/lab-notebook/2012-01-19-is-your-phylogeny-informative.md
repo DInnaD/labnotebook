@@ -1,16 +1,18 @@
 ---
-comments: true
-date: 2012-01-19 14:10:49
-layout: post
-slug: is-your-phylogeny-informative
-title: Is your phylogeny informative?
-redirects: [/wordpress/archives/3670, /archives/3670]
 categories:
 - evolution
+comments: true
+date: 2012-01-19T14:10:49Z
+redirects:
+- /wordpress/archives/3670
+- /archives/3670
+slug: is-your-phylogeny-informative
 tags:
 - my-publications
 - R
 - research-blogging
+title: Is your phylogeny informative?
+url: /2012/01/19/is-your-phylogeny-informative/
 ---
 
 Yesterday my paper (Boettiger _et. al._ 2012)  appeared in early view in Evolution ([author's preprint](http://www.mendeley.com/download/public/98752/4485545655/9a209c7dd29980fd2e47c06eb8b2d1d7dd6f70d4/dl.pdf)),As the open access copy doesn't appear on pubmed for a while, you can access my author's copy [here](http://www.mendeley.com/download/public/98752/4485545655/9a209c7dd29980fd2e47c06eb8b2d1d7dd6f70d4/dl.pdf). so I'd like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated [package on CRAN](http://cran.r-project.org/web/packages/pmc/index.html).Just submitted, meanwhile, the code is always on [github](https://github.com/cboettig/pmc).

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,112 +141,115 @@
   
   
   <div>
-    <h2><a href="../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted.html">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
-    <h4>Wed, Jun 1, 2011</h4>
-    <div class="article-style">
-      
-      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
- Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/05/26/thursday-6.html">Thursday Meetings: Duncan; Alan</a></h2>
-    <h4>Thu, May 26, 2011</h4>
-    <div class="article-style">
-      
-      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/05/25/wednesday-5.html">Wednesday</a></h2>
-    <h4>Wed, May 25, 2011</h4>
-    <div class="article-style">
-      
-      R packages  Trying to build Windows binaries for R packages using win-builder service.
- First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
- Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
- Matt successfully installed CUDA on zero (2.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/05/24/tuesday-4.html">Tuesday</a></h2>
-    <h4>Tue, May 24, 2011</h4>
-    <div class="article-style">
-      
-      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
- created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
- Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/05/03/monday-3.html">Monday</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Today:
- Application for CPB travel funds. DONE
- Faxed receipts from Felsenstein&rsquo;s visit. DONE
-  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
-Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/04/19/early-warning-signals-in-coral-dynamics----economic-analysis-of-risk.html">Early Warning Signals in Coral Dynamics -- Economic analysis of risk</a></h2>
-    <h4>Tue, Apr 19, 2011</h4>
-    <div class="article-style">
-      
-      Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico. Our current work focuses on quantifying the relative risk of false alarms and missed detections. While statisticians typically accept a 5% &ldquo;false alarm&rdquo; rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/04/18/thursday-submitting-warning-signals-manuscript.html">Thursday: submitting warning signals manuscript</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
+    <h2><a href="../../../2011/09/19/monday-9/">Monday</a></h2>
+    <h4>Mon, Sep 19, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/13/weds-final-round-edits.html">Weds: Final round edits</a></h2>
-    <h4>Wed, Apr 13, 2011</h4>
+    <h2><a href="../../../2011/09/13/2588/">pdg-control pdg-control, Tuesday</a></h2>
+    <h4>Tue, Sep 13, 2011</h4>
+    <div class="article-style">
+      
+      Tuesday, August 13 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Outline for Day 2 (Donahue/Armsworth)
+Adaptive Control, Jake Introduced by he two-armed bandit problem, Rothchild i = 1,2. $ T_i $ is the number of trials, $ N_i $ are numbers of successes.
+Define $$ \rho_i = \frac{1}{1+T_i}, \mu_i = \frac{N_i}{1+T_i} $$
+If i is played $ p_i $ becomes
+$$ \frac{p_i}{1+p_i} = \frac{1}{T+2} $$
+If i is played and successful $ \mu_i $ becomes
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/09/12/pretty-darn-good-control-working-group/">Pretty Darn Good Control Working Group</a></h2>
+    <h4>Mon, Sep 12, 2011</h4>
+    <div class="article-style">
+      
+      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
+Training problem 0: Optimal Control Jim
+maximize present discounted value:
+$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/09/07/wednesday-8/">Wednesday</a></h2>
+    <h4>Wed, Sep 7, 2011</h4>
+    <div class="article-style">
+      
+      Alan Meeting Next steps directions
+ economics of uncertainty in early warning
+ simulated data approach - insect pest dynamics.
+ cod data set. fisheries depensation
+  Send Alan: Slides, CV (for post doc apps)
+Discussed some relevant literature, mostly for the warning signals in fisheries questions: (Colchero &amp; Clark, 2012), (Hutchings, 2000), HUTCHINGS &amp; REYNOLDS, 2004, (Minckley et. al. 2012), (Myers et. al. 1995), (Schröder et. al. 2012)
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/09/01/thursday-reading/">Thursday Reading</a></h2>
+    <h4>Thu, Sep 1, 2011</h4>
+    <div class="article-style">
+      
+      Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/08/31/wednesday-7/">Wednesday</a></h2>
+    <h4>Wed, Aug 31, 2011</h4>
+    <div class="article-style">
+      
+      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/08/30/tuesday-8/">Tuesday</a></h2>
+    <h4>Tue, Aug 30, 2011</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/12/tuesday-manuscript-and-appendix-edits.html">Tuesday: manuscript and appendix edits</a></h2>
-    <h4>Tue, Apr 12, 2011</h4>
+    <h2><a href="../../../2011/08/09/esa-tuesday/">ESA Tuesday</a></h2>
+    <h4>Tue, Aug 9, 2011</h4>
     <div class="article-style">
       
-      Today&rsquo;s log  Edited cover letter summary for public.
- Soliciting feedback on examples in manuscript vs appendix, see Monday&rsquo;s entry. (Entry posted, images added to flickr database)
- Jeff fixed the double-post bug in twitteR, tested update.
- Improved initialization estimates for LSN model in fit_models (code), as identified &amp; discussed in Sunday&rsquo;s entry. Needs testing on a unit case, trying on ibm_analysis.R now&hellip; seems to work fine.
+      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+twitter-log    cboettig Great Eco Let mixer. Kudos to Marcel &amp; crew for increasing citation rates w/o decreasing acceptance. Now how bout data sharing reqs? #esa11
+   cboettig RT @IceAgeEcologist: #ESA11 Marten Scheffer gets Honorary Member Award (max 20 living awardees); Don Strong ge… (cont) <a href="http://deck">http://deck</a>.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/04/11/monday-warning-signals-updated-graphs.html">Monday: Warning Signals - Updated graphs</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
+    <h2><a href="../../../2011/08/08/monday-esa-conference/">Monday: ESA Conference</a></h2>
+    <h4>Mon, Aug 8, 2011</h4>
     <div class="article-style">
       
-      Trying a different set-up for the graphs. Added two additional datasets, trying layout of making all three figures into a panels in a single figure.
-Concerns:
- Better than only one empirical example, but not sure that the three Glaciation data sets add that much since they are all quite similar. Five panels wide might be too much. Don&rsquo;t have an example where a transition is about to occur but the data doesn&rsquo;t have adequate power even for our Likelihood method, third panel.
+      Hope to process the day&rsquo;s happenings later, meanwhile just a snapshot of my twitter-stream notes. My own highlights certainly include Steve Pacala&rsquo;s fantastic plenary session in receiving the MacArthur award, and Mark Urban&rsquo;s crystal clear presentation on &ldquo;climate collisions.&rdquo; I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away. In pointing out really fundamental concepts, such details just aren&rsquo;t so important.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/08/02/fisheries-stock-assessments-for-early-warning/">Fisheries stock assessments for early warning</a></h2>
+    <h4>Tue, Aug 2, 2011</h4>
+    <div class="article-style">
+      
+      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
+<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
+Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
       
     </div>
   </div>

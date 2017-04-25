@@ -1,9 +1,10 @@
 ---
-layout: post
-category: evolution
+categories:
+- evolution
+date: 2010-02-14T00:00:00Z
 tags:
 - adaptive-dynamics
-
+url: /2010/02/14/speciation/
 ---
 
 **editorial note**: These notes pre-date the formal start of my online

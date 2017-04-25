@@ -1,9 +1,10 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-06-20T00:00:00Z
 tags:
 - nonparametric-bayes
-
+url: /2013/06/20/nonparametric-bayes-summary-ideas/
 ---
 
 If you do know the model and are simply uncertain about the parameters, you can often do all right (e.g. better than maximum likelihood approach) by doing the SDP over the Bayesian posterior distribution of the estimated model. Not surprisingly, if you don't have the correct model, this can fail pretty dramatically (in particular in very nonlinear models, e.g. tipping point models I have been looking at). Model choice and model averaging approaches aren't much help here, because often the structurally correct model doesn't fit the observed data any better -- since the problems occur due to model inaccuracies where we don't have data; e.g. near the tipping point.

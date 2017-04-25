@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,120 +141,115 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/23/friday-ropensci-manuscript-edits/">Friday: ropensci, manuscript edits</a></h2>
+    <h4>Fri, Sep 23, 2011</h4>
     <div class="article-style">
       
-      RNeXML Character metadata EML provides a nice illustration of the kind of metadata we would want to typically accompany character trait data; at minimum, at the attribute level.
-Some of this is already there &ndash; we know if states are continuous or discrete, what possible states they can take on, and can add labels to state nodes to define what the symbols mean (however, perhaps an additional meta annotation node would be preferred).
+      rOpenSci Conference Call Catalyst grant  Reviewed budget. Karthik will merge current proposals, Carl will review. Goal: send out next week. Ask Mark Hahnel to look it over  Blog posts  Carley planning to make guest blog post within the next week.  Mendeley/Plos Binary battle  Carl will file entry form. Karthik push edits to rplos Scott will add rplos tutorial to ropensci.org Carl will add rmendeley tutorial to ropensci.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/09/02/rfishbase-demo/">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h2>
+    <h4>Fri, Sep 2, 2011</h4>
     <div class="article-style">
       
-      fishbase API discussions knitcitations (push previous updates to CRAN) data extraction from sardine collapse story (see EML in data/), news article My thoughts on SWC teaching web-native publication workflow reading, ToCs speaker invitation replies review request replies  Reading  &ldquo;Are rapid transitions btwn invasive and native species caused by alt stable states, and does it matter?&rdquo; <a href="http://feedly.com/k/1gbEIWT">http://feedly.com/k/1gbEIWT</a>
- &ldquo;Phylogenetic trait-based analyses of ecological networks.&rdquo; <a href="http://feedly.com/k/1gbEvD6">http://feedly.com/k/1gbEvD6</a>
- Nice editorial on &ldquo;core elements of a TPB paper.
+      I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
+For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      Coding  fishbase API discussions rfishbase updates pushed to CRAN Merges and minor bug fixes for rfigshare
- RNeXML: After some cooperative sleuth-work, we successfully resolved issue #23, uncovering a bug (missing feature really) in xmllint.
-  as usual, detailed activity on github.
-Reading  The sudden collapse of pollinator communities - Jelle Lever - 2014 - Ecology Letters - Wiley Online Library <a href="http://goo.gl/ZKuKsj">http://goo.gl/ZKuKsj</a> Github has traffic stats again.
+      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/26/fishbase-from-r-some-xml-parsing/">FishBASE from R: some XML parsing</a></h2>
+    <h4>Fri, Aug 26, 2011</h4>
     <div class="article-style">
       
-      EML  bug fixes and replies to various input from community on EML package
- Thoughts on understanding and using EML in research, including Dryad. See <a href="https://github.com/ropensci/EML/issues/82#issuecomment-33558301">https://github.com/ropensci/EML/issues/82#issuecomment-33558301</a>
-  multiple-uncertainty Jim and Mike meeting  Why the steps in the optimal solution of the deterministic case? Irregularities in value function in first iteration: sometimes not exact ties; actually preferring to fish at almost 0 rather than 0.
- address range constraints on h and x.
+      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
+In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
+    <h4>Tue, Aug 23, 2011</h4>
     <div class="article-style">
       
-      Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
- Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
+      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
+XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
+&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thursday: reviewing edits, ropensci, computers.</a></h2>
+    <h4>Thu, Aug 18, 2011</h4>
     <div class="article-style">
       
-      RNeXML merge travis integration with support for rrdf. See pull #57 Reply to Perry re nonparametric approaches 10am Andrew Skype meeting re: his manuscript rOpenSci discussion re: other services, formats. Reading Caldwell et al, Geophysical Letters. Good example of naiive data mining leading to spurious correlations from non-independent models. (/ht @FreshwaterEcology Looking over NSF&rsquo;s Data Infrastructure Building Blocks, DIBB call and previously funded work.
- Remote control for Ubuntu via android?
+      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
+Brief topic notes from today&rsquo;s meeting:
+ set up different take on layout: lambda, AIC, power
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/22/ievobio-day-2/">#ievobio Day 2</a></h2>
+    <h4>Wed, Jun 22, 2011</h4>
     <div class="article-style">
       
-      ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
- Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
+      Day 2 is every bit as packed as day 1, and then some do to the higher concentration of lightning talks. Other coverage of #ievobio is starting to find it&rsquo;s way to the web:
+ Nico Cellinese
+ Scott Chamberlain
+ Rob Guralnick
+  Meanwhile, my scratchpad of notes from day 2, tweet-style.
+My Lightning Talk Gave my lightning talk in this session, slides:
+R interface to TreeBASE
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/06/03/friday-5/">Friday</a></h2>
+    <h4>Fri, Jun 3, 2011</h4>
     <div class="article-style">
       
-      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
-rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
+      A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/29/sunday-2/">Sunday</a></h2>
+    <h4>Sun, May 29, 2011</h4>
     <div class="article-style">
       
-      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
-Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
+      Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01.html"></a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h2>
+    <h4>Thu, May 26, 2011</h4>
     <div class="article-style">
       
-      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
-other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
- Related with Hadley discussion on handling tests and keys for API packages, httr/93
- Software Carpentry developing R lessons
-  rfishbase Add FAO areas (from 04/05), see rfishbase/20
-EML  Discussion of unit handling, feedback from Karen.
+      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
       
     </div>
   </div>

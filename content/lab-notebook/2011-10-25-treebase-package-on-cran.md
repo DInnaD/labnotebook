@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2011-10-25 19:06:38
-layout: post
-redirects: [/wordpress/archives/3019, /archives/3019]
 categories:
 - evolution
+comments: true
+date: 2011-10-25T19:06:38Z
+redirects:
+- /wordpress/archives/3019
+- /archives/3019
 tags:
 - R
 - ropensci
+url: /2011/10/25/treebase-package-on-cran/
 ---
 
 My treebase package is now up on the [CRAN repository](http://cran.r-project.org/web/packages/treebase/). (Source code is up, the binaries should appear soon). Here's a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows. Please contact me with any bugs or requests (or post in the [issue tracker](https://github.com/cboettig/treeBASE/issues?sort=created&direction=desc&state=open)).

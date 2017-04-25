@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,93 +141,111 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/still-writing.html">Still writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/13/tuesday/">Tuesday</a></h2>
+    <h4>Tue, Apr 13, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/thursday.html">Thursday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/12/primate-chronogram/">Primate chronogram</a></h2>
+    <h4>Mon, Apr 12, 2010</h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/tuesday.html">Tuesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/09/research/">Research</a></h2>
+    <h4>Fri, Apr 9, 2010</h4>
     <div class="article-style">
+      
+      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/tuesday.html">Tuesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/08/comparative-phylogenetics-notebook/"></a></h2>
+    <h4>Thu, Apr 8, 2010</h4>
     <div class="article-style">
       
-      Much of today&rsquo;s activity included in yesterday&rsquo;s.
-Recording Reading Still looking for a good way to capture time snapshots of what I&rsquo;ve read. Perhaps the Mendeley API will have a good solution. Here I try twapper-keeper to create an rss of my tweets on a given day, and the google api, but not very ideal solutions. Checked a variety of ways to filter rss feeds by date so that it would just show the current ones, none seem to manage this though.
+      Research  Wrote summary function using bootstrap confidence intervals for the bootstraps of the likelihoods directly. On interpreting the bootstraps of likelihoods directly:   The extent to which the distributions themselves are distinct provides an indication of the ability to distinguish between models on the given phylogenetic tree and the actual data. For instance, if the tree was a star tree and the data produced by either BM or OU1, then all distributions would fall on top of one another.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/updating-manuscript.html">Updating manuscript</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/06/research/">Research</a></h2>
+    <h4>Tue, Apr 6, 2010</h4>
     <div class="article-style">
       
-      The progress of the past few days has lead to substantial revision proposals in my manuscript draft. Rewriting for discussion with Brian tomorrow. Currently revised outline:
- Intro
- Biological Motivation Comparative Methods and Comparing Models Model choice paradigm: the right direction, but incomplete  Simple Example
- The Star Tree Two hypotheses: stabilizing vs disruptive selection Information Criteria approach is insufficient Likelihood surfaces Likelihood ratio distribution  Anoles Example
+      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
+ Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
+ ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
+  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wainwright-lab-meeting.html">Wainwright Lab Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/05/research/">Research</a></h2>
+    <h4>Mon, Apr 5, 2010</h4>
     <div class="article-style">
       
-      Presented a revised version of my talk for Evolution 2010, focusing on the inadequacy of information-criteria heuristics for model choice in phylogenetic comparative methods and presenting the likelihood-ratio based approach I&rsquo;ve been working on. Much better received this time. (The last two weeks have been pretty dedicated to preparing for the upcoming conferences, mostly for this presentation, so not much in the way of new research. Will be able to return to new stuff in July, following iEvoBio).
+      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
+Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wainwright-meeting.html">Wainwright Meeting</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/04/research/">Research</a></h2>
+    <h4>Sun, Apr 4, 2010</h4>
     <div class="article-style">
+      
+      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
+NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday.html">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/02/research/">Research</a></h2>
+    <h4>Fri, Apr 2, 2010</h4>
     <div class="article-style">
+      
+      Graham &amp; Peter Meeting Fig 1
+Fig 2
+ Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/wednesday.html">Wednesday</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/31/comparative-phylogenetics-notebook/"></a></h2>
+    <h4>Wed, Mar 31, 2010</h4>
     <div class="article-style">
       
-      Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
+      Research Labrid Paper Outline Biology Letters format, 2500 words, 2 figures.
+Fig 1?
+Fig 2?
+ Title: Phylogenetic Evidence for Multiple Morphological Niches in Coral Reef Fish Summary (&lt; 200 words)
+ We present phylogenetic evidence for two distinct evolutionary optima in the fin morphology of Labrid Fish.  Keywords: Evolution, Phylogenetics, Comparative Methods, Labrids, Multiple Niches
+ Introduction
+ Labrid Fin Morphology Is clustering in Trait space evidence of Selection or Phylogenetic Inertia?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/writing.html">Writing</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/03/30/research/">Research</a></h2>
+    <h4>Tue, Mar 30, 2010</h4>
     <div class="article-style">
+      
+      Current Situation &amp; Challenges 2000 bootstraps of models fitted to simulated ou2 data
+ A single data set is produced by simulation under a specified ou2 model on the Labrid tree (actually one that was fitted to the original Labrid data). Each model (Brownian motion and 1 to 5 separate OU peaks (assigned by my partition function) is fitted to this dataset. Each fitted model is used to generate 2000 replicate datasets For each replicate dataset, the model used to generate it is compared to each other model in likelihood ratio test 2(log(L~1~) − log(L~2~)), where L~1~ is the likelihood of the model that generated the data.
       
     </div>
   </div>

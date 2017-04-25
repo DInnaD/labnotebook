@@ -1,11 +1,12 @@
 ---
-layout: post
-categories: 
-  - ecology
-  - evolution
+categories:
+- ecology
+- evolution
+date: 2008-06-09T00:00:00Z
 modified: 2013-02-08T00:00:00+00:00
-tags: 
+tags:
 - courses
+url: /2008/06/09/PopBio-Core-Review-Notes/
 ---
 
 Embedded versions of my summary sheets for the Population Biology graduate group core course, organized by faculty member's section.  

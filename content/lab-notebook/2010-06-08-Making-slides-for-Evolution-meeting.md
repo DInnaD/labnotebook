@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-06-08T00:00:00Z
 title: Making slides for Evolution meeting
+url: /2010/06/08/Making-slides-for-Evolution-meeting/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ![Anoles LP model vs
 BM](http://openwetware.org/images/thumb/4/42/VsBM.png/180px-VsBM.png)

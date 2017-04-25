@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-03-21 14:42:57
-layout: post
-slug: policy-costs-to-changing-mangement-tp-1b-apples-to-apples
-title: 'Policy costs to changing mangement, TP 1b: Apples to Apples'
-redirects: [/wordpress/archives/4334, /archives/4334]
 categories:
 - ecology
+comments: true
+date: 2012-03-21T14:42:57Z
+redirects:
+- /wordpress/archives/4334
+- /archives/4334
+slug: policy-costs-to-changing-mangement-tp-1b-apples-to-apples
 tags:
 - pdg-control
+title: 'Policy costs to changing mangement, TP 1b: Apples to Apples'
+url: /2012/03/21/policy-costs-to-changing-mangement-tp-1b-apples-to-apples/
 ---
 
 A central question of training problem 1b addressed at the working group was how to compare the different penalties.  Following up on those discussions, here are a few notes on how far I've gotten in the analysis regarding the best way to make these comparisons.

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,119 +141,132 @@
   
   
   <div>
-    <h2><a href="../../../2010/11/29/further-treatment-of-the-limiting-models.html">Further treatment of the limiting models</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
+    <h2><a href="../../../2011/03/29/tuesday-simulations-appendix/">Tuesday, simulations &amp; appendix</a></h2>
+    <h4>Tue, Mar 29, 2011</h4>
     <div class="article-style">
       
-      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
+      Today mostly working over code sets for examples in appendix, and increasing replicates. Somehow more trouble than it should be, see commit history for today.
+ibm_sim.R &ndash; simulate from individual-based dynamics containing a saddle-node bifurcation (fully hysteresis model).
+ibm_analysis.R &ndash; run figure1, 2, 3 analysis (correlation test, bootstrap of test, likelihood test) on each data.
+ibm_likelihood.R &ndash; shouldn&rsquo;t be needed, all code is in deut_examples.R. Running now due to earlier parallel instance errors during montecarlotest.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/28/likelihoods-for-quadratic-models-cont.html">Likelihoods for quadratic models cont</a></h2>
-    <h4>Sun, Nov 28, 2010</h4>
+    <h2><a href="../../../2011/03/29/monday-appendices-continue/">Monday, appendices continue...</a></h2>
+    <h4>Tue, Mar 29, 2011</h4>
     <div class="article-style">
       
-      Considering the fits of the quadratic models from yesterday.
-[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
-Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
+      Finished writing up section on correlations (time averages vs ensembles) and the following section on error types. (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:
+ Must figure out what data examples are going into the supplement. Most should be reasonably straight-forward to set up, may take a while to run.
+ Have to figure out what to say about likelihood-based statistical method beyond definition of Cox&rsquo;s delta,
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/27/implementing-likelihoods-for-quadratic-models.html">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
+    <h2><a href="../../../2011/03/27/sunday-edits-and-appendices/">Sunday -- edits and appendices</a></h2>
+    <h4>Sun, Mar 27, 2011</h4>
     <div class="article-style">
       
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
+      Read over Scheffer&rsquo;s rather nice introduction(Scheffer, 2010) to the Drake paper(Drake &amp; Griffen, 2010). Last paragraph is particularly pertinenant:
+ Clearly, we have just scratched the surface in exploring the possibilities and limitations of this emerging field. However, the prospect of identifying generic indicators is exciting, as the approach may provide an independent way to assess the risk of critical transitions. Expansion of our toolbox for prediction is especially welcome given the almost insurmountable problem of modelling complex systems in a quantitatively accurate way.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/24/warning-signals-likelihoods-straight-up.html">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
+    <h2><a href="../../../2011/03/26/saturday-appendices/">Saturday-- Appendices</a></h2>
+    <h4>Sat, Mar 26, 2011</h4>
     <div class="article-style">
       
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
+      Appendices Working on Appendices
+Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
+Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood.html">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
+    <h2><a href="../../../2011/03/25/friday-3/">Friday</a></h2>
+    <h4>Fri, Mar 25, 2011</h4>
     <div class="article-style">
       
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
+      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
+ Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
+ Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/28/a-new-twist-on-the-approach.html">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
+    <h2><a href="../../../2011/03/24/thursday-3/">Thursday</a></h2>
+    <h4>Thu, Mar 24, 2011</h4>
     <div class="article-style">
       
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
+      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
+ Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/27/warning-signals-where-are-we-now.html">Warning Signals -- Where are we now?</a></h2>
-    <h4>Wed, Oct 27, 2010</h4>
+    <h2><a href="../../../2011/03/23/wednesday-2/">Wednesday</a></h2>
+    <h4>Wed, Mar 23, 2011</h4>
     <div class="article-style">
       
-      The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
-$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
-and
-$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
+      Still to do on figures:
+ Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
+ Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
+ separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
+ bootstrap_indicators should have option of which indicators are included &ndash; DONE
+ all_indicators should have option of which indicators are included &ndash; DONE
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/26/correcting-for-the-mean-dynamics.html">Correcting for the mean dynamics</a></h2>
-    <h4>Tue, Oct 26, 2010</h4>
+    <h2><a href="../../../2011/03/23/tuesday-figures-figures-figures/">Tuesday: Figures, figures, figures</a></h2>
+    <h4>Wed, Mar 23, 2011</h4>
     <div class="article-style">
       
-      Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
- First, if the mean is changing, the model fitting must be appropriate to this &ndash; either by fitting this rate of change or correcting for it.
- Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.
+      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events.html">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h2>
-    <h4>Mon, Oct 25, 2010</h4>
+    <h2><a href="../../../2011/03/22/monday-edits-and-organization/">Monday -- Edits and organization</a></h2>
+    <h4>Tue, Mar 22, 2011</h4>
     <div class="article-style">
       
-      Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
-A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.
+      Skype with Alan: 9-9:4
+ Figures as panels
+ Write Appendix
+ Finish References
+ Move into Word
+   Sims  LSN m = -0.049, N =50, T=100
+ LSN m = -0.049, N =100, T=100
+ LTC m = -0.049, N =100, T=100
+ LTC m = -0.049, N =100, T=50
+ LTC m = -0.049, N =100, T=200
+  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/21.html"></a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
+    <h2><a href="../../../2011/03/21/sunday-manuscript-and-simulations/">Sunday - manuscript and simulations</a></h2>
+    <h4>Mon, Mar 21, 2011</h4>
     <div class="article-style">
       
-      Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
- Proper handling of trends
- Best model for eigenvalue change
-  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
+      Working on manuscript. lot of writing / editing.
+Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
+ m = -0.04, N = 50, nboot = 160, (with all moments)
+ m = -0.04, N = 50, nboot = 800, (with all moments)
+ m = -0.05, N = 50, nboot = 800, (with all moments)
+ m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
       
     </div>
   </div>

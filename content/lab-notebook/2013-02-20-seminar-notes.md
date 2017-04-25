@@ -1,8 +1,10 @@
 ---
-layout: post
-tags: [seminar]
-category: ecology
-
+categories:
+- ecology
+date: 2013-02-20T00:00:00Z
+tags:
+- seminar
+url: /2013/02/20/seminar-notes/
 ---
 
 Leo Polansky Seminar

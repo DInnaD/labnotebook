@@ -1,9 +1,10 @@
 ---
-layout: post
-category: computing
+categories:
+- computing
+date: 2014-09-22T00:00:00Z
 tags:
 - docker
-
+url: /2014/09/22/containerizing-my-development-environment/
 ---
 
 A key challenge for reproducible research is developing solutions that

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-09-09 09:55:39
-layout: post
-slug: how-google-views-me-by-search-terms-or-citation-counts
-title: 'How google views me: by search terms or citation counts?'
-redirects: [/wordpress/archives/2559, /archives/2559]
 categories:
 - open-science
+comments: true
+date: 2011-09-09T09:55:39Z
+redirects:
+- /wordpress/archives/2559
+- /archives/2559
+slug: how-google-views-me-by-search-terms-or-citation-counts
 tags:
 - blog
+title: 'How google views me: by search terms or citation counts?'
+url: /2011/09/09/how-google-views-me-by-search-terms-or-citation-counts/
 ---
 
 How Google search views me: here's a word cloud of search terms reaching my site in August.  Word cloud produced with R: click-through for link to source-code. Uses the rather convenient tm package for text-mining functions in R. Note that this shows the frequency of individual words used in searches, rather than the whole search term. 

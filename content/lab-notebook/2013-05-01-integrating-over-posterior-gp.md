@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-05-01T00:00:00Z
 tags:
 - nonparametric-bayes
-
+url: /2013/05/01/integrating-over-posterior-gp/
 ---
-
 
 * Added integration over the posterior distribution of the GP 
 

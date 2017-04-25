@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2010-10-25 23:24:45
-layout: post
-slug: wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events
-title: 'Wrong picture, wrong model: why warning signals don''t look like rare events'
-redirects: [/wordpress/archives/91, /archives/91]
 categories:
 - open-science
 - ecology
+comments: true
+date: 2010-10-25T23:24:45Z
+redirects:
+- /wordpress/archives/91
+- /archives/91
+slug: wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events
 tags:
 - warning-signals
+title: 'Wrong picture, wrong model: why warning signals don''t look like rare events'
+url: /2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/
 ---
 
 Detecting a warning signal of collapse isn't about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden.  The classic saddle-node bifurcation example results in a picture like this:

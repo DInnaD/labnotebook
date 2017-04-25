@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [adaptive-dynamics, open-science]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-08-30T00:00:00Z
+tags:
+- adaptive-dynamics
+- open-science
 title: Adaptive Dynamics
+url: /2010/08/30/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 [![analytic\_contours1](http://farm5.static.flickr.com/4142/4942856122_41461002c9.jpg)](http://www.flickr.com/photos/46456847@N08/4942856122/ "analytic_contours1 by cboettig, on Flickr")
 Simulation Results

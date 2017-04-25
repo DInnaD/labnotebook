@@ -1,16 +1,15 @@
 ---
-comments: true
-date: 2011-07-24 16:47:15
-layout: post
-title: 'Sunday: Appendix edits'
 categories:
 - ecology
+comments: true
+date: 2011-07-24T16:47:15Z
 tags:
 - warning-signals
 - delayed-release
+title: 'Sunday: Appendix edits'
+url: /2011/07/24/sunday-appendix-edits/
 ---
 
-	
 * Appendix A. Method Summary -- Basically the "methods" section as we had it in the Nature version, a bit updated.
 	
 * These sections are as before, with minor updates from the reviewers, etc. They're also probably the most important part:

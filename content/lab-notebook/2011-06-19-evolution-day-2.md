@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-06-19 23:44:20
-layout: post
-slug: evolution-day-2
-title: Evolution Day 2
-redirects: [/wordpress/archives/2038, /archives/2038]
 categories:
 - evolution
+comments: true
+date: 2011-06-19T23:44:20Z
+redirects:
+- /wordpress/archives/2038
+- /archives/2038
+slug: evolution-day-2
 tags:
 - conference
+title: Evolution Day 2
+url: /2011/06/19/evolution-day-2/
 ---
 
 Second day of the conference.  Many of the talks I most want to see are coming up Monday and Tuesday, and I have a bit more to do to prepare my own talk, so I take it a bit light on sessions.  Highlight of the day was definitely the discussion with Mark McPeek and the other journal editors during and following the "Happy hour with the editors" session, which was perhaps the best event of the conference, despite a rather unimpressive attendance.  Apparently this is an annual tradition I missed last year, certainly hope not to miss it again.  Hope to flush out my reflections from those discussions sometime, meanwhile, just a few notes to myself below.

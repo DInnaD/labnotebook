@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [pmc, ]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-09T00:00:00Z
+tags:
+- pmc
 title: Meeting with Graham and Peter
+url: /2010/02/09/Meeting-with-Graham-and-Peter/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Discussion of Model Comparisons
 

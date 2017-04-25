@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-10-26 16:46:24
-layout: post
-slug: correcting-for-the-mean-dynamics
-title: Correcting for the mean dynamics
-redirects: [/wordpress/archives/108, /archives/108]
 categories:
 - ecology
+comments: true
+date: 2010-10-26T16:46:24Z
+redirects:
+- /wordpress/archives/108
+- /archives/108
+slug: correcting-for-the-mean-dynamics
 tags:
 - warning-signals
+title: Correcting for the mean dynamics
+url: /2010/10/26/correcting-for-the-mean-dynamics/
 ---
 
 Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals.  This poses several kinds of issues.

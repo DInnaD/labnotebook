@@ -1,14 +1,13 @@
 ---
-layout: post
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-02-22T00:00:00Z
+tags:
 - semantics
 - knitcitations
 - blog
-
+url: /2013/02/22/semantic-citations-for-the-notebook-and-knitr/
 ---
-
- 
 
 I have on ocassion been exploring the use of [semantic](/tags.html/#semantics) markup in the notebook.  In this post I illustrate how I am handling semantic citations.  One of the more intriguing ideas is the ability to add semantic meaning to citations through the CITO ontology of <span class="showtooltip" title="Shotton D (2010). Cito, The Citation Typing Ontology. _Journal
 of Biomedical Semantics_, *1*. ISSN 2041-1480, 

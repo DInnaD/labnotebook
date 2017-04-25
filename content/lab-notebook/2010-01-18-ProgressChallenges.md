@@ -1,9 +1,10 @@
 ---
-layout: post
-category: evolution
+categories:
+- evolution
+date: 2010-01-18T00:00:00Z
 tags:
 - adaptive-dynamics
-
+url: /2010/01/18/ProgressChallenges/
 ---
 
 **editorial note**: These notes pre-date the formal start of my online

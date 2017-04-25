@@ -1,23 +1,13 @@
 ---
-layout: post
-tags: [pmc, code-tricks]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-03T00:00:00Z
+tags:
+- pmc
+- code-tricks
 title: Solution to the strange behavior in ouch
+url: /2010/03/03/Solution-to-the-strange-behavior-in-ouch/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Looks like my troubles actually stem from a bug in the code. I summarize
 the problem here, just as I posted in my query to R sig phylo.

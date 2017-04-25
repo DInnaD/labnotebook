@@ -1,10 +1,11 @@
 ---
-layout: post
-category: computation
+categories:
+- computation
+date: 2014-10-21T00:00:00Z
 tags:
 - docker
+url: /2014/10/21/docker-and-user-permissions-crazyness/
 ---
-
 
 Lots of crazyness getting to the bottom of permissions changes, as discussed in:
 

@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-02 22:57:57
-layout: post
-slug: stochastic-optimal-control
-title: Stochastic Optimal Control
-redirects: [/wordpress/archives/3124, /archives/3124]
 categories:
 - ecology
+comments: true
+date: 2011-11-02T22:57:57Z
+redirects:
+- /wordpress/archives/3124
+- /archives/3124
+slug: stochastic-optimal-control
 tags:
 - pdg-control
+title: Stochastic Optimal Control
+url: /2011/11/02/stochastic-optimal-control/
 ---
 
 Starting with Reed 1979 Reed, 1979.

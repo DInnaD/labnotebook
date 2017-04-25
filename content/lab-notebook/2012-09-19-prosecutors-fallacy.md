@@ -1,12 +1,13 @@
 ---
-layout: post
-category: ecology
-tags: 
+categories:
+- ecology
+date: 2012-09-19T00:00:00Z
+tags:
 - warning-signals
 - prosecutor
 - delayed-release
 - my-publications
-
+url: /2012/09/19/prosecutors-fallacy/
 ---
 
 Two years ago, I scribbled an entry into my notebook entitled

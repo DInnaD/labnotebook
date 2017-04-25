@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2012-02-06 15:30:06
-layout: post
-slug: some-collaborative-tools-for-science
-title: Some Collaborative Tools for Science
-redirects: [/wordpress/archives/3628, /archives/3628]
 categories:
 - open-science
 - teaching
+comments: true
+date: 2012-02-06T15:30:06Z
+redirects:
+- /wordpress/archives/3628
+- /archives/3628
+slug: some-collaborative-tools-for-science
+title: Some Collaborative Tools for Science
+url: /2012/02/06/some-collaborative-tools-for-science/
 ---
 
 Ania Truszczynski invited me to give a little talk on the use of various collaborative tools for scientists.  I enjoyed presenting this as a chalk-talk, but alas no slides to link so here's a list of reference. Rather than the impossible attempt to be comprehensive, this is restricted to resources I use regularly and have found to be the best of their class.  All are freely available.

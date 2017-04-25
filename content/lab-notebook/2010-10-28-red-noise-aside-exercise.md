@@ -1,12 +1,13 @@
 ---
-comments: true
-date: 2010-10-28 
-layout: post
-title: Red Noise (aside exercise)
-redirects: [/wordpress/archives/134, /archives/134]
 categories:
 - ecology
-
+comments: true
+date: 2010-10-28T00:00:00Z
+redirects:
+- /wordpress/archives/134
+- /archives/134
+title: Red Noise (aside exercise)
+url: /2010/10/28/red-noise-aside-exercise/
 ---
 
 Consider the first-order autoregressive process:

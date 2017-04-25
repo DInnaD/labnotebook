@@ -1,9 +1,10 @@
 ---
-layout: post
-category: evolution
+categories:
+- evolution
+date: 2009-07-28T00:00:00Z
 tags:
 - adaptive-dynamics
-
+url: /2009/07/28/branching-times/
 ---
 
 **editorial note**: These notes pre-date the formal start of my online

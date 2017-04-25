@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2011-10-13 13:28:49
-layout: post
-slug: thursday-fisheries-course
-title: Thursday, Fisheries course
-redirects: [/wordpress/archives/2885, /archives/2885]
 categories:
 - ecology
+comments: true
+date: 2011-10-13T13:28:49Z
+redirects:
+- /wordpress/archives/2885
+- /archives/2885
+slug: thursday-fisheries-course
 tags:
-- coursework 
+- coursework
 - ropensci
+title: Thursday, Fisheries course
+url: /2011/10/13/thursday-fisheries-course/
 ---
 
 Fisheries impact on forage fish.  Forage fish impact on the primary fisheries.

@@ -1,10 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-09-06T00:00:00Z
 tags:
 - nonparametric-bayes
 - warning-signals
-
+url: /2013/09/06/NSF-math-bio-postdoc/
 ---
 
 Guess it's that time of year again.  Just saw the reminder for [this year's RFP for NSF Biology Post-docs](http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=503622&WT.mc_id=USNSF_39&WT.mc_ev=click).  As I was fortunate enough to receive one of these for the "Mathematical Biology" track through last year's call, I have received a few requests for materials and advice.  I'm not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I'll give it a shot.  I found it particularly useful to see another proposal, particularly one that was also from a theoretical angle, so I am grateful to [Ethan White](http://whitelab.weecology.org/) for sharing [his successful proposal on figshare](http://dx.doi.org/10.6084/m9.figshare.93938) (though for a call under "Bioinformatics" rather than "Mathematical Biology").  Following suit, [my own full proposal](http://dx.doi.org/10.6084/m9.figshare.652970) can be found on figshare. (This is also linked from my vita, which hasn't proven very discoverable). While I do not feel it appropriate to post my reviews (after all, they are not written with the expectation of public release and I don't own the copyright to them), you can drop me an email if you would like to see these privately.

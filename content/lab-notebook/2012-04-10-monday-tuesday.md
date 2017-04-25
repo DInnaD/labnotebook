@@ -1,20 +1,20 @@
 ---
-comments: true
-date: 2012-04-10 23:09:06
-layout: post
-slug: monday-tuesday
-title: Monday / Tuesday
-redirects: [/wordpress/archives/4437, /archives/4437]
 categories:
 - ecology
-tags: 
+comments: true
+date: 2012-04-10T23:09:06Z
+redirects:
+- /wordpress/archives/4437
+- /archives/4437
+slug: monday-tuesday
+tags:
 - ropensci
 - workflow
 - warning-signals
 - wrightscape
+title: Monday / Tuesday
+url: /2012/04/10/monday-tuesday/
 ---
-
-
 
 * rfishbase updated to Duncan's feedback
 * writing intro section on Prosecutor's Fallacy.

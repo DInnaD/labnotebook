@@ -1,11 +1,12 @@
 ---
-layout: post
-category: evolution
-tags: 
+categories:
+- evolution
+date: 2013-11-17T00:00:00Z
+tags:
 - informatics
 - RNeXML
-- ropensci 
-
+- ropensci
+url: /2013/11/17/RNeXML-metadata-queries/
 ---
 
 (From issue [#20](https://github.com/ropensci/RNeXML/issues/20))

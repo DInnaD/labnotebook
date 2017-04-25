@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2012/08/10/esa-2012-conference/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<ul>
+<li><strong><a href="../../../../assets/files/ESA2012_cboettig_schedule.pdf">My Schedule</a></strong></li>
+<li>Meetings/discussion with Don Strong, Tony Ives, Marten Scheffer, Justin Yeakel, Karen Abbott, Jarrett Byrnes, Christopher Lortie.<br /></li>
+<li>Check in with Paul Armsworth on working group</li>
+<li>rOpenSci tutorial session (below)</li>
+<li>tweetup</li>
+<li>My contributed talk (below)</li>
+</ul>
+
+<h2 id="ropensci-tutorial-thursday">rOpenSci tutorial, Thursday</h2>
+
+<p>A year out from our launch at ESA last year, we presented an introduction and tutorial on rOpenSci.  Slides and links to more information are all available at <a href="http://esa.ropensci.org">esa.ropensci.org</a>.</p>
+
+<h2 id="slides-from-my-talk-friday">Slides from my talk, Friday</h2>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/13962709?hostedIn=slideshare&page=upload" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+<h2 id="twitter-notes-generated-from-r">Twitter Notes (generated from R)</h2>
+
+<pre><code class="language-r">library(twitteR)
+hashtag &lt;- &quot;#ESA2012&quot;
+user &lt;- &quot;cboettig&quot;
+</code></pre>
+
+<p>Generate a list of a user&rsquo;s conference tweets</p>
+
+<pre><code class="language-r">tweets &lt;- twListToDF(userTimeline(user, n = 500))
+tagged &lt;- grep(hashtag, tweets$text, ignore.case = TRUE)
+</code></pre>
+
+<p>Write to file, making links appear as links</p>
+
+<pre><code class="language-r">text &lt;- tweets$text[tagged]
+text &lt;- gsub(&quot;(@[A-Za-z0-9_]+)&quot;, &quot;&lt;a href=\&quot;http://twitter.com/\\1\&quot;&gt;\\1&lt;/a&gt;&quot;, 
+    text)
+text
+</code></pre>
+
+<h3 id="my-twitter-notes">My twitter notes</h3>
+
+<p>[1] &ldquo;.<a href=\"http://twitter.com/@luketkelly\">@luketkelly</a> uses GAMM for species response from time since fire, interval, intensity, etc, then solves SDP for optimal policy #esa2012&rdquo;<br />
+ [2] &ldquo;.<a href=\"http://twitter.com/@luketkelly\">@luketkelly</a> optimizes distrib of time since fire to maximize geom mean of biodiversity - better than arithmetic or shannon. #esa2012&rdquo;<br />
+ [3] &ldquo;.<a href=\"http://twitter.com/@luketkelly\">@luketkelly</a> on optimal fire histories for conserving biodiversity #esa2012 w/ amazing images from down under&rdquo;<br />
+ [4] &ldquo;Armsworth&rsquo;s analysis in eco let <a href="http://t.co/w5W8Ubsa">http://t.co/w5W8Ubsa</a> #esa2012&rdquo;<br />
+ [5] &ldquo;Armswortth shows paying farmers for biodiversity gains is best when spatially targeted &amp; worse with multispecies targets #esa2012&rdquo;<br />
+ [6] &ldquo;Fun at #esa2012 where a physics PhD student presents the experimental study testing the mathematical theories presented by the ecology PhD&rdquo;<br />
+ [7] &ldquo;Yet another Science paper described at #esa2012 resilience session: warning signals in yeast dynamics <a href="http://t.co/QRGwSH2x&quot;">http://t.co/QRGwSH2x&quot;</a><br />
+ [8] &ldquo;Michael Pace shows early warning in zooplankton levels in lake ecosystem experiment. #esa2012 Why is cv=1 a special value?&rdquo;<br />
+ [9] &ldquo;David Seekell speaking on conditional #heteroskedacity as an early warning signal of sudden shifts #esa2012&rdquo;<br />
+[10] &ldquo;See Will&rsquo;s recent paper for correct link to Doak et al <a href="http://t.co/fVclkNM9">http://t.co/fVclkNM9</a> #esa2012 (link pdfs from homepages &amp; help a tweep out!)&rdquo;<br />
+[11] &ldquo;Notes that portfolio effect is inevitable, cites Dan Doak paper: <a href="http://t.co/3RDcyI8L">http://t.co/3RDcyI8L</a> need different null #esa2012&rdquo;<br />
+[12] &ldquo;96% of returning CA salmon come from hatcheries #esa2012&rdquo;<br />
+[13] &ldquo;Portfolio effects in salmon stocks: do fish manage risk better than bankers? Will Satterthwaite up now #esa2012&rdquo;<br />
+[14] &ldquo;Alex Perkins examines impact of poor mixing in disease dynamics, draws analogy to #esa2012 mixers. Transmission is a very local process!&rdquo;<br />
+[15] &ldquo;Learn how 2 get data &amp; full text open access literature/metadata through R/#rstats w/ <a href=\"http://twitter.com/@ropensci\">@ropensci</a> 11:30a F150 <a href="http://t.co/zkifSTuU">http://t.co/zkifSTuU</a> #esa2012&rdquo;<br />
+[16] &ldquo;de Roos just showed how total biomass can increase with <em>increased</em> mortality. #Wow. #esa2012&rdquo;<br />
+[17] &ldquo;de Roos: asymmetry/differences in age/size responses (e.g. biomass production) leads to alternate stable states #esa2012&rdquo;<br />
+[18] &ldquo;Andrre de Roos shows how ontogenetic assymetry (size structure) breaks basic pop dyn predictions #esa2012&rdquo;<br />
+[19] &ldquo;Check out <a href=\"http://twitter.com/@luketkelly\">@luketkelly</a> &rsquo;s talk at #esa2012 Friday (10:20a?) #notetoself&rdquo;<br />
+[20] &ldquo;#esa2012 Come to the <a href=\"http://twitter.com/@nceas\">@nceas</a> &amp; <a href=\"http://twitter.com/@sesync\">@sesync</a> mixer, 6:30 PM-8:00 PM, in conference center rm F150&rdquo;<br />
+[21] &ldquo;In case you missed the talk or the links, see <a href=\"http://twitter.com/@jebyrnes\">@jebyrnes</a> slides online <a href="http://t.co/nCcrvAYE">http://t.co/nCcrvAYE</a> #esa2012&rdquo;<br />
+[22] &ldquo;.<a href=\"http://twitter.com/@jebyrnes\">@jebyrnes</a> mentions Nielsen&rsquo;s book on online #openscience. Also see his TED talk <a href="http://t.co/UkCYR7xV">http://t.co/UkCYR7xV</a> #esa2012&rdquo;<br />
+[23] &ldquo;.<a href=\"http://twitter.com/@jebyrnes\">@jebyrnes</a> reminds us that we live in the 21st century.  \&ldquo;Taking the science conversation online\&rdquo; #esa2012&rdquo;<br />
+[24] &ldquo;Ruckelshaus <a href=\"http://twitter.com/@NatCapProject\">@NatCapProject</a> echoes Kareiva&rsquo;s theme of collaborating with groups you don&rsquo;t agree with: \&ldquo;I&rsquo;m with stupid\&rdquo; #esa2012&rdquo;<br />
+[25] &ldquo;Karevia: Best levers for change are private sector, not public. Don&rsquo;t testify before congress, but before Walmart &amp; DOW #esa2012&rdquo;<br />
+[26] &ldquo;Karieva cites G. West on cities and creativity, possibly this paper: <a href="http://t.co/WBGJtLTl">http://t.co/WBGJtLTl</a> #esa2012&rdquo;<br />
+[27] &ldquo;Karevia channels Sarah Palin: how&rsquo;s that \&ldquo;hope-y change-y thing going?\&rdquo; #esa2012 need more than talking to congress about ecology&rdquo;<br />
+[28] &ldquo;Olsen: problem isn&rsquo;t information, it&rsquo;s informatics (making sense of information) #esa2012&rdquo;<br />
+[29] &ldquo;Olsen: cites Karevia, biggest problem is scientists cease to be good listeners. #esa2012 Buisnesses hire improv actors to learn this&rdquo;<br />
+[30] &ldquo;Randy Olsen: scientists evolved from humans. Split was pretty recent. Still have vestiges of story-telling. Don&rsquo;t lose them! #esa2012&rdquo;<br />
+[31] &ldquo;Can find the room by the line going deep into the hallway RT <a href=\"http://twitter.com/@carlystrasser\">@carlystrasser</a>: .<a href=\"http://twitter.com/@se_hampton\">@se_hampton</a> is TEARING IT UP. join the fun  A106 #ESA2012&rdquo;
+[32] &ldquo;to be accessible to reviewers RT <a href=\"http://twitter.com/@rOpenSci\">@rOpenSci</a>: Ecological Monographs now requires data to be deposited prior to publication #esa2012&rdquo;<br />
+[33] &ldquo;Ben Bolker on the need for off-the-shelf methods: not enough staticians for every ecologist to have a stats buddy 4 custom methods #esa2012&rdquo;<br />
+[34] &ldquo;#esa2012 stats discussion: \&ldquo;all modeling is exploratory. If you think AIC confirms your hypothesis, you&rsquo;re wrong\&ldquo;&rdquo;<br />
+[35] &ldquo;Yeakel uses perturbations/return rate to estimate elasticity, more senstive to fun. form, see <a href="http://t.co/AX3ds7uR">http://t.co/AX3ds7uR</a> #esa2012 #mustread&rdquo;<br />
+[36] &ldquo;Yeakel cites <a href="http://t.co/UYaDso0d">http://t.co/UYaDso0d</a> on nonpar bayes, compares to generalized models #esa2012&rdquo;<br />
+[37] &ldquo;Excellent #esa2012 session understand vs predict in modelling. Explores ecologist&rsquo;s v of Breiman&rsquo;s \&ldquo;Two Cultures\&rdquo; <a href="http://t.co/TIDL87hZ&quot;">http://t.co/TIDL87hZ&quot;</a><br />
+[38] &ldquo;Kellner: Multispecies modelling has biggest impact when including non-consumptive value <a href="http://t.co/lj3NN0Be">http://t.co/lj3NN0Be</a> #esa2012&rdquo;<br />
+[39] &ldquo;Kellner presents rich model for multispecies management of fisheries, see <a href="http://t.co/fdopymKB">http://t.co/fdopymKB</a> #esa2012&rdquo;<br />
+[40] &ldquo;Bobby describing  disease modeling: humans are essentially widgets that eventually fail #esa2012&rdquo;<br />
+[41] &ldquo;Not nearly enough room for the crowd outside Karen Abbott&rsquo;s talk: what&rsquo;s so special about alternative stable states? #esa2012&rdquo;<br />
+[42] &ldquo;#esa2012 <a href=\"http://twitter.com/@sesync\">@sesync</a> panel live peer-review of audience-submitted ideas. Levin: \&ldquo;It should count: I view social science as subset of ecology\&ldquo;&rdquo;<br />
+[43] &ldquo;Ray Hilborn \&ldquo;fisheries management is people management\&rdquo; need socio-econ context of ecology. <a href=\"http://twitter.com/@sesync\">@sesync</a> #esa2012&rdquo;<br />
+[44] &ldquo;Molly discusses \&ldquo;most important number you&rsquo;ve never heard of\&rdquo; - Social cost of carbon #esa2012 <a href=\"http://twitter.com/@sesync\">@sesync</a> ($25/ton is current est)&rdquo;<br />
+[45] &ldquo;Lopez-Hoffman explores equitable water-rights that conserve ecosystem services, e.g. Colarado river use <a href=\"http://twitter.com/@sesync\">@sesync</a> #esa2012&rdquo;<br />
+[46] &ldquo;Levin: cites common-pool resources example from African cattle <a href="http://t.co/j35iY3MO">http://t.co/j35iY3MO</a> #esa2012&rdquo;<br />
+[47] &ldquo;Simon Levin speaking <a href=\"http://twitter.com/@sesync\">@sesync</a> panel: polycentric appches to international agreements on enviro resources #esa2012&rdquo;<br />
+[48] &ldquo;#esa2012 <a href=\"http://twitter.com/@sesync\">@sesync</a> will focus on \&ldquo;wicked problems\&rdquo; (technical term) using theme-driven, interdisciplinary approaches&rdquo;<br />
+[49] &ldquo;Excellent #esa2012 session intro 2 <a href=\"http://twitter.com/@sesync\">@sesync</a>: \&ldquo;if you&rsquo;re familiar with <a href=\"http://twitter.com/@nceas\">@nceas</a>, you&rsquo;re familiar w/ synthesis\&ldquo;. Now focus on socio-econ + uncert&rdquo;<br />
+[50] &ldquo;#esa2012 <a href=\"http://twitter.com/@biocreativity\">@biocreativity</a> Speaking of art-science collab, don&rsquo;t forget Dr. Scheffer&rsquo;s \&ldquo;Critical Transitions, the Movie\&rdquo; <a href="http://t.co/2nM6RxL9&quot;">http://t.co/2nM6RxL9&quot;</a><br />
+[51] &ldquo;Lubchenco discusses NOAA&rsquo;s effort to create climate services like their drought forecasting software: <a href="http://t.co/zSRN3Y2U">http://t.co/zSRN3Y2U</a> #esa2012&rdquo;<br />
+[52] &ldquo;Lubchenco&rsquo;s Q&amp;A brings with disclaimer about Hatch Act: she is speaking for the agency, not the campaign, and can&rsquo;t answer some Q&rsquo;s #esa2012&rdquo;<br />
+[53] &ldquo;At #esa2011 plenary, Pacala encouraged us to spend some time on policy-rel issues. #esa2012 Lubchenco raises the bar: run for office!&rdquo;<br />
+[54] &ldquo;For instance, to promote outreach, NOAA workers are encouraged to use social media, see their policy: <a href="http://t.co/SqSw6UeK">http://t.co/SqSw6UeK</a> #esa2012&rdquo;<br />
+[55] &ldquo;Lubchenco trumpets success of Magnuson-Stevens Act of 2007 (<a href="http://t.co/bOqdasVT">http://t.co/bOqdasVT</a>) as the policy which will end overfishing #esa2012&rdquo;<br />
+[56] &ldquo;Lubchenco discusses examples of ecosystem thinking in policy such as the Ocean Policy Task Force: <a href="http://t.co/XeyAkQVc">http://t.co/XeyAkQVc</a> #ESA2012&rdquo;<br />
+[57] &ldquo;#esa2012 Lubchenco on the challenge of scale across ecological, social + econ contexts: highlights DeFries 2012 <a href="http://t.co/NEU3AdiQ&quot;">http://t.co/NEU3AdiQ&quot;</a><br />
+[58] &ldquo;Jane Lubchenco, opening plenary of #esa2012, dedicates her talk to economics Nobel Laureate Elinor Ostrom <a href="http://t.co/XZLEeUnQ&quot;">http://t.co/XZLEeUnQ&quot;</a><br />
+[59] &ldquo;.<a href=\"http://twitter.com/@mickresearch\">@mickresearch</a> speaker ready rooms are D134 &amp; F152 7a-7p, by reservation(?) (program pg 7).  Looking forward to your talk btw #esa2012&rdquo;<br />
+[60] &ldquo;#esa2012 is trying to facilitate networking for young scientists by labeling cocktail tables by sub-field during tonight&rsquo;s reception&rdquo;<br />
+[61] &ldquo;Off to Portland for #esa2012&rdquo;</p>
+
+<h3 id="mentions-at-conference-other-than-retweets">Mentions at conference, (other than retweets)</h3>
+
+<pre><code class="language-r">mentions &lt;- twListToDF(searchTwitter(paste(&quot;@&quot;, user, sep = &quot;&quot;), 
+    n = 300))
+with_hashtag &lt;- grep(hashtag, mentions$text, ignore.case = TRUE)
+rt &lt;- grep(&quot;RT\\s&quot;, mentions$text)
+me_not_rt &lt;- with_hashtag[!(with_hashtag %in% rt)]
+</code></pre>
+
+<p>Again, write the output</p>
+
+<pre><code class="language-r">text2 &lt;- mentions$text[me_not_rt]
+text2 &lt;- gsub(&quot;(@[A-Za-z0-9_]+)&quot;, &quot;&lt;a href=\&quot;http://twitter.com/\\1\&quot;&gt;\\1&lt;/a&gt;&quot;, 
+    text2)
+text2
+</code></pre>
+
+<p>[1] &ldquo;. <a href=\"http://twitter.com/@cboettig\">@cboettig</a> building cost of switching policies into models necessary &amp; provide better outcomes that reduce costs of management #ESA2012&rdquo;<br />
+ [2] &ldquo;. <a href=\"http://twitter.com/@cboettig\">@cboettig</a> most optimal management strategies produce fluctuations that policy makers don&rsquo;t like - we can model their dislike! #esa2012&rdquo;<br />
+ [3] &ldquo;.<a href=\"http://twitter.com/@cboettig\">@cboettig</a> enthusiastically uniting decision theory and resilience theory for management.  Making math exciting!  #esa2012&rdquo;<br />
+ [4] &ldquo;Go see <a href=\"http://twitter.com/@cboettig\">@cboettig</a> (Carl Boettiger&rsquo;s) talk today in E143 at 920 - he gives a great engaging talk #esa2012&rdquo;<br />
+ [5] &ldquo;#FF #ESA2012 <a href=\"http://twitter.com/@DynamicEcology\">@DynamicEcology</a> <a href=\"http://twitter.com/@labroides\">@labroides</a> <a href=\"http://twitter.com/@qaecology\">@qaecology</a> <a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@paulrehrlich\">@paulrehrlich</a> <a href=\"http://twitter.com/@tessafrancis\">@tessafrancis</a> <a href=\"http://twitter.com/@lizabio\">@lizabio</a> <a href=\"http://twitter.com/@gigi_rose\">@gigi_rose</a> <a href=\"http://twitter.com/@IngaPLaPuma\">@IngaPLaPuma</a> <a href=\"http://twitter.com/@sarcozona\">@sarcozona</a>&ldquo;
+ [6] &ldquo;Awesome! MT <a href=\"http://twitter.com/@cboettig\">@cboettig</a>: Fun at #esa2012 where physics student presents experiment testing the mathematical theories presented by ecology PhD&rdquo;<br />
+ [7] &ldquo;.<a href=\"http://twitter.com/@cboettig\">@cboettig</a> says readme.txt is the best way to keep track of dataset versions. Can version control that on github #ESA2012&rdquo;<br />
+ [8] &ldquo;<a href=\"http://twitter.com/@jasonpriem\">@jasonpriem</a> <a href=\"http://twitter.com/@_inundata\">@_inundata</a> <a href=\"http://twitter.com/@cboettig\">@cboettig</a> Don&rsquo;t worry- you made an appearance earlier when <a href=\"http://twitter.com/@totalimpactdev\">@totalimpactdev</a> was discussed! #ESA2012&rdquo;<br />
+ [9] &ldquo;<a href=\"http://twitter.com/@carlystrasser\">@carlystrasser</a> <a href=\"http://twitter.com/@_inundata\">@_inundata</a> <a href=\"http://twitter.com/@cboettig\">@cboettig</a> Sorry to be missing that! #ESA2012&rdquo;<br />
+[10] &ldquo;We&rsquo;ve reached the part of the workshop where .<a href=\"http://twitter.com/@_inundata\">@_inundata</a> and <a href=\"http://twitter.com/@cboettig\">@cboettig</a> slamming MATLAB now&hellip; #ESA2012&rdquo;<br />
+[11] &ldquo;<a href=\"http://twitter.com/@cboettig\">@cboettig</a> - let db managers know that you would use a repository + API to share your data with them - move ecology data forward #esa2012&rdquo;<br />
+[12] &ldquo;.<a href=\"http://twitter.com/@cboettig\">@cboettig</a>: R is a pain to learn. <a href=\"http://twitter.com/@rOpenSci\">@rOpenSci</a> packages and tools take advantage of your current knowledge base. #ESA2012&rdquo;<br />
+[13] &ldquo;<a href=\"http://twitter.com/@ropensci\">@ropensci</a> <a href=\"http://twitter.com/@cboettig\">@cboettig</a>: scripting analyses makes science reproducible, repeatable, &amp; creates an analytical workflow #esa2012&rdquo;<br />
+[14] &ldquo;.<a href=\"http://twitter.com/@cboettig\">@cboettig</a> showing Michener&rsquo;s Info Entropy Graph: more time passing means less remembered about data #ESA2012&rdquo;<br />
+[15] &ldquo;<a href=\"http://twitter.com/@jacquelyngill\">@jacquelyngill</a> <a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@treebiology\">@treebiology</a> <a href=\"http://twitter.com/@jenedavison\">@jenedavison</a> would you like to write about #ESA2012 for <a href=\"http://twitter.com/@Scitable\">@Scitable</a> <a href="http://t.co/tPzaPL2U&quot;">http://t.co/tPzaPL2U&quot;</a><br />
+[16] &ldquo;Fun #ESA2012 tweetup. Nice meeting you! <a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@MiriamGoldste\">@MiriamGoldste</a> <a href=\"http://twitter.com/@SarahBisbing\">@SarahBisbing</a> <a href=\"http://twitter.com/@bonebraking\">@bonebraking</a> <a href=\"http://twitter.com/@JacquelynGill\">@JacquelynGill</a> <a href=\"http://twitter.com/@msanclem\">@msanclem</a> <a href=\"http://twitter.com/@luketkelly\">@luketkelly</a> <a href=\"http://twitter.com/@edyong209\">@edyong209</a>&rdquo;<br />
+[17] &ldquo;Check out <a href=\"http://twitter.com/@cboettig\">@cboettig</a>&rsquo;s talk at #ESA2012 Friday 9:20 in E143. Unknown unknowns: management strategies under uncertainty &amp; alt stable states&rdquo;<br />
+[18] &ldquo;<a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@luketkelly\">@luketkelly</a> is at 10:30 on Friday in E144 at #ESA2012. Optimal fire history for conserving biodiversity.&rdquo;<br />
+[19] &ldquo;#ESA2012 tweetup was a great idea. Nice meeting you guys <a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@MiriamGoldste\">@MiriamGoldste</a> <a href=\"http://twitter.com/@SarahBisbing\">@SarahBisbing</a> <a href=\"http://twitter.com/@bonebraking\">@bonebraking</a> <a href=\"http://twitter.com/@JacquelynGill\">@JacquelynGill</a> <a href=\"http://twitter.com/@msanclem\">@msanclem</a> and co&rdquo;<br />
+[20] &ldquo;Rt <a href=\"http://twitter.com/@cboettig\">@cboettig</a> in case you missed the talk or the links, see <a href=\"http://twitter.com/@jebyrnes\">@jebyrnes</a> slides online <a href="http://t.co/cUiwTe23">http://t.co/cUiwTe23</a> #esa2012&rdquo;<br />
+[21] &ldquo;<a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@ropensci\">@ropensci</a> for all other journals too I mean. Why not share the data? #esa2012&rdquo;<br />
+[22] &ldquo;<a href=\"http://twitter.com/@cboettig\">@cboettig</a> <a href=\"http://twitter.com/@ropensci\">@ropensci</a> agreed. Or at least a subset of data for referees and the readership to access #esa2012&rdquo;<br />
+[23] &ldquo;<a href=\"http://twitter.com/@cboettig\">@cboettig</a> which leads to the suggestion that we need stats mentors and editors in eeb. #esa2012&rdquo;<br />
+[24] &ldquo;MT <a href=\"http://twitter.com/@forestdim\">@forestdim</a>: Inspired by <a href=\"http://twitter.com/@cboettig\">@cboettig</a> &rsquo;s stardom to tweet. Ppl mistaking me 4 <a href=\"http://twitter.com/@edyong209\">@edyong209</a>. Need 2 now ride the wave of false ID #ESA2012&rdquo;<br />
+[25] &ldquo;Yay for Baysian stats! MT <a href=\"http://twitter.com/@cboettig\">@cboettig</a>: #esa2012 stats discussion: \&ldquo;If you think AIC confirms your hypothesis, you&rsquo;re wrong\&ldquo;&rdquo;<br />
+[26] &ldquo;Why code should be made avail: MT <a href=\"http://twitter.com/@cboettig\">@cboettig</a> Ben Bolker: not enuf staticians 4 each ecologst to have a stats buddy 4 custom methods #esa2012&rdquo;<br />
+[27] &ldquo;Conversation at #esa2012 Hastings lab dinner: pole dancing at the 2016 Olympics? <a href="http://t.co/slpeBcNA">http://t.co/slpeBcNA</a> <a href=\"http://twitter.com/@Dr_Bik\">@Dr_Bik</a> <a href=\"http://twitter.com/@cboettig\">@cboettig</a>&rdquo;<br />
+[28] &ldquo;<a href=\"http://twitter.com/@cboettig\">@cboettig</a> Thanks for the art-science tip! #ESA2012 #biocreativity \&ldquo;Critical Transitions, The Movie\&rdquo; TONIGHT Portland Blrm 251 8-10p&rdquo;<br />
+[29] &ldquo;Let&rsquo;s hear it for statistics! MT <a href=\"http://twitter.com/@ropensci\">@ropensci</a>: Check out <a href=\"http://twitter.com/@rOpenSci\">@rOpenSci</a> developer talks: <a href=\"http://twitter.com/@_inundata\">@_inundata</a> Tues 840a, F150 &amp; <a href=\"http://twitter.com/@cboettig\">@cboettig</a> 920a, E143. #esa2012&rdquo;<br />
+[30] &ldquo;Not on rOpenSci&hellip; MT <a href=\"http://twitter.com/@rOpenSci\">@rOpenSci</a>: Check out talks by <a href=\"http://twitter.com/@rOpenSci\">@rOpenSci</a> developers: <a href=\"http://twitter.com/@_inundata\">@_inundata</a> Tues 8:40 am F150 - <a href=\"http://twitter.com/@cboettig\">@cboettig</a> 9:20 am E143 #esa2012&rdquo;<br />
+[31] &ldquo;Check out talks by <a href=\"http://twitter.com/@rOpenSci\">@rOpenSci</a> developers: <a href=\"http://twitter.com/@_inundata\">@_inundata</a> Tues 8:40 am F150 - <a href=\"http://twitter.com/@cboettig\">@cboettig</a> 9:20 am E143 #esa2012&rdquo;</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2012-08-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Fri, Aug 10, 2012
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/conference">conference</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2012/08/20/notes/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2012/07/30/notes/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2012-08-10-ESA-2012-Conference.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/b3630889a5584cd1240e1c9d2208759615c88af4/content/lab-notebook/2012-08-10-ESA-2012-Conference.md">b3630889a</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2012\/08\/10\/esa-2012-conference\/';
+    var disqus_title = '';
+    var disqus_url = '\/2012\/08\/10\/esa-2012-conference\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

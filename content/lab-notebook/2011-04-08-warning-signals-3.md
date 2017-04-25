@@ -1,16 +1,14 @@
 ---
-comments: true
-date: 2011-04-08 17:08:48
-layout: post
-slug: warning-signals-3
-title: Warning signals
 categories:
 - ecology
+comments: true
+date: 2011-04-08T17:08:48Z
+slug: warning-signals-3
 tags:
 - warning-signals
+title: Warning signals
+url: /2011/04/08/warning-signals-3/
 ---
-
-
 
 * ibm simulation fit convergence on constOU vs constLSN -- are likelihood scores off from including out-of-bound parameter estimates?
 * Consider transcritical in levins model setup

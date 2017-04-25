@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,18 +141,8 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/research.html">Research</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/19/research/">Research</a></h2>
+    <h4>Mon, Apr 19, 2010</h4>
     <div class="article-style">
       
       Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
@@ -163,8 +153,70 @@ Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic me
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/solution-to-the-strange-behavior-in-ouch.html">Solution to the strange behavior in ouch</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/04/16/ievobio-submission/">iEvoBio Submission</a></h2>
+    <h4>Fri, Apr 16, 2010</h4>
+    <div class="article-style">
+      
+      Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/04/09/research/">Research</a></h2>
+    <h4>Fri, Apr 9, 2010</h4>
+    <div class="article-style">
+      
+      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/03/25/research/">Research</a></h2>
+    <h4>Thu, Mar 25, 2010</h4>
+    <div class="article-style">
+      
+      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/03/24/parallel-r/">Parallel R</a></h2>
+    <h4>Wed, Mar 24, 2010</h4>
+    <div class="article-style">
+      
+      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/03/19/research/">Research</a></h2>
+    <h4>Fri, Mar 19, 2010</h4>
+    <div class="article-style">
+      
+      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/03/04/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h2>
+    <h4>Thu, Mar 4, 2010</h4>
+    <div class="article-style">
+      
+      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
+ Follow-up discussion on:
+ List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
+    <h4>Wed, Mar 3, 2010</h4>
     <div class="article-style">
       
       Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
@@ -175,66 +227,12 @@ Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic me
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/summary-of-structured-population-noise-so-far.html">Summary of Structured Population noise so far</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/the-ergodicity-question--time-averaging-vs-ensemble-averaging.html">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/02/25/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
+    <h4>Thu, Feb 25, 2010</h4>
     <div class="article-style">
       
       11am &ndash; 3pm
  Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/warning-signals.html">Warning Signals</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/warning-signals-with-sdes.html">Warning Signals with SDEs</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/a-few-notes-on-various-projects.html">a few notes on various projects</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
-  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../1/01/01/ievobio-submission.html">iEvoBio Submission</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
-    <div class="article-style">
-      
-      Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.
       
     </div>
   </div>

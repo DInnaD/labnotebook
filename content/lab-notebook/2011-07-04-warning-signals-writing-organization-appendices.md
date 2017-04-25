@@ -1,13 +1,13 @@
 ---
-comments: true
-date: 2011-07-04 19:03:32
-layout: post
-title: Warning Signals writing, organization, appendices
 categories:
 - ecology
+comments: true
+date: 2011-07-04T19:03:32Z
 tags:
 - warning-signals
 - delayed-release
+title: Warning Signals writing, organization, appendices
+url: /2011/07/04/warning-signals-writing-organization-appendices/
 ---
 
 ## main text

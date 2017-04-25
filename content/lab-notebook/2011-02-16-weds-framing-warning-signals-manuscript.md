@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-02-16 23:56:41
-layout: post
-slug: weds-framing-warning-signals-manuscript
-title: Weds & Framing warning signals manuscript
-redirects: [/wordpress/archives/966, /archives/966]
 categories:
 - ecology
+comments: true
+date: 2011-02-16T23:56:41Z
+redirects:
+- /wordpress/archives/966
+- /archives/966
+slug: weds-framing-warning-signals-manuscript
 tags:
 - warning-signals
+title: Weds & Framing warning signals manuscript
+url: /2011/02/16/weds-framing-warning-signals-manuscript/
 ---
 
 ## Alan Meeting, 10a

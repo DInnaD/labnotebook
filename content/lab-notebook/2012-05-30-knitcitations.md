@@ -1,12 +1,14 @@
 ---
-layout: post
-title: knitcitations
-subtitle: An automated way to generate citations by dynamic lookup using Crossref DOIs or by bibtex files.
-categories: [open-science]
-tags: 
+categories:
+- open-science
+date: 2012-05-30T00:00:00Z
+subtitle: An automated way to generate citations by dynamic lookup using Crossref
+  DOIs or by bibtex files.
+tags:
 - R
 - knitcitations
-
+title: knitcitations
+url: /2012/05/30/knitcitations/
 ---
 
 **EDIT**: Note that this package has evolved quite a bit from this initial post.  While the basic interface is the same, support for additional features and some choices in formatting differ from what is presented here.  Please see the [README](https://github.com/cboettig/knitcitations/) for the latest introduction to the package. Readers may also be interested in the more recent post discussing the [introduction of several new features including semantic tools in the `knitcitations` package](http://www.carlboettiger.info/2013/02/22/semantic-citations-for-the-notebook-and-knitr.html) 

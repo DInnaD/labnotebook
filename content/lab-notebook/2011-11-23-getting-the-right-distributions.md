@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-11-23 15:43:27
-layout: post
-slug: getting-the-right-distributions
-title: Getting the right distributions
-redirects: [/wordpress/archives/3325, /archives/3325]
 categories:
 - ecology
+comments: true
+date: 2011-11-23T15:43:27Z
+redirects:
+- /wordpress/archives/3325
+- /archives/3325
+slug: getting-the-right-distributions
 tags:
 - pdg-control
+title: Getting the right distributions
+url: /2011/11/23/getting-the-right-distributions/
 ---
 
 Determining the stochastic transition matrix is the essential computational step of SDP solution.  If stochasticity enters only in the growth process: 

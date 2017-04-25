@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2012-03-24 21:33:27
-layout: post
-slug: citations-in-markdown-using-knitr
-title: Citations in markdown using knitr
-redirects: [/wordpress/archives/4352, /archives/4352]
 categories:
 - computation
 - open-science
+comments: true
+date: 2012-03-24T21:33:27Z
+redirects:
+- /wordpress/archives/4352
+- /archives/4352
+slug: citations-in-markdown-using-knitr
 tags:
 - R
+title: Citations in markdown using knitr
+url: /2012/03/24/citations-in-markdown-using-knitr/
 ---
 
 I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading).  One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I'd like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).  I've taken a little whack at generating in-text citations using knitr and other R tools.

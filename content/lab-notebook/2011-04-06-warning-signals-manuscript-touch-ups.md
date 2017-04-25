@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-04-06 17:27:42
-layout: post
-slug: warning-signals-manuscript-touch-ups
-title: Warning Signals - Manuscript touch-ups
-redirects: [/wordpress/archives/1362, /archives/1362]
 categories:
 - ecology
+comments: true
+date: 2011-04-06T17:27:42Z
+redirects:
+- /wordpress/archives/1362
+- /archives/1362
+slug: warning-signals-manuscript-touch-ups
 tags:
 - warning-signals
+title: Warning Signals - Manuscript touch-ups
+url: /2011/04/06/warning-signals-manuscript-touch-ups/
 ---
 
 [toc]

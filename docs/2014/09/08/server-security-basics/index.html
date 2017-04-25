@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../2014/09/08/server-security-basics/">
+
+
+  <title> | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    
+      
+    
+
+<h2 id="security-configuration">Security configuration</h2>
+
+<p>We set up SSH key-only login on non-standard port, with root login forbidden. We then set up <code>ufw</code> firewall, <code>fail2ban</code>, and <code>tripwire</code>.</p>
+
+<ol>
+<li><p>Configure an <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2">SSH key login</a>. Next, <a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-12-04">Create a user, add to sudoers, and then disable root
+login.</a>.  Edits <code>/etc/ssh/sshd_config</code>:</p>
+
+<ul>
+<li>Disabling root logins.  (We&rsquo;ll need to add ourselves to sudo first: (<code>adduser</code>, edit <code>/etc/sudoers</code>)</li>
+<li>Change ssh port from default to something else.</li>
+<li>Whitelist user login ids</li>
+</ul></li>
+</ol>
+
+<p>Additionally, let&rsquo;s be sure to disable password authentication: Add <code>PasswordAuthentication no</code> to <code>/etc/ssh/sshd_config</code>.  (editing PermitRootLogin only doesn&rsquo;t do this).</p>
+
+<p>Locally add an entry in <code>~/.ssh/config</code> to alias the host and port to
+avoid having to remember these numbers for login.  Run <code>ssh-copy-id
+&lt;droplet-ip&gt;</code> to enable key-based login for the user.</p>
+
+<ol>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server">Install and
+configure</a>
+<code>ufw</code> firewall.  As we&rsquo;re not using the default <code>ssh</code> port, we need to explicitly tell <code>ufw</code> which ssh port to allow.</li>
+</ol>
+
+<pre><code>sudo ufw allow &lt;PORT&gt;/tcp
+</code></pre>
+
+<p>(The <code>/tcp</code> part is optional, saying only allow <code>tcp</code> protocol
+over that port, not other protocols.)</p>
+
+<p>We must also tell ufw to <a href="http://docs.docker.com/installation/ubuntulinux/#docker-and-ufw">allow
+Docker</a>:
+In <code>/etc/default/ufw</code> change <code>DEFAULT_FORWARD_POLICY</code> to ACCEPT, then:</p>
+
+<pre><code class="language-bash">sudo ufw reload
+sudo ufw allow 2375/tcp
+</code></pre>
+
+<p>and similarly allow any ports we export for our various services (Gitlab, Drone, etc).</p>
+
+<ol>
+<li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-12-04">Install and
+configure</a>
+<code>fail2ban</code>. Prevents brute force password attacks.  Be sure to assign the config to match chosen ssh port.</p></li>
+
+<li><p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-tripwire-to-detect-server-intrusions-on-an-ubuntu-vps">Install and
+configure</a>
+<code>tripwire</code> (intrusion detection).</p></li>
+
+<li><p>Update software:</p></li>
+</ol>
+
+<pre><code class="language-bash">sudo apt-get -q update &amp;&amp; sudo apt-get -qy dist-upgrade
+</code></pre>
+
+<p>and then also update tripwire log:</p>
+
+<pre><code class="language-bash">sudo tripwire --check --interactive
+</code></pre>
+
+<p>Note: Clearly all these steps need to be running on the server itself, not merely in a container image deployed on server so that they are securing access to the actual host.</p>
+
+<h2 id="additional-configuration">Additional configuration</h2>
+
+<p>While we&rsquo;re doing things, add user to the
+docker group for convenience: <code>sudo addgroup cboettig docker</code></p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-12-04">Enable swap</a> on a small instance. Here we set up 1GB of swap (setting swap at twice the available RAM is the recommended rule-of-thumb, though makes less sense once RAM is large)</p>
+
+<pre><code class="language-bash">sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+</code></pre>
+
+<p>To make this persistant on reboot edit <code>/etc/fstab</code>:</p>
+
+<pre><code class="language-bash">sudo echo &quot;/swapfile       none    swap    sw      0       0&quot; &gt;&gt; /etc/fstab
+</code></pre>
+
+<p>For better performance, we might tweak swappiness to 10 (default is 60 out of 100, where 0 is never swap and 1 is swap frequently):</p>
+
+<pre><code class="language-bash">echo 10 | sudo tee /proc/sys/vm/swappiness
+echo vm.swappiness = 10 | sudo tee -a /etc/sysctl.conf
+</code></pre>
+
+<p>Set ownership</p>
+
+<pre><code class="language-bash">sudo chown root:root /swapfile
+sudo chmod 0600 /swapfile
+</code></pre>
+
+<h2 id="server-modules">Server modules</h2>
+
+<p>Running different services as their own docker containers offers serveral
+advantages:</p>
+
+<ul>
+<li><p>Containers often make it easier to install and deploy existing services,
+since the necessary configuration is scripted in the Dockerfile and we can
+often find Dockerfiles already made on <a href="http://hub.docker.com">Docker Hub</a>
+for common services. This note illustrates several examples.</p></li>
+
+<li><p>Containers may provide an added level of stability, since they run
+largely in isolation from each other.</p></li>
+
+<li><p>Containers can be <a href="http://stackoverflow.com/questions/16084741/how-do-i-set-resources-allocated-to-a-container-using-docker">resource
+limited</a>,
+e.g.</p></li>
+</ul>
+
+<pre><code class="language-bash">docker run -it -m 100m -c 100 ubuntu /bin/bash
+</code></pre>
+
+<p>would provide the container with 100 MB of RAM and 100 &ldquo;shares&rdquo; of CPU
+(acts kind of like a niceness, where the default share of a container
+is 1024. On multicore machines you can also pass <code>--cpuset &quot;0&quot;</code> or
+<code>--cpuset &quot;0,1&quot;</code> etc, which is a list of which cpus (numbered 0 to n-1,
+as in <code>/proc/cpuinfo</code>) the container is permitted to use.</p>
+
+<p>As noted in the link, restricting disk space is more tricky, though
+might become easier down the road.</p>
+
+<h3 id="ssh-server">ssh server:</h3>
+
+<p>Permit users to ssh directly into a container rather than access the server itself. Despite its simplicity, I found this a bit tricky to set up correctly, particularly in managing users.</p>
+
+<p>Here&rsquo;s the basic Dockerfile for an image we&rsquo;ll call <code>ssh</code>.  This creates a user given by the environmental variable.  A few tricks:</p>
+
+<ul>
+<li>We use <code>adduser</code> instead of <code>useradd</code> so that we get the home directory for the user created and granted the correct permissions automaticalliy. We need the <code>--gecos</code> information so that we&rsquo;re not prompted to enter the user&rsquo;s full name etc. We use <code>--disabled-password</code> rather than set a password here.</li>
+<li>Login is still possible through ssh key (as well as through nsenter on the host machine).  We go ahead and add the ssh key now, though this could be done after the container is running by using nsenter.</li>
+<li>In this dockerfile, we&rsquo;ve added the user to <code>sudo</code>ers group for root access on the container (installing software, etc).  This won&rsquo;t be active until the user has a password.</li>
+</ul>
+
+<pre><code>FROM     ubuntu:14.04
+ENV USER cboettig
+RUN apt-get update &amp;&amp; apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN adduser --disabled-password --gecos &quot;&quot; $USER
+RUN adduser $USER sudo
+ADD authorized_keys /home/$USER/.ssh/authorized_keys
+RUN chown $USER /home/$USER/.ssh/authorized_keys
+EXPOSE 22
+CMD    [&quot;/usr/sbin/sshd&quot;, &quot;-D&quot;]
+</code></pre>
+
+<p>When building the image, note that a copy of <code>authorized_keys</code> (contains the contents of the <code>id_rda.pub</code> public key) file must be found in the same directory as the Dockerfile so that it can be added to the image.</p>
+
+<p>Start the ssh server on port 2200:</p>
+
+<pre><code>docker run -d -p 2200:22 --name=&quot;ssh&quot; ssh
+</code></pre>
+
+<p>Add to the firewall permissions</p>
+
+<pre><code>sudo ufw add 2200/tcp
+</code></pre>
+
+<p>From here I can now ssh in from the computer housing the private key pair to the public key
+that is added to the image here.  However, that user doesn&rsquo;t have root access since we haven&rsquo;t
+provided a password.</p>
+
+<p>Use <code>nsenter</code> to enter the instance:</p>
+
+<pre><code class="language-bash">docker run -v /usr/local/bin:/target jpetazzo/nsenter
+nsenter -m -u -n -i -p -t `docker inspect --format '{{.State.Pid}}' ssh` /bin/bash
+</code></pre>
+
+<p>Create a password for the user to enable root access:</p>
+
+<pre><code class="language-bash">echo '$USER:&lt;password&gt;' | chpasswd
+</code></pre>
+
+<p>We can create other users and add them to sudoers or not as desired, e.g. add interactively using:</p>
+
+<pre><code class="language-bash">useradd &lt;username&gt;
+</code></pre>
+
+<p>users can later change their passwords once they log in.</p>
+
+<h2 id="restoring-containers-when-restarting">Restoring containers when restarting</h2>
+
+<p>A certain times we need to power cycle the server (e.g. after certain software updates), using the <code>sudo reboot now</code> command or the DigitalOcean console.  Any running containers will be automatically stopped.  Once the machine is back up and we log back in, these containers can be brought back up with <code>docker restart &lt;container_id&gt;</code> (or <code>&lt;container_name&gt;</code>), and then everything is back to normal.</p>
+
+<p>Note that while we can stop and restart a container, it seems we cannot simply save a container (e.g. with <code>docker commit</code> or <code>docker save</code> and re-run it and expect the server functionality to be restored after the container is destroyed (e.g. by <code>docker rm -f</code>).  (See previous notes 2014-09-05) for an illustration of this problem. This occurs because the container image does not include the volume where it writes its data, and that volume address is generated uniquely each time a container is run.</p>
+
+<p>Consequently, a different (probably more traditional) approach is needed to backup the configuration of a server such as Gitlab or Drone-CI even when running in a container.  Will explore this later.</p>
+
+<p>Meanwhile, remember remove unneeded containers with</p>
+
+<pre><code class="language-bash">docker rm $(docker ps -a | grep Exited | awk '{print $1}')
+</code></pre>
+
+<p>and not with <code>-f</code> (destroying running containers!)</p>
+
+<h2 id="key-security">Key security</h2>
+
+<p>We can largely avoid needing a private ssh key for the server, though may use https authentication to let us use git (rather than, say, rsync) to develop and save changes made remotely (say, through RStudio server).</p>
+
+<h3 id="backing-up-keys">Backing up keys</h3>
+
+<p>Probably unnecessary to have a backup of the ssh private RSA key, as we can access the DigitalOcean Server or Github through the web consoles and add a new public key and replace our private key.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2014-09-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Sep 8, 2014
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../../categories/computing">computing</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../../tags/digitalocean">digitalocean</a
+    >, 
+    
+    <a href="../../../../tags/docker">docker</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/09/09/server-backups/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/09/05/drone-ci-and-docker/'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-09-08-server-security-basics.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-09-08-server-security-basics.md">8b51c8d4c</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2014\/09\/08\/server-security-basics\/';
+    var disqus_title = '';
+    var disqus_url = '\/2014\/09\/08\/server-security-basics\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

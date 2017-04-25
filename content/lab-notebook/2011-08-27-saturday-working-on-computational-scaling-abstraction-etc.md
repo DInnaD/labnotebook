@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-08-27 23:44:09
-layout: post
-slug: saturday-working-on-computational-scaling-ion-etc
-title: 'Saturday: working on computational scaling, ion, etc'
-redirects: [/wordpress/archives/2450, /archives/2450]
 categories:
 - computation
+comments: true
+date: 2011-08-27T23:44:09Z
+redirects:
+- /wordpress/archives/2450
+- /archives/2450
+slug: saturday-working-on-computational-scaling-ion-etc
 tags:
 - hpc
+title: 'Saturday: working on computational scaling, ion, etc'
+url: /2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/
 ---
 
 Can I get a generic montecarlotest function working for both warningsignals and pmc?  

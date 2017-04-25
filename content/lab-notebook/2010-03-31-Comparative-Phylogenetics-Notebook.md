@@ -1,18 +1,11 @@
 ---
-layout: post
-tags: [ Labrids]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-03-31T00:00:00Z
+tags:
+- Labrids
+url: /2010/03/31/Comparative-Phylogenetics-Notebook/
 ---
-
-
-
-
-
- 
-
-
-
-
 
 Research
 --------

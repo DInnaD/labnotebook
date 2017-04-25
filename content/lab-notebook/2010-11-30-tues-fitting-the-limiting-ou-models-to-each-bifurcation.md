@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2010-11-30 22:56:03
-layout: post
-slug: tues-fitting-the-limiting-ou-models-to-each-bifurcation
-title: 'Tues: Fitting the limiting OU models to each bifurcation'
-redirects: [/wordpress/archives/490, /archives/490]
 categories:
 - ecology
+comments: true
+date: 2010-11-30T22:56:03Z
+redirects:
+- /wordpress/archives/490
+- /archives/490
+slug: tues-fitting-the-limiting-ou-models-to-each-bifurcation
 tags:
 - derivation
 - warning-signals
+title: 'Tues: Fitting the limiting OU models to each bifurcation'
+url: /2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/
 ---
 
 Yesterday I derived the linearized SDEs for the saddle node bifurcation :

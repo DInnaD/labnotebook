@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,115 +141,115 @@
   
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/22/power-in-simple-tests/">Power in simple tests</a></h2>
+    <h4>Mon, Nov 22, 2010</h4>
     <div class="article-style">
       
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
+      Exploring power in simple tree models. With the smaller tree from the _geospiza _dataset, (14 tips, left) is less than yesterday&rsquo;s in the bimaculus Anoles (with 23 tips, right)
+(code)
+Also wrote the OUCH-based wrapper function to fit tree transformation parameters. Unfortunately it currently transforms from ape to ouch format repeatedly (in order to use ape&rsquo;s tree transforms, need to write native ouch-format transforms), so it may not be any faster.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/21/two-questions/">Two questions</a></h2>
+    <h4>Sun, Nov 21, 2010</h4>
     <div class="article-style">
       
-      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
- seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
+      I&rsquo;ve been thinking about a few elements of the Monte Carlo approach that seem to be particularly subtle in interpretation. Thought I&rsquo;d write them out here as a separate examples to help think through them. Thoughts?
+Question 1 Should the Monte Carlo simulations use the maximum likelihood test and null model estimated from the data (as in McLachlan 1987, Goldman 1993, Huelsenbeck 1996) or draw from the distribution of model parameters for each simulation?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat: evolution -- porting tree transformations to OUCH?</a></h2>
+    <h4>Sat, Nov 20, 2010</h4>
     <div class="article-style">
       
-      Matching theoretical approximations to simulation:
- Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
+      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
+Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri: extending Geiger to Monte Carlo method</a></h2>
+    <h4>Fri, Nov 19, 2010</h4>
     <div class="article-style">
       
-      Manuscript writing.  Phylogenetics Submitted Lightning talk to iEvoBio
-PDG group will be discussing
- Rabosky DL and Lovette IJ. .&rdquo;) pmid:18611849. PubMed HubMed [1]  tomorrow, along with critique and response.
- Waiting to hear back from Peter on manuscript. Should follow up with Ralph on likelihood ratio discussion with Ethan. Transcluding exploratory work on primate phylogeny data:  Embedded:</p>
-
-<p>Primate Phylogeny Carl Boettiger 00:37, 30 April 2010 (EDT):
+      Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/18/thurs-phylogenetics-likelihood/">Thurs: evolution likelihood</a></h2>
+    <h4>Thu, Nov 18, 2010</h4>
     <div class="article-style">
       
-      Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
- Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
+      Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
+The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/18/weds/">Weds</a></h2>
+    <h4>Thu, Nov 18, 2010</h4>
     <div class="article-style">
       
-      Working on simulation based approach to summarize distribution of waiting times across different phases. What to do about zeros in phase two (when first dimorphism survives long enough to be invaded&hellip;) Quantify number/distribution of failed attempts at each phase? How to represent these distributions across a parameter space in sigma_c, sigma_k, sigma_mu, and mu?  library(BranchingTime) sim &lt;- branching_time(rep=1000, cpu=8) save(file = &quot;run1.Rdat&quot;) pdf(&quot;distribution.pdf&quot;) m &lt;- max(sim$data) plot(density(sim$data[1,]), xlim = c(0,m), col=&quot;black&quot; ) lines(density(sim$data[2,] ), col = &quot;blue&quot;) lines(density(sim$data[3,] ), col = &quot;green&quot;) lines(density(sim$data[4,] ), col = &quot;red&quot;) legend(&lsquo;topright&rsquo;, c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;), col=c(&quot;black&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;), pch = 15) dev.
+      Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
+Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">evolution today:  Discussion groups, writing, etc</a></h2>
+    <h4>Mon, Nov 15, 2010</h4>
     <div class="article-style">
       
-      Wide gap, flat landscape  Waiting times on a flatter landscape: sigma_c ~ sigma_k. Waiting times are dominated by the number of times phase 3 collapses: the established invader in a dimorphic population (right panels). Collapse of phase 2: collapse of the dimorphism before third population can establish is much rarer (about an order of magnitude).   from the run3 dataset, with parameters.  Narrower gap, steeper landscape  with sigma_c &lt;&lt; sigma_k, branching is easy, neither phase is particularly limiting, though single collapses from both phases are very common.
+      Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
+Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
+Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thursday: Post-predictive verification exploration; writing and figures</a></h2>
+    <h4>Thu, Nov 11, 2010</h4>
     <div class="article-style">
       
-      Public code hosting  Project code now available through Github. Advantages to public hosting: Replication of adaptive dynamics simulations can be difficult, particularly in matching various nuisance parameters. While there is certainly much pedagogical value in individual researchers implementing their own simulations, verification and reproducibility of scientific results would be greatly facilitated by adapting an accepted open source code base and adding branches, etc. Researchers could much more immediately benefit from the work of their colleagues and spend more time implementing novel research and less reproducing it.
+      On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
+[latex] \frac{dN}{dt} = (\lambda - \mu) N 
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/11/phylogenetics-statistics/">evolution statistics </a></h2>
+    <h4>Thu, Nov 11, 2010</h4>
     <div class="article-style">
       
-      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
- use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
+      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
+Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
+The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../1/01/01/adaptive-dynamics.html">Adaptive Dynamics</a></h2>
-    <h4>Mon, Jan 1, 0001</h4>
+    <h2><a href="../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Tuesday - SDEs then back to phylogenetics</a></h2>
+    <h4>Wed, Nov 10, 2010</h4>
     <div class="article-style">
       
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
+      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
+With regards the SDE problem, note that it reduces to:
+$$ dX_1 = B_2 d B_1 $$
+and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
       
     </div>
   </div>

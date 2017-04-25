@@ -1,7 +1,7 @@
 ---
+date: 2014-12-11T00:00:00Z
 published: false
-layout: post
-
+url: /2014/12/11/recomputation-org/
 ---
 
 Dear Ian, Lars, 

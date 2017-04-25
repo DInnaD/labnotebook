@@ -1,13 +1,15 @@
 ---
-comments: true
-date: 2012-03-29 22:01:54
-layout: post
-slug: relevant-initiatives-from-todays-big-data-press-release
-title: Relevant initiatives from today's Big Data press release
-redirects: [/wordpress/archives/4392, /archives/4392]
 categories:
 - computation
 - open-science
+comments: true
+date: 2012-03-29T22:01:54Z
+redirects:
+- /wordpress/archives/4392
+- /archives/4392
+slug: relevant-initiatives-from-todays-big-data-press-release
+title: Relevant initiatives from today's Big Data press release
+url: /2012/03/29/relevant-initiatives-from-todays-big-data-press-release/
 ---
 
 An [exciting day for Big Data](http://www.whitehouse.gov/blog/2012/03/29/big-data-big-deal) (particularly if your Berkeley).

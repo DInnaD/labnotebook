@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-05 12:27:16
-layout: post
-slug: updates-to-socialr-package
-title: Updates to socialR package
-redirects: [/wordpress/archives/1355, /archives/1355]
 categories:
 - open-science
+comments: true
+date: 2011-04-05T12:27:16Z
+redirects:
+- /wordpress/archives/1355
+- /archives/1355
+slug: updates-to-socialr-package
+title: Updates to socialR package
+url: /2011/04/05/updates-to-socialr-package/
 ---
 
 Talking with Nick a bit about the socialR package, hope to find a chance to streamline the package a bit, move away from all system calls and interface directly with the APIs for Flickr, twitter, etc from R. This should avoid the command-line program dependencies and configurations I need to use currently.

@@ -1,13 +1,14 @@
 ---
-layout: post
+categories:
+- evolution
+date: 2013-07-22T00:00:00Z
 subtitle: parsing NeXML
-category: evolution
-tags: 
+tags:
 - ropensci
 - open-science
 - xml-standards
+url: /2013/07/22/XML-parsing-strategies/
 ---
-
 
 Writing out some advice for our GSOC student on XML parsing.  (Now filed as [RNeXML/#11](https://github.com/shumelchyk/RNeXML/issues/11)
 

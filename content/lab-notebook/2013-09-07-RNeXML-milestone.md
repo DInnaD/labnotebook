@@ -1,10 +1,10 @@
 ---
-layout: post
-categories: [evolution]
+categories:
+- evolution
+date: 2013-09-07T00:00:00Z
 tags:
 - ropensci
-
-
+url: /2013/09/07/RNeXML-milestone/
 ---
 
 We have also recently reached the first

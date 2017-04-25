@@ -1,23 +1,12 @@
 ---
-layout: post
-tags: [warning-signals]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-02-15T00:00:00Z
+tags:
+- warning-signals
 title: Implementing warning signals metrics
+url: /2010/02/15/Implementing-warning-signals-metrics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 The
 [code](http://code.google.com/p/popdyn/source/checkout "http://code.google.com/p/popdyn/source/checkout")

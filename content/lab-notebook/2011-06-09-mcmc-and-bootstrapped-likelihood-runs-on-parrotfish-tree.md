@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-06-09 16:48:42
-layout: post
-slug: mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree
-title: mcmc and bootstrapped likelihood runs on parrotfish tree
-redirects: [/wordpress/archives/1951, /archives/1951]
 categories:
 - evolution
+comments: true
+date: 2011-06-09T16:48:42Z
+redirects:
+- /wordpress/archives/1951
+- /archives/1951
+slug: mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree
+title: mcmc and bootstrapped likelihood runs on parrotfish tree
+url: /2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/
 ---
 
 ## Thursday Overview

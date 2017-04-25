@@ -1,11 +1,11 @@
 ---
-layout: post
-category: ecology
+categories:
+- ecology
+date: 2013-06-18T00:00:00Z
 tags:
 - nonparametric-bayes
-
+url: /2013/06/18/figure-for-summarizing-simulations/
 ---
-
 
 Trying to find a better way to summarize outputs of simulations,
 

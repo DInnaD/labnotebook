@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,120 +140,114 @@
   
   
   <div>
-    <h2><a href="../../2011/05/17/tuesday-3.html">Tuesday: Parrotfish results, MCMCMC testing, APIs</a></h2>
-    <h4>Tue, May 17, 2011</h4>
+    <h2><a href="../../2012/11/21/notes/"></a></h2>
+    <h4>Wed, Nov 21, 2012</h4>
     <div class="article-style">
       
-      Finished review for TE
- Shared post on TreeBASE API
- Reviewed Scott&rsquo;s updates to dryad R API, adjusted formatting.
- Looking at documentation for the OAI-MPH queries, don&rsquo;t seem to be as rich as Phylo-ws queries. This is why treeBASE metadata searches tend to download the full metadata set into R and query that. Looks like we&rsquo;ll need to take a similar approach to Dryad, as it doesn&rsquo;t seem like there&rsquo;s a way to query the API by author name at all?
+      writing comment piece. writing writing writing.
+  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/16/ropensci-in-r-a-first-tutorial.html">TreeBASE in R: a first tutorial</a></h2>
-    <h4>Mon, May 16, 2011</h4>
+    <h2><a href="../../2012/11/19/sequential-updating/"></a></h2>
+    <h4>Mon, Nov 19, 2012</h4>
     <div class="article-style">
       
-      My TreeBASE R package is essentially functional now. Here&rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
-TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.
+      Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
+for the covariance:
+C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
+mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/16/mathjax-the-smart-way-child-themes.html">MathJax the smart way: Child Themes</a></h2>
-    <h4>Mon, May 16, 2011</h4>
+    <h2><a href="../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h2>
+    <h4>Fri, Nov 16, 2012</h4>
     <div class="article-style">
       
-      Adding mathjax by modifying the header.php file in my wordpress theme, as recommended by MathJax website, isn&rsquo;t stable to upgrades of the theme, which simply replace the header.php file with a fresh version. The &ldquo;correct&rdquo; way to do this is using child themes, which are pretty simple, even though this got me writing my first php functions.
- Create a directory in wp-content/themes with the desired name of the new theme.
+      Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
+See notes on code changes inline.
+Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/12/thursday-fun-with-databases-continued.html">Thursday: Fun with databases continued</a></h2>
-    <h4>Thu, May 12, 2011</h4>
+    <h2><a href="../../2012/11/15/notes/"></a></h2>
+    <h4>Thu, Nov 15, 2012</h4>
     <div class="article-style">
       
-      Dryad Hilmar pointed out the documentation for machine access to Dryad fileson the wiki, much nicer than guessing from the XML. (Good thing too, since it&rsquo;s a bit more complicated than I thought). Wiki describes four steps:
- Get the dryad short-identifier for the datafile
- look up the METS reference using that identifier
- parse the XML returned by METS to find the bitstream url
- Query the bitstream url and presto!
+      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
+Is there some scalar $v_2$ such that
+$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
+e.g. a term like:
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/11/wednesday-ropensci.html">Wednesday: Treebase</a></h2>
-    <h4>Wed, May 11, 2011</h4>
+    <h2><a href="../../2012/11/09/better-tagging-practices/"></a></h2>
+    <h4>Fri, Nov 9, 2012</h4>
     <div class="article-style">
       
-      TREEBASE PACKAGE:
- Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
- Modified the package with the option to return only max number of trees,
-try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_trees, &quot;]&quot;, sep=&quot;&quot;), function(x){  &hellip;
- Modified to check for branch lengths and remove trees without branch lengths from the returned set.
+      Better tagging practices  Standardize use of tags: Match tags in notebook to project repository name. Tag papers in Mendeley by these tags as well.  I have also started tracking the medium of discovery for each paper I add to my Mendeley collection through a little set of Mendeley tags. I am curious to see through which mediums I obtain the most content, and what content. As with any ontology, I will struggle to select a vocabulary that is precise enought to be useful without being too verbose (b) to bother to continue to use this.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/10/interfaces-for-databases-ropensci-dryad-dataone.html">Interfaces for databases: TreeBASE, Dryad, DataONE</a></h2>
-    <h4>Tue, May 10, 2011</h4>
+    <h2><a href="../../2012/11/08/notes/"></a></h2>
+    <h4>Thu, Nov 8, 2012</h4>
     <div class="article-style">
       
-      Next Steps Treebase  (See Sunday&rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
- RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
- Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.
+      Complete IACUC training for fish room. File forms: <a href="http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html">http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html</a> Online training &ndash; possibly see <a href="https://www.citiprogram.org/Default.asp?">https://www.citiprogram.org/Default.asp?</a> Shiny: <a href="http://www.rstudio.com/shiny/">http://www.rstudio.com/shiny/</a>
+ Comment piece
+ Prep exit seminar
+ Applied math club: Networks. Reading <a href="http://dx.doi.org/10.1155/2011/284909">http://dx.doi.org/10.1155/2011/284909</a>
+  Discussion of when network structure has made an important difference on our understanding of a problem. When have the common summary statistics of a network (degree-distribution) allowed us to compte network dynamics without fully resolving the network?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/09/monday-4.html">Monday: meetings, notebook</a></h2>
-    <h4>Mon, May 9, 2011</h4>
+    <h2><a href="../../2012/11/06/notes/"></a></h2>
+    <h4>Tue, Nov 6, 2012</h4>
     <div class="article-style">
       
-      Coop &amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
-Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
-$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
-$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
-Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.
+      Monday  altmetrics post post for multiple uncertainty, email to Steve, Marc Marc meeting ropensci proposals Phylotastic  Notebook configuration  trying out <a href="http://greycite.knowledgeblog.org/">http://greycite.knowledgeblog.org/</a>. Add to knitcitations. Add Greycite recommended opengraph and google scholar metadata metadata.html Import metadata from _config.yml. Any custom variable defined in config can be accessed at site.varname. See updated _config.yml  Reading  Schnitzler, J., Graham, C. H., Dormann, C. F., Schiffers, K., &amp; Peter Linder, H.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/08/sunday-a-few-ropensci-r-package-updates.html">Sunday: a few Treebase R package updates</a></h2>
-    <h4>Sun, May 8, 2011</h4>
+    <h2><a href="../../2012/11/03/altmetrics-conference/"></a></h2>
+    <h4>Sat, Nov 3, 2012</h4>
     <div class="article-style">
       
-      Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.
+      From Thursday Nov 1 through Saturday Nov 3 I attended the PLoS Altmetrics workshop as a member of the ROpensci project. An exciting meeting driven mostly by the opportunity to interact with a small and incredibly creative and innovative group of science publishers, funders, start-ups, and other researchers. Details of the event are largely recorded on the altmetrics 2012 workshop website. We also have a few slides addressing the ropensci slant.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/08/building-a-semantic-notebook.html">Building a semantic notebook</a></h2>
-    <h4>Sun, May 8, 2011</h4>
+    <h2><a href="../../2012/11/01/multiple-uncertainty-corrections/"></a></h2>
+    <h4>Thu, Nov 1, 2012</h4>
     <div class="article-style">
       
-      What would a semantic lab notebook look like? What would be possible with such a structure, ideally? What is already possible now? There&rsquo;s a lot that can be done with an electronic notebook that adds value over a paper notebook: browsing by categories and tags, embedding links, time-stamping entries, searching the full text, and having automated trackbacks or pingbacks when a post is mentioned in another post or appears elsewhere on the web.
+      Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - ht$), $x{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth. We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$. Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/05/06/reproducible-research-large-data-sets-and-si2.html">Reproducible Research, Large data sets, and SI2 </a></h2>
-    <h4>Fri, May 6, 2011</h4>
+    <h2><a href="../../2012/10/31/notes/"></a></h2>
+    <h4>Wed, Oct 31, 2012</h4>
     <div class="article-style">
       
-      What follows are my notes from May 6th, 2011 expressing the ideas that would ultimately coalesce into the rOpenSci project. Much of this was turned into an email to Duncan and Todd, whose feedback was invaluable in working through this, and several others. (The reference to SI2 refers to an NSF call from about that time, which also stimulated my thinking on this matter.) Since then I&rsquo;ve learned quite a bit about these tools, with which I now feel quite comfortable.
+      I enjoyed an excellent meeting with Annette Thomas, CEO of MacMillian Publishing and Nature Publishing group at UC Davis. It was impressive to here that Annette wanted to meet with UC Davis faculty and graduate students interested in open access and open science to discuss our opinions, desires and frustrations in the scientific publishing process. It was particularly valuable to discuss some of the failed experiments in open science at Nature.
       
     </div>
   </div>

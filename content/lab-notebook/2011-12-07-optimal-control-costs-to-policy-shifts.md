@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-12-07 09:11:36
-layout: post
-slug: optimal-control-costs-to-policy-shifts
-title: Optimal control -- costs to policy shifts
-redirects: [/wordpress/archives/3492, /archives/3492]
 categories:
 - ecology
+comments: true
+date: 2011-12-07T09:11:36Z
+redirects:
+- /wordpress/archives/3492
+- /archives/3492
+slug: optimal-control-costs-to-policy-shifts
 tags:
 - pdg-control
+title: Optimal control -- costs to policy shifts
+url: /2011/12/07/optimal-control-costs-to-policy-shifts/
 ---
 
 Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy).  We can imagine several scenarios that could introduce this:

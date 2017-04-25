@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2011-10-27 13:53:50
-layout: post
-slug: optimal-control-next-steps
-title: Optimal control sample problems (Mostly continuous time by Pontryagin principle)
-redirects: [/wordpress/archives/3049, /archives/3049]
 categories:
 - ecology
+comments: true
+date: 2011-10-27T13:53:50Z
+redirects:
+- /wordpress/archives/3049
+- /archives/3049
+slug: optimal-control-next-steps
 tags:
 - pdg-control
+title: Optimal control sample problems (Mostly continuous time by Pontryagin principle)
+url: /2011/10/27/optimal-control-next-steps/
 ---
 
 ###  Optimal Control by Pontryagin principle 

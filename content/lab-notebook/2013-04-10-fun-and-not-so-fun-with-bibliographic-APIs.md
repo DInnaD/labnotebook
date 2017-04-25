@@ -1,11 +1,12 @@
 ---
-layout: post
-title: "Notebook tweaks: APIs in Ruby, Github hosting"
-category: open-science
-tags: 
+categories:
+- open-science
+date: 2013-04-10T00:00:00Z
+tags:
 - notebook-technology
 - code-tricks
-
+title: 'Notebook tweaks: APIs in Ruby, Github hosting'
+url: /2013/04/10/fun-and-not-so-fun-with-bibliographic-APIs/
 ---
 
 ### Crossref API and Faraday

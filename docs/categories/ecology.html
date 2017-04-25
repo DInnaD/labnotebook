@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -141,113 +141,117 @@
   
   
   <div>
-    <h2><a href="../2012/04/26/2012-04-20.html">2012-04-20</a></h2>
-    <h4>Thu, Apr 26, 2012</h4>
+    <h2><a href="../2014/12/04/lsn-nimble/"></a></h2>
+    <h4>Thu, Dec 4, 2014</h4>
     <div class="article-style">
       
-      Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
-Added Alan&rsquo;s edits.
- Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
-Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
-Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
- These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
+      some sample data
+library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.Date, as.Date.numeric ## sde 2.0.15 ## Companion package to the book ## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39; ## Iacus, Springer NY, (2008) ## To check the errata corrige of the book, type vignette(&quot;sde.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/04/19/catching-up.html">Catching up</a></h2>
-    <h4>Thu, Apr 19, 2012</h4>
+    <h2><a href="../2014/12/04/lsn-nimble/"></a></h2>
+    <h4>Thu, Dec 4, 2014</h4>
     <div class="article-style">
       
-      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
-rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
+      some sample data
+library(sde) library(nimble) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
+lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/04/10/monday-tuesday.html">Monday / Tuesday</a></h2>
-    <h4>Tue, Apr 10, 2012</h4>
+    <h2><a href="../2014/12/03/nimble-explore/"></a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
     <div class="article-style">
       
-      rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
+      Working through quick-start example in nimble manual
+library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/04/06/friday-8.html">Friday</a></h2>
-    <h4>Fri, Apr 6, 2012</h4>
+    <h2><a href="../2014/12/03/nimble-explore/"></a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
     <div class="article-style">
       
-      Fishbase  Revisions based on Duncan&rsquo;s feedback Formatting to Journal of Fish Biology guidelines Updated formatting   fixed footnotes issue in pdf version. Externalize tables in word version.
-  knit_hooks$set(chunk = function(x, options) { if (!options$split) return(x) cat(x, file = fig_path(&lsquo;.md&rsquo;, options)) }   Consider more intuitive function names rather than function arguments?  TreeBase  Needs additional functions replacing sapply queries and argument queries. Table of functions re-organize presentation  rOpenSci GSOC GSoC applications were due at noon today.
+      Working through quick-start example in nimble manual
+The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/04/03/mondaytuesday.html">Monday/Tuesday</a></h2>
-    <h4>Tue, Apr 3, 2012</h4>
+    <h2><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
     <div class="article-style">
       
-      knitr + markdown + pandoc + latex Troubleshooting this workflow still&hellip;
- Fonts xtable for html &amp; latex/pdf xtable comments display tikz device trouble Pandoc table trouble pandoc footnotes Getting a satisfactory LaTeX template.
- Makefile   writing writing writing: Mostly writing this week, so my notebook has been lacking in entries. Trying to move several manuscripts forward: two are papers accompanying software packages for extracting, manipulating and visualizing data from online repositories (TreeBase and FishBase); part of the rOpenSci project.
+      Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/29/data-to-knowledge-conference-uc-berkeley-application.html">Data to Knowledge Conference, UC Berkeley: application </a></h2>
-    <h4>Thu, Mar 29, 2012</h4>
+    <h2><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
+    <h4>Wed, Dec 3, 2014</h4>
     <div class="article-style">
       
-      I&rsquo;ve just been accepted to the Data to Knowledge Conference in Berkeley this May. I think this conference will address some of the key issues facing us in Big Data today across many different fields, and I hope to learn much that could be useful to ecology and evolution. Given the audience I look forward to being a source of questions rather than answers as I put on my biologist&rsquo;s cap.
+      Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
+ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/27/tuesday-pandoc-citations-notes-various.html">Tuesday: pandoc citations notes, various</a></h2>
-    <h4>Tue, Mar 27, 2012</h4>
+    <h2><a href="../2014/11/14/nimble-explore/"></a></h2>
+    <h4>Fri, Nov 14, 2014</h4>
     <div class="article-style">
       
-      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
+      A quick first exploration of NIMBLE and some questions.
+library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:nimble&#39;: ## ## inprod ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/26/active-adaptive-management-solutions-belief-sdp.html">Active adaptive management solutions: Belief SDP</a></h2>
-    <h4>Mon, Mar 26, 2012</h4>
+    <h2><a href="../2014/11/14/nimble-explore/"></a></h2>
+    <h4>Fri, Nov 14, 2014</h4>
     <div class="article-style">
       
-      Have finally gotten my active adaptive management solutions working.
-The active adaptive management solution learns very quickly and rather monotonically which model is correct, even when models differ by small amounts and the initial belief is heavily skewed to the wrong model. I&rsquo;ve implemented examples with Myers model, but in this parameter space the allee effect is well below the Reed escapement level of the alternative Beverton Holt model, so it doesn&rsquo;t exert itself.
+      A quick first exploration of NIMBLE and some questions.
+library(&quot;nimble&quot;) library(&quot;sde&quot;)  Let&rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$
+set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))  ## sigma.x not provided, attempting symbolic derivation.  i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/22/robust-control-uncertainty-reading-notes.html">Robust control &amp; uncertainty - reading notes</a></h2>
-    <h4>Thu, Mar 22, 2012</h4>
+    <h2><a href="../2014/11/13/discrete-grid-notes/"></a></h2>
+    <h4>Thu, Nov 13, 2014</h4>
     <div class="article-style">
       
-      Ecologists/TREE (Fischer et. al. 2009), (Polasky et. al. 2011) give a nice overview/introduction to the problem. Perhaps most interestingly, both set up resilience approaches as a foil or alternate approach in contrast to a decision-theoretic problem. Fischer&rsquo;s group does a particularly nice job handling the case that these two are separate approaches &ndash; it&rsquo;s easy to dismiss resilience thinking as fuzzy optimization of fuzzy objective functions.
-The Polasky piece does a nice job refocusing us on the obvious but brushed-over question of the objective function.
+      Smoothing post-policy calc?
+fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smooth(lwd=1.2, method=&quot;loess&quot;, degree=1, span=0.2, level=0, n=50) + facet_wrap(~method) + xlab(&quot;stock size, x(t)&quot;) + ylab(&quot;escapement, S(t)&quot;) + scale_colour_manual(values=colorkey, guide=FALSE) fig3 library(&quot;dplyr&quot;) s<em>policies &lt;- select</em>(ggplot_build(fig3)$data[[1]], &quot;x&quot;, &quot;PANEL&quot;, &quot;y&quot;) s_policies$PANEL &lt;- mapvalues(s_policies$PANEL, from = 1:6, to = levels(policies$method)) names(s_policies) &lt;- names(policies) library(&quot;tidyr&quot;) opt_policy &lt;- s_policies %&gt;% mutate(harvest = stock - value) %&gt;% select(stock, method, value = harvest) %&gt;% spread(method, value) %&gt;% select(-stock) OPT &lt;- as.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../2012/03/21/policy-costs-to-changing-mangement-tp-1b-apples-to-apples.html">Policy costs to changing mangement, TP 1b: Apples to Apples</a></h2>
-    <h4>Wed, Mar 21, 2012</h4>
+    <h2><a href="../2014/09/05/thoughts-on-harte-interview/"></a></h2>
+    <h4>Fri, Sep 5, 2014</h4>
     <div class="article-style">
       
-      A central question of training problem 1b addressed at the working group was how to compare the different penalties. Following up on those discussions, here are a few notes on how far I&rsquo;ve gotten in the analysis regarding the best way to make these comparisons.
- simulate_npv_curves Nice job of showing the performance of the variance ratio, clear example for L2. Correlation test should probably be applied to differences, pattern is much less clear.
+      Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
+ From general laws flow absolutely bullet-proof insights and this is what we most need
+ I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
       
     </div>
   </div>

@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-02-05T00:00:00Z
 title: Lunch with Wainwright Lab
+url: /2010/02/05/Lunch-with-Wainwright-Lab/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 Friday lunch with Wainwright lab continues to be a very useful chance to
 bounce ideas off of lab members with an excellent grasp of both the

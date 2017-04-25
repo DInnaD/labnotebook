@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2012-02-14 16:35:06
-layout: post
-slug: further-examples-for-appendices
-title: Further examples for appendices
-redirects: [/wordpress/archives/3860, /archives/3860]
 categories:
 - ecology
+comments: true
+date: 2012-02-14T16:35:06Z
+redirects:
+- /wordpress/archives/3860
+- /archives/3860
+slug: further-examples-for-appendices
 tags:
 - warning-signals
+title: Further examples for appendices
+url: /2012/02/14/further-examples-for-appendices/
 ---
 
 Going through additional examples of things I'd like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.

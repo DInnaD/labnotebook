@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="generator" content="Hugo 0.20.2" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -140,110 +140,118 @@
   
   
   <div>
-    <h2><a href="../../2011/08/02/fisheries-stock-assessments-for-early-warning.html">Fisheries stock assessments for early warning</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
+    <h2><a href="../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Notebook features: SHA Hashes</a></h2>
+    <h4>Fri, May 3, 2013</h4>
     <div class="article-style">
       
-      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
-<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
-Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
+      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
+I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/08/02/monday-8.html">Monday</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
+    <h2><a href="../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h2>
+    <h4>Fri, May 3, 2013</h4>
     <div class="article-style">
       
-      Peter advice  Figure out your focus. Have all the stuff from your PhD published (at least submitted), make sure your post-doc moves forward. (#1 mistake). Publish with data folks to show you have much to offer the non-theorist community Speak to potential advisers, get them excited about the work. Berkeley over Michigan over NESCent/NIMBioS. Visit Berkeley. Ackerley on sabbatical?  Review for Theoretical Ecology Working on another review. Not a bad paper, but presenting many classical results as novel.
+      Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
+ As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/30/saturday-fisheries-data-survey-warning-signals.html">Saturday: Fisheries Data Survey, Warning Signals</a></h2>
-    <h4>Sat, Jul 30, 2011</h4>
+    <h2><a href="../../2013/05/02/musings-on-conservation-literature/"></a></h2>
+    <h4>Thu, May 2, 2013</h4>
     <div class="article-style">
       
-      Marissa mentioned looking into some of the fisheries data for early warning signals: particularly the Canadian Cod collapse.
-Apparently several of the data sets are problematic. All deal with catch instead of abundance and measurement error is highly significant, though it seems that some may suffer from more troublesome systematic errors. Taking a quick look over what is available. Lots of data, but despite what appears to be some rather sophisticated tools available on the sites, I&rsquo;m having a bit of difficulty finding just what I&rsquo;m looking for.
+      Just because I&rsquo;m a theorist deeply entrenched in methodological concerns about uncertainty and decision making doesn&rsquo;t mean I don&rsquo;t think about practical conservation from time to time. Some musings from my comment here, copied over for my own reference.
+Though I would like to believe the gap stems from the problems you discuss, I think that differing objectives between research and application may play a much larger role. I suspect that scientific papers that are most useful and influential for conservation practitioners and policymakers are those which confirm what they already believe, or whatever the interests opposed to them least want to hear.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/29/2268.html">Friday: ESA Practice Talk</a></h2>
-    <h4>Fri, Jul 29, 2011</h4>
+    <h2><a href="../../2013/05/02/scholarly-infrastructure-thoughts/"></a></h2>
+    <h4>Thu, May 2, 2013</h4>
     <div class="article-style">
       
-      Practice talk in Teary today; Jamie, Marissa and myself. Lots of discussion and feedback. Some good general discussion about presentations as well &ndash; Marissa mentioned the Oceanographic Institute&rsquo;s tips for speakers and other resources on her website. Brief notes on changes to make in my talk based on some excellent discussion:
- Julie and others point out I should at least reference Type I &amp; Type II Error &ndash; statement contrasting scientific hypothesis testing vs managing for collapse.
+      Sustainable Research Happened across a provocative example of why we need a software ecosystem, though it was certainly not intended to be one, which led me to ask myself:
+ How complex does an algorithm have to be before a talented researcher with expertise in both the relevant mathematics and computer science will make a significant mistake in their first release of the software?
+ As a corollary we might also ask, &ldquo;How much less care do we put into research code not destined for release?
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/27/weds-manuscript.html">Weds: Manuscript</a></h2>
-    <h4>Wed, Jul 27, 2011</h4>
+    <h2><a href="../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/"></a></h2>
+    <h4>Wed, May 1, 2013</h4>
     <div class="article-style">
       
-      I&rsquo;ve removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:
- Here the authors claim that by using particular structural models based on assumptions about underlying dynamics their method makes it easy to identify cases that do not conform to the assumptions. It would be interesting to evaluate this claim but it would require a substantial amount of analysis that may be beyond the scope of a short paper.
+      (Development version for reference; code functions now in R/gp_mcmc.R)
+Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits.html">Wednesday: ESA presentation, manuscript/appendix edits </a></h2>
-    <h4>Wed, Jul 27, 2011</h4>
+    <h2><a href="../../2013/05/01/integrating-over-posterior-gp/"></a></h2>
+    <h4>Wed, May 1, 2013</h4>
     <div class="article-style">
       
-      Misc morning  Site trouble, again. requested migrating servers. Done. hope we&rsquo;re more stable now. Checking in with Peter about migrating site domain. Sent request to Matt. Looking over NERSC PI application, see first allocation instructions. Emailed Mary Ann w/ questions on forms. SMB 2012 is at NIMBioS! Nick to join ropensci. Coordinating launch, advisers, etc. Karthik and Scott have done a great job editing my intro post and sprucing up the site.
+      Added integration over the posterior distribution of the GP
+ Added example of parametric Bayesian inference based on Ricker
+  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/26/tues-esa-presentation.html">Tues: ESA presentation</a></h2>
-    <h4>Tue, Jul 26, 2011</h4>
+    <h2><a href="../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h2>
+    <h4>Tue, Apr 30, 2013</h4>
     <div class="article-style">
       
-      Working on ESA presentation. See slides and code for details.
- Adding movie a time series which gets longer (and closer to collapse) each frame, with corresponding warning signals for the interval thus far shown below (for CV and autocorrelation). Include sparsely sampled (100) and densely sampled (1000) examples. Compare always using a sliding window-size equal to half the length of the available data (works well on longer time series) to a fixed-width sliding window (doesn&rsquo;t work well ever).
+      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
+Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
+  Define some example priors
+lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/25/monday-esa.html">Monday: ESA, appendix, etc</a></h2>
-    <h4>Mon, Jul 25, 2011</h4>
+    <h2><a href="../../2013/04/29/finishing-comparison-parametric-and-nonparametric/"></a></h2>
+    <h4>Mon, Apr 29, 2013</h4>
     <div class="article-style">
       
-      Reading Gene expression as a continuous phenotypic trait &ndash; establishing signal for selection over drift. (Bedford &amp; Hartl, 2009) OU vs BM (or just estimation of selection in the OU model relative to tree length) would have been an obvious way to do this, but the paper tries to make the argument that scaling the data and then comparing
-$$\frac{\sigma^2}{2\alpha} $$
-is some indication.
-Model choice section on warning signals Trying to figure out whether or not to remove this section (previously Appendix H: Model Choice and Model Adequacy).
+      Implemented in BUGS/allen.md
+Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
+ Oh, Jeromy Anglim has a rather nice collection of jags links
+  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/25/monday-algorithms-discussion-group-em-finished.html">Monday: Algorithms Discussion Group, EM finished</a></h2>
-    <h4>Mon, Jul 25, 2011</h4>
+    <h2><a href="../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h2>
+    <h4>Sat, Apr 27, 2013</h4>
     <div class="article-style">
+      
+      Load necessary libraries,
+library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
+library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../2011/07/24/sunday-appendix-edits.html">Sunday: Appendix edits</a></h2>
-    <h4>Sun, Jul 24, 2011</h4>
+    <h2><a href="../../2013/04/26/notebook-features-introduction/">Notebook features: an introduction</a></h2>
+    <h4>Fri, Apr 26, 2013</h4>
     <div class="article-style">
       
-      Appendix A. Method Summary &ndash; Basically the &ldquo;methods&rdquo; section as we had it in the Nature version, a bit updated.
- These sections are as before, with minor updates from the reviewers, etc. They&rsquo;re also probably the most important part:
- Appendix B. The data sets Appendix C. Model Derivations Appendix D. Likelihood calculations Appendix E. The likelihood statistic  Appendix F. The distributions for the ROC curves &ndash; these are the former figure 1b/c distributions used to make the ROC curve.
+      In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
+ Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
       
     </div>
   </div>

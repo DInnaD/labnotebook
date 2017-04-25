@@ -1,10 +1,11 @@
 ---
-layout: post
-categories: [ecology]
-tags: 
-- conference 
-- pdg-control 
-
+categories:
+- ecology
+date: 2013-11-06T00:00:00Z
+tags:
+- conference
+- pdg-control
+url: /2013/11/06/MBI-day-three/
 ---
 
 ## MBI Workshop

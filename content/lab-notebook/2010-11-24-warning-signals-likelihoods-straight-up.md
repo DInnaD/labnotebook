@@ -1,15 +1,17 @@
 ---
-comments: true
-date: 2010-11-24 21:44:57
-layout: post
-slug: warning-signals-likelihoods-straight-up
-title: 'Warning signals: Likelihoods Straight-up'
-redirects: [/wordpress/archives/416, /archives/416]
 categories:
 - ecology
+comments: true
+date: 2010-11-24T21:44:57Z
+redirects:
+- /wordpress/archives/416
+- /archives/416
+slug: warning-signals-likelihoods-straight-up
 tags:
 - derivation
 - warning-signals
+title: 'Warning signals: Likelihoods Straight-up'
+url: /2010/11/24/warning-signals-likelihoods-straight-up/
 ---
 
 Meeting with Alan this morning.  I haven't solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11/9) probably the best method works from the correlation function.  Define a new stochastic process Y

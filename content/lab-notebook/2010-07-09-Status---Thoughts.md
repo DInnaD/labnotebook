@@ -1,23 +1,10 @@
 ---
-layout: post
-
-categories: [evolution]
+categories:
+- evolution
+date: 2010-07-09T00:00:00Z
 title: Status - Thoughts
+url: /2010/07/09/Status---Thoughts/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 -   **Goal:** BM vs OU vs proposed multipeak OU model with and without
     global alpha/sigma. Anoles dataset, carex dataset, labrids?

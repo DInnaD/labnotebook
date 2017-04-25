@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-02-25 20:16:37
-layout: post
-slug: is-bm-nested-in-ou-understanding-likelihoods-of-ouch
-title: Is BM nested in OU?  Understanding likelihoods of ouch
-redirects: [/wordpress/archives/1107, /archives/1107]
 categories:
 - evolution
+comments: true
+date: 2011-02-25T20:16:37Z
+redirects:
+- /wordpress/archives/1107
+- /archives/1107
+slug: is-bm-nested-in-ou-understanding-likelihoods-of-ouch
+title: Is BM nested in OU?  Understanding likelihoods of ouch
+url: /2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/
 ---
 
 A quick run of the example ouch code given by 

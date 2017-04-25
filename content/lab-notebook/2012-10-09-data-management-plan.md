@@ -1,7 +1,8 @@
 ---
-layout: post
-category: open-science
-
+categories:
+- open-science
+date: 2012-10-09T00:00:00Z
+url: /2012/10/09/data-management-plan/
 ---
 
 Writing out a <a href="#" rel="http://purl.org/spar/fabio/DataMangementPlan">data management plan</a> for myself.  Suggestions and feedback welcome.   

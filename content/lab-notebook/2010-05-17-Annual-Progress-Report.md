@@ -1,20 +1,16 @@
 ---
-layout: post
-tags: [adaptive-dynamics, Primates, warning-signals, tribolium, code-tricks]
-categories: [ecology]
+categories:
+- ecology
+date: 2010-05-17T00:00:00Z
+tags:
+- adaptive-dynamics
+- Primates
+- warning-signals
+- tribolium
+- code-tricks
 title: Annual Progress Report
+url: /2010/05/17/Annual-Progress-Report/
 ---
-
-
-
-
-
-
- 
-
-
-
-
 
 \
 

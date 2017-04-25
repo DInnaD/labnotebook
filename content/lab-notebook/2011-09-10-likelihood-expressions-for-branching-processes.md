@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-09-10 14:29:09
-layout: post
-slug: likelihood-expressions-for-branching-processes
-title: Likelihood expressions for branching processes
-redirects: [/wordpress/archives/2561, /archives/2561]
 categories:
 - evolution
+comments: true
+date: 2011-09-10T14:29:09Z
+redirects:
+- /wordpress/archives/2561
+- /archives/2561
+slug: likelihood-expressions-for-branching-processes
+title: Likelihood expressions for branching processes
+url: /2011/09/10/likelihood-expressions-for-branching-processes/
 ---
 
 ### Lineage-through-time approach

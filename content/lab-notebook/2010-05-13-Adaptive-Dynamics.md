@@ -1,23 +1,14 @@
 ---
-layout: post
-tags: [adaptive-dynamics, open-science, open-science]
-categories: [evolution]
+categories:
+- evolution
+date: 2010-05-13T00:00:00Z
+tags:
+- adaptive-dynamics
+- open-science
+- open-science
 title: Adaptive Dynamics
+url: /2010/05/13/Adaptive-Dynamics/
 ---
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
 ### Public code hosting
 

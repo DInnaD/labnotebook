@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-19 12:32:53
-layout: post
-slug: tuesday-reading-and-thoughts
-title: 'Tuesday: Reading and thoughts'
-redirects: [/wordpress/archives/1454, /archives/1454]
 categories:
 - open-science
+comments: true
+date: 2011-04-19T12:32:53Z
+redirects:
+- /wordpress/archives/1454
+- /archives/1454
+slug: tuesday-reading-and-thoughts
+title: 'Tuesday: Reading and thoughts'
+url: /2011/04/19/tuesday-reading-and-thoughts/
 ---
 
 ## Reading

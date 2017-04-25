@@ -1,14 +1,16 @@
 ---
-comments: true
-date: 2010-12-29 16:29:25
-layout: post
-slug: adaptive-dynamics-simulations
-title: adaptive-dynamics Simulations
-redirects: [/wordpress/archives/675, /archives/675]
 categories:
 - ecology
+comments: true
+date: 2010-12-29T16:29:25Z
+redirects:
+- /wordpress/archives/675
+- /archives/675
+slug: adaptive-dynamics-simulations
 tags:
 - adaptive-dynamics
+title: adaptive-dynamics Simulations
+url: /2010/12/29/adaptive-dynamics-simulations/
 ---
 
 Setting up some adaptive dynamics simulations to complete the parameter-space search.  Currently the demo library contains two files, providing the coexistence-only tests and the full evolutionary simulation.  This picks up from Aug 30/Sept 1 on coexistence times and [Aug 12/13 entries ](http://openwetware.org/wiki/User:Carl_Boettiger/Notebook/Comparative_Phylogenetics/2010/08/12)on waiting times until branching (while still on OWW).

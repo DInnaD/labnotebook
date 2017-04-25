@@ -1,12 +1,14 @@
 ---
+categories:
+- ecology
 comments: true
-date: 2011-09-27 23:19:08
-layout: post
+date: 2011-09-27T23:19:08Z
+redirects:
+- /wordpress/archives/2774
+- /archives/2774
 slug: tuesday-berkeley-visits
 title: Tuesday - Berkeley visits
-redirects: [/wordpress/archives/2774, /archives/2774]
-categories:
-- ecology 
+url: /2011/09/27/tuesday-berkeley-visits/
 ---
 
 In Berkeley for a few meetings with faculty and students.

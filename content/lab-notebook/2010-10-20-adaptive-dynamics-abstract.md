@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2010-10-20 
-layout: post
-redirects: [/wordpress/archives/242, /archives/242]
 categories:
 - ecology
+comments: true
+date: 2010-10-20T00:00:00Z
+redirects:
+- /wordpress/archives/242
+- /archives/242
 tags:
 - adaptive-dynamics
+url: /2010/10/20/adaptive-dynamics-abstract/
 ---
 
 Adaptive dynamics is a set of recently developed techniques for  understanding phenotypic evolution, using a dynamical systems approach  to concepts from evolutionary game theory. In contrast to population  genetics, this approach tends to explore richer ecological interactions  and simpler genetic assumptions, with significant controversy. My own  work has focused on a particular element of the theory known as the  canonical equation, a macroscopic equation describing the deterministic  rate of evolution.

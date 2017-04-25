@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-17 18:11:46
-layout: post
-slug: treepar-changing-rates-of-evolution
-title: 'TreePar: changing rates of evolution'
-redirects: [/wordpress/archives/1423, /archives/1423]
 categories:
 - evolution
+comments: true
+date: 2011-04-17T18:11:46Z
+redirects:
+- /wordpress/archives/1423
+- /archives/1423
+slug: treepar-changing-rates-of-evolution
+title: 'TreePar: changing rates of evolution'
+url: /2011/04/17/treepar-changing-rates-of-evolution/
 ---
 
 ## Review & Comments on Article

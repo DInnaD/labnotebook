@@ -1,12 +1,14 @@
 ---
-comments: true
-date: 2011-04-12 09:55:42
-layout: post
-slug: a-bit-of-work-on-my-socialr-package-for-reproducible-research
-title: A bit of work on my socialR package for reproducible research
-redirects: [/wordpress/archives/1361, /archives/1361]
 categories:
 - open-science
+comments: true
+date: 2011-04-12T09:55:42Z
+redirects:
+- /wordpress/archives/1361
+- /archives/1361
+slug: a-bit-of-work-on-my-socialr-package-for-reproducible-research
+title: A bit of work on my socialR package for reproducible research
+url: /2011/04/12/a-bit-of-work-on-my-socialr-package-for-reproducible-research/
 ---
 
 A few small updates on my [socialR](http://www.carlboettiger.info/archives/565) package, (continued from my [earlier](http://www.carlboettiger.info/archives/1355) entries) which should hopefully help it evolve from a personal tool to a portable package one day.  Starting by incorporating support for native R packages to handle the  API interface to flickr, twitter, and github, rather than just calling command-line scripts.  Jeff Gentry has just released an ROAuth package for authentication, which can be used by his twitteR package.  A bit of configuring, but these are now working.  
