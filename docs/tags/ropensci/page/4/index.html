@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../tags/ropensci/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../tags/ropensci/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../tags/ropensci/">
+
+
+  <title>Ropensci | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Ropensci</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../../../2013/09/08/some-rfishbase-updates/"></a></h2>
+    <h4>Sun, Sep 8, 2013</h4>
+    <div class="article-style">
+      
+      Ever since writing the rfishbase package I&rsquo;ve been frustrated by the lack of a proper API from Fishbase.org that would allow access to that wealth of information that is not exposed in the &ldquo;Summary XML&rdquo; files from which rfishbase extracts its content. Since writing the paper in Journal of Fish Biology, I continue to receive user requests asking if or how such-and-such a data element might be extracted. Usually this involves a disappointing boiler-plate reply about how the package is limited to the &ldquo;Summary XML&rdquo; data and that improved query potential must wait for a proper API from Fishbase.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/09/07/rnexml-milestone/"></a></h2>
+    <h4>Sat, Sep 7, 2013</h4>
+    <div class="article-style">
+      
+      We have also recently reached the first milestone in RNeXML. We can now read NeXML files into R and convert to the popular phylo format from the ape package, as well as writing the ape::phylo trees out into valid NeXML. We can also add basic metadata such as author, license, title and description to the file.
+Development notes At the heart of this package is an internal S4 representation of the schema.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/09/02/reml-milestone/"></a></h2>
+    <h4>Mon, Sep 2, 2013</h4>
+    <div class="article-style">
+      
+      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
+An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/08/28/rnexml-coding/"></a></h2>
+    <h4>Wed, Aug 28, 2013</h4>
+    <div class="article-style">
+      
+      test_ape.R unit tests now passing. Should still revise the coercion methods in nexml_write.R to something more clever. We aren&rsquo;t coercing a tree to a nexml, we are building a nexml from a tree. Likewise handling the otu assignments of species names should be done directly 11:20 am 2013/08/28 start cleaning up old read/write methods obsoleted by toNeXML/fromNeXML methods 10:59 am 2013/08/28 inherited classes now replace all the original classes 10:54 am 2013/08/28 All inheritance-based classes appearing in inst/examples/trees.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/08/26/notes/"></a></h2>
+    <h4>Mon, Aug 26, 2013</h4>
+    <div class="article-style">
+      
+      misc tricks Always forget how to see the function definition of an S4 method:
+showMethods(&quot;xmlToS4&quot;, includeDefs=TRUE)  ropensci  Closed rfigshare issue #50 Still retooling reml to S4 and ReXML to inheritance-based S4 classes building classes on the schema&rsquo;s inheritance model 10:49 am 2013/08/26  In behavioral ecology we usually equate optimality with expected behavior arising from natural selection &ndash; i.e. the extent to which the observed behavior deviates from the optimal behavior is assumed to be due to modeling inaccuracies (optimizing the wrong thing).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/08/01/notes/"></a></h2>
+    <h4>Thu, Aug 1, 2013</h4>
+    <div class="article-style">
+      
+      Registered for AmNat 2014 conference in Asilomar.
+ Nice collection Data Visualization pieces from Nature Methods. vim clipboard: put older items from clipboard history using: &quot;0p, &quot;1p, &quot;2p. See list in :reg. (from here) #ESA2013 Lotka-Volterra Talks Review methods to write S4 back to XML  from earlier:
+misc reading  Duncan Hull&rsquo;s Seven deadly sins of bioinformatics Carole&rsquo;s Goble&rsquo;s talk at ismb, as summarized in graphical form Interesting: researchobject.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/07/25/formal-semantics-with-reml/"></a></h2>
+    <h4>Thu, Jul 25, 2013</h4>
+    <div class="article-style">
+      
+      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
+Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/07/22/xml-parsing-strategies/"></a></h2>
+    <h4>Mon, Jul 22, 2013</h4>
+    <div class="article-style">
+      
+      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
+Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/07/19/notes/">Notes from chat with Duncan</a></h2>
+    <h4>Fri, Jul 19, 2013</h4>
+    <div class="article-style">
+      
+      Keep metadata as part of the object Recursion problem coming up.
+  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
+  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
+ Schema to create S4 objects Create R objects first, and then toXML
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/07/08/reml-update/"></a></h2>
+    <h4>Mon, Jul 8, 2013</h4>
+    <div class="article-style">
+      
+      Made substanial progress on the reml project. We have reached our first milestone, being able to:
+ Successfully validate the EML generated (#28) Start a unit test suite write eml unit tests (#14) Extract appropriate R objects from EML dataTable read eml (#6) Add function to publish EML data through figshare publish eml (#3) Generate an EML file given a data.frame and appropriate metadata write eml (#2)  As illustrated by the example shown in the Readme:
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    <li><a href="../../../../tags/ropensci/page/3/">&laquo; Previous</a></li>
+    
+    
+    <li><a href="../../../../tags/ropensci/page/5/">Next &raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../tags/ropensci/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

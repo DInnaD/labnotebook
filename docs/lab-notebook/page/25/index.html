@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../lab-notebook/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../lab-notebook/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../lab-notebook/">
+
+
+  <title>Lab-notebooks | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+  <h1>Lab Notebook Entries</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../../2012/12/10/prior-distributions-for-tgp-mcmc/"></a></h2>
+    <h4>Mon, Dec 10, 2012</h4>
+    <div class="article-style">
+      
+      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
+Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
+$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
+And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/06/github-issues-tracker-the-perfect-research-todo-list/"></a></h2>
+    <h4>Thu, Dec 6, 2012</h4>
+    <div class="article-style">
+      
+      Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
+Issues not only have title and tags, but support a comment thread for progress and discussion of the issue.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/05/notes/"></a></h2>
+    <h4>Wed, Dec 5, 2012</h4>
+    <div class="article-style">
+      
+      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
+ Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/04/tgp-mcmc-for-gaussian-processes/"></a></h2>
+    <h4>Tue, Dec 4, 2012</h4>
+    <div class="article-style">
+      
+      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
+Example call:
+gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
+n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/12/03/figures-3-and-4-for-policycosts/"></a></h2>
+    <h4>Mon, Dec 3, 2012</h4>
+    <div class="article-style">
+      
+      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
+Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/11/30/note-on-notebook-figures/"></a></h2>
+    <h4>Fri, Nov 30, 2012</h4>
+    <div class="article-style">
+      
+      plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
+opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
+The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h2>
+    <h4>Wed, Nov 28, 2012</h4>
+    <div class="article-style">
+      
+      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
+Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/11/27/policy-costs-work/"></a></h2>
+    <h4>Tue, Nov 27, 2012</h4>
+    <div class="article-style">
+      
+      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
+ Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/11/23/citing-lab-notebook-entries/"></a></h2>
+    <h4>Fri, Nov 23, 2012</h4>
+    <div class="article-style">
+      
+      C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2012/11/22/notes/"></a></h2>
+    <h4>Thu, Nov 22, 2012</h4>
+    <div class="article-style">
+      
+      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+Uniform lognormal log  A few small tweaks to probability calculations
+ Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    <li><a href="../../../lab-notebook/page/24/">&laquo; Previous</a></li>
+    
+    
+    <li><a href="../../../lab-notebook/page/26/">Next &raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+
+
+<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
+    <ul class="list-unstyled">
+      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../lab-notebook/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

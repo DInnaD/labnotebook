@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../../categories/computation/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../../categories/computation/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../../categories/computation/">
+
+
+  <title>Computation | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Computation</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../../../2011/07/24/csgf-2010-computing-practices-survey-summary/">CSGF 2010 Computing Practices Survey Summary</a></h2>
+    <h4>Sun, Jul 24, 2011</h4>
+    <div class="article-style">
+      
+      Thanks to everyone who participated in the CSGF 2010 Survey.With too many things going on this year, I didn&rsquo;t conduct a survey at the 2011 Conference. But as people were asking about the survey, I thought I could at least make last year&rsquo;s summary a bit more accessible. The following comes from the pdf report I submitted to Krell and a few example figures from data.This year&rsquo;s survey was longer and broader, recieving over 90 responses from fellows and alumni.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/07/07/segue-easy-cloud-computing-in-r-now-with-custom-packages/">Segue: Easy cloud hpc in R, now with custom packages</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
+    <div class="article-style">
+      
+      After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages. The package is available on Google code. With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud. For a basic introduction to the package see Jeff Breen&rsquo;s post.
+Quick notes on updating using mercurial: Since I&rsquo;ve already pulled the code using
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/06/13/em-algorithm-2/">EM Algorithm</a></h2>
+    <h4>Mon, Jun 13, 2011</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h2>
+    <h4>Thu, May 26, 2011</h4>
+    <div class="article-style">
+      
+      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/05/23/monday-5/">Monday: some code-tricks, Algorithms group planning</a></h2>
+    <h4>Mon, May 23, 2011</h4>
+    <div class="article-style">
+      
+      Teary Some discussion on combining Greek letters with variables in R. Previously have solved this with substitute() command,
+x = 4.5 plot(1:10, main = substitute(paste(&quot;Kendall &quot;, tau == val), list(val = x[1])))  but Peter has a more elegant solution that can be vectorized:
+sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)) #for instance plot(0) legend(&quot;topright&quot;,legend=sapply(interaction(&quot;sigma&quot;,1:5, sep=&quot; == &quot;),function(x)parse(text=x)),lty=2)  Better yet, bquote has a mechanism to evaluate an argument vs express the argument as a symbol, see gist id=1108159.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/05/04/algorithms-discussion-group-mcmc/">Algorithms Discussion Group: MCMC</a></h2>
+    <h4>Wed, May 4, 2011</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/04/24/wrightscape-profiling/">wrightscape profiling</a></h2>
+    <h4>Sun, Apr 24, 2011</h4>
+    <div class="article-style">
+      
+      Optimization at the R level is substantially slower than at the C level:
+system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/04/18/algorithms-discussion-group-abc-continued/">Algorithms Discussion Group: algorithms Continued</a></h2>
+    <h4>Mon, Apr 18, 2011</h4>
+    <div class="article-style">
+      
+      Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&rsquo;s gist and started editing during today&rsquo;s session &ndash; when I save it I get a new version ID, so last week&rsquo;s post still points to last week&rsquo;s code, but it doesn&rsquo;t create a second copy, so you can tell if you have the right version.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/04/11/monday-abc-meeting-2/">Monday: algorithms Meeting</a></h2>
+    <h4>Mon, Apr 11, 2011</h4>
+    <div class="article-style">
+      
+      Yaniv has started an algorithms discussion group. We just met with a few students to discuss implementing Approximate Bayesian Computing methods from scratch. Most of us had read (Beaumont, 2010) and (Csilléry et. al. 2010) but also followed [cite source=&ldquo;pubmed&rdquo;]12524368[/cite] most helpful during the session.
+[gist id=914487]
+This gets us as far as the regression step, Figure 1 of (Csilléry et. al. 2010). This in part distinguishes the approach from simple rejection sampling.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    <li><a href="../../../../categories/computation/page/5/">&laquo; Previous</a></li>
+    
+    
+  </ul>
+</nav>
+
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../../categories/computation/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../../js/bootstrap.min.js"></script>
+    <script src="../../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

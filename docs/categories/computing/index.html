@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../categories/computing/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../categories/computing/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../categories/computing/">
+
+
+  <title>Computing | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Computing</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../2014/11/26/coreos-cluster-gotchas/"></a></h2>
+    <h4>Wed, Nov 26, 2014</h4>
+    <div class="article-style">
+      
+      Overall impression is that CoreOS is a promising way to easily set up a highly available cluster (e.g. when most important thing is that a service stays up when a node goes down) since it can migrate a containerized app to a new machine rather than having to already have the same app running on all machines. Either way a load-balancer needs to handle the addressing, which is do-able but somewhat tricky.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/11/24/coreos-docker-registries-etc/"></a></h2>
+    <h4>Mon, Nov 24, 2014</h4>
+    <div class="article-style">
+      
+      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/11/19/coreos-and-other-infrastructure-notes/"></a></h2>
+    <h4>Wed, Nov 19, 2014</h4>
+    <div class="article-style">
+      
+      CoreOS? Security model looks excellent. Some things not so clear:
+ In a single node setup, what happens with updates? Would containers being run directly come down and not go back up automatically? In general, how effective or troublesome is it to run a single, low-demand app on a single node CoreOS rather than, say, an ubuntu image (e.g. just to benefit from the security updates model)? For instance, would an update cause a running app to exit in this scenario?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/10/28/jekyll-free/">Goodbye Jekyll?</a></h2>
+    <h4>Tue, Oct 28, 2014</h4>
+    <div class="article-style">
+      
+      The great strength of Jekyll is in providing a really convenient HTML templating system through the _layouts and _includes directories and Liquid variables (including the auto-populated ones like page.previous.url).
+For quickly deploying simple sites though, this is often unnecessary: one or two layout files will suffice, and an _includes directory is not so useful with only a single layout. The ease of maintenance by having a template divided into modular chunks is somewhat trumped by the greater simplicity of copying a single template or set of templates over into a new directory.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/10/20/notes/"></a></h2>
+    <h4>Mon, Oct 20, 2014</h4>
+    <div class="article-style">
+      
+      Keep thinking about this quote from Jeroen Oom&rsquo;s recent piece on the arxiv:
+ The role and shape of data is the main characteristic that distinguishes scientific computing. In most general purpose programming languages, data structures are instances of classes with well-defined fields and methods. [&hellip;] Strictly defined structures make it possible to write code implementing all required operations in advance without knowing the actual content of the data. It also creates a clear separation between developers and users [emphasis added].
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/10/16/gitlab-and-other-configuration-notes/"></a></h2>
+    <h4>Thu, Oct 16, 2014</h4>
+    <div class="article-style">
+      
+      Updating gitlab setup:
+docker pull sameersbn/redis:latest docker pull sameersbn/gitlab:7.3.2-1 docker pull sameersbn/postgresql:latest mkdir -p /opt/gitlab/data mkdir -p /opt/postgresql/data docker run &ndash;name=postgresql -d \ -e &lsquo;DB_NAME=gitlabhq_production&rsquo; -e &lsquo;DB_USER=gitlab&rsquo; -e &lsquo;DB_PASS=password&rsquo; \ -v /opt/postgresql/data:/var/lib/postgresql \ sameersbn/postgresql:latest docker run &ndash;name=redis -d sameersbn/redis:latest docker run &ndash;name=gitlab -d \ &ndash;link postgresql:postgresql \ &ndash;link redis:redisio \ -p 10080:80 -p 10022:22 \ -v /opt/gitlab/data:/home/git/data \ sameersbn/gitlab:7.3.2-1  More consisely, do this with fig
+gitlab: image: sameersbn/gitlab:7.3.2-1 links: - postgres - redis:redisio ports: - &quot;10080:80&quot; - &quot;10022:22&quot; volumes: - /opt/gitlab/data:/home/git/data environment: - SMTP_USER=USER@gmail.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/09/22/containerizing-my-development-environment/"></a></h2>
+    <h4>Mon, Sep 22, 2014</h4>
+    <div class="article-style">
+      
+      A key challenge for reproducible research is developing solutions that integrate easily into a researcher&rsquo;s existing workflow. Having to move all of one&rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&rsquo;t particularly appealing. In my experience this doesn&rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/09/09/server-backups/"></a></h2>
+    <h4>Tue, Sep 9, 2014</h4>
+    <div class="article-style">
+      
+      Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
+The process is rather manual: we have to sudo poweroff the droplet and then trigger the snapshot (the container will come back online after that, though we have to restart the services / active docker containers). We also have to delete old snapshots manually. Some of this can be automated from the API.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/09/08/server-security-basics/"></a></h2>
+    <h4>Mon, Sep 8, 2014</h4>
+    <div class="article-style">
+      
+      Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
+ Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
+ Disabling root logins. (We&rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.
+      
+    </div>
+  </div>
+  
+
+  
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../categories/computing/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

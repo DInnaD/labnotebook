@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../tags/hpc/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../tags/hpc/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../tags/hpc/">
+
+
+  <title>Hpc | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Hpc</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../2012/07/27/csgf-conference/"></a></h2>
+    <h4>Fri, Jul 27, 2012</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2012/05/08/notes/">Data to Knowledge Day II and other notes</a></h2>
+    <h4>Tue, May 8, 2012</h4>
+    <div class="article-style">
+      
+      Great second day at the Data to Knowledge conference (a few notes below).
+Also I have been trying to move a few projects forward during the commute and break. I&rsquo;ve sent Alan my revisions on the prosecutor&rsquo;s fallacy manuscript, getting pretty close. Following up on a query from John, ran a simulation showing the impact of having a delay in the timeseries before the slow change towards the bifurcation begins.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2012/05/07/notes/">Data to Knowledge Day 1</a></h2>
+    <h4>Mon, May 7, 2012</h4>
+    <div class="article-style">
+      
+      Scaling Time Series Data Mining to trillions of series Eamonn Keogh
+ Similarity search is the fundamental problem for any task This problem is now solved. As effective as possible, as efficient as possible.  What is similarity search? All about required invariances: Looking at ancient manuscripts of fish &ndash; identify multiple drawings of the same species. Invariant to color, scale, and orientation.
+(Note that rotation becomes phase, easy to handle).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
+    <div class="article-style">
+      
+      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
+parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
+    <div class="article-style">
+      
+      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Saturday: working on computational scaling, ion, etc</a></h2>
+    <h4>Sat, Aug 27, 2011</h4>
+    <div class="article-style">
+      
+      Can I get a generic montecarlotest function working for both warningsignals and pmc?
+Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wednesday: migrating codes into MPI</a></h2>
+    <h4>Wed, Aug 17, 2011</h4>
+    <div class="article-style">
+      
+      Parellelization/Scaling of code MPI on farm cluster
+Got my MPI codes running.
+Much better way to get jobs into the queue, asking for 16 threads that don&rsquo;t have to be on the same node is much faster. Can also ask for 161 threads, but will wait longer in the queue.
+The trick to getting this to run was mostly getting the library set correctly. Setting the library path at the top of the script did the trick:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/07/07/segue-easy-cloud-computing-in-r-now-with-custom-packages/">Segue: Easy cloud hpc in R, now with custom packages</a></h2>
+    <h4>Thu, Jul 7, 2011</h4>
+    <div class="article-style">
+      
+      After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages. The package is available on Google code. With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud. For a basic introduction to the package see Jeff Breen&rsquo;s post.
+Quick notes on updating using mercurial: Since I&rsquo;ve already pulled the code using
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/">Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree</a></h2>
+    <h4>Wed, Jun 8, 2011</h4>
+    <div class="article-style">
+      
+      Reviewed last night&rsquo;s simulations, see yesterday&rsquo;s post.  Simulated data testing: Fitting the general model well on the parrotfish tree even with clear simulated data seems hard. Simulating with alpha(intramandibulars) = .01, and others = 20, and fitting general model and the alpha-only independent model (release of constraint model). The release model MLE recovers reasonable values: alpha(intra) = 1.7, alpha(others) = 21.8, while the general model fit is clearly struggling even with SANN.
+      
+    </div>
+  </div>
+  
+
+  
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../tags/hpc/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

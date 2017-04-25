@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../lab-notebook/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../lab-notebook/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../lab-notebook/">
+
+
+  <title>Lab-notebooks | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+  <h1>Lab Notebook Entries</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../../2013/06/04/analytic-marginalizing-for-posteriors/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
+    <div class="article-style">
+      
+      Consider the model
+$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
+with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
+$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
+To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/"></a></h2>
+    <h4>Tue, Jun 4, 2013</h4>
+    <div class="article-style">
+      
+      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
+require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
+f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/06/03/admb-basic-example/"></a></h2>
+    <h4>Mon, Jun 3, 2013</h4>
+    <div class="article-style">
+      
+      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
+ These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
+Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/06/03/doi-citable/">DOI != citable</a></h2>
+    <h4>Mon, Jun 3, 2013</h4>
+    <div class="article-style">
+      
+      I feel I see this kind of comment almost daily:
+Is there a way to obtain DOI for a @github repository? (for citing #opensource software packages, similar to @figshare objects) #git
+&mdash; Ahmed Moustafa (@AhmedMoustafa) May 29, 2013
+Again and again, researchers suggest that DOI to makes something &ldquo;citable&rdquo;. And this frustrates me.
+Don&rsquo;t get me wrong. I love DOIs, and I love CrossRef. And I bang on the table when I have some old journal article that doesn&rsquo;t yet have a DOI.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/05/31/notebook-features-archiving-with-figshare/">Archiving the lab notebook on figshare</a></h2>
+    <h4>Fri, May 31, 2013</h4>
+    <div class="article-style">
+      
+      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/05/31/notebook-features-digital-archiving/">Notebook features: digital archiving</a></h2>
+    <h4>Fri, May 31, 2013</h4>
+    <div class="article-style">
+      
+      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
+Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/05/29/notes/"></a></h2>
+    <h4>Wed, May 29, 2013</h4>
+    <div class="article-style">
+      
+      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
+ fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
+ slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/05/28/notes/"></a></h2>
+    <h4>Tue, May 28, 2013</h4>
+    <div class="article-style">
+      
+      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/05/27/exploring-approximate-dynamic-programming-approaches/"></a></h2>
+    <h4>Mon, May 27, 2013</h4>
+    <div class="article-style">
+      
+      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2013/05/24/notes/"></a></h2>
+    <h4>Fri, May 24, 2013</h4>
+    <div class="article-style">
+      
+      prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    <li><a href="../../../lab-notebook/page/16/">&laquo; Previous</a></li>
+    
+    
+    <li><a href="../../../lab-notebook/page/18/">Next &raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+
+
+<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
+    <ul class="list-unstyled">
+      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
+      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../lab-notebook/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
