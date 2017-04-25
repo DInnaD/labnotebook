@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2010/10/21/spatial-warning-signals-power-etc.html">
+
+
+  <title>Spatial Warning Signals, power, etc | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Spatial Warning Signals, power, etc</h1> 
+      
+    
+
+<p>Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation.  Weakening stability across a set of coupled patches should result in increased autocorrelation.  Decided to test this with a little visualization with help of <a href="http://github.com/cboettig/structured-populations/blob/6f2393b74b60ddc090c18c617a1134ee313cd667/demos/noam.R">a quick R script</a>.  <img src="http://farm2.static.flickr.com/1069/5101483914_5ee14d6b3e_b.jpg" alt="" /></p>
+
+<p>Time progresses across the x-axis, 1-D space (on S1) across the y-axis.  Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.</p>
+
+<h3 id="power-in-warning-signals">Power in Warning Signals</h3>
+
+<p>Meanwhile, returning to my work with power in warning signals.  Working on a more complete analytical description of the underlying saddle node bifurcation in the example to justify having the &ldquo;true&rdquo; underlying model.  First, a quick script for the (larger) analytic equilibrium as a function of the bifurcation parameter.  From this we can calculate the change in the eigenvalue at the equilibrium as we approach the bifurcation: (<a href="http://github.com/cboettig/structured-populations/blob/e1f910f752f8edcdb0220703b972a107e169fb87/demos/saddle_analytics.R">code here: saddle_analytics.R</a>)</p>
+
+<p><img src="http://farm5.staticflickr.com/4089/5101650050_2cc9530a89_o.png" alt="" /></p>
+
+<p>Note that the eigenvalue lambda is evaluated at the fixed point in each
+case, and over sufficient range in the bifurcation parameter, the change
+is non-linear.  The bifurcation seems to happen at about $a=174$,
+corresponding to an equilibrium population of  $\hat x = 525$.  lambda
+doesn&rsquo;t depend on the bifurcation parameter $$a$$ except through the
+value of $\hat x$;  Unfortunately closed form expressions for $\frac{e
+K x^2}{h^2+x^2}-e x - a = 0$ aren&rsquo;t particularly manageable.  The jump in
+$\hat x$ which results in a jump in lambda is the result of the numerical
+minimizer starting to grab the other root &ndash; of course lambda should in
+fact pass smoothly through zero, triggering the bifurcation.</p>
+
+<h3 id="and-in-the-literature">and in the literature&hellip;</h3>
+
+<p>Just noticed an<a href="http://ff.im/-soIrK"> intriguing paper by R. M. Bailey</a> on warning signals applied to a spatial simulation (cellular automata model).  Appears to focus on classical indicators methods, without discussion of statistical inference or spatially based warning signals.  Also, the bifurcation model is unclear to me, seems that some effects are rather related to changing the timescale (effectively the birth rate in this case?) of the model, not necessarily the stability.  The need for non-dimensionalization strikes again.  Finally, the question of perturbations into alternative stable states continues to be blended into discussions about critical slowing down and bifurcations.  While the latter makes the former more likely, the rather different mechanisms by which each drives change seem conflated.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-10-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Oct 21, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/warning-signals">warning-signals</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2010/10/21.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2010/10/20.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-10-21-spatial-warning-signals-power-etc.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-10-21-spatial-warning-signals-power-etc.md">2785abf</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2010\/10\/21\/spatial-warning-signals-power-etc.html';
+    var disqus_title = 'Spatial Warning Signals, power, etc';
+    var disqus_url = '\/2010\/10\/21\/spatial-warning-signals-power-etc.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

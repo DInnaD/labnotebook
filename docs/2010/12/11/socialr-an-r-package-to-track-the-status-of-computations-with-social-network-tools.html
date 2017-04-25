@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2010/12/11/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools.html">
+
+
+  <title>socialR: Reproducible Research &amp; Notebook integration with R | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>socialR: Reproducible Research &amp; Notebook integration with R</h1> 
+      
+    
+
+<p>I&rsquo;ve created an R package that uses social media tools for reproducible research.  The goal of the package is this: whenever I run a code, output figures are automatically added to my figure repository (Flickr), linked to the timestamped version of the code that produced them in the code repository.  Figures should be tagged by project and be embedded selectively or automatically into this lab notebook.  The basic workflow of the notebook looks like this:[ref]Diagram of my notebook as presented at Science Online, 2011, see other slides in my <a href="http://www.carlboettiger.info/archives/792">entry on this</a>.[/ref]</p>
+
+<p><img src="http://farm6.staticflickr.com/5259/5471680767_34c350314e_o.png" alt="" /></p>
+
+<p>To do this, I use a few simple R functions that I wrap around  the system command-line programs git, flickr_upload, and hpc-autotweets to enable monitoring of my simulations through social media. The package has it&rsquo;s own <a href="https://github.com/cboettig/socialR">git repository here</a>.  This is a rather custom development to make for rapid deployment on my own machines, and depends largely on Linux tools external to R, so it may not be easily deployed by others.  See my earlier post, <a href="http://www.carlboettiger.info/archives/375">Making R Twitter</a>, for examples and back story.</p>
+
+<p><img src="http://farm5.staticflickr.com/4112/5196584707_663796eb6e_o.png" alt="" /></p>
+
+<h2 id="basic-features">Basic Features</h2>
+
+<p>All of these tasks are run by wrapping any plot command with my command &ldquo;social_plot()&rdquo;</p>
+
+<ul>
+<li><p>Push the running code version to Github.</p></li>
+
+<li><p>Grab the git hashtag to reference this version of the code.</p></li>
+
+<li><p>Push figures to Flickr as they complete.  Tags images appropriately and provide link to the code (version-stable, on Github) that produces them in the description.</p></li>
+
+<li><p>Tweet notification of a figure upload, parameter values, links to code, and timestamp.</p></li>
+
+<li><p>Tweet when an error occurs.</p></li>
+</ul>
+
+<h2 id="setup-install">Setup / Install</h2>
+
+<ol>
+<li><p>Create a flickr account (need not be unique for the computer).</p></li>
+
+<li><p>Create a twitter account (preferably separate one for the machine).</p></li>
+
+<li><p>Install <a href="http://search.cpan.org/~cpb/Flickr-Upload/flickr_upload">flickr_upload</a>:</p>
+
+<p>; sudo apt-get install libflickr-upload-perl</p></li>
+
+<li><p>Install <a href="https://github.com/joshthecoder/tweepy/blob/master/INSTALL">tweepy</a>:</p>
+
+<p>easy_install tweepy</p></li>
+</ol>
+
+<p>(See link for more detailed instructions)</p>
+
+<ol>
+<li><p><a href="http://search.cpan.org/~cpb/Flickr-Upload/flickr_upload#___top">Configure flickr_upload credentials</a>.</p></li>
+
+<li><p><a href="http://jeffmiller.github.com/2010/05/31/twitter-from-the-command-line-in-python-using-oauth">Configure OAuth for tweepy</a>.</p></li>
+</ol>
+
+<h2 id="future-modifications">Future modifications</h2>
+
+<p>Current program relies entirely on external command-line tools. Probably no easy solution to make this package self-contained and cross platform.  Still, a good bit of functionality can be added:</p>
+
+<ul>
+<li><p>Add option to include the git log message.</p></li>
+
+<li><p>Smart/more informative git commit messages</p></li>
+
+<li><p>Add option/default to use truncated git commit ID numbers</p></li>
+
+<li><p>Make Flickr discription actually link directly to code.</p></li>
+
+<li><p>Make twitter statements include urls/actual links (to code, files)</p></li>
+
+<li><p>Identify machine credentials?</p></li>
+
+<li><p>Documentation still needed</p></li>
+
+<li><p>Should verify if the git version is current</p></li>
+
+<li><p>Grab a DOI for the object (i.e. using EZID from UC3?)</p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-12-11 03:44:54 &#43;0000 UTC" itemprop="datePublished">
+      Sat, Dec 11, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/r">R</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2010/12/11/citations.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2010/12/10/warning-signals-manuscript.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-12-11-socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-12-11-socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools.md">2785abf</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2010\/12\/11\/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools.html';
+    var disqus_title = 'socialR: Reproducible Research \x26 Notebook integration with R';
+    var disqus_url = '\/2010\/12\/11\/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../tags/algorithms/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../tags/algorithms/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../img/apple-touch-icon.png">
+  <link rel="canonical" href="../tags/algorithms.html">
+
+
+  <title>Algorithms | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Algorithms</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../2011/10/26/monday-misc-notes.html">Monday, misc notes</a></h2>
+    <h4>Wed, Oct 26, 2011</h4>
+    <div class="article-style">
+      
+      R packages relevant to the optimal control problems
+ BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
+ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/10/17/algorithms-group-literate-programming.html">Algorithms Group: Literate programming</a></h2>
+    <h4>Mon, Oct 17, 2011</h4>
+    <div class="article-style">
+      
+      Algorithms group today took a brake from discussing algorithms for an aside on coding practices. Today we focused primarily on literate programming tools for making better documented, more readable code. We covered:
+ Sweave
+ Google style guide, also see R core-team developer Hadley Wickam&rsquo;sstyle guide (modified from Google)
+ R coding practices grab-bag: using functionalized code, {&hellip;}, S3 vs S4 classes.
+ roxygen, roxygen2
+  Next time: Github, then we&rsquo;ll spend 30 minutes collaboratively adding roxygen documentation to our existing codes and committing changes over git.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/10/10/algorithms-group-hmm-meets-em.html">Algorithms Group, HMM meets EM</a></h2>
+    <h4>Mon, Oct 10, 2011</h4>
+    <div class="article-style">
+      
+      Alisa reviews HMM, EM, and shows us how to combine them.
+The EM version treats the transition probabilities (exchanging coins) and emission probabilities (chance of heads/tails under each coin) as unknowns. Make a guess, calculate the blue line from before. This can be used to calculate a new guess that will hill climb to the locally optimum solution (EM).
+New guess for the transition probability is:
+$$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/08/29/algorithms-group-hidden-markov-models.html">Algorithms group: Hidden Markov Models</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
+    <div class="article-style">
+      
+      Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&rsquo;s awesome graph.
+As usual in the notebook, click on the graph to get link-through to the code.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/07/25/monday-algorithms-discussion-group-em-finished.html">Monday: Algorithms Discussion Group, EM finished</a></h2>
+    <h4>Mon, Jul 25, 2011</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/06/13/em-algorithm-2.html">EM Algorithm</a></h2>
+    <h4>Mon, Jun 13, 2011</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/05/19/algorithms-group-mcmcmc.html">Algorithms group: MCMCMC</a></h2>
+    <h4>Thu, May 19, 2011</h4>
+    <div class="article-style">
+      
+      Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/05/09/monday-4.html">Monday: meetings, notebook</a></h2>
+    <h4>Mon, May 9, 2011</h4>
+    <div class="article-style">
+      
+      Coop &amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
+Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
+$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
+$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
+Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/05/04/algorithms-discussion-group-mcmc.html">Algorithms Discussion Group: MCMC</a></h2>
+    <h4>Wed, May 4, 2011</h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../2011/04/18/algorithms-discussion-group-abc-continued.html">Algorithms Discussion Group: algorithms Continued</a></h2>
+    <h4>Mon, Apr 18, 2011</h4>
+    <div class="article-style">
+      
+      Our little informal ABC group met again today to continue our discussion of ABC methods from last week. The updated code is included in the gist below. ((Nick asked about gists &ndash; they are code boxes provided by Github that are easy to embed into blogs, etc. They provide automatic syntax highlighting and version management. For instance, I just opened last week&rsquo;s gist and started editing during today&rsquo;s session &ndash; when I save it I get a new version ID, so last week&rsquo;s post still points to last week&rsquo;s code, but it doesn&rsquo;t create a second copy, so you can tell if you have the right version.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    
+    <li><a href="../tags/algorithms/page/2.html">Next &raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../tags/algorithms/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../js/jquery-1.12.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

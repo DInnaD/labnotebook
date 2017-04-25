@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../1/01/01/is-it-time-to-retire-pagels-lambda.html">
+
+
+  <title>Is it time to retire Pagel&#39;s lambda? | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Is it time to retire Pagel&#39;s lambda?</h1> 
+      
+    
+
+<p>Pagel&rsquo;s $\lambda$ (lambda), introduced in <a href="http://doi.org/10.1038/44766" title="Inferring the historical patterns of biological evolution. in Nature.">Pagel 1999</a> as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).</p>
+
+<p>Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity.  There are many issues with the statistic, some of which I attempt to summarise below.</p>
+
+<p>The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.  The motivation for the definition is obvious: $\lambda = 1$ the tree is unchanged and the model equivalent to Brownian motion, while for $\lambda = 0$ the tree becomes a star phylogeny and the model is equivalent to completely independent random walks.  $0 &lt; \lambda &lt; 1$ provides an intermediate range where the correlations are weaker than expected.</p>
+
+<p><strong>Problem 1: It is biological nonsense to treat tips different from other edges.</strong></p>
+
+<p>All other problems arise from this.  While it is okay that a statistic does not have a corresponding evolutionary model, being part of an explicit model might have helped avoid this sillyness. Technically $\lambda$ is a model, but one that treats evolution along &ldquo;tips&rdquo; as special, as if evolution should follow completely different rules for a species alive today relative to it&rsquo;s former evolutionary history.  Sounds almost creationist.</p>
+
+<p><strong>Problem 2: The statistic doesn&rsquo;t measure what is says it measures.</strong></p>
+
+<p>To demonstrate this, we can consider two cases in which phylogeny has the identical effect of explaining trait correlations, and yet have very different lambdas. Consider that Researcher 1 examines the phylogeny in Figure 1 and estimates very little phylogenetic signal, $\lambda = 0.1$.</p>
+
+<pre><code class="language-r">library(ape)
+cat(&quot;(((A_sp:10,B_sp:10):1,C_sp:11):1,D_sp:12);&quot;, file = &quot;ex.tre&quot;, sep = &quot;\n&quot;)
+ex &lt;- read.tree(&quot;ex.tre&quot;)
+plot(ex)
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3708/10715190003_f2f21044be_o.png" alt="Figure 1" /></p>
+
+<p>Now Researcher 2 discovers closely related sister species of some of the taxa originally studied, as in Figure 2.</p>
+
+<pre><code class="language-r">cat(&quot;((((A_sp:1, A2_sp:1):9,(B_sp:1, B2_sp:1):9):1,(C_sp:1, C2_sp:1):10):1,(D_sp:1, D2_sp:1):11);&quot;, 
+    file = &quot;ex2.tre&quot;, sep = &quot;\n&quot;)
+ex2 &lt;- read.tree(&quot;ex2.tre&quot;)
+plot(ex2)
+</code></pre>
+
+<p><img src="http://farm6.staticflickr.com/5482/10715001046_f914f6ecee_o.png" alt="Figure 2" /></p>
+
+<p>There traits of sister taxa are very similar (indeed let us assume the sister species are hard to distinguish morphologically - perhaps why they were overlooked by Researcher 1).  The OU or BM model estimates made by researcher 1 will closely agree with with those of Researcher 1, since the sister taxa have quite similar traits.  Yet the $\lambda$ estimates differs greatly &ndash; all of a sudden the phylogenetic signal must be quite high!</p>
+
+<p>And yet the underlying evolutionary process by which we have simulated the data has been unchanged!  The difference arises because what formerly appeared as long tips have become short tips.  How do we intepret a metric that depends so heavily on whether or not all sister species are present in the data?  As noted, this problem does not impact other phylogenetic comparative methods to nearly the same extent.</p>
+
+<p><strong>Problem 3</strong> The statistic has no notion of timescale or depth in the phylogeny.</p>
+
+<p>In $\lambda$ (and other definitions such as Blomberg&rsquo;s K), phylogenetic signal is an all-or-nothing proposition.  If we find that  really recently diverged species that happen to resemble each-other, while species that have diverged for longer than, say, a couple million years show no correlation &ndash; is this phylogenetic signal or not?  This &lsquo;extinction&rsquo; of phylogenetic signal as we go far enough back in time seems like a biologically reasonable concept that is perfectly well expressed in the $\alpha$ parameter of the OU model, but is lost in the consideration of $\lambda$.  If folks really want to estimate a continuous quantity to measure phylogenetic signal, I suggest $\alpha$ is a far more meaningful number (note that it has units! (1/time or 1/branch length)).</p>
+
+<p>Consider the returning force alpha in the OU model (i.e. stabilizing selection).  When alpha is near zero, the model is essentially Brownian, (i.e. &lsquo;strong phylogenetic signal,&rsquo; where more recently diverged species are more similar on average than distantly related ones).  When alpha is very large, traits reflect the selective constraint of the environment rather than their history, and so recently diverged species are no more or less likely to be similar than distant ones (provided all species in question are under the same OU model / same selection strength for the trait in question).  The size of alpha gives the timescale over which &lsquo;phylogenetic signal&rsquo; is lost (in units of the branch length).  Two very recently diverged sister-taxa may thus show some phylogenetic correlation because their divergence time is of order 1/alpha, while those with longer divergence times act phylogeneticly independent, such as in our Figure 2 above.  I find this an imperfect but reasonable meaning of phylogenetic signal.</p>
+
+<p>If we restrict $\lambda$ to be strictly 1 or 0 these problems are alliviated, though then it is unnessary to define the statistic as such as we may instead consider a star tree (sometimes called the &ldquo;white noise&rdquo; model of evolution).</p>
+
+<h4 id="other-such-statistics">other such statistics</h4>
+
+<p>Pagel&rsquo;s $\delta$ is a transformation on node depth, which is again problematic as there is no meaningfully consistent way to describe what is a node (think about deep speciation events with no present day ancestor.)    I believe $\kappa$ would also be problematic to interpret as it is a nonlinear transform of branch length &ndash; raises branch length to a power &ndash; and thus would have a rather different effect depending on the units in which branch length were measured.  (For instance, consider the case where the tree is scaled to length unity, so all branch lengths are less than one and thus become shorter with large exponents, vs one in which lengths are all larger than one).  Fortunately these statistics are far less popular than $\lambda$.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Jan 1, 0001
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/blog">blog</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../1/01/01/infering-partially-observable-markov-processes-with-iterative-particle-filtering.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../1/01/01/is-statistical-software-harmful.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-10-11-is-it-time-to-retire-pagels-lambda.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-10-11-is-it-time-to-retire-pagels-lambda.md">cd98680</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/1\/01\/01\/is-it-time-to-retire-pagels-lambda.html';
+    var disqus_title = 'Is it time to retire Pagel\x27s lambda?';
+    var disqus_url = '\/1\/01\/01\/is-it-time-to-retire-pagels-lambda.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

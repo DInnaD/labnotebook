@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eml on Boettiger Group</title>
-    <link>/tags/eml/</link>
+    <link>/tags/eml.html</link>
     <description>Recent content in Eml on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
 Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
 In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.</description>
@@ -23,50 +23,50 @@ In short, the EML approach allows archiving of very heterogeneous data without h
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
  We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Started reml, and R package for reading, writing, manipulating and publishing EML files. More details and progress so far on the Github page; in particular flushing out design goals in the issues tracker.
 Initial goals To start, I am aiming for a proof of principle case in which we can write an R data.frame into EML (issue #2), publish to a remote repository such as figshare (issue #3), and then read the data back in as the original R object types from the EML (issue #6).</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Made substanial progress on the reml project. We have reached our first milestone, being able to:
  Successfully validate the EML generated (#28) Start a unit test suite write eml unit tests (#14) Extract appropriate R objects from EML dataTable read eml (#6) Add function to publish EML data through figshare publish eml (#3) Generate an EML file given a data.frame and appropriate metadata write eml (#2)  As illustrated by the example shown in the Readme:</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
 Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&amp;rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &amp;ldquo;meaningless bits of syntax&amp;rdquo;, e.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
 other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
  Related with Hadley discussion on handling tests and keys for API packages, httr/93
@@ -77,30 +77,30 @@ EML  Discussion of unit handling, feedback from Karen.</description>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Units in EML Overview of how units are determined in the EML package:
 library(EML) dat &amp;lt;- data.set(river = factor(c(&amp;quot;SAC&amp;quot;, &amp;quot;SAC&amp;quot;, &amp;quot;AM&amp;quot;)), spp = c(&amp;quot;Oncorhynchus tshawytscha&amp;quot;, &amp;quot;Oncorhynchus tshawytscha&amp;quot;, &amp;quot;Oncorhynchus kisutch&amp;quot;), stg = ordered(c(&amp;quot;smolt&amp;quot;, &amp;quot;parr&amp;quot;, &amp;quot;smolt&amp;quot;), levels=c(&amp;quot;parr&amp;quot;, &amp;quot;smolt&amp;quot;)), # levels indicates increasing level, eg. parr &amp;lt; smolt ct = c(293L, 410L, 210L), day = as.Date(c(&amp;quot;2013-09-01&amp;quot;, &amp;quot;2013-09-1&amp;quot;, &amp;quot;2013-09-02&amp;quot;)), stringsAsFactors = FALSE, col.defs = c(&amp;quot;River site used for collection&amp;quot;, &amp;quot;Species scientific name&amp;quot;, &amp;quot;Life Stage&amp;quot;, &amp;quot;count of live fish in traps&amp;quot;, &amp;quot;day traps were sampled (usually in morning thereof)&amp;quot;), unit.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>EML I&amp;rsquo;ve added a interface for custom units. You don&amp;rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
 create_custom_unit(id = &amp;quot;metersSquaredPerHectare&amp;quot;, parentSI = &amp;quot;dimensionless&amp;quot;, unitType = &amp;quot;dimensionless&amp;quot;, multiplierToSI = &amp;quot;0.0001&amp;quot;, description = &amp;quot;Square meters per hectare&amp;quot;)  and then use the id you give as the unit type in your unit.defs. create_custom_unit updates a custom_units list in the EMLConfig environment, which the eml or write_eml functions detect and use to write in the additional metadata.</description>
     </item>
     
     <item>
       <title>Notes from chat with Duncan</title>
-      <link>/1/01/01/notes-from-chat-with-duncan/</link>
+      <link>/1/01/01/notes-from-chat-with-duncan.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/notes-from-chat-with-duncan/</guid>
+      <guid>/1/01/01/notes-from-chat-with-duncan.html</guid>
       <description>Keep metadata as part of the object Recursion problem coming up.
   Validating:  https://github.com/ropensci/reml/issues/7 Duncan has code using Matt&amp;rsquo;s java API If the EML isn&amp;rsquo;t valid, so what? Important for developers, users don&amp;rsquo;t care.
   API design  what&amp;rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.

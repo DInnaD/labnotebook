@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2011/02/16/citation-tools-future-of-publishing.html">
+
+
+  <title>Citation tools &amp; Future of Publishing | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Citation tools &amp; Future of Publishing</h1> 
+      
+    
+
+<p>There has been a lot of rapid development in scientific tools based  on a Wordpress platform recently, perhaps spurred in part by the recent  <a href="https://sites.google.com/site/beyondthepdf/">Beyond-the-PDF</a> and <a href="http://blogs.plos.org/mfenner/2011/01/11/having-fun-with-citations-at-scienceonline2011/">sessions in Science Online</a> conferences.  A new <a href="https://groups.google.com/forum/#!forum/wordpress-for-scientists">discussion group</a> has emerged around these tools, <a href="http://blogs.plos.org/mfenner/2011/02/04/discussing-wordpress-for-scientists/">as described by Martin Fenner</a>.</p>
+
+<p>I have been exploring better tools for citation management within my  lab notebook. Recently I have been using the <a href="http://wordpress.org/extend/plugins/papercite/">papercite plugin </a>to add citations from my BibTeX files, which are generated from Mendeley, as I <a href="http://www.carlboettiger.info/archives/570">described earlier</a>.  This has a few performance issues on server load and memory, and a somewhat limited format/appearance options, but more importantly lacks some of the features of being developed in these other citation packages.</p>
+
+<p>To begin, see Martin&rsquo;s very compelling piece on  <a href="http://blogs.plos.org/mfenner/2010/12/11/citations-are-links-so-where-is-the-problem/">citations are links</a>.  Certainly a link (<em>i.e.</em>, to the pdf article) can be  _part _of a citation, but there&rsquo;s a lot that can be done once we start thinking of the citation itself as a link.  Wordpress has a nice interface to handle and organize links, which until now has mostly puzzled me as a overdeveloped blogroll.  The <a href="http://wordpress.org/extend/plugins/bibtex-importer/">Import BibTeX</a> plugin can read my bibliography files and transform each citation into a link in the Wordpress interface, attaching categories corresponding to the source type and to tags I add, (such as to which Mendeley collection the article belongs).  Then the <a href="http://wordpress.org/extend/plugins/link-to-link/">Link to Link</a> plugin makes it easy to search and insert these references into my posts.  Currently this can&rsquo;t be done using the bibtex keys, which is a minor bother.</p>
+
+<p>Here&rsquo;s where things start to get more interesting.  The links can embed machine-readable semantic information that adds meta-data to the citation, such as if the citation provides background, methods, supports or disagrees with a claim being made.  This can be made visible to the user, but more interestingly this can also be tracked by a computer, which allows for the generation of much more detailed citation statistics.  A standard Citation Typing Ontology has been developed and described by David Shotton[cite source=&lsquo;doi&rsquo;]10.<sup>1186</sup>&frasl;<sub>2041</sub>-1480-1-S1-S6[/cite] and <a href="http://blogs.plos.org/mfenner/2011/02/14/how-to-use-citation-typing-ontology-cito-in-your-blog-posts/">CiTO is now implemented </a>in Link to Link code.  While Link to Link seems to have the 10 most common citation types, the ontology provides many more, as listed in the  <a href="http://imageweb.zoo.ox.ac.uk/pub/2009/citobase/cito-20091124-1.4/cito-content/owldoc/">CiTO types</a> documentation.</p>
+
+<p>Finally, the automatic bibliographic information is displayed by the <a href="http://wordpress.org/extend/plugins/kcite/">Kcite</a> plugin, currently using the DOI or PMID, which integrates with the Link to Link code.  Having installed both plugins and checked the configuration boxes in link to link which allow it to use the kcite shortcode and CiTO syntax, I&rsquo;m able to highlight some text, select the citation through the search box opened by clicking the Link to Link icon and have it automatically insert the Kcite shortcode using the DOI:</p>
+
+<pre><code>[cite source='doi' rel=cito:cites]10.1186/2041-1480-1-S1-S6[/cite]
+</code></pre>
+
+<p>At the moment this doesn&rsquo;t quite work as it seems the rel=cito text disrupts the kcite intepretation of the shortcode.  Without this it renders correctly.</p>
+
+<p>Note that in general Link to Link with CiTO works with anything with a URL, and will still embed the CiTO information in the link if no DOI is available, just not add the kcite bibliography.</p>
+
+<p>Also not sure why the kcite bibliography includes the link to the json format, seems it shouldn&rsquo;t display this.  Still active discussion on the mailing list on these topics, and it&rsquo;s been quite impressive to see how fast development has been moving on these so far.</p>
+
+<h3 id="things-i-d-like-to-see">THings I&rsquo;d like to see</h3>
+
+<ul>
+<li><p>How to expose/search CiTO meta-data.</p></li>
+
+<li><p>kcite option for citing by (Author,year) footnote text, not just by number, like so [1].</p></li>
+
+<li><p>Basic fixes: Kcite currently errors with the rel=cito:cites text.  Should at least ignore that text until support is built in for CiTO.  Apparently link2link should be rendering this with quotes: rel=cito:&lsquo;cites&rsquo;.</p></li>
+
+<li><p>toggle json display.</p></li>
+</ul>
+
+<h3 id="why-store-citations-in-a-link-library-in-wordpress">Why store Citations in a link library in Wordpress?</h3>
+
+<ul>
+<li><p>Link2Link requires uploading Bibtex file to add the reference to wordpress link library.  Mendeley automatically generates the bibliography &ndash; would be great if this could be automatically placed online (i.e. by dropbox) and read in by Wordpress rather than having to manually update.  Having to import bibtex every time I add a new article, and then search for the added article via link2link, is rather inefficient.  Can merely grab the doi from Mendeley and insert with kcite.</p></li>
+
+<li><p>The most obvious advantage of having the references in the Wordpress link library is the ability for link2link to search them and grab the DOI, though searching Mendeley for the DOI is just as easy.  So why else would this be useful?  A few thoughts:</p></li>
+
+<li><p>The link library allows for adding semantic markup to the link, though currently Wordpress  does this only for <a href="http://codex.wordpress.org/Defining_Relationships_with_XFN">XFN</a> (XHTML Friends Network), designed to describe people.  Having CiTO directly in the link editor beside XFN would be nice, though not particularly more functional.</p></li>
+
+<li><p>Potential to use blogroll functions of wordpress to display the library listed in the links, though in general Mendeley groups seem a much more powerful way to do this.</p></li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-02-16 23:04:50 &#43;0000 UTC" itemprop="datePublished">
+      Wed, Feb 16, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/open-science">open-science</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/notebook-technology">notebook-technology</a
+    >, 
+    
+    <a href="../../../tags/open-science">open-science</a
+    >, 
+    
+    <a href="../../../tags/semantics">semantics</a
+    >, 
+    
+    <a href="../../../tags/blog">blog</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2011/02/16/weds-framing-warning-signals-manuscript.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2011/02/16/data-mangement-on-uc3-merritt-repository.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-02-16-citation-tools-future-of-publishing.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-02-16-citation-tools-future-of-publishing.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2011\/02\/16\/citation-tools-future-of-publishing.html';
+    var disqus_title = 'Citation tools \x26 Future of Publishing';
+    var disqus_url = '\/2011\/02\/16\/citation-tools-future-of-publishing.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

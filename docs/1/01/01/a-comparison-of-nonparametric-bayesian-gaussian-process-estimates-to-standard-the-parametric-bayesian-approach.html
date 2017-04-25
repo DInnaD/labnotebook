@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html">
+
+
+  <title>A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</h1> 
+      
+    
+
+<p>Load necessary libraries,</p>
+
+<pre><code class="language-r">library(pdgControl)  # custom SDP functions
+library(nonparametricbayes)  # custom
+library(reshape2)  # data manipulation
+library(data.table)  # data manipulation
+library(plyr)  # data manipulation
+library(ggplot2)  # plotting
+library(tgp)  # Gaussian Processes
+library(MCMCpack)  # Markov Chain Monte Carlo tools
+library(R2jags)  # Markov Chain Monte Carlo tools
+library(emdbook)  # Markov Chain Monte Carlo tools
+library(coda)  # Markov Chain Monte Carlo tools
+</code></pre>
+
+<p>Plotting and knitr options, (can generally be ignored)</p>
+
+<pre><code class="language-r">library(knitcitations)
+opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE)
+opts_knit$set(upload.fun = socialR::flickr.url)
+theme_set(theme_bw(base_size = 10))
+theme_update(panel.background = element_rect(fill = &quot;transparent&quot;, 
+    colour = NA), plot.background = element_rect(fill = &quot;transparent&quot;, colour = NA))
+cbPalette &lt;- c(&quot;#000000&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;, &quot;#009E73&quot;, &quot;#F0E442&quot;, 
+    &quot;#0072B2&quot;, &quot;#D55E00&quot;, &quot;#CC79A7&quot;)
+</code></pre>
+
+<h3 id="model-and-parameters">Model and parameters</h3>
+
+<p>Uses the model derived in Allen et al, of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,</p>
+
+<pre><code class="language-r">f &lt;- RickerAllee
+p &lt;- c(2, 10, 5) 
+K &lt;- p[2]
+allee &lt;- p[3]
+</code></pre>
+
+<p>Various parameters defining noise dynamics, grid, and policy costs.</p>
+
+<pre><code class="language-r">sigma_g &lt;- 0.05
+sigma_m &lt;- 0.0
+z_g &lt;- function() rlnorm(1, 0, sigma_g)
+z_m &lt;- function() 1+(2*runif(1, 0,  1)-1) * sigma_m
+x_grid &lt;- seq(0, 1.5 * K, length=101)
+h_grid &lt;- x_grid
+profit &lt;- function(x,h) pmin(x, h)
+delta &lt;- 0.01
+OptTime &lt;- 20  # stationarity with unstable models is tricky thing
+reward &lt;- 0
+xT &lt;- 0
+seed_i &lt;- 111
+Xo &lt;- K # observations start from
+x0 &lt;- Xo # simulation under policy starts from
+Tobs &lt;- 35
+</code></pre>
+
+<h3 id="sample-data">Sample Data</h3>
+
+<pre><code class="language-r">obs &lt;- sim_obs(Xo, z_g, f, p, Tobs=Tobs, nz=15, 
+                harvest = sort(rep(seq(0, .5, length=7), 5)), seed = seed_i)
+</code></pre>
+
+<h2 id="maximum-likelihood">Maximum Likelihood</h2>
+
+<pre><code class="language-r">alt &lt;- par_est(obs,  init = c(r = p[1], 
+                              K = mean(obs$x[obs$x&gt;0]), 
+                              s = sigma_g))
+est &lt;- par_est_allee(obs, f, p,  
+                     init = c(r = p[1] + 1, 
+                              K = p[2] + 2, 
+                              C = p[3] + 2, 
+                              s = sigma_g))
+</code></pre>
+
+<h2 id="non-parametric-bayes">Non-parametric Bayes</h2>
+
+<pre><code class="language-r">#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2)
+s2.p &lt;- c(5,5)  
+tau2.p &lt;- c(5,1)
+d.p = c(10, 1/0.1, 10, 1/0.1)
+nug.p = c(10, 1/0.1, 10, 1/0.1) # gamma mean
+s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2])
+tau2_prior &lt;- function(x) dinvgamma(x, tau2.p[1], tau2.p[2])
+d_prior &lt;- function(x) dgamma(x, d.p[1], scale = d.p[2]) + dgamma(x, d.p[3], scale = d.p[4])
+nug_prior &lt;- function(x) dgamma(x, nug.p[1], scale = nug.p[2]) + dgamma(x, nug.p[3], scale = nug.p[4])
+beta0_prior &lt;- function(x, tau) dnorm(x, 0, tau)
+beta = c(0)
+priors &lt;- list(s2 = s2_prior, tau2 = tau2_prior, beta0 = dnorm, nug = nug_prior, d = d_prior, ldetK = function(x) 0)
+</code></pre>
+
+<pre><code class="language-r">  gp &lt;- bgp(X=obs$x, XX=x_grid, Z=obs$y, verb=0,
+          meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(2000,20000,2),
+          m0r1=FALSE, corr=&quot;exp&quot;, trace=TRUE, 
+          beta = beta, s2.p = s2.p, d.p = d.p, nug.p = nug.p, tau2.p = tau2.p,
+          s2.lam = &quot;fixed&quot;, d.lam = &quot;fixed&quot;, nug.lam = &quot;fixed&quot;, tau2.lam = &quot;fixed&quot;)      
+</code></pre>
+
+<pre><code class="language-r">hyperparameters &lt;- c(&quot;index&quot;, &quot;s2&quot;, &quot;tau2&quot;, &quot;beta0&quot;, &quot;nug&quot;, &quot;d&quot;, &quot;ldetK&quot;)
+posteriors &lt;- melt(gp$trace$XX[[1]][,hyperparameters], id=&quot;index&quot;)
+
+# Traces 
+ggplot(posteriors) + geom_line(aes(index, value)) + facet_wrap(~ variable, scale=&quot;free&quot;, ncol=1)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8261/8685360238_353dbc5894_o.png" alt="plot of chunk unnamed-chunk-3" /></p>
+
+<pre><code class="language-r">
+
+prior_curves &lt;- ddply(posteriors, &quot;variable&quot;, function(dd){
+    grid &lt;- seq(min(dd$value), max(dd$value), length = 100)
+    data.frame(value = grid, density = priors[[dd$variable[1]]](grid))
+})
+
+# 
+ggplot(posteriors) + geom_histogram(aes(x=value, y=..density..), alpha=0.7) +
+    geom_line(data=prior_curves, aes(x=value, y=density), col=&quot;red&quot;, lwd=2) +
+    facet_wrap(~ variable, scale=&quot;free&quot;)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8521/8685360484_e2ce943ebd_o.png" alt="plot of chunk unnamed-chunk-3" /></p>
+
+<pre><code class="language-r">
+ggplot(posteriors, aes(value)) + stat_density(geom=&quot;path&quot;, position=&quot;identity&quot;, alpha=0.7) +
+  geom_line(data=prior_curves, aes(x=value, y=density), col=&quot;red&quot;) + 
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=2)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8398/8685360552_d9ba680ff7_o.png" alt="plot of chunk unnamed-chunk-3" /></p>
+
+<h4 id="parametric-bayes">Parametric Bayes</h4>
+
+<p>We initiate the MCMC chain (<code>init_p</code>) using the true values of the parameters <code>p</code> from the simulation.  While impossible in real data, this gives the parametric Bayesian approach the best chance at succeeding.  <code>y</code> is the timeseries (recall <code>obs</code> has the $x<em>t$, $x</em>{t+1}$ pairs)</p>
+
+<pre><code class="language-r"># a bit unfair to start with the correct values, but anyhow...
+init_p = p
+names(init_p) = c(&quot;r0&quot;, &quot;K&quot;, &quot;theta&quot;)
+y &lt;- obs$y[-1] 
+N=length(y);
+</code></pre>
+
+<p>We&rsquo;ll be using the JAGS Gibbs sampler, a recent open source BUGS implementation with an R interface that works on most platforms.  We initialize the usual MCMC parameters; see <code>?jags</code> for details.</p>
+
+<pre><code class="language-r">jags.data &lt;- list(&quot;N&quot;,&quot;y&quot;)
+n.chains = 1
+n.iter = 20000
+n.burnin = floor(n.iter/2)
+n.thin = max(1, floor(n.chains * (n.iter - n.burnin)/1000))
+</code></pre>
+
+<p>The actual model is defined in a <code>model.file</code> that contains an R function that is automatically translated into BUGS code by <em>R2WinBUGS</em>.  The file defines the priors and the model, as seen when read in here</p>
+
+<pre><code class="language-r">cat(readLines(con=&quot;bugmodel-GammaPrior.txt&quot;), sep=&quot;\n&quot;)
+</code></pre>
+
+<pre><code>## # Allen's Allee model based on a Ricker
+## 
+## model{
+## 
+## # Define prior densities for parameters
+## K     ~ dunif(1.0, 22000.0)
+## logr0    ~ dunif(-4.0, 2.0)
+## logtheta ~ dunif(-4.0, 2.0)
+## iQ ~ dgamma(0.0001,0.0001)
+## iR ~ dgamma(0.0001,0.0001)
+## 
+## # Transform parameters to fit in the model
+## r0 &lt;- exp(logr0)
+## theta &lt;- exp(logtheta)
+## 
+## # Initial state
+## x[1] ~ dunif(0,10)
+## 
+## # Loop over all states, 
+## for(t in 1:(N-1)){
+##   mu[t] &lt;- x[t] + exp(r0 * (1 - x[t] / K) * (x[t] - theta) )
+##   x[t+1] ~ dnorm(mu[t],iQ)
+## }
+## 
+## # Loop over all observations, 
+## for(t in 1:(N)){
+##   y[t] ~ dnorm(x[t],iR)
+## }
+## 
+## }
+</code></pre>
+
+<p>We define which parameters to keep track of, and set the initial values of parameters in the transformed space used by the MCMC.  We use logarithms to maintain strictly positive values of parameters where appropriate.  Because our priors on the noise parameters are inverse gamma distributed.</p>
+
+<pre><code class="language-r">jags.params=c(&quot;K&quot;,&quot;logr0&quot;,&quot;logtheta&quot;,&quot;iR&quot;,&quot;iQ&quot;) # Don't need to save &quot;x&quot;
+jags.inits &lt;- function(){
+  list(&quot;K&quot;=init_p[&quot;K&quot;],&quot;logr0&quot;=log(init_p[&quot;r0&quot;]),&quot;logtheta&quot;=log(init_p[&quot;theta&quot;]),&quot;iQ&quot;=1/0.05,&quot;iR&quot;=1/0.1,&quot;x&quot;=y,.RNG.name=&quot;base::Wichmann-Hill&quot;, .RNG.seed=123)
+}
+set.seed(12345)
+time&lt;-system.time(       
+  jagsfit &lt;- jags(data=jags.data, inits=jags.inits, jags.params, n.chains=n.chains, 
+                  n.iter=n.iter, n.thin=n.thin, n.burnin=n.burnin,model.file=&quot;bugmodel-GammaPrior.txt&quot;)
+)         
+</code></pre>
+
+<pre><code>## Compiling model graph
+##    Resolving undeclared variables
+##    Allocating nodes
+##    Graph Size: 394
+## 
+## Initializing model
+</code></pre>
+
+<pre><code class="language-r">time &lt;- unname(time[&quot;elapsed&quot;]);
+</code></pre>
+
+<h4 id="convergence-diagnostics-for-parametric-bayes">Convergence diagnostics for parametric bayes</h4>
+
+<pre><code class="language-r">jags_matrix &lt;- as.data.frame(as.mcmc.bugs(jagsfit$BUGSoutput))
+par_posteriors &lt;- melt(cbind(index = 1:dim(jags_matrix)[1], jags_matrix), id = &quot;index&quot;)
+
+# Traces
+ggplot(par_posteriors) + geom_line(aes(index, value)) + facet_wrap(~ variable, scale=&quot;free&quot;, ncol=1)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8401/8684242957_c1958f5a03_o.png" alt="plot of chunk unnamed-chunk-8" /></p>
+
+<pre><code class="language-r">
+# posterior distributiosn
+ggplot(par_posteriors, aes(value)) + stat_density(geom=&quot;path&quot;, position=&quot;identity&quot;, alpha=0.7) +
+  facet_wrap(~ variable, scale=&quot;free&quot;, ncol=2)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8255/8684243073_7a0daf0466_o.png" alt="plot of chunk unnamed-chunk-8" /></p>
+
+<pre><code class="language-r">mcmc &lt;- as.mcmc(jagsfit)
+mcmcall &lt;- mcmc[,-2]
+who &lt;- colnames(mcmcall)
+who 
+</code></pre>
+
+<pre><code>## [1] &quot;K&quot;        &quot;iQ&quot;       &quot;iR&quot;       &quot;logr0&quot;    &quot;logtheta&quot;
+</code></pre>
+
+<pre><code class="language-r">mcmcall &lt;- cbind(mcmcall[,1],mcmcall[,2],mcmcall[,3],mcmcall[,4],mcmcall[,5])
+colnames(mcmcall) &lt;- who
+</code></pre>
+
+<h4 id="phase-space-diagram-of-the-expected-dynamics">Phase-space diagram of the expected dynamics</h4>
+
+<pre><code class="language-r">  gp_plot(gp, f, p, est$f, est$p, alt$f, alt$p, x_grid, obs, seed_i)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8535/8684243227_41391fdd48_o.png" alt="plot of chunk unnamed-chunk-10" /></p>
+
+<h2 id="optimal-policies-by-value-iteration">Optimal policies by value iteration</h2>
+
+<p>Compute the optimal policy under each model using stochastic dynamic programming.</p>
+
+<pre><code class="language-r">MaxT = 1000
+matrices_gp &lt;- gp_transition_matrix(gp$ZZ.km, gp$ZZ.ks2, x_grid, h_grid)
+opt_gp &lt;- value_iteration(matrices_gp, x_grid, h_grid, MaxT, xT, profit, delta, reward)
+
+matrices_true &lt;- f_transition_matrix(f, p, x_grid, h_grid, sigma_g)
+opt_true &lt;- value_iteration(matrices_true, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+
+matrices_estimated &lt;- f_transition_matrix(est$f, est$p, x_grid, h_grid, est$sigma_g)
+opt_estimated &lt;- value_iteration(matrices_estimated, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+
+matrices_alt &lt;- f_transition_matrix(alt$f, alt$p, x_grid, h_grid, alt$sigma_g)
+opt_alt &lt;- value_iteration(matrices_alt, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+
+
+pardist &lt;- mcmcall
+pardist[,4] = exp(pardist[,4]) # transform model parameters back first
+pardist[,5] = exp(pardist[,5])
+
+
+matrices_par_bayes &lt;- parameter_uncertainty_SDP(f, p, x_grid, h_grid, pardist)
+opt_par_bayes &lt;- value_iteration(matrices_par_bayes, x_grid, h_grid, OptTime=MaxT, xT, profit, delta=delta)
+
+
+OPT = data.frame(GP = opt_gp$D, True = opt_true$D, MLE = opt_estimated$D, Ricker.MLE = opt_alt$D, Parametric.Bayes = opt_par_bayes$D)
+colorkey=cbPalette
+names(colorkey) = names(OPT) 
+</code></pre>
+
+<h2 id="graph-of-the-optimal-policies">Graph of the optimal policies</h2>
+
+<pre><code class="language-r">policies &lt;- melt(data.frame(stock=x_grid, sapply(OPT, function(x) x_grid[x])), id=&quot;stock&quot;)
+names(policies) &lt;- c(&quot;stock&quot;, &quot;method&quot;, &quot;value&quot;)
+ggplot(policies, aes(stock, stock - value, color=method)) +
+  geom_line(lwd=1.2, alpha=0.8) + xlab(&quot;stock size&quot;) + ylab(&quot;escapement&quot;)  +
+  scale_colour_manual(values=colorkey)
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8542/8685372902_e8719a0c51_o.png" alt="plot of chunk unnamed-chunk-12" /></p>
+
+<h2 id="simulate-100-realizations-managed-under-each-of-the-policies">Simulate 100 realizations managed under each of the policies</h2>
+
+<pre><code class="language-r">
+
+sims &lt;- lapply(OPT, function(D){
+  set.seed(1)
+  lapply(1:100, function(i) 
+    ForwardSimulate(f, p, x_grid, h_grid, x0, D, z_g, profit=profit, OptTime=OptTime)
+  )
+})
+
+  
+dat &lt;- melt(sims, id=names(sims[[1]][[1]]))
+dt &lt;- data.table(dat)
+setnames(dt, c(&quot;L1&quot;, &quot;L2&quot;), c(&quot;method&quot;, &quot;reps&quot;)) 
+# Legend in original ordering please, not alphabetical: 
+dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))
+
+ggplot(dt) + 
+  geom_line(aes(time, fishstock, group=interaction(reps,method), color=method), alpha=.1) +
+  scale_colour_manual(values=colorkey, guide = guide_legend(override.aes = list(alpha = 1)))
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8400/8685373300_18931d5055_o.png" alt="plot of chunk unnamed-chunk-13" /></p>
+
+<pre><code class="language-r">
+ggplot(dt) + 
+  geom_line(aes(time, harvest, group=interaction(reps,method), color=method), alpha=.1) +
+  scale_colour_manual(values=colorkey, guide = guide_legend(override.aes = list(alpha = 1)))
+</code></pre>
+
+<p><img src="http://farm9.staticflickr.com/8535/8685373378_da45da3cbd_o.png" alt="plot of chunk unnamed-chunk-13" /></p>
+
+<pre><code class="language-r">  
+
+</code></pre>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Mon, Jan 1, 0001
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/nonparametric-bayes">nonparametric-bayes</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../1/01/01.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../1/01/01/actually-starting-at-arkin-lab.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2013-04-27-comparison-of-nonparametric-and-parametric-approaches.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/cd98680d81d38b2d90af25cb09955cd205505b2c/content/lab-notebook/2013-04-27-comparison-of-nonparametric-and-parametric-approaches.md">cd98680</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/1\/01\/01\/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html';
+    var disqus_title = 'A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach';
+    var disqus_url = '\/1\/01\/01\/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

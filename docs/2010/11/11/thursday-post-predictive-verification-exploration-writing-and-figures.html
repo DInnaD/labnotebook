@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures.html">
+
+
+  <title>Thursday: Post-predictive verification exploration; writing and figures | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Thursday: Post-predictive verification exploration; writing and figures</h1> 
+      
+    
+
+<h3 id="on-post-predictive-verification">On Post-predictive Verification</h3>
+
+<p>Considering the kind of post-predictive verification I was discussing with Dan on Tuesday.  Let&rsquo;s start with the simple birth-death branching process.  Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:</p>
+
+<p>[latex] \frac{dN}{dt} = (\lambda - \mu) N \</p>
+
+<p>\frac{d \sigma^2}{dt} = (\lambda - \mu) \sigma^2 +\lambda + \mu [/latex]</p>
+
+<p>Excellent.  So the probability of N species after time t is given by a Gaussian with mean $ N_0 e^{(\lambda-\mu)t} $ and variance</p>
+
+<p>$$ \frac{\lambda+\mu}{\lambda-\mu} \left(e^{\alpha t} - 1\right) + N_0 e^{\alpha t}/\alpha - \gamma $$</p>
+
+<p>So we&rsquo;re interested in the likelihood, i.e. the probability of $ P(\lambda | N) $, for simplicity let $ \mu = 0$ for the moment.  The expected value is just $ \langle N \rangle = N_0 e^{\lambda t} $ so that $ \hat \lambda = \log(N/N_0)/t $.  Meanwhile, the maximum likelihood estimator for $\lambda $ is the maximum of the above expression.  We can calculate this analytically in closed form,(help from wxmaxima).</p>
+
+<p>$$ \hat \lambda = \log\left( \frac{\sqrt{4 N_o^4-8 N_0^3N+ 4N_0^2N^2+1}}{2N_0^2}-\frac{1}{2N_0^2} +1\right)/t $$</p>
+
+<p>Which can be rewritten in terms of $ N/N_0$.</p>
+
+<p><img src="http://farm2.staticflickr.com/1209/5167729654_d29bb5ff64_o.jpg" alt="" /></p>
+
+<p><img src="http://farm2.static.flickr.com/1209/5167729654_a08dc430e0_m.jpg" alt="" /></p>
+
+<p>Observe that this maximum likelihood value is strictly less than the expected value, i.e. solving in case $ N_0 = 1$  (need to clean chalkboard!)</p>
+
+<p>$$ \frac{\log\left( \frac{\sqrt{4\,{N}^{2}-8\,N+5}}{2}+\frac{1}{2}\right) }{t} $$</p>
+
+<p>Also note though that the expected and maximum likelihood estimates agree in the reasonable limit $ N \gg N_0$.  The analytics are presumably closed form but far less tractable with $ \mu$ \neq 0$. Will need to explore the extent of this possible disagreement further later&hellip;  Also have some exploratory code on this in rabosky_test.R in github.</p>
+
+<h3 id="generalizing-the-codebase">Generalizing the Codebase</h3>
+
+<p>Currently have focused on models fitted through the OUCH software.  The format of the power_between_models function in <a href="https://github.com/cboettig/Comparative-Phylogenetics/blob/ca68cfe595cc947eecd5c46beeabb2df190123ed/R/powertest.R">powertest.R</a> fails to generalize immediately only because ouch fits are proper fit objects that have methods like simulate and update already associated with them, and store their likelihood value in the S4 class format under object@loglik.  If the fits from geiger, etc, were modified to recognize the standard general methods, they&rsquo;d work just as well in this routine.  Should certainly look into generalizing them, as it would be interesting to start applying the Monte Carlo approach to more methods.</p>
+
+<h3 id="back-to-likelihood-paper">Back to Likelihood paper&hellip;</h3>
+
+<p>Wondering if it is worth including the all-unique example.  Also should include BM vs OU.1 (has OUCH&rsquo;s funny habit of the extra penalty on OU.1,  as it doesn&rsquo;t estimate the root state), BM vs OU.3 (formerly OU.LP).  Adding to the manuscript simulation collection.</p>
+
+<p>Quick look at AIC fraction of wrong answers in the simulations under each of the following model comparisons:</p>
+
+<p><img src="http://farm5.staticflickr.com/4064/5168082538_060238f873_o.png" alt="" /></p>
+
+<p><img src="http://farm5.staticflickr.com/4131/5167481715_39f6e2dc03_o.png" alt="" /></p>
+
+<p><img src="http://farm5.staticflickr.com/4068/5167481729_d2da8faf51_o.png" alt="" /></p>
+
+<pre><code>&gt; png(&quot;bm_v_ou1.png&quot;)
+&gt; plot(bm_v_ou1, test_dist=F, shade_p=F, shade_power=F, show_aic=T, shade_aic=T, main=&quot;BM v OU.1&quot;)
+[1] &quot;AIC prefers null model&quot;
+[1] &quot;p =  0.981 , power =  0.077&quot;
+&gt; dev.off()
+&gt; png(&quot;bm_v_ou3.png&quot;)
+&gt; plot(bm_v_ouLP, test_dist=F, shade_p=F, shade_power=F, show_aic=T, shade_aic=T, main=&quot;BM v OU.3&quot;)
+[1] &quot;AIC prefers test model&quot;
+[1] &quot;p =  0.031 , power =  0.928&quot;
+&gt; dev.off()
+&gt; png(&quot;ou3_v_ou4.png&quot;)
+&gt; plot(ouLP_v_ouLP4, test_dist=F, shade_p=F, shade_power=F, show_aic=T, shade_aic=T, main=&quot;OU.3 v OU.4&quot;)
+[1] &quot;AIC prefers test model&quot;
+[1] &quot;p =  0.257 , power =  0.427&quot;
+&gt; dev.off()
+</code></pre>
+
+<p>And a look at the power in each of these cases</p>
+
+<p><img src="http://farm2.staticflickr.com/1343/5167508873_26b333477a_o.png" alt="" /></p>
+
+<p><img src="http://farm2.staticflickr.com/1316/5167508825_3ea5e92fa9_o.png" alt="" /></p>
+
+<p><img src="http://farm2.staticflickr.com/1330/5167508851_c21aaf354f_o.png" alt="" /></p>
+
+<p>The vastly over-parameterized all-diff model has convergence issues, not surprisingly&hellip;  Will probably focus on these three comparisons, moving into the power curve discussion.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-11-11 20:47:51 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Nov 11, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2010/11/11/phylogenetics-statistics.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-11-11-thursday-post-predictive-verification-exploration-writing-and-figures.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-11-11-thursday-post-predictive-verification-exploration-writing-and-figures.md">2785abf</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2010\/11\/11\/thursday-post-predictive-verification-exploration-writing-and-figures.html';
+    var disqus_title = 'Thursday: Post-predictive verification exploration; writing and figures';
+    var disqus_url = '\/2010\/11\/11\/thursday-post-predictive-verification-exploration-writing-and-figures.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

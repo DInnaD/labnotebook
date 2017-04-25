@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2011/04/26/accessing-phylognenies-in-ropensci-from-r.html">
+
+
+  <title>Accessing phylognenies in TreeBASE from R | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Accessing phylognenies in TreeBASE from R</h1> 
+      
+    
+
+<p>I&rsquo;ve recently ((<a href="http://www.carlboettiger.info/archives/1496">25 April</a>, <a href="http://www.carlboettiger.info/archives/1382">8 April</a>)) begun a project to see if I can search for and load phylogenies from <a href="http://www.treebase.org/">TreeBASE</a> directly into R. Thanks to the rather brilliant API in place (documented on the <a href="https://sourceforge.net/apps/mediawiki/treebase/index.php?title=API">treeBASE wiki</a>) for TreeBASE, some advice from <a href="http://rutgervos.blogspot.com/">Rutger Vos</a> (TreeBASE developer), and some <a href="http://en.wikipedia.org/wiki/XPath">xpaths</a> R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration.  As I get a chance, I&rsquo;ll be adding the rest of the <a href="https://spreadsheets.google.com/pub?key=rL--O7pyhR8FcnnG5-ofAlw">queries available in the API</a>, improve the error handling and give some more thought to a user interface.  A long cry from a mature package, but a decent proof-of-principle and a nice test-piece for me to learn a bit of how to make web calls and parse xml from R.</p>
+
+<p>The package is being developed in my <a href="https://github.com/cboettig/Comparative-Phylogenetics/tree/master/treebase">Comparative Methods repository </a>(will probably fork into it&rsquo;s own repository once its a bit more mature), and a basic version is packaged on the <a href="https://github.com/downloads/cboettig/Comparative-Phylogenetics/treebase_0.0-1.tar.gz">downloads</a> tab.</p>
+
+<h2 id="introduction-to-package">Introduction to package:</h2>
+
+<p>My goal is to essentially mimic the <a href="https://spreadsheets.google.com/pub?key=rL--O7pyhR8FcnnG5-ofAlw">search capabilities </a>provided by the <a href="http://www.treebase.org/treebase-web/search/studySearch.html">web front-end</a> using the <a href="https://sourceforge.net/apps/mediawiki/treebase/index.php?title=API">API</a>.</p>
+
+<p>To grab all the phylogenetic trees by Huelsenbeck:</p>
+
+<pre><code>Huelsenbeck = search_treebase(&quot;Huelsenbeck&quot;, by=&quot;author&quot;, section=&quot;study&quot;)
+</code></pre>
+
+<p>The first term is the search query.  The second term indicates that it is an author.  The third term specifies that we query by studies, essentially what tab we&rsquo;re on from the search window.  The web search is organized under different tabs, which have somewhat different search options.  The function returns all the trees in phylo format, and prints the url query so that the search can be explored manually.</p>
+
+<p>We can search by taxa (appearing in tips only &ndash; handling inclusive taxonomy is more challenging&hellip;):</p>
+
+<pre><code>whales = search_treebase(&quot;Cetacea&quot;, by=&quot;taxon&quot;, section=&quot;taxon&quot;)
+</code></pre>
+
+<p>There are quite a few kinds of searches I&rsquo;d like to be able to do, but don&rsquo;t seem available through the API.  For instance, It would be nice to search for trees with:</p>
+
+<ul>
+<li><p>** branch lengths** (many early trees are topology only), or more particularly, for chronograms (most comparative methods applications need time-calibrated trees);</p></li>
+
+<li><p><strong>by algorithm</strong> (RaxML, MrBayes, etc).  TreeBASE stores (and runs?) this <a href="http://treebase.org/treebase-web/search/study/analyses.html?id=2218">analysis</a> information.</p></li>
+</ul>
+
+<h2 id="to-do">To Do</h2>
+
+<ul>
+<li><p>Add remaining queries</p></li>
+
+<li><p>Combining queries with booleans</p></li>
+
+<li><p>improved user interface and documentation</p></li>
+
+<li><p>Handling errors - most problematic right now I get errors on <a href="http://treebase.org/treebase-web/search/study/anyObjectAsRDF.rdf?namespacedGUID=TB2:Tr9917">trees</a> with access denied while submissions are still in process.  Apparently this is a bug in treebase, hopefully fixable.</p></li>
+</ul>
+
+<p>So far this is just the interface to the phylows commands.  Still have to figure out what can be done with the <a href="http://www.openarchives.org/pmh/">Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)</a> interface, since some functions like Author search are already in phylows.  Bill points out that this would allow searching by date of publication, and also will interface with Data Dryad.</p>
+
+<p>Also interested in exploring SQL dumps.</p>
+
+<h2 id="why">Why</h2>
+
+<p>Rutger Vos gives an <a href="http://www.slideshare.net/rvosa/phyloinformatics-and-the-semantic-web">excellent introduction</a> to the concept of &ldquo;Phyloinformatics,&rdquo; embedded below. As R is becoming a standard for applied phylogenetic analyses, I think it would be particularly useful to be able to access this potential from directly within R.</p>
+
+<p>[iframe <a href="http://www.slideshare.net/slideshow/embed_code/7339099">http://www.slideshare.net/slideshow/embed_code/7339099</a> 425 355]</p>
+
+<p>Of course this isn&rsquo;t what we really want to do.  There&rsquo;s nothing  special about the phylogeny from a particular study&ndash;an arbitrary  assembly of taxa and methods.  Or as Rod Page so eloquently put it,</p>
+
+<p>[blackbirdpie id=&ldquo;53849924894343168&rdquo;]</p>
+
+<p>The ideal inference pathway goes back to the raw data each time &ndash; draw the loci of interest for the taxa of interest from Genbank and start from scratch with a fully hierarchical inference.  Unfortunately, this is not always practical</p>
+
+<p>Yet  science progresses by extrapolations and generalizations of these  arbitrary data sets that stand behind the conclusions brandished from  the titles of so many publications.  Re-analyzing the data behind these  studies will only happen if it is easy, so I hope this can greatly lower  the threshold.  Hopefully we can replace the more common:</p>
+
+<ul>
+<li><p>Scientist A studies dataset B with method C and concludes D</p></li>
+
+<li><p>Scientist E studies dataset F with method G and contradicts D</p></li>
+</ul>
+
+<p>with</p>
+
+<ul>
+<li>Scientist E studies dataset B (&amp; F) with methods C (&amp; G) and concludes&hellip;</li>
+</ul>
+
+<p>Of course, re-analysis and reproducible research isn&rsquo;t as sexy as it  should be (arguably it&rsquo;s impact is much greater, but somehow we mistake  novelty for impact sometimes) so it&rsquo;s fortunate that a good database  interface doesn&rsquo;t just mean better science, but also new science &ndash;  comparing methods, using methods requiring very large datasets for  adequate power or to directly test rather than assume generality. ((i.e.  test vs assume key innovations are important for adaptive radiations in  bees because they appear important in fish, etc.))</p>
+
+<p>I think  this exercise should not only be practically useful in helping me run  more analyses faster, but hope it has some farther-reaching pedagogical  value in the possibilities and challenges in interfacing with  real  linked data in large repositories.</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-04-26 14:10:22 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Apr 26, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/ropensci">ropensci</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2011/04/27/wednesday-4.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2011/04/25/ropensci-interface-continued.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-04-26-accessing-phylognenies-in-treebase-from-r.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-04-26-accessing-phylognenies-in-treebase-from-r.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2011\/04\/26\/accessing-phylognenies-in-ropensci-from-r.html';
+    var disqus_title = 'Accessing phylognenies in TreeBASE from R';
+    var disqus_url = '\/2011\/04\/26\/accessing-phylognenies-in-ropensci-from-r.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

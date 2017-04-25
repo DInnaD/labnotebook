@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2011/09/14/nimbios-pdg-control-wednesday.html">
+
+
+  <title>pdg-control pdg-control: Wednesday | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>pdg-control pdg-control: Wednesday</h1> 
+      
+    
+
+<p>Wednesday, August 14
+8:00 Coffee &amp; Breakfast at NIMBioS
+8:45 Introduction to Day 3 (Donahue/Armsworth)
+9:00 Training Problem Groups</p>
+
+<h4 id="marie-jose-reflects-on-the-sampling-problem">Marie-Jose reflects on the sampling problem:</h4>
+
+<ul>
+<li><p>Optimization between effort and data.</p></li>
+
+<li><p>Spatial autocorrelation challenges</p></li>
+
+<li><p>periodic sampling challenges.</p></li>
+
+<li><p>Fortin et al 1989</p></li>
+
+<li><p>Carl asked: Nyquist frequency?</p></li>
+
+<li><p>Spatial sampling the correct scale by maximum variance in wavelet scaling.</p></li>
+</ul>
+
+<h4 id="frank-reflects-on-our-activities-from-a-control-engineer-s-perspective">Frank reflects on our activities from a control engineer&rsquo;s perspective</h4>
+
+<ul>
+<li><p>MPC for fishery management - few long-sampling engineering examples.  HIV/tumor treatment may be one.</p></li>
+
+<li><p>Optimal program for spawning:  &ldquo;Chasing the cost function,&rdquo; i.e. What do you minimize when I reach for a pen? Time? Distance?  Ans: third derivative of arm angle (jerk).</p></li>
+
+<li><p>Larva follow an open-loop program vs internal/external feedback?</p></li>
+
+<li><p>Chemotaxis, thermostats, integral control.  simple, robust.  (what&rsquo;s the optimal control problem it solves?)</p></li>
+</ul>
+
+<p>Sensitivity Analysis: to - model behavior, cost function, shadow prices (constraint).</p>
+
+<p>Model accuracy: is adaptation necessary?  Transfer function example:</p>
+
+<p>Consider</p>
+
+<p>$$ \tau \frac{dx}{dt} = - x + k u $$</p>
+
+<p>Taking Laplace transform we get transfer eqn:</p>
+
+<p>$$ \frac{x}{u} = \frac{K}{\tau s + 1} $$</p>
+
+<p>Then roots of denominator are the eigenvalues. More <a href="http://en.wikipedia.org/wiki/Transfer_function">here</a>.  Analyze with <a href="http://en.wikipedia.org/wiki/Bode_plot">Bode plots</a>: note that Frank&rsquo;s examples are similar in the part where you want control to be fast.</p>
+
+<p>An engineer&rsquo;s approach to adaptive control grab-box:</p>
+
+<ul>
+<li><p>Gain Scheduling</p></li>
+
+<li><p>Model-Reference Adaptive Control</p></li>
+
+<li><p>Self-Tuning (sorta suboptimal dual control)</p></li>
+
+<li><p>Dual Control (active adaptive &ndash; i.e. probe)</p></li>
+</ul>
+
+<p>Paul: how does this inform our model complexity discussion?  Model complexity needed to achieve predictive power may exceed that needed to achieve the control power.</p>
+
+<p>R = M S, data is model operator on parameters.</p>
+
+<ul>
+<li><p>Control problem: $ S = M ^{-1} R $</p></li>
+
+<li><p>Identification of model form: M?</p></li>
+
+<li><p>Simulation: R?</p></li>
+</ul>
+
+<p>Models are always wrong at high frequency (noise), and irrelevant at low frequency.  All that matters is the right frequency.  Timescales!  e.g. thermostat doesn&rsquo;t care about days, doesn&rsquo;t care about seconds.</p>
+
+<p>Process-based sampling?  Sampling a timescale/spatial scale of what you know about system.</p>
+
+<p>Frank: recall crazy amazing thing in chemotaxis (e. coli story) is sensitivity over 10^4 ranges by resetting its bandwidth.</p>
+
+<p>My brainstorm on emerging key ideas:</p>
+
+<ul>
+<li><p>Control at the right frequency (isn&rsquo;t predictive power).</p></li>
+
+<li><p>PDG control &ndash; because optimal solution requires too freq intervention.  because infrequent intervention implies nonlinear regime.</p></li>
+</ul>
+
+<h4 id="problem-i-breakout">Problem I breakout:</h4>
+
+<p>1) state variables &gt; controls.</p>
+
+<p>Examples: Age structured fishery.  Eradicate a subset of species with single control. Active adaptive management.  Effort becomes state (i.e. control is tax).</p>
+
+<p>Result isn&rsquo;t always pulsing/chattering, but different dynamics.  When is not relevant?  (Note: variables = controls gets chattering by convexity.  non-chattering solutions of state variable &gt; control).</p>
+
+<p>Sub in the dynamics, not at the equilbrium.  (Kellner et al. Fast-slow timescale of open access).</p>
+
+<p>Convexity condition.  two state, one control.  One fast state:</p>
+
+<p>$$ \dot x = F(x, y, h) $$</p>
+
+<p>$$ \dot y = G (x,y) $$</p>
+
+<p>$\dot y = 0 $ fast time scale.  how about y periodic?</p>
+
+<p>Plug into $ \dot x $ eqn.  So 1 state, 1 control:</p>
+
+<p>$ \dot x = F(x, \hat G(x), h) $</p>
+
+<p>Have engineers solved the convexity problem?  How do they do the two-floor chattering problem.</p>
+
+<p>Numerics: can they capture chattering?  Discrete time, they can in long-term.  Is chattering impossible to represent in polynomial function <a href="http://en.wikipedia.org/wiki/Collocation_method">collocation</a>.</p>
+
+<p>Two controls, becoming one control $ d(h_1, h_2 ) &lt; \epsilon $</p>
+
+<p>Jim&rsquo;s conjecture: Chattering is always the case, but always at the noise, when state variables exceed control.</p>
+
+<p>Performance between low-dimensional and high dimensional .</p>
+
+<p>Franz Wirl&rsquo;s papers: steady state is stable limit cycle.</p>
+
+<p>TASK: Continue work on model formulation/analysis
+12:00 Lunch at NIMBioS</p>
+
+<h4 id="training-problem-iii-summary-from-morning-break-out">Training Problem III summary from morning break-out:</h4>
+
+<p>Consider when synchronized spawning is optimal.</p>
+
+<p>Noise  enhanced performance. Geometric mean/arthmetic mean (random mover bet-hedges better).</p>
+
+<p>&ldquo;We believe in markets.  The ones that are sloppy don&rsquo;t exist any more.&rdquo;</p>
+
+<h4 id="training-problem-i-morning-breakout-report">Training Problem I morning breakout report:</h4>
+
+<p>General feedback.  Need glossary of terms (TREE review)</p>
+
+<p>Do we want to exemplify differences between PDG and optimal, or just pursue unanswered control questions.</p>
+
+<p>(1) state var &gt; control vars.</p>
+
+<p>Sufficient from the deterministic dynamics.</p>
+
+<p>3 conjectures: (A) chattering always comes up when state var &gt; control var.  (B) Chattering is always only as large as the noise. &copy; Numerics.</p>
+
+<p>Alan&rsquo;s convexity conjecture: Can we collapse into the objective function in chattering examples and show convexity.  Must substitute in the dynamics, not the equilibrium.  (prove chattering is better by subbing in periodic solutions).</p>
+
+<p>(2) adjustment costs: decided this is motivated by (4) empirical differences</p>
+
+<p>Postulate: more relevant when stochastics.</p>
+
+<h4 id="training-problem-ii-morning-breakout-report">Training Problem II morning breakout report:</h4>
+
+<p>Parrotfish problem</p>
+
+<p>Stochastic or uncertain</p>
+
+<p>shocks</p>
+
+<p>adjusting fishing</p>
+
+<p>unknown system state</p>
+
+<p>1:00 Training Problem Groups, shuffling expertise as needed
+TASK: Continue work on model formulation/analysis
+3:00 Break
+3:15 Training Problem Groups
+TASK: Develop plan of work going forward: task assignments, writing assignments
+5:30 Walk to town for dinner
+7:00 Optional Activity (TBA)</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-09-14 14:54:29 &#43;0000 UTC" itemprop="datePublished">
+      Wed, Sep 14, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/pdg-control">pdg-control</a
+    >, 
+    
+    <a href="../../../tags/pdg-control">pdg-control</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2011/09/14/training-problem-ii.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2011/09/13/2588.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-09-14-nimbios-pdg-control-wednesday.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-09-14-nimbios-pdg-control-wednesday.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2011\/09\/14\/nimbios-pdg-control-wednesday.html';
+    var disqus_title = 'pdg-control pdg-control: Wednesday';
+    var disqus_url = '\/2011\/09\/14\/nimbios-pdg-control-wednesday.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

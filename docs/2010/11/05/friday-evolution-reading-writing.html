@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2010/11/05/friday-evolution-reading-writing.html">
+
+
+  <title>Friday: Evolution reading, writing | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Friday: Evolution reading, writing</h1> 
+      
+    
+
+<p>Read through the article for Monday&rsquo;s PBG270, <a href="http://www.ncbi.nlm.nih.gov/pubmed/20090752">a 2009 Nature paper </a>from the Plotkin lab on mutational robustness and the rate of evolution.  They consider an interesting little setup.  Start with a Moran model (individual born, may mutate, choses who to replace at random), but allow the following mutational structure (landscape).  Of P possible genotypes, each can only move to one of K neighbors by a single mutation.  Call the genotype(s) of optimal fitness C.  Call all those genotypes that have C as a neighbor (can reach in one mutation) B.  All other genotypes that have the same phenotype as B but different K neighbors genotype A.  q is the probability that the mutation changes the genotype but not the phenotype; a measure of robustness.</p>
+
+<p>I sketch out the possible outcomes described in the paper, to get a sense of why intermediate values of K/P are optimal.</p>
+
+<p><img src="http://farm5.static.flickr.com/4011/5149250606_fbda9c83be_b.jpg" alt="" /></p>
+
+<p>Some things just need a white board.  Group discussion on paper Monday.</p>
+
+<h3 id="phylogenetics-reading">Phylogenetics Reading</h3>
+
+<p>Our Friday Phylogenetics discussion group is converging more and more with Wednesday Monte Carlo with Bruce Rannala.  Last week Weds we discussed with Rannala we focused on species tree with the example from BEST:
+﻿Liu, L. et al. <em>Coalescent methods for estimating phylogenetic trees. Molecular phylogenetics and evolution</em> 53, 320-8(2009).</p>
+
+<p>And that Friday in PDG discussed their eariler paper, where BEST relied on running Mr Bayes separately first,
+﻿Edwards, S.V., Liu, L. &amp; Pearl, D.K. <em>High-resolution species trees without concatenation.</em> Proceedings of the National Academy of Sciences of the United States of America 104, 5936-41(2007).</p>
+
+<p>This week we moved in Rannala Monte Carlo we ventured into horizontal gene transfer with
+﻿Linz, S., Radtke, A. &amp; Haeseler, A. von <em>A likelihood framework to measure horizontal gene transfer.</em> Molecular biology and evolution 24, 1312-9(2007).</p>
+
+<p>and continued in PDG along the species-tree literature with the improved performance of star-beast:
+﻿Heled, J. &amp; Drummond, A.J. B_ayesian inference of species trees from multilocus data. _Molecular biology and evolution 27, 570-80(2010).</p>
+
+<p>Monte Carlo will continue with the BUCKy paper</p>
+
+<p>﻿1. Ané, C. et al. Bayesian estimation of concordance among gene trees. Molecular biology and evolution 24, 412-26(2007).</p>
+
+<p>Seems the software announcement has paper has only just come out in PLoS Comp. Bio this week? :</p>
+
+<ol>
+<li>Larget, B.R. et al. BUCKy: Gene tree/species tree reconciliation with Bayesian concordance analysis. PLoS computational biology 26, 2910-2911(2010).﻿</li>
+</ol>
+
+<p>In the Wainwright lunch today we also touched upon the recent Sys Biol papers, primarily in reference to diversification rates﻿﻿,
+﻿1. Rabosky, D.L. Primary Controls on Species Richness in Higher Taxa. Systematic biology 59, 634-645(2010).
+2. Rabosky, D.L. &amp; Alfaro, M.E. Evolutionary Bangs and Whimpers: Methodological Advances and Conceptual Frameworks for Studying Exceptional Diversification. Systematic biology 59, 615-618(2010).
+3. Fitzjohn, R.G. Quantitative Traits and Diversification. Systematic biology 59, 619-633(2010).</p>
+
+<p>Most of my notes on the articles are filed with the actual pdfs through Mendeley.  Writing here gives me a freedom to interweave how the narrative behind how the papers find my way into my library though.  Still figuring out documenting workflow around literature and talks.</p>
+
+<p>Too many meetings, not enough writing&hellip;</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2010-11-05 18:21:35 &#43;0000 UTC" itemprop="datePublished">
+      Fri, Nov 5, 2010
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/open-science">open-science</a
+    >, 
+    
+    <a href="../../../categories/evolution">evolution</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2010/11/08/welcome-to-my-lab-notebook.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2010/11/05/thursday.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2010-11-05-friday-evolution-reading-writing.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/2785abfe840b0094f2f939c64e6647ff25f766c8/content/lab-notebook/2010-11-05-friday-evolution-reading-writing.md">2785abf</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2010\/11\/05\/friday-evolution-reading-writing.html';
+    var disqus_title = 'Friday: Evolution reading, writing';
+    var disqus_url = '\/2010\/11\/05\/friday-evolution-reading-writing.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

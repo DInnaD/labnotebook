@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2011/07/05/tuesday-warning-signals-data-wrangling.html">
+
+
+  <title>Tuesday: Warning Signals Data Wrangling | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Tuesday: Warning Signals Data Wrangling</h1> 
+      
+    
+
+<ul>
+<li>Revise abstract. 10a-11a. done.</li>
+</ul>
+
+<h2 id="misc-data-handling">Misc data handling</h2>
+
+<p>11-1pm</p>
+
+<ul>
+<li>wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing.</li>
+<li>wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.</li>
+</ul>
+
+<p><img src="http://farm7.staticflickr.com/6047/5906246040_f65e971841_o.png" alt="" /></p>
+
+<ul>
+<li>locale troubles on install lead to errors in data read</li>
+</ul>
+
+<pre><code class="language-bash">Error in make.names(col.names, unique = TRUE) :
+invalid multibyte string 2
+ERROR: installing package indices failed
+
+</code></pre>
+
+<ul>
+<li>fixed by running in terminal or adding to .bashrc:</li>
+</ul>
+
+<pre><code class="language-bash">export LANG=C
+</code></pre>
+
+<ul>
+<li>and now my site is down. shoot.</li>
+</ul>
+
+<h2 id="data-wrangling">Data wrangling:</h2>
+
+<h4 id="ibm-critical">ibm critical</h4>
+
+<ul>
+<li>Ind. based model, deteriorating stability.</li>
+</ul>
+
+<p><img src="http://farm6.staticflickr.com/5232/5895991499_bd8fd0375d_o.png" alt="" /></p>
+
+<ul>
+<li>Data simulated with demo/ibm_sims.R, datafile stored in data/ibms.rda. Not handling seeds at the moment so individual simulations will differ. Instead, storing consistent data files from the simulations</li>
+<li>Complete runs at original sampling and resampled at 25, 50, 100, 200, 500 datapoints for all summary statistics and likelihood.</li>
+</ul>
+
+<h4 id="daphnia-h6">Daphnia H6</h4>
+
+<p>H6 Daphnia dataset from data/drake.rda, drake_deterior$H6 dataset.</p>
+
+<p><img src="http://farm6.staticflickr.com/5035/5890668068_d596f2ffc9_o.png" alt="" /></p>
+
+<p>Complete runs at original sampling and resampled at 25, 50, 100, 200, 500 datapoints for all summary statistics and likelihood.</p>
+
+<p>Run using LSN model, should be rerun using LTC model.  Now running on c0-8.</p>
+
+<p>Strongest signal is from the I9 dataset:</p>
+
+<p><img src="http://farm6.staticflickr.com/5280/5906008839_0b57cd2edb_o.png" alt="" /></p>
+
+<pre><code class="language-r">      G10.m         G6.m         G7.m         G8.m         G9.m        H10.m 
+  -1.1013887    0.9141734   -0.8813874    0.3885321    1.0958326   -1.5147485 
+        H6.m         H8.m        I10.m         I6.m         I7.m         I8.m 
+  -3.0649959   -0.5079393    0.5239186   -2.5343564   -0.9253477   -3.4916514 
+        I9.m        J10.m         J6.m         J7.m         J8.m         J9.m 
+-225.4806438   -0.2427629    1.1574219   -4.6880847    0.8195433   -1.0447987 
+        K6.m         K7.m         K8.m         K9.m        L10.m         L6.m 
+   0.1488124    0.6807473    1.7837302   -0.8710619    1.0900158    0.2059365 
+        L7.m         L8.m         L9.m        H72.m        H92.m       K102.m 
+   0.4682649    1.3032260    0.7171783    0.1463689    0.1516157    1.9654239 
+</code></pre>
+
+<p>trying the I9 dataset on c0-23</p>
+
+<h4 id="deut3">Deut3</h4>
+
+<p>Deterium levels from Glaciation III
+Original data run on all indicators:</p>
+
+<p><img src="http://farm7.staticflickr.com/6013/5904550426_4477bc6ab6_o.png" alt="" /></p>
+
+<p>Sampling at 25,50,100,200,500 run for the likelihood approach (in same datafile as original runs). Need to debug runs on the indicator statistics.</p>
+
+<p>Sampling at fractional percentages for likelihood also available:
+<img src="http://farm7.staticflickr.com/6033/5882379649_27b6c9f59f_o.png" alt="" /></p>
+
+<h4 id="ibm-stable">ibm stable</h4>
+
+<p>Not run yet.  Consider estimating with bounded $m&lt;0$ for destabilizing test only.</p>
+
+<h4 id="deut1">Deut1</h4>
+
+<p>Deuterium levels from Glaciation I, data/deuterium.rda, deuterium[[1]] dataset.
+Original dataset on all indicators:</p>
+
+<p><img src="http://farm6.staticflickr.com/5279/5888212714_dcd7575fec_o.png" alt="" /></p>
+
+<p>nearby also some sampling at different efforts for likelihood method.</p>
+
+<p>Potential alternate datasets:</p>
+
+<h4 id="caco3">CaCO3</h4>
+
+<ul>
+<li>very preliminary analysis:</li>
+</ul>
+
+<p><img src="http://farm4.staticflickr.com/3113/5864510263_5c1cb8c1ed_o.png" alt="" /></p>
+
+<ul>
+<li>Running at sampling levels 25,50,100,200,500 on c0-2.farm</li>
+</ul>
+
+<h2 id="data-trouble-shooting">Data trouble-shooting</h2>
+
+<p>Discovered window was not being adjusted during the increased sampling comparisons for the summary statistics.  (threw an error when full time length was less than the windowsize (half the length of the original data).</p>
+
+<p>Could have potentially significant impact on results.  Now fixed, though needs testing to make sure it is using the correct windowsize each time.  Rerunning code looks not to make a difference: i.e. for the ibm model summary stats show improvement with increased sampling in this range, while in the deut example they do not.  Not surprising, as earlier examples (pre-correction) needed substantially higher multiples (10, 20 times the original data length, already in 100s) to show improvement.</p>
+
+<p>Time series up to 2000 still show no sign of improvement for other statistics:
+<img src="http://farm6.staticflickr.com/5240/5907097898_2b0a91f028_o.png" alt="" /></p>
+
+<p>maybe going to have to go back to multiplication factor rather than fixed number.   Now running at up to 20,000 pts (deut_replot.R, zero, n5).  also now running different windowsizes explicitly as part of test in deut_analysis.R (zero, n10).</p>
+
+<h2 id="get-preliminary-figures">Get preliminary figures</h2>
+
+<p>send main text to Marissa, Marcel for comments</p>
+
+<h2 id="revise-appendix">Revise Appendix</h2>
+
+<h2 id="notebook">Notebook</h2>
+
+<p>post pending drafts.</p>
+
+<h2 id="code-vignette-and-cleanup">Code vignette and cleanup</h2>
+
+<p>Postponed till later</p>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-07-05 17:45:53 &#43;0000 UTC" itemprop="datePublished">
+      Tue, Jul 5, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/warning-signals">warning-signals</a
+    >, 
+    
+    <a href="../../../tags/delayed-release">delayed-release</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2011/07/06/wednesday-data-wrangling-into-graphs.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2011/07/04/open-f1000-reviews.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-07-05-tuesday-6.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-07-05-tuesday-6.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2011\/07\/05\/tuesday-warning-signals-data-wrangling.html';
+    var disqus_title = 'Tuesday: Warning Signals Data Wrangling';
+    var disqus_url = '\/2011\/07\/05\/tuesday-warning-signals-data-wrangling.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

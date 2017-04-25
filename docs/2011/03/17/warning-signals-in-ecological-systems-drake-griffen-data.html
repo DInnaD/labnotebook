@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2011/03/17/warning-signals-in-ecological-systems-drake-griffen-data.html">
+
+
+  <title>Warning Signals in Ecological Systems: Revisions and Drake &amp; Griffen Data | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Warning Signals in Ecological Systems: Revisions and Drake &amp; Griffen Data</h1> 
+      
+    
+
+<h2 id="manuscript-revisions">Manuscript revisions</h2>
+
+<ul>
+<li>Heard back from Alan this morning on manuscript, need to cut wordcount in half, from 3000 to 1500 words.</li>
+<li>Should emphasize the countless and utterly arbitrary choices made in every one of these analyses.</li>
+<li>Should emphasize our approach can be applied without replicates.  (also without interpolating/having evenly sampled data)</li>
+<li>Should do coefficient of variation on non-detrended data(?)  should discuss?</li>
+</ul>
+
+<h2 id="chemostat-data">Chemostat data</h2>
+
+<p>This morning Alan sent me the data used by Drake &amp; Griffen (Drake &amp; Griffen, 2010).  Step one: reread Drake &amp; Griffen.</p>
+
+<h3 id="notes-on-reading">Notes on reading</h3>
+
+<ul>
+<li>Based on hypothesized transcritical bifurcation.  Data does not show the pattern expected by transcritical bifurcation though &ndash; mean should stay constant as the value of r changes in the logistic model, and yet they emphasize finding a change in this as if that is expected (i.e. Figure 1b inset).  And then they decide not to detrend.  Meanwhile Scheffer paper uses saddle-node example in which the mean should change and they assume it should not, and do detrend.   All backwards.</li>
+<li>Main article uses only ensemble data over 30 deteriorating environment and 30 from the control group.</li>
+<li>Note they also use a composite index &ndash; despite the fact that everything except CV is wrong more often then it is right (see supplement)</li>
+<li>Detrending subtracts a loess smooth instead of kernel smoothing.  They use the raw (non-detrended data) after showing it has a better classification rate.  Ok for a &ldquo;best case&rdquo; test, but rather poor statistical form to pick whatever method gets the highest &ldquo;correct&rdquo; rate.</li>
+<li><em>So how do the classify a warning signal?</em> They start deteriorating the environment after some time interval into the experiment (to remove transients).  They estimate the likely point of the bifurcation (without any treatment of uncertainty).  They calculate the warning signal over this interval of 16 data points, then take &ldquo;any increase or local maximum&rdquo; in this window.  (sliding window size of 8 points).</li>
+</ul>
+
+<h4 id="from-the-supplement">From the supplement</h4>
+
+<p>Table A1 shows false positive and false negative rates on the individual runs after classification. Almost all individual runs are classified as no-warning.  CV has a 2:3 chance of catching the warning signals in the collapsing group, other stats do worse than random.</p>
+
+<h3 id="replicating-results">Replicating Results</h3>
+
+<p>All results can be rerun, generating the plots again, by executing main.R.  Caution, produces too many plot windows and errors.</p>
+
+<p>Open main.R, run the library loads, source preprocess.R and ensembles.R</p>
+
+<h3 id="reanalysis-independently-exploring-data">Reanalysis: Independently exploring data</h3>
+
+<p>Applying my methods to a single replicate from a warning signals example: (<a href="https://github.com/cboettig/private/commit/fc52893e97de7013f0810692c717ffa97e3cc64c">see code</a>)</p>
+
+<pre><code class="language-r">    id &lt;- det.set$ID[1]
+      w&lt;-8   #size of moving window in terms of sampling periods
+      pop&lt;-data.frame(day=populations$day[populations$ID==id],x=populations$x[populations$ID==id])
+      pop&lt;-pop[order(pop$day),]
+    
+    interval &lt;- pop$day &gt; 154 &amp; pop$day &lt; 271
+    X &lt;- pop[interval,]
+</code></pre>
+
+<p><img src="http://farm6.static.flickr.com/5176/5535292129_d5bce24322_o.png" alt="" /></p>
+
+<p><img src="http://farm6.static.flickr.com/5219/5535642555_b095cc981c_o.png" alt="" /></p>
+
+<p><img src="http://farm6.static.flickr.com/5178/5535302309_6bf8e9db4d_o.png" alt="" /></p>
+
+<p>No real hope of detecting a warning signal in this example.  Applying my method to the ensemble average data, need to group first by day &ndash; will have to figure out how to do this, differs in syntax between methods, i.e.,</p>
+
+<pre><code class="language-r">    cv.det&lt;-aggregate(timeseries$y[timeseries$Deteriorating==1],by=list(day=timeseries$day[timeseries$Deteriorating==1]),cv)
+    ## while skew requires a bit more prep
+    det.set&lt;-data.frame(ID=unique(timeseries$ID2[timeseries$Deteriorating==1]),deteriorating=1)
+    const.set&lt;-data.frame(ID=unique(timeseries$ID2[timeseries$Deteriorating==0]),deteriorating=0)
+    deteriorating&lt;-rbind(det.set,const.set)
+    populations&lt;-merge(populations,deteriorating)
+    skew.const&lt;-aggregate(populations$x[populations$deteriorating==0],by=list(day=populations$day[populations$deteriorating==0]),skewness)
+</code></pre>
+
+<p>Note uses skewness from the package &ldquo;moments,&rdquo; perhaps a better choice than the moments from the psych package.</p>
+
+<h4 id="handling-ensembles-properly">Handling Ensembles properly</h4>
+
+<p>Having ensemble data, particularly form a test group and control group, provides some unique opportunities.</p>
+
+<ol>
+<li><p>I can draw from these directly, rather than from simulated data, to perform the parametric bootstrap of likelihood-based model fits to illustrate how distinct the data really are relative to their MLE estimates.</p></li>
+
+<li><p>I can integrate the approach over datasets: treating each replicate as individual and performing fits, simulation, and posterior re-estimation for model comparisons.</p></li>
+</ol>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li>Drake J and Griffen B (2010). &ldquo;Early Warning Signals of Extinction in Deteriorating Environments.&rdquo;, <em>Nature</em>. <a href="http://dx.doi.org/10.1038/nature09389">http://dx.doi.org/10.1038/nature09389</a>.</li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-03-17 09:59:18 &#43;0000 UTC" itemprop="datePublished">
+      Thu, Mar 17, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/ecology">ecology</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  
+  
+  <span class="article-tags">
+    <i class="fa fa-tags"></i>
+    
+    <a href="../../../tags/warning-signals">warning-signals</a
+    >, 
+    
+    <a href="../../../tags/delayed-release">delayed-release</a
+    >
+    
+  </span>
+  
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2011/03/18/sams-practice-talk.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2011/03/16/wednesday.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-03-17-warning-signals-in-ecological-systems-drake-griffen-data.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-03-17-warning-signals-in-ecological-systems-drake-griffen-data.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2011\/03\/17\/warning-signals-in-ecological-systems-drake-griffen-data.html';
+    var disqus_title = 'Warning Signals in Ecological Systems: Revisions and Drake \x26 Griffen Data';
+    var disqus_url = '\/2011\/03\/17\/warning-signals-in-ecological-systems-drake-griffen-data.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 

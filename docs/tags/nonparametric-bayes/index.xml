@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nonparametric Bayes on Boettiger Group</title>
-    <link>/tags/nonparametric-bayes/</link>
+    <link>/tags/nonparametric-bayes.html</link>
     <description>Recent content in Nonparametric Bayes on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,30 +12,30 @@
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with Steve Munch, Marc Mangel, and Alec MacCall. I will be based primarily at the National Marine Fisheries Service building, here: ` Five fantastic years of graduate school are coming to an end: I will start officially later this fall, where I will
  join an exciting team of ecologists and applied mathematicians who work collaboratively on cutting-edge problems in ecological and evolutionary modeling through the Center for Stock Assessment Research.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Here we work out an SDP solution of the Reed (1979) using a Gaussian process approximation. In this example the Gaussian process hyper-parameters haven&amp;rsquo;t been tuned, so in principle the solution would perform even better, but this is just for illustrative purposes.
 We simulate 40 points under a stochastic growth (lognormal multiplicative noise) Beverton-Holt model and infer the Gaussian process. We start the simulation from a low stock value, giving reasonable but not perfect coverage of the state-space.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Complete IACUC training for fish room. File forms: http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html Online training &amp;ndash; possibly see https://www.citiprogram.org/Default.asp? Shiny: http://www.rstudio.com/shiny/
  Comment piece
  Prep exit seminar
@@ -45,10 +45,10 @@ We simulate 40 points under a stochastic growth (lognormal multiplicative noise)
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y_3, y3) - K(y{1:2}, y3) K(y{1:2}, y_{1:2})^{-1} ) K(y3, y{1:2}) $$
 Is there some scalar $v_2$ such that
 $$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
@@ -57,10 +57,10 @@ e.g. a term like:</description>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
 for the covariance:
 C_seq &amp;lt;- function(X, X_prime, i){ if(i &amp;lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
@@ -69,10 +69,10 @@ mu_seq &amp;lt;- function(X, i){ if(i &amp;lt;= 1) cov(x[i], X) * (y[i]-mu[i]) /
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
 Example call:
 gp &amp;lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&amp;quot;constant&amp;quot;, bprior=&amp;quot;b0&amp;quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&amp;quot;exp&amp;quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&amp;quot;fixed&amp;quot;, tau2.lam=&amp;quot;fixed&amp;quot;)  Verbose return:
@@ -81,10 +81,10 @@ n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed p
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
 Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
 $$K(X, X&amp;rsquo;) = \sigma^2 e^{\frac{(X-X&amp;rsquo;)^2}{d}}$$
@@ -93,19 +93,19 @@ And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
 Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
 Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
@@ -114,20 +114,20 @@ Sensitivity analysis Working through an exploratory sensitivity analysis to see 
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
 I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description> added generation of observational data under varying harvest conditions (issue #19)
  added MLE fit based on the data-generating model (issue #20)
  GP plot with and without nugget variance (issue #17)
@@ -137,10 +137,10 @@ I then developed an algorithm for applying the Gaussian process inference of the
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
  Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
  Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.</description>
@@ -148,39 +148,39 @@ I then developed an algorithm for applying the Gaussian process inference of the
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp;amp; Sailley, (2013) (&amp;ldquo;When an ecological regime shift is really just stochastic noise&amp;rdquo;) on the Di Lorenzo &amp;amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp;amp; Mantua, 2000)).</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>ropensci  rfishbase: 0.1-1 released to CRAN: bugfix updating server address. (Broke updateCache()). See NEWS for details.
  rfigshare: 0.2-4 released to CRAN: added method to remove attached files (issue #42), see NEWS for details  Misc  My reply to John on Prosecutor&amp;rsquo;s Fallacy piece. Thinking about a better way to provide convenient, stable access to code and data. Should provide csv versions of data.table outputs used to create each of the figures.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Applied Math Club meeting (See reading material from Tuesday.
  Start with stable age distribtution (indep of stock-recrutiment) Consider the Entropy of that probability distribution, as function of mortality, by max age Now consider the same for fecundity: the fraction/density of the population von Bertalanffy growth (fecundity) effective mortality rate - mortality rate in an unfished population, distributed with same entropy as the fished population, Kullback-Leibler distance to measure fishing influence?</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
  classical approaches are to fix relationship of stock recruitment.
  parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
@@ -190,40 +190,40 @@ I then developed an algorithm for applying the Gaussian process inference of the
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>(Working from Galveston this week while at Louise&amp;rsquo;s conference, looking after little one. some progress below.)
 Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&amp;rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
   Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>pomp Exploring pomp for examples tomorrow. See pomp-example
  To access help on S4 methods  print method source code: getMethod(&amp;quot;simulate&amp;quot;, &amp;quot;pomp&amp;quot;) access help file on available methods: method?show(&amp;quot;pomp&amp;quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>nonparametric-bayes writing writing &amp;hellip;
 multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
  multiple-uncertainty.m example  Compare to
@@ -233,20 +233,20 @@ Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
  More fishery managment controversy with Halpern et. al. (2013) critiquing the &amp;lsquo;ocean food provision index&amp;rsquo; from Nature last year, and a subset of that team replying Halpern et. al.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>See also:
  http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html  Example with fixed priors on hyperparameters, fixed model type.
 #inv gamma has mean b / (a - 1) (assuming a&amp;gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&amp;gt;2) s2.p &amp;lt;- c(5,5) tau2.p &amp;lt;- c(5,1) d.p = c(10, 1/0.1, 10, 1/0.1) nug.p = c(10, 1/0.1, 10, 1/0.1) # gamma mean s2_prior &amp;lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &amp;lt;- function(x) dinvgamma(x, tau2.</description>
@@ -254,19 +254,19 @@ Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>As discussed with Marc in yesterday&amp;rsquo;s meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a parametric Bayesian case, e.g. with the correct underlying model. This is implemented in BUGS (jags) through the R interface as described in Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013).</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description> class=&#34;task-list&#34; TE revisions [x] PRSB reply
  [x] Finish bayes parametric example
  [x] Ideas in Ecology &amp;amp; Evolution Review
@@ -281,10 +281,10 @@ Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
  pmc functions
   hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&amp;rsquo;t lend itself to updating any one of those arguments.</description>
@@ -292,20 +292,20 @@ Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
 f_transition_matrix &amp;lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &amp;lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &amp;lt;- dim(pardist) indices &amp;lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &amp;lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &amp;lt;- sapply(indices, function(i){ # For each parameter value p &amp;lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &amp;lt;- f(x_t,h,p) est_sigma_g &amp;lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &amp;lt; x_grid[2]){ # handle the degenerate case out &amp;lt;- numeric(length(x_grid)) out[1] &amp;lt;- 1 out } else { out &amp;lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &amp;lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &amp;lt;- t(F_true) } snap_to_grid &amp;lt;- function(x, grid) sapply(x, function(x) grid[which.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>finish pmc post from Tuesday (done).
  Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
  Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,</description>
@@ -313,10 +313,10 @@ f_transition_matrix &amp;lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ 
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Implemented in BUGS/allen.md
 Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
  Oh, Jeromy Anglim has a rather nice collection of jags links
@@ -325,20 +325,20 @@ Inverse gamma priors on variances 36888da Uniform prior on standard deviations 7
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>(Development version for reference; code functions now in R/gp_mcmc.R)
 Function definitions library(mcmc) #&#39; Basic regression in Gaussian processes #&#39; #&#39; #&#39; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&#39; @param y Vector of observed y values in the training data #&#39; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&#39; @param n iterations of the metropolis algorithm #&#39; @details Currently assumes the covariance function.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Added integration over the posterior distribution of the GP
  Added example of parametric Bayesian inference based on Ricker
   Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &amp;lsquo;master&amp;rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &amp;lsquo;master&amp;rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.</description>
@@ -346,19 +346,19 @@ Function definitions library(mcmc) #&#39; Basic regression in Gaussian processes
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &amp;ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&amp;rsquo;s nice to be officially in a department that understands tex.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
 One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
 opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.</description>
@@ -366,10 +366,10 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Nonparametric-bayes  Establishing chunck dependencies, simplifying and abstracting code.
  still need to fix up Allen MCMC convergence when underlying model is Myers 10:18 am 2013/05/22
  replicate runs on data from allen and myers model 08:39 pm 2013/05/21
@@ -379,10 +379,10 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
  Some edits to adapt the extraction of posteriors from the multiple chains.
  Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
@@ -392,38 +392,38 @@ module load gcc R jags  This appears to result in greater uncertainty:</descript
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&amp;rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
 Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&amp;rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
  fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
  slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.</description>
@@ -431,10 +431,10 @@ Setup my sample problem First we define the Beverton-Holt stock-recruitment rela
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
  These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
 Model and parameters f &amp;lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &amp;lt;- c(1, 10, 5) K &amp;lt;- 10 # approx, a li&#39;l&#39; less Xo &amp;lt;- 6 # approx, a li&#39;l&#39; less  Various parameters defining noise dynamics, grid, and policy costs.</description>
@@ -442,10 +442,10 @@ Model and parameters f &amp;lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) *
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Consider the model
 $$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
 with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
@@ -455,10 +455,10 @@ To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&am
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
 require(modeest) posterior.mode &amp;lt;- function(x) { mlv(x, method=&amp;quot;shorth&amp;quot;)$M }  Model and parameters Uses the model derived in citet(&amp;quot;10.1080/10236190412331335373&amp;quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
 f &amp;lt;- RickerAllee p &amp;lt;- c(2, 8, 5) K &amp;lt;- 10 # approx, a li&#39;l&#39; less allee &amp;lt;- 5 # approx, a li&#39;l&#39; less  Various parameters defining noise dynamics, grid, and policy costs.</description>
@@ -466,19 +466,19 @@ f &amp;lt;- RickerAllee p &amp;lt;- c(2, 8, 5) K &amp;lt;- 10 # approx, a li&#39
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&amp;hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Trying to find a better way to summarize outputs of simulations,
 Heavy over-plotting makes the simulation trajectories themselves hard to read, even with transparent curves. Instead, we can plot the cumulative profit (technically should be discounted first):
 We can normalize these profits as a fraction of the theoretical optimum (true), providing a comparison that is less dependent on model parameters.
@@ -487,29 +487,29 @@ We can then attempt to plot these on a single plot, either as stacked histograms
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>If you do know the model and are simply uncertain about the parameters, you can often do all right (e.g. better than maximum likelihood approach) by doing the SDP over the Bayesian posterior distribution of the estimated model. Not surprisingly, if you don&amp;rsquo;t have the correct model, this can fail pretty dramatically (in particular in very nonlinear models, e.g. tipping point models I have been looking at). Model choice and model averaging approaches aren&amp;rsquo;t much help here, because often the structurally correct model doesn&amp;rsquo;t fit the observed data any better &amp;ndash; since the problems occur due to model inaccuracies where we don&amp;rsquo;t have data; e.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
  9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Remote RStudio configuration (keep forgetting options and ports).
 ssh -o &amp;quot;ExitOnForwardFailure yes&amp;quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
  sensitivity.md (Myers) sensitivity-allen.md  Overall:
@@ -519,19 +519,19 @@ ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=a
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>Guess it&amp;rsquo;s that time of year again. Just saw the reminder for this year&amp;rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &amp;ldquo;Mathematical Biology&amp;rdquo; track through last year&amp;rsquo;s call, I have received a few requests for materials and advice. I&amp;rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&amp;rsquo;ll give it a shot.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&amp;hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
   Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
  code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.</description>
@@ -539,29 +539,29 @@ ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=a
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>writing manuscript slides data request to Glaser.
   gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &amp;ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&amp;rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp;amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp;amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/1/01/01/</link>
+      <link>/1/01/01.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/</guid>
+      <guid>/1/01/01.html</guid>
       <description>RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
  Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&amp;rsquo;t have to wrap some C library myself&amp;hellip;  nonparametric-bayes Writing writing.
  Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.</description>
@@ -569,10 +569,10 @@ ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=a
     
     <item>
       <title>A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</title>
-      <link>/1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach/</link>
+      <link>/1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach/</guid>
+      <guid>/1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach.html</guid>
       <description>Load necessary libraries,
 library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
 library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.</description>
@@ -580,20 +580,20 @@ library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = F
     
     <item>
       <title>Collected notes from past few days</title>
-      <link>/1/01/01/collected-notes-from-past-few-days/</link>
+      <link>/1/01/01/collected-notes-from-past-few-days.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/collected-notes-from-past-few-days/</guid>
+      <guid>/1/01/01/collected-notes-from-past-few-days.html</guid>
       <description>Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
  ropensci reviewing Note: annoying feature of knitr&amp;rsquo;s purl: appears to generate valid &amp;ldquo;external&amp;rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.</description>
     </item>
     
     <item>
       <title>Difficulties with tgp; taking custom mcmc approach for GPs</title>
-      <link>/1/01/01/difficulties-with-tgp-taking-custom-mcmc-approach-for-gps/</link>
+      <link>/1/01/01/difficulties-with-tgp-taking-custom-mcmc-approach-for-gps.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/difficulties-with-tgp-taking-custom-mcmc-approach-for-gps/</guid>
+      <guid>/1/01/01/difficulties-with-tgp-taking-custom-mcmc-approach-for-gps.html</guid>
       <description>Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
 Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
   Define some example priors
@@ -602,10 +602,10 @@ lpriors &amp;lt;- function(pars){ d.p &amp;lt;- c(5, 5) s2.p &amp;lt;- c(5, 5) p
     
     <item>
       <title>Gaussian processes</title>
-      <link>/1/01/01/gaussian-processes/</link>
+      <link>/1/01/01/gaussian-processes.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/gaussian-processes/</guid>
+      <guid>/1/01/01/gaussian-processes.html</guid>
       <description>Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
  Will also want to look into basis approximations for SDP acceleration.
   Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp;amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp;amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines</description>
@@ -613,39 +613,39 @@ lpriors &amp;lt;- function(pars){ d.p &amp;lt;- c(5, 5) s2.p &amp;lt;- c(5, 5) p
     
     <item>
       <title>Prep for ERE talk</title>
-      <link>/1/01/01/prep-for-ere-talk/</link>
+      <link>/1/01/01/prep-for-ere-talk.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/prep-for-ere-talk/</guid>
+      <guid>/1/01/01/prep-for-ere-talk.html</guid>
       <description>Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &amp;ldquo;True&amp;rdquo; and &amp;ldquo;Ricker&amp;rdquo; models, dt[J(c(&amp;quot;True&amp;quot;, &amp;quot;Ricker&amp;quot;), as.</description>
     </item>
     
     <item>
       <title>Reading and potential examples for talk to ERE next week</title>
-      <link>/1/01/01/reading-and-potential-examples-for-talk-to-ere-next-week/</link>
+      <link>/1/01/01/reading-and-potential-examples-for-talk-to-ere-next-week.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/reading-and-potential-examples-for-talk-to-ere-next-week/</guid>
+      <guid>/1/01/01/reading-and-potential-examples-for-talk-to-ere-next-week.html</guid>
       <description>Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
  As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp;amp; Precht (2000) Fish collapse following reef distruction Paddack et al.</description>
     </item>
     
     <item>
       <title>early results in nonparametric-bayes approaches to optimal policy</title>
-      <link>/1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy/</link>
+      <link>/1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy/</guid>
+      <guid>/1/01/01/early-results-in-nonparametric-bayes-approaches-to-optimal-policy.html</guid>
       <description>Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
 Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?</description>
     </item>
     
     <item>
       <title>nonparametric-bayes: framing the issues for the manuscript</title>
-      <link>/1/01/01/nonparametric-bayes-framing-the-issues-for-the-manuscript/</link>
+      <link>/1/01/01/nonparametric-bayes-framing-the-issues-for-the-manuscript.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/1/01/01/nonparametric-bayes-framing-the-issues-for-the-manuscript/</guid>
+      <guid>/1/01/01/nonparametric-bayes-framing-the-issues-for-the-manuscript.html</guid>
       <description>Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
  Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&amp;rsquo;s suggestion.</description>
     </item>

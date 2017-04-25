@@ -133,9 +133,57 @@
     <article>
     
       
-    <p>Repo files are 21Mb (zipped).
-Most of this is in <code>assets/files</code> (31 MB, mostly large pdfs including pubs), though <code>_posts</code> is 14 Mb.
-<code>.git</code>, by comparison, is 237 Mb.</p>
+    <!--
+Should probably flush this out more into a 'what I want from CI' style post.
+-->
+
+<p>A good question from Hilmar on why we&rsquo;re using Drone CI in RNeXML development.</p>
+
+<p>Short answer: Easy to use custom docker images for Drone. Note how much
+shorter our .drone.yml is.  We actually still use Travis to test the
+package, while Drone CI is just testing the manuscript/supplement builds</p>
+
+<p>Longer answer:</p>
+
+<p>I think it&rsquo;s a standing irony of the reproducible research toolkit
+we have in place here that the required software environment for the
+knitr/pandoc/latex pipeline is substantially more intensive than what
+is required merely to run the code examples. In particular, Travis&rsquo;s
+Ubuntu 12.04 doesn&rsquo;t come with the right version of pandoc, and as you
+know a LaTeX environment can get pretty large and pretty complicated. To
+make matters worse, we a handful of packages that aren&rsquo;t on CRAN yet
+(or have been removed from CRAN recently) to handle some of the &lsquo;bonus&rsquo;
+features we show in the supplement (in particular, the rrdf package
+was removed from CRAN.  sidenote: Scott and I are working with Matt
+Jones to write a non-java-based R wrapper for RDF, based on the redland
+bindings, which should avoid some of the installation challenges of rrdf,
+see <a href="https://github.com/ropensci/redland-bindings)">https://github.com/ropensci/redland-bindings)</a>.  Likewise we add a
+few bonus packages from Omegahat that aren&rsquo;t on CRAN yet (e.g. xslt)
+and whose sources tend to be a bit less stable.  All in all, we end up
+with a dependency environment that is not only non-trivial to set up on
+travis, but also tends to need some active maintenance from time to time
+as versions are updated or even bumped off CRAN.</p>
+
+<p>Rather than maintaining each .travis.yml for each package individually,
+the Drone+Docker approach means I can maintain a single consistent
+environment (that is the same I do development on in the first place),
+and use that for the CI tests as well. (image: rocker/ropensci).  I think
+this could be a cleaner approach to CI, though at this stage it&rsquo;s largely
+an experiment for us.</p>
+
+<p>Doesn&rsquo;t the fact that our dependency environment isn&rsquo;t super stable
+suggests some bad choices on dependencies on our part?  We&rsquo;ve tried to
+avoid fragile dependencies for all the fundamental functions of RNeXML &ndash;
+these additional dependencies only arise in the &ldquo;Suggested&rdquo; section of the
+dependencies. Users should be able to copy-paste code from the paper into
+any R terminal and expect it to run without having to worry about pandoc,
+latex, knitr, or the suite of packages needed for testing.  but the
+docker image is handy way when we do want to test all these pieces.</p>
+
+<p>Some final random remarks: Note that we need to run Drone on our own
+server to have the benefit of custom Docker images.  Also note that we
+can get Docker to run on Travis, but it requires some non-trivial hackage
+(<a href="https://github.com/rocker-org/rocker/blob/master/.travis.yml">https://github.com/rocker-org/rocker/blob/master/.travis.yml</a>)</p>
 
     </article>
   </div>
@@ -173,14 +221,14 @@ Most of this is in <code>assets/files</code> (31 MB, mostly large pdfs including
   <br />
   
   <p><a class="btn btn-default" rel="prev" href='../../../1/01/01/'><i class="fa fa-chevron-left"></i> prev</a>
-    <a class="btn btn-default" rel="next" href='../../../1/01/01/a-comparison-of-nonparametric-bayesian-gaussian-process-estimates-to-standard-the-parametric-bayesian-approach/'>next <i class="fa fa-chevron-right"></i></a></p>
+    <a class="btn btn-default" rel="next" href='../../../1/01/01/'>next <i class="fa fa-chevron-right"></i></a></p>
 
   <br />
 
   <p> <a class="btn btn-default" 
-         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-30-notebook-maintenance-and-scaling.md"><i class="fa fa-clock-o"></i> history</a></p>
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-01-drone-vs-travis.md"><i class="fa fa-clock-o"></i> history</a></p>
 
-  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob//content/lab-notebook/2014-12-30-notebook-maintenance-and-scaling.md"></a></p> 
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/8b51c8d4c3d7198591965001f6393d17787e7f6f/content/lab-notebook/2014-12-01-drone-vs-travis.md">8b51c8d</a></p> 
 
 
 </aside>

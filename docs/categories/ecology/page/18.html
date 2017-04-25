@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../categories/ecology/index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../categories/ecology/index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../categories/ecology.html">
+
+
+  <title>Ecology | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class = "container">
+
+
+
+
+
+  <h1>Ecology</h1>
+
+  
+
+  
+  
+  <div>
+    <h2><a href="../../../2011/03/15/tuesday-2.html">Tuesday</a></h2>
+    <h4>Tue, Mar 15, 2011</h4>
+    <div class="article-style">
+      
+      Variance and warning signals Sebastian has several examples of dynamical systems that decrease in variance as they approach a bifurcation. In some sense this is not surprising, both are through the collapse of periodic attractors. Figure 2d in TPB paperSchreiber, 2003 has an example in a discrete system, and Figure 5a in the Ecology Letters paper (Schreiber &amp; Rudolf, 2008) has a continuous-time example. Consider for instance the supercritical Hopf bifurcation, in which a stable limit cycle vanishes into an unstable node, as in a van der Pol oscillator,
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/14/warning-signals-monday.html">Warning Signals, Monday</a></h2>
+    <h4>Mon, Mar 14, 2011</h4>
+    <div class="article-style">
+      
+      Set up a few long runs of simulated data to better illustrate the effects of sampling time and density, and better resolve the distributions.
+ Longer baseline run, nice 19, indicator_vs_likelihood.R 1600 reps, m=-0.015, N=500, T=100
+ Longer sampling, same interval: nice 18, stronger_signal.R 160 reps m=-0.015, N = 2500, T=500
+  Fails to compute, looks like poor estimates of model fits.
+ Denser sampling, nice 17: indicator_vs_likelihood.R 160 reps, m=-0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data.html">Warning signals: summary stats vs likelihood on real and simulated data</a></h2>
+    <h4>Fri, Mar 11, 2011</h4>
+    <div class="article-style">
+      
+      Added bar of observed tau on real data to the tau distributions. Fixed the tau-distribution method, running new data and real examples now.
+Simulated data: can tell tau apart for instance, for autocorrelation (see photostream for variance, code hash for parameters, etc). While can&rsquo;t really tell anything based on the tau on the autocorrelation for the Deuterium data for Glaciation III (which has just about the clearest signal of the deuterium set): Waiting to see how the likelihood statistics compare on these examples.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models.html">Numerical challenges in likelihood estimation of time-dep OU models</a></h2>
+    <h4>Thu, Mar 10, 2011</h4>
+    <div class="article-style">
+      
+      Worried about accurate maximum likelihood estimates of parameters, as the optimization could still converge on values not far from the starting conditions (not as surprising as the starting parameters are estimated intelligently first from the summary statistics) but could also vary depending on initial conditions.
+Second, while it requires some re-parameterization, the stationary model for both linearized transcritical (LTC) bifurcation model and the linearized saddle-node (LSN) model are identically Ornstein-Uhlenbeck models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/09/warning-signals-data-examples.html">Warning Signals data examples</a></h2>
+    <h4>Wed, Mar 9, 2011</h4>
+    <div class="article-style">
+      
+      Working on a little data exploration while writing up manuscript. I have been puzzled why it appears that most estimates of tau on the CaCO3 data infer negative correlation, as in
+Despite the fact that there seems to be a loss of stability in the model:
+require(warningsignals) load(&quot;CaCO3.Rdat&quot;) timedep$pars Ro m theta sigma 8.36841588 -0.03347119 -2.86194248 282.03234042  So m is negative, so that the system is loosing stability, but only very gradually.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/03/01/warning-signals-comparing-methods-on-climate-data.html">Warning Signals: Comparing Methods on Climate Data</a></h2>
+    <h4>Tue, Mar 1, 2011</h4>
+    <div class="article-style">
+      
+      Continuing my exploration in applying these techniques to real climate data. Applying the Kendall&rsquo;s Tau based approach on real data.
+Greenhouse Earth, CaCO3 data:
+Glaciation I-IV (deuterium data)
+These use the unadjusted timeseries, and hence don&rsquo;t reproduce the values of Kendall&rsquo;s tau statistic reported in (Dakos et. al. 2008). In fact they don&rsquo;t even agree on the sign &ndash; visually many of the datasets are certainly decreasing in variance. I ran the Monte-Carlo distributions for tau on models estimated from these data-sets with and without warning, for variance (left) and autocorrelation (right), in the CaCO3 data:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/02/28/warning-signals-on-real-data-continued.html">Warning Signals on Real data continued</a></h2>
+    <h4>Mon, Feb 28, 2011</h4>
+    <div class="article-style">
+      
+      Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos et. al. 2008). After adjusting my code to deal with variably spaced sampling intervals, I reread the supplement &ndash; I had forgotten that they don&rsquo;t actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.
+Obviously this is not ideal. It is true that the autocorrelation would be impacted by non-equally spaced data, while there is no reason to do so for the variance indicator.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/02/27/warning-signals-on-real-data.html">Warning Signals on Real Data?</a></h2>
+    <h4>Sun, Feb 27, 2011</h4>
+    <div class="article-style">
+      
+      Grabbed the data used in (Dakos et. al. 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit et. al. 1999), showing transitions into the last several ice ages, and calcium carbonate from Eocene &ldquo;greenhouse&rdquo; climate (Tripati et. al. 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000). Data is all freely provided through NOAA.
+ CaCO3 data file (Tripati et. al. 2005), NOAA entry.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/02/23/esa-2011.html">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h2>
+    <h4>Wed, Feb 23, 2011</h4>
+    <div class="article-style">
+      
+      Just submitted my abstract to for an oral presentation at the Ecological Society of America 2011 meeting in Austin, based on my recent work on early warning signals. Here it is:
+Limits to Detection of Early Warning Signals of Population Collapse Background/Question/Methods The recognition that ecosystems can undergo sudden shifts to alternate, less desirable stable states has led to the desire to identify early warning signs of these impending collapses.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../2011/02/18/friday.html">Friday</a></h2>
+    <h4>Fri, Feb 18, 2011</h4>
+    <div class="article-style">
+      
+      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
+      
+    </div>
+  </div>
+  
+
+  
+<nav>
+  <ul class="pager">
+    
+    <li><a href="../../../categories/ecology/page/17.html">&laquo; Previous</a></li>
+    
+    
+    <li><a href="../../../categories/ecology/page/19.html">Next &raquo;</a></li>
+    
+  </ul>
+</nav>
+
+
+
+</div>
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../categories/ecology/index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

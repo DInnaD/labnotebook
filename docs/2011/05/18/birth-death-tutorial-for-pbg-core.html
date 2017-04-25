@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.21-DEV" />
+  <meta name="author" content="Carl Boettiger">
+  
+
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../css/academicons.min.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
+  
+  
+    <link rel="stylesheet" href="../../../css/cboettig.css">
+  
+  
+  <link rel="alternate" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+  <link rel="feed" href="../../../index.xml" type="application/rss+xml" title="Boettiger Group">
+
+  <link rel="icon" type="image/png" href="../../../img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../../../img/apple-touch-icon.png">
+  <link rel="canonical" href="../../../2011/05/18/birth-death-tutorial-for-pbg-core.html">
+
+
+  <title>Birth-death Tutorial for PBG Core | Boettiger Group</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../">Boettiger Group</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../index.html">
+            
+            <span>Home</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../members/">
+            
+            <span>Members</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../vita/">
+            
+            <span>Publications</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../teaching/">
+            
+            <span>Teaching</span>
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        <li class="nav-item">
+          <a href="../../../lab-notebook">
+            
+            <span>Lab Notebook</span>
+          </a>
+        </li>
+
+        
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <article>
+    <h1>Birth-death Tutorial for PBG Core</h1> 
+      
+    
+
+<p>Ran a introductory tutorial on birth-death models for phylogenetic trees in R today for Peter Wainwright&rsquo;s section of the Pop Bio Core sequence.  Notes below, in a manner that may suggest I was better organized than reality might attest.  Luckily the firsties are brilliant&hellip;</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Code is shown section by section with results in the following examples.  If you prefer, you can download my full <a href="https://github.com/cboettig/Comparative-Phylogenetics/blob/51ba0cbd07171de5c257b46c677b5c6fa8f61faa/ucd_core/branching_models.R">code file here</a>, but you will have to comment out my flickr plotting utilities before it will run.  Here we go:</p>
+
+<p>Install and load the packages &ldquo;TreeSim&rdquo; and &ldquo;laser&rdquo;.  Will require a recent version of R for TreeSim to install correctly.  We also write two simple custom functions to make our life easier, one to get the age of a tree, one to solve r= b-d and a= b/d for b and d.</p>
+
+<pre><code class="language-r">
+install.packages(c(&quot;TreeSim&quot;, &quot;laser&quot;))
+require(TreeSim); require(laser)
+
+## tree age
+treeage &lt;- function(tree){
+  if(is(tree, &quot;phylo&quot;)){
+    tree &lt;- ape2ouch(tree, scale=FALSE)
+    time &lt;- max(tree@times)
+  } else {
+    time &lt;- 0
+  }
+  time
+}
+
+# r is diversification rate, b-d, and a is d/b
+# we'd rather have in terms of b and d
+swp &lt;- function(r, a){
+  b = r/(1-a)
+  d = r*a/(1-a)
+  c(b,d)
+}
+
+</code></pre>
+
+<h2 id="simulating-birth-death-trees">Simulating Birth-Death Trees</h2>
+
+<p>We&rsquo;ll start with the TreeSim function sim.bd.age to create birth-death trees.  These examples illustrate the diversity of possible outcomes that result from the <em>identical model</em>.  They also highlight subtleties in defining a model &ndash; such as, &ldquo;was that the age from the origin, or the mrca?&ldquo;  Our first tree: ((yeah, so this tutorial isn&rsquo;t that introductory &ndash; check the help file on sim.bd.age if you&rsquo;ve forgotten what the arguments to the function are.  We assume knowledge of R b.c. students have used it all year now.))</p>
+
+<pre><code class="language-r">
+set.seed(0) # so we all get the same result
+tree &lt;- sim.bd.age(age=2,numbsim=1,lambda=2,mu=0,comp=F, mrca=F)
+print( treeage(tree[[1]])  )
+
+</code></pre>
+
+<p>We get age=1.907982.  Less than the age 2 we asked for, as Tomomi had pointed out.  This means the founder species took about 0.1 time steps before the first speciation event.  We expect the waiting times to be exponentially distributed.  This is easy to confirm:</p>
+
+<pre><code class="language-r">
+set.seed(0) # so we all get the same result
+  trees &lt;- sim.bd.age(age=2,num=100,lambda=2,0,comp=F, mrca=F)
+  times &lt;- sapply(trees, function(tr){
+    2 - treeage(tr)
+  })
+  times &lt;- times[times!=2] # trees that never branch don't contribute
+## Plot Results
+hist(times, freq=F)
+curve(dexp(x, 2), add=T) # theory
+
+</code></pre>
+
+<p><img src="http://farm3.staticflickr.com/2577/5736177996_9c94cb2561_o.png" alt="" /></p>
+
+<p>As we mentioned, setting the age equal to the most recent common ancestor (mrca) means the tree does have the age specified.  We wondered if this held true when the tree had extinction, since it is possible the first branching event could end up with no descendants on one branch.  In that case it isn&rsquo;t the mrca of extant taxa, and it gets pruned, such that the total length of the tree is still the age given. ((So if we show the complete tree (complete=TRUE) with extinct taxa, is such a taxon floating or lost?))  This example tests this a bunch of times:</p>
+
+<pre><code class="language-r">
+  ## This tree is exactly the age we asked for:
+  tree &lt;- sim.bd.age(2,1,2,0,complete=F, mrca=T)
+  print(  treeage( tree[[1]] )  )
+
+  ## This tree isn't always the age we asked for, or is it:
+  trees &lt;- sim.bd.age(2,20,5,4.9,comp=T, mrca=T)
+  print(  sapply(trees, function(tr) treeage(tr))   )
+
+</code></pre>
+
+<p>Okay, onto visualizing differences in simulation outcomes.  The most obvious is the variety in tip counts, as seen in this 6 taxon example:</p>
+
+<pre><code class="language-r">
+  trees &lt;- sim.bd.age(age=2,numbsim=6,lambda=2,mu=.5,mrca=TRUE,complete=FALSE)
+  par(mfrow=c(3,2))
+  for(i in 1:6)
+    plot(trees[[i]])
+ 
+</code></pre>
+
+<p><img src="http://farm6.staticflickr.com/5185/5735651931_350bb0bc1b_o.png" alt="" /></p>
+
+<p>Do trees that branch early tend to be the ones with more species?</p>
+
+<p>Notice these trees tend to have many more species than if we were to have mrca=FALSE, because they are older. Conditioning on MRCA age also means that we don&rsquo;t see empty trees, like we do when we specify age since origin:</p>
+
+<p><img src="http://farm3.staticflickr.com/2758/5734461229_bd856c083d_o.png" alt="" /></p>
+
+<p>Recall we expect:
+$$ e^{\lambda t} \approx 54 $$
+tips on average., and in the case of MRCA=true:</p>
+
+<pre><code>
+   tips &lt;- sapply(trees,
+                  function(x){
+                    if(!is(x, &quot;phylo&quot;))
+                      ans &lt;- 0  ## If the object isn't a tree, it's `cause all extinct
+                   else
+                     ans &lt;- x$Nnode+1 ## num tip taxa = 1+internal nodes                    ans}) &gt; ## R OUTPUT
+&gt; tips
+[1] 49 53 70 40 71 64
+&gt; exp(4) ## expectation
+[1] 54.59815
+&gt; mean(tips)  ## observed over 6 replicates
+[1] 57.83333
+
+</code></pre>
+
+<p>Running more replicates we can see the long tail of the Poisson.
+<img src="http://farm3.staticflickr.com/2513/5735206162_73753568d8_o.png" alt="" /></p>
+
+<h3 id="conditioning-on-number-of-taxa">Conditioning on number of taxa</h3>
+
+<p>Often we are not interested in all possible trees (X), but only the subset that have the observed number (N) of taxa.  This results from conditioning on N:</p>
+
+<p>$$ P(X) = P(X|N)P(N) $$</p>
+
+<p>Generating our trees with this command instead accomplishes that.  For a great discussion of these issues see the TreeSim paper (Stadler, 2011)</p>
+
+<pre><code class="language-r">
+trees&lt;-  sim.bd.taxa(n=20,numbsim=6,lambda=2,mu=.5,complete=FALSE)[[1]]
+
+</code></pre>
+
+<p><img src="http://farm3.staticflickr.com/2794/5736723143_fe543c61b1_o.png" alt="" /></p>
+
+<h2>Fitting Models</h2>
+
+<pre><code class="language-r">
+### Let's take a closer look at estimating parameters from trees now.   ###
+## Start with a simple tree
+  tree &lt;- sim.bd.age(age=2,numbsim=1,lambda=2,mu=0.0, mrca=FALSE,complete=FALSE)[[1]]
+# fit a birth death model
+# gives confidence levels that assume normality
+  birthdeath(tree)
+## laser's way of estimating a model
+  model &lt;- bd(branching.times(tree))
+## estimate a yule model
+  yule &lt;- pureBirth(branching.times(tree))
+# which one is better
+  model$aic - yule$aic
+
+</code></pre>
+
+<h3 id="bootstrapping-models">Bootstrapping Models</h3>
+
+<pre><code class="language-r">
+
+# simulate a tree, fit a birth-death model, pull out the b and d parameters
+  tree &lt;- sim.bd.age(age=4,numbsim=1,lambda=2,mu=0.9,
+                      mrca=FALSE,complete=FALSE)[[1]]
+  fit &lt;- bd(branching.times(tree))
+  para &lt;- swp(fit$r, fit$a)
+# simulate lots of trees
+  boots &lt;- sim.bd.age(age=2, numbsim=500, lambda=para[1], mu=para[2],
+                      mrca=FALSE, comp=FALSE)
+  bd_dist &lt;- sapply(boots,
+              function(x){
+                fit &lt;- try(bd(branching.times(x)))
+  ## Some fits fail because bd sucks too.  tell R to tough it out anyhow
+                if(!is(fit, &quot;try-error&quot;))
+                  para &lt;- swp(fit$r, fit$a)
+                else
+                  para &lt;- NA
+                c(para[1], para[2])
+              })
+  ## err, fix formatting if sapply failed to give me a matrix!
+  if(is(bd_dist, &quot;list&quot;))
+    bd_dist &lt;- sapply(1:length(bd_dist),
+      function(i) c(bd_dist[[i]][1],bd_dist[[i]][2]))
+  bd_dist &lt;- t(bd_dist)
+
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3218/5736235990_81f961bf72_o.png" alt="" /></p>
+
+<p>This didn&rsquo;t condition on reality of N species being observed.  We can repeat with sim.bd.taxa</p>
+
+<pre><code class="language-r">
+  tree &lt;- sim.bd.taxa(n=50,numbsim=1,lambda=2,mu=0.9,
+                      complete=FALSE)[[1]][[1]]
+  fit &lt;- bd(branching.times(tree))
+  para &lt;- swp(fit$r, fit$a)
+# simulate lots of trees
+  boots &lt;- sim.bd.taxa(n=50, numbsim=500, lambda=para[1], mu=para[2],
+                      comp=FALSE)[[1]]
+  bd_dist &lt;- sapply(boots,
+              function(x){
+                fit &lt;- try(bd(branching.times(x)))
+  ## Some fits fail because bd sucks too.  tell R to tough it out anyhow
+                if(!is(fit, &quot;try-error&quot;))
+                  para &lt;- swp(fit$r, fit$a)
+                else
+                  para &lt;- NA
+                c(para[1], para[2])
+              })
+
+</code></pre>
+
+<p><img src="http://farm4.staticflickr.com/3276/5735704383_02c969ccb8_o.png" alt="" /></p>
+
+<p>How about David&rsquo;s question on bootstrapping the likelihood?  How about when the birth-death model is inappropriate to the data?  Here we will tranform the tree to create a topology very different than any we&rsquo;ve seen, where branching starts off rapidly and then seems to stop:</p>
+
+<p>Birth-death trees are quite twiggy, this seems like a rather unlikely tree for a birth-death process.
+<img src="http://farm6.staticflickr.com/5182/5736268982_d689ba66cb_o.png" alt="" /></p>
+
+<pre><code class="language-r">
+  tree &lt;- sim.bd.taxa(n=50,numbsim=1,lambda=2,mu=0.9,
+                      complete=FALSE)[[1]][[1]]
+
+  tree &lt;- lambdaTree(tree, .2) ## TRANSFORM THE TREE
+  fit &lt;- bd(branching.times(tree))
+  para &lt;- swp(fit$r, fit$a)
+# simulate lots of trees
+  boots &lt;- sim.bd.taxa(n=50, numbsim=500, lambda=para[1], mu=para[2],
+                      comp=FALSE)[[1]]
+  bd_dist &lt;- sapply(boots,
+              function(x){
+                fit &lt;- try(bd(branching.times(x)))
+  ## Some fits fail because bd sucks too.  tell R to tough it out anyhow
+                if(!is(fit, &quot;try-error&quot;)){
+                  para &lt;- swp(fit$r, fit$a)
+                  lh &lt;- fit$LH
+                }
+                else {
+                  para &lt;- NA
+                  lh &lt;- NA
+                }
+                c(para[1], para[2], lh)
+              })
+  bd_dist &lt;- t(bd_dist)
+
+  ## give us a wee peek at some summary data
+  print(summary(bd_dist))
+  print(sd(bd_dist, na.rm=T))
+
+  png(&quot;bddist.png&quot;, width=480*3)
+  par(mfrow=c(1,3))
+    hist(bd_dist[,1], breaks=30, main=&quot;b&quot;)
+    abline(v=fit$r, lwd=4)
+    hist(bd_dist[,2], breaks=30, main=&quot;d&quot;)
+    abline(v=fit$a, lwd=4)
+    hist(bd_dist[,3], breaks=30, main=&quot;lik&quot;)
+    abline(v=fit$LH, lwd=4)
+  dev.off()
+
+</code></pre>
+
+<p><img src="http://farm3.staticflickr.com/2424/5735722223_e54c61c352_o.png" alt="" /></p>
+
+<p>However, the bootstrap of likelihood (rightmost histogram) does not register as such a bad fit.  Testing model adequacy requires a richer approach.  The bootstrapping estimates our uncertainty under the assumption that our model is reasonable.</p>
+
+<h2 id="a-footnote-on-strange-behavior-in-treesim">A footnote on strange behavior in TreeSim</h2>
+
+<p>Some computers (my laptop) geiger&rsquo;s prune.extinct.taxa or Tanja&rsquo;s option to return a only extant taxa (complete=FALSE) end up dropping all tips always.  This bug (after some effort and help from mailing lists yesterday) is caused by having: Sys.setlocale(locale=&ldquo;en_US.UTF-8&rdquo;)  and can be fixed by using Sys.setlocale(locale=&ldquo;C&rdquo;)  <a href="http://permalink.gmane.org/gmane.comp.lang.r.phylo/1358">see mailing list threads</a>&hellip;</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li>Stadler T (2011).
+&ldquo;Simulating Trees With A Fixed Number of Extant Species.&rdquo;
+<em>Systematic Biology</em>, <strong>60</strong>.
+ISSN 1063-5157, <a href="http://dx.doi.org/10.1093/sysbio/syr029">http://dx.doi.org/10.1093/sysbio/syr029</a>.</li>
+</ul>
+
+    </article>
+  </div>
+  <div class="col-md-4">
+    <div class="sidebar">
+      <aside prefix="og:http://ogp.me/ns/article#">
+  
+  
+  
+<div class="article-metadata">
+
+  <p>
+  <span class="article-date">
+    <i class="fa fa-calendar"></i>
+    
+    <time datetime="2011-05-18 23:55:05 &#43;0000 UTC" itemprop="datePublished">
+      Wed, May 18, 2011
+    </time>
+    
+  </span>
+  </p>
+    
+
+  <p>
+  
+  
+  
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="../../../categories/evolution">evolution</a
+    >, 
+    
+    <a href="../../../categories/teaching">teaching</a
+    >
+    
+  </span>
+  
+  
+  </p>
+  
+  <p>
+  
+  </p>
+
+</div>
+
+ 
+  <br />
+  
+  <p><a class="btn btn-default" rel="prev" href='../../../2011/05/19/thursday-5.html'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../2011/05/17/tuesday-3.html'>next <i class="fa fa-chevron-right"></i></a></p>
+
+  <br />
+
+  <p> <a class="btn btn-default" 
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2011-05-18-birth-death-tutorial-for-pbg-core.md"><i class="fa fa-clock-o"></i> history</a></p>
+
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/21c35f18f26809fba50d510222998c5f9963fff4/content/lab-notebook/2011-05-18-birth-death-tutorial-for-pbg-core.md">21c35f1</a></p> 
+
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'cboettig';
+    var disqus_identifier = '\/2011\/05\/18\/birth-death-tutorial-for-pbg-core.html';
+    var disqus_title = 'Birth-death Tutorial for PBG Core';
+    var disqus_url = '\/2011\/05\/18\/birth-death-tutorial-for-pbg-core.html';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <hr />
+  <div class="container">
+
+  <div class="row">
+    <div class="col-md-3 col-xs-4 socialicons" style="font-size:20px" typeof="foaf:Person" about="https://carlboettiger.info/#me">
+      <p>
+      <script type="text/javascript" src="../../../js/obfuscate-email-link.js"></script> 
+
+          <a rel="foaf:account" href="https://twitter.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Twitter'); 
+             return false;"><span class="showtooltip" title="follow me on twitter (reading, discussing)"><i class="fa fa-twitter"></i></span></a> 
+
+          <a rel="foaf:account" href="https://github.com/cboettig" 
+             onclick="recordOutboundLink(this, 'Outbound Links', 'Github'); 
+             return false;"><span class="showtooltip" title="follow me on Github (code, research)"><i class="fa fa-github"></i></span></a>
+           <a rel="foaf:weblog" type="application/atom+xml" href="../../../index.xml"  
+        class="showtooltip" title="RSS feeds for my blog-style entries." 
+         onclick="recordOutboundLink(this, 'Outbound Links', 'RSS'); 
+         return false;"><i class="fa fa-rss"></i></a>
+       </p>
+    </div>
+
+    
+    
+
+
+    <div class="col-md-4 col-md-offset-1 col-xs-4">
+	    <p><a onclick="recordOutboundLink(this, 'Outbound Links', 'ONS_claim'); return false;" href="http://onsclaims.wikispaces.com/"><img src="../../../img/ons-aci2-icon.svg" alt="ONS" class="showtooltip" title="An Open Notebook Science (ONS) project claim: Entry provides all content (AC) immediately (I) or without significant delay.  See link for details"/></a></p>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-1 col-xs-4">
+      <p>
+      <a rel="license" property="http://creativecommons.org/ns#license" href="http://creativecommons.org/publicdomain/zero/1.0/" onclick="recordOutboundLink(this, 'Outbound Links', 'CC0'); return false;"><img src="../../../img/cc-zero.svg" alt="CC0"/></a> 
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    <script src="../../../js/jquery-1.12.3.min.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/isotope.pkgd.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
+    <script src="../../../js/hugo-academic.js"></script>
+    
+
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-18401403-1', 'auto');
+        ga('send', 'pageview');
+
+         
+        var links = document.querySelectorAll('a');
+        Array.prototype.map.call(links, function(item) {
+            if (item.host != document.location.host) {
+                item.addEventListener('click', function() {
+                    var action = item.getAttribute('data-action') || 'follow';
+                    ga('send', 'event', 'outbound', action, item.href);
+                });
+            }
+        });
+    </script>
+    
+
+    
+    
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+
+ 
