@@ -82,16 +82,6 @@ ou &amp;lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigm
       
       <guid>/2014/11/14/nimble-explore/</guid>
       <description>A quick first exploration of NIMBLE and some questions.
-library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;sde&amp;quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &amp;#39;fda&amp;#39; ## The following object is masked from &amp;#39;package:nimble&amp;#39;: ## ## inprod ## The following object is masked from &amp;#39;package:graphics&amp;#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/2014/11/14/nimble-explore/</link>
-      <pubDate>Fri, 14 Nov 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/2014/11/14/nimble-explore/</guid>
-      <description>A quick first exploration of NIMBLE and some questions.
 library(&amp;quot;nimble&amp;quot;) library(&amp;quot;sde&amp;quot;)  Let&amp;rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$
 set.seed(123) d &amp;lt;- expression(0.5 * (10-x)) s &amp;lt;- expression(1) data &amp;lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))  ## sigma.x not provided, attempting symbolic derivation.  i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.</description>
     </item>

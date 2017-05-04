@@ -141,19 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2012/02/27/monday-14/">Monday</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
-    <div class="article-style">
-      
-      Warning Signals  Added resulting indicator distributions on finer sampling results.
- Re-running now excluding the final dive (population below 300).
-  Treebase working on manuscript. A few examples using the improved meta-data queries:
-Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2012/02/24/visuals-for-communicating-uncertainty/">Visuals for Communicating Uncertainty </a></h2>
     <h4>Fri, Feb 24, 2012</h4>
     <div class="article-style">
@@ -258,6 +245,17 @@ X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X
 Run the individual based simulation
 require(populationdynamics)  [code] Loading required package: populationdynamics
  ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h2>
+    <h4>Tue, Feb 14, 2012</h4>
+    <div class="article-style">
+      
+      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
+Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
       
     </div>
   </div>

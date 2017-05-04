@@ -141,27 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2012/04/05/jordans-bigdata-talk-in-mathstats-series/">Jordan&#39;s bigdata talk in Math/Stats series</a></h2>
-    <h4>Thu, Apr 5, 2012</h4>
-    <div class="article-style">
-      
-      Really excellent talk by Professor Michael Jordan from the Berkeley Statistics department visiting us at Davis yesterday. Haven&rsquo;t seen a talk cover technical content with remarkable clarity for the algorithms and insights involved, while also covering such a breadth of material. My notes didn&rsquo;t really keep up, but transcribing some of my scribbling into electronic form will have to wait until I have more time. (Their pubs are probably a better reference anyway.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/29/relevant-initiatives-from-todays-big-data-press-release/">Relevant initiatives from today&#39;s Big Data press release</a></h2>
-    <h4>Thu, Mar 29, 2012</h4>
-    <div class="article-style">
-      
-      An exciting day for Big Data (particularly if your Berkeley).
-NSF  Encouraging research universities to develop interdisciplinary graduate programs to prepare the next generation of data scientists and engineers; Funding a $10 million Expeditions in Computing project based at the University of California, Berkeley, that will integrate three powerful approaches for turning data into information - machine learning, cloud computing, and crowd sourcing; Providing the first round of grants to support “EarthCube” - a system that will allow geoscientists to access, analyze and share information about our planet; Convening researchers across disciplines to determine how Big Data can transform teaching and learning.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2012/03/27/tuesday-pandoc-citations-notes-various/">Tuesday: pandoc citations notes, various</a></h2>
     <h4>Tue, Mar 27, 2012</h4>
     <div class="article-style">
@@ -252,6 +231,30 @@ Plotting with stats_summary() Using stats_summary instead of melt and cast compu
       
       Installing R-Studio on my dreamhost VPS server. Dreamhost runs debian lenny, which is a bit dated, making it necessary to install from source. (Would be easy on a modern ubuntu server). Here we go.
 First, we probably want to install R from source to begin with (Lenny comes with cutting-edge R 2.7.1&hellip;). This needs to be done with shared libs enabled. Also I needed to run it without recommended-packages to get the initial install working
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h2>
+    <h4>Thu, Nov 10, 2011</h4>
+    <div class="article-style">
+      
+      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
+parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/11/06/sunday-5/">Sunday</a></h2>
+    <h4>Sun, Nov 6, 2011</h4>
+    <div class="article-style">
+      
+      Computing notes A few configuration related things from migrating to the new laptop.
+Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
+make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
+mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
       
     </div>
   </div>

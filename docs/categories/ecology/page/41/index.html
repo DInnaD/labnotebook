@@ -141,20 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
-    <div class="article-style">
-      
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
     <h4>Mon, Nov 29, 2010</h4>
     <div class="article-style">
@@ -258,6 +244,18 @@ $$ = \rho^2 E(X_t^2) + 2 \rho \sqrt{1-\rho^2} E( X_t ) E( Z_t ) + E( X_t^2) E(Z_
 $$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
 and
 $$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h2>
+    <h4>Tue, Oct 26, 2010</h4>
+    <div class="article-style">
+      
+      Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
+ First, if the mean is changing, the model fitting must be appropriate to this &ndash; either by fitting this rate of change or correcting for it.
+ Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.
       
     </div>
   </div>

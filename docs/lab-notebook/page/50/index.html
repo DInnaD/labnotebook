@@ -140,92 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Saturday: working on computational scaling, ion, etc</a></h2>
-    <h4>Sat, Aug 27, 2011</h4>
-    <div class="article-style">
-      
-      Can I get a generic montecarlotest function working for both warningsignals and pmc?
-Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
-    <div class="article-style">
-      
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/26/fishbase-from-r-some-xml-parsing/">FishBASE from R: some XML parsing</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
-    <div class="article-style">
-      
-      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
-In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/25/datacite-day-2/">DataCite Day 2</a></h2>
-    <h4>Thu, Aug 25, 2011</h4>
-    <div class="article-style">
-      
-      9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
- Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
-  see great example of the ACRID database
- Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/24/datacite-day-1/">DataCite Day 1</a></h2>
-    <h4>Wed, Aug 24, 2011</h4>
-    <div class="article-style">
-      
-      12:00pm-1:00pm Lunch
- 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
-Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
- 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
- Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
-    <h4>Tue, Aug 23, 2011</h4>
-    <div class="article-style">
-      
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h2>
-    <h4>Sun, Aug 21, 2011</h4>
-    <div class="article-style">
-      
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thursday: reviewing edits, ropensci, computers.</a></h2>
-    <h4>Thu, Aug 18, 2011</h4>
+    <h4><a href="../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thu, Aug 18, 2011</a></h4>
+    <h4><a href="../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thursday: reviewing edits, ropensci, computers.</a></h4>
     <div class="article-style">
       
       Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
@@ -236,8 +152,8 @@ Brief topic notes from today&rsquo;s meeting:
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wednesday: migrating codes into MPI</a></h2>
-    <h4>Wed, Aug 17, 2011</h4>
+    <h4><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wed, Aug 17, 2011</a></h4>
+    <h4><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wednesday: migrating codes into MPI</a></h4>
     <div class="article-style">
       
       Parellelization/Scaling of code MPI on farm cluster
@@ -249,12 +165,96 @@ The trick to getting this to run was mostly getting the library set correctly. S
   </div>
   
   <div>
-    <h2><a href="../../../2011/08/17/wrightscape-a-brief-tutorial/">Wrightscape: a brief tutorial</a></h2>
-    <h4>Wed, Aug 17, 2011</h4>
+    <h4><a href="../../../2011/08/17/wrightscape-a-brief-tutorial/">Wed, Aug 17, 2011</a></h4>
+    <h4><a href="../../../2011/08/17/wrightscape-a-brief-tutorial/">Wrightscape: a brief tutorial</a></h4>
     <div class="article-style">
       
       While the wrightscape package is still in active development, I realize the code base doesn&rsquo;t contain any introductory examples. So as a first tutorial, here&rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
 require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/16/tuesday-7/">Tue, Aug 16, 2011</a></h4>
+    <h4><a href="../../../2011/08/16/tuesday-7/">Tuesday:</a></h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/16/monday-evolution-manuscript-revisions-early-burst-models-etc/">Tue, Aug 16, 2011</a></h4>
+    <h4><a href="../../../2011/08/16/monday-evolution-manuscript-revisions-early-burst-models-etc/">Monday: Evolution manuscript revisions; early burst models, etc</a></h4>
+    <div class="article-style">
+      
+      Evolution Manuscript Edits Received the reviews of our evolution manuscript back with relatively straight-forward edits. (Yay!)
+Need better citations of the early history in phylogenetic comparative methods, which is quite rich. Reviewer pointed me to an early book chapter by AW Edwards and LL Cavalli-Sforza introducing Brownian motion model in 1964, of which Joe Felsenstein has a nice description (of this and other work) in his 1988 review(Felsenstein, 1988).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/13/esa-personal-notes-people-goals/">Sat, Aug 13, 2011</a></h4>
+    <h4><a href="../../../2011/08/13/esa-personal-notes-people-goals/">ESA personal notes: people, goals</a></h4>
+    <div class="article-style">
+      
+      Meetings  John Drake Suzanne O&rsquo;Regan (Post-doc with John, strong dynamical systems) Justin Kinze &ndash; great post-doc at Berkeley with John Harte, should visit. Paul Armsworth &ndash; with Alan, have asked me to join NIMBioS working group on Pretty Darn Good Control (Tuesday evening). Hal Caswell &ndash; interested in some of the data management / provenance for theoretical work. (Mon) Jeremy Fox &ndash; Interesting lunch discussion, clonal interference as ecological insight?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/13/saturday/">Sat, Aug 13, 2011</a></h4>
+    <h4><a href="../../../2011/08/13/saturday/">Saturday: Post ESA, NSF Intersections post-doc?</a></h4>
+    <div class="article-style">
+      
+      run system backup
+ reading TOCs
+ Catch up from ESA
+ Working on review for THEE
+ New phylogenetic methods in _Evolution _(Paradis, 2012), (Revell et. al. 2012)
+ Next steps for fellowship applications.
+   Post ESA  Theoretical Ecology Review
+ Revisions on Evolution manuscript
+ TreeBASE paper. See Kemp et. al. 2012
+ outline next steps on warning signals
+ wrightscape manuscript, finalize examples
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/12/esa-friday/">Fri, Aug 12, 2011</a></h4>
+    <h4><a href="../../../2011/08/12/esa-friday/">ESA Friday</a></h4>
+    <div class="article-style">
+      
+      Great last day of the conference, despite noticeably decreased attendance. Once again just pulling in my tweets, since I haven&rsquo;t had a chance to transcribe proper notes. Meanwhile, some of the bloggers have done a rather nice day-to-day coverage; no idea how they all manage to keep up. Links below, with a nice mix of those targeting more theory oriented, more application oriented and more outreach oriented sessions.
+Twitter-log    cboettig ESA should have science cafes!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/11/esa-thursday/">Thu, Aug 11, 2011</a></h4>
+    <h4><a href="../../../2011/08/11/esa-thursday/">ESA Thursday</a></h4>
+    <div class="article-style">
+      
+      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+Twitter-log    cboettig Predicting rare; predicting ubiquitous/noxious weed species by machine learning vs GLMs #esa11
+   cboettig Beautiful thing when you know just how talk methods will proceed after 2 min of intro to problem.. but stay tuned for surprises #esa11
+   cboettig Deitterich: how to reconstruct life history patterns from abundance fluctuations #esa11 inferring what we want from what we have w models
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/08/10/esa-wednesday/">Wed, Aug 10, 2011</a></h4>
+    <h4><a href="../../../2011/08/10/esa-wednesday/">ESA Wednesday</a></h4>
+    <div class="article-style">
+      
+      My talk today, as well as several others from our Theory group at Davis. Journal review requirements mean posting my slides is gonna be delayed somewhat, but appreciated some excellent questions and those who laughed at my jokes in between slides. Meanwhile, automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+Twitter-log    cboettig @carlystrasser Here&rsquo;s the paper I mentioned for introducing ontologies/linked data into spreadsheetshttp://t.
       
     </div>
   </div>
@@ -275,19 +275,7 @@ require(wrightscape} # My package for this analysis require(auteur) # for the da
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

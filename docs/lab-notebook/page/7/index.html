@@ -140,81 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2014/05/05/knitr-workflow-challenges/">Deep challenges to dynamic documentation in daily workflows</a></h2>
-    <h4>Mon, May 5, 2014</h4>
-    <div class="article-style">
-      
-      We often discuss dynamic documents such as Sweave and knitr in reference to final products such as publications or software package vignettes. In this case, all the elements involved are already fixed: external functions, code, text, and so forth. The dynamic documentation engine is really just a tool to combine them (knit them together). Using dynamic documentation on a day-to-day basis on ongoing research presents a compelling opportunity but a rather more complex challenge as well.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/05/04/why-i-sign-my-reviews/">why I sign my reviews</a></h2>
-    <h4>Sun, May 4, 2014</h4>
-    <div class="article-style">
-      
-      For the past four years I have made an effort to sign all my reviews (which I try to keep to about one a month). It isn&rsquo;t because I believe in radical openness or something crazy like that. Its really just my self interest involved &ndash; at least mostly. Writing a review is an incredibly time consuming, and largely thankless task. Supposedly anonymous peer review is supposed to protect the reviewer, particularly the scenario of the less established scientist critiquing the work of the more established.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/05/02/multiple-uncertainty-notes/"></a></h2>
-    <h4>Fri, May 2, 2014</h4>
-    <div class="article-style">
-      
-      Logistic recruitment, uniform noise (Sethi Fig 3 configuration)
-Logistic recruitment, lognormal noise Beverton-Holt recruitement, uniform noise Beverton-Holt recruitement, lognormal noise Logistic recruitment, uniform noise, small r Logistic recruitment, lognormal noise, small r Metadata From scenarios_meta.txt
-Columns: y_grid: The observed stock size escapement: The optimal escapement policy. (y_grid value minus the escapement is the quota). sigma_g: The growth noise scaling factor sigma_m: The measurement error scaling factor (between observed stock x and measured stock y) sigma_i: The implementation noise scaling factor (between quota q set and harvest h realized).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/05/02/scientific-computing-notes/"></a></h2>
-    <h4>Fri, May 2, 2014</h4>
-    <div class="article-style">
-      
-      In my experience EC2 is good for some things but not for others. Consequently having some funding allocated for it would be great, but it would still be necessary to have other resources as well. I&rsquo;ve found EC2 very good for running some reasonably portable analysis where you temporarily want some extra processors or memory. On the other hand, I&rsquo;ve had some frustrations with it as well. You don&rsquo;t have a persistent development environment unless you explicitly make and maintain a machine image, which means installing any software dependencies from scratch; sometimes a particular nuisance when you aren&rsquo;t familiar with the architecture.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/29/notes/"></a></h2>
-    <h4>Tue, Apr 29, 2014</h4>
-    <div class="article-style">
-      
-      Labnotebook  Configure Github CDN Hmm, jekyll-assets. Not sure that this is preferable from just using the makefile to compile and minify assets seperately as needed. Move www.carlboettiger.info to host from gh-pages branch of labnotebook. This self-contained system is more standard, and it is strange for other gh-pages hosting to be using the same domain/subdomain to reference content that is actually on a gh-pages branch of some totally different repository.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/24/notebook-design-notes/"></a></h2>
-    <h4>Thu, Apr 24, 2014</h4>
-    <div class="article-style">
-      
-      Reading a little about Flat UI design (1, 2). Basic concept is that users now realize they can click on things without them looking like actual three-dimensional buttons. (Along with links, checkboxes, and forms). Frequently seems to use many different colors on a single page to bring some life back, though this might just make the design look like Windows 8 instead. I&rsquo;ve started noticing this everwhere now that I know what it is.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/23/multiple-uncertainty-notes/"></a></h2>
-    <h4>Wed, Apr 23, 2014</h4>
-    <div class="article-style">
-      
-      Multiple uncertainty Handling variation in different grids. Cleaned up a bunch of transpose expressions in the code and make sure that dimensions are always properly aligned. Now problem can be solved on arbitrarily different grid discritizations for stock $x$, observed stock $y$, harvest $h$ and quota $q$. See multiple_uncertainty.m and example calls in testing.m
-Taking a look a how we handle normalization when some of the probability density falls outside the discritized space.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/18/notes/"></a></h2>
-    <h4>Fri, Apr 18, 2014</h4>
+    <h4><a href="../../../2014/04/18/notes/">Fri, Apr 18, 2014</a></h4>
+    
     <div class="article-style">
       
       EML I&rsquo;ve added a interface for custom units. You don&rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
@@ -224,8 +151,8 @@ create_custom_unit(id = &quot;metersSquaredPerHectare&quot;, parentSI = &quot;di
   </div>
   
   <div>
-    <h2><a href="../../../2014/04/17/notes/"></a></h2>
-    <h4>Thu, Apr 17, 2014</h4>
+    <h4><a href="../../../2014/04/17/notes/">Thu, Apr 17, 2014</a></h4>
+    
     <div class="article-style">
       
       Units in EML Overview of how units are determined in the EML package:
@@ -235,12 +162,98 @@ library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot
   </div>
   
   <div>
-    <h2><a href="../../../2014/04/11/notes/"></a></h2>
-    <h4>Fri, Apr 11, 2014</h4>
+    <h4><a href="../../../2014/04/11/notes/">Fri, Apr 11, 2014</a></h4>
+    
     <div class="article-style">
       
       labnotebook Updates to configuration to be more portable and lightweight:
  Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/04/10/multiple-uncertainty-notes/">Thu, Apr 10, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
+  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/04/09/multiple-uncertainty-notes/">Wed, Apr 9, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
+ Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/04/08/multiple-uncertainty-notes/">Tue, Apr 8, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/04/07/notes/">Mon, Apr 7, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/04/03/wisconsin-visit/">Thu, Apr 3, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Carl Boettiger Schedule 3-4 April
+Thursday
+   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
+   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/03/31/ropenhack-notes/">Mon, Mar 31, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
+Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/03/24/review-of-progress-on-packages/">Mon, Mar 24, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
+rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
       
     </div>
   </div>
@@ -261,19 +274,7 @@ library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

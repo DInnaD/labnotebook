@@ -140,93 +140,16 @@
   
   
   <div>
-    <h2><a href="../../../2011/12/07/wednesday-11/">Wednesday - wrightscape runs and various other things</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
-    <div class="article-style">
-      
-      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/12/07/optimal-control-costs-to-policy-shifts/">Optimal control -- costs to policy shifts</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
-    <div class="article-style">
-      
-      Considering the case where there is a cost to changing the harvest quota (representing the cost of efforts to change policy). We can imagine several scenarios that could introduce this:
- Fixed cost to change
- Cost proportional to the size of the change (L1 norm)
- Cost proportional to the square of the size (L2 norm, i.e. small changes aren&rsquo;t expensive, large ones are very expensive)
- asymmetric costs &ndash; lowering quotas may be harder than raising them
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/12/06/tuesday-two-insights/">Tuesday -- two insights</a></h2>
-    <h4>Tue, Dec 6, 2011</h4>
-    <div class="article-style">
-      
-      Control &amp; Optimization Dominique Bonvin visit  two-step control (optimize parameters, optimize mean-square error between model and measurement also by parameter adjustment) fails when reality isn&rsquo;t in the model set. Problem is under-determined (N free variables, 4N equations). (converges, but onto the wrong optimum).
- Better solution &ndash; adjust the penalty/regularization terms to to get better agreement between model and data
- Bonvin approach &ndash; adjust the control instead (NCO Control).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/12/05/monday-wrightscape-meetings-pdg-meeting/">Monday - wrightscape meetings, PDG meeting</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
-    <div class="article-style">
-      
-      Wrightscape &ndash; added a user utility to to specify custom model types, such that some subset of the total number of regimes can share certain parameters.
-Peter Meeting  Derivation &ndash; provide clear examples of the differences and by how much it matters. Expected result from the biology: the jaw lever traits should show greater changes than the other traits after a release of constraint. Based on previous studies, expect most of the action to be around the intramandibular joint innovation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/12/05/more-labrid-plots/">More labrid plots</a></h2>
-    <h4>Mon, Dec 5, 2011</h4>
+    <h4><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thu, Dec 1, 2011</a></h4>
+    <h4><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thrusday - corrected calculation, implementing.  </a></h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2011/12/04/release-of-constraint/">Release of constraint</a></h2>
-    <h4>Sun, Dec 4, 2011</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/12/02/friday-updated-wrightscape-results/">Friday - updated wrightscape results - simulated examples</a></h2>
-    <h4>Fri, Dec 2, 2011</h4>
-    <div class="article-style">
-      
-      Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right). Can we correctly discriminate between these models?
-Parameter differences:
-Likelihood differences:
-Yup.
-Repeated with effect-size scaled to be roughly equivalent for both traits. Wondering if it&rsquo;s easier to plot parameters out separately like this. Error bars show median and 25&frasl;75 % quantile range, with barplots showing the means (note that high outliers makes mean often larger than median).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thrusday - corrected calculation, implementing.  </a></h2>
-    <h4>Thu, Dec 1, 2011</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h2>
-    <h4>Wed, Nov 30, 2011</h4>
+    <h4><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wed, Nov 30, 2011</a></h4>
+    <h4><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h4>
     <div class="article-style">
       
       rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
@@ -236,13 +159,109 @@ Repeated with effect-size scaled to be roughly equivalent for both traits. Wond
   </div>
   
   <div>
-    <h2><a href="../../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h2>
-    <h4>Tue, Nov 29, 2011</h4>
+    <h4><a href="../../../2011/11/29/tuesday-debugging/">Tue, Nov 29, 2011</a></h4>
+    <h4><a href="../../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h4>
     <div class="article-style">
       
       Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
 Unit tests.
 Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/28/monday-11/">Mon, Nov 28, 2011</a></h4>
+    <h4><a href="../../../2011/11/28/monday-11/">Monday: submodels for full traits</a></h4>
+    <div class="article-style">
+      
+      Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
+Creating unit tests:
+Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
+require(wrightscape) data(labrids) s1_spec &lt;- list(alpha = &quot;global&quot;, sigma = &quot;indep&quot;, theta = &quot;global&quot;) s1 &lt;- multiTypeOU(data = dat[&quot;close&quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &lt;- levels(pharyngeal) s1$sigma[&quot;other&quot;] &lt;- .
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/28/handling-other-sources-of-noise/">Mon, Nov 28, 2011</a></h4>
+    <h4><a href="../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h4>
+    <div class="article-style">
+      
+      I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
+$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Fri, Nov 25, 2011</a></h4>
+    <h4><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Friday: wrightscape, ggplot, wp memory</a></h4>
+    <div class="article-style">
+      
+      more sub-model comparisons wrightscape sub-models:
+ a1 independent alphas, global theta, sigmas
+ bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
+ a2 independent alpha, theta, global sigma
+ s1 indep sigma, global alpha, theta
+ s2 indep sigma, theta, global alpha
+  Basic Nelder Mead Simulated annealing associated parameter estimates
+This approach is really not finding a very robust solution.
+Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/23/getting-the-right-distributions/">Wed, Nov 23, 2011</a></h4>
+    <h4><a href="../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h4>
+    <div class="article-style">
+      
+      Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
+$$x_{t+1} = z_t f(x_t) $$
+where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
+$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">Tue, Nov 22, 2011</a></h4>
+    <h4><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">some configuration notes: RStudio setup, syntax highlighting in sweave</a></h4>
+    <div class="article-style">
+      
+      Installing R-Studio on my dreamhost VPS server. Dreamhost runs debian lenny, which is a bit dated, making it necessary to install from source. (Would be easy on a modern ubuntu server). Here we go.
+First, we probably want to install R from source to begin with (Lenny comes with cutting-edge R 2.7.1&hellip;). This needs to be done with shared libs enabled. Also I needed to run it without recommended-packages to get the initial install working
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/18/friday-7/">Fri, Nov 18, 2011</a></h4>
+    <h4><a href="../../../2011/11/18/friday-7/">Friday</a></h4>
+    <div class="article-style">
+      
+      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Thu, Nov 17, 2011</a></h4>
+    <h4><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Steve Pacala - Storer lecture</a></h4>
+    <div class="article-style">
+      
+      Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
+Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
+ Carbon sink is half ocean, half terrestrial
+  A grim future:
+ 450ppm not feasible
+ 500ppm best case
+ 550ppm is likely even if we are largely successful
+  Even worse if the terrestrial sink collapses.
       
     </div>
   </div>
@@ -263,19 +282,7 @@ Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

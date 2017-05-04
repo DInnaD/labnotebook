@@ -140,94 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2014/04/10/multiple-uncertainty-notes/"></a></h2>
-    <h4>Thu, Apr 10, 2014</h4>
-    <div class="article-style">
-      
-      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
-  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/09/multiple-uncertainty-notes/"></a></h2>
-    <h4>Wed, Apr 9, 2014</h4>
-    <div class="article-style">
-      
-      Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
- Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/08/multiple-uncertainty-notes/"></a></h2>
-    <h4>Tue, Apr 8, 2014</h4>
-    <div class="article-style">
-      
-      Growth Noise Only Run:
-matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
- log normal noise sigma_g = 0.2 Other noise set to zero.
- Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
- Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/07/notes/"></a></h2>
-    <h4>Mon, Apr 7, 2014</h4>
-    <div class="article-style">
-      
-      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
-other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
- Related with Hadley discussion on handling tests and keys for API packages, httr/93
- Software Carpentry developing R lessons
-  rfishbase Add FAO areas (from 04/05), see rfishbase/20
-EML  Discussion of unit handling, feedback from Karen.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/04/03/wisconsin-visit/"></a></h2>
-    <h4>Thu, Apr 3, 2014</h4>
-    <div class="article-style">
-      
-      Carl Boettiger Schedule 3-4 April
-Thursday
-   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
-   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/03/31/ropenhack-notes/"></a></h2>
-    <h4>Mon, Mar 31, 2014</h4>
-    <div class="article-style">
-      
-      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
-Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/03/24/review-of-progress-on-packages/"></a></h2>
-    <h4>Mon, Mar 24, 2014</h4>
-    <div class="article-style">
-      
-      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
-rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/03/20/software-sustainability-issues-in-r/"></a></h2>
-    <h4>Thu, Mar 20, 2014</h4>
+    <h4><a href="../../../2014/03/20/software-sustainability-issues-in-r/">Thu, Mar 20, 2014</a></h4>
+    
     <div class="article-style">
       
       Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
@@ -237,8 +151,8 @@ rfigshare Changes to httr interface orginally broke rfigshare, though working wi
   </div>
   
   <div>
-    <h2><a href="../../../2014/03/18/notes/"></a></h2>
-    <h4>Tue, Mar 18, 2014</h4>
+    <h4><a href="../../../2014/03/18/notes/">Tue, Mar 18, 2014</a></h4>
+    
     <div class="article-style">
       
       ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
@@ -248,12 +162,93 @@ rfigshare Changes to httr interface orginally broke rfigshare, though working wi
   </div>
   
   <div>
-    <h2><a href="../../../2014/03/11/notes/"></a></h2>
-    <h4>Tue, Mar 11, 2014</h4>
+    <h4><a href="../../../2014/03/11/notes/">Tue, Mar 11, 2014</a></h4>
+    
     <div class="article-style">
       
       Reading  NAP report on &ldquo;Abrupt impacts of climate change: anticipating suprises.&rdquo;
  Nice overview of major climate tipping points. Interesting that the 2011 IPCC report put to rest concerns about a sudden transition of the thermohaline circulation within this century, despite good evidence that it is a bistable dynamic. Likewise appears to dismiss concerns of a tipping point related to the release of permafrost methane, thus putting aside the two most well-known and well-studied examples.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/03/10/notes/">Mon, Mar 10, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      RNeXML merge travis integration with support for rrdf. See pull #57 Reply to Perry re nonparametric approaches 10am Andrew Skype meeting re: his manuscript rOpenSci discussion re: other services, formats. Reading Caldwell et al, Geophysical Letters. Good example of naiive data mining leading to spurious correlations from non-independent models. (/ht @FreshwaterEcology Looking over NSF&rsquo;s Data Infrastructure Building Blocks, DIBB call and previously funded work.
+ Remote control for Ubuntu via android?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/03/07/notes/">Fri, Mar 7, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
+ Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/02/19/cran-and-package-dependencies/">Wed, Feb 19, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      2014-02-19 R allows you to specify &gt;= in a package dependency, not ==. The Comprehensive R Archive Network, CRAN, makes no requirement that package authors do not break their previous function API. For instance, if version 0.1 of the package had a function
+foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality in say, version 0.2 without breaking the existing API with a definition that looked like:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/02/18/real-world-challenges-in-reproducible-research-code/">Tue, Feb 18, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Editorial Note: Scratchpad in replying to issues raised by the NESCent reproducibility exercise that included my prosecutor&rsquo;s fallacy paper. See more developed version of this disucssion in the package issues log:
+  #1 #2 #3  @hlapp Thanks for the bug reports; I think there are quite a few good illustrations of the challenges in sharing code here go beyond [&ldquo;Publish your code, it&rsquo;s good enough&rdquo;](), despite the importance of that message.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/02/14/notes/">Fri, Feb 14, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      pomdp Write Iadine, send example code (Reed example in multiple_uncertainty)
+multiple-uncertainty Check in with Jim on how results compare to Sethi. See commit log for multiple_uncertainty
+open-science  #PublishPerish14 continues Comments on software publishing <a href="https://github.com/mozillascience/code-research-object/issues/2#issuecomment-35109160">https://github.com/mozillascience/code-research-object/issues/2#issuecomment-35109160</a>  Reading:  Drake, J. M. 2014 Tail probabilities of extinction time in a large number of experimental populations. Ecology , 140206083444001. (doi:10.1890&frasl;13-1107.1)  Neat result. thinking how this relates to predictions of Mangel and Tier 1993; probably still a significant deviation?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/02/10/scratch-notes-while-outlining-talk/">Mon, Feb 10, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Scratch notes for my seminar
+Part I: Tipping Points: Early Warning signals and decision theory Global change threats. So what do we do? This is a pendulum. easy to predict. Not a pendulum. Oscillations not easy to predict. Crashes Tipping points No equation for $f_i(s,h)$ Everything matters. Data is good, getting better. Crushing our data under parameters. Stop throwing out the data. Early Warning signals Optimal Control problem &ndash; Model the descision process!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/02/07/nceas-workflows-day3/">Fri, Feb 7, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      (Day 2 work) Hack-a-thon; no notebook entry but all progress appears in group Github repo: github.com/NCEAS/commdyn/. 78 Commits in 2 days, nice work team.
+Discussion of challenges and opportunities in open data and ecological workflows
+Synthesis and Reporting back
+Group 1.5 Plan Product 1: Paper: Visualizing global change in long term community ecology studies: the strawmen?
+ Lead: Sydney Jones  Long-term ecological research (LTER) sites have been collecting and publishing raw community ecology data for over 30 years from across the US and across a wide array of taxa.
       
     </div>
   </div>
@@ -274,19 +269,7 @@ rfigshare Changes to httr interface orginally broke rfigshare, though working wi
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

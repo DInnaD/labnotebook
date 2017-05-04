@@ -140,90 +140,16 @@
   
   
   <div>
-    <h2><a href="../../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
-    <h4>Wed, Mar 3, 2010</h4>
-    <div class="article-style">
-      
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
-
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/02/power-in-trees/">Power in trees</a></h2>
-    <h4>Tue, Mar 2, 2010</h4>
-    <div class="article-style">
-      
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/01/teaching/"></a></h2>
-    <h4>Mon, Mar 1, 2010</h4>
-    <div class="article-style">
-      
-      Evolution of Mimicry &amp; Levels of Selection  Today my turn to help facilitate in Begun&rsquo;s Monte Carlo on designing a course on evolution for non-majors. Worked with Elizabeth on an interactive case study teaching levels of selection through the example of mimicry in butterflies. Following a brief introduction, we gave a pilot run of a hands-on activity to explore population dynamics in a predator-control-model-mimic (jay-cabbage-monarch-viceroy) system. Here&rsquo;s the description.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/01/parallel-at-last/">Parallel at last</a></h2>
-    <h4>Mon, Mar 1, 2010</h4>
-    <div class="article-style">
-      
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/02/28/parallelizing-code/">Parallelizing Code</a></h2>
-    <h4>Sun, Feb 28, 2010</h4>
-    <div class="article-style">
-      
-      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/02/26/friday/">Friday</a></h2>
-    <h4>Fri, Feb 26, 2010</h4>
-    <div class="article-style">
-      
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/02/25/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Thu, Feb 25, 2010</h4>
-    <div class="article-style">
-      
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/02/25/thursday/">Thursday</a></h2>
-    <h4>Thu, Feb 25, 2010</h4>
+    <h4><a href="../../../2010/02/25/thursday/">Thu, Feb 25, 2010</a></h4>
+    <h4><a href="../../../2010/02/25/thursday/">Thursday</a></h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/02/24/derin-and-alan-meeting/"></a></h2>
-    <h4>Wed, Feb 24, 2010</h4>
+    <h4><a href="../../../2010/02/24/derin-and-alan-meeting/">Wed, Feb 24, 2010</a></h4>
+    
     <div class="article-style">
       
       1-2pm
@@ -233,8 +159,8 @@
   </div>
   
   <div>
-    <h2><a href="../../../2010/02/23/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
-    <h4>Tue, Feb 23, 2010</h4>
+    <h4><a href="../../../2010/02/23/comparing-to-analytic-dynamics/">Tue, Feb 23, 2010</a></h4>
+    <h4><a href="../../../2010/02/23/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h4>
     <div class="article-style">
       
       Goal for today: implement analytic calculations for warning signals.
@@ -245,6 +171,76 @@ and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
 α~2~(n) = b(n) + d(n)</p>
 
 <p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/22/teaching/">Mon, Feb 22, 2010</a></h4>
+    
+    <div class="article-style">
+      
+      GTC Session: Student Centered Learning: Successes, Failures and Strategies  Gabrielle and I facilitated a GTC section on Student-Centered learning. Details in the GTC blog post. Small group of about a dozen of us, still worked to break into four groups for the discussion section. Overall went very well, don&rsquo;t have a lot of comments to add about the experience or things I&rsquo;d do differently. Did get some positive feedback and comments that we could have used much more time to explore these ideas!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/22/monday/">Mon, Feb 22, 2010</a></h4>
+    <h4><a href="../../../2010/02/22/monday/">Monday</a></h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/20/implementing-an-example-of-low-and-high-power-trees/">Sat, Feb 20, 2010</a></h4>
+    <h4><a href="../../../2010/02/20/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h4>
+    <div class="article-style">
+      
+      Code implementation in felsenstein_tree.R
+ I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/19/teaching/">Fri, Feb 19, 2010</a></h4>
+    
+    <div class="article-style">
+      
+      Faculty Mentoring Faculty Presentation &ldquo;Short Cuts to Excellent Teaching: A Primer&rdquo;  by James Shaffrath, from Exercise Biology, The Department of Neurobiology, Physiology and Behavior  Just saw this presentation in the Faculty Mentoring Faculty program. Good program, though pretty basic, not really touching on peer learning but focusing on lecture content and style. Things like rolling lexicon (using both jargon and simple phrases), being present, being engaging. The broad introduction was definitely the best part, and an inspiring view about the role of education.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/19/power-in-trees-continues/">Fri, Feb 19, 2010</a></h4>
+    <h4><a href="../../../2010/02/19/power-in-trees-continues/">Power in trees continues</a></h4>
+    <div class="article-style">
+      
+      Discussion of power in trees need a counterpoint to the example of the star tree as being devoid of information content. The best example here is probably the example tree used in the introduction of Felsenstein 1985: two star trees sharing a common ancestor. Implemented the basic creation of a balanced tree of arbitrary depth having this structure. The balanced tree has 2^h^ − 1 nodes, all internal nodes occuring at time = 1&frasl;2 and all tips at time = 1.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/18/power-in-trees/">Thu, Feb 18, 2010</a></h4>
+    <h4><a href="../../../2010/02/18/power-in-trees/">Power in Trees</a></h4>
+    <div class="article-style">
+      
+      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
+Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/02/17/hastings-meeting/">Wed, Feb 17, 2010</a></h4>
+    <h4><a href="../../../2010/02/17/hastings-meeting/">Hastings Meeting</a></h4>
+    <div class="article-style">
+      
+      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
       
     </div>
   </div>
@@ -265,19 +261,7 @@ and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

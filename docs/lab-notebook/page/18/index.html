@@ -140,91 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2013/05/23/notes/"></a></h2>
-    <h4>Thu, May 23, 2013</h4>
-    <div class="article-style">
-      
-      Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
- Some edits to adapt the extraction of posteriors from the multiple chains.
- Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
-  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
-module load gcc R jags  This appears to result in greater uncertainty:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/22/notes/"></a></h2>
-    <h4>Wed, May 22, 2013</h4>
-    <div class="article-style">
-      
-      Nonparametric-bayes  Establishing chunck dependencies, simplifying and abstracting code.
- still need to fix up Allen MCMC convergence when underlying model is Myers 10:18 am 2013/05/22
- replicate runs on data from allen and myers model 08:39 pm 2013/05/21
-  Clean code for complicated scripts Pseudo-code somewhat captured by the chuncks. Ideal would be:
- Define models Define parameters Simulate data Estimate MLE Estimate under GPP Allen MCMC Ricker MCMC Myers MCMC Determine optimal policy for each&hellip; Simulation Graphs  A preponderance of preprint servers Having sent in my review for IEE, do I also post it on the peerJ preprint?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/21/comforting-trends-in-scientific-software-use/"></a></h2>
-    <h4>Tue, May 21, 2013</h4>
-    <div class="article-style">
-      
-      Author&rsquo;s Note: Having refrained from actually posting this for 8 months, as I think I have quite mellowed more my critique. I do believe that education and peer review are the best way forward in tackling these issues, but cannot overstate how much of a long and rocky road that process will be. The Mozilla Science Foundation is really leading these efforts with their code review pilots (as I have discussed in posts since writing this), and through their work with Software Carpentry training.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/20/notes/"></a></h2>
-    <h4>Mon, May 20, 2013</h4>
-    <div class="article-style">
-      
-      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
- Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/17/null-distribution-width-minor-puzzle/"></a></h2>
-    <h4>Fri, May 17, 2013</h4>
-    <div class="article-style">
-      
-      A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor&rsquo;s fallacy.
-Load the original run of the ou model and increase the nulldt data frame to use all points instead of a sample of length 5000
-load(&quot;beer_run.rda&quot;) ou_dat &lt;- dat ou_null &lt;- nulldat #ou_null_ts &lt;- nulldt null &lt;- timeseries #[1000:6010,] null &lt;- as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/16/notes/"></a></h2>
-    <h4>Thu, May 16, 2013</h4>
-    <div class="article-style">
-      
-      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/14/notes/"></a></h2>
-    <h4>Tue, May 14, 2013</h4>
-    <div class="article-style">
-      
-      Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
-One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
-opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/05/13/notes/"></a></h2>
-    <h4>Mon, May 13, 2013</h4>
+    <h4><a href="../../../2013/05/13/notes/">Mon, May 13, 2013</a></h4>
+    
     <div class="article-style">
       
       Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
@@ -234,8 +151,8 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
   </div>
   
   <div>
-    <h2><a href="../../../2013/05/09/notes/">Prep for ERE talk</a></h2>
-    <h4>Thu, May 9, 2013</h4>
+    <h4><a href="../../../2013/05/09/notes/">Thu, May 9, 2013</a></h4>
+    <h4><a href="../../../2013/05/09/notes/">Prep for ERE talk</a></h4>
     <div class="article-style">
       
       Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
@@ -244,11 +161,92 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
   </div>
   
   <div>
-    <h2><a href="../../../2013/05/07/notes/"></a></h2>
-    <h4>Tue, May 7, 2013</h4>
+    <h4><a href="../../../2013/05/07/notes/">Tue, May 7, 2013</a></h4>
+    
     <div class="article-style">
       
       Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Fri, May 3, 2013</a></h4>
+    <h4><a href="../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Notebook features: SHA Hashes</a></h4>
+    <div class="article-style">
+      
+      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
+I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/05/03/notes/">Fri, May 3, 2013</a></h4>
+    <h4><a href="../../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h4>
+    <div class="article-style">
+      
+      Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
+ As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/05/02/musings-on-conservation-literature/">Thu, May 2, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      Just because I&rsquo;m a theorist deeply entrenched in methodological concerns about uncertainty and decision making doesn&rsquo;t mean I don&rsquo;t think about practical conservation from time to time. Some musings from my comment here, copied over for my own reference.
+Though I would like to believe the gap stems from the problems you discuss, I think that differing objectives between research and application may play a much larger role. I suspect that scientific papers that are most useful and influential for conservation practitioners and policymakers are those which confirm what they already believe, or whatever the interests opposed to them least want to hear.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/05/02/scholarly-infrastructure-thoughts/">Thu, May 2, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      Sustainable Research Happened across a provocative example of why we need a software ecosystem, though it was certainly not intended to be one, which led me to ask myself:
+ How complex does an algorithm have to be before a talented researcher with expertise in both the relevant mathematics and computer science will make a significant mistake in their first release of the software?
+ As a corollary we might also ask, &ldquo;How much less care do we put into research code not destined for release?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/">Wed, May 1, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      (Development version for reference; code functions now in R/gp_mcmc.R)
+Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/05/01/integrating-over-posterior-gp/">Wed, May 1, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      Added integration over the posterior distribution of the GP
+ Added example of parametric Bayesian inference based on Ricker
+  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Tue, Apr 30, 2013</a></h4>
+    <h4><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h4>
+    <div class="article-style">
+      
+      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
+Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
+  Define some example priors
+lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
       
     </div>
   </div>
@@ -269,19 +267,7 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

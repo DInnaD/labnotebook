@@ -141,19 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2012/12/10/prior-distributions-for-tgp-mcmc/"></a></h2>
-    <h4>Mon, Dec 10, 2012</h4>
-    <div class="article-style">
-      
-      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
-Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
-$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
-And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2012/12/05/notes/"></a></h2>
     <h4>Wed, Dec 5, 2012</h4>
     <div class="article-style">
@@ -254,6 +241,19 @@ mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
       Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
 See notes on code changes inline.
 Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2012/11/15/notes/"></a></h2>
+    <h4>Thu, Nov 15, 2012</h4>
+    <div class="article-style">
+      
+      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
+Is there some scalar $v_2$ such that
+$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
+e.g. a term like:
       
     </div>
   </div>

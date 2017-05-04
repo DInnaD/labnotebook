@@ -141,16 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2010/08/08/warning-signals/">Warning Signals</a></h2>
-    <h4>Sun, Aug 8, 2010</h4>
-    <div class="article-style">
-      
-      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2010/08/07/reading/">Reading</a></h2>
     <h4>Sat, Aug 7, 2010</h4>
     <div class="article-style">
@@ -246,6 +236,17 @@ png(&quot;ibm_gamma.png&quot;) o &lt;- gamma_beetles_ibm() plot(o$times, o$mv[[1
 Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
 
 <p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2010/05/26/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
+    <h4>Wed, May 26, 2010</h4>
+    <div class="article-style">
+      
+      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
+where β~i~ is the intrinsic noise of the age class.
       
     </div>
   </div>

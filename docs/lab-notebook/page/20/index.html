@@ -140,84 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2013/04/26/notebook-features-reproducible-code/">Notebook features: reproducible code</a></h2>
-    <h4>Fri, Apr 26, 2013</h4>
-    <div class="article-style">
-      
-      I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/25/notes/"></a></h2>
-    <h4>Thu, Apr 25, 2013</h4>
-    <div class="article-style">
-      
-      finish pmc post from Tuesday (done).
- Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
- Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/24/empirical-demonstration-of-that-clever-derivation/"></a></h2>
-    <h4>Wed, Apr 24, 2013</h4>
-    <div class="article-style">
-      
-      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
-After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/"></a></h2>
-    <h4>Tue, Apr 23, 2013</h4>
-    <div class="article-style">
-      
-      The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/19/bayesian-parametric-uncertainty-sdp/"></a></h2>
-    <h4>Fri, Apr 19, 2013</h4>
-    <div class="article-style">
-      
-      Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
-f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &lt;- dim(pardist) indices &lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &lt;- sapply(indices, function(i){ # For each parameter value p &lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &lt;- f(x_t,h,p) est_sigma_g &lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &lt; x_grid[2]){ # handle the degenerate case out &lt;- numeric(length(x_grid)) out[1] &lt;- 1 out } else { out &lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &lt;- t(F_true) } snap_to_grid &lt;- function(x, grid) sapply(x, function(x) grid[which.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/18/notes/"></a></h2>
-    <h4>Thu, Apr 18, 2013</h4>
-    <div class="article-style">
-      
-      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
- pmc functions
-  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/17/notes/"></a></h2>
-    <h4>Wed, Apr 17, 2013</h4>
-    <div class="article-style">
-      
-      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h2>
-    <h4>Tue, Apr 16, 2013</h4>
+    <h4><a href="../../../2013/04/16/notes/">Tue, Apr 16, 2013</a></h4>
+    <h4><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h4>
     <div class="article-style">
       
       warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
@@ -227,19 +151,94 @@ f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapp
   </div>
   
   <div>
-    <h2><a href="../../../2013/04/15/notes/"></a></h2>
-    <h4>Mon, Apr 15, 2013</h4>
+    <h4><a href="../../../2013/04/15/notes/">Mon, Apr 15, 2013</a></h4>
+    
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2013/04/12/parametric-bayesian-example/"></a></h2>
-    <h4>Fri, Apr 12, 2013</h4>
+    <h4><a href="../../../2013/04/12/parametric-bayesian-example/">Fri, Apr 12, 2013</a></h4>
+    
     <div class="article-style">
       
       As discussed with Marc in yesterday&rsquo;s meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a parametric Bayesian case, e.g. with the correct underlying model. This is implemented in BUGS (jags) through the R interface as described in Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/">Thu, Apr 11, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/11/nonparametric-bayes-framing-the-issues/">Thu, Apr 11, 2013</a></h4>
+    <h4><a href="../../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h4>
+    <div class="article-style">
+      
+      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
+ Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Wed, Apr 10, 2013</a></h4>
+    <h4><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h4>
+    <div class="article-style">
+      
+      Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
+ Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/05/a-clever-derivation-on-realized-escape-times/">Fri, Apr 5, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/04/notebook-parsing/">Thu, Apr 4, 2013</a></h4>
+    <h4><a href="../../../2013/04/04/notebook-parsing/">Notebook Features: parsing linked data in the semantic notebook</a></h4>
+    <div class="article-style">
+      
+      In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/03/further-examples-managing-tipping-points-with-gp/">Wed, Apr 3, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      See also:
+ <a href="http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html">http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html</a>  Example with fixed priors on hyperparameters, fixed model type.
+#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2) s2.p &lt;- c(5,5) tau2.p &lt;- c(5,1) d.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) nug.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) # gamma mean s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &lt;- function(x) dinvgamma(x, tau2.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2013/04/02/monday---tuesday/">Tue, Apr 2, 2013</a></h4>
+    
+    <div class="article-style">
+      
+      Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
+ More fishery managment controversy with Halpern et. al. (2013) critiquing the &lsquo;ocean food provision index&rsquo; from Nature last year, and a subset of that team replying Halpern et. al.
       
     </div>
   </div>
@@ -260,19 +259,7 @@ f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapp
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

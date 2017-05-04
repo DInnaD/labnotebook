@@ -20,8 +20,8 @@
   {{ $paginator := .Paginate .Data.Pages }}
   {{ range $paginator.Pages }}
   <div>
-    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-    <h4>{{ .Date.Format $.Site.Params.date_format }}</h4>
+    <h4><a href="{{ .Permalink }}">{{ .Date.Format $.Site.Params.date_format }}</a></h4>
+    {{ if .Title }}<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>{{ end }}
     <div class="article-style">
       {{ if .Params.summary }}
       {{ printf "%s" .Params.summary | markdownify }}
@@ -35,19 +35,7 @@
   {{ partial "pagination" . }}
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 {{ partial "footer_container.html" . }}

@@ -134,19 +134,11 @@
     
       
     <p>Working through quick-start example in <a href="http://r-nimble.org/manuals/NimbleUserManual.pdf">nimble manual</a></p>
-<pre class="r"><code>library(methods)
-library(knitr)
-# set dev to png for graphs with &gt; 1e3 points
 
-## caching nimble can create trouble!</code></pre>
 <p>The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.</p>
-<pre class="r"><code>library(nimble)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;nimble&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     simulate</code></pre>
-<pre class="r"><code>pumpCode &lt;- nimbleCode({
+
+<pre><code class="language-r">library(nimble)
+pumpCode &lt;- modelCode({
   for (i in 1:N){
     theta[i] ~ dgamma(alpha,beta)
     lambda[i] &lt;- theta[i]*t[i]
@@ -154,115 +146,166 @@ library(knitr)
   }
   alpha ~ dexp(1.0)
   beta ~ dgamma(0.1,1.0)
-})</code></pre>
-<pre class="r"><code>pumpConsts &lt;- list(N = 10, 
+})
+</code></pre>
+
+<pre><code class="language-r">pumpConsts &lt;- list(N = 10, 
                    t = c(94.3, 15.7, 62.9, 126, 5.24,
                          31.4, 1.05, 1.05, 2.1, 10.5))
-pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))</code></pre>
-<pre class="r"><code>pumpInits &lt;- list(alpha = 1, 
+pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))
+</code></pre>
+
+<pre><code class="language-r">pumpInits &lt;- list(alpha = 1, 
                   beta = 1,
-                  theta = rep(0.1, pumpConsts$N))</code></pre>
-<pre class="r"><code>pump &lt;- nimbleModel(code = pumpCode, 
-                    name = &#39;pump&#39;, 
+                  theta = rep(0.1, pumpConsts$N))
+</code></pre>
+
+<pre><code class="language-r">pump &lt;- nimbleModel(code = pumpCode, 
+                    name = 'pump', 
                     constants = pumpConsts,
                     data = pumpData, 
-                    inits = pumpInits)</code></pre>
-<pre><code>## defining model...</code></pre>
-<pre><code>## building model...</code></pre>
-<pre><code>## setting data and initial values...</code></pre>
-<pre><code>## running calculate on model (any error reports that follow may simply
-## reflect missing values in model variables) ...</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## checking model sizes and dimensions...</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## model building finished.</code></pre>
-<pre class="r"><code>pump$getNodeNames()</code></pre>
-<pre><code>##  [1] &quot;alpha&quot;               &quot;beta&quot;                &quot;lifted_d1_over_beta&quot;
-##  [4] &quot;theta[1]&quot;            &quot;theta[2]&quot;            &quot;theta[3]&quot;           
-##  [7] &quot;theta[4]&quot;            &quot;theta[5]&quot;            &quot;theta[6]&quot;           
-## [10] &quot;theta[7]&quot;            &quot;theta[8]&quot;            &quot;theta[9]&quot;           
-## [13] &quot;theta[10]&quot;           &quot;lambda[1]&quot;           &quot;lambda[2]&quot;          
-## [16] &quot;lambda[3]&quot;           &quot;lambda[4]&quot;           &quot;lambda[5]&quot;          
-## [19] &quot;lambda[6]&quot;           &quot;lambda[7]&quot;           &quot;lambda[8]&quot;          
-## [22] &quot;lambda[9]&quot;           &quot;lambda[10]&quot;          &quot;x[1]&quot;               
-## [25] &quot;x[2]&quot;                &quot;x[3]&quot;                &quot;x[4]&quot;               
-## [28] &quot;x[5]&quot;                &quot;x[6]&quot;                &quot;x[7]&quot;               
-## [31] &quot;x[8]&quot;                &quot;x[9]&quot;                &quot;x[10]&quot;</code></pre>
+                    inits = pumpInits)
+
+pump$getNodeNames()
+</code></pre>
+
+<pre><code> [1] &quot;alpha&quot;               &quot;beta&quot;                &quot;lifted_d1_over_beta&quot;
+ [4] &quot;theta[1]&quot;            &quot;theta[2]&quot;            &quot;theta[3]&quot;           
+ [7] &quot;theta[4]&quot;            &quot;theta[5]&quot;            &quot;theta[6]&quot;           
+[10] &quot;theta[7]&quot;            &quot;theta[8]&quot;            &quot;theta[9]&quot;           
+[13] &quot;theta[10]&quot;           &quot;lambda[1]&quot;           &quot;lambda[2]&quot;          
+[16] &quot;lambda[3]&quot;           &quot;lambda[4]&quot;           &quot;lambda[5]&quot;          
+[19] &quot;lambda[6]&quot;           &quot;lambda[7]&quot;           &quot;lambda[8]&quot;          
+[22] &quot;lambda[9]&quot;           &quot;lambda[10]&quot;          &quot;x[1]&quot;               
+[25] &quot;x[2]&quot;                &quot;x[3]&quot;                &quot;x[4]&quot;               
+[28] &quot;x[5]&quot;                &quot;x[6]&quot;                &quot;x[7]&quot;               
+[31] &quot;x[8]&quot;                &quot;x[9]&quot;                &quot;x[10]&quot;              
+</code></pre>
+
 <p>Note that we can see <code>theta</code> has our initial conditions, while <code>lambda</code> has not yet been initialized:</p>
-<pre class="r"><code>pump$theta</code></pre>
-<pre><code>##  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1</code></pre>
-<pre class="r"><code>pump$lambda</code></pre>
-<pre><code>##  [1]  9.430  1.570  6.290 12.600  0.524  3.140  0.105  0.105  0.210  1.050</code></pre>
-<p>Hmm, initially we cannot simulate <code>theta</code> values though (or rather, we just get NaNs and warnings if we do). At the moment I’m not clear on why, though seems to be due to the lifted node:</p>
-<pre class="r"><code>simulate(pump, &#39;theta&#39;)
-pump$theta</code></pre>
-<pre><code>##  [1] 0.53734580 2.63195514 0.75100519 0.61140095 0.59235548 2.18748853
-##  [7] 0.58002217 0.33432378 1.40262927 0.09732794</code></pre>
-<pre class="r"><code>pump$lifted_d1_over_beta</code></pre>
-<pre><code>## [1] 1</code></pre>
-<p>If we calculate the log probability density of the determinstic dependencies of alpha and beta nodes (i.e. the lifted node) then we’re okay:</p>
-<pre class="r"><code>set.seed(0) ## This makes the simulations here reproducible
-calculate(pump, pump$getDependencies(c(&#39;alpha&#39;, &#39;beta&#39;), determOnly = TRUE))</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>simulate(pump, &#39;theta&#39;)</code></pre>
-<pre class="r"><code>pump$theta</code></pre>
-<pre><code>##  [1] 1.79180692 0.29592523 0.08369014 0.83617765 1.22254365 1.15835525
-##  [7] 0.99001994 0.30737332 0.09461909 0.15720154</code></pre>
-<p>We still need to initialize lambda, e.g. by calculating the probability density on those nodes:</p>
-<pre class="r"><code>calculate(pump, &#39;lambda&#39;)</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>pump$lambda</code></pre>
-<pre><code>##  [1] 168.9673926   4.6460261   5.2641096 105.3583839   6.4061287
-##  [6]  36.3723548   1.0395209   0.3227420   0.1987001   1.6506161</code></pre>
-<p>though not entirely clear to me why the guide prefers to do this as the dependencies of theta (which clearly include lambda, but also other things). Also not clear if these <code>calculate</code> steps are necessary to proceed with the <code>MCMCspec</code> and <code>buildMCMC</code>, or compile steps. Let’s reset the model<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> and find out:</p>
-<pre class="r"><code>pump &lt;- nimbleModel(code = pumpCode, 
-                    name = &#39;pump&#39;, 
+
+<pre><code class="language-r">pump$theta
+</code></pre>
+
+<pre><code> [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+</code></pre>
+
+<pre><code class="language-r">pump$lambda
+</code></pre>
+
+<pre><code> [1] NA NA NA NA NA NA NA NA NA NA
+</code></pre>
+
+<p>Hmm, initially we cannot simulate <code>theta</code> values though (or rather, we just get NaNs and warnings if we do). At the moment I&rsquo;m not clear on why, though seems to be due to the lifted node:</p>
+
+<pre><code class="language-r">simulate(pump, 'theta')
+pump$theta
+</code></pre>
+
+<pre><code> [1] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN
+</code></pre>
+
+<pre><code class="language-r">pump$lifted_d1_over_beta
+</code></pre>
+
+<pre><code>[1] NA
+</code></pre>
+
+<p>If we calculate the log probability density of the determinstic dependencies of alpha and beta nodes (i.e. the lifted node) then we&rsquo;re okay:</p>
+
+<pre><code class="language-r">set.seed(0) ## This makes the simulations here reproducible
+calculate(pump, pump$getDependencies(c('alpha', 'beta'), determOnly = TRUE))
+</code></pre>
+
+<pre><code>[1] 0
+</code></pre>
+
+<pre><code class="language-r">simulate(pump, 'theta')
+</code></pre>
+
+<pre><code class="language-r">pump$theta
+</code></pre>
+
+<pre><code> [1] 1.79180692 0.29592523 0.08369014 0.83617765 1.22254365 1.15835525
+ [7] 0.99001994 0.30737332 0.09461909 0.15720154
+</code></pre>
+
+<p>We still need to initialize lambda, e.g. by calculating the probability density on those nodes:</p>
+
+<pre><code class="language-r">calculate(pump, 'lambda')
+</code></pre>
+
+<pre><code>[1] 0
+</code></pre>
+
+<pre><code class="language-r">pump$lambda
+</code></pre>
+
+<pre><code> [1] 168.9673926   4.6460261   5.2641096 105.3583839   6.4061287
+ [6]  36.3723548   1.0395209   0.3227420   0.1987001   1.6506161
+</code></pre>
+
+<p>though not entirely clear to me why the guide prefers to do this as the dependencies of theta (which clearly include lambda, but also other things).  Also not clear if these <code>calculate</code> steps are necessary to proceed with the <code>MCMCspec</code> and <code>buildMCMC</code>, or compile steps.  Let&rsquo;s reset the model<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup> and find out:</p>
+
+<pre><code class="language-r">pump &lt;- nimbleModel(code = pumpCode, 
+                    name = 'pump', 
                     constants = pumpConsts,
                     data = pumpData, 
-                    inits = pumpInits)</code></pre>
-<pre><code>## defining model...</code></pre>
-<pre><code>## building model...</code></pre>
-<pre><code>## setting data and initial values...</code></pre>
-<pre><code>## running calculate on model (any error reports that follow may simply
-## reflect missing values in model variables) ...</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## checking model sizes and dimensions...</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## model building finished.</code></pre>
-<pre class="r"><code>pump$theta</code></pre>
-<pre><code>##  [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1</code></pre>
-<pre class="r"><code>pump$lambda</code></pre>
-<pre><code>##  [1]  9.430  1.570  6.290 12.600  0.524  3.140  0.105  0.105  0.210  1.050</code></pre>
-<p>Good, we’re reset. Now we try:</p>
-<pre class="r"><code>Cpump &lt;- compileNimble(pump)</code></pre>
-<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
-<pre><code>## compilation finished.</code></pre>
-<pre class="r"><code>pumpSpec &lt;- configureMCMC(pump)
-pumpSpec$addMonitors(c(&#39;alpha&#39;, &#39;beta&#39;, &#39;theta&#39;))</code></pre>
-<pre><code>## thin = 1: alpha, beta, theta</code></pre>
-<pre class="r"><code>## These must be in same chunk as above!
-pumpMCMC &lt;- buildMCMC(pumpSpec)
-CpumpMCMC &lt;- compileNimble(pumpMCMC, project = pump)</code></pre>
-<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.
-## compilation finished.</code></pre>
-<pre class="r"><code>## and these
-CpumpMCMC$run(1000)</code></pre>
-<pre><code>## |-------------|-------------|-------------|-------------|
-## |-------------------------------------------------------|</code></pre>
-<pre><code>## NULL</code></pre>
-<pre class="r"><code>samples &lt;- as.matrix(CpumpMCMC$mvSamples)</code></pre>
-<pre class="r"><code>plot(samples[ , &#39;alpha&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;,
+                    inits = pumpInits)
+
+pump$theta
+</code></pre>
+
+<pre><code> [1] 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+</code></pre>
+
+<pre><code class="language-r">pump$lambda
+</code></pre>
+
+<pre><code> [1] NA NA NA NA NA NA NA NA NA NA
+</code></pre>
+
+<p>Good, we&rsquo;re reset. Now we try:</p>
+
+<pre><code class="language-r">Cpump &lt;- compileNimble(pump)
+pumpSpec &lt;- MCMCspec(pump)
+pumpSpec$addMonitors(c('alpha', 'beta', 'theta'))
+</code></pre>
+
+<pre><code>thin = 1: alpha, beta, theta
+</code></pre>
+
+<pre><code class="language-r">pumpMCMC &lt;- buildMCMC(pumpSpec)
+CpumpMCMC &lt;- compileNimble(pumpMCMC, project = pump)
+</code></pre>
+
+<pre><code class="language-r">CpumpMCMC(1000)
+</code></pre>
+
+<pre><code>NULL
+</code></pre>
+
+<pre><code class="language-r">samples &lt;- as.matrix(nfVar(CpumpMCMC, 'mvSamples'))
+</code></pre>
+
+<pre><code class="language-r">plot(samples[ , 'alpha'], type = 'l', xlab = 'iteration',
 ylab = expression(alpha))
-plot(samples[ , &#39;beta&#39;], type = &#39;l&#39;, xlab = &#39;iteration&#39;,
+plot(samples[ , 'beta'], type = 'l', xlab = 'iteration',
 ylab = expression(beta))
-plot(samples[ , &#39;alpha&#39;], samples[ , &#39;beta&#39;], xlab = expression(alpha),
-ylab = expression(beta))</code></pre>
-<p><img src="../../../../lab-notebook/2014-12-03-nimble-explore_files/figure-html/plot-1.png" width="672" /><img src="../../../../lab-notebook/2014-12-03-nimble-explore_files/figure-html/plot-2.png" width="672" /><img src="../../../../lab-notebook/2014-12-03-nimble-explore_files/figure-html/plot-3.png" width="672" /></p>
+plot(samples[ , 'alpha'], samples[ , 'beta'], xlab = expression(alpha),
+ylab = expression(beta))
+</code></pre>
+
+<p><img src="../../../../2014/assets/figures/posts/2014-12-03-nimble-explore/unnamed-chunk-15-1.png" alt="" /> <img src="../../../../2014/assets/figures/posts/2014-12-03-nimble-explore/unnamed-chunk-15-2.png" alt="" /> <img src="../../../../2014/assets/figures/posts/2014-12-03-nimble-explore/unnamed-chunk-15-3.png" alt="" /></p>
+
 <p>Note the poor mixing (which is improved by the block sampler, as shown in the manual).</p>
 <div class="footnotes">
+
 <hr />
+
 <ol>
-<li id="fn1"><p>Not completely certain that this destroys anything connected to the object as C pointers from before, but seems like it should.<a href="#fnref1">↩</a></p></li>
+<li id="fn:1">Not completely certain that this destroys anything connected to the object as C pointers from before, but seems like it should.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
 </ol>
 </div>
 
@@ -323,15 +366,15 @@ ylab = expression(beta))</code></pre>
  
   <br />
   
-  <p><a class="btn btn-default" rel="prev" href='../../../../2014/12/04/lsn-nimble/'><i class="fa fa-chevron-left"></i> prev</a>
-    <a class="btn btn-default" rel="next" href='../../../../2014/12/03/nimble-explore/'>next <i class="fa fa-chevron-right"></i></a></p>
+  <p><a class="btn btn-default" rel="prev" href='../../../../2014/12/03/nimble-explore/'><i class="fa fa-chevron-left"></i> prev</a>
+    <a class="btn btn-default" rel="next" href='../../../../2014/12/03/ou-model-in-nimble/'>next <i class="fa fa-chevron-right"></i></a></p>
 
   <br />
 
   <p> <a class="btn btn-default" 
-         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-03-nimble-explore.html"><i class="fa fa-clock-o"></i> history</a></p>
+         href="https://github.com/cboettig/cboettig.github.io/commits/master/content/lab-notebook/2014-12-03-nimble-explore.md"><i class="fa fa-clock-o"></i> history</a></p>
 
-  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/9d9072923c46d635718a4624d6afff6b1ec2439f/content/lab-notebook/2014-12-03-nimble-explore.html">9d9072923</a></p> 
+  <p> <i class="fa fa-barcode"></i> SHA: <a href="https://github.com/cboettig/cboettig.github.io/blob/9d9072923c46d635718a4624d6afff6b1ec2439f/content/lab-notebook/2014-12-03-nimble-explore.md">9d9072923</a></p> 
 
 
 </aside>

@@ -141,14 +141,6 @@
   
   
   <div>
-    <h2><a href="../../2014/12/29/steps-to-a-more-portable-workflow/"></a></h2>
-    <h4>Mon, Dec 29, 2014</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../2014/11/24/coreos-docker-registries-etc/"></a></h2>
     <h4>Mon, Nov 24, 2014</h4>
     <div class="article-style">
@@ -186,17 +178,6 @@ While there&rsquo;s an obvious level of convenience in having something like LaT
     <div class="article-style">
       
       Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/10/29/the-viability-of-dockerized-research/"></a></h2>
-    <h4>Wed, Oct 29, 2014</h4>
-    <div class="article-style">
-      
-      In the spirit of Greg&rsquo;s post &amp; the discussion here, I&rsquo;d be interested in hearing more on people&rsquo;s thoughts about the viability of Dockerized software both in the teaching classroom and beyond, as students continue in their research.
-To start off, I thought I&rsquo;d share a few of my own impressions, largely to give a target for anyone to push back against. In doing so I will also try to outline what I see as the features and potential workflow would look like, in hopes that it does not require any actual experience with docker to have an opinion on whether or not a particular strategy makes sense pedagogically.
       
     </div>
   </div>
@@ -243,6 +224,28 @@ Getting the correct version of packages (or even merely any compatible version o
       
       Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
 ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/10/02/notes/"></a></h2>
+    <h4>Thu, Oct 2, 2014</h4>
+    <div class="article-style">
+      
+      docker 2014-09-29:
+ Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
+ Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&rsquo;s talk on our Docker work.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/09/22/containerizing-my-development-environment/"></a></h2>
+    <h4>Mon, Sep 22, 2014</h4>
+    <div class="article-style">
+      
+      A key challenge for reproducible research is developing solutions that integrate easily into a researcher&rsquo;s existing workflow. Having to move all of one&rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&rsquo;t particularly appealing. In my experience this doesn&rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.
       
     </div>
   </div>

@@ -141,30 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h2>
-    <h4>Thu, Nov 10, 2011</h4>
-    <div class="article-style">
-      
-      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
-parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/11/06/sunday-5/">Sunday</a></h2>
-    <h4>Sun, Nov 6, 2011</h4>
-    <div class="article-style">
-      
-      Computing notes A few configuration related things from migrating to the new laptop.
-Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
-make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
-mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2011/11/04/sparkleshare-configuration/">Sparkleshare configuration</a></h2>
     <h4>Fri, Nov 4, 2011</h4>
     <div class="article-style">
@@ -270,6 +246,30 @@ mysql&gt; create database database_name mysql&gt; create user &lsquo;username&rs
 Then set up a cron job. First, set the editor to something functional:
 export EDITOR=vi  then, crontab -e to edit the cron table. Add this line to run the command every 2 minutes (see wikipedia entry for quick intro), and plot it every 15 minutes:
 */2 * * * * /home/cboettig/.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/08/29/algorithms-group-hidden-markov-models/">Algorithms group: Hidden Markov Models</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
+    <div class="article-style">
+      
+      Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&rsquo;s awesome graph.
+As usual in the notebook, click on the graph to get link-through to the code.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
+    <h4>Mon, Aug 29, 2011</h4>
+    <div class="article-style">
+      
+      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
       
     </div>
   </div>

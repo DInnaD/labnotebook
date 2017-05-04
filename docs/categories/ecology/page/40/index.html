@@ -141,17 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2011/01/19/robert-hijmans-on-models-to-predict-sp-response-to-climate-change/">Robert Hijmans on Models to predict sp response to climate change</a></h2>
-    <h4>Wed, Jan 19, 2011</h4>
-    <div class="article-style">
-      
-      Notes from seminar.[ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets. [/ref] Robert speaks to an utterly packed room. Predicting future range of species: 4 topics. 1 cross-validation, 2 niches, 3 unit (sp?), 4 mechanism. Presence-absence predictions from machine learning, maxent.
-Opening: AUC for measure of fit- lousy stat!
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2011/01/10/warning-signals-power-and-sufficient-statistics/">Warning Signals, Power and Sufficient Statistics</a></h2>
     <h4>Mon, Jan 10, 2011</h4>
     <div class="article-style">
@@ -250,6 +239,20 @@ Includes plots of the timeseries, giving a visual clue of how dramatic the warni
     <div class="article-style">
       
       Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
+    <h4>Tue, Nov 30, 2010</h4>
+    <div class="article-style">
+      
+      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
+$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
+and the transcritical bifurcation
+$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
+Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
       
     </div>
   </div>

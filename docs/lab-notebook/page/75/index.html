@@ -140,92 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2010/11/05/thursday/">Thursday</a></h2>
-    <h4>Fri, Nov 5, 2010</h4>
-    <div class="article-style">
-      
-      Wrote yesterday&rsquo;s entry on power spectral analysis difficulties from yesterday. Why don&rsquo;t I remember my physics training better? Bialek&rsquo;s Phy562 notes still very helpful. No one else seems to write about this stuff clearly enough for me. Including me. 8a-11a
-Catching up on reading. Good news and discussion items in Nature on publishing code and review materials, excellent piece on climate change scientists engaging media, climate high performance computing in Brazil; etc see headlines and links in my twitter feed archive for today.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
-    <div class="article-style">
-      
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/11/03/reviews-organization-rewrites/">Reviews, organization, rewrites</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
-    <div class="article-style">
-      
-      Today&rsquo;s a mixed bag of activities. Finished a journal review, comments confidential, recorded in my reviewed papers archive. I then organized documents library (more below) and then back to paper revisions.
-The reference manager software Mendeley recently upgraded the way it handles groups and sharing, and I&rsquo;ve been waiting to revise how it impacts my workflow around articles. Articles can be organized into folders (collections) or kept unsorted within the library, and can be part of as multiple collections.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/10/30/short-note-trait-diversification-rates-controlled-by-other-traits/">Short note: Trait diversification rates controlled by other traits</a></h2>
-    <h4>Sat, Oct 30, 2010</h4>
-    <div class="article-style">
-      
-      Peter posed an interesting question to me this afternoon: can we infer a model in which the rate of evolution in one trait (say, its Brownian diversification rate parameter) depends on the value of another trait (say, linearly and assume the other trait depends on Brownian motion). Without all those assumptions we write this generally as:
-$$ dX_t = f_x(X_t, Y_t) dt + \sigma_x(X_t, Y_t) d W_t $$ $$ dY_t = f_y(Y_t) dt + \sigma_y(Y_t) d W_t $$ (subscripts do not imply derivatives in my notation)
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/10/28/a-new-twist-on-the-approach/">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
-    <div class="article-style">
-      
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/10/28/red-noise-aside-exercise/">Red Noise (aside exercise)</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
-    <div class="article-style">
-      
-      Consider the first-order autoregressive process: $$ X_{t+1} = \rho X_t + \sqrt{1-\rho^2}Z_t $$
-Why the funny term at the end? This comes from normalizing the variance,
-$$ \begin{multline} E( (\rho X_t + \sqrt{1-\rho^2} Z_t)^2 ) = E (\rho^2 X_t^2) + E(2 \rho X_t \sqrt{1-\rho^2}) Z_t ) + E( X_t^2 Z_t^2 (1-\rho^2) ) \end{multline}$$
-by independence:
-$$ = \rho^2 E(X_t^2) + 2 \rho \sqrt{1-\rho^2} E( X_t ) E( Z_t ) + E( X_t^2) E(Z_t^2) (1-\rho^2) $$
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/10/27/warning-signals-where-are-we-now/">Warning Signals -- Where are we now?</a></h2>
-    <h4>Wed, Oct 27, 2010</h4>
-    <div class="article-style">
-      
-      The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
-$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
-and
-$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h2>
-    <h4>Tue, Oct 26, 2010</h4>
+    <h4><a href="../../../2010/10/26/correcting-for-the-mean-dynamics/">Tue, Oct 26, 2010</a></h4>
+    <h4><a href="../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h4>
     <div class="article-style">
       
       Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
@@ -236,8 +152,8 @@ $$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h2>
-    <h4>Mon, Oct 25, 2010</h4>
+    <h4><a href="../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Mon, Oct 25, 2010</a></h4>
+    <h4><a href="../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h4>
     <div class="article-style">
       
       Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
@@ -247,14 +163,78 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
   </div>
   
   <div>
-    <h2><a href="../../../2010/10/21/warning-signals-2/"></a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
+    <h4><a href="../../../2010/10/21/warning-signals-2/">Thu, Oct 21, 2010</a></h4>
+    
     <div class="article-style">
       
       Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
  Proper handling of trends
  Best model for eigenvalue change
   Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/21/spatial-warning-signals-power-etc/">Thu, Oct 21, 2010</a></h4>
+    <h4><a href="../../../2010/10/21/spatial-warning-signals-power-etc/">Spatial Warning Signals, power, etc</a></h4>
+    <div class="article-style">
+      
+      Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation. Weakening stability across a set of coupled patches should result in increased autocorrelation. Decided to test this with a little visualization with help of a quick R script. Time progresses across the x-axis, 1-D space (on S1) across the y-axis. Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/20/adaptive-dynamics-abstract/">Wed, Oct 20, 2010</a></h4>
+    
+    <div class="article-style">
+      
+      Adaptive dynamics is a set of recently developed techniques for understanding phenotypic evolution, using a dynamical systems approach to concepts from evolutionary game theory. In contrast to population genetics, this approach tends to explore richer ecological interactions and simpler genetic assumptions, with significant controversy. My own work has focused on a particular element of the theory known as the canonical equation, a macroscopic equation describing the deterministic rate of evolution.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/20/stochastic-population-dynamics-abstract/">Wed, Oct 20, 2010</a></h4>
+    <h4><a href="../../../2010/10/20/stochastic-population-dynamics-abstract/">ecology Abstract</a></h4>
+    <div class="article-style">
+      
+      Ecological population sizes fluctuate not only in response to environmental fluctuations but because of the stochastic nature of natural births and deaths. While in very large populations these fluctuations have negligible impact, ecology rarely obliges us by satisfying this limit. Age and stage structure in populations serve to amplify the effect, where the fate of the population is determined by a smaller subset of, say, the fecund adults alone. Demographic noise is probably responsible for the ultimate extinction of many populations once reduced to a small size.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/19/warning-signals/">Tue, Oct 19, 2010</a></h4>
+    
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/18/teaching/">Mon, Oct 18, 2010</a></h4>
+    
+    <div class="article-style">
+      
+      Graduate Teaching Community &ndash; reflections on teaching Haven&rsquo;t made a lot of entries in this notebook as I&rsquo;m not teaching regularly at the moment, though am still attending meetings of the Graduate Teaching Community, a record of which can be found on our GTC blog. But today in GTC we are thinking about reflections on teaching, and starting with a little bit of journaling, so this seemed like a good place to do it.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/15/status-update/">Fri, Oct 15, 2010</a></h4>
+    <h4><a href="../../../2010/10/15/status-update/">Status update</a></h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/10/14/writing-continues/">Thu, Oct 14, 2010</a></h4>
+    <h4><a href="../../../2010/10/14/writing-continues/">Writing continues</a></h4>
+    <div class="article-style">
       
     </div>
   </div>
@@ -275,19 +255,7 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

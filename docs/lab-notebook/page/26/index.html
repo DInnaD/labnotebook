@@ -140,91 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2012/11/21/notes/"></a></h2>
-    <h4>Wed, Nov 21, 2012</h4>
-    <div class="article-style">
-      
-      writing comment piece. writing writing writing.
-  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/19/sequential-updating/"></a></h2>
-    <h4>Mon, Nov 19, 2012</h4>
-    <div class="article-style">
-      
-      Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
-for the covariance:
-C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
-mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h2>
-    <h4>Fri, Nov 16, 2012</h4>
-    <div class="article-style">
-      
-      Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
-See notes on code changes inline.
-Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/15/notes/"></a></h2>
-    <h4>Thu, Nov 15, 2012</h4>
-    <div class="article-style">
-      
-      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
-Is there some scalar $v_2$ such that
-$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
-e.g. a term like:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/09/better-tagging-practices/"></a></h2>
-    <h4>Fri, Nov 9, 2012</h4>
-    <div class="article-style">
-      
-      Better tagging practices  Standardize use of tags: Match tags in notebook to project repository name. Tag papers in Mendeley by these tags as well.  I have also started tracking the medium of discovery for each paper I add to my Mendeley collection through a little set of Mendeley tags. I am curious to see through which mediums I obtain the most content, and what content. As with any ontology, I will struggle to select a vocabulary that is precise enought to be useful without being too verbose (b) to bother to continue to use this.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/08/notes/"></a></h2>
-    <h4>Thu, Nov 8, 2012</h4>
-    <div class="article-style">
-      
-      Complete IACUC training for fish room. File forms: <a href="http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html">http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html</a> Online training &ndash; possibly see <a href="https://www.citiprogram.org/Default.asp?">https://www.citiprogram.org/Default.asp?</a> Shiny: <a href="http://www.rstudio.com/shiny/">http://www.rstudio.com/shiny/</a>
- Comment piece
- Prep exit seminar
- Applied math club: Networks. Reading <a href="http://dx.doi.org/10.1155/2011/284909">http://dx.doi.org/10.1155/2011/284909</a>
-  Discussion of when network structure has made an important difference on our understanding of a problem. When have the common summary statistics of a network (degree-distribution) allowed us to compte network dynamics without fully resolving the network?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/06/notes/"></a></h2>
-    <h4>Tue, Nov 6, 2012</h4>
-    <div class="article-style">
-      
-      Monday  altmetrics post post for multiple uncertainty, email to Steve, Marc Marc meeting ropensci proposals Phylotastic  Notebook configuration  trying out <a href="http://greycite.knowledgeblog.org/">http://greycite.knowledgeblog.org/</a>. Add to knitcitations. Add Greycite recommended opengraph and google scholar metadata metadata.html Import metadata from _config.yml. Any custom variable defined in config can be accessed at site.varname. See updated _config.yml  Reading  Schnitzler, J., Graham, C. H., Dormann, C. F., Schiffers, K., &amp; Peter Linder, H.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/11/03/altmetrics-conference/"></a></h2>
-    <h4>Sat, Nov 3, 2012</h4>
+    <h4><a href="../../../2012/11/03/altmetrics-conference/">Sat, Nov 3, 2012</a></h4>
+    
     <div class="article-style">
       
       From Thursday Nov 1 through Saturday Nov 3 I attended the PLoS Altmetrics workshop as a member of the ROpensci project. An exciting meeting driven mostly by the opportunity to interact with a small and incredibly creative and innovative group of science publishers, funders, start-ups, and other researchers. Details of the event are largely recorded on the altmetrics 2012 workshop website. We also have a few slides addressing the ropensci slant.
@@ -233,8 +150,8 @@ e.g. a term like:
   </div>
   
   <div>
-    <h2><a href="../../../2012/11/01/multiple-uncertainty-corrections/"></a></h2>
-    <h4>Thu, Nov 1, 2012</h4>
+    <h4><a href="../../../2012/11/01/multiple-uncertainty-corrections/">Thu, Nov 1, 2012</a></h4>
+    
     <div class="article-style">
       
       Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - ht$), $x{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth. We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$. Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.
@@ -243,11 +160,94 @@ e.g. a term like:
   </div>
   
   <div>
-    <h2><a href="../../../2012/10/31/notes/"></a></h2>
-    <h4>Wed, Oct 31, 2012</h4>
+    <h4><a href="../../../2012/10/31/notes/">Wed, Oct 31, 2012</a></h4>
+    
     <div class="article-style">
       
       I enjoyed an excellent meeting with Annette Thomas, CEO of MacMillian Publishing and Nature Publishing group at UC Davis. It was impressive to here that Annette wanted to meet with UC Davis faculty and graduate students interested in open access and open science to discuss our opinions, desires and frustrations in the scientific publishing process. It was particularly valuable to discuss some of the failed experiments in open science at Nature.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/29/notes/">Mon, Oct 29, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
+ Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
+ Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/25/stochastic-dynamic-programming-with-gaussian-process-approx/">Thu, Oct 25, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Here we work out an SDP solution of the Reed (1979) using a Gaussian process approximation. In this example the Gaussian process hyper-parameters haven&rsquo;t been tuned, so in principle the solution would perform even better, but this is just for illustrative purposes.
+We simulate 40 points under a stochastic growth (lognormal multiplicative noise) Beverton-Holt model and infer the Gaussian process. We start the simulation from a low stock value, giving reasonable but not perfect coverage of the state-space.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/24/evolutionary-covariance/">Wed, Oct 24, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Thinking through disparity measures while writing my thoughts in R&hellip;
+Load some sample data
+library(geiger) data(geospiza) dat &lt;- treedata(geospiza$geospiza.tree, geospiza$geospiza.data$wingL)  To find the disparity relative to a particular model, we must compute the variance-covariance matrix for that model
+X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, X) bm_disparity &lt;- t(X-mean_X) %<em>% V_bm %</em>% (X-mean_X)  I believe this needs to be scaled by the Brownian rate parameter of the trait, e.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/24/multiple-uncertainty-value-function-iteration/">Wed, Oct 24, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Multiple Uncertainty algorithm Define each of the transition matrices:
+D &lt;- matrix(NA, nrow=length(x_grid), ncol=Tmax) P &lt;- outer(x_grid, h_grid, profit) F &lt;- outer(x_grid, f(x_grid, 0, p), pdfn, sigma_g) M &lt;- outer(x_grid, x_grid, pdfn, sigma_m) I &lt;- outer(h_grid, h_grid, pdfn, sigma_i)  Probably row-normalize each:
+rownorm &lt;- function(M) t(apply(M, 1, function(x) x/sum(x))  (Note the transpose is needed since the silly function of a vector turns the column into a row. Not an issue of margin 2)
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/">Tue, Oct 23, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure. This means that any entry can be parsed with a generic XML parser to extract the entry content in &lt;article&gt;, the &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, etc. The &lt;head&gt; section provides &lt;title&gt; and essential &lt;meta&gt; tags declaring the character encoding (which also sets the MIME type for HTML5).
+Head In _includes/header.html we introduce some basic academic archive metadata using the Dublin Core ontology.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/23/notes/">Tue, Oct 23, 2012</a></h4>
+    <h4><a href="../../../2012/10/23/notes/">Gaussian process inference on sample functions</a></h4>
+    <div class="article-style">
+      
+      This example uses the direct inversion of the covariance function. I have also been exploring the potentially faster Cholksy decomposition without success. Sometimes the match is very good, other times not, see compare-cholsky.md This example also on github as reed-example.md.
+ Basic likelihood optimization needs to be checked. See commits estimating sigma_n and estimating l. Compare the example below to a different set of fixed hyperparameters here  Example require(pdgControl) require(ggplot2)  Simulate some training data under a stochastic growth function with standard parameterization,
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/10/22/notes/">Mon, Oct 22, 2012</a></h4>
+    <h4><a href="../../../2012/10/22/notes/">Comparing numerical methods</a></h4>
+    <div class="article-style">
+      
+      require(MASS) require(ggplot2) require(kernlab)  Parameterization-specific
+X &lt;- seq(-5,5,len=50) obs &lt;- data.frame(x = c(-4, -3, -1, 0, 2), y = c(-2, 0, 1, 2, -1)) l &lt;- 1 sigma_n &lt;- 0.8  Radial basis function/Gaussian kernel:
+SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2) cov &lt;- function(X, Y) outer(X, Y, SE, l)  Cholksy method
+n &lt;- length(obs$x) K &lt;- cov(obs$x, obs$x) I &lt;- diag(1, n) L &lt;- chol(K + sigma_n^2 * I) alpha &lt;- solve(t(L), solve(L, obs$y)) k_star &lt;- cov(obs$x, X) Y &lt;- t(k_star) %<em>% alpha v &lt;- solve(L, k_star) Var &lt;- cov(X,X) - t(v) %</em>% v loglik &lt;- -.
       
     </div>
   </div>
@@ -268,19 +268,7 @@ e.g. a term like:
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

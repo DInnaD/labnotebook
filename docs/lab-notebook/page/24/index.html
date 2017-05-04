@@ -140,84 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2013/01/12/tipping-points-comment-in-nature/"></a></h2>
-    <h4>Sat, Jan 12, 2013</h4>
-    <div class="article-style">
-      
-      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
-Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2013/01/08/haldanes-sieve-guest-post/"></a></h2>
-    <h4>Tue, Jan 8, 2013</h4>
-    <div class="article-style">
-      
-      Consider public archiving for your dissertation As researchers we spend an immense amount of time generating products other than papers. While we go through great lengths to see that our papers are published in just the right place to be seen by our colleagues (fretting about the different impact factors, percieved audience, editorial boards, open access policies, and many other factors that determine just how a paper will see the light of day), other products of our labors largely languish on forgotten hard-drives from long ago.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/12/27/notes/"></a></h2>
-    <h4>Thu, Dec 27, 2012</h4>
-    <div class="article-style">
-      
-      Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
- Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
- Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/12/23/notes/"></a></h2>
-    <h4>Sun, Dec 23, 2012</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/12/21/progress-summary/"></a></h2>
-    <h4>Fri, Dec 21, 2012</h4>
-    <div class="article-style">
-      
-      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
-I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/12/20/results-comparing-gp-to-parametric/"></a></h2>
-    <h4>Thu, Dec 20, 2012</h4>
-    <div class="article-style">
-      
-      Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
-Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
-Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
- Example from 32 replicates   Distribution of yield over replicates shows the parametric model performing rather poorly, while most of the GP replicates perform nearly optimally.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/12/19/exploring-gp-model-space/"></a></h2>
-    <h4>Wed, Dec 19, 2012</h4>
-    <div class="article-style">
-      
-      Trying to think about a more systematic way to go about varying the parameters: the underlying parametric model has 3 parameters for the stock-recruitment curve&rsquo;s deterministic skeleton, plus growth noise. (My first exploratory phase has been just to try different things. See my various tweaks in the history log Clearly time to be more systematic about both running and visualizing the various cases.)
-Should I just choose a handful of parameter combinations to test?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2012/12/17/random_ews_example/"></a></h2>
-    <h4>Mon, Dec 17, 2012</h4>
+    <h4><a href="../../../2012/12/17/random_ews_example/">Mon, Dec 17, 2012</a></h4>
+    
     <div class="article-style">
       
       ENSO EWS Let&rsquo;s just see what happens with the MEI data for PDO:
@@ -230,8 +154,8 @@ dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/pd
   </div>
   
   <div>
-    <h2><a href="../../../2012/12/15/nonparametric-bayes-comparisons/"></a></h2>
-    <h4>Sat, Dec 15, 2012</h4>
+    <h4><a href="../../../2012/12/15/nonparametric-bayes-comparisons/">Sat, Dec 15, 2012</a></h4>
+    
     <div class="article-style">
       
       Notes on structure of examples Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.
@@ -241,11 +165,93 @@ Currently, externalized code for GP comparison experiments is in gaussian-proces
   </div>
   
   <div>
-    <h2><a href="../../../2012/12/11/nonparametric-bayes-notes/"></a></h2>
-    <h4>Tue, Dec 11, 2012</h4>
+    <h4><a href="../../../2012/12/11/nonparametric-bayes-notes/">Tue, Dec 11, 2012</a></h4>
+    
     <div class="article-style">
       
       Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/12/10/prior-distributions-for-tgp-mcmc/">Mon, Dec 10, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
+Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
+$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
+And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/12/06/github-issues-tracker-the-perfect-research-todo-list/">Thu, Dec 6, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
+Issues not only have title and tags, but support a comment thread for progress and discussion of the issue.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/12/05/notes/">Wed, Dec 5, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
+ Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/12/04/tgp-mcmc-for-gaussian-processes/">Tue, Dec 4, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
+Example call:
+gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
+n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/12/03/figures-3-and-4-for-policycosts/">Mon, Dec 3, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
+Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/11/30/note-on-notebook-figures/">Fri, Nov 30, 2012</a></h4>
+    
+    <div class="article-style">
+      
+      plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
+opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
+The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2012/11/28/nonparametric-bayes-work/">Wed, Nov 28, 2012</a></h4>
+    <h4><a href="../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h4>
+    <div class="article-style">
+      
+      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
+Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
       
     </div>
   </div>
@@ -266,19 +272,7 @@ Currently, externalized code for GP comparison experiments is in gaussian-proces
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

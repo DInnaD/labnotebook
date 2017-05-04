@@ -140,91 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data/">Warning signals: summary stats vs likelihood on real and simulated data</a></h2>
-    <h4>Fri, Mar 11, 2011</h4>
-    <div class="article-style">
-      
-      Added bar of observed tau on real data to the tau distributions. Fixed the tau-distribution method, running new data and real examples now.
-Simulated data: can tell tau apart for instance, for autocorrelation (see photostream for variance, code hash for parameters, etc). While can&rsquo;t really tell anything based on the tau on the autocorrelation for the Deuterium data for Glaciation III (which has just about the clearest signal of the deuterium set): Waiting to see how the likelihood statistics compare on these examples.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models/">Numerical challenges in likelihood estimation of time-dep OU models</a></h2>
-    <h4>Thu, Mar 10, 2011</h4>
-    <div class="article-style">
-      
-      Worried about accurate maximum likelihood estimates of parameters, as the optimization could still converge on values not far from the starting conditions (not as surprising as the starting parameters are estimated intelligently first from the summary statistics) but could also vary depending on initial conditions.
-Second, while it requires some re-parameterization, the stationary model for both linearized transcritical (LTC) bifurcation model and the linearized saddle-node (LSN) model are identically Ornstein-Uhlenbeck models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/03/09/warning-signals-data-examples/">Warning Signals data examples</a></h2>
-    <h4>Wed, Mar 9, 2011</h4>
-    <div class="article-style">
-      
-      Working on a little data exploration while writing up manuscript. I have been puzzled why it appears that most estimates of tau on the CaCO3 data infer negative correlation, as in
-Despite the fact that there seems to be a loss of stability in the model:
-require(warningsignals) load(&quot;CaCO3.Rdat&quot;) timedep$pars Ro m theta sigma 8.36841588 -0.03347119 -2.86194248 282.03234042  So m is negative, so that the system is loosing stability, but only very gradually.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/">Bodega evolution Tutorial: behind the scenes difficulties in R packages</a></h2>
-    <h4>Mon, Mar 7, 2011</h4>
-    <div class="article-style">
-      
-      Just finished my tutorial for comparative methods on continuous traits in R, which I&rsquo;ll be presenting on Wednesday with Justen Whittall. The tutorial is up on the Bodega Phylogenetics Wiki, together with the necessary data files.
-Errors that shouldn&rsquo;t happen: a few package bugs in simulation functions Assembling the tutorial exposed a few more frustrations in the R packages. Consider simulating OU with rTraitCont:</p>
-
-<h2 id="load-the-libraries-simulate-a-tree-require-geiger-require-treesim-tree-lt-sim">Load the libraries, simulate a tree require(geiger) require(TreeSim) tree &lt;- sim.</h2>
-
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/03/01/warning-signals-comparing-methods-on-climate-data/">Warning Signals: Comparing Methods on Climate Data</a></h2>
-    <h4>Tue, Mar 1, 2011</h4>
-    <div class="article-style">
-      
-      Continuing my exploration in applying these techniques to real climate data. Applying the Kendall&rsquo;s Tau based approach on real data.
-Greenhouse Earth, CaCO3 data:
-Glaciation I-IV (deuterium data)
-These use the unadjusted timeseries, and hence don&rsquo;t reproduce the values of Kendall&rsquo;s tau statistic reported in (Dakos et. al. 2008). In fact they don&rsquo;t even agree on the sign &ndash; visually many of the datasets are certainly decreasing in variance. I ran the Monte-Carlo distributions for tau on models estimated from these data-sets with and without warning, for variance (left) and autocorrelation (right), in the CaCO3 data:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/02/28/warning-signals-on-real-data-continued/">Warning Signals on Real data continued</a></h2>
-    <h4>Mon, Feb 28, 2011</h4>
-    <div class="article-style">
-      
-      Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos et. al. 2008). After adjusting my code to deal with variably spaced sampling intervals, I reread the supplement &ndash; I had forgotten that they don&rsquo;t actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.
-Obviously this is not ideal. It is true that the autocorrelation would be impacted by non-equally spaced data, while there is no reason to do so for the variance indicator.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/02/27/warning-signals-on-real-data/">Warning Signals on Real Data?</a></h2>
-    <h4>Sun, Feb 27, 2011</h4>
-    <div class="article-style">
-      
-      Grabbed the data used in (Dakos et. al. 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit et. al. 1999), showing transitions into the last several ice ages, and calcium carbonate from Eocene &ldquo;greenhouse&rdquo; climate (Tripati et. al. 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000). Data is all freely provided through NOAA.
- CaCO3 data file (Tripati et. al. 2005), NOAA entry.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Is BM nested in OU?  Understanding likelihoods of ouch</a></h2>
-    <h4>Fri, Feb 25, 2011</h4>
+    <h4><a href="../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Fri, Feb 25, 2011</a></h4>
+    <h4><a href="../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Is BM nested in OU?  Understanding likelihoods of ouch</a></h4>
     <div class="article-style">
       
       A quick run of the example ouch code given by
@@ -235,8 +152,8 @@ require(ouch) data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/25/phyloseminar-luke-harmon/">Phylo: Luke Harmon</a></h2>
-    <h4>Fri, Feb 25, 2011</h4>
+    <h4><a href="../../../2011/02/25/phyloseminar-luke-harmon/">Fri, Feb 25, 2011</a></h4>
+    <h4><a href="../../../2011/02/25/phyloseminar-luke-harmon/">Phylo: Luke Harmon</a></h4>
     <div class="article-style">
       
       My notes on Luke Harmon&rsquo;s excellent talk on Phyloseminar this morning. See the recording of Luke&rsquo;s actual talk to know what he said, below are my thoughts and notes to myself having watched the talk.
@@ -248,12 +165,92 @@ Luke summarizes his goal rather nicely as:
   </div>
   
   <div>
-    <h2><a href="../../../2011/02/23/esa-2011-abstract/">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h2>
-    <h4>Wed, Feb 23, 2011</h4>
+    <h4><a href="../../../2011/02/23/esa-2011-abstract/">Wed, Feb 23, 2011</a></h4>
+    <h4><a href="../../../2011/02/23/esa-2011-abstract/">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h4>
     <div class="article-style">
       
       Just submitted my abstract to for an oral presentation at the Ecological Society of America 2011 meeting in Austin, based on my recent work on early warning signals. Here it is:
 Limits to Detection of Early Warning Signals of Population Collapse Background/Question/Methods The recognition that ecosystems can undergo sudden shifts to alternate, less desirable stable states has led to the desire to identify early warning signs of these impending collapses.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/21/monday-2/">Mon, Feb 21, 2011</a></h4>
+    <h4><a href="../../../2011/02/21/monday-2/">Monday: Writing, Mendeley groups, Notebook plugin tweaks</a></h4>
+    <div class="article-style">
+      
+      A day of Writing  Reviewed Chris&rsquo;s manuscript.
+ Completed my revisions to phylogenetics mansucript, meeting with Peter tomorrow to discuss. Still need to work through the discussions of model adequacy Goldman, 1993, Cox&rsquo;s delta (1961&frasl;62), and going beyond (simulations by under both null and test distributions).
+ Meanwhile, a few thoughts:
+  Reproducible Research Mentioned in Thursday&rsquo;s entry coming across Victoria Stodden&rsquo;s post on Reproducible research standards such as practiced by Journal of Biostatistics.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/">Sat, Feb 19, 2011</a></h4>
+    <h4><a href="../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/">Bodega evolution Workshop: Continuous Characters R session planning</a></h4>
+    <div class="article-style">
+      
+      Preparing for the Bodega Phylogenetics workshop. I&rsquo;ll be covering the R tutorial followingJusten Whittall&rsquo;s introduction to continuous characters:
+ In my intro lecture i will discuss Felsenstein 1985 (including a little phylo signal), then follow with some alternatives (including the OU model). I can also discuss the tree transformations ala Pagel&rsquo;s kappa, delta, etc. and mention multivariate approaches to detecting correlated characters in a phylogenetic context.
+ I&rsquo;m toying with the idea of a brief (~1hr) phylogenetic signal / model inference exercise:
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/18/friday/">Fri, Feb 18, 2011</a></h4>
+    <h4><a href="../../../2011/02/18/friday/">Friday</a></h4>
+    <div class="article-style">
+      
+      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/17/thursday-4/">Thu, Feb 17, 2011</a></h4>
+    <h4><a href="../../../2011/02/17/thursday-4/">Thursday</a></h4>
+    <div class="article-style">
+      
+      Mostly working on manuscript revisions throughout this week. Haven&rsquo;t really learned to integrate this workflow into the notebook. In some ways it makes more sense not to, as it interrupts the flow of the research description. But then it looks like I&rsquo;m not doing anything when I have nothing meaningful in the entry. Perhaps I should just put a heading saying &ldquo;Writing.&rdquo;
+Morning&rsquo;s reading: Reproducible Research  Victoria Stodden highlights the Journal of Biostatistics approach to Reproducible Research.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/16/weds-framing-warning-signals-manuscript/">Wed, Feb 16, 2011</a></h4>
+    <h4><a href="../../../2011/02/16/weds-framing-warning-signals-manuscript/">Weds &amp; Framing warning signals manuscript</a></h4>
+    <div class="article-style">
+      
+      Alan Meeting, 10a Good meeting discussing warning signals manuscript details and organization. Particularly on the best way to present some of the major conceptual and semantic elements: there are many ways to describe the same thing, each of which carries a lot of semantic baggage.
+Do we choose to present this as:
+As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produced by the MLE model of no stability loss), hypothesis = there is (distribution produced by, MLE model with stability loss) determine p value for falsely rejecting the null and the power of the statistical test.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/16/citation-tools-future-of-publishing/">Wed, Feb 16, 2011</a></h4>
+    <h4><a href="../../../2011/02/16/citation-tools-future-of-publishing/">Citation tools &amp; Future of Publishing</a></h4>
+    <div class="article-style">
+      
+      There has been a lot of rapid development in scientific tools based on a Wordpress platform recently, perhaps spurred in part by the recent Beyond-the-PDF and sessions in Science Online conferences. A new discussion group has emerged around these tools, as described by Martin Fenner.
+I have been exploring better tools for citation management within my lab notebook. Recently I have been using the papercite plugin to add citations from my BibTeX files, which are generated from Mendeley, as I described earlier.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/02/16/data-mangement-on-uc3-merritt-repository/">Wed, Feb 16, 2011</a></h4>
+    <h4><a href="../../../2011/02/16/data-mangement-on-uc3-merritt-repository/">Data Mangement on UC3 Merritt Repository</a></h4>
+    <div class="article-style">
+      
+      I&rsquo;ve been trying to learn a little more about the potential for data management solutions through the UC3 Merritt repository, and decide how this compares to commercial alternatives such as Amazon S3, Picasa/Flickr (obviously for images only), and field-specific and publication specific repositories such as Dryad. Merritt email support have been very helpful in answering my questions and concerns.
+ Persistence: of the data itself, of the URLs &amp; object identifiers, of access to the data?
       
     </div>
   </div>
@@ -274,19 +271,7 @@ Limits to Detection of Early Warning Signals of Population Collapse Background/Q
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

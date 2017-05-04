@@ -140,64 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
-ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/12/01/drone-vs-travis/"></a></h2>
-    <h4>Mon, Dec 1, 2014</h4>
-    <div class="article-style">
-      
-      A good question from Hilmar on why we&rsquo;re using Drone CI in RNeXML development.
-Short answer: Easy to use custom docker images for Drone. Note how much shorter our .drone.yml is. We actually still use Travis to test the package, while Drone CI is just testing the manuscript/supplement builds
-Longer answer:
-I think it&rsquo;s a standing irony of the reproducible research toolkit we have in place here that the required software environment for the knitr/pandoc/latex pipeline is substantially more intensive than what is required merely to run the code examples.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/11/26/coreos-cluster-gotchas/"></a></h2>
-    <h4>Wed, Nov 26, 2014</h4>
-    <div class="article-style">
-      
-      Overall impression is that CoreOS is a promising way to easily set up a highly available cluster (e.g. when most important thing is that a service stays up when a node goes down) since it can migrate a containerized app to a new machine rather than having to already have the same app running on all machines. Either way a load-balancer needs to handle the addressing, which is do-able but somewhat tricky.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/11/24/coreos-docker-registries-etc/"></a></h2>
-    <h4>Mon, Nov 24, 2014</h4>
-    <div class="article-style">
-      
-      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/11/19/coreos-and-other-infrastructure-notes/"></a></h2>
-    <h4>Wed, Nov 19, 2014</h4>
+    <h4><a href="../../../2014/11/19/coreos-and-other-infrastructure-notes/">Wed, Nov 19, 2014</a></h4>
+    
     <div class="article-style">
       
       CoreOS? Security model looks excellent. Some things not so clear:
@@ -207,8 +151,8 @@ I think it&rsquo;s a standing irony of the reproducible research toolkit we have
   </div>
   
   <div>
-    <h2><a href="../../../2014/11/17/wssspe-feedback/"></a></h2>
-    <h4>Mon, Nov 17, 2014</h4>
+    <h4><a href="../../../2014/11/17/wssspe-feedback/">Mon, Nov 17, 2014</a></h4>
+    
     <div class="article-style">
       
       WSSSPE working groups: Reproducibility, Reuse, and Sharing (Neil Che Hong) Our group focused on journal policies regarding software papers. Our objectives were:
@@ -219,19 +163,8 @@ I think it&rsquo;s a standing irony of the reproducible research toolkit we have
   </div>
   
   <div>
-    <h2><a href="../../../2014/11/14/nimble-explore/"></a></h2>
-    <h4>Fri, Nov 14, 2014</h4>
-    <div class="article-style">
-      
-      A quick first exploration of NIMBLE and some questions.
-library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:nimble&#39;: ## ## inprod ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/11/14/nimble-explore/"></a></h2>
-    <h4>Fri, Nov 14, 2014</h4>
+    <h4><a href="../../../2014/11/14/nimble-explore/">Fri, Nov 14, 2014</a></h4>
+    
     <div class="article-style">
       
       A quick first exploration of NIMBLE and some questions.
@@ -242,12 +175,80 @@ set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- 
   </div>
   
   <div>
-    <h2><a href="../../../2014/11/13/discrete-grid-notes/"></a></h2>
-    <h4>Thu, Nov 13, 2014</h4>
+    <h4><a href="../../../2014/11/13/discrete-grid-notes/">Thu, Nov 13, 2014</a></h4>
+    
     <div class="article-style">
       
       Smoothing post-policy calc?
 fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smooth(lwd=1.2, method=&quot;loess&quot;, degree=1, span=0.2, level=0, n=50) + facet_wrap(~method) + xlab(&quot;stock size, x(t)&quot;) + ylab(&quot;escapement, S(t)&quot;) + scale_colour_manual(values=colorkey, guide=FALSE) fig3 library(&quot;dplyr&quot;) s<em>policies &lt;- select</em>(ggplot_build(fig3)$data[[1]], &quot;x&quot;, &quot;PANEL&quot;, &quot;y&quot;) s_policies$PANEL &lt;- mapvalues(s_policies$PANEL, from = 1:6, to = levels(policies$method)) names(s_policies) &lt;- names(policies) library(&quot;tidyr&quot;) opt_policy &lt;- s_policies %&gt;% mutate(harvest = stock - value) %&gt;% select(stock, method, value = harvest) %&gt;% spread(method, value) %&gt;% select(-stock) OPT &lt;- as.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/11/13/draft-wssspe-thoughts/">Thu, Nov 13, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Scratching out notes for lightning talk at WSSSPE&hellip;
+(CB from ropensci, Karthik too. )
+ Responses to the challenges of academic software can be divided into roughly two categories. Give them better tools! Give them better training!
+We do software: over 50 packages for accessing data repositories, integrating and manipulating, annotating and publishing data. We do training: workshops, online tutorials, developing course materials. But most importantly, we aim to build community.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/11/07/dear-docker-hub-users/">Fri, Nov 7, 2014</a></h4>
+    <h4><a href="../../../2014/11/07/dear-docker-hub-users/">Dear DockerHub users: please configure your repository links</a></h4>
+    <div class="article-style">
+      
+      The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
+Unfortunately, far fewer users configure Repository Links to trigger builds to update even when the resulting Dockerfile is unchanged.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/11/05/notes/">Wed, Nov 5, 2014</a></h4>
+    <h4><a href="../../../2014/11/05/notes/">linking binaries from other containers</a></h4>
+    <div class="article-style">
+      
+      Been thinking about this for a while, but @benmarwick &rsquo;s examples with &ndash;volumes-from convinced me to give this a try.
+While there&rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&rsquo;t have it built in, like rocker/rstudio.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/11/03/three-interfaces-for-docker/">Mon, Nov 3, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/10/28/jekyll-free/">Tue, Oct 28, 2014</a></h4>
+    <h4><a href="../../../2014/10/28/jekyll-free/">Goodbye Jekyll?</a></h4>
+    <div class="article-style">
+      
+      The great strength of Jekyll is in providing a really convenient HTML templating system through the _layouts and _includes directories and Liquid variables (including the auto-populated ones like page.previous.url).
+For quickly deploying simple sites though, this is often unnecessary: one or two layout files will suffice, and an _includes directory is not so useful with only a single layout. The ease of maintenance by having a template divided into modular chunks is somewhat trumped by the greater simplicity of copying a single template or set of templates over into a new directory.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/10/21/docker-and-user-permissions-crazyness/">Tue, Oct 21, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Lots of crazyness getting to the bottom of permissions changes, as discussed in:
+ rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
+Here&rsquo;s the SO version of the question, for my reference:
       
     </div>
   </div>
@@ -268,19 +269,7 @@ fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smoo
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">
