@@ -1,0 +1,130 @@
+---
+categories:
+- ecology
+code: true
+date: 2015-01-13T00:00:00Z
+tags:
+- early-warning
+- nimble
+url: /2015/01/13/detrend-example/
+---
+
+```{r settings}
+library(knitr)
+library(nimble)
+library(earlywarning)
+library(ggplot2)
+library(tidyr)
+library("methods")
+
+opts_chunk$set(dev='png', fig.width=5, fig.height=5, results='hide')
+```
+
+
+some sample data from earlywarning:
+
+```{r data}
+set.seed(123)
+data(ibms)
+plot(ibm_critical)
+raw <- as.data.frame(ibm_critical)
+names(raw) <- "x"
+```
+
+Rather than explicitly modeling the trend element predicted by the linearization, let us simply remove it:
+
+```{r detrend, depends='data'}
+N <- length(raw$x)
+raw$t <- 1:N
+detrend <- loess(x ~ t, raw)
+data <- data.frame(x = detrend$residuals/sqrt(var(detrend$residuals)))
+qplot(raw$t, data$x, geom='line')
+```
+
+## LSN version ##
+
+Modify the LSN model to explicitly model the changing parameter as a hidden, stochastic variable
+
+```{r model, depends='detrend'}
+lsn <- nimbleCode({
+   theta ~ dunif(-100.0, 100.0)
+   sigma_x ~ dunif(1e-10, 100.0)
+   sigma_y ~ dunif(1e-10, 100.0)
+       m ~ dunif(-1e2, 1e2)
+    x[1] ~ dunif(-100, 100)
+    y[1] ~ dunif(-100, 100)
+
+  for(i in 1:(N-1)){
+    mu_x[i] <- x[i] + y[i] * (theta - x[i]) 
+    x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) 
+    mu_y[i] <- y[i] + m * t[i]
+    y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) 
+  }
+})
+```
+
+Constants in the model definition are the length of the dataset, $N$ and the time points of the sample. Note we've made time explicit, we'll assume uniform spacing here. 
+
+```{r constants, depends='data'}
+constants <- list(N = N, t = raw$t)
+```
+
+Initial values for the parameters
+
+```{r inits, depends='constants'}
+inits <- list(theta = 6, m = 0, sigma_x = 1, sigma_y = 1, y = rep(1,N))
+```
+
+
+and here we go:
+
+```{r compile, depends='model'}
+Rmodel <- nimbleModel(code = lsn, 
+                      constants = constants, 
+                      data = data, 
+                      inits = inits)
+Cmodel <- compileNimble(Rmodel)
+```
+
+
+
+```{r spec, depends='compile', echo=TRUE, results = 'hide', message = FALSE}
+mcmcspec <- configureMCMC(Rmodel, print=TRUE,thin=2e2)
+Rmcmc <- buildMCMC(mcmcspec)
+Cmcmc <- compileNimble(Rmcmc, project = Cmodel)
+```
+
+
+```{r run, depends='spec'} 
+Cmcmc$run(1e6)
+```
+
+
+and examine results
+
+```{r samples, depends='run'}
+samples <- as.data.frame(as.matrix(Cmcmc$mvSamples))
+dim(samples)
+samples <- samples[,1:4]
+long <- gather(samples)
+```
+
+```{r stats, depends='samples', results='markup'}
+apply(samples, 2, mean)
+```
+
+```{r trace, depends='samples', fig.show='hold'}
+ggplot(long) + 
+  geom_line(aes(seq_along(value), value)) + 
+	facet_wrap(~key, scale='free')
+```
+
+```{r histogram, depends='samples', fig.show='hold'}
+ggplot(long) + 
+	geom_density(aes(value)) + 
+	facet_wrap(~key, scale='free')
+```
+
+```{r results='markup'}
+sessionInfo()
+```

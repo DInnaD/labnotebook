@@ -6,11 +6,8 @@ published: false
 url: /2014/11/14/nimble-explore/
 ---
 
-<!-- BLOGDOWN-HEAD -->
-<!-- /BLOGDOWN-HEAD -->
 
-<!-- BLOGDOWN-BODY-BEFORE -->
-<!-- /BLOGDOWN-BODY-BEFORE -->
+
 <p>A quick first exploration of <a href="http://r-nimble.org">NIMBLE</a> and some questions.</p>
 <pre class="r"><code>library(&quot;nimble&quot;)</code></pre>
 <pre><code>## 
@@ -92,7 +89,7 @@ Rmcmc &lt;- buildMCMC(mcmcspec)</code></pre>
 ## [[3]]
 ## RW sampler: sigma</code></pre>
 <pre class="r"><code>mcmcspec$getMonitors()</code></pre>
-<pre><code>## thin = 1: K, r, sigma, x</code></pre>
+<pre><code>## [1] &quot;K&quot;     &quot;r&quot;     &quot;sigma&quot; &quot;x&quot;</code></pre>
 <p>Now we’re ready to compile model and MCMC algorithm</p>
 <pre class="r"><code>Cmodel &lt;- compileNimble(Rmodel)</code></pre>
 <pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>

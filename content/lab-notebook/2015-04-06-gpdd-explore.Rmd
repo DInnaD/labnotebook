@@ -1,0 +1,458 @@
+---
+categories:
+- ecology
+date: 2015-04-06T00:00:00Z
+tags:
+- gpdd
+url: /2015/04/06/gpdd-explore/
+---
+
+### setup 
+
+```{r }
+library("ggplot2")
+library("dplyr")
+library("tidyr")
+library("rgpdd")
+library("FKF")
+```
+
+
+Working through [10.1111/j.1461-0248.2011.01702.x](http://doi.org/10.1111/j.1461-0248.2011.01702.x) provides a nice way to play around with the GPDD data and Kalman filtering.  More interested in exploring the data and methods than in just replicating the results, which are important but also rather intuitive and thus I expect rather robust -- as we add (observational) uncertainty, or indeed, any additional parameters that must be ended, we should expect to have less power to pin down a particular parameter associated with density dependence, as the paper illustrates rather nicely.  
+
+
+
+------------
+
+
+
+## Data preparation
+
+
+
+> 627 time series with population indices obtained from the GPDD (NERC Centre for Population Biology 1999). Data sets were filtered out from the database by removing harvest and non-index based data, data sampled at non-annual intervals and time series taking less than 15 unique values.
+
+Excluding time-series shorter than a minimum length is intuitive. Excluding harvest data makes some sense, as these aren't scientific samples; in particular, they do not necessarily reflect a uniform sampling effort over time.  Not quite clear why one would exclude non-annual intervals.  Not really clear what "non-index based data" even means. Note that this 2012 paper still cites the original 1999 version instead of the 2010 version, which adds 123 datasets (for a total of 5,156).
+
+Anyway, we can roughly infer what these filters mean in terms of the columns and values defined in the "MAIN" table of the GPDD, as described in the [GPDD User Manual](http://www3.imperial.ac.uk/cpb/databases/gpdd).  `dplyr` makes it quick to implement these filters in R:
+
+
+```{r}
+gpdd_main %>% 
+  filter(SamplingProtocol == "Count",
+         SourceDimension %in% c("Count", "Index"), 
+         SamplingFrequency == "1",
+         DatasetLength >= 15) %>%
+  select(MainID) %>%
+  arrange(MainID) ->
+filtered
+```
+
+Note that we might imagine different selection criteria, looking a bit more closely at the relevant fields. 
+
+------------------
+
+
+Unfortunately these don't quite align with the paper, even allowing for the 123 additional datasets. Most obviously, we have `r length(filtered$MainID)` matches instead of 627. Not only have we somehow grabbed more datasets than expected, but the Knape et al list includes quite a few datasets that do not meet these criteria:
+
+```{r}
+source("http://ropensci.github.io/rgpdd/data/knape.R")
+gpdd_main %>% 
+  filter(MainID %in% knape_ids) %>%
+  select(MainID, SamplingProtocol, SourceDimension, SamplingFrequency, DatasetLength)  %>%
+  arrange(MainID) %>% 
+  as.tbl() -> knape_data
+
+tail(sort(table(knape_data$SourceDimension)))
+tail(sort(table(knape_data$SamplingProtocol)))
+```
+
+Those summaries show data with attributes we excluded, including Harvest as a sampling protocol.  We see over 100 such data sets:
+
+
+
+```{r}
+gpdd_main %>% 
+  filter(MainID %in% knape_ids) %>%
+  filter(SamplingProtocol == "Count",
+         SourceDimension %in% c("Count", "Index"), 
+         SamplingFrequency == "1",
+         DatasetLength >= 15) %>% dim()
+```
+
+The reason for this discrepancy isn't clear, but we can proceed with our filtered data instead.
+
+
+------------------
+
+Selecting the time-series identified by our filter, we also add a column for $\log(N)$ population:
+
+```{r}
+gpdd_data %>% 
+  filter(MainID %in% filtered$MainID) %>%
+  select(MainID, Population, SampleYear) %>%
+  group_by(MainID) %>% 
+  mutate(logN = log(Population)) ->
+df
+```
+
+Interestingly there are no missing data reported:
+
+```{r}
+sum(sapply(df$Population, is.na))
+df %>% filter(Population < 0) # -9999 is elsewhere used for missing data
+```
+
+but some population values are equal to 0, creating some `-Inf` terms in our log data, which will create trouble in fitting the models. The authors don't say how they handled this case. We will manually set them to the smallest value observed:
+
+```{r}
+i <- which(df$logN == -Inf)
+df$logN[i] <- min(df$logN[-i])-1
+```
+
+
+## Gompertz model
+
+> We use the stochastic Gompertz population model to analyse the strength of density dependence in the data.The model is defined through
+
+$$N_{t+1} = N_t \exp(a - b \log N_t + \epsilon_t)$$ 
+
+> where $N_t$ is population density or size in year $t$, $a$ is an intercept, $b$ is a measure of the strength of density dependence and $\eta$ is normally distributed process error with mean zero and standard deviation $\tau$.  By log transforming the population abundance and putting $x_t = \log N_t$ this simplifies to
+
+$$x_{t+1} = a + c x_t + \epsilon_t$$
+
+> where $c = 1 - b$ is the lag 1 autocorrelation of the log transformed population abundance when the process is stationary.
+
+and uncertainty in measurements, $y_t$ are simply normal random variates around $x_t$:
+
+$$y_t = x_t + \eta_t $$ 
+
+where $\eta_t \sim N(0,\sigma^2)$
+
+
+## Kalman Filtering
+
+Since the model is linear we can compute the likelihood directly by means of a Kalman filter. There are various ways of going about this, and the paper provides some general details:
+
+> The Kalman filter was initiated by assuming a wide prior distribution on the initial state centred around
+the first observation, $x_1 \sim N( y_1, 10)$. For each model and data set the numerical maximisation (using the BFGS algorithm implemented in the optim function) was repeated for 50 random starting values to ensure that we found the global optimum
+
+Some useful detail here, but still a bit vague for our purposes, or are things we might have done differently.
+
+- Doesn't state which Kalman filter (their are a few algorithms and several packages, but the differences seem quite small: [this JSS paper](http://www.jstatsoft.org/v39/i02) has a good overview.) 
+
+- Not clear that we wouldn't want to scale the prior variance by the data sample, e.g. `var(y)`, but since we're on a log scale `10` is indeed pretty wide. 
+
+- `BFGS` doesn't seem as robust as some alternatives; (e.g. gives a rather different result than Nelder-Meade or `StructTS()` model on the classic Nile data set example from the FKF package). 
+
+- Also challenging are the "50 random starting values", which does not tell us from what distribution they were drawn.  Too wide a distribution will start to include values for which the likelihood cannot be evaluated, while too narrow serves little purpose.  --Moreover it is unclear if this is really preferable to simply using fewer starting points and a more robust algorithm. For simplicity, we'll ignore this and just choose justifiable starting conditions.-- we'll add this as well.
+
+
+
+> Four variants of the model defined by (1) and (2) were fitted to each data set; a full model with
+both uncertainty about population abundance and density dependence denoted by SSG (state space Gompertz), a model with uncertainty about population abundance, but no density dependence (c fixed to one) denoted SSRW (state space random walk), a model with density dependence, but no uncertainty about population abundance (r2 fixed to zero) denoted G (Gompertz) and a model with neither uncertainty about population abundance nor density dependence (c fixed to one and r2 fixed to zero) denoted RW (random walk)
+
+This is both clear and straight forward, we define each of the models as described.  Note that we define the models here in the notation of FKF:
+
+State transition equation: 
+
+$$\alpha_{t+1} = d_t + T_t \alpha_t + H_t \eta_t$$
+
+Observation:
+
+$$y_t = c_t + Z_t \alpha_t + G_t \epsilon_t$$
+
+
+
+Which has the following correspondence with to the Gompertz model given before: 
+
+$$\begin{align*}
+c &\to& T_t \\
+a &\to& d_t \\
+\sigma^2 &\to& G_t'G_t \\
+\tau^2 &\to& H_t'H_t 
+\end{align*}$$
+
+So here we define these models in R code just as described above.  Using the `FKF` package we define each model by an optimization routine that returns the parameters that maximize the likelihood for the given model.
+
+
+```{r}
+fit_ssg <- function(y, 
+                    init = c(dt = mean(y), Tt = 1, 
+                             HHt = log(var(y)/2), GGt = log(var(y)/2)),
+                    ...){
+    o <- optim(init,
+                 fn =  function(par, ...)
+                   -fkf(dt = matrix(par[1]),
+                        Tt = matrix(par[2]),
+                        HHt = matrix(exp(par[3])), 
+                        GGt = matrix(exp(par[4])), 
+                        ...)$logLik,   
+                 a0 = y[1], 
+                 P0 = matrix(10), 
+                 ct = matrix(0),
+                 Zt = matrix(1), 
+                 yt = rbind(y), 
+                 check.input = FALSE, 
+                 ...)
+  o$par[["HHt"]] <- exp(o$par[["HHt"]])
+  o$par[["GGt"]] <- exp(o$par[["GGt"]])
+  c(o, list(a0 = y[1], n = length(y)))
+}
+
+fit_ssrw <- function(y, 
+                     init = c(dt=mean(y), HHt = log(var(y)/2), 
+                              GGt = log(var(y)/2)), 
+                     ...){
+    o <- optim(init,
+                 fn =  function(par, ...)
+                   -fkf(dt = matrix(par[1]), HHt = matrix(exp(par[2])), 
+                        GGt = matrix(exp(par[3])), ...)$logLik,   
+                 a0 = y[1], P0 = matrix(10), ct = matrix(0), Tt = matrix(1),
+                 Zt = matrix(1), yt = rbind(y), check.input = FALSE, ...)
+  o$par[["HHt"]] <- exp(o$par[["HHt"]])
+  o$par[["GGt"]] <- exp(o$par[["GGt"]])
+  c(o, list(a0 = y[1], n = length(y)))
+}
+
+fit_g <- function(y, init = c(dt = mean(y), Tt=1, HHt = log(var(y))), ...){
+  o <- optim(init,
+                 fn =  function(par, ...)
+                   -fkf(dt = matrix(par[1]), Tt = matrix(par[2]), 
+                        HHt = matrix(exp(par[3])), ...)$logLik,   
+                 a0 = y[1], P0 = matrix(10), ct = matrix(0), GGt = matrix(0),
+                 Zt = matrix(1), yt = rbind(y), check.input = FALSE, ...)
+  o$par[["HHt"]] <- exp(o$par[["HHt"]])  
+  c(o, list(a0 = y[1], n = length(y)))
+}
+
+fit_rw <- function(y, init = c(dt=mean(y), HHt = log(var(y))), ...){
+ o <-  optim(init, 
+                 fn =  function(par, ...)
+                   -fkf(dt = matrix(par[1]), 
+                        HHt = matrix(exp(par[2])), ...)$logLik,   
+                 a0 = y[1], P0 = matrix(10), ct = matrix(0),
+                 Tt = matrix(1), GGt = matrix(0), Zt = matrix(1),
+                 yt = rbind(y), check.input = FALSE, ...)
+  o$par[["HHt"]] <- exp(o$par[["HHt"]])
+  c(o, list(a0 = y[1], n = length(y)))
+}
+```
+
+
+Note that `fkf` will return finite (even "optimal") log likelihoods for negative values of `HHt` and `GGt`, so we have log-transformed these parameters.  Using `L-BFGS-B` with a `0` lower bound still causes `optim` to error with non-finite log-likelihoods.  It isn't clear how the authors dealt with this constraint, though `log`-transform trick has advantages and drawbacks.  
+
+
+Once we have defined the optimization routines to fit each model, we can define a summary function that runs each model on a given data set and collects the results into a `data.frame`. This could be made a bit more general and elegant as discussed later.  We will also define this function such that it will fit each model $N = 50$ times and take the best fit, as the authors suggest for having a better chance of finding the global optimum.  (We'll look at the variation in MLE estimates in these models as footnote as well).
+
+
+```{r}
+robust_fit <- function(model = c("ssg", "ssrw", "g", "rw"), y, N = 50, all = FALSE, ...){
+  
+  ## Set the model and the mean initial condition
+  m <- switch(model,
+              ssg = list(fit = fit_ssg, 
+                         init = c(dt = mean(y), Tt = 1, 
+                                 HHt = log(var(y)/2), GGt = log(var(y)/2))),
+              ssrw = list(fit = fit_ssrw, 
+                          init = c(dt = mean(y), HHt = log(var(y)/2), 
+                                   GGt = log(var(y)/2))),
+              g = list(fit = fit_g, 
+                       init = c(dt = mean(y), Tt = 1, HHt = log(var(y)/2))),
+              rw = list(fit = fit_rw, 
+                        init = c(dt = mean(y), HHt = log(var(y)/2))))  
+  
+  
+  ## Create the inital conditions
+  inits <- data.frame(sapply(m$init, 
+                      function(m) rnorm(N, m, sqrt(abs(m)) ) ))
+  
+  ## Attempt the requested fit or return NAs
+  f <- function(init){
+    o <- tryCatch(
+      m$fit(y, init = init), 
+      error = function(e) list(par = c(dt = NA, Tt=NA, HHt = NA, GGt= NA),
+                               value=NA, convergence=1, n=length(y), a0=y[1]))
+    data.frame(t(c(o$par, mloglik = o$value, converge =
+                   as.numeric(o$convergence), n=o$n, a0=o$a0)))
+  }
+  
+  ## Apply the function to each initial condition, 
+  inits %>% rowwise() %>% do(f(.)) -> output
+  
+  if(!all) ## drop unconverged, and select only the best scoring run
+    output %>% filter(converge == 0) %>% slice(which.min(mloglik)) -> output
+  
+  output
+}
+```
+
+
+```{r kalman}
+kalman <- function(df, ...){
+  y <- df$logN
+  ssg <- robust_fit("ssg", y, ...) 
+  ssrw <- robust_fit("ssrw", y, ...) 
+  g <- robust_fit("g", y, ...) 
+  rw <- robust_fit("rw", y, ...)
+  options(stringsAsFactors=FALSE)
+  rbind(data.frame(model ="ssg", gather(ssg, parameter, value)),
+        data.frame(model = "ssrw", gather(ssrw, parameter, value)),
+        data.frame(model = "g", gather(g, parameter, value)),
+        data.frame(model = "rw", gather(rw, parameter, value)))
+                              
+}
+```
+
+
+Having defined a function that takes and returns a `data.frame`, `dplyr::do` gives us a consise syntax to apply this by group (recall `df` is already `group_by(MainID)`.) As the authors note, the robust fitting procedure is computationally intensive, though easily parallelized.
+
+
+```{r message=FALSE}
+system.time(
+df %>% do(kalman(., method = "BFGS")) -> fits
+)
+```
+
+---------------------------
+
+Unfortunately `dplyr` does not as yet directly support parallelization (despite the documentation of `dplyr::init_cluster()` describing parallel `dplyr::do()` use, this feature is not actually implemented yet).  Most parallelization packages for R wrap around `apply` functions, and thus are not trivially adapted to the `dplyr` grammar.  If many cores are available it may still be faster to devolve the `group_by()` `data.frame` into a list of data frames and then apply in parallel; e.g.: 
+
+
+```r
+# not run
+library(parallel)
+options(mc.cores = detectCores())
+
+## turn grouped data.frame to a list of data.frames by MainID
+list_data <- mclapply(unique(df$MainID), function(id) filter_(df, .dots = ~MainID==id))
+
+## Actually do the fitting in parallel
+fits_list <- mclapply(list_data, kalman, method="BFGS")
+
+## reshape outputs back to a data.frame
+fits <- reshape2::melt(fits_list, id=names(fits_list[[1]])) %>% rename(MainID = L1) %>% as_data_frame()
+```
+
+
+------------
+
+We now have a nice table of parameter estimates and likelihoods by model for each data set:
+
+```{r}
+fits
+```
+
+
+
+
+and here is our version then of Figure 1b, comparing the estimate of the density-dependence coefficent with and without the uncertainty in observations:
+
+```{r figure1b}
+fits %>% 
+  filter(model %in% c("ssg", "g"), parameter == "Tt") %>%
+  select(model, value, MainID) %>%
+  spread(model, value) %>%
+  ggplot(aes(g, ssg)) +
+  geom_point(alpha = 0.2) + 
+  geom_abline(intercept = 0, slope = 1) +
+  labs(title="c estimates")
+```
+
+Likewise we can compute a version of Figure 1a; which calculates the absolute value of the difference between the estimates of density-dependence with and without the uncertainty, and then plots how frequently we observe a difference larger than a given amount in the data.  (The paper finds around 20% having a difference larger than 0.5)
+
+```{r figure1a}
+fits %>% 
+  filter(model %in% c("ssg", "g"), parameter == "Tt") %>%
+  select(model, value, MainID) %>%
+  spread(model, value) %>%
+  mutate(difference = abs(g-ssg)) %>%
+  select(difference) -> diffs
+  
+s <- seq(0,1,length=100)
+difference <- sapply(s, function(s_i) mean(diffs$difference > s_i))
+qplot(s, difference) + ylab("Difference bewteen estimates") + xlab("Proportion of data sets")
+```
+
+
+```{r}
+fits %>% 
+  filter(model %in% c("ssg", "ssrw"), parameter == "GGt") %>%
+  select(model, value, MainID) %>%
+  spread(model, value) %>%
+  ggplot(aes(ssg, ssrw)) +
+  geom_point() + 
+  geom_abline(intercept=0, slope=1) + labs(title="sigma^2 (obs error)")
+```
+
+-------------
+
+
+## Aside: further exploring numerical issues
+
+Numerical optimization can be tricky, particularly in this unsupervised manner.  The robust (multiple) fitting strategy goes some ways to addressing this; though ideally one would at least show that the resulting estimates change little if N is increased further.  
+
+
+
+```{r}
+df %>% filter(MainID==5) %>%
+  do(robust_fit("ssg",  y=.$logN, all=TRUE)) %>%
+  select(dt, Tt, HHt, GGt, mloglik) %>%
+  tidyr::gather(parameter, value, -MainID) -> all
+
+ggplot(all) + geom_histogram(aes(value)) + facet_wrap(~parameter, scales="free")
+```
+
+
+
+```{r}
+df %>% 
+  filter(MainID==1998) %>% 
+  do(robust_fit("ssg",  y=.$logN, all=TRUE)) %>% 
+  select(dt, Tt, HHt, GGt, mloglik) %>% 
+  tidyr::gather(parameter, value, -MainID) -> all
+
+ggplot(all) + geom_histogram(aes(value)) + facet_wrap(~parameter, scales="free")
+```
+
+
+Also compare also to the classic example used in most Kalman filter packages, the Nile river flows time series:
+
+```{r}
+robust_fit("ssg",  y=Nile, all=TRUE) %>% 
+  select(dt, Tt, HHt, GGt, mloglik) %>%
+  tidyr::gather(parameter, value) -> all
+ggplot(all) + geom_histogram(aes(value)) + facet_wrap(~parameter, scales="free")
+```
+
+
+
+
+-------------------------------------------------------
+
+## Side note on coding strategy
+
+`dplyr` makes the data filtering steps fast, consise, and clear.  Dealing with model outputs here is actually far less straight forward than cleaning the raw data. For instance, I have collected the output of each model fit into it's own row.  The models have different numbers of parameters, so I must add the fixed parameters to avoid rows of different length; but clearly this does not generalize to the case where the different models can have arbitrarily different parameters.  
+
+[David Robinson](https://github.com/dgrtwo) has done an excellent job in starting to tackle this thorny problem in a package called `broom` with much the same elegance and care that Hadley has done with `dplyr`.  David argues very persuasively that it makes more sense to summarize parameter estimates from each model fit in two columns - a column for parameter names and a column for values.  He has now added support for `optim()` output to the `broom::tidy()` function, which does just that.  
+
+This doesn't translate immediately to my use case here, since I need to keep track of the likelihood and convergence which are not captured by `broom::tidy()`.  As these are scalar valued outputs of the model fit, instead of a vector like parameters, they are extracted and summarized in `broom::glance()` as a single row.  An easy generalization would just be to `cbind` the outputs of `glance()` and `tidy()`; though David argues for a different approach in which we defer any manipulation of model output. Instead, he suggests an `expand.grid` over the names of the groups (models and datasets):
+
+```r
+# not run
+
+expand.grid(model = names(models),
+            dataset = names(datasets)) %>%
+    group_by(model, dataset) %>%
+    do(o = optim_func(.$model, .$dataset)) -> david
+```
+
+Where `optim_func` uses the name of the model and name of the dataset to apply `optim()`, rather than passing the data explicitly.  We can then use `glance` and `tidy` on the resulting output, though we would need to `inner_join` the results instead of `cbind`.  This is indeed an elegant, more generic approach.  Still, neither of us much like the need to defer the tidy step to the complex object at the end.
+
+Here, I have ended up adopting the column-wise parameter, value, approach, though for a reason not just related to elegance.  My `robust_fit()` error-handling seems to end up very occassionally with some kind of race conditions[^1] that cause some of the sub-models to report an NA for one of their fixed parameters, instead of ommitting the parameter entirely.  When adding the fixed value back in to keep rows of a uniform length, this meant I might get some rows with a duplicated column, such as a `GGt` column with value `NA` and another, appended column with the fixed value `0` in the `g` or `rw` models.  The columnwise structure avoids this and prevents the code execution from failing.  
+
+[^1]: I could only ever reproduce this by re-running large batch jobs -- isolating the examples where error occurred and re-running had no effect, hence my worry about some race conditions between the error reporting.  However, the stochastic initial conditions might also contribute to this, as I didn't standardize seed over the parallelization; though in priciple any unusual initial conditions should only generate fit failures that are already handled in the error handling.  
+
+
+
+

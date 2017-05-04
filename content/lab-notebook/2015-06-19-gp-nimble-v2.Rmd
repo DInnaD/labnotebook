@@ -1,0 +1,90 @@
+---
+categories:
+- ecology
+date: 2015-06-19T00:00:00Z
+tags:
+- nimble
+- gp
+url: /2015/06/19/gp-nimble-v2/
+---
+
+```{r}
+#  devtools::install_github("cboettig/gpmanagement")
+```
+
+```{r, results = 'hide'}
+library("gpmanagement")
+library("dplyr")
+library("ggplot2")
+library("methods")
+
+```
+
+
+```{r}  
+  set.seed(1234)
+  Tobs <- 40
+  f <- function (x, h, p){
+    sapply(x, function(x) {
+        x <- pmax(0, x - h)
+        x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2])
+    })
+  }
+  p <- c(2, 8, 5)
+  sigma_g <- 0.05
+  z_g <- function() rlnorm(1, 0, sigma_g)
+  x <- numeric(Tobs)
+  x[1] <- 5.5
+  for(t in 1:(Tobs-1))
+    x[t+1] = z_g() * f(x[t], h=0, p=p)
+  obs <- data.frame(x = c(0, 
+                          pmax(rep(0,Tobs-1), x[1:(Tobs-1)])), 
+                    y = c(0, 
+                          x[2:Tobs]))
+  xObs <- obs$x
+  yObs <- obs$y
+  xPred <- seq(0, 15, length=50)
+```
+
+```{r}
+  fit <- gp_setup(xObs, yObs, xPred)
+
+  Cmcmc <- fit$Cmcmc 
+  Cpred <- fit$Cpred
+  Cmodel <- fit$Cmodel
+  
+  system.time(Cmcmc$run(100000))
+```
+
+```{r}
+  samples <- as.matrix(Cmcmc$mvSamples)
+  ## basic sanity check
+  testthat::expect_identical(Cmodel$getNodeNames(topOnly = TRUE), colnames(samples))
+```
+
+predict from GP model using posterior MCMC samples
+
+```{r}
+system.time(Cpred$run(samples))
+```
+
+
+extract predictions: E and C
+
+
+```{r}
+  E <- Cpred$getE()
+  C <- Cpred$getC()
+  
+obs <- data.frame(x = xObs, y = yObs)
+pred <- data.frame(x = xPred, y = E, ymin = E - sqrt(diag(C)), ymax = E + sqrt(diag(C)))
+ggplot2::ggplot(pred) + 
+  geom_ribbon(aes(x = x,y = y, ymin = ymin, ymax = ymax), fill = "grey80") +
+  geom_line(aes(x = x, y = y), size=1) + 
+  geom_point(data = obs, aes(x,y)) +
+  coord_cartesian(xlim = range(c(xObs, xPred)), ylim = range(c(yObs,E))) +
+  theme_bw()
+
+```
+
+

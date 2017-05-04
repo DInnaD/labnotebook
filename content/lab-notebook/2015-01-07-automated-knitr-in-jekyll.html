@@ -1,0 +1,64 @@
+---
+categories:
+- open-science
+date: 2015-01-07T00:00:00Z
+url: /2015/01/07/automated-knitr-in-jekyll/
+---
+
+
+
+<div id="combining-knitr-jeykll-using-servr" class="section level2">
+<h2>Combining knitr &amp; jeykll using <code>servr</code></h2>
+<p>Yihui Xie, author &amp; maintainer of <code>knitr</code>, has a nice little package out called <a href="http://github.com/yihui/servr">servr</a> for serving websites from R. It includes a handy <code>jekyll</code> function which streamlines the process of first running <code>knitr</code> on any <code>.Rmd</code> posts before running Jekyll. Having broken my <a href="http://www.carlboettiger.info/2015/01/01/notebook-maintenance-and-scaling.html">notebook into volumes</a>, my setup is now ready to take advantage of this approach.</p>
+<div id="configuring-knitr-with-the-build.r-script" class="section level3">
+<h3>Configuring <code>knitr</code> with the <code>build.R</code> script</h3>
+<p>The R build process can be tuned using a custom <code>build.R</code> script. In particular, it can be useful to set up some default knitr package and chunk options such as how to handle caching, figures, and messages. See <a href="https://github.com/cboettig/2015/blob/4ce767965a0015ca2890023aa6adfb1109b6f94c/_build.R">my build.R script</a> at the time of writing.</p>
+<ul>
+<li><p>Caching: By turning caching on I avoid having to make the server re-run all the unchanged R code from scratch each time. I simply point the cache to a directory, <code>_cache</code> in the repository root that is ignored both by git and jekyll.</p></li>
+<li><p>Figures: I’m still not completely decided how to best to handle figures. Two questions in particular.</p></li>
+</ul>
+<p>I’m undecided if it is better to embed them in the html (as data uris or embedded svg) or link as external files? Embedding avoids the risk of broken paths to the images, and means we can view the history of the file by rendering the committed html with sites like <code>http://rawgit.com/</code>. Perhaps for the reasons it seems to be the default setting in RStudio’s <code>rmarkdown::render</code>. On the other hand it makes it harder to diff the images themselves when they aren’t committed as stand-alone files. Note that never need to commit the figures to the source branch, or commit the intermediate <code>.md</code> file produced by <code>knitr</code>, thus embedding data URI’s isn’t so cumbersome (i.e. doesn’t create cumbersome markdown, though it makes the HTML even less readable). I’ve currently configured this to handle both cases, though some care must be taken in setting the paths correctly (e.g. <code>baseurl</code>) if images are only linked.</p>
+<p>My other question is whether to rely on png or svg images. svg images tend to look better and can result in very small file sizes for certain plots, but can also get much too large on others. svg files are text based and so play nicely with git, whether they are embedded in the HTML or linked externally. Meanwhile, pngs can be diff’d by Github now, and provide more reliable file sizes even on plots with tons of points, so I am using them as the default setting.</p>
+</div>
+</div>
+<div id="automated-deploy-with-drone" class="section level2">
+<h2>Automated deploy with Drone</h2>
+<p>A nice feature of jekyll has always been the ability for Github to build the pages automatically whenever changes to the source files are pushed to the repository. Since Github’s jekyll doesn’t support plugins such as the one needed to use pandoc as a markdown parser, I have long worked around this using travis CI to run jekyll with pandoc installed. Unfortunately, adding knitr to the mix is too much for travis:</p>
+<ul>
+<li>The R commands of any or all posts may exceed the 50 minute max build time</li>
+</ul>
+<p>A few other difficulties also arise for travis:</p>
+<ul>
+<li><p>we would need to install the complete R environment, pandoc, and the complete jekyll+ruby gems environment necessary to build the site (also within the 50 minute time, unless these could be cached externally too).</p></li>
+<li><p>we couldn’t easily store the knitr cache (would have to push and pull this from some remote)</p></li>
+<li><p>we have to encrypt the credentials to push to Github, use the twitter API, etc (on a per-repository basis).</p></li>
+</ul>
+<p>The simplest alternative is simply to build the site locally. While this is always a viable option and often preferable (one will usually want to run the script interactively before committing anyway), it precludes the ability to make changes from the online interface or a tablet where the resources to run the code are not immediately available. Having automated build is much nicer.</p>
+<p>Running a Drone instance on a personal server is much more appealing. I already have a small DigitalOcean instance at the moment which runs a variety of services, including Drone. Advantages include:</p>
+<ul>
+<li><p>Having drone on a personal server means I can use <em>custom docker images</em>. In thiw way, I can provide an image with all or most of the software I need already installed. Here’s the <a href="http://hub.docker.com/u/cboettig/labnotebook">Dockerfile for cboettig/labnotebook</a>.</p></li>
+<li><p>Logging into the Drone instance (secured with a Github application handshake), I can add private environmental variables for credentials and keys without the need to go through the encryption dance on travis.</p></li>
+<li><p>Running on my own server, Drone keeps a library of docker images (no need to pull each time). Because this image is not automatically pulled a-fresh on each commit, the build is faster and I have more control over when the software environment is updated (which always carries the potential of breaking things).</p></li>
+<li><p>For the R scripts, the build time can be further speed up by configuring to cache selected files such that the knitr cache and generated figures are available to future builds.</p></li>
+</ul>
+<div id="caching-knitr-files" class="section level3">
+<h3>Caching knitr files</h3>
+<p>See my <a href="http://github.com/cboettig/2015/tree/master/.drone.yml">.drone.yml</a> for an overview of my configuration. Most of the script is concerned with setting up the caching appropriately, which isn’t yet as streamlined as it might be (see <a href="http://github.com/drone/drone/issues/147">drone/147</a>). The deploy script must also do a bit of a dance to build the site on the <code>master</code> branch but push the contents of <code>_site</code> to the <code>gh-pages</code> branch. Perhaps these can be improved upon.</p>
+</div>
+</div>
+<div id="a-docker-image-for-the-labnotebook" class="section level2">
+<h2>A docker image for the labnotebook</h2>
+<p>Having a docker image with all the software needed to build the notebook also goes a long way to making the notebook more portable. The labnotebook docker images could further be versioned with tags matching the year, such that <code>cboettig/labnotebook:2015</code> corresponded to a Dockerfile with software environment specific to building the repository. Because such an image contains most of the software I use regularly, it also provides something of a swiss-army knife for common tasks (on any machine where docker is available):</p>
+<p>An R shell:</p>
+<pre><code>docker run --rm -i -v $(pwd):/data R </code></pre>
+<p>Pandoc:</p>
+<pre><code>docker run --rm -i -v $(pwd):/data pandoc</code></pre>
+<p>jekyll server: (Note that running jekyll or servr from within docker requires changing the default host from <code>127.0.0.1</code> to <code>0.0.0.0</code>)</p>
+<pre><code>docker run -d -p 4000:4000 -v $(pwd):/data jekyll serve -H 0.0.0.0</code></pre>
+<p>bash:</p>
+<pre><code>docker run --rm -i -v $(pwd):/data bash </code></pre>
+<p>latex:</p>
+<pre><code>docker run --rm -i -v $(pwd):/data pdflatex file.tex </code></pre>
+<p>RStudio server (note the <code>-u 0</code> to launch server as root):</p>
+<pre><code>docker run -d -p 8787:8787 -u 0 -v $(pwd):/data supervisord</code></pre>
+</div>

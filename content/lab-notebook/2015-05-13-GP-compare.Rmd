@@ -1,0 +1,253 @@
+---
+categories:
+- ecology
+date: 2015-05-13T00:00:00Z
+tags:
+- gp
+- nimble
+url: /2015/05/13/GP-compare/
+---
+
+Original go at nimble gp model, but this requires rather manual manipulation of parameter posteriors to get the GP posteriors.  
+
+
+```{r }
+library("MASS")
+library("mcmc")
+library("nimble")
+library("ggplot2")
+library("tidyr")
+library("dplyr")
+library("nonparametricbayes")
+library("pdgControl")
+```
+
+## sample data ##
+
+```{r}
+set.seed(1234)
+Tobs <- 40
+f <- RickerAllee
+sigma_g <- 0.05
+z_g <- function() rlnorm(1, 0, sigma_g)
+p <- c(2, 8, 5)
+```
+
+
+```{r }
+x_grid <- seq(0, 15, length=50)
+h_grid <- x_grid
+profit <- function(x,h) pmin(x, h)
+delta <- 0.01
+OptTime <- 50  # stationarity with unstable models is tricky thing
+xT <- 0    # terminal condition
+x0 <- 10   # simulation under policy starts from
+MaxT <- 1000 # timeout for value iteration convergence
+```
+
+
+```{r}
+x <- numeric(Tobs)
+x[1] <- 5.5
+nz <- 1
+for(t in 1:(Tobs-1))
+  x[t+1] = z_g() * f(x[t], h=0, p=p)
+obs <- data.frame(x = c(rep(0,nz), 
+                        pmax(rep(0,Tobs-1), x[1:(Tobs-1)])), 
+                  y = c(rep(0,nz), 
+                        x[2:Tobs]))
+ggplot(data.frame(time = 1:Tobs, x=x), aes(time,x)) + geom_line()
+```
+
+## GP Model ##
+
+
+```{r}
+code <- nimbleCode({
+
+   l ~ dgamma(10, 1) 
+   sigma.n ~ dunif(0, 1e5)
+   sigma.k  ~ dunif(0, 1e5)
+   Sigma[1:N, 1:N] <- sigma.k ^ 2 * exp(-0.5 * diff[1:N, 1:N] / l ^ 2) + 
+                      sigma.n ^ 2 * I[1:N, 1:N]
+   y[1:N] ~ dmnorm(Mu[1:N], cov = Sigma[1:N, 1:N])  
+
+})
+```
+
+
+```{r}
+N <- length(obs$x)
+diff <- outer(obs$x, obs$x, function(xi, xj) (xi-xj)^2)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), diff = diff, I = diag(1,N))
+inits <- list(l = 1, sigma.n = 10, sigma.k = 1)
+data <- data.frame(y = obs$y)
+
+
+```
+
+```{r}
+Rmodel <- nimbleModel(code = code, constants = constants, data = data, inits = inits)
+```
+
+
+Define our mcmc procedure in Nimble
+
+```{r }
+Cmodel <- compileNimble(Rmodel)
+mcmcspec <- configureMCMC(Rmodel, print=FALSE)
+Rmcmc <- buildMCMC(mcmcspec)
+Cmcmc <- compileNimble(Rmcmc, project = Rmodel)
+```
+
+```{r}
+system.time(
+Cmcmc$run(1e6)
+)
+```
+
+```{r}
+samples <- as.data.frame(as.matrix(Cmcmc$mvSamples))
+df <- gather(samples)
+```
+
+
+#### Posteriors
+
+```{r , fig.show='hold'}
+ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale='free') + 
+  scale_x_log10()
+```
+
+## Calculating transition probabilities
+
+Several ways we might go about this.
+
+Technically all policies could be updated in response to new information, though this requires repeating the estimation process, or at least a Bayesian updating step (e.g. passive learning).  Typically these steps are separated into estimating the policy and then implementing the policy separately, so we will focus on this case.
+
+The transition probability is conditional 
+
+
+
+
+```{r}
+## Should be able to extract this from nimble...
+predict <- 
+function (posteriors, obs, x_predict) {
+    out <- lapply(data.frame(t(posteriors)), 
+      function(sample) {
+      
+        l <- sample[1]
+        sigma.k <- sample[2]
+        sigma.n <- sample[3]
+       
+        
+        SE <- function (Xi, Xj, l) sigma.k * exp(- 0.5 * (Xi - Xj) ^ 2 / l ^ 2)
+        cov <- function(X, Y) outer(X, Y, SE, l)
+            
+        cov_xx_inv <- solve(cov(obs$x, obs$x) + sigma.n^2 * diag(1, length(obs$x)))
+        Ef <- cov(x_predict, obs$x) %*% cov_xx_inv %*% obs$y
+        Cf <- cov(x_predict, x_predict) - cov(x_predict, obs$x) %*% 
+            cov_xx_inv %*% cov(obs$x, x_predict)
+        list(Ef = Ef, Cf = Cf, Vf = diag(Cf))
+    })
+    Ef_posterior <- sapply(out, `[[`, "Ef")
+    Cf_posterior <- sapply(out, `[[`, "Cf")
+    Vf_posterior <- sapply(out, `[[`, "Vf")
+    E_Ef <- rowMeans(Ef_posterior)
+    E_Cf <- matrix(apply(Cf_posterior, 1, sum)/dim(Cf_posterior)[2], 
+        ncol = sqrt(dim(Cf_posterior)[1]))
+    E_Vf <- diag(E_Cf)
+    Cf_posterior <- lapply(out, `[[`, "Cf")
+    list(Ef_posterior = Ef_posterior, Vf_posterior = Vf_posterior, 
+        Cf_posterior = Cf_posterior, E_Ef = E_Ef, E_Cf = E_Cf, 
+        E_Vf = E_Vf)
+}
+
+gp_posterior <- predict(sample_n(samples, 100), obs, x_grid)
+```
+
+
+
+```{r, dependson=-1}
+matrices_gp <- gp_transition_matrix(gp_posterior$Ef_posterior, gp_posterior$Vf_posterior, x_grid, h_grid) 
+opt_gp <- value_iteration(matrices_gp, x_grid, h_grid, MaxT, xT, profit, delta, reward)
+```
+
+--------------------------------------------
+
+## Comparison
+
+```{r}
+s2.p <- c(5,5)  
+d.p = c(10, 1/0.1)
+gp <- gp_mcmc(obs$x, y=obs$y, n=1e5, s2.p = s2.p, d.p = d.p)
+gp_dat <- gp_predict(gp, x_grid, burnin=1e4, thin=300)
+```
+
+
+
+```{r gp-opt, dependson=-1}
+matrices_gp <- gp_transition_matrix(gp_dat$Ef_posterior, gp_dat$Vf_posterior, x_grid, h_grid) 
+opt_gp <- value_iteration(matrices_gp, x_grid, h_grid, MaxT, xT, profit, delta)
+```
+
+```{r mle-opt, dependson=-1}
+matrices_true <- f_transition_matrix(f, p, x_grid, h_grid, sigma_g)
+opt_true <- value_iteration(matrices_true, x_grid, h_grid, OptTime=MaxT, xT, profit, delta)
+```
+
+
+
+
+```{r, dependson=-1}
+policy <- list(GP = opt_gp$D, exact = opt_true$D)
+sets <- expand.grid(reps = 1:100, model = c("exact", "GP")) %>% group_by(reps, model)
+
+sim_fn <- function(df){
+  set.seed(df$reps)
+  ForwardSimulate(f, p, x_grid, h_grid, x0, 
+                  D = policy[[as.character(df$model)]], 
+                  z_g, profit=profit, OptTime = OptTime)
+  
+}
+sims <- sets %>% do(sim_fn(.))
+```
+
+```{r, dependson=1}
+colorkey <- c("#000000", "#E69F00", "#56B4E9", "#009E73", 
+               "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+ggplot(sims) + 
+  geom_line(aes(time, fishstock, group=interaction(reps,model), col=model), alpha=.1) + 
+  facet_wrap(~model) +
+  scale_colour_manual(values=colorkey, guide=FALSE)
+```
+
+```{r, dependson=-1}
+
+policies_plot <- function(policy){
+  policy_df <- 
+    data.frame(model = c("GP", "exact"))  %>% 
+    group_by(model) %>% 
+    do(data.frame(stock = x_grid, 
+                  escapement = x_grid - h_grid[policy[[as.character(.$model)]]]))
+
+  ggplot(policy_df, aes(stock, escapement, color=model)) +
+    geom_line() + 
+    facet_wrap(~model) +
+    xlab("stock size, x(t)") + 
+    ylab("escapement, S(t)")  +
+    scale_colour_manual(values=colorkey, guide=FALSE)
+}
+
+policies_plot(policy)
+
+```
+
+```{r, dependson=-1}
+sims %>% mutate(net_profit = sum(profit)) -> sims
+```
+
+

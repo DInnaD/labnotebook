@@ -1,0 +1,129 @@
+---
+categories:
+- ecology
+code: true
+date: 2015-01-13T00:00:00Z
+tags:
+- early-warning
+- nimble
+url: /2015/01/13/detrend-example/
+---
+
+
+
+<pre class="r"><code>library(knitr)
+library(nimble)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nimble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     simulate</code></pre>
+<pre class="r"><code>library(earlywarning)
+library(ggplot2)
+library(tidyr)
+library(&quot;methods&quot;)
+
+opts_chunk$set(dev=&#39;png&#39;, fig.width=5, fig.height=5, results=&#39;hide&#39;)</code></pre>
+<p>some sample data from earlywarning:</p>
+<pre class="r"><code>set.seed(123)
+data(ibms)
+plot(ibm_critical)</code></pre>
+<p><img src="/lab-notebook/2015-01-13-detrend-example_files/figure-html/data-1.png" width="480" /></p>
+<pre class="r"><code>raw &lt;- as.data.frame(ibm_critical)
+names(raw) &lt;- &quot;x&quot;</code></pre>
+<p>Rather than explicitly modeling the trend element predicted by the linearization, let us simply remove it:</p>
+<pre class="r"><code>N &lt;- length(raw$x)
+raw$t &lt;- 1:N
+detrend &lt;- loess(x ~ t, raw)
+data &lt;- data.frame(x = detrend$residuals/sqrt(var(detrend$residuals)))
+qplot(raw$t, data$x, geom=&#39;line&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-01-13-detrend-example_files/figure-html/detrend-1.png" width="480" /></p>
+<div id="lsn-version" class="section level2">
+<h2>LSN version</h2>
+<p>Modify the LSN model to explicitly model the changing parameter as a hidden, stochastic variable</p>
+<pre class="r"><code>lsn &lt;- nimbleCode({
+   theta ~ dunif(-100.0, 100.0)
+   sigma_x ~ dunif(1e-10, 100.0)
+   sigma_y ~ dunif(1e-10, 100.0)
+       m ~ dunif(-1e2, 1e2)
+    x[1] ~ dunif(-100, 100)
+    y[1] ~ dunif(-100, 100)
+
+  for(i in 1:(N-1)){
+    mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) 
+    x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) 
+    mu_y[i] &lt;- y[i] + m * t[i]
+    y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) 
+  }
+})</code></pre>
+<p>Constants in the model definition are the length of the dataset, <span class="math inline">\(N\)</span> and the time points of the sample. Note we’ve made time explicit, we’ll assume uniform spacing here.</p>
+<pre class="r"><code>constants &lt;- list(N = N, t = raw$t)</code></pre>
+<p>Initial values for the parameters</p>
+<pre class="r"><code>inits &lt;- list(theta = 6, m = 0, sigma_x = 1, sigma_y = 1, y = rep(1,N))</code></pre>
+<p>and here we go:</p>
+<pre class="r"><code>Rmodel &lt;- nimbleModel(code = lsn, 
+                      constants = constants, 
+                      data = data, 
+                      inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<pre class="r"><code>Cmodel &lt;- compileNimble(Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre class="r"><code>mcmcspec &lt;- configureMCMC(Rmodel, print=TRUE,thin=2e2)
+Rmcmc &lt;- buildMCMC(mcmcspec)
+Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)</code></pre>
+<pre class="r"><code>Cmcmc$run(1e6)</code></pre>
+<p>and examine results</p>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+dim(samples)
+samples &lt;- samples[,1:4]
+long &lt;- gather(samples)</code></pre>
+<pre class="r"><code>apply(samples, 2, mean)</code></pre>
+<pre><code>##             m       sigma_x       sigma_y         theta 
+##  0.0003790592  1.0792385676  0.1920288851 -0.0150533955</code></pre>
+<pre class="r"><code>ggplot(long) + 
+  geom_line(aes(seq_along(value), value)) + 
+    facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-01-13-detrend-example_files/figure-html/trace-1.png" width="480" /></p>
+<pre class="r"><code>ggplot(long) + 
+    geom_density(aes(value)) + 
+    facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-01-13-detrend-example_files/figure-html/histogram-1.png" width="480" /></p>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.4.0 (2017-04-21)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.4
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] methods   stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] tidyr_0.6.2        ggplot2_2.2.1      earlywarning_0.0-1
+## [4] nimble_0.6-4       knitr_1.15.20     
+## 
+## loaded via a namespace (and not attached):
+##  [1] igraph_1.0.1     Rcpp_0.12.10     magrittr_1.5     munsell_0.4.3   
+##  [5] mnormt_1.5-5     colorspace_1.3-2 lattice_0.20-35  stringr_1.2.0   
+##  [9] plyr_1.8.4       tools_3.4.0      parallel_3.4.0   grid_3.4.0      
+## [13] gtable_0.2.0     nlme_3.1-131     psych_1.7.5      coda_0.19-1     
+## [17] htmltools_0.3.6  lazyeval_0.2.0   yaml_2.1.14      rprojroot_1.2   
+## [21] digest_0.6.12    tibble_1.3.0     bookdown_0.3.19  reshape2_1.4.2  
+## [25] codetools_0.2-15 deSolve_1.14     evaluate_0.10    rmarkdown_1.5   
+## [29] blogdown_0.0.33  labeling_0.3     stringi_1.1.5    compiler_3.4.0  
+## [33] scales_0.4.1     backports_1.0.5  foreign_0.8-67</code></pre>
+</div>
