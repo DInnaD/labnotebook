@@ -1,7 +1,4 @@
-{{ partial "header.html" . }}
-{{ partial "navbar.html" . }}
-
-<div class = "container">
+{{ define "main" }}
 
 {{ if .Params.header.image }}
 <div class="article-header">
@@ -35,6 +32,4 @@
 
   {{ partial "pagination" . }}
 
-</div>
-{{ partial "footer_container.html" . }}
-{{ partial "footer.html" . }}
+{{ end }}
