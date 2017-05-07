@@ -141,7 +141,7 @@ inits <- list(m = 0, sigma_y = .01, y = rep(1,N))
 Rmodel <- nimbleModel(code = code, constants = constants, data = data, inits = inits)
 Cmodel <- compileNimble(Rmodel)
 mcmcspec <- configureMCMC(Rmodel, print=FALSE,thin=thin)
-mcmcspec$addSampler("RW_block", list(targetNodes=c('m','sigma_y'), adaptInterval=100))
+mcmcspec$addSampler(type = "RW_block", target=c('m','sigma_y'), control = list(adaptInterval=100))
 Rmcmc <- buildMCMC(mcmcspec)
 Cmcmc <- compileNimble(Rmcmc, project = Cmodel)
 Cmcmc$run(n_iter)
@@ -149,7 +149,7 @@ samples <- as.data.frame(as.matrix(Cmcmc$mvSamples))
 samples <- samples[,1:(length(inits)-1)]
 df <- gather(samples)
 
-df <- my_mcmc(code=lsn, constants, data, inits)
+#df <- my_mcmc(code=lsn, constants, data, inits)
 ```
 
 #### Summary statistics
