@@ -141,17 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2010/05/26/rethinking-beetles-noise/">Rethinking Beetles Noise</a></h2>
-    <h4>Wed, May 26, 2010</h4>
-    <div class="article-style">
-      
-      Noise in the larval class is damped by and grows proportional to its intrinsic variation and the contribution of other classes through their derivatives of f~L~, that is, as well as the sum of its intrinsic rates (essentially whichever is larger). Taking E dynamics to be fast we might reduce to a continous time LPA model:  and the larval fluctuations are essentially:
-where β~i~ is the intrinsic noise of the age class.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2010/05/25/bug-fixed/">Bug fixed!</a></h2>
     <h4>Tue, May 25, 2010</h4>
     <div class="article-style">
@@ -251,6 +240,20 @@ Where M is the covariance matrix and J the Jacobian of f as before. dM is the ma
 Consider the Crowley model from last week which I&rsquo;d implemented as an individual birth-death model: (x is the better competitor, y the better colonist)
 I&rsquo;ve implemented the linear noise approximation for this model as a system of coupled ODEs:
 And solved numerically (R code, links directly to this version and can run stand-alone from the package) using parameter values matching the individual based simulation (C code from warning_signals package).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2010/05/14/structured-population-dynamics/">Structured Population Dynamics</a></h2>
+    <h4>Fri, May 14, 2010</h4>
+    <div class="article-style">
+      
+      Beetle Model Macroscopic equations:
+Has the corresponding variance-covariance dynamics
+Where g_i is the second jump moment, which is a function of the state (E, L, P, A) just as f_i is. (In this case it will correspond to the sum of all birth and death terms).
+General Form &amp; Algorithm Consider the dynamics are given by
+and define variance-covariance matrix M and the Jacobian matrix of f as J. Then the dynamics of the diagonal elements (variance terms) are written as
       
     </div>
   </div>

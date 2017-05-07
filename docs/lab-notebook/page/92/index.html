@@ -140,79 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2010/03/25/research/">Research</a></h2>
-    <h4>Thu, Mar 25, 2010</h4>
-    <div class="article-style">
-      
-      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/24/parallel-r/">Parallel R</a></h2>
-    <h4>Wed, Mar 24, 2010</h4>
-    <div class="article-style">
-      
-      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/23/bootstrapping-likelihood-ratios/">Bootstrapping Likelihood ratios</a></h2>
-    <h4>Tue, Mar 23, 2010</h4>
-    <div class="article-style">
-      
-      Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
-&gt; summary(anoles_boots) [,1] [,2] [,3] [,4] [,5] [1,] 0.500000000 0.981399498 0.26514573 0.06668672 0.018154938 [2,] 0.009580545 0.500000000 0.15610274 0.04819938 0.011616566 [3,] 0.039233893 0.075349644 0.50000000 0.05699877 0.005443493 [4,] 0.004211230 0.004592917 0.01389950 0.50000000 0.006648916 [5,] 0.173457542 0.198303402 0.38893099 0.33891430 0.500000000 &gt;  Labrids: &gt; summary(labrid_boots) [,1] [,2] [,3] [,4] [1,] 0.5000000 6.036842e-05 0.0000000 0.0 [2,] 0.5424613 5.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/22/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
-    <h4>Mon, Mar 22, 2010</h4>
-    <div class="article-style">
-      
-      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/20/research/">Research</a></h2>
-    <h4>Sat, Mar 20, 2010</h4>
-    <div class="article-style">
-      
-      Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/19/research/">Research</a></h2>
-    <h4>Fri, Mar 19, 2010</h4>
-    <div class="article-style">
-      
-      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/18/research/">Research</a></h2>
-    <h4>Thu, Mar 18, 2010</h4>
-    <div class="article-style">
-      
-      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/03/17/research/">Research</a></h2>
-    <h4>Wed, Mar 17, 2010</h4>
+    <h4><a href="../../../2010/03/17/research/">Wed, Mar 17, 2010</a></h4>
+    <h4><a href="../../../2010/03/17/research/">Research</a></h4>
     <div class="article-style">
       
       Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
@@ -221,8 +150,8 @@
   </div>
   
   <div>
-    <h2><a href="../../../2010/03/16/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h2>
-    <h4>Tue, Mar 16, 2010</h4>
+    <h4><a href="../../../2010/03/16/graham-and-peter-meeting/">Tue, Mar 16, 2010</a></h4>
+    <h4><a href="../../../2010/03/16/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h4>
     <div class="article-style">
       
       Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
@@ -232,11 +161,97 @@ Research Progress  Completed writing the bootstrapping function for the partitio
   </div>
   
   <div>
-    <h2><a href="../../../2010/03/15/computing/">Computing</a></h2>
-    <h4>Mon, Mar 15, 2010</h4>
+    <h4><a href="../../../2010/03/15/computing/">Mon, Mar 15, 2010</a></h4>
+    <h4><a href="../../../2010/03/15/computing/">Computing</a></h4>
     <div class="article-style">
       
       Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/14/post-workshop/">Sun, Mar 14, 2010</a></h4>
+    <h4><a href="../../../2010/03/14/post-workshop/">Post-Workshop</a></h4>
+    <div class="article-style">
+      
+      Working on a couple new ideas:
+ Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/12/bodega-workshop-presentations/">Fri, Mar 12, 2010</a></h4>
+    <h4><a href="../../../2010/03/12/bodega-workshop-presentations/">Bodega Workshop Presentations</a></h4>
+    <div class="article-style">
+      
+      Final day of Bodega Phylogenetics workshop: a full day of student presentations. (High resolution images for the trees available by clicking on them)
+Principle figures from my investigation of the Labrid data. While morphospace doesn&rsquo;t present an obvious clustering, it can be effectively divided by my maximum likelihood partitioning scheme on fin angle. A smoothed density plot of fin angle alone reveals two identifiable modes in the traitspace.
+Based on the discretized partition, ancestral states are reconstructed under both the equal rates and independent rates model.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/11/phylogenetics-workshop-day-5/">Thu, Mar 11, 2010</a></h4>
+    <h4><a href="../../../2010/03/11/phylogenetics-workshop-day-5/">Phylogenetics Workshop Day 5</a></h4>
+    <div class="article-style">
+      
+      Last day of lectures: Lineage Diversification
+Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
+ Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/10/bodega-workshop-day-4/">Wed, Mar 10, 2010</a></h4>
+    <h4><a href="../../../2010/03/10/bodega-workshop-day-4/">Bodega Workshop Day 4</a></h4>
+    <div class="article-style">
+      
+      Morphological Evolution Day:
+ Peter Wainwright Sam Price Johnathan Eisen  We have the afternoon session off for field trips and research.</p>
+
+<p>Peter Wainwright, Comparative Analysis of Morphological Diversity  Fantastic diversity in morphology, corresponds to niche! But morphological diversity isn&rsquo;t evenly distributed across tree of life. (See slides, parallels Peter&rsquo;s section on core and gives the best biological coverage we&rsquo;ve had this week).  What changes morphological diversification rate
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/09/bodega-phylogenetics-workshop-day-3/">Tue, Mar 9, 2010</a></h4>
+    <h4><a href="../../../2010/03/09/bodega-phylogenetics-workshop-day-3/">Bodega Phylogenetics Workshop Day 3</a></h4>
+    <div class="article-style">
+      
+      Rich Glor, Character Evolution Official slides and tutorial
+ Weakness of ancestral state reconstruction
+ Cunningham 1999 Losos 1999  Testing hypotheses with ancestral reconstruction
+ Parsimony Farris method. Downward/upward pass. Gives a maximum parsimony reconstruction. May miss other ones. Apparently this Parsimony analysis can be done for continuous traits as well, needs a measure of distance Likelihood Pagel 1994 Schluter 1997   R tutorial (see anolis_cheat.R)
+ Discrete trait ancestral state reconstruction
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/08/bodega-phylogenetics-workshop-day-2/">Mon, Mar 8, 2010</a></h4>
+    <h4><a href="../../../2010/03/08/bodega-phylogenetics-workshop-day-2/">Bodega Phylogenetics Workshop Day 2</a></h4>
+    <div class="article-style">
+      
+      Marine lab researchers are back, and network speeds have just about given up (down to bytes/s). This post is composed offline and will be uploaded to the notebook. Details are well logged on the Bodgea Phylogenetics Wiki so these are reasonably sketchy with my comments.
+My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega Phylogenetics Wiki today:
+ User page Phylogenetics on Linux Becoming a Programmer Edits on Advice for Aspiring Phylogeneticists  Today&rsquo;s agenda  BEAST continued.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/03/07/bodega-phylogenetics-workshop-day-1/">Sun, Mar 7, 2010</a></h4>
+    <h4><a href="../../../2010/03/07/bodega-phylogenetics-workshop-day-1/">Bodega Phylogenetics Workshop Day 1</a></h4>
+    <div class="article-style">
+      
+      Lecture notes for the phyolgenetics workshop. These are taken in real time, so may contain errors. I&rsquo;ll see if I keep this up throughout the course. See course website.
+Huelsenbeck 9a-11a
+ Parameters θ Observation X p(X | θ) is known as the likelihood. Adjust parameter to maximize likelihood. Coin toss example  θ = prob of heads on a single toss of a coin, X is # of heads observed on n tosses.
       
     </div>
   </div>
@@ -257,19 +272,7 @@ Research Progress  Completed writing the bootstrapping function for the partitio
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

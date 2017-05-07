@@ -141,17 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2014/08/14/pdg-controlfest-notes/"></a></h2>
-    <h4>Thu, Aug 14, 2014</h4>
-    <div class="article-style">
-      
-      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
-I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2014/08/06/notes/"></a></h2>
     <h4>Wed, Aug 6, 2014</h4>
     <div class="article-style">
@@ -247,6 +236,20 @@ library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot
       
       Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
  Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2014/04/08/multiple-uncertainty-notes/"></a></h2>
+    <h4>Tue, Apr 8, 2014</h4>
+    <div class="article-style">
+      
+      Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
       
     </div>
   </div>

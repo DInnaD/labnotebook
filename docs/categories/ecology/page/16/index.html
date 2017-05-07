@@ -141,19 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2012/11/15/notes/"></a></h2>
-    <h4>Thu, Nov 15, 2012</h4>
-    <div class="article-style">
-      
-      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
-Is there some scalar $v_2$ such that
-$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
-e.g. a term like:
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2012/11/08/notes/"></a></h2>
     <h4>Thu, Nov 8, 2012</h4>
     <div class="article-style">
@@ -255,6 +242,18 @@ n &lt;- length(obs$x) K &lt;- cov(obs$x, obs$x) I &lt;- diag(1, n) L &lt;- chol(
 Required R libraries (for multivariate normal, also for plotting):
 require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
 set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2012/10/16/gaussian-processes/">Gaussian processes</a></h2>
+    <h4>Tue, Oct 16, 2012</h4>
+    <div class="article-style">
+      
+      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
+ Will also want to look into basis approximations for SDP acceleration.
+  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
       
     </div>
   </div>

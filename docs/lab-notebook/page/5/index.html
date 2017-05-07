@@ -140,86 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2014/08/29/docker-notes/">Docker tricks of the trade and best practices thoughts</a></h2>
-    <h4>Fri, Aug 29, 2014</h4>
-    <div class="article-style">
-      
-      Best practices questions Here are some tricks that may or may not be in keeping with best practices, input would be appreciated.
- Keep images small: use the &ndash;no-install-recommends option for apt-get, install true dependencies rather than big metapackages (like texlive-full). Avoid creating additional AUFS layers by combining RUN commands, etc? (limit was once 42, but is now at least 127). Can use RUN git clone &hellip; to add data to a container in place of ADD, which invalidates caching.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/08/25/reproducible-research-environments-with-docker/">Reproducible research environments with Docker</a></h2>
-    <h4>Mon, Aug 25, 2014</h4>
-    <div class="article-style">
-      
-      Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
-Wouldn&rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/08/14/docker-notes/"></a></h2>
-    <h4>Thu, Aug 14, 2014</h4>
-    <div class="article-style">
-      
-      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/08/14/pdg-controlfest-notes/"></a></h2>
-    <h4>Thu, Aug 14, 2014</h4>
-    <div class="article-style">
-      
-      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
-I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h2>
-    <h4>Fri, Aug 8, 2014</h4>
-    <div class="article-style">
-      
-      An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
-I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
-docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/08/07/too-much-fun-with-docker/"></a></h2>
-    <h4>Thu, Aug 7, 2014</h4>
-    <div class="article-style">
-      
-      NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
-Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
-I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/08/06/notes/"></a></h2>
-    <h4>Wed, Aug 6, 2014</h4>
-    <div class="article-style">
-      
-      Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
- Attempted to add Travis builds to the Docker repo (just for fun, eh?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2014/07/31/notes/"></a></h2>
-    <h4>Thu, Jul 31, 2014</h4>
+    <h4><a href="../../../2014/07/31/notes/">Thu, Jul 31, 2014</a></h4>
+    
     <div class="article-style">
       
       Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
@@ -229,8 +151,8 @@ Highly recommend their paper for the first explanation I&rsquo;ve actually been 
   </div>
   
   <div>
-    <h2><a href="../../../2014/07/21/notes/"></a></h2>
-    <h4>Mon, Jul 21, 2014</h4>
+    <h4><a href="../../../2014/07/21/notes/">Mon, Jul 21, 2014</a></h4>
+    
     <div class="article-style">
       
       Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
@@ -240,12 +162,91 @@ Remote conferencing (Based on earlier unposted notes). With so much going on, it
   </div>
   
   <div>
-    <h2><a href="../../../2014/07/21/ups-and-data-vs-optimal-control/">UPS and data vs optimal control</a></h2>
-    <h4>Mon, Jul 21, 2014</h4>
+    <h4><a href="../../../2014/07/21/ups-and-data-vs-optimal-control/">Mon, Jul 21, 2014</a></h4>
+    <h4><a href="../../../2014/07/21/ups-and-data-vs-optimal-control/">UPS and data vs optimal control</a></h4>
     <div class="article-style">
       
       Random idea for possible further exploration:
 The use of &lsquo;big data&rsquo; by UPS to perform lots of small efficiency gains seems to be everybody&rsquo;s favorite example (NPR, The Economist). During a typical applications of optimal control for ecological conservation talk yesterday I couldn&rsquo;t help thinking back to that story. The paradigm shift is not so much the kind or amount of the data being used as it is the control levers themselves.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/07/18/notes/">Fri, Jul 18, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      CRAN trivia When should you bump version for a (rejected) resubmission?  Once accepted, any change other than to the metadata (essentially the DESCRIPTION file) needs an increased version. For submissions, we prefer (but do not insist on) a new number of each attempt.
+ &ndash;Prof Brian Ripley
+Using non-CRAN repositories in SUGGESTS or ENAHANCES More dubious tricks, from Yihui:
+ FYI, here is how R core checks dependencies: <a href="https://github">https://github</a>.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/07/10/notes-on-tricks-in-manuscript-submission-and-collaboration/">Thu, Jul 10, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Some thoughts on collaborating with markdown / dynamic document workflow Collaborating on manuscripts with other researchers when not writing in MS Word has been a perpetual nuisance for those of us not using Word (no doubt the others might say the same). When I first began writing papers I worked in LaTeX, and at that time I collaborated largely with others who already knew TeX (e.g. my mentors), so this wasn&rsquo;t much of a problem.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/06/12/knitcitations-updates/">Thu, Jun 12, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Used some down-time while traveling to hammer out a long overdue update to my knitcitations package.
+My first task inovled a backwards-compatible update fixing a few minor issues (see NEWS) and providing pandoc style inline citations v0.6-2, on CRAN.
+I followed this with a ground-up rewrite, as I summarize in NEWS:
+v1.0-1 This version is a ground-up rewrite of knitcitations, providing a more powerful interface while also streamlining the back end, mostly by relying more on external libraries for knitty gritty.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/06/04/is-statistical-software-harmful/">Wed, Jun 4, 2014</a></h4>
+    <h4><a href="../../../2014/06/04/is-statistical-software-harmful/">Is statistical software harmful?</a></h4>
+    <div class="article-style">
+      
+      Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
+Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/05/30/plos-data-sharing-policy-reflections/">Fri, May 30, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
+At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/05/28/notes/">Wed, May 28, 2014</a></h4>
+    <h4><a href="../../../2014/05/28/notes/">packrat and rmarkdown</a></h4>
+    <div class="article-style">
+      
+      I&rsquo;m pretty happy with the way rmarkdown looks like it can pretty much replace my [Makefile approach]() with a simple R command to rmarkdown::render(). Notably, a lot of the pandoc configuration can already go into the document&rsquo;s yaml header (bibliography, csl, template, documentclass, etc), avoiding any messing around with the Makefile, etc.
+Even more exciting is the pending RStudio integration with pandoc. This exposes the features of the rmarkdown package to the RStudio IDE buttons, but more importantly, seems like it will simplify the pandoc/latex dependency issues cross-platform.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2014/05/27/notes/">Tue, May 27, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      nonparametric-bayes  nonparametric-bayes sensitivity-trends runs. nonparametric-bayes sensitivity.R runs: explore facets to see what setting causes the below-perfect performance cluster.  knitcitations  updates to knitcitations (paste fron NEWS) Looking at adapting CSL for inline text formatting csl/issues/33 Implemented pandoc rendering  ropensci  Use of .Renviron vs .Rprofile for API keys  Seems the difference between .Rprofile and .Renviron is that (a) the latter is just a named character vector, and (b) the latter is accessed by Sys.
       
     </div>
   </div>
@@ -266,19 +267,7 @@ The use of &lsquo;big data&rsquo; by UPS to perform lots of small efficiency gai
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

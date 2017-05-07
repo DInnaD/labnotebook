@@ -140,107 +140,8 @@
   
   
   <div>
-    <h2><a href="../../../2011/10/25/tuesday-notes-package-work-mostly/">Tuesday notes: package work mostly.</a></h2>
-    <h4>Tue, Oct 25, 2011</h4>
-    <div class="article-style">
-      
-      Treebase release  write updated tutorial.
- cran needs mac and windows binaries.
-  Trying devtools win_builder(); emailing Kurt. Nevermind, just got the email saying the binary has been built.
- write email announcement  rfishbase data formatting My problem turned out not to be about &ldquo;&amp;rdquo; at all, these were octal encodings of symbols used in the XML data, eg: Cape Bojador (26°N)
-which xmlValue() would read in using the octal encoding &rdquo;Cape Bojador (26\302\260N)&rdquo;
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/25/treebase-package-on-cran/"></a></h2>
-    <h4>Tue, Oct 25, 2011</h4>
-    <div class="article-style">
-      
-      My treebase package is now up on the CRAN repository. (Source code is up, the binaries should appear soon). Here&rsquo;s a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/24/optimal-control-training-problem-2-problem-statement/">Training problem 2: the economist&#39;s problem statement</a></h2>
-    <h4>Mon, Oct 24, 2011</h4>
-    <div class="article-style">
-      
-      pdg-control Problem statement: Maximize profits subject to $$\max_{h(t)} \int_0^T e^{-\rho t} \pi(x, h, t) dt $$ Subject to the state equations (biology):
-$$ \dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h $$
-Note that we consider the control variable to be effort, $h$ instead of harvest, $\mathcal{H}$, where $\mathcal{H} = h x$.
-and the constraints: $$ x(0) = X_0 \qquad x(T) = X_T $$ We have fixed boundary conditions (equalities) and equalities in the state equations, so we have a nice straight-forward problem.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/21/friday-optimal-control/">Friday: Optimal Control</a></h2>
-    <h4>Fri, Oct 21, 2011</h4>
-    <div class="article-style">
-      
-      Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
-subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
-and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
-$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/20/thursday-some-parrotfish-runs-on-method2/">Thursday - some parrotfish &amp; labrid runs on method2</a></h2>
-    <h4>Thu, Oct 20, 2011</h4>
-    <div class="article-style">
-      
-      Running:
- farm cluster, c0-17 method2_parrotfish.R &ndash; Done. Below.
- farm cluster, c0-27 method2_labrids.R (with three partitions)
- farm cluster, c0-13 method2_labrids_phar.R (two partitions)
- farm cluster, c0-19 method2_labrids_intra.R (two partitions)
-  Parrotfish Phylogeny The .y indicates the trait has been size-corrected. Parameters reported from estimations in the full model. All sets converged except open lever ratio. Error bars indicate 1 standard deviation estimated from the likelihood curvature. Lighter color indicates the presence of an intramandibular joint, as coded in the phylogeny above.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/19/optimal-control-exploration/">Optimal Control Exploration</a></h2>
-    <h4>Wed, Oct 19, 2011</h4>
-    <div class="article-style">
-      
-      Translating Jim&rsquo;s Matlab code.
-Adapted for Octave.
-R version.
-Document review:
- Chapter 04_Sanchirico_Final.pdf
- SanchiricoOptimalSpace_JEEM.pdf (Sanchirico &amp; Wilen, 2005)
- Optimal_Rebuilding_AJAE2010.pdf, Optimal_Rebuilding_Supp_Material.pdf (Sanchirico et. al. 2010)
- Sanchirico_editsembedded.pdf: Book Chapter 1: Economically Optimal Management of a Metapopulation
-  Reviewing Bett&rsquo;s Practical Methods for Optimal Control using Nonlinear Programming. (( Practical Methods for Optimal Control and Estimation Using Nonlinear Programming, Second Edition (Advances in Design and Control) John T.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/18/mathematical-elements-of-attack-risk-analysis-for-mountain-pine-beetles/">Mathematical Elements of Attack Risk Analysis for Mountain Pine tribolium</a></h2>
-    <h4>Tue, Oct 18, 2011</h4>
-    <div class="article-style">
-      
-      (POWELL et. al. 2000)
-Regimes endemic - attack the weakling trees. epidemic
-Tree has defenses. Aggregation of beetles can exhaust these, but then must disperse to other trees to avoid larval competition.
-Mathematical Elements The cast, (after some non-dimensionalization)
- $ \dot Q(x,y,t) = R P - Q R$ Nesting beetles
- $ \dot H(x,y,t) = R P - H R $ Holes: measures attack success
- $ \dot R(x,y,t) = \left( 1 - R \right) R - R H $ Resin: tree defense success
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2011/10/17/algorithms-group-literate-programming/">Algorithms Group: Literate programming</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h4><a href="../../../2011/10/17/algorithms-group-literate-programming/">Mon, Oct 17, 2011</a></h4>
+    <h4><a href="../../../2011/10/17/algorithms-group-literate-programming/">Algorithms Group: Literate programming</a></h4>
     <div class="article-style">
       
       Algorithms group today took a brake from discussing algorithms for an aside on coding practices. Today we focused primarily on literate programming tools for making better documented, more readable code. We covered:
@@ -254,8 +155,8 @@ Mathematical Elements The cast, (after some non-dimensionalization)
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/17/pnas-rewrites/">Rewrites</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h4><a href="../../../2011/10/17/pnas-rewrites/">Mon, Oct 17, 2011</a></h4>
+    <h4><a href="../../../2011/10/17/pnas-rewrites/">Rewrites</a></h4>
     <div class="article-style">
       
       Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
@@ -264,9 +165,100 @@ Mathematical Elements The cast, (after some non-dimensionalization)
   </div>
   
   <div>
-    <h2><a href="../../../2011/10/17/friday-more-runs/">Friday, more runs</a></h2>
-    <h4>Mon, Oct 17, 2011</h4>
+    <h4><a href="../../../2011/10/17/friday-more-runs/">Mon, Oct 17, 2011</a></h4>
+    <h4><a href="../../../2011/10/17/friday-more-runs/">Friday, more runs</a></h4>
     <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/13/thursday-fisheries-course/">Thu, Oct 13, 2011</a></h4>
+    <h4><a href="../../../2011/10/13/thursday-fisheries-course/">Thursday, Fisheries course</a></h4>
+    <div class="article-style">
+      
+      Fisheries impact on forage fish. Forage fish impact on the primary fisheries.
+ Huxley, 1882: &ldquo;Great Sea Fisheries cannot be exhausted&rdquo; (full address) Worm et al., 2006: All fish will collapse by 2050 (Worm et. al. 2006)  Benguela Current upwelling (Anchovy collapse)
+Discussion of: Prey switching impact?
+Wasp-waist ecosystems
+Ecopath/ecosim vs Atlantis
+Questions:
+Can we identify the nature of control?
+Importance of wasp-waist control.
+regime switching
+Negative impact of forage fish on ground fish.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/12/wednesday-10/">Wed, Oct 12, 2011</a></h4>
+    <h4><a href="../../../2011/10/12/wednesday-10/">Wednesday</a></h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/12/rfishbase-tutorial-updated-extended/">Wed, Oct 12, 2011</a></h4>
+    <h4><a href="../../../2011/10/12/rfishbase-tutorial-updated-extended/">rfishbase Tutorial - updated &amp; extended</a></h4>
+    <div class="article-style">
+      
+      Updated rfishbase package. Include querying for a list of scientific names and the addition of more quantitative traits, though the selection is still somewhat limited. Demo includes how to grab some data to match a phylogenetic tree, and some regular expression (grep) searches for feeding behavior.
+Source code
+Windows binary also available.</p>
+
+<h1 id="demo-r-rm-list-ls-require-rfishbase-grabbing-loading-amp-caching-fishbase-data-download-and-parse-data-for-first-40-ids-36-fish-fish">demo.R rm(list=ls()) require(rfishbase) ###### Grabbing, Loading &amp; Caching Fishbase Data ###### ## Download and parse data for first 40 ids (36 fish) #fish.</h1>
+
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/11/lou-botsford-cpb-seminar/">Tue, Oct 11, 2011</a></h4>
+    <h4><a href="../../../2011/10/11/lou-botsford-cpb-seminar/">Loo Botsford, CPB seminar</a></h4>
+    <div class="article-style">
+      
+      &ldquo;Effects of Fishing on the Sensitivity of Fisheries to Climate Variability&rdquo; Truncation of age structure.
+juvenation (younger population), maternal effects (first-year breeders are poor), genetic selection, ability to track environment (vs smoothing &ndash; averaging over longer times).
+Outline:
+Empirical evidence for increased variability, model explanations  Story begins with Hsieh, et al 2006. Long time series, increasing fluctuations. (Hsieh et. al. 2006)
+ Anderson et al no age structure model (Anderson et.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/10/algorithms-group-hmm-meets-em/">Mon, Oct 10, 2011</a></h4>
+    <h4><a href="../../../2011/10/10/algorithms-group-hmm-meets-em/">Algorithms Group, HMM meets EM</a></h4>
+    <div class="article-style">
+      
+      Alisa reviews HMM, EM, and shows us how to combine them.
+The EM version treats the transition probabilities (exchanging coins) and emission probabilities (chance of heads/tails under each coin) as unknowns. Make a guess, calculate the blue line from before. This can be used to calculate a new guess that will hill climb to the locally optimum solution (EM).
+New guess for the transition probability is:
+$$ A_{lk} = \frac{f_i bi a{lk} ek(x{i+1}) }{P(x)} $$
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/07/matt-helmus-visit/">Fri, Oct 7, 2011</a></h4>
+    <h4><a href="../../../2011/10/07/matt-helmus-visit/">Matt Helmus visit</a></h4>
+    <div class="article-style">
+      
+      Notes from presentation 1. Species-area curve:  Species sorting by environment. species clustering due to limited dispersal Random displacement (faster saturation) In-situ speciation looks like clustering Compare to colonization Phylogenetic species variability metric: compare phylogenetic covariance matrix to a star-phylogeny, not expected to increase with area.  $$ \frac{n \textrm{tr}C - \sum C }{n(n-1)}$$
+2. Simulations:  species sort along an environmental gradient. BM trait determining position. : closely related species clustered.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2011/10/05/wednesday-forage-fish-cascades/">Wed, Oct 5, 2011</a></h4>
+    <h4><a href="../../../2011/10/05/wednesday-forage-fish-cascades/">Wednesday - forage fish &amp; cascades</a></h4>
+    <div class="article-style">
+      
+      Forage fish presentation Some simulations exploring top-down &amp; bottom up control concepts in simple models.
+$$ \frac{dN}{dt} = r N\left( 1 - \frac{N}{K} \right) - \alpha N P $$ $$ \frac{dP}{dt} = \beta \alpha N P - \mu P $$ Note that at equilibrium, N depends only on predator dynamics, P on K and r. $$\hat N = \frac{\mu}{\alpha\beta} $$ $$ \hat P = \frac{r}{\alpha}\left( 1 - \frac{N}{K} \right) $$
       
     </div>
   </div>
@@ -287,19 +279,7 @@ Mathematical Elements The cast, (after some non-dimensionalization)
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

@@ -140,36 +140,8 @@
   
   
   <div>
-    <h2><a href="../2014/12/30/notebook-maintenance-and-scaling/"></a></h2>
-    <h4>Tue, Dec 30, 2014</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2014/12/29/steps-to-a-more-portable-workflow/"></a></h2>
-    <h4>Mon, Dec 29, 2014</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2014/12/11/recomputation-org/"></a></h2>
-    <h4>Thu, Dec 11, 2014</h4>
-    <div class="article-style">
-      
-      Dear Ian, Lars,
-I am a post-doctoral researcher in ecology with a strong interest in reproducible computation. I have just finished reading your paper, &ldquo;Recomputation.org: Experiences of the first year and lessons learned.&rdquo; Despite working in a very different field of research, both the approaches and experience you describe greatly resonate with my own experience.
-In particular, you highlight the need to make computation reproducible with minimal overhead for the researcher: that is, taking these steps only after the project is done, with minimal effort, even if the work is &ldquo;kludgy&rdquo; and &ldquo;held together with string.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2014/12/11/rrhack-notes/"></a></h2>
-    <h4>Thu, Dec 11, 2014</h4>
+    <h4><a href="../2014/12/11/rrhack-notes/">Thu, Dec 11, 2014</a></h4>
+    
     <div class="article-style">
       
       Misc notes from #rrhack. Much more detail under our Github organization, including the issues tracker &amp; wiki for the meeting and the start of the repositories for the various teaching modules.
@@ -180,8 +152,8 @@ Key questions  Audience and motivation. Reproducibility isn&rsquo;t a goal, it&r
   </div>
   
   <div>
-    <h2><a href="../2014/12/07/self-destroy-droplet-on-completion/"></a></h2>
-    <h4>Sun, Dec 7, 2014</h4>
+    <h4><a href="../2014/12/07/self-destroy-droplet-on-completion/">Sun, Dec 7, 2014</a></h4>
+    
     <div class="article-style">
       
       Scott&rsquo;s analogsea package provides a great way to script commands for cloud instances on the digitalocean platform. for instance, we can use analogsea to automatically start an instance of the desired size, submit a computationally intensive task, and then terminate the instance when the task completes successfully. This last step is particularly convenient since it makes it easier to use a very powerful (and thus expensive) instance for a short time, knowing it will terminate and avoid extra charges while idle.
@@ -190,19 +162,8 @@ Key questions  Audience and motivation. Reproducibility isn&rsquo;t a goal, it&r
   </div>
   
   <div>
-    <h2><a href="../2014/12/07/workflow/"></a></h2>
-    <h4>Sun, Dec 7, 2014</h4>
-    <div class="article-style">
-      
-      My workflow has continued to evolve a bit since I last described it in this notebook. As these posts seem particularly popular, I have attempted to update the description to something a bit more current.
-Lab Notebook When I began keeping a lab notebook (on OpenWetWare) I didn&rsquo;t have Github or knitr, and though I would link to scripts on google-code, much of my day-to-day notes ended up directly in the notebook.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../2014/12/04/lsn-nimble/"></a></h2>
-    <h4>Thu, Dec 4, 2014</h4>
+    <h4><a href="../2014/12/04/lsn-nimble/">Thu, Dec 4, 2014</a></h4>
+    
     <div class="article-style">
       
       some sample data
@@ -212,8 +173,8 @@ library(sde) ## Loading required package: MASS ## Loading required package: stat
   </div>
   
   <div>
-    <h2><a href="../2014/12/04/lsn-nimble/"></a></h2>
-    <h4>Thu, Dec 4, 2014</h4>
+    <h4><a href="../2014/12/04/lsn-nimble/">Thu, Dec 4, 2014</a></h4>
+    
     <div class="article-style">
       
       some sample data
@@ -224,8 +185,8 @@ lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) 
   </div>
   
   <div>
-    <h2><a href="../2014/12/03/nimble-explore/"></a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
+    <h4><a href="../2014/12/03/nimble-explore/">Wed, Dec 3, 2014</a></h4>
+    
     <div class="article-style">
       
       Working through quick-start example in nimble manual
@@ -236,13 +197,56 @@ library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following objec
   </div>
   
   <div>
-    <h2><a href="../2014/12/03/nimble-explore/"></a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
+    <h4><a href="../2014/12/03/nimble-explore/">Wed, Dec 3, 2014</a></h4>
+    
     <div class="article-style">
       
       Working through quick-start example in nimble manual
 The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
 library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../2014/12/03/ou-model-in-nimble/">Wed, Dec 3, 2014</a></h4>
+    <h4><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h4>
+    <div class="article-style">
+      
+      Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../2014/12/03/ou-model-in-nimble/">Wed, Dec 3, 2014</a></h4>
+    <h4><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h4>
+    <div class="article-style">
+      
+      Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
+ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../2014/11/26/coreos-cluster-gotchas/">Wed, Nov 26, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      Overall impression is that CoreOS is a promising way to easily set up a highly available cluster (e.g. when most important thing is that a service stays up when a node goes down) since it can migrate a containerized app to a new machine rather than having to already have the same app running on all machines. Either way a load-balancer needs to handle the addressing, which is do-able but somewhat tricky.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../2014/11/24/coreos-docker-registries-etc/">Mon, Nov 24, 2014</a></h4>
+    
+    <div class="article-style">
+      
+      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
       
     </div>
   </div>
@@ -261,19 +265,7 @@ library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alp
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

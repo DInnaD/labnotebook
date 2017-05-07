@@ -216,17 +216,6 @@ ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ 
     <div class="article-style">
       
       A quick first exploration of NIMBLE and some questions.
-library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:nimble&#39;: ## ## inprod ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/14/nimble-explore/"></a></h2>
-    <h4>Fri, Nov 14, 2014</h4>
-    <div class="article-style">
-      
-      A quick first exploration of NIMBLE and some questions.
 library(&quot;nimble&quot;) library(&quot;sde&quot;)  Let&rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$
 set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))  ## sigma.x not provided, attempting symbolic derivation.  i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.
       
@@ -252,6 +241,17 @@ fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smoo
       Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
  From general laws flow absolutely bullet-proof insights and this is what we most need
  I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../2014/08/14/pdg-controlfest-notes/"></a></h2>
+    <h4>Thu, Aug 14, 2014</h4>
+    <div class="article-style">
+      
+      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
+I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
       
     </div>
   </div>

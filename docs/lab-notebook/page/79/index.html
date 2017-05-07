@@ -140,83 +140,16 @@
   
   
   <div>
-    <h2><a href="../../../2010/08/25/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
-    <h4>Wed, Aug 25, 2010</h4>
-    <div class="article-style">
-      
-      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
-This is great, nice to know there&rsquo;s a basis for it.
-&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/19/entry-title/">Entry title</a></h2>
-    <h4>Thu, Aug 19, 2010</h4>
+    <h4><a href="../../../2010/08/13/adaptive-dynamics/">Fri, Aug 13, 2010</a></h4>
+    <h4><a href="../../../2010/08/13/adaptive-dynamics/">Adaptive Dynamics</a></h4>
     <div class="article-style">
       
     </div>
   </div>
   
   <div>
-    <h2><a href="../../../2010/08/19/writing/">Writing</a></h2>
-    <h4>Thu, Aug 19, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/18/warning-signals----still-in-code-development/">Warning Signals -- still in code development</a></h2>
-    <h4>Wed, Aug 18, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/17/warning-signals/">Warning Signals</a></h2>
-    <h4>Tue, Aug 17, 2010</h4>
-    <div class="article-style">
-      
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/16/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Aug 16, 2010</h4>
-    <div class="article-style">
-      
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/15/warning-signals/">Warning Signals</a></h2>
-    <h4>Sun, Aug 15, 2010</h4>
-    <div class="article-style">
-      
-      Exploring convergence in maximum likelihood model fits each on data produced by their own simulation method:
- fit1, basic OU method, converges just fine. (using L-BFGS-B method with appropriate bounding box to avoid negatives). fit2 , the linear change rate model, converges fine using Nelder-Meade (using 1e12 ~ inf likelihood return when attempting negative alpha or sigma), but throws hard errors for L-BFGS-B:   Error in optim(pars, warning.likfn, method = method, lower = lower) : non-finite finite-difference value [3]   fit3 runs on &ldquo;L-BFGS-B&rdquo; and returns reasonable values, though not meeting convergence standards.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/13/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Fri, Aug 13, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../2010/08/12/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Thu, Aug 12, 2010</h4>
+    <h4><a href="../../../2010/08/12/adaptive-dynamics/">Thu, Aug 12, 2010</a></h4>
+    <h4><a href="../../../2010/08/12/adaptive-dynamics/">Adaptive Dynamics</a></h4>
     <div class="article-style">
       
       Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
@@ -225,14 +158,86 @@ This is great, nice to know there&rsquo;s a basis for it.
   </div>
   
   <div>
-    <h2><a href="../../../2010/08/12/warning-signals/">Warning Signals</a></h2>
-    <h4>Thu, Aug 12, 2010</h4>
+    <h4><a href="../../../2010/08/12/warning-signals/">Thu, Aug 12, 2010</a></h4>
+    <h4><a href="../../../2010/08/12/warning-signals/">Warning Signals</a></h4>
     <div class="article-style">
       
       Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
 
 <p>Function Behavior notes  R&rsquo;s mle function wants a named list.
  Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/11/adaptive-dynamics/">Wed, Aug 11, 2010</a></h4>
+    <h4><a href="../../../2010/08/11/adaptive-dynamics/">Adaptive Dynamics</a></h4>
+    <div class="article-style">
+      
+      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
+ use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/10/likelihood-ratio-update/">Tue, Aug 10, 2010</a></h4>
+    <h4><a href="../../../2010/08/10/likelihood-ratio-update/">Likelihood ratio update</a></h4>
+    <div class="article-style">
+      
+      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/10/warning-signals/">Tue, Aug 10, 2010</a></h4>
+    <h4><a href="../../../2010/08/10/warning-signals/">Warning Signals</a></h4>
+    <div class="article-style">
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/09/warning-signals-by-model-choice/">Mon, Aug 9, 2010</a></h4>
+    <h4><a href="../../../2010/08/09/warning-signals-by-model-choice/">Warning Signals by model choice</a></h4>
+    <div class="article-style">
+      
+      Finished implementation of simulation from saddle-node example Implemented simulation from transition density for all three models  Whoops  The change point model can&rsquo;t be summarized by the transition density, as this depends only on the time interval and not the absolute time. The nice description of being able to solve for the transition density when the transition occurs during the time interval specified is neither necessary nor applicable in this context!
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/08/warning-signals/">Sun, Aug 8, 2010</a></h4>
+    <h4><a href="../../../2010/08/08/warning-signals/">Warning Signals</a></h4>
+    <div class="article-style">
+      
+      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/07/reading/">Sat, Aug 7, 2010</a></h4>
+    <h4><a href="../../../2010/08/07/reading/">Reading</a></h4>
+    <div class="article-style">
+      
+      Trying to make this show reading of the day, the script below shows only current reading:
+Friendfeed discussion on solving this:
+Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
+ Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h4><a href="../../../2010/08/05/batch-data/">Thu, Aug 5, 2010</a></h4>
+    <h4><a href="../../../2010/08/05/batch-data/">Batch Data</a></h4>
+    <div class="article-style">
+      
+      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
       
     </div>
   </div>
@@ -253,19 +258,7 @@ This is great, nice to know there&rsquo;s a basis for it.
 
 
 
-<h3><i class="fa fa-calendar"></i> Earlier Notebooks</h3>
-    <ul class="list-unstyled">
-      <li><a href="http://www.carlboettiger.info/2015/lab-notebook">2015 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2014/lab-notebook">2014 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2013/lab-notebook">2013 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2012/lab-notebook">2012 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2011/lab-notebook">2011 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2010/lab-notebook">2010 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2009/lab-notebook">2009 Notebook</a></li>
-      <li><a href="http://www.carlboettiger.info/2008/lab-notebook">2008 Notebook</a></li>
-    </ul>
   </div>
-
 </div>
 
 <footer class="site-footer">

@@ -72,8 +72,8 @@ pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))</code></pre>
 <p>Hmm, initially we cannot simulate <code>theta</code> values though (or rather, we just get NaNs and warnings if we do). At the moment I’m not clear on why, though seems to be due to the lifted node:</p>
 <pre class="r"><code>simulate(pump, &#39;theta&#39;)
 pump$theta</code></pre>
-<pre><code>##  [1] 0.1603407 0.3041717 2.0832368 0.1220876 0.3810909 0.3390689 0.1623488
-##  [8] 6.5318305 0.2699201 1.2928357</code></pre>
+<pre><code>##  [1] 0.04715462 1.68124091 2.12334143 0.06556625 1.30309116 0.34360056
+##  [7] 0.97216250 0.48929186 0.15462738 3.39283511</code></pre>
 <pre class="r"><code>pump$lifted_d1_over_beta</code></pre>
 <pre><code>## [1] 1</code></pre>
 <p>If we calculate the log probability density of the determinstic dependencies of alpha and beta nodes (i.e. the lifted node) then we’re okay:</p>

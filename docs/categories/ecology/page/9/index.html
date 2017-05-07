@@ -141,18 +141,6 @@
   
   
   <div>
-    <h2><a href="../../../../2013/05/29/notes/"></a></h2>
-    <h4>Wed, May 29, 2013</h4>
-    <div class="article-style">
-      
-      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
- fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
- slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
-      
-    </div>
-  </div>
-  
-  <div>
     <h2><a href="../../../../2013/05/28/notes/"></a></h2>
     <h4>Tue, May 28, 2013</h4>
     <div class="article-style">
@@ -252,6 +240,16 @@ load(&quot;beer_run.rda&quot;) ou_dat &lt;- dat ou_null &lt;- nulldat #ou_null_t
       Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
 One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
 opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="../../../../2013/05/09/notes/">Prep for ERE talk</a></h2>
+    <h4>Thu, May 9, 2013</h4>
+    <div class="article-style">
+      
+      Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
       
     </div>
   </div>
