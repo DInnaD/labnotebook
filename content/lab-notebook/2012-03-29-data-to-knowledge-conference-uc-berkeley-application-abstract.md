@@ -1,15 +1,14 @@
 ---
 categories:
-- ecology
+  - ecology
 comments: true
 date: 2012-03-29T12:08:51Z
 redirects:
-- /wordpress/archives/4390
-- /archives/4390
+  - /wordpress/archives/4390
+  - /archives/4390
 slug: data-to-knowledge-conference-uc-berkeley-application-
 tags:
-- null
-- conference
+  - conference
 title: 'Data to Knowledge Conference, UC Berkeley: application '
 url: /2012/03/29/data-to-knowledge-conference-uc-berkeley-application-abstract/
 ---
