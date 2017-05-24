@@ -1,0 +1,184 @@
+---
+categories:
+- ecology
+date: 2015-07-14T00:00:00Z
+url: /2015/07/14/mdptoolbox-ex-2/
+---
+
+
+
+<p>Adapted from Marescot et al. appendix 5, to Reed optimal control problem, including direct comparison against (semi) analytic optimum.</p>
+<div id="step-1-define-objectives" class="section level2">
+<h2>step 1: define objectives</h2>
+<p>This is a conceptual step which does not require coding</p>
+</div>
+<div id="step-2-define-states" class="section level2">
+<h2>step 2: define states</h2>
+<pre class="r"><code>K &lt;- 150 # state space limit
+states &lt;- 0:K # Vector of all possible states</code></pre>
+</div>
+<div id="step-3-define-control-actions" class="section level2">
+<h2>step 3: define control actions</h2>
+<pre class="r"><code># Vector of actions: harvest
+H &lt;- states</code></pre>
+</div>
+<div id="step-4-define-dynamic-model-with-demographic-parameters" class="section level2">
+<h2>step 4: define dynamic model (with demographic parameters)</h2>
+<pre class="r"><code>p &lt;- c(6,0.05)
+f &lt;- function(x, h){
+  A &lt;- p[1] 
+  B &lt;- p[2] 
+  s &lt;- pmax(x-h, 0)
+  A * s/(1 + B * s)
+}
+
+sigma_g = 0.1</code></pre>
+</div>
+<div id="step-5-define-utility" class="section level2">
+<h2>step 5: define utility</h2>
+<pre class="r"><code># Utility function
+get_utility &lt;- function(x,h) {
+    pmin(x,h)
+}</code></pre>
+</div>
+<div id="step-6-solve-bellman-equation-with-value-iteration" class="section level2">
+<h2>step 6: solve bellman equation with value iteration</h2>
+<pre class="r"><code># Initialize transition matrix
+transition &lt;- array(0, dim = c(length(states), length(states), length(H)))
+
+# Initialize utility matrix
+utility &lt;- array(0, dim = c(length(states), length(H)))</code></pre>
+<pre class="r"><code># Fill in the transition and utility matrix
+# Loop on all states
+for (k in 0:K) {
+
+    # Loop on all actions
+    for (i in 1:length(H)) {
+
+# Calculate the transition state at the next step, given the 
+# current state k and the harvest H[i]
+        nextpop &lt;- f(k, H[i])
+        if(nextpop &lt;= 0)
+          transition[k+1, , i] &lt;- c(1, rep(0, length(states) - 1))
+    # Implement demographic stochasticity by drawing 
+  # probability from a density function
+        else {
+
+# We need to correct this density for the final capping state (&quot;Pile on boundary&quot;)
+# For discrete probability distribution, this is easy if `states` includes all possible
+# discrete states below the capping state (e.g. all non-negative integers less than K).  
+# For a continuous distribution, this is more problematic as we have to first normalize the densities.
+# EDIT: this can be negative, due to floating-point errors. so we take max(v,0) to avoid
+
+# Get long-tailed denominator as normalizing factor (continuous distributions only):
+          fine_states &lt;- seq(min(states), 10 * max(states), by = states[2]-states[1])
+        N &lt;- sum(dlnorm(fine_states, log(nextpop), sdlog = sigma_g))
+
+      transition[k+1, , i] &lt;- dlnorm(states, log(nextpop), sdlog = sigma_g) / N
+      
+        # We need to correct this density for the final capping state (&quot;Pile on boundary&quot;)
+        transition[k+1, K+1, i] &lt;- max(1 - sum(transition[k+1, -(K+1), i]), 0)
+
+        }
+        
+        # Compute utility
+        utility[k+1, i] &lt;- get_utility(k, H[i])
+
+    } # end of action loop
+} # end of state loop</code></pre>
+<pre class="r"><code># Discount factor
+discount &lt;- 0.95
+
+# Action value vector at tmax
+Vtmax &lt;- numeric(length(states))
+
+# Action value vector at t and t+1
+Vt &lt;- numeric(length(states))
+Vtplus &lt;- numeric(length(states))
+
+# Optimal policy vector
+D &lt;- numeric(length(states))
+
+# Time horizon
+Tmax &lt;- 150</code></pre>
+</div>
+<div id="solution-calculated-explicitly" class="section level2">
+<h2>Solution calculated explicitly:</h2>
+<p>The backward iteration consists in storing action values in the vector <code>Vt</code> which is the maximum of utility plus the future action values for all possible next states. Knowing the final action values, we can then backwardly reset the next action value <code>Vtplus</code> to the new value <code>Vt</code>. We start The backward iteration at time <code>T-1</code> since we already defined the action value at <code>Tmax</code>.</p>
+<pre class="r"><code>for (t in (Tmax - 1):1) {
+
+# We define a matrix Q that stores the updated action values for 
+# all states (rows)
+# actions (columns)
+    Q &lt;- array(0, dim = c(length(states), length(H)))
+    
+    for (i in 1:length(H)) {
+    
+# For each harvest rate we fill for all states values (row) 
+# the ith column (Action) of matrix Q
+# The utility of the ith action recorded for all states is 
+# added to the product of the transition matrix of the ith 
+# action by the action value of all states 
+        Q[,i] &lt;- utility[, i] + discount * (transition[,,i] %*% Vtplus)
+    
+    } # end of the harvest loop
+
+    # Find the optimal action value at time t is the maximum of Q
+    Vt &lt;- apply(Q, 1, max)
+
+# After filling vector Vt of the action values at all states, we 
+# update the vector Vt+1 to Vt and we go to the next step standing 
+# for previous time t-1, since we iterate backward
+    Vtplus &lt;- Vt
+
+} # end of the time loop
+
+# Find optimal action for each state
+for (k in 0:K) {
+# We look for each state which column of Q corresponds to the 
+# maximum of the last updated value 
+# of Vt (the one at time t + 1). If the index vector is longer than 1 
+# (if there is more than one optimal value we chose the minimum 
+# harvest rate)
+    D[k + 1] &lt;- H[(min(which(Q[k + 1, ] == Vt[k + 1])))]
+}</code></pre>
+</div>
+<div id="plot-solution" class="section level2">
+<h2>plot solution</h2>
+<pre class="r"><code>plot(states, states - D, xlab=&quot;Population size&quot;, ylab=&quot;Escapement&quot;)</code></pre>
+<p><img src="/lab-notebook/2015-07-14-mdptoolbox-ex-2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="proof-of-optimality-compare-with-analytical-solution" class="section level2">
+<h2>proof of optimality: compare with analytical solution</h2>
+<p>From Reed (1979) we know that the optimal solution is a constant-escapement rule:</p>
+<p><span class="math display">\[f&#39;(s^*) = 1/\alpha\]</span></p>
+<p>For growth-rate function <span class="math inline">\(f\)</span>, where <span class="math inline">\(\alpha\)</span> is the discount factor and <span class="math inline">\(s^*\)</span> the stock size for the constant escapement. Analytic solutions are clearly possible for certain growth functions, but here I’ve just implemented a generic numerical solution.</p>
+<pre class="r"><code>fun &lt;- function(x) - f(x,0) + x / discount
+out &lt;- optimize(f = fun, interval = c(0,K))
+S_star &lt;- out$minimum
+
+exact_policy &lt;- sapply(states, 
+                       function(x) 
+                        if(x &lt; S_star) 0
+                        else x - S_star)</code></pre>
+<pre class="r"><code>plot(states, states - D, xlab=&quot;Population size&quot;, ylab=&quot;Escapement&quot;)
+
+# The difference between Bellman equation solution and the analytical 
+# solution is small:
+lines(states, states - exact_policy)</code></pre>
+<p><img src="/lab-notebook/2015-07-14-mdptoolbox-ex-2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="using-toolbox" class="section level2">
+<h2>Using toolbox</h2>
+<pre class="r"><code>library(&quot;MDPtoolbox&quot;)</code></pre>
+<pre><code>## Loading required package: Matrix</code></pre>
+<pre><code>## Loading required package: linprog</code></pre>
+<pre><code>## Loading required package: lpSolve</code></pre>
+<pre class="r"><code>mdp_check(P = transition, R = utility)</code></pre>
+<pre><code>## [1] &quot;&quot;</code></pre>
+<pre class="r"><code>out &lt;- mdp_value_iteration(transition, utility, discount = discount, epsilon = 0.001, max_iter = 5e3, V0 = Vtmax)</code></pre>
+<pre><code>## [1] &quot;MDP Toolbox: iterations stopped, epsilon-optimal policy found&quot;</code></pre>
+<pre class="r"><code>plot(states, states - D, xlab=&quot;Population size&quot;, ylab=&quot;Escapement&quot;)
+lines(states, states - H[out$policy], col=&quot;red&quot;, lty=2)</code></pre>
+<p><img src="/lab-notebook/2015-07-14-mdptoolbox-ex-2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>

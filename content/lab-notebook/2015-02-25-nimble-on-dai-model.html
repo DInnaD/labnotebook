@@ -1,0 +1,253 @@
+---
+categories:
+- ecology
+date: 2015-02-25T00:00:00Z
+tags:
+- early-warning
+- regime-shifts
+- nimble
+url: /2015/02/25/nimble-on-dai-model/
+---
+
+
+
+<div id="testing-nimble-method-on-dai-model" class="section level2">
+<h2>Testing nimble method on Dai model</h2>
+<p>(shorter data series)</p>
+<pre class="r"><code>devtools::install_github(&quot;cboettig/regimeshifts&quot;)</code></pre>
+<pre><code>## Skipping install of &#39;regimeshifts&#39; from a github remote, the SHA1 (351c3b41) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre>
+<p>Define our mcmc procedure in Nimble</p>
+<pre class="r"><code>my_mcmc &lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){
+  Rmodel &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)
+  Cmodel &lt;- compileNimble(Rmodel)
+  mcmcspec &lt;- configureMCMC(Rmodel, print=FALSE,thin=thin)
+  Rmcmc &lt;- buildMCMC(mcmcspec)
+  Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)
+  Cmcmc$run(n_iter)
+  samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+  samples &lt;- samples[,1:(length(inits)-1)]
+  gather(samples)
+}</code></pre>
+<p>Generate the test data:</p>
+<pre class="r"><code>set.seed(1000)
+max_days &lt;- 50
+DF &lt;- seq(0, 2000, length=max_days) # schedule for env degredation (increased dilution)
+x &lt;- numeric(max_days)   
+x[1] &lt;- 1.76e5 # initial density
+   
+for(day in 1:(max_days-1)){
+ x[day+1] &lt;- dai(x[day], DF = DF[day])
+}
+
+raw &lt;- data.frame(t = 1:max_days, x = x)</code></pre>
+<p>Detrend:</p>
+<pre class="r"><code>N &lt;- length(raw$x)
+raw$t &lt;- 1:N
+detrend &lt;- loess(x ~ t, raw)
+data &lt;- data.frame(x = detrend$residuals/sqrt(var(detrend$residuals)))
+qplot(raw$t, data$x, geom=&#39;line&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/detrend-1.png" width="672" /></p>
+</div>
+<div id="ou-model" class="section level2">
+<h2>OU Model</h2>
+<pre class="r"><code>ou &lt;- nimbleCode({
+   theta ~ dunif(1e-10, 100.0)
+       r ~ dunif(1e-10, 20.0)
+   sigma ~ dunif(1e-10, 100)
+    x[1] ~ dunif(0, 100)
+
+  for(t in 1:(N-1)){
+    mu[t] &lt;- x[t] + r * (theta - x[t]) 
+    x[t+1] ~ dnorm(mu[t], sd = sigma) 
+  }
+})
+
+ou_constants &lt;- list(N = N)
+ou_inits &lt;- list(theta = 0, r = 1e-3, sigma = 1)</code></pre>
+<p>Run the mcmc</p>
+<pre class="r"><code>df &lt;- my_mcmc(code=ou, ou_constants, data, ou_inits)</code></pre>
+<pre><code>## warning: problem initializing stochastic node, logProb less than -1e12
+## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<div id="summary-statistics" class="section level4">
+<h4>Summary statistics</h4>
+<pre class="r"><code>summarise(group_by(df, key), mean=mean(value), std=sqrt(var(value)))</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##     key      mean       std
+##   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1     r 0.7866844 0.1600235
+## 2 sigma 1.0375633 0.1113334</code></pre>
+</div>
+<div id="traces" class="section level4">
+<h4>Traces</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_line(aes(seq_along(value), value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="posteriors" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+</div>
+<div id="lsn-version" class="section level2">
+<h2>LSN version</h2>
+<p>A modified version of the LSN model to explicitly model the changing parameter as a hidden variable changing at constant rate</p>
+<pre class="r"><code>lsn &lt;- nimbleCode({
+   theta ~ dunif(-1e2, 1e2)
+ sigma_x ~ dunif(1e-10, 1e2)
+       m ~ dunif(-1e2, 1e2)
+    x[1] ~ dunif(-1e3, 1e3)
+    y[1] ~ dunif(-1e3, 1e3) 
+
+  for(i in 1:(N-1)){
+    mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) 
+    x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) 
+    y[i+1] &lt;- y[i] + m * t[i] / t[N] 
+    
+  }
+})
+
+constants &lt;- list(N = N, t = raw$t)
+inits &lt;- list(theta = 0, m = 0, sigma_x = 1, y = rep(1,N))</code></pre>
+<pre class="r"><code>df &lt;- my_mcmc(code=lsn, constants, data, inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<div id="summary-statistics-1" class="section level4">
+<h4>Summary statistics</h4>
+<pre class="r"><code>summarise(group_by(df, key), mean=mean(value), std=sqrt(var(value)))</code></pre>
+<pre><code>## # A tibble: 3 × 3
+##       key        mean        std
+##     &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+## 1       m -0.02060616 0.02779506
+## 2 sigma_x  1.03148569 0.11158787
+## 3   theta -0.03136262 0.18565435</code></pre>
+</div>
+<div id="traces-1" class="section level4">
+<h4>Traces</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_line(aes(seq_along(value), value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="posteriors-1" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+    geom_density(aes(value)) + 
+    facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+</div>
+<div id="lsn-stochastic-hidden-variable" class="section level2">
+<h2>LSN, stochastic hidden variable</h2>
+<div id="define-and-model-and-run-mcmc" class="section level4">
+<h4>Define and model and run MCMC</h4>
+<pre class="r"><code>lsn &lt;- nimbleCode({
+   theta ~ dunif(-1e2, 1e2)
+   sigma_x ~ dunif(1e-10, 1e2)
+   sigma_y ~ dunif(1e-10, 1e2)
+       m ~ dunif(-1e2, 1e2)
+    x[1] ~ dunif(-1e3, 1e3)
+    y[1] ~ dunif(-1e3, 1e3)
+
+  for(i in 1:(N-1)){
+    mu_x[i] &lt;- x[i] + y[i] * (theta - x[i])
+    x[i+1] ~ dnorm(mu_x[i], sd = sigma_x)
+    mu_y[i] &lt;- y[i] + m * t[i] / t[N]
+    y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) 
+  }
+})
+
+constants &lt;- list(N = N, t = raw$t)
+inits &lt;- list(theta = 0, m = 0, sigma_x = 1, sigma_y = 1, y = rep(1,N))</code></pre>
+<pre class="r"><code>df &lt;- my_mcmc(code=lsn, constants, data, inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+</div>
+<div id="summary-statistics-2" class="section level4">
+<h4>Summary statistics</h4>
+<pre class="r"><code>summarise(group_by(df, key), mean=mean(value), std=sqrt(var(value)))</code></pre>
+<pre><code>## # A tibble: 4 × 3
+##       key         mean        std
+##     &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+## 1       m -0.008170135 0.06970863
+## 2 sigma_x  1.023650010 0.11068862
+## 3 sigma_y  0.171747380 0.14767809
+## 4   theta -0.025881301 0.18058435</code></pre>
+</div>
+<div id="traces-2" class="section level4">
+<h4>Traces</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_line(aes(seq_along(value), value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+<div id="posteriors-2" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+    facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-02-25-nimble-on-dai-model_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<hr />
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.3.1 (2016-06-21)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Debian GNU/Linux 8 (jessie)
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=C             
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] methods   stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] dplyr_0.5.0             ggplot2_2.1.0           tidyr_0.6.0            
+## [4] regimeshifts_0.0.0.9000 nimble_0.6-4           
+## 
+## loaded via a namespace (and not attached):
+##  [1] igraph_1.0.1     Rcpp_0.12.7      knitr_1.15.20    magrittr_1.5    
+##  [5] devtools_1.12.0  munsell_0.4.3    colorspace_1.2-7 lattice_0.20-34 
+##  [9] R6_2.2.0         plyr_1.8.4       stringr_1.1.0    httr_1.2.1      
+## [13] tools_3.3.1      grid_3.3.1       gtable_0.2.0     DBI_0.5-1       
+## [17] coda_0.19-1      git2r_0.15.0     withr_1.0.2      htmltools_0.3.5 
+## [21] lazyeval_0.2.0   yaml_2.1.13      assertthat_0.1   digest_0.6.10   
+## [25] tibble_1.2       bookdown_0.3.19  codetools_0.2-15 curl_2.2        
+## [29] memoise_1.0.0    evaluate_0.10    rmarkdown_1.1    blogdown_0.0.35 
+## [33] labeling_0.3     stringi_1.1.2    scales_0.4.1</code></pre>
+</div>
+</div>

@@ -1,0 +1,81 @@
+---
+categories:
+- computation
+date: 2015-02-06T00:00:00Z
+tags:
+- rfishbase
+- ropensci
+- R
+url: /2015/02/06/fun-standardizing-non-standard-evaluation/
+---
+
+
+
+<p>Using <code>dplyr</code> calls on the back-end of the <code>rfishbase</code> re-write means working around the non-standard evaluation (NSE), as described in the <a href=""><code>dplyr</code> vignette</a>.</p>
+<p>Grab the data I was using for this:</p>
+<pre class="r"><code>library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>downloader::download(&quot;https://github.com/cboettig/2015/raw/fc0d9185659e7976927d0ec91981912537ac6018/assets/data/2015-02-06-taxa.csv&quot;, &quot;taxa.csv&quot;)
+all_taxa &lt;- read.csv(&quot;taxa.csv&quot;)</code></pre>
+<p>Consider a simple NSE <code>dplyr</code> call:</p>
+<pre class="r"><code>x &lt;- filter(all_taxa, Family == &#39;Scaridae&#39;)</code></pre>
+<p>The best SE version of this just needs to use the formula expression, <code>~</code>, the <code>_</code> SE version of the function and it’s <code>.dots</code> argument:</p>
+<pre class="r"><code>.dots &lt;- list(~Family == &#39;Scaridae&#39;)
+x1 &lt;- filter_(all_taxa, .dots=.dots)
+
+identical(x, x1)</code></pre>
+<p>This lets us treat the arguments (e.g. values of the factor on which we filter) as variables:</p>
+<pre class="r"><code>family &lt;- &#39;Scaridae&#39;
+.dots &lt;- list(~Family == family)
+x2 &lt;- filter_(all_taxa, .dots=.dots)
+identical(x, x2)</code></pre>
+<p>If we want both the key and value to vary, we need to get pretty fancy to subvert the non-standard evaluation:</p>
+<pre class="r"><code>library(lazyeval)
+family &lt;- &#39;Scaridae&#39;
+field &lt;- &#39;Family&#39;
+.dots &lt;- list(interp(~y == x, 
+                     .values = list(y = as.name(field), x = family)))
+x3 &lt;- filter_(all_taxa, .dots=.dots)
+identical(x, x3)</code></pre>
+<p>At bit more fun to wrap this into a function where we take arbitrary number of arguments as name-value pairs:</p>
+<pre class="r"><code>query &lt;- list(Family = &#39;Scaridae&#39;, SpecCode = 5537)
+dots &lt;- lapply(names(query), function(level){
+    value &lt;- query[[level]]
+    interp(~y == x, 
+                .values = list(y = as.name(level), x = value))
+  })
+  
+x3 &lt;-  filter_(all_taxa, .dots = dots) </code></pre>
+<hr />
+<div id="more-fun-standardizing-nse" class="section level2">
+<h2>More fun standardizing NSE</h2>
+<p>The previous examples show only applications to <code>filter_()</code>. While the general idea is the same, this pattern doesn’t translate directly for other functions, such as <code>mutate_</code>. Here’s some common patterns I’ve adopted when using <code>mutate_()</code>. First consider the familiar NSE useage:</p>
+<pre class="r"><code>df &lt;- mutate(mtcars, displ_l = disp / 61.0237)
+head(df)</code></pre>
+<p>Again we use <code>list(interp(</code> pattern, but note that we specify the name for our new column using <code>setNames</code> (naming the elements of the list).</p>
+<pre class="r"><code>dots &lt;- setNames(list(lazyeval::interp(~x / y, x = quote(disp), y=61.0237)), &quot;displ_l&quot;)
+df2 &lt;- mutate_(mtcars, .dots = dots)
+identical(df, df2)</code></pre>
+<p>Of course the use <code>y</code> could be skipped for a more direct value if that was not a variable.</p>
+</div>
+<div id="more-dplyr-patterns" class="section level2">
+<h2>More <code>dplyr</code> patterns</h2>
+<p>Also thought I would scribble down some other common <code>dplyr</code> patterns I find myself re-using.</p>
+<ul>
+<li>applying a function that returns a <code>data.frame</code> to each element of a <code>list</code> and coercing the combined output to a <code>data.frame</code>:</li>
+</ul>
+<pre class="r"><code>mylist %&gt;% lapply(myfun) %&gt;% dplyr::bind_rows() </code></pre>
+<p>To place this deeper in the <code>hadleyverse</code>, <code>purrr::map</code> could be dropped in for <code>lapply</code> in the above example.</p>
+<ul>
+<li>Another common pattern for me is <code>expand.grid() %&gt;% group_by() %&gt;% do()</code>, Here’s a <a href="https://github.com/cboettig/multiple_uncertainty/blob/3f42aa4623f40cee70d5a9d52a8cce73617248a5/inst/scripts/table.Rmd">recent example of mine</a></li>
+</ul>
+<p>Also includes an example of how to define <code>group_by_all()</code> since that is usually the grouping I need from an <code>expand.grid()</code> call (that is, I want to apply over all combinations of some parameter settings, etc)</p>
+<p>Something I hope is not a common pattern but one I struggled with for a bit: making recursive calls of the above pattern for nested lists. This code in RNeXML illustrates my solution, which required both <a href="https://github.com/ropensci/RNeXML/blob/b596839e3a1fc53e74b46fd935d91dca59a9da98/R/get_metadata.R#L50-L59">function recursion and function closure</a>.</p>
+</div>

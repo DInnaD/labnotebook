@@ -1,0 +1,218 @@
+---
+categories:
+- ecology
+date: 2015-05-13T00:00:00Z
+tags:
+- gp
+- nimble
+url: /2015/05/13/GP-compare/
+---
+
+
+
+<p>Original go at nimble gp model, but this requires rather manual manipulation of parameter posteriors to get the GP posteriors.</p>
+<pre class="r"><code>library(&quot;MASS&quot;)
+library(&quot;mcmc&quot;)
+library(&quot;nimble&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nimble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     simulate</code></pre>
+<pre class="r"><code>library(&quot;methods&quot;)
+
+library(&quot;nonparametricbayes&quot;)</code></pre>
+<pre><code>## Warning: replacing previous import &#39;ggplot2::alpha&#39; by &#39;kernlab::alpha&#39;
+## when loading &#39;nonparametricbayes&#39;</code></pre>
+<pre><code>## Warning: replacing previous import &#39;data.table::melt&#39; by &#39;reshape2::melt&#39;
+## when loading &#39;nonparametricbayes&#39;</code></pre>
+<pre><code>## Warning: replacing previous import &#39;data.table::dcast&#39; by &#39;reshape2::dcast&#39;
+## when loading &#39;nonparametricbayes&#39;</code></pre>
+<pre class="r"><code>library(&quot;pdgControl&quot;)
+library(&quot;ggplot2&quot;)
+library(&quot;tidyr&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MASS&#39;:
+## 
+##     select</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div id="sample-data" class="section level2">
+<h2>sample data</h2>
+<pre class="r"><code>set.seed(1234)
+Tobs &lt;- 40
+f &lt;- RickerAllee
+sigma_g &lt;- 0.05
+z_g &lt;- function() rlnorm(1, 0, sigma_g)
+p &lt;- c(2, 8, 5)</code></pre>
+<pre class="r"><code>x_grid &lt;- seq(0, 15, length=50)
+h_grid &lt;- x_grid
+profit &lt;- function(x,h) pmin(x, h)
+delta &lt;- 0.01
+OptTime &lt;- 50  # stationarity with unstable models is tricky thing
+xT &lt;- 0    # terminal condition
+x0 &lt;- 10   # simulation under policy starts from
+MaxT &lt;- 1000 # timeout for value iteration convergence</code></pre>
+<pre class="r"><code>x &lt;- numeric(Tobs)
+x[1] &lt;- 5.5
+nz &lt;- 1
+for(t in 1:(Tobs-1))
+  x[t+1] = z_g() * f(x[t], h=0, p=p)
+obs &lt;- data.frame(x = c(rep(0,nz), 
+                        pmax(rep(0,Tobs-1), x[1:(Tobs-1)])), 
+                  y = c(rep(0,nz), 
+                        x[2:Tobs]))
+ggplot(data.frame(time = 1:Tobs, x=x), aes(time,x)) + geom_line()</code></pre>
+<p><img src="/lab-notebook/2015-05-13-GP-compare_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="gp-model" class="section level2">
+<h2>GP Model</h2>
+<pre class="r"><code>code &lt;- nimbleCode({
+
+   l ~ dgamma(10, 1) 
+   sigma.n ~ dunif(0, 1e5)
+   sigma.k  ~ dunif(0, 1e5)
+   Sigma[1:N, 1:N] &lt;- sigma.k ^ 2 * exp(-0.5 * diff[1:N, 1:N] / l ^ 2) + 
+                      sigma.n ^ 2 * I[1:N, 1:N]
+   y[1:N] ~ dmnorm(Mu[1:N], cov = Sigma[1:N, 1:N])  
+
+})</code></pre>
+<pre class="r"><code>N &lt;- length(obs$x)
+diff &lt;- outer(obs$x, obs$x, function(xi, xj) (xi-xj)^2)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), diff = diff, I = diag(1,N))
+inits &lt;- list(l = 1, sigma.n = 10, sigma.k = 1)
+data &lt;- data.frame(y = obs$y)</code></pre>
+<pre class="r"><code>Rmodel &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## Adding Mu,diff,I as data for building model.</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<p>Define our mcmc procedure in Nimble</p>
+<pre class="r"><code>Cmodel &lt;- compileNimble(Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre class="r"><code>mcmcspec &lt;- configureMCMC(Rmodel, print=FALSE)
+Rmcmc &lt;- buildMCMC(mcmcspec)
+Cmcmc &lt;- compileNimble(Rmcmc, project = Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.
+## compilation finished.</code></pre>
+<pre class="r"><code>system.time(
+Cmcmc$run(1e6)
+)</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<pre><code>##    user  system elapsed 
+## 183.124   0.111 183.241</code></pre>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+df &lt;- gather(samples)</code></pre>
+<div id="posteriors" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;) + 
+  scale_x_log10()</code></pre>
+<p><img src="/lab-notebook/2015-05-13-GP-compare_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
+<div id="calculating-transition-probabilities" class="section level2">
+<h2>Calculating transition probabilities</h2>
+<p>Several ways we might go about this.</p>
+<p>Technically all policies could be updated in response to new information, though this requires repeating the estimation process, or at least a Bayesian updating step (e.g. passive learning). Typically these steps are separated into estimating the policy and then implementing the policy separately, so we will focus on this case.</p>
+<p>The transition probability is conditional</p>
+<pre class="r"><code>## Should be able to extract this from nimble...
+predict &lt;- 
+function (posteriors, obs, x_predict) {
+    out &lt;- lapply(data.frame(t(posteriors)), 
+      function(sample) {
+      
+        l &lt;- sample[1]
+        sigma.k &lt;- sample[2]
+        sigma.n &lt;- sample[3]
+       
+        
+        SE &lt;- function (Xi, Xj, l) sigma.k * exp(- 0.5 * (Xi - Xj) ^ 2 / l ^ 2)
+        cov &lt;- function(X, Y) outer(X, Y, SE, l)
+            
+        cov_xx_inv &lt;- solve(cov(obs$x, obs$x) + sigma.n^2 * diag(1, length(obs$x)))
+        Ef &lt;- cov(x_predict, obs$x) %*% cov_xx_inv %*% obs$y
+        Cf &lt;- cov(x_predict, x_predict) - cov(x_predict, obs$x) %*% 
+            cov_xx_inv %*% cov(obs$x, x_predict)
+        list(Ef = Ef, Cf = Cf, Vf = diag(Cf))
+    })
+    Ef_posterior &lt;- sapply(out, `[[`, &quot;Ef&quot;)
+    Cf_posterior &lt;- sapply(out, `[[`, &quot;Cf&quot;)
+    Vf_posterior &lt;- sapply(out, `[[`, &quot;Vf&quot;)
+    E_Ef &lt;- rowMeans(Ef_posterior)
+    E_Cf &lt;- matrix(apply(Cf_posterior, 1, sum)/dim(Cf_posterior)[2], 
+        ncol = sqrt(dim(Cf_posterior)[1]))
+    E_Vf &lt;- diag(E_Cf)
+    Cf_posterior &lt;- lapply(out, `[[`, &quot;Cf&quot;)
+    list(Ef_posterior = Ef_posterior, Vf_posterior = Vf_posterior, 
+        Cf_posterior = Cf_posterior, E_Ef = E_Ef, E_Cf = E_Cf, 
+        E_Vf = E_Vf)
+}
+
+gp_posterior &lt;- predict(sample_n(samples, 100), obs, x_grid)</code></pre>
+<pre class="r"><code>matrices_gp &lt;- gp_transition_matrix(gp_posterior$Ef_posterior, gp_posterior$Vf_posterior, x_grid, h_grid) 
+opt_gp &lt;- value_iteration(matrices_gp, x_grid, h_grid, MaxT, xT, profit, delta)</code></pre>
+<hr />
+</div>
+<div id="comparison" class="section level2">
+<h2>Comparison</h2>
+<pre class="r"><code>s2.p &lt;- c(5,5)  
+d.p = c(10, 1/0.1)
+gp &lt;- gp_mcmc(obs$x, y=obs$y, n=1e5, s2.p = s2.p, d.p = d.p)
+gp_dat &lt;- gp_predict(gp, x_grid, burnin=1e4, thin=300)</code></pre>
+<pre class="r"><code>matrices_gp &lt;- gp_transition_matrix(gp_dat$Ef_posterior, gp_dat$Vf_posterior, x_grid, h_grid) 
+opt_gp &lt;- value_iteration(matrices_gp, x_grid, h_grid, MaxT, xT, profit, delta)</code></pre>
+<pre class="r"><code>matrices_true &lt;- f_transition_matrix(f, p, x_grid, h_grid, sigma_g)
+opt_true &lt;- value_iteration(matrices_true, x_grid, h_grid, OptTime=MaxT, xT, profit, delta)</code></pre>
+<pre class="r"><code>policy &lt;- list(GP = opt_gp$D, exact = opt_true$D)
+sets &lt;- expand.grid(reps = 1:100, model = c(&quot;exact&quot;, &quot;GP&quot;)) %&gt;% group_by(reps, model)
+
+sim_fn &lt;- function(df){
+  set.seed(df$reps)
+  ForwardSimulate(f, p, x_grid, h_grid, x0, 
+                  D = policy[[as.character(df$model)]], 
+                  z_g, profit=profit, OptTime = OptTime)
+  
+}
+sims &lt;- sets %&gt;% do(sim_fn(.))</code></pre>
+<pre class="r"><code>colorkey &lt;- c(&quot;#000000&quot;, &quot;#E69F00&quot;, &quot;#56B4E9&quot;, &quot;#009E73&quot;, 
+               &quot;#F0E442&quot;, &quot;#0072B2&quot;, &quot;#D55E00&quot;, &quot;#CC79A7&quot;)
+ggplot(sims) + 
+  geom_line(aes(time, fishstock, group=interaction(reps,model), col=model), alpha=.1) + 
+  facet_wrap(~model) +
+  scale_colour_manual(values=colorkey, guide=FALSE)</code></pre>
+<p><img src="/lab-notebook/2015-05-13-GP-compare_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<pre class="r"><code>policies_plot &lt;- function(policy){
+  policy_df &lt;- 
+    data.frame(model = c(&quot;GP&quot;, &quot;exact&quot;))  %&gt;% 
+    group_by(model) %&gt;% 
+    do(data.frame(stock = x_grid, 
+                  escapement = x_grid - h_grid[policy[[as.character(.$model)]]]))
+
+  ggplot(policy_df, aes(stock, escapement, color=model)) +
+    geom_line() + 
+    facet_wrap(~model) +
+    xlab(&quot;stock size, x(t)&quot;) + 
+    ylab(&quot;escapement, S(t)&quot;)  +
+    scale_colour_manual(values=colorkey, guide=FALSE)
+}
+
+policies_plot(policy)</code></pre>
+<p><img src="/lab-notebook/2015-05-13-GP-compare_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>sims %&gt;% mutate(net_profit = sum(profit)) -&gt; sims</code></pre>
+</div>

@@ -1,0 +1,94 @@
+---
+date: 2015-11-20T00:00:00Z
+title: Download and Parse Github Issues
+url: /2015/11/20/github-issues-import/
+---
+
+
+
+<pre class="r"><code>#devtools::install_github(&quot;cscheid/rgithub&quot;)
+library(&quot;github&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(&quot;stringr&quot;)
+library(&quot;lubridate&quot;)</code></pre>
+<pre><code>## Loading required package: methods</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre class="r"><code>library(&quot;readr&quot;)</code></pre>
+<pre class="r"><code>ctx = interactive.login(Sys.getenv(&quot;GH_CLIENT_ID&quot;),Sys.getenv(&quot;GH_CLIENT_SECRET&quot;))</code></pre>
+<p>Thanks to @<a href="https://github.com/realAkhmed">realAkhmed</a> for this one, see: <a href="https://github.com/cscheid/rgithub/issues/30#issuecomment-150354560" class="uri">https://github.com/cscheid/rgithub/issues/30#issuecomment-150354560</a></p>
+<pre class="r"><code>auto.page &lt;- function(f) {
+  f_call &lt;- substitute(f)
+  stopifnot(is.call(f_call))
+
+  i &lt;- 1
+  req &lt;- list()
+  result_lst &lt;- list()
+
+  repeat {
+    # Specify the page to download
+    f_call$page &lt;- i
+
+    req &lt;- eval(f_call, parent.frame())
+
+    # Last page has empty content
+    if (length(req$content)&lt;=0) break
+
+    result_lst[[i]] &lt;- req$content
+    i &lt;- i+1
+  }
+
+  result_req &lt;- req
+  result_req$content &lt;- unlist(result_lst, recursive = FALSE)
+
+  (result_req)
+}</code></pre>
+<pre class="r"><code>issues &lt;- auto.page(github::get.all.repository.issues.comments(&quot;ropensci&quot;, &quot;RNeXML&quot;, ctx=ctx))
+length(issues$content)</code></pre>
+<p>Here we get the content of interest.</p>
+<pre class="r"><code>to_df &lt;- function(entry){
+        dplyr::data_frame(
+             issue = stringr::str_replace(entry$issue_url, &quot;.*/(.*$)&quot;, &quot;\\1&quot;), 
+             comment_id = entry$id, 
+             user = entry$user$login, 
+             created_at = lubridate::parse_date_time(entry$created_at,&quot;%Y-%m-%d %H:%M:%S&quot;),
+             updated_at = lubridate::parse_date_time(entry$updated_at,&quot;%Y-%m-%d %H:%M:%S&quot;),
+             body = entry$body)
+}</code></pre>
+<p>Minor problem: This doesn’t actually include the issue’s title and opening comment (or tags, status, or other metadata that all come from the issues endpoint):</p>
+<pre class="r"><code>issue_meta &lt;- auto.page(github::get.repository.issues(&quot;ropensci&quot;, &quot;RNeXML&quot;, state=&quot;all&quot;, filter=&quot;all&quot;, ctx=ctx))</code></pre>
+<pre class="r"><code>meta_to_df &lt;- function(entry){
+        dplyr::data_frame(
+             issue = stringr::str_replace(entry$html_url, &quot;.*/(.*$)&quot;, &quot;\\1&quot;), 
+             comment_id = entry$id, 
+             user = entry$user$login, 
+             state = entry$state,
+             comments = entry$comments,
+             created_at = lubridate::parse_date_time(entry$created_at,&quot;%Y-%m-%d %H:%M:%S&quot;),
+             updated_at = lubridate::parse_date_time(entry$updated_at,&quot;%Y-%m-%d %H:%M:%S&quot;),
+             title = entry$title,
+             body = entry$body)
+}</code></pre>
+<pre class="r"><code>df &lt;- dplyr::bind_rows(lapply(issues$content, to_df))
+meta_df &lt;- dplyr::bind_rows(lapply(issue_meta$content, meta_to_df))
+issue_tbl &lt;- dplyr::full_join(df, meta_df)</code></pre>
+<pre class="r"><code>readr::write_csv(issue_tbl, &quot;../_data/rnexml.csv&quot;)</code></pre>
+<p>Now let’s do <code>EML</code></p>
+<pre class="r"><code>issues &lt;- auto.page(github::get.all.repository.issues.comments(&quot;ropensci&quot;, &quot;EML&quot;, ctx=ctx))
+issue_meta &lt;- auto.page(github::get.repository.issues(&quot;ropensci&quot;, &quot;EML&quot;, state=&quot;all&quot;, filter=&quot;all&quot;, ctx=ctx))</code></pre>
+<pre class="r"><code>df &lt;- dplyr::bind_rows(lapply(issues$content, to_df))
+meta_df &lt;- dplyr::bind_rows(lapply(issue_meta$content, meta_to_df))
+issue_tbl &lt;- dplyr::full_join(df, meta_df)
+
+readr::write_csv(issue_tbl, &quot;../_data/eml.csv&quot;)</code></pre>

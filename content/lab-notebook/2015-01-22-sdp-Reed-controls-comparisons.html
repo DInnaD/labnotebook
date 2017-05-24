@@ -1,0 +1,54 @@
+---
+categories:
+- ecology
+code: true
+date: 2015-01-22T00:00:00Z
+tags:
+- pdg-control
+url: /2015/01/22/sdp-Reed-controls-comparisons/
+---
+
+
+
+<pre class="r"><code>library(knitr)
+opts_chunk$set(dev=&#39;png&#39;, fig.width=3, fig.height=3, results=&#39;hide&#39;, fig.show=&#39;hold&#39;)</code></pre>
+<pre class="r"><code>library(pdgControl)
+library(ggplot2)</code></pre>
+<div id="reed-solution-harvest-control" class="section level2">
+<h2>Reed solution; harvest control</h2>
+<pre class="r"><code>f &lt;- function(x, h, p){ 
+  x &lt;- sapply(x, function(x) max(x-h,0))
+  p[[1]] * x / {1 + p[[2]] * x} 
+}
+p &lt;- c(a = 6, b = 0.05)
+profit &lt;- function(x, h) sapply(x, min, h) # vectorized for x
+x_grid &lt;- seq(0, 150, length = 100)
+h_grid &lt;- seq(0,150,length = 100)
+delta &lt;- 0.05
+OptTime &lt;- 1000
+xT &lt;- 0
+sigma_g &lt;- 0.1
+z_g &lt;- function() 1 + rlnorm(1, 0, sigma_g)
+pdfn &lt;- function(P, s) dlnorm(P, 0, s)</code></pre>
+<p>Note that in <span class="math inline">\(f\)</span> we must define the harvesting take place before the population recruits.</p>
+<pre class="r"><code>SDP_Mat &lt;- determine_SDP_matrix(f, p, x_grid, h_grid, sigma_g, pdfn)</code></pre>
+<pre class="r"><code>opt &lt;- value_iteration(SDP_Mat, x_grid, h_grid, OptTime, xT, profit, delta)</code></pre>
+<pre class="r"><code>qplot(x_grid, h_grid[opt$D]) + xlab(&quot;Stock size&quot;) + ylab(&quot;Harvest&quot;)
+qplot(x_grid, x_grid - h_grid[opt$D]) + xlab(&quot;Stock size&quot;) + ylab(&quot;Escapement&quot;)</code></pre>
+<p><img src="/lab-notebook/2015-01-22-sdp-Reed-controls-comparisons_files/figure-html/unnamed-chunk-3-1.png" width="288" /><img src="/lab-notebook/2015-01-22-sdp-Reed-controls-comparisons_files/figure-html/unnamed-chunk-3-2.png" width="288" /></p>
+</div>
+<div id="reed-solution-with-effort-based-control" class="section level2">
+<h2>Reed solution with effort-based control</h2>
+<pre class="r"><code>f &lt;- function(x, h, p){
+  x &lt;- (1 - h) * x
+  p[[1]] * x / {1 + p[[2]] * x}
+  }
+p &lt;- c(a = 6, b = 0.05)
+h_grid &lt;- seq(0, 1, length = 100)
+profit &lt;- function(x, h) sapply(x, function(x) x * h) # vectorized for x</code></pre>
+<pre class="r"><code>SDP_Mat &lt;- determine_SDP_matrix(f, p, x_grid, h_grid, sigma_g, pdfn)</code></pre>
+<pre class="r"><code>opt &lt;- value_iteration(SDP_Mat, x_grid, h_grid, OptTime, xT, profit, delta)</code></pre>
+<pre class="r"><code>qplot(x_grid, h_grid[opt$D]) + xlab(&quot;Stock size&quot;) + ylab(&quot;Fishing Effort&quot;)
+qplot(x_grid, x_grid - x_grid * h_grid[opt$D]) + xlab(&quot;Stock size&quot;) + ylab(&quot;Escapement&quot;)</code></pre>
+<p><img src="/lab-notebook/2015-01-22-sdp-Reed-controls-comparisons_files/figure-html/unnamed-chunk-7-1.png" width="288" /><img src="/lab-notebook/2015-01-22-sdp-Reed-controls-comparisons_files/figure-html/unnamed-chunk-7-2.png" width="288" /></p>
+</div>

@@ -1,0 +1,63 @@
+---
+date: 2015-07-29T00:00:00Z
+url: /2015/07/29/fastgp-explore/
+---
+
+
+
+<pre class="r"><code>library(FastGP)
+library(mvtnorm)
+library(MASS)
+library(rbenchmark)</code></pre>
+<div id="demo-of-elliptical-slice-sampling" class="section level2">
+<h2>Demo of elliptical slice sampling</h2>
+<p>Relevant Parameters:</p>
+<pre class="r"><code>A &lt;- 1 #amplitude of the sin function used for our signal
+T &lt;- 5 #period of the sin function used as our signal
+sigma &lt;- 10 #variance parameter in the covariance function
+phi &lt;- 100 #decay parameter for the exponential kernel
+N &lt;- 100 #number of time points </code></pre>
+<p>A function that creates a signal, which can be toggled for multiple shapes. In the present iteration we use a sin function with variable period.</p>
+<pre class="r"><code>signal &lt;- function(t) {
+  return(A*sin(t/T))
+}</code></pre>
+<p>Define our covariance matrix using the exponential kernel</p>
+<pre class="r"><code>S &lt;- as.matrix(sigma*exp(-as.matrix(dist(seq(1,N)))^2/phi))</code></pre>
+<p>Generate a copy of the signal on the time scale of 1…N</p>
+<pre class="r"><code>t &lt;- mvrnorm(n = 1, mu = rep(0,100), Sigma = S , tol = 1e-6)
+s &lt;- signal(seq(1,N)+t)+rnorm(N,sd=sqrt(.001))</code></pre>
+<p>log-lik functions</p>
+<pre class="r"><code>log_lik &lt;- function(w,s){
+  return (dmvnorm(s, mean = signal(seq(1:N)+w),sigma=.001*diag(1,N),log=T))
+}
+
+#rcpp based log-lik function
+log_lik_rcpp &lt;- function(w,s){
+  return (rcpp_log_dmvnorm(S = .001*diag(1,N),mu=signal(seq(1:N)+w),s,istoep=TRUE))
+}</code></pre>
+<pre class="r"><code>X &lt;- matrix(seq(1,N),nrow=N)
+Sig &lt;- sigma*exp(-rcpp_distance(X,dim(X)[1],dim(X)[2])^2/phi)</code></pre>
+<p>and here we go:</p>
+<pre class="r"><code>mcmc_samples &lt;- ess(log_lik_rcpp,s,Sig,1000,250,100,TRUE)</code></pre>
+<pre><code>## [1] &quot;Running elliptical slice sampling...&quot;</code></pre>
+<pre class="r"><code>par(mfrow=c(1,1))
+plot(colMeans(mcmc_samples), type=&quot;l&quot;)
+points(t, type=&quot;l&quot;, lwd=3, col=&quot;red&quot;)
+points(colMeans(mcmc_samples) + 2* apply(mcmc_samples, 2, sd), type=&quot;l&quot;, lty=&quot;dashed&quot;)
+points(colMeans(mcmc_samples) - 2* apply(mcmc_samples, 2, sd), type=&quot;l&quot;, lty=&quot;dashed&quot;)</code></pre>
+<p><img src="/lab-notebook/2015-07-29-fastgp-explore_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>test <code>ess</code> with rcpp likelihood versus non rcpp likelihood</p>
+<pre class="r"><code>benchmark(ess(log_lik_rcpp,s,Sig,1000,250,100,FALSE), ess(log_lik,s,Sig,1000,250,100,TRUE),replications=2)</code></pre>
+<pre><code>## [1] &quot;Running elliptical slice sampling...&quot;
+## [1] &quot;Running elliptical slice sampling...&quot;
+## [1] &quot;Running elliptical slice sampling...&quot;
+## [1] &quot;Running elliptical slice sampling...&quot;
+## [1] &quot;Running elliptical slice sampling...&quot;
+## [1] &quot;Running elliptical slice sampling...&quot;</code></pre>
+<pre><code>##                                               test replications elapsed
+## 1 ess(log_lik_rcpp, s, Sig, 1000, 250, 100, FALSE)            2  20.022
+## 2       ess(log_lik, s, Sig, 1000, 250, 100, TRUE)            2  17.725
+##   relative user.self sys.self user.child sys.child
+## 1     1.13    20.185    1.593          0         0
+## 2     1.00    33.022  108.742          0         0</code></pre>
+</div>

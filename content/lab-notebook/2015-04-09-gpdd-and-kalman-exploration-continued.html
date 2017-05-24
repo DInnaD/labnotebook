@@ -1,0 +1,287 @@
+---
+categories:
+- ecology
+date: 2015-04-09T00:00:00Z
+tags:
+- gpdd
+url: /2015/04/09/gpdd-and-kalman-exploration-continued/
+---
+
+
+
+<p>Load libraries and data as before</p>
+<pre class="r"><code>library(&quot;ggplot2&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(&quot;tidyr&quot;)
+library(&quot;knitcitations&quot;)
+library(&quot;rgpdd&quot;)
+library(&quot;FKF&quot;)</code></pre>
+<pre><code>## Loading required package: RUnit</code></pre>
+<pre><code>## Loading required package: methods</code></pre>
+<div id="parallel-version-of-dplyrdo" class="section level2">
+<h2>Parallel version of <code>dplyr::do</code></h2>
+<pre class="r"><code>do_parallel &lt;- function(df, f, ...){
+
+  # supports only one group for now
+
+  require(&quot;parallel&quot;)
+  require(&quot;lazyeval&quot;)
+  require(&quot;reshape2&quot;)
+  options(mc.cores = detectCores())
+
+  grps &lt;- groups(df)
+  ids &lt;- sapply(grps, function(i) unique(df[[as.character(i)]]))
+  names(ids) &lt;- as.character(ids)
+  ## turn grouped data.frame to a list of data.frames by MainID
+  list_data &lt;- lapply(ids, 
+                      function(id){ 
+                        .dots &lt;- list(interp(~y == x, .values = list(y = grps[[1]], x = id)))
+                        filter_(df, .dots = .dots)
+                      })
+
+  ## Actually do the fitting in parallel
+  list_out &lt;- mclapply(list_data, f, ...)
+
+  ## reshape outputs back to a data.frame
+  melt(list_out, id=names(list_out[[1]])) %&gt;% 
+    rename_(.dots = setNames(list(&quot;L1&quot;), as.character(grps[[1]])) ) %&gt;%
+              as_data_frame()
+}</code></pre>
+</div>
+<div id="prepare-data" class="section level2">
+<h2>Prepare data</h2>
+<p>Prepare data, as before: we filter on the stated criteria</p>
+<pre class="r"><code>gpdd_main %&gt;% 
+  filter(SamplingProtocol == &quot;Count&quot;,
+         SourceDimension %in% c(&quot;Count&quot;, &quot;Index&quot;), 
+         SamplingFrequency == &quot;1&quot;,
+         DatasetLength &gt;= 15) %&gt;%
+  select(MainID) %&gt;%
+  arrange(MainID) -&gt;
+filtered</code></pre>
+<p>and select data matching this filter. We add a column for the log of the population size and group by data ID:</p>
+<pre class="r"><code>gpdd_data %&gt;% 
+  filter(MainID %in% filtered$MainID) %&gt;%
+  select(MainID, Population, SampleYear) %&gt;%
+  group_by(MainID) %&gt;% 
+  mutate(logN = log(Population)) -&gt;
+df</code></pre>
+<p>Lastly, we replace <code>-Inf</code> (introduced from <code>log(0)</code> terms) with smallest finite values observed. (arbitrary, authors do not specify how these values are handled.)</p>
+<pre class="r"><code>i &lt;- which(df$logN == -Inf)
+df$logN[i] &lt;- min(df$logN[-i])-1</code></pre>
+<p>We may test on a subset of the data first:</p>
+<pre class="r"><code>#not run
+some &lt;- sample(unique(df$MainID), 10)
+df %&gt;% filter(MainID %in% some) -&gt; df</code></pre>
+</div>
+<div id="import-function-definitions" class="section level2">
+<h2>Import function definitions</h2>
+<p>We import our previous model definitions:</p>
+<pre class="r"><code>downloader::download(&quot;https://github.com/ropensci/rgpdd/raw/master/inst/scripts/knape-de-valpine.R&quot;, &quot;knape-de-valpine.R&quot;)
+source(&quot;knape-de-valpine.R&quot;)
+unlink(&quot;knape-de-valpine.R&quot;)</code></pre>
+</div>
+<div id="simulating" class="section level2">
+<h2>Simulating</h2>
+<p>FKF package doesn’t bother to define a simulation method, so we can simply define one directly from the state equations. Though a C implementation would be preferrable, fitting will always be much more rate-limiting. (We will also ignore the multi-variate definition for simplicity here).</p>
+<pre class="r"><code>use &lt;- function(x, default){
+  if(is.null(x))
+    default
+  else
+    x
+}
+
+sim_fkf &lt;- function(fit){
+  n &lt;- fit[[&quot;n&quot;]]
+  dt &lt;- fit[[&quot;dt&quot;]]
+  HHt &lt;- fit[[&quot;HHt&quot;]]
+  Tt &lt;- use(fit[[&quot;Tt&quot;]], 1)
+  GGt &lt;- use(fit[[&quot;GGt&quot;]], 0)
+  a0 &lt;- fit[[&quot;a0&quot;]]
+  ct &lt;- 0
+  Zt &lt;- 1
+  
+  a &lt;- numeric(n)
+  y &lt;- numeric(n)
+  eta &lt;- rnorm(n, dt, sqrt(HHt))
+  epsilon &lt;- rnorm(n, ct, sqrt(GGt))
+  a[1] &lt;- a0
+    for(t in 1:(n-1)){
+      a[t+1] &lt;- Tt * a[t] + eta[t]
+      y[t] &lt;- Zt * a[t] + epsilon[t]
+    }
+        y[n] &lt;- Zt * a[n] + epsilon[n]
+  y
+}</code></pre>
+<p>The study also creates simulated datasets based on the real data but explicitly making the assumption of either density independence (DI) or density dependence (DD). For each dataset, a density-independent simulated dataset is created by simulating under the SSRW model that was fit. The density-dependent model is created by explicitly fixing the density dependent parameter (<span class="math inline">\(c\)</span> in the language of the paper, <code>Tt</code> in FKF notation) to 0.8 and estimating the other parameters of this modified SSG model. We can define this model analgously to the others, only this time fixing <code>Tt = 0.8</code>:</p>
+<pre class="r"><code>fit_dd &lt;- function(y, 
+                   init = c(dt = mean(y), HHt = log(var(y)/2), GGt = log(var(y)/2)),
+                   ...){
+    
+    o &lt;- optim(init,
+                 fn =  function(par, ...)
+                   -fkf(dt = matrix(par[1]), HHt = matrix(exp(par[2])), 
+                        GGt = matrix(exp(par[3])), ...)$logLik,
+                 Tt = matrix(0.8), a0 = y[1], P0 = matrix(10), 
+                 ct = matrix(0), Zt = matrix(1), yt = rbind(y), 
+                 check.input = FALSE, ...)
+  o$par[[&quot;HHt&quot;]] &lt;- exp(o$par[[&quot;HHt&quot;]])
+  o$par[[&quot;GGt&quot;]] &lt;- exp(o$par[[&quot;GGt&quot;]])
+  c(o, list(a0 = y[1], n = length(y)))
+   
+}</code></pre>
+<p>The script adds a method for this to <code>robust_fit()</code> as well; though given the computational cost it is not clear if a robust fit is actually used in generating the data.</p>
+<pre class="r"><code>sim_di &lt;- function(df) data.frame(logN = sim_fkf(robust_fit(&quot;ssrw&quot;, df$logN, N = 3)))
+sim_dd &lt;- function(df) data.frame(logN = sim_fkf(robust_fit(&quot;dd&quot;, df$logN, N = 3)))</code></pre>
+<pre class="r"><code>system.time(
+df %&gt;% group_by(MainID) %&gt;% do_parallel(sim_di) -&gt; DI
+)</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## Loading required package: lazyeval</code></pre>
+<pre><code>## Loading required package: reshape2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     smiths</code></pre>
+<pre><code>##    user  system elapsed 
+## 141.240   1.227  55.597</code></pre>
+<pre class="r"><code>system.time(
+  df %&gt;% group_by(MainID) %&gt;% do_parallel(sim_dd) -&gt; DD
+)</code></pre>
+<pre><code>##    user  system elapsed 
+## 150.406   1.425  55.145</code></pre>
+<p>We can then use these two collections of datasets just as before:</p>
+<pre class="r"><code>system.time(
+  DD %&gt;% group_by(MainID) %&gt;% do_parallel(kalman, method = &quot;BFGS&quot;) -&gt; DD_fits
+)</code></pre>
+<pre><code>##     user   system  elapsed 
+## 7838.991   69.145 1201.083</code></pre>
+<pre class="r"><code>system.time(
+  DI %&gt;% group_by(MainID) %&gt;% do_parallel(kalman, method = &quot;BFGS&quot;) -&gt; DI_fits
+)</code></pre>
+<pre><code>##     user   system  elapsed 
+## 7745.605   68.151 1007.276</code></pre>
+<p>and from before:</p>
+<pre class="r"><code>system.time(
+df %&gt;% group_by(MainID) %&gt;% do_parallel(kalman, method = &quot;BFGS&quot;) -&gt; fits
+)</code></pre>
+<pre><code>##     user   system  elapsed 
+## 7442.595   64.746  992.444</code></pre>
+<div id="figure-2" class="section level4">
+<h4>Figure 2</h4>
+<p>From these simulations and corresponding parameter estimates of the density-dependent parameter, we can create our version of Figure 2:</p>
+<pre class="r"><code>order &lt;- c(&quot;real&quot;, &quot;independent&quot;, &quot;dependent&quot;)
+
+combined &lt;- rbind(
+  DD_fits %&gt;% 
+  filter(model %in% c(&quot;ssg&quot;, &quot;g&quot;), parameter == &quot;Tt&quot;) %&gt;%
+  select(model, value, MainID) %&gt;% 
+  mutate(type = factor(&quot;dependent&quot;, levels=order)),
+  
+  DI_fits %&gt;% 
+  filter(model %in% c(&quot;ssg&quot;, &quot;g&quot;), parameter == &quot;Tt&quot;) %&gt;%
+  select(model, value, MainID) %&gt;% 
+  mutate(type = factor(&quot;independent&quot;, levels=order)),
+  
+  fits %&gt;% 
+  filter(model %in% c(&quot;ssg&quot;, &quot;g&quot;), parameter == &quot;Tt&quot;) %&gt;%
+  select(model, value, MainID) %&gt;% 
+  mutate(type = factor(&quot;real&quot;, levels=order))) %&gt;%
+  
+  ungroup() %&gt;% 
+  
+  transmute(uncertainty = 
+              plyr::revalue(model, 
+                            c(ssg = &quot;accounting for uncertainty&quot;,
+                              g = &quot;ignoring uncertainty&quot;)),
+            type, value, MainID)</code></pre>
+<pre class="r"><code>ggplot(combined) + 
+  geom_histogram(aes(value), binwidth=0.2) + 
+  facet_grid(uncertainty ~ type) + 
+  geom_vline(aes(xintercept = mean(value)), lwd=.5) +
+  geom_vline(aes(xintercept = median(value)), lwd=.5, col=&quot;grey&quot;) +
+  xlim(c(-1.1,1.1)) + 
+  xlab(&quot;c value&quot;) +
+  theme_bw(16)</code></pre>
+<pre><code>## Warning: Removed 43 rows containing non-finite values (stat_bin).</code></pre>
+<pre><code>## Warning: Removed 6 rows containing missing values (geom_bar).</code></pre>
+<p><img src="/lab-notebook/2015-04-09-gpdd-and-kalman-exploration-continued_files/figure-html/Figure2-1.png" width="672" /></p>
+<hr />
+</div>
+</div>
+<div id="bootstrapping" class="section level2">
+<h2>Bootstrapping</h2>
+<p>With fitting and simulating functions in place, defining the bootstrap is straight forward. We define these separately for the state-space Gompertz (ssg; i.e. the model with both density dependence and observational errors) and the Gompertz (g; density dependence, no observational error). We compare in each case to the simulations of the corresponding model without density dependence.</p>
+<pre class="r"><code>bootstrap &lt;- function(df, null_model = &quot;ssrw&quot;, test_model = &quot;ssg&quot;, N=100){
+  y &lt;- df$logN
+  
+  ssg &lt;- robust_fit(test_model, y)
+  ssrw &lt;- robust_fit(null_model, y)
+  sims &lt;- as.data.frame(t(replicate(N, sim_fkf(ssrw))))
+  
+  # We use a relaxed version of robust_fit, with N=3
+  sims %&gt;% rowwise() %&gt;% do(robust_fit(null_model, y = as.numeric(.), N = 3)) %&gt;% select(mloglik) -&gt; null
+  
+  # compute p value of observed LR statistic relative to null distribution
+  lr &lt;- 2 * (ssrw$mloglik - ssg$mloglik)
+  null_dist &lt;- 2 * (null$mloglik - ssg$mloglik) 
+  data.frame(p = sum(null_dist &lt; lr)/N)
+}</code></pre>
+<p>With these functions defined, we can perform the actual analysis.</p>
+<pre class="r"><code>system.time(
+  df %&gt;% group_by(MainID) %&gt;% do_parallel(bootstrap, &quot;ssrw&quot;, &quot;ssg&quot;) -&gt; ssg_p_values
+  )</code></pre>
+<pre><code>##      user    system   elapsed 
+## 16177.536   144.446  2266.444</code></pre>
+<pre class="r"><code>system.time(
+  df %&gt;% group_by(MainID) %&gt;% do_parallel(bootstrap, &quot;rw&quot;, &quot;g&quot;) -&gt; g_p_values
+  )</code></pre>
+<pre><code>##     user   system  elapsed 
+## 8278.357   69.315  941.084</code></pre>
+<p>We can also do the bootstrapping for the simulated data:</p>
+<pre class="r"><code>system.time(
+ DD %&gt;% group_by(MainID) %&gt;% do_parallel(bootstrap, &quot;ssrw&quot;, &quot;ssg&quot;) -&gt; dd_ssg_p_values
+)</code></pre>
+<pre><code>##      user    system   elapsed 
+## 18082.022   162.267  2586.216</code></pre>
+<pre class="r"><code>system.time(
+ DD %&gt;% group_by(MainID) %&gt;% do_parallel(bootstrap, &quot;rw&quot;, &quot;g&quot;) -&gt; dd_g_p_values
+)</code></pre>
+<pre><code>##      user    system   elapsed 
+## 10506.606    90.023  1227.479</code></pre>
+<pre class="r"><code>system.time(
+ DI %&gt;% group_by(MainID) %&gt;% do_parallel(bootstrap, &quot;ssrw&quot;, &quot;ssg&quot;) -&gt; di_ssg_p_values
+)</code></pre>
+<pre><code>##      user    system   elapsed 
+## 16682.920   147.541  2320.748</code></pre>
+<pre class="r"><code>system.time(
+  DI %&gt;% group_by(MainID) %&gt;% do_parallel(bootstrap, &quot;rw&quot;, &quot;g&quot;) -&gt; di_g_p_values
+)</code></pre>
+<pre><code>##     user   system  elapsed 
+## 8401.864   70.049  945.393</code></pre>
+<pre class="r"><code>P &lt;- rbind(
+  ssg_p_values %&gt;% mutate(data = &quot;real&quot;, model = &quot;ssg&quot;),
+  g_p_values %&gt;% mutate(data = &quot;real&quot;, model = &quot;g&quot;),
+  di_ssg_p_values %&gt;% mutate(data = &quot;DI&quot;, model = &quot;ssg&quot;),
+  di_g_p_values %&gt;% mutate(data = &quot;DI&quot;, model = &quot;g&quot;),
+  dd_g_p_values %&gt;% mutate(data = &quot;DD&quot;, model = &quot;g&quot;),
+  dd_ssg_p_values %&gt;% mutate(data = &quot;DD&quot;, model = &quot;ssg&quot;))
+
+
+ggplot(P) + 
+  geom_histogram(aes(p)) + 
+  facet_grid(model ~ data) + 
+  theme_bw(16)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/lab-notebook/2015-04-09-gpdd-and-kalman-exploration-continued_files/figure-html/Figure3-1.png" width="672" /></p>
+<hr />
+</div>

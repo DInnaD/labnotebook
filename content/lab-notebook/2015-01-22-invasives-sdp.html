@@ -1,0 +1,37 @@
+---
+categories:
+- ecology
+code: true
+date: 2015-01-22T00:00:00Z
+tags:
+- pdg-control
+url: /2015/01/22/invasives-sdp/
+---
+
+
+
+<pre class="r"><code>library(knitr)
+opts_chunk$set(dev=&#39;svg&#39;, fig.width=4, fig.height=4, results=&#39;hide&#39;, fig.show=&#39;hold&#39;)</code></pre>
+<pre class="r"><code>library(pdgControl)
+library(ggplot2)</code></pre>
+<p>We propose a state model consistent with <a href="http://10.2139/ssrn.421007">10.2139/ssrn.421007</a>; in this case a simple Beverton-Holt model. Note that in defining <span class="math inline">\(f\)</span> we have assumed the harvesting take place before the population recruits.</p>
+<pre class="r"><code>f &lt;- function(x, h, p){ 
+  x &lt;- x - h 
+  p[[1]] * x / {1 + p[[2]] * x}  
+}
+p &lt;- c(a = 6, b = 0.05)</code></pre>
+<p>This meets Olson’s three assumptions. We must also define our cost/reward function to meet assumptions 4 &amp; 5:</p>
+<pre class="r"><code>damage &lt;- 1
+profit &lt;- function(x, h) sapply(x, function(x)  -damage * x - h / (x - h) ) # vectorized for x</code></pre>
+<pre class="r"><code>x_grid &lt;- seq(1, 150, length = 50)
+h_grid &lt;- seq(0, 150, length = 50)
+delta &lt;- 0.05
+OptTime &lt;- 1000
+xT &lt;- 0 # not used
+sigma_g &lt;- 0.1
+z_g &lt;- function() 1 + rlnorm(1, 0, sigma_g)
+pdfn &lt;- function(P, s) dlnorm(P, 0, s)</code></pre>
+<pre class="r"><code>SDP_Mat &lt;- determine_SDP_matrix(f, p, x_grid, h_grid, sigma_g, pdfn)</code></pre>
+<pre class="r"><code>opt &lt;- value_iteration(SDP_Mat, x_grid, h_grid, OptTime, xT, profit, delta)</code></pre>
+<pre class="r"><code>qplot(x_grid, h_grid[opt$D]) + xlab(&quot;Invasive population size&quot;) + ylab(&quot;Control effort&quot;)</code></pre>
+<p><img src="/lab-notebook/2015-01-22-invasives-sdp_files/figure-html/unnamed-chunk-5-1.svg" width="384" /></p>

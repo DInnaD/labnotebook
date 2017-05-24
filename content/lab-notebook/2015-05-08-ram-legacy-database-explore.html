@@ -1,0 +1,334 @@
+---
+categories:
+- ecology
+date: 2015-05-08T00:00:00Z
+url: /2015/05/08/ram-legacy-database-explore/
+---
+
+
+
+<div id="accessing-the-database" class="section level2">
+<h2>Accessing the database</h2>
+<p>Connect to the database (connection info is <a href="http://ramlegacy.marinebiodiversity.ca/ram-legacy-stock-assessment-database/accessing-the-live-database">public</a>), works fine:</p>
+<pre class="r"><code>library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(&quot;RPostgreSQL&quot;)</code></pre>
+<pre><code>## Loading required package: methods</code></pre>
+<pre><code>## Loading required package: DBI</code></pre>
+<pre class="r"><code>library(&quot;tidyr&quot;)
+library(&quot;ggplot2&quot;)</code></pre>
+<pre class="r"><code>mydb &lt;- src_postgres(dbname = &quot;srdb&quot;, 
+                     host=&quot;nautilus-vm.mathstat.dal.ca&quot;, 
+                     user = &quot;srdbuser&quot;, 
+                     password =  &quot;srd6us3r!&quot;, 
+                     port = 5432)
+mydb</code></pre>
+<pre><code>## src:  postgres 8.4.10 [srdbuser@nautilus-vm.mathstat.dal.ca:5432/srdb]
+## tbls: area, assessment, assessmethod, assessor, biometrics, bioparams,
+##   brptots, fishbasesaupcodes, geometry_columns, lmerefs, lmes,
+##   lmetostocks, management, mostrecent, recorder,
+##   reference_point_units_view, reference_point_values_view, referencedoc,
+##   risfields, risfieldvalues, spatial_ref_sys, stock, taxonomy, timeseries,
+##   timeseries_units_view, timeseries_values_view, tsmetrics,
+##   tsrelative_explicit_view</code></pre>
+<p>However, the expected mechanism for accessing a complete table seems to fail:</p>
+<pre class="r"><code>tbl(mydb, &quot;stock&quot;)</code></pre>
+<pre><code>## Error in postgresqlExecStatement(conn, statement, ...): RS-DBI driver: (could not Retrieve the result : ERROR:  relation &quot;stock&quot; does not exist
+## LINE 1: SELECT * FROM &quot;stock&quot; AS &quot;zzz1&quot; WHERE 0=1
+##                       ^
+## )</code></pre>
+<p>Filed as a bug report in <a href="https://github.com/rstats-db/RPostgres/issues/32">RPostgres/#32</a>.</p>
+<p>Meanwhile, direct sql queries work (note we need the full table address, e.g. <code>dbname.tablename</code>.)</p>
+<pre class="r"><code>tbl(mydb, sql(&quot;SELECT * FROM srdb.stock&quot;))</code></pre>
+<pre><code>## Source:   query [?? x 8]
+## Database: postgres 8.4.10 [srdbuser@nautilus-vm.mathstat.dal.ca:5432/srdb]
+## 
+##       stockid    tsn scientificname   commonname                 areaid
+##         &lt;chr&gt;  &lt;int&gt;          &lt;chr&gt;        &lt;chr&gt;                  &lt;chr&gt;
+## 1        COD1 164712   Gadus morhua Atlantic cod   multinational-NAFO-1
+## 2    COD2J3KL 164712   Gadus morhua Atlantic cod       Canada-DFO-2J3KL
+## 3  COD2J3KLIS 164712   Gadus morhua Atlantic cod       Canada-DFO-2J3KL
+## 4       COD3M 164712   Gadus morhua Atlantic cod  multinational-NAFO-3M
+## 5      COD3NO 164712   Gadus morhua Atlantic cod multinational-NAFO-3NO
+## 6      COD3Ps 164712   Gadus morhua Atlantic cod         Canada-DFO-3Ps
+## 7   COD3Pn4RS 164712   Gadus morhua Atlantic cod      Canada-DFO-3Pn4RS
+## 8       COD4T 164712   Gadus morhua Atlantic cod          Canada-DFO-4T
+## 9     COD4VsW 164712   Gadus morhua Atlantic cod        Canada-DFO-4VsW
+## 10    COD4TVn 164712   Gadus morhua Atlantic cod          Canada-DFO-4T
+## # ... with more rows, and 3 more variables: stocklong &lt;chr&gt;,
+## #   inmyersdb &lt;int&gt;, myersstockid &lt;chr&gt;</code></pre>
+<p>Since these tables easily fit into memory, it is generally faster to just import them into R rather than leaving <code>dplyr</code> to just work with them remotely. The <code>dplyr::collect()</code> function does this. So we create local copies of each table of interest like so:</p>
+<pre class="r"><code>timeseries &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.timeseries&quot;)))
+values &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.timeseries_values_view&quot;)))
+
+units &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.timeseries_units_view&quot;)))
+assessment &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.assessment&quot;)))
+area &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.area&quot;)))
+stock &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.stock&quot;)))
+method &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.assessmethod&quot;)))
+assessor &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.assessor&quot;)))
+management  &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.management&quot;)))
+taxonomy &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.taxonomy&quot;)))
+
+lmerefs &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.lmerefs&quot;)))
+lmestock &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.lmetostocks&quot;)))
+
+
+biometrics  &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.biometrics&quot;)))
+bioparams &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.bioparams&quot;)))
+
+tsmetrics &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.tsmetrics&quot;)))</code></pre>
+<p>Many of the tables contain observations of variables that describe each given assessment (<code>assessid</code>), including the species <code>stock</code> assessed, <code>area</code> assessed, the method used, and so forth. Since these all follow the same schema of a row being a unique stock assessment and a column being an attribute of that assessment, it makes sense to combine this into a single metadata table. (Especially as these datasets fit so easily into memory anyway.)</p>
+<pre class="r"><code>meta &lt;- assessment %&gt;% 
+  rename(methodshort = assessmethod) %&gt;% 
+  left_join(method) %&gt;% 
+  left_join(stock) %&gt;% 
+  left_join(area) %&gt;%
+  left_join(units) %&gt;%
+  left_join(assessor) %&gt;%
+  left_join(management) %&gt;%
+  left_join(taxonomy) </code></pre>
+<pre><code>## Joining, by = &quot;methodshort&quot;</code></pre>
+<pre><code>## Joining, by = &quot;stockid&quot;</code></pre>
+<pre><code>## Joining, by = &quot;areaid&quot;</code></pre>
+<pre><code>## Joining, by = &quot;assessid&quot;</code></pre>
+<pre><code>## Joining, by = c(&quot;assessorid&quot;, &quot;country&quot;)</code></pre>
+<pre><code>## Joining, by = c(&quot;country&quot;, &quot;mgmt&quot;)</code></pre>
+<pre><code>## Joining, by = c(&quot;tsn&quot;, &quot;scientificname&quot;)</code></pre>
+<pre class="r"><code>all_areas &lt;- stock %&gt;% 
+  select(stockid, areaid) %&gt;% 
+  left_join(area) %&gt;% 
+  right_join(lmestock) %&gt;% 
+  left_join(lmerefs)</code></pre>
+<pre><code>## Joining, by = &quot;areaid&quot;</code></pre>
+<pre><code>## Joining, by = &quot;stockid&quot;</code></pre>
+<pre><code>## Joining, by = &quot;lme_number&quot;</code></pre>
+<pre class="r"><code>sapply(all_areas, function(x) length(levels(factor(x))))</code></pre>
+<pre><code>##            stockid             areaid            country 
+##                391                174                 10 
+##           areatype           areacode           areaname 
+##                 24                167                167 
+##  alternateareaname         lme_number stocktolmerelation 
+##                  5                 34                  5 
+##           lme_name 
+##                 34</code></pre>
+<ul>
+<li><code>bioparams</code>: Fixed parameter values of a study.</li>
+<li><code>biometrics</code>: definitions of said parameters.</li>
+</ul>
+<p>The column is called <code>biounique</code> in <code>biometrics</code> table but <code>bioid</code> in <code>bioparams</code> table, so we fix that:</p>
+<pre class="r"><code>parameters &lt;- biometrics %&gt;% 
+  rename(bioid = biounique) %&gt;% 
+  left_join(bioparams) </code></pre>
+<pre><code>## Joining, by = &quot;bioid&quot;</code></pre>
+<ul>
+<li><code>tsmetrics</code> defines the factor levels and the units used in <code>timeseries</code> <code>tsid</code> column.</li>
+</ul>
+<pre class="r"><code>tsmetrics &lt;- tsmetrics %&gt;% rename(tsid = tsunique)</code></pre>
+<p>For example, we can see what measurements are available</p>
+<pre class="r"><code>ids &lt;- timeseries %&gt;% 
+  filter(assessid == &quot;NWFSC-COWCODSCAL-1900-2007-BRANCH&quot;) %&gt;%
+  distinct(tsid) %&gt;% 
+  select(tsid)
+ids</code></pre>
+<pre><code>## # A tibble: 7 × 1
+##       tsid
+##      &lt;chr&gt;
+## 1   SSB-MT
+## 2    R-E03
+## 3   F-1/yr
+## 4    TB-MT
+## 5    TC-MT
+## 6    TL-MT
+## 7 STB1+-MT</code></pre>
+<p>Looking up these ids in the <code>tsmetrics</code> table tells us what these seven time series are:</p>
+<pre class="r"><code>inner_join(ids, tsmetrics) %&gt;% select(tsshort, tslong, tsunitsshort, tsunitslong)</code></pre>
+<pre><code>## Joining, by = &quot;tsid&quot;</code></pre>
+<pre><code>## # A tibble: 7 × 4
+##   tsshort
+##     &lt;chr&gt;
+## 1     SSB
+## 2       R
+## 3       F
+## 4      TB
+## 5      TC
+## 6      TL
+## 7   STB1+
+## # ... with 3 more variables: tslong &lt;chr&gt;, tsunitsshort &lt;chr&gt;,
+## #   tsunitslong &lt;chr&gt;</code></pre>
+<pre class="r"><code>cowcod &lt;- timeseries %&gt;% 
+  filter(assessid == &quot;NWFSC-COWCODSCAL-1900-2007-BRANCH&quot;) %&gt;%
+  left_join(tsmetrics) %&gt;%
+  ggplot(aes(tsyear, tsvalue, col=tsid)) + geom_line() </code></pre>
+<pre><code>## Joining, by = &quot;tsid&quot;</code></pre>
+<pre class="r"><code>cowcod</code></pre>
+<p><img src="/lab-notebook/2015-05-08-ram-legacy-database-explore_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>cowcod + scale_y_log10()</code></pre>
+<p><img src="/lab-notebook/2015-05-08-ram-legacy-database-explore_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>(Note TC (total catch) and TL (total landings) are equivalent in this context, implying neglible discards.)</p>
+<p>Unfortunately, there is a lot of heterogeneity in the metrics measured by each assessment: <code>tsmetrics</code> defines 151 units, (though only 93 appear in timeseries)</p>
+<pre class="r"><code>length(unique(tsmetrics$tsid))</code></pre>
+<pre><code>## [1] 151</code></pre>
+<pre class="r"><code>length(table(timeseries$tsid))</code></pre>
+<pre><code>## [1] 93</code></pre>
+<p>Most are variations differing only by units, as we see from the most commonly used metrics:</p>
+<pre class="r"><code>unit_occurs &lt;- 
+timeseries %&gt;% 
+  group_by(tsid) %&gt;% 
+  distinct(assessid) %&gt;%
+  summarize(occurs = n()) %&gt;% 
+  left_join(tsmetrics) %&gt;% 
+  arrange(desc(occurs)) %&gt;% 
+  select(tsid, tslong, tsunitsshort, occurs)</code></pre>
+<pre><code>## Joining, by = &quot;tsid&quot;</code></pre>
+<pre class="r"><code>unit_occurs</code></pre>
+<pre><code>## # A tibble: 93 × 4
+##                       tsid
+##                      &lt;chr&gt;
+## 1                    TB-MT
+## 2                   SSB-MT
+## 3                    R-E03
+## 4                    TC-MT
+## 5                    TL-MT
+## 6                    F-1/T
+## 7                   F-1/yr
+## 8                 ER-ratio
+## 9  Yield-SSB-dimensionless
+## 10                 YEAR-yr
+## # ... with 83 more rows, and 3 more variables: tslong &lt;chr&gt;,
+## #   tsunitsshort &lt;chr&gt;, occurs &lt;int&gt;</code></pre>
+<p>These are all variations of the same several variables, but measured in different units. For instance, we see many series use a catch to biomass ratio (ER) instead of a fishing mortality.</p>
+<pre class="r"><code>unit_occurs %&gt;% filter(grepl(&quot;^SSB&quot;, tsid))</code></pre>
+<pre><code>## # A tibble: 12 × 4
+##                 tsid
+##                &lt;chr&gt;
+## 1             SSB-MT
+## 2        SSB-E03eggs
+## 3      SSB-STDDEV-MT
+## 4           SSB-1-MT
+## 5           SSB-2-MT
+## 6       SSB-relative
+## 7            SSB-E03
+## 8      SSB-E06larvae
+## 9           SSB-3-MT
+## 10          SSB-4-MT
+## 11     SSB-E03pertow
+## 12 SSB-FemaleGonadMT
+## # ... with 3 more variables: tslong &lt;chr&gt;, tsunitsshort &lt;chr&gt;,
+## #   occurs &lt;int&gt;</code></pre>
+<pre class="r"><code>unit_occurs %&gt;% filter(grepl(&quot;^R&quot;, tsid))</code></pre>
+<pre><code>## # A tibble: 7 × 4
+##         tsid                                                      tslong
+##        &lt;chr&gt;                                                       &lt;chr&gt;
+## 1      R-E03                                                    Recruits
+## 2    R-1-E03 Recruits. Use only when there is more than 1 &#39;final&#39; model.
+## 3    R-2-E03 Recruits. Use only when there is more than 1 &#39;final&#39; model.
+## 4       R-MT                                                    Recruits
+## 5 R-relative                                                    Recruits
+## 6    R-3-E03 Recruits. Use only when there is more than 1 &#39;final&#39; model.
+## 7    R-4-E03 Recruits. Use only when there is more than 1 &#39;final&#39; model.
+## # ... with 2 more variables: tsunitsshort &lt;chr&gt;, occurs &lt;int&gt;</code></pre>
+<pre class="r"><code>unit_occurs %&gt;% filter(grepl(&quot;^TC&quot;, tsid))</code></pre>
+<pre><code>## # A tibble: 7 × 4
+##       tsid
+##      &lt;chr&gt;
+## 1    TC-MT
+## 2   TC-E03
+## 3   TC-E00
+## 4 TC-1-E03
+## 5  TC-1-MT
+## 6  TC-2-MT
+## 7 TC-2-E03
+## # ... with 3 more variables: tslong &lt;chr&gt;, tsunitsshort &lt;chr&gt;,
+## #   occurs &lt;int&gt;</code></pre>
+<pre class="r"><code>unit_occurs %&gt;% filter(grepl(&quot;^TL&quot;, tsid))</code></pre>
+<pre><code>## # A tibble: 5 × 4
+##      tsid
+##     &lt;chr&gt;
+## 1   TL-MT
+## 2 TL-1-MT
+## 3 TL-2-MT
+## 4 TL-3-MT
+## 5  TL-E00
+## # ... with 3 more variables: tslong &lt;chr&gt;, tsunitsshort &lt;chr&gt;,
+## #   occurs &lt;int&gt;</code></pre>
+<pre class="r"><code>unit_occurs %&gt;% filter(grepl(&quot;^CPUE&quot;, tsid))</code></pre>
+<pre><code>## # A tibble: 10 × 4
+##                    tsid
+##                   &lt;chr&gt;
+## 1         CPUE-kgpertow
+## 2       CPUEstand-1-C/E
+## 3       CPUEstand-2-C/E
+## 4         CPUEstand-C/E
+## 5           CPUEraw-C/E
+## 6       CPUEstand-3-C/E
+## 7       CPUEstand-4-C/E
+## 8  CPUEsmooth-E00pertow
+## 9       CPUEstand-5-C/E
+## 10      CPUEstand-6-C/E
+## # ... with 3 more variables: tslong &lt;chr&gt;, tsunitsshort &lt;chr&gt;,
+## #   occurs &lt;int&gt;</code></pre>
+<p>The <code>values</code> table appears to be derived from the <code>timeseries</code> table, presumably standardizing on consistent metrics(?)</p>
+<pre class="r"><code>values</code></pre>
+<pre><code>## # A tibble: 16,308 × 9
+##                         assessid tsyear pt_avail       ssb       r
+## *                          &lt;chr&gt;  &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1  ADFG-HERRPWS-1980-2006-COLLIE   1980        5  48270.35  414070
+## 2  ADFG-HERRPWS-1980-2006-COLLIE   1981        5  51090.88  335200
+## 3  ADFG-HERRPWS-1980-2006-COLLIE   1982        5  47402.54  112300
+## 4  ADFG-HERRPWS-1980-2006-COLLIE   1983        5  56449.01  103740
+## 5  ADFG-HERRPWS-1980-2006-COLLIE   1984        5  64461.28 1062360
+## 6  ADFG-HERRPWS-1980-2006-COLLIE   1985        5  79124.61   99630
+## 7  ADFG-HERRPWS-1980-2006-COLLIE   1986        5  65601.06   74880
+## 8  ADFG-HERRPWS-1980-2006-COLLIE   1987        5  70646.42   84820
+## 9  ADFG-HERRPWS-1980-2006-COLLIE   1988        5  93508.20 1006440
+## 10 ADFG-HERRPWS-1980-2006-COLLIE   1989        5 105135.41  119970
+## # ... with 16,298 more rows, and 4 more variables: total &lt;dbl&gt;, f &lt;dbl&gt;,
+## #   cpue &lt;dbl&gt;, catch_landings &lt;dbl&gt;</code></pre>
+<p>We can see this by transforming our example:</p>
+<pre class="r"><code>x &lt;- timeseries %&gt;% 
+  filter(assessid == &quot;NWFSC-COWCODSCAL-1900-2007-BRANCH&quot;) %&gt;%
+  spread(tsid, tsvalue) %&gt;% 
+  rename(ssb=`SSB-MT`, r = `R-E03`, total = `TB-MT`, f = `F-1/yr`, catch_landings = `TL-MT`) %&gt;%
+  select(assessid, tsyear, ssb, r, total, f, catch_landings)</code></pre>
+<p>which is indeed identical to corresponding assessment in the <code>values</code> table</p>
+<pre class="r"><code>y &lt;- values %&gt;% filter(assessid == &quot;NWFSC-COWCODSCAL-1900-2007-BRANCH&quot;) %&gt;% select(-pt_avail, -cpue)
+identical(x,y)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>So what happens when the units differ?</p>
+<pre class="r"><code>timeseries %&gt;% filter(tsid==&quot;SSB-E03eggs&quot;) %&gt;% distinct(&quot;assessid&quot;)</code></pre>
+<pre><code>## # A tibble: 1 × 1
+##   `&quot;assessid&quot;`
+##          &lt;chr&gt;
+## 1     assessid</code></pre>
+<pre class="r"><code>x &lt;- timeseries %&gt;% 
+  filter(assessid == &quot;TAFI-TASGIANTCRABTAS-1990-2007-JENSEN&quot;) %&gt;%
+  spread(tsid, tsvalue) %&gt;% 
+  select(ssb=`SSB-E03eggs`)
+
+y &lt;- values %&gt;% filter(assessid == &quot;TAFI-TASGIANTCRABTAS-1990-2007-JENSEN&quot;) %&gt;% select(ssb)
+identical(x,y)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>No transformation has been done, hence the units of the <code>values</code> columns vary depending on the assessment id. Nonetheless it is quite useful to have the metrics split into their corresponding 5 types rather than as 93 unique subtypes. As long as we are not comparing magnitudes across different assessments directly though, this should not be an issue.</p>
+<hr />
+<p>It would probably be useful to reconstruct the code to generate the <code>values</code> table from the timeseries table directly. One might hope that the mappings between <code>tsid</code> values and the five column headings in the <code>values</code> table would be defined in the database, e.g. in perhaps the <code>tscategory</code> column of <code>tsmetrics</code>:</p>
+<pre class="r"><code>unique(tsmetrics$tscategory)</code></pre>
+<pre><code>## [1] &quot;FISHING MORTALITY&quot;                                                            
+## [2] &quot;TOTAL BIOMASS&quot;                                                                
+## [3] &quot;TIME UNITS&quot;                                                                   
+## [4] &quot;SPAWNING STOCK BIOMASS or CPUE&quot;                                               
+## [5] &quot;RECRUITS (NOTE: RECRUITS ARE OFFSET IN TIME SERIES BY THE AGE OF RECRUITMENT)&quot;
+## [6] &quot;CATCH or LANDINGS&quot;                                                            
+## [7] &quot;OTHER TIME SERIES DATA&quot;</code></pre>
+<p>but alas this does not quite appear to be the case (e.g. CPUE and SSB are a single category.) Some combination of this information and splitting on the <code>tsid</code> strings would probably suffice.</p>
+<hr />
+<pre class="r"><code>ts &lt;- meta %&gt;% select(assessid, commonname) %&gt;% right_join(values)</code></pre>
+<pre><code>## Joining, by = &quot;assessid&quot;</code></pre>
+</div>

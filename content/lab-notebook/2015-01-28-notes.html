@@ -1,0 +1,60 @@
+---
+categories:
+- ecology
+date: 2015-01-28T00:00:00Z
+url: /2015/01/28/notes/
+---
+
+
+
+<div id="mdptoolbox-testing" class="section level2">
+<h2><code>MDPToolbox</code> testing</h2>
+<ul>
+<li>Debugging <a href="http://rpubs.com/cboettig/55260">RPub record</a></li>
+<li>Fails even if we restrict R to be finite (<code>h &lt; 1</code>)</li>
+<li>Different error if we try the optimal harvest</li>
+</ul>
+</div>
+<div id="reading" class="section level2">
+<h2>Reading</h2>
+<ul>
+<li>Operating Systems Review reproducibility special issue now out; (includes my article on Docker). <a href="http://dl.acm.org/citation.cfm?id=2723872&amp;picked=prox&amp;cfid=475356683&amp;cftoken=29119830">Table of contents</a></li>
+</ul>
+</div>
+<div id="reviewing" class="section level2">
+<h2>Reviewing</h2>
+<ul>
+<li>PNAS review: done (2015-01-26).</li>
+<li>Bioinformatics review.</li>
+<li>JSS review: done.</li>
+</ul>
+</div>
+<div id="docker" class="section level2">
+<h2>Docker</h2>
+<div id="continuous-integration" class="section level3">
+<h3>Continuous Integration</h3>
+<p>Finally a way to run generic docker images on free CI: <a href="https://circleci.com/docs/docker">circle-ci</a></p>
+<p>Adding private keys to Travis requires too much of a dance (encrypting credentials into <code>.travis.yml</code>; on Circle-CI, like Drone, these can just be configured through the Circle-CI web interface. Travis has no way to restart a stochastically failed build without another commit, doesn’t display the logs in a convenient summary, and doesn’t support deploying as first-class configuration step (though easy enough to hack it of course)</p>
+<p>Sample configuration:</p>
+<pre class="yaml"><code>machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t circleci/elasticsearch .
+
+test:
+  override:
+    - docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:9200
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push circleci/elasticsearch</code></pre>
+</div>
+</div>

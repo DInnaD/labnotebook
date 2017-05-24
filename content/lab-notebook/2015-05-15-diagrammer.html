@@ -1,0 +1,42 @@
+---
+categories:
+- computing
+date: 2015-05-15T00:00:00Z
+url: /2015/05/15/diagrammer/
+---
+
+
+
+<p>Exploring ways for using <code>DiagrammeR</code> to generate graphs/plots that can be exported to svg and included in knitr documents.</p>
+<pre class="r"><code>devtools::install_github(&quot;rich-iannone/DiagrammeR&quot;)</code></pre>
+<pre class="r"><code>library(&quot;DiagrammeR&quot;)</code></pre>
+<pre class="r"><code>n &lt;- c(&quot;archive&quot;, &quot;index&quot;, &quot;share&quot;, &quot;discover&quot;, &quot;use&quot;, &quot;attribute&quot;)
+
+nodes &lt;- create_nodes(nodes = c(&quot;Repository\n Roles&quot;, n, &quot;Researcher\n Roles&quot;), 
+                      shape = &quot;circle&quot;, 
+                      color = c(rep(&quot;PowderBlue&quot;, 4), rep(&quot;Linen&quot;, 4)),
+                      style = &quot;filled&quot;)
+edges &lt;- create_edges(from = n, 
+                      to = c(n[-1], n[1]),
+                      color = &quot;gray&quot;, penwidth = 4)
+
+graph &lt;- create_graph(nodes = nodes, edges = edges, 
+                      graph_attrs = c(&quot;layout = circo&quot;))
+out &lt;- render_graph(graph)</code></pre>
+<p>Render as SVG</p>
+<pre class="r"><code>basename &lt;- &quot;figure1&quot;
+out &lt;- render_graph(graph, output = &quot;SVG&quot;)
+writeLines(out, paste0(basename, &quot;.svg&quot;))</code></pre>
+<p>Render as pdf, for inculsion in pdf/tex files.</p>
+<pre class="r"><code>## Not Run
+system(paste0(&quot;inkscape --export-png &quot;, basename, &quot;.png&quot;, 
+#              &quot;-w &quot;, width, &quot; -h &quot;, height, 
+              &quot; --export-dpi 300 &quot;, 
+              basename, &quot;.svg&quot;)) 
+
+system(paste0(&quot;inkscape --export-pdf &quot;, basename, &quot;.pdf &quot;, basename, &quot;.svg&quot;)) </code></pre>
+<p>Embed in post? maybe? This could be more elegant:</p>
+<pre class="r"><code>f &lt;- paste0(basename, &quot;.svg&quot;)
+target &lt;- paste0(knitr::opts_chunk$get(&quot;fig.path&quot;), f)
+file.rename(f, target)</code></pre>
+<pre class="r"><code>paste0(&quot;![](&quot;, target, &quot;)&quot;)</code></pre>

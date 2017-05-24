@@ -1,0 +1,98 @@
+---
+categories:
+- ecology
+date: 2015-07-29T00:00:00Z
+url: /2015/07/29/mdptoolbox-allen-model/
+---
+
+
+
+<pre class="r"><code>library(&quot;MDPtoolbox&quot;, quietly = TRUE)
+library(&quot;ggplot2&quot;, quietly = TRUE)</code></pre>
+<pre class="r"><code>K &lt;- 150 # state space limit
+states &lt;- 0:K # Vector of all possible states
+actions &lt;- states # Vector of actions: harvest
+
+
+sigma_g = 0.1
+p &lt;- c(2, 100, 50)
+
+f &lt;- function (x, h){
+  sapply(x, function(x) {
+    x &lt;- pmax(0, x - h)
+    x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2])
+  })
+}
+
+pdfn &lt;- function(x, mu, sigma = sigma_g){
+  dlnorm(x, log(mu), sdlog = sigma)
+}
+
+# Utility function
+discount = 0.95
+get_utility &lt;- function(x,h) {
+    pmin(x,h)
+}</code></pre>
+<pre class="r"><code>R &lt;- outer(states, actions, get_utility)</code></pre>
+<pre class="r"><code>transition_matrix &lt;- function(states, actions, f, pdfn){
+  # Initialize
+  transition &lt;- array(0, dim = c(length(states), length(states), length(actions)))
+  
+  K &lt;- length(states)
+  
+  for (k in 1:length(states)) {
+    for (i in 1:length(actions)) {
+  
+  # Calculate the transition state at the next step, given the 
+  # current state k and action i (harvest H[i])
+        nextpop &lt;- f(states[k], actions[i])
+        
+        ## Population always extinct if this is negative. since multiplicitive shock z_t * f(n) &lt; 0 for all f(n) &lt; 0
+        if(nextpop &lt;= 0)
+          transition[k, , i] &lt;- c(1, rep(0, length(states) - 1))
+    # Implement demographic stochasticity 
+        else {
+  
+        # Cts distributions need long-tailed denominator as normalizing factor:
+          fine_states &lt;- seq(min(states), 10 * max(states), by = states[2] - states[1])
+        N &lt;- sum(pdfn(fine_states, nextpop))  
+          transition[k, , i] &lt;-pdfn(states, nextpop) / N
+          
+            # We need to correct this density for the final capping state (&quot;Pile on boundary&quot;) (discrete or cts case)
+          # this can be a tiny but negative value due to floating-point errors. so we take max(v,0) to avoid
+        transition[k, K, i] &lt;- max(1 - sum(transition[k, -K, i]), 0)
+        }
+    } 
+  }
+  transition
+}
+
+P &lt;- transition_matrix(states, actions, f, pdfn)</code></pre>
+<div id="using-toolbox" class="section level2">
+<h2>Using toolbox</h2>
+<pre class="r"><code>mdp_check(P = P, R = R)</code></pre>
+<pre><code>## [1] &quot;&quot;</code></pre>
+<pre class="r"><code>mdp &lt;- mdp_value_iteration(P, R, discount = discount, epsilon = 0.001, max_iter = 5e3, V0 = numeric(length(states)))</code></pre>
+<pre><code>## [1] &quot;MDP Toolbox: iterations stopped, epsilon-optimal policy found&quot;</code></pre>
+<pre class="r"><code>plot(states, states - actions[mdp$policy],  xlab=&quot;Population size&quot;, ylab=&quot;Escapement&quot;)</code></pre>
+<p><img src="/lab-notebook/2015-07-29-mdptoolbox-allen-model_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="compare-to-reed" class="section level2">
+<h2>Compare to Reed</h2>
+<p>From Reed (1979) we know that the optimal solution is a constant-escapement rule when the growth function in convex. Note that this condition is violated by the growth function with alternative stable states (Allen/Ricker-Allee model), resulting in a very different optimal policy:</p>
+<p><span class="math display">\[f&#39;(s^*) = 1/\alpha\]</span></p>
+<p>For growth-rate function <span class="math inline">\(f\)</span>, where <span class="math inline">\(\alpha\)</span> is the discount factor and <span class="math inline">\(s^*\)</span> the stock size for the constant escapement. Analytic solutions are clearly possible for certain growth functions, but here I’ve just implemented a generic numerical solution.</p>
+<pre class="r"><code>fun &lt;- function(x) - f(x,0) + x / discount
+out &lt;- optimize(f = fun, interval = c(0,K))
+S_star &lt;- out$minimum
+
+exact_policy &lt;- sapply(states, 
+                       function(x) 
+                        if(x &lt; S_star) 0
+                        else x - S_star)</code></pre>
+<pre class="r"><code>plot(states, states - actions[mdp$policy],  xlab=&quot;Population size&quot;, ylab=&quot;Escapement&quot;)
+
+# The difference between Bellman and the analytical solution is small:
+lines(states, states - exact_policy)</code></pre>
+<p><img src="/lab-notebook/2015-07-29-mdptoolbox-allen-model_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>

@@ -1,0 +1,172 @@
+---
+categories:
+- ecology
+date: 2015-03-04T00:00:00Z
+tags:
+- gp
+- nimble
+url: /2015/03/04/GP-nimble-explore/
+---
+
+
+
+<pre class="r"><code>library(&quot;nimble&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nimble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     simulate</code></pre>
+<pre class="r"><code>library(&quot;methods&quot;)
+
+library(&quot;ggplot2&quot;)
+library(&quot;tidyr&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(&quot;MASS&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;MASS&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     select</code></pre>
+<pre class="r"><code>library(&quot;mcmc&quot;)</code></pre>
+<div id="gp-model" class="section level2">
+<h2>GP Model</h2>
+<p>A successful specification looks like this:</p>
+<pre class="r"><code>code &lt;- nimbleCode({
+
+   l ~ dgamma(10, 1) 
+   sigma.n ~ dunif(0, 1e5)
+   Sigma[1:N, 1:N] &lt;- exp(-0.5 * diff[1:N, 1:N] / l ^ 2) + sigma.n ^ 2 * I[1:N, 1:N]
+   y[1:N] ~ dmnorm(Mu[1:N], cov = Sigma[1:N, 1:N])  
+
+})</code></pre>
+<pre class="r"><code>obs &lt;- data.frame(x = c(-4, -3, -1,  0,  2),
+                   y = c(-2,  0,  1,  2, -1))
+
+N &lt;- length(obs$x)
+diff &lt;- outer(obs$x, obs$x, function(xi, xj) (xi-xj)^2)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), diff = diff, I = diag(1,N))
+inits &lt;- list(l = 1, sigma.n = 10)
+data &lt;- data.frame(y = obs$y)</code></pre>
+<pre class="r"><code>Rmodel &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## Adding Mu,diff,I as data for building model.</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<p>We can simulate parameters from the prior:</p>
+<pre class="r"><code>Rmodel$l</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>simulate(Rmodel, &quot;l&quot;)
+Rmodel$l</code></pre>
+<pre><code>## [1] 6.373476</code></pre>
+<p>Other nodes and likelihoods are updated to reflect the new value only after we run <code>calculate()</code>, so this is the logProb of <code>l</code> originally:</p>
+<pre class="r"><code>Rmodel$logProb_l</code></pre>
+<pre><code>## [1] -13.80183</code></pre>
+<p>After we run <code>calculate()</code>, the <code>logProb</code> is updated to reflect our simulated value of <code>l</code>, as are the dependent terms (like the Sigma matrix)</p>
+<pre class="r"><code>Sigma &lt;- Rmodel$Sigma
+calculate(Rmodel)</code></pre>
+<pre><code>## [1] -30.201</code></pre>
+<pre class="r"><code>identical(Sigma, Rmodel$Sigma)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>Rmodel$logProb_l</code></pre>
+<pre><code>## [1] -2.505998</code></pre>
+<p>Interestingly, we don’t seem to be able to simulate actual data from the model in this way:</p>
+<pre class="r"><code>Rmodel$y</code></pre>
+<pre><code>## [1] -2  0  1  2 -1</code></pre>
+<pre class="r"><code>simulate(Rmodel, &quot;y&quot;)</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>Rmodel$y</code></pre>
+<pre><code>## [1] -2  0  1  2 -1</code></pre>
+<pre class="r"><code>identical(Rmodel$y, Rmodel$origData[[&quot;y&quot;]])</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Note that <code>y</code> remaines fixed to the original data values. We have to do this manually:</p>
+<pre class="r"><code>mvrnorm(mu = constants$Mu, Sigma = Rmodel$Sigma) </code></pre>
+<pre><code>## [1]   0.002934655   8.290813948 -19.364600618  12.534259387  -2.546131237</code></pre>
+<p>Define our mcmc procedure in Nimble</p>
+<pre class="r"><code>Cmodel &lt;- compileNimble(Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.</code></pre>
+<pre><code>## compilation finished.</code></pre>
+<pre class="r"><code>mcmcspec &lt;- configureMCMC(Rmodel, print=FALSE)
+Rmcmc &lt;- buildMCMC(mcmcspec)
+Cmcmc &lt;- compileNimble(Rmcmc, project = Rmodel)</code></pre>
+<pre><code>## compiling... this may take a minute. Use &#39;showCompilerOutput = TRUE&#39; to see C++ compiler details.
+## compilation finished.</code></pre>
+<pre class="r"><code>system.time(
+Cmcmc$run(1e5)
+)</code></pre>
+<pre><code>## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<pre><code>##    user  system elapsed 
+##   0.513   0.008   0.521</code></pre>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+df &lt;- gather(samples)</code></pre>
+<div id="posteriors" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-03-04-GP-nimble-explore_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Note that <code>simulate</code> continues to draw from the prior, not the posterior:</p>
+<pre class="r"><code>sigmas &lt;- replicate(1e4, {
+  simulate(Rmodel, &quot;sigma.n&quot;)
+  Rmodel$sigma.n
+  })
+hist(sigmas)</code></pre>
+<p><img src="/lab-notebook/2015-03-04-GP-nimble-explore_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>(Also note this isn’t a particularly efficient way to simulate). Conveniently drawing data, <span class="math inline">\(y\)</span>, from the posterior is even less obvious.</p>
+</div>
+</div>
+<div id="comparison" class="section level2">
+<h2>Comparison</h2>
+<pre class="r"><code> lpriors &lt;- function(pars){
+      dgamma(pars[[1]], 10, 1, log = TRUE) +
+      dunif(pars[[2]], 0, 1e5, log = TRUE) 
+  }
+  
+  posterior &lt;- function(pars, x, y){ 
+    l &lt;- pars[1]
+    sigma.n &lt;- pars[2]
+
+    SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2)
+    cov &lt;- function(X, Y) outer(X, Y, SE, l)
+    I &lt;- diag(1, length(x))
+    K &lt;- cov(x, x) 
+  
+    loglik &lt;- - 0.5 * t(y) %*% solve(K + sigma.n ^ 2 * I) %*% y -
+      log(det(K + sigma.n ^ 2 * I)) -
+      length(y) * log(2 * pi) / 2
+    
+    loglik + lpriors(pars)
+  }</code></pre>
+<pre class="r"><code>system.time(
+out &lt;- metrop(posterior, initial = c(l = 1,sigma.n = 10), nbatch = 1e5, x = obs$x, y = obs$y)  
+)</code></pre>
+<pre><code>##    user  system elapsed 
+##  13.092  32.957   9.420</code></pre>
+<pre class="r"><code>burnin &lt;- 1e3
+thin &lt;- 1e2
+df &lt;- cbind(index=1:out$nbatch, as.data.frame(exp(out$batch)))
+s &lt;- seq(burnin+1, out$nbatch, by=thin)
+df &lt;- df[s,]
+df &lt;- df[-1] # drop index
+names(df) &lt;- names(out$initial)
+df &lt;- gather(df)</code></pre>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;) +
+  scale_x_log10()</code></pre>
+<p><img src="/lab-notebook/2015-03-04-GP-nimble-explore_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>

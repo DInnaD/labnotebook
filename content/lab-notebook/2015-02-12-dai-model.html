@@ -1,0 +1,194 @@
+---
+categories:
+- ecology
+date: 2015-02-12T00:00:00Z
+tags:
+- early-warning
+- regime-shifts
+url: /2015/02/12/dai-model/
+---
+
+
+
+<div id="a-first-go-at-implementing-the-dai-et-al-model" class="section level2">
+<h2>A first go at implementing the Dai et al model</h2>
+<p>From the supplement to <a href="http://doi.org/10.1126/science.1219805">10.1126/science.1219805</a>, we have:</p>
+<p><span class="math display">\[n_{t+1} = n_t g(n_t + \epsilon n_t, \theta)\]</span> <span class="math display">\[g(n_t) = \frac{n_{t+1}}{n_t}\]</span></p>
+<blockquote>
+<p>This model is based on two phases of daily growth: a slow exponential growth phase at low cell densities, followed by a logistic growth phase with a higher per capita growth rate at intermediate cell densities. This model has 5 parameters: T lag is the lag time before yeast cells start to grow after being transferred into new media (the total time for daily growth is 23 hours). In the slow exponential phase, the population grows with a constant per capita growth rate γ low . After the population reaches a threshold density N c , the subsequent logistic growth is determined by γ high (γ high &gt;γ low ) and the carrying capacity K</p>
+</blockquote>
+<p><span class="math display">\[\frac{1}{N}\frac{dN}{dt} = 
+    \left\{
+      \begin{array}{ll}
+        \gamma_{\textrm{low}} &amp; N &lt; N_c \\
+        \gamma_{\textrm{high}} \left(1 - \frac{N}{K}\right) &amp;  N_c &lt;= N &lt; K 
+      \end{array}
+    \right.\]</span></p>
+<hr />
+<p>A bit surprised by the model formulation here, particularly that a threshold response is built in at a critical density <span class="math inline">\(N_c\)</span>. Seems like this could emerge by explicitly modeling the positive density dependence due to the cooperative break-down of sugar, which should result in a smoother dependence between growth and density. A discontinuous growth model isn’t particularly satisfying as and cannot arise very directly from an individual-based description. Anyway, onwards.</p>
+<hr />
+<p>Okay, a bit of work is needed before we can simulate this from the description. Integrating this over time gives us exponential growth below <span class="math inline">\(N_c\)</span> and something Beverton-Holt-esque above <span class="math inline">\(N_c\)</span>,</p>
+<p>The ODE we can integrate analytically, <span class="math display">\[x_t = K \exp(r t + K c_1) / (\exp(r t + K c_1) - 1)\]</span></p>
+<p>And solve for the constant if integration using the initial condition,</p>
+<p><span class="math display">\[\begin{align*} 
+&amp; N_0 =  K \exp( K c_1) / (\exp( K c_1) - 1) \\
+&amp; N_0 (\exp( K c_1) - 1) =  K \exp( K c_1) \\
+&amp; K \exp( K c_1) - N_0 \exp( K c_1) + N_0 = 0 \\
+&amp; \exp( K c_1)( K  - N_0) + N_0 = 0 \\
+&amp; \exp(K c_1) = N_0 / (K - N_0) \\
+&amp; \exp(K c_1) = 1/(K/N_0 - 1) =: B
+\end{align*}\]</span></p>
+<p>So substituting for the IC we have,</p>
+<p><span class="math display">\[\begin{align*} 
+x_t &amp; = K B \exp(r t )  / (B \exp(r t) - 1) \\
+    &amp; = K \exp(r t )  / (\exp(r t) - 1/B)  \\
+    &amp;  = K \exp(r t )  / (\exp(r t) - 1 + K/N_0) \\
+    &amp;  = K / (1 +   (K/N_0 - 1) \exp( - r t) ) 
+\end{align*}\]</span></p>
+<p>From here we define the function as described, using parameters from Table S1</p>
+<pre class="r"><code>g &lt;- function(n_t, 
+              t = 23, # Hours between serial dilutions
+              epsilon = rnorm(1, 0, 0.15), 
+              theta = c(gamma_high = 0.439, # hr^-1
+                        gamma_low = 0.309, # hr^-1
+                        T_lag = 2.97, # hr
+                        N_c = 2.76e2, # cells/μl
+                        K = 1.76e5),  # cells/μl
+              DF = 600)  # dilution factor
+{
+  ## avoid referencing these repeatedly for readability and speed
+  gamma_high &lt;- theta[[&quot;gamma_high&quot;]]
+  gamma_low &lt;- theta[[&quot;gamma_low&quot;]]
+  T_lag &lt;- theta[[&quot;T_lag&quot;]]
+  N_c &lt;- theta[[&quot;N_c&quot;]]
+  K &lt;- theta[[&quot;K&quot;]]
+  
+  
+  ## Dilute and start growing. (Stochasticity enters only via the dilution process)
+  n_t &lt;- n_t  * (1 + epsilon) / DF
+  
+  # Lag phase, could have been scaled out of the model
+  if(t &lt; T_lag)
+    n_t1 &lt;- n_t
+  
+  ## Numerical happiness
+  if(n_t &lt; 1e-20)
+    n_t1 &lt;- 0
+  
+  ## Actual model
+  else {
+    
+    if(n_t &lt; N_c){ # Needs to switch once n &gt; N_c
+      
+      ## Analytically find out how long before we leave the low-growth regime
+      t_c &lt;- log(N_c / n_t) / gamma_low + T_lag
+      
+      ## Um, now this should just be equal to N_c
+      n_low &lt;- n_t * exp((t_c - T_lag) * gamma_low) 
+      
+      ## Spend remaining time in &gt; N_c growth regime:      
+      tau &lt;- t - t_c        
+      n_t &lt;- n_low
+      n_t1 &lt;- K  / (1 + (K / n_t - 1) * exp(- gamma_high * tau))
+    
+      
+    } else if(n_t &gt;= N_c){
+      ## simpler if we&#39;re always in the high-growth regime:
+      tau &lt;- t - T_lag
+      n_t1 &lt;- K / (1 + (K / n_t - 1) * exp(- gamma_high * tau))
+      
+    }
+  }
+  # And now we can return n_{t+1}
+  n_t1
+}</code></pre>
+<hr />
+<p>Aside from whether or not I’ve gotten the math right, there’s a bit of guesswork here as to whether this matches the author’s implementation of the model. Numerical issues worth thinking about include what form gives best floating-point stability, not just most consise, way to represent these; e.g. are these numerically identical:</p>
+<pre class="r"><code>n_t1 &lt;- K /(1 + (K / n_low - 1) * exp(- gamma_high * tau))</code></pre>
+<pre class="r"><code>n_t1 &lt;- n_t * K * exp(gamma_high * tau )  / (n_t * exp(gamma_high * tau) - n_t + K)</code></pre>
+<hr />
+</div>
+<div id="model-simulations" class="section level2">
+<h2>Model simulations</h2>
+<p>We can demonstrate alternative stable states from this configuration, starting from similar initial densities:</p>
+<pre class="r"><code>max_days &lt;- 30
+n &lt;- numeric(max_days)
+x &lt;- numeric(max_days)
+n[1] &lt;- 1e3
+x[1] &lt;- 5e2
+set.seed(123)
+for(day in 1:(max_days-1)){
+  n[day+1] &lt;- g(n[day])
+  x[day+1] &lt;- g(x[day])
+}
+
+df &lt;- data.frame(t = 1:max_days, n = n, x = x)
+
+ggplot(df) + 
+  geom_line(aes(t, n), col = 1) + 
+  geom_line(aes(t, x), col = 2) +
+  scale_y_log10()</code></pre>
+<p><img src="/lab-notebook/2015-02-12-dai-model_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="regime-shift" class="section level2">
+<h2>Regime Shift</h2>
+<p>We simulate the experiment presented in the orginal paper by gradually increasing the dilution factor over time:</p>
+<pre class="r"><code># Stepwise changes
+DF &lt;- as.numeric(sapply(seq(0, 2000, length=9), rep, 40))
+
+# continuous linear increase
+DF &lt;- seq(0, 2000, length=1e3)
+
+max_days &lt;- length(DF)
+y &lt;- numeric(max_days)
+
+y[1] &lt;- 1.76e5
+for(day in 1:(max_days-1)){
+  y[day+1] &lt;- g(y[day], DF = DF[day])
+}
+
+qplot(seq_along(y), y)</code></pre>
+<p><img src="/lab-notebook/2015-02-12-dai-model_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Decreasing K should model decreasing sucrose I think?</p>
+<pre class="r"><code>K_0 = 1.76e5
+# continuous linear increase
+sucrose &lt;- seq(K_0, 0, length=1e3)
+
+max_days &lt;- length(sucrose)
+y &lt;- numeric(max_days)
+
+y[1] &lt;- 1e5
+for(day in 1:(max_days-1)){
+  theta = c(gamma_high = 0.4, # hr^-1
+            gamma_low = 0.3, # hr^-1
+            T_lag = 2.97, # hr
+            N_c = 2.76e2, # cells/μl
+            K = sucrose[day])
+  y[day+1] &lt;- g(y[day], theta=theta)
+}
+
+qplot(seq_along(y), y) + geom_hline(yintercept=2.76e2, lty=3)</code></pre>
+<p><img src="/lab-notebook/2015-02-12-dai-model_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Turn down the noise and increase <span class="math inline">\(N_c\)</span> for a slightly more visible critical transition:</p>
+<pre class="r"><code>N_c &lt;- 2e3
+K_0 = 1.76e5
+# continuous linear increase
+sucrose &lt;- seq(K_0, .8 * N_c, length=1e3)
+
+max_days &lt;- length(sucrose)
+y &lt;- numeric(max_days)
+
+y[1] &lt;- 1e5
+for(day in 1:(max_days-1)){
+  theta = c(gamma_high = 0.4, # hr^-1
+            gamma_low = 0.3, # hr^-1
+            T_lag = 2.97, # hr
+            N_c = N_c, # cells/μl
+            K = sucrose[day])
+  y[day+1] &lt;- g(y[day], theta=theta, epsilon=rnorm(1,0,.01))
+}
+
+qplot(seq_along(y), y) + geom_hline(yintercept = N_c, lty=3)</code></pre>
+<p><img src="/lab-notebook/2015-02-12-dai-model_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Much more to do: Would be nice to add simulations of the computation of the bifucation using replicates run a different fixed dilution regimes.</p>
+</div>

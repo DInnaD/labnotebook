@@ -1,0 +1,251 @@
+---
+categories:
+- ecology
+date: 2015-03-03T00:00:00Z
+tags:
+- gp
+- nimble
+url: /2015/03/03/GP-nimble-setup/
+---
+
+
+
+<pre class="r"><code>library(&quot;nimble&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;nimble&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     simulate</code></pre>
+<pre class="r"><code>library(&quot;methods&quot;)
+
+library(&quot;ggplot2&quot;)
+library(&quot;tidyr&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div id="dmnorm-example" class="section level2">
+<h2>dmnorm example</h2>
+<p>from Daniel, who notes we need to be explicit about vector/matrix sizes on both LHS and RHS,</p>
+<pre class="r"><code>code &lt;- nimbleCode({
+    mu ~ dunif(-100, 100)
+    sigma ~ dunif(0, 100)
+    rho ~ dunif(20, 100)
+    muVec[1:N] &lt;- mu * onesVector[1:N]
+    Cov[1:N, 1:N] &lt;- sigma^2 * exp(-dist[1:N, 1:N]/rho)
+    g[1:N] ~ dmnorm(muVec[1:N], cov = Cov[1:N, 1:N])
+    for (i in 1:N) {
+        y[i] ~ dpois(exp(g[i]))
+    }
+})
+constants &lt;- list(N = 148, 
+                  onesVector = rep(1, 148), 
+                  dist = matrix(1, nrow=148, ncol=148))
+y = rpois(148, 1) # vector of 148 observations (counts)
+data &lt;- list(y=y)
+
+inits &lt;- list(mu = 0, 
+              sigma = 5, 
+              rho = 60, 
+              g = rep(0, 148))
+m &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## Adding onesVector,dist as data for building model.</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## Error in chol.default(model$Cov[1:148, 1:148]) : 
+##   the leading minor of order 3 is not positive definite</code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## note that missing values (NAs) or non-finite values were found
+## in model variables: lifted_chol_oPCov_oB1to148_1to148_cB_cP,
+## lifted_exp_oPg_oBi_cB_cP. This is not an error, but some or all variables
+## may need to be initialized for certain algorithms to operate properly.</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+</div>
+<div id="gp-model-original-specification" class="section level2">
+<h2>GP Model, original specification</h2>
+<p>This model definition doesn’t work, since we do not define sizes explicitly</p>
+<pre class="r"><code>code &lt;- nimbleCode({
+   l ~ dunif(0,1e4)
+   sigma.n ~ dunif(0, 1e4) 
+   Sigma[1:N, 1:N] &lt;- exp(-0.5 * diff / l ^ 2) + sigma.n ^ 2 * I
+   y[1:N] ~ dmnorm(Mu, cov = Sigma)  
+})
+obs &lt;- data.frame(x = c(-4, -3, -1,  0,  2),
+                   y = c(-2,  0,  1,  2, -1))
+
+N &lt;- length(obs$x)
+diff &lt;- outer(obs$x, obs$x, function(xi, xj) (xi-xj)^2)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), diff = diff, I = diag(1,N))
+inits &lt;- list(l = 1, sigma.n = 10)
+data &lt;- data.frame(y = obs$y)
+m &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## Warning in replaceConstantsRecurse(x, constEnv, constNames): Code diff was
+## given as known but evaluates to a non-scalar. This is probably not what you
+## want.</code></pre>
+<pre><code>## Warning in replaceConstantsRecurse(x, constEnv, constNames): Code I was
+## given as known but evaluates to a non-scalar. This is probably not what you
+## want.</code></pre>
+<pre><code>## Warning in replaceConstantsRecurse(x, constEnv, constNames): Code Mu was
+## given as known but evaluates to a non-scalar. This is probably not what you
+## want.</code></pre>
+<pre><code>## Error in replaceConstantsRecurse(x, constEnv, constNames): Error, hit end</code></pre>
+</div>
+<div id="gp-model-v2" class="section level2">
+<h2>GP Model, v2</h2>
+<p>This model definition still doesn’t work, even though it appears to be more explicit</p>
+<pre class="r"><code>code &lt;- nimbleCode({
+
+   l ~ dunif(0,100)
+   sigma.n ~ dunif(0,100)
+   SE &lt;- function(xi,xj, l) exp(-0.5 * (xi - xj) ^ 2 / l ^ 2)
+   Sigma[1:N, 1:N] &lt;- outer(x[1:N], x[1:N], SE, l) + sigma.n ^ 2 * I[1:N, 1:N]
+   y[1:N] ~ dmnorm(Mu[1:N], cov = Sigma[1:N, 1:N])  
+
+})
+obs &lt;- data.frame(x = c(-4, -3, -1,  0,  2),
+                   y = c(-2,  0,  1,  2, -1))
+N &lt;- length(obs$x)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), I = diag(1,N))
+inits &lt;- list(l = 1, sigma.n = 10)
+data &lt;- data.frame(y = obs$y)
+nimbleModel(code = code, constants = constants, data = data, inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## Error in replaceConstantsRecurse(x, constEnv, constNames): Error, hit end</code></pre>
+</div>
+<div id="gp-model" class="section level2">
+<h2>GP Model</h2>
+<p>A successful specification looks like this:</p>
+<pre class="r"><code>code &lt;- nimbleCode({
+
+   l ~ dunif(0,1e5) # dgamma(5, 5)
+   sigma.n ~ dunif(0, 1e5) # dgamma(5, 5) 
+   Sigma[1:N, 1:N] &lt;- exp(-0.5 * diff[1:N, 1:N] / l ^ 2) + sigma.n ^ 2 * I[1:N, 1:N]
+   y[1:N] ~ dmnorm(Mu[1:N], cov = Sigma[1:N, 1:N])  
+
+})</code></pre>
+<pre class="r"><code>obs &lt;- data.frame(x = c(-4, -3, -1,  0,  2),
+                   y = c(-2,  0,  1,  2, -1))
+
+N &lt;- length(obs$x)
+diff &lt;- outer(obs$x, obs$x, function(xi, xj) (xi-xj)^2)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), diff = diff, I = diag(1,N))
+inits &lt;- list(l = 1, sigma.n = 10)
+data &lt;- data.frame(y = obs$y)
+m &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)</code></pre>
+<pre><code>## defining model...</code></pre>
+<pre><code>## Adding Mu,diff,I as data for building model.</code></pre>
+<pre><code>## building model...</code></pre>
+<pre><code>## setting data and initial values...</code></pre>
+<pre><code>## running calculate on model (any error reports that follow may simply
+## reflect missing values in model variables) ...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## checking model sizes and dimensions...</code></pre>
+<pre><code>## </code></pre>
+<pre><code>## model building finished.</code></pre>
+<p>Define our mcmc procedure in Nimble</p>
+<pre class="r"><code>my_mcmc &lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){  
+  Rmodel &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits)
+  Cmodel &lt;- compileNimble(Rmodel)
+  mcmcspec &lt;- configureMCMC(Rmodel, print=FALSE,thin=thin)
+  Rmcmc &lt;- buildMCMC(mcmcspec)
+  Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel)
+  Cmcmc$run(n_iter)
+  samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+  #samples &lt;- samples[,1:(length(inits)-1)]
+  gather(samples)
+}</code></pre>
+<pre class="r"><code>df &lt;- my_mcmc(code = code, constants = constants, data = data, inits = inits, n = 1e6)</code></pre>
+<pre><code>## Adding Mu,diff,I as data for building model.
+## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+<div id="summary-statistics" class="section level4">
+<h4>Summary statistics</h4>
+<pre class="r"><code>summarise(group_by(df, key), mean=mean(value), std=sqrt(var(value)))</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##       key         mean          std
+##     &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1       l 49577.062593 28791.758138
+## 2 sigma.n     2.169168     1.173431</code></pre>
+</div>
+<div id="traces" class="section level4">
+<h4>Traces</h4>
+<pre class="r"><code>ggplot(sample_n(df,500)) + 
+  geom_line(aes(seq_along(value), value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-03-03-GP-nimble-setup_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="posteriors" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-03-03-GP-nimble-setup_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
+<div id="time-series-example" class="section level2">
+<h2>Time-series example</h2>
+<pre class="r"><code>f &lt;- function (x, p){ x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2]) }
+p &lt;- c(2, 8, 5)
+z_g &lt;- function() rlnorm(1, 0, 0.05)
+T &lt;- 40
+
+set.seed(1234)
+x &lt;- numeric(T)
+x[1] &lt;- 5.5
+
+for(t in 1:(T-1))
+  x[t+1] = z_g() * f(x[t], p=p)
+
+qplot(seq_along(x), x)</code></pre>
+<p><img src="/lab-notebook/2015-03-03-GP-nimble-setup_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre class="r"><code>data &lt;- data.frame(x=x)</code></pre>
+<div id="model-setup" class="section level4">
+<h4>model setup</h4>
+<pre class="r"><code>obs &lt;- data.frame(x=x[1:(T-1)], y = x[2:T])
+N &lt;- length(obs$x)
+diff &lt;- outer(obs$x, obs$x, function(xi, xj) (xi-xj)^2)
+constants = list(N = N, x = obs$x, Mu = rep(0,N), diff = diff, I = diag(1,N))
+inits &lt;- list(l = 1, sigma.n = 10)
+data &lt;- data.frame(y = obs$y)</code></pre>
+</div>
+<div id="estimate-gp-bm-mcmc-with-nimble" class="section level4">
+<h4>Estimate GP bm MCMC with Nimble</h4>
+<pre class="r"><code>df &lt;- my_mcmc(code = code, constants = constants, data = data, inits = inits, n = 1e6)</code></pre>
+<pre><code>## Adding Mu,diff,I as data for building model.
+## |-------------|-------------|-------------|-------------|
+## |-------------------------------------------------------|</code></pre>
+</div>
+<div id="summary-statistics-1" class="section level4">
+<h4>Summary statistics</h4>
+<pre class="r"><code>summarise(group_by(df, key), mean=mean(value), std=sqrt(var(value)))</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##       key      mean        std
+##     &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+## 1       l 3.8059775 0.60843921
+## 2 sigma.n 0.3641306 0.04565619</code></pre>
+</div>
+<div id="traces-1" class="section level4">
+<h4>Traces</h4>
+<pre class="r"><code>ggplot(sample_n(df,500)) + 
+  geom_line(aes(seq_along(value), value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-03-03-GP-nimble-setup_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+</div>
+<div id="posteriors-1" class="section level4">
+<h4>Posteriors</h4>
+<pre class="r"><code>ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<p><img src="/lab-notebook/2015-03-03-GP-nimble-setup_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+</div>

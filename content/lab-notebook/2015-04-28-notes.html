@@ -1,0 +1,44 @@
+---
+categories:
+- ecology
+date: 2015-04-28T00:00:00Z
+tags:
+- ropensci
+- rfishbase
+url: /2015/04/28/notes/
+---
+
+
+
+<div id="updates-to-drat-repo" class="section level3">
+<h3>updates to drat repo</h3>
+<ul>
+<li>rescript personal deploy.R script</li>
+<li>pull request</li>
+</ul>
+</div>
+<div id="rfishbase" class="section level3">
+<h3>rfishbase</h3>
+<p><code>rfishbase</code> queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:</p>
+<pre class="r"><code>x &lt;- species_info(&quot;Labroides bicolor&quot;, fields = c(&quot;SpecCode&quot;, &quot;Vulnerability&quot;, &quot;PriceCateg&quot;))</code></pre>
+<p>It so happens that “Resilience” is not in that table, but in the “stocks” table instead:</p>
+<pre class="r"><code>y &lt;- stocks(&quot;Labroides bicolor&quot;, fields=c(&quot;SpecCode&quot;, &quot;Resilience&quot;))</code></pre>
+<p>You can now merge the results:</p>
+<pre class="r"><code>data &lt;- merge(x,y)</code></pre>
+<p>In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:</p>
+<pre class="r"><code>species_info(&quot;Labroides bicolor&quot;)</code></pre>
+<p>Since the nearly 100 columns don’t fit in the page, the function just summarizes the column names for the ones that don’t fit. You can read through that list and spot the words “Vulnerability” and “PriceCateg”, and then use them in the ‘fields’ argument to just get those results.</p>
+<p>Note that all of these functions can take a long list of species names instead of a single species, and thus will return a table with a row for each species and the desired columns.</p>
+<p>Also note that we use “SpecCode”, the species code, to identify a species on fishbase. You can use the function “speciesnames” to transform this numeric code into a species name; e.g.</p>
+<pre class="r"><code>data$SpecCode &lt;- speciesnames(data$SpecCode)</code></pre>
+<ul>
+<li>Improved sql helper script recipe.</li>
+</ul>
+<div id="searching-sql-for-a-field" class="section level4">
+<h4>searching SQL for a field</h4>
+<pre class="sql"><code>
+select distinct table_name from information_schema.columns where column_name in (&#39;Resilience&#39;) and table_schema=&#39;fbapp&#39;;</code></pre>
+<p>and then we can do the usual</p>
+<pre class="sql"><code>describe stocks</code></pre>
+</div>
+</div>

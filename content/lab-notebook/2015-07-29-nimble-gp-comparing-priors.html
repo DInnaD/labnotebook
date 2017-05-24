@@ -1,0 +1,134 @@
+---
+categories:
+- ecology
+date: 2015-07-29T00:00:00Z
+published: false
+tags:
+- gp
+- nimble
+url: /2015/07/29/nimble-gp-comparing-priors/
+---
+
+
+
+<pre class="r"><code>#knitr::opts_chunk$set(eval=FALSE)
+library(&quot;gpmanagement&quot;)
+library(&quot;tidyr&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(&quot;ggplot2&quot;)
+library(&quot;methods&quot;)
+knitr::opts_chunk$set(eval=FALSE)  ## gpmanagment no longer runs on current version of nimble</code></pre>
+<p>Programming around nimble: Can we break out a piece of the nimble model definition to be diefined by users, using the nimble format (e.g. the priors), while leaving some of the model to be specified seperately?</p>
+<p>At the moment this requires some trickery: <a href="http://stackoverflow.com/questions/31712646" class="uri">http://stackoverflow.com/questions/31712646</a></p>
+<p>It’s interesting to observe just how much nimble’s use (and extension!) of the powerful modeling expressions from BUGS has in common with the non-standard evaluation of Hadley’s <code>dplyr</code> and friends. With this in place in <code>gpmanagement</code> we can specify the prior externally.</p>
+<p>First, some sample data</p>
+<pre class="r"><code># Should move my &#39;standard&#39; sample data into the package?
+  set.seed(1234)
+  Tobs &lt;- 40
+  f &lt;- function (x, h, p){
+    sapply(x, function(x) {
+        x &lt;- pmax(0, x - h)
+        x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2])
+    })
+  }
+  p &lt;- c(2, 100, 50)
+  sigma_g &lt;- 0.1
+  z_g &lt;- function() rlnorm(1, 0, sigma_g)
+  x &lt;- numeric(Tobs)
+  x[1] &lt;- 60
+  for(t in 1:(Tobs-1))
+    x[t+1] = z_g() * f(x[t], h=0, p=p)
+  obs &lt;- data.frame(x = c(0, 
+                          pmax(rep(0,Tobs-1), x[1:(Tobs-1)])), 
+                    y = c(0, 
+                          x[2:Tobs]))
+  xObs &lt;- obs$x
+  yObs &lt;- obs$y
+  xPred &lt;- seq(0, 1.25 * max(xObs), length = 50)</code></pre>
+<pre class="r"><code>qplot(seq_along(x), x) + geom_line()</code></pre>
+<p>Now the GP estimation from NIMBLE. Let’s emphasize shorter length-scales with the prior to compare:</p>
+<pre class="r"><code># having this work with output from `nimbleCode` might be more natural than `expression`
+priors &lt;- expression({
+  rho ~ dgamma(1, 10)
+  sigGP ~ dunif(0, 1e5)
+  sigOE ~ dunif(0, 1e5)
+})
+curve(dgamma(x, 1, 10))</code></pre>
+<pre class="r"><code>fit &lt;- gp_setup(xObs[2:Tobs], yObs[2:Tobs], xPred)</code></pre>
+<pre class="r"><code>Cmcmc &lt;- fit$Cmcmc 
+Cpred &lt;- fit$Cpred
+Cmodel &lt;- fit$Cmodel</code></pre>
+<pre class="r"><code>system.time(Cmcmc$run(100000))</code></pre>
+<pre class="r"><code>  samples &lt;- as.matrix(Cmcmc$mvSamples)
+  ## basic sanity check
+  testthat::expect_identical(Cmodel$getNodeNames(topOnly = TRUE), colnames(samples))</code></pre>
+<p>predict from GP model using posterior MCMC samples</p>
+<pre class="r"><code>system.time(Cpred$run(samples))</code></pre>
+<p>extract predictions: E and C</p>
+<pre class="r"><code>  E &lt;- Cpred$getE()
+  C &lt;- Cpred$getC()
+  
+obs &lt;- data.frame(x = xObs, y = yObs)
+pred &lt;- data.frame(x = xPred, y = E, ymin = E - sqrt(diag(C)), ymax = E + sqrt(diag(C)))
+ggplot2::ggplot(pred) + 
+  geom_ribbon(aes(x = x,y = y, ymin = ymin, ymax = ymax), fill = &quot;grey80&quot;) +
+  geom_line(aes(x = x, y = y), size=1) + 
+  geom_point(data = obs, aes(x,y)) +
+  coord_cartesian(xlim = range(c(xObs, xPred)), ylim = range(c(yObs,E))) +
+  theme_bw()</code></pre>
+<p>Posteriors</p>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+df &lt;- tidyr::gather(samples)
+ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+<hr />
+<div id="longer-length-scale" class="section level3">
+<h3>Longer length scale</h3>
+<p>Now the GP estimation from NIMBLE. Let’s emphasize shorter length-scales with the prior to compare:</p>
+<pre class="r"><code># having this work with output from `nimbleCode` might be more natural than `expression`
+priors &lt;- expression({
+  rho ~ dgamma(10, 1)
+  sigGP ~ dunif(0, 1e5)
+  sigOE ~ dunif(0, 1e5)
+})
+curve(dgamma(x, 10, 1))</code></pre>
+<pre class="r"><code>fit &lt;- gp_setup(xObs[2:Tobs], yObs[2:Tobs], xPred)</code></pre>
+<pre class="r"><code>Cmcmc &lt;- fit$Cmcmc 
+Cpred &lt;- fit$Cpred
+Cmodel &lt;- fit$Cmodel</code></pre>
+<pre class="r"><code>system.time(Cmcmc$run(100000))</code></pre>
+<pre class="r"><code>  samples &lt;- as.matrix(Cmcmc$mvSamples)
+  ## basic sanity check
+  testthat::expect_identical(Cmodel$getNodeNames(topOnly = TRUE), colnames(samples))</code></pre>
+<p>predict from GP model using posterior MCMC samples</p>
+<pre class="r"><code>system.time(Cpred$run(samples))</code></pre>
+<p>extract predictions: E and C</p>
+<pre class="r"><code>  E2 &lt;- Cpred$getE()
+  C2 &lt;- Cpred$getC()</code></pre>
+<p>sanity check: these should be different</p>
+<pre class="r"><code>identical(E, E2)
+identical(C, C2)</code></pre>
+<pre class="r"><code>obs &lt;- data.frame(x = xObs, y = yObs)
+pred &lt;- data.frame(x = xPred, y = E2, ymin = E2 - sqrt(diag(C2)), ymax = E + sqrt(diag(C2)))
+ggplot2::ggplot(pred) + 
+  geom_ribbon(aes(x = x,y = y, ymin = ymin, ymax = ymax), fill = &quot;grey80&quot;) +
+  geom_line(aes(x = x, y = y), size=1) + 
+  geom_point(data = obs, aes(x,y)) +
+  coord_cartesian(xlim = range(c(xObs, xPred)), ylim = range(c(yObs,E))) +
+  theme_bw()</code></pre>
+<p>Posteriors</p>
+<pre class="r"><code>samples &lt;- as.data.frame(as.matrix(Cmcmc$mvSamples))
+df &lt;- tidyr::gather(samples)
+ggplot(df) + 
+  geom_density(aes(value)) + 
+  facet_wrap(~key, scale=&#39;free&#39;)</code></pre>
+</div>

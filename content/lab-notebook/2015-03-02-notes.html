@@ -1,0 +1,26 @@
+---
+categories:
+- computing
+date: 2015-03-02T00:00:00Z
+url: /2015/03/02/notes/
+---
+
+
+
+<div id="misc-tricks" class="section level2">
+<h2>Misc tricks</h2>
+<ul>
+<li>docker X11 sharing</li>
+</ul>
+<pre class="bash"><code>docker run  -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro r-base</code></pre>
+<ul>
+<li><code>devtools::install_version</code></li>
+<li><p><code>devtools::use_readme_rmd</code> (with git commit hooks)</p></li>
+<li><p>How to specify a custom action for the knit button: add <code>knit: (function(inputFile, encoding) ...)</code> to the top-level YAML header; e.g. to control output directory:</p></li>
+</ul>
+<pre class="r"><code>rmarkdown::render(inputFile, 
+                  encoding = encoding, 
+                  output_file = paste0(dirname(inputFile),
+                                       basename(inputFile), 
+                                       &quot;.pdf&quot;))</code></pre>
+</div>

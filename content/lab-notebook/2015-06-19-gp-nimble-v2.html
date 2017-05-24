@@ -1,0 +1,64 @@
+---
+categories:
+- ecology
+date: 2015-06-19T00:00:00Z
+tags:
+- nimble
+- gp
+url: /2015/06/19/gp-nimble-v2/
+---
+
+
+
+<pre class="r"><code>#  devtools::install_github(&quot;cboettig/gpmanagement&quot;)
+knitr::opts_chunk$set(eval=FALSE)  ## gpmanagment no longer runs on current version of nimble</code></pre>
+<pre class="r"><code>library(&quot;gpmanagement&quot;)
+library(&quot;dplyr&quot;)
+library(&quot;ggplot2&quot;)
+library(&quot;methods&quot;)</code></pre>
+<pre class="r"><code>  set.seed(1234)
+  Tobs &lt;- 40
+  f &lt;- function (x, h, p){
+    sapply(x, function(x) {
+        x &lt;- pmax(0, x - h)
+        x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2])
+    })
+  }
+  p &lt;- c(2, 8, 5)
+  sigma_g &lt;- 0.05
+  z_g &lt;- function() rlnorm(1, 0, sigma_g)
+  x &lt;- numeric(Tobs)
+  x[1] &lt;- 5.5
+  for(t in 1:(Tobs-1))
+    x[t+1] = z_g() * f(x[t], h=0, p=p)
+  obs &lt;- data.frame(x = c(0, 
+                          pmax(rep(0,Tobs-1), x[1:(Tobs-1)])), 
+                    y = c(0, 
+                          x[2:Tobs]))
+  xObs &lt;- obs$x
+  yObs &lt;- obs$y
+  xPred &lt;- seq(0, 15, length=50)</code></pre>
+<pre class="r"><code>  fit &lt;- gp_setup(xObs, yObs, xPred)
+
+  Cmcmc &lt;- fit$Cmcmc 
+  Cpred &lt;- fit$Cpred
+  Cmodel &lt;- fit$Cmodel
+  
+  system.time(Cmcmc$run(100000))</code></pre>
+<pre class="r"><code>  samples &lt;- as.matrix(Cmcmc$mvSamples)
+  ## basic sanity check
+  testthat::expect_identical(Cmodel$getNodeNames(topOnly = TRUE), colnames(samples))</code></pre>
+<p>predict from GP model using posterior MCMC samples</p>
+<pre class="r"><code>system.time(Cpred$run(samples))</code></pre>
+<p>extract predictions: E and C</p>
+<pre class="r"><code>  E &lt;- Cpred$getE()
+  C &lt;- Cpred$getC()
+  
+obs &lt;- data.frame(x = xObs, y = yObs)
+pred &lt;- data.frame(x = xPred, y = E, ymin = E - sqrt(diag(C)), ymax = E + sqrt(diag(C)))
+ggplot2::ggplot(pred) + 
+  geom_ribbon(aes(x = x,y = y, ymin = ymin, ymax = ymax), fill = &quot;grey80&quot;) +
+  geom_line(aes(x = x, y = y), size=1) + 
+  geom_point(data = obs, aes(x,y)) +
+  coord_cartesian(xlim = range(c(xObs, xPred)), ylim = range(c(yObs,E))) +
+  theme_bw()</code></pre>
