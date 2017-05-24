@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,112 +134,81 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/10/04/tuesday-9/">Tuesday</a></h2>
-    <h4>Tue, Oct 4, 2011</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/27/policy-costs-work/">Tue, Nov 27, 2012</a></h4>
       
-      Hastings seminar: Forest Pest Outbreaks Schedule
-Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&rsquo;s NY Times piece, (and see author&rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp; Management (Gypsy moth). * Review review (Taylor &amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).
-      
+      <div class="article-style">
+        Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
+ Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/29/thursday-10/">Thursday</a></h2>
-    <h4>Thu, Sep 29, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/22/notes/">Thu, Nov 22, 2012</a></h4>
       
-      9-9:20 Updating research statement (home page). 9:20 -9:40 Updating notebook: Review, Tuesday &amp; Wednesday meetings coffee 9:50 Application. 10-11:30:  Forage fish dynamics, Sanchirico and Essington Jim gives the broad overview, central question: What are the benefits/costs of a % reduction in the catch C of forage fish N:
-$$ \Delta C \downarrow \to \Delta N \to \Delta F, \Delta M \Delta S$$
-F predator commercial fisheries, M marine mammals, S seabirds.
-      
+      <div class="article-style">
+        multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+Uniform lognormal log  A few small tweaks to probability calculations
+ Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/27/tuesday-berkeley-visits/">Tuesday - Berkeley visits</a></h2>
-    <h4>Tue, Sep 27, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/21/notes/">Wed, Nov 21, 2012</a></h4>
       
+      <div class="article-style">
+        writing comment piece. writing writing writing.
+  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/24/saturday-2/">Saturday</a></h2>
-    <h4>Sat, Sep 24, 2011</h4>
-    <div class="article-style">
-      
-      NIMBioS Working group follow-up:  Install pdf plugin (pdf24, Kalin&rsquo;s pdf, epub all don&rsquo;t display equations) &hellip; Posted issue to wordpress-for-scientists list. Solution: simply print to file (pdf) from google-chrome. (Doesn&rsquo;t work when printing from firefox 6.0) Reply to Paul, add pdf of notes on wiggio.  Fellowship stuff  Email Alan, David, George, John, Perry  Reviews  Answer request to review for Ecology Answer request to review for Evolution _**Working on reviews (see private notes) **_3-6pm  Misc  Testing Droideley.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/22/thursday-9/">Thursday</a></h2>
-    <h4>Thu, Sep 22, 2011</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/19/sequential-updating/">Mon, Nov 19, 2012</a></h4>
       
-      Sent off review. finally.
-Sanchirico seminar with Tim Essington (U Washington). Goal: Prepare for a review on forage fisheries.
-Outline  background background Fishery interactions marine mammal/seabird interactions Climate &amp; forage fish Fishmeal (Demand side) direct consumption (Demand side) Vitamin supp / health benefits (Demand side) Non-market value marine mammals Synthesis  Forage-fish: &ldquo;foundation species&rdquo; in marine ecosystems, get energy from zooplankton/upwelling to high-level predators (high-market target fisheries). Sardines/pilchards, anchovies, sandeels, krill, herrings, capelin, menhaden.
-      
+      <div class="article-style">
+        Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
+for the covariance:
+C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
+mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/21/wednesday-9/">Wednesday</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
-    <div class="article-style">
-      
-      Alan meeting  Sanchirico course, Hastings course Berkeley visits NIMBioS working group Lab website, lab group meeting.  To Do  Finish THEE review Evolution edits Miller Application Berkeley visits emails. File ESA reimbursements. File NIMBioS reimbursements.  Next steps  Paper for treebase/rfishbase packages? wrightscape paper. Training problem II. Economics warning signals. Costs of errors. Updating (multiple decision points). Mitigation strategy.  Inferring the uncertainty in model, adaptive management.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/16/mult-uncertainty/">Fri, Nov 16, 2012</a></h4>
+      <h4><a href="../../../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h4>
+      <div class="article-style">
+        Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
+See notes on code changes inline.
+Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/21/colored-noise-some-classic-results-in-ecology/">Colored noise: some classic results in ecology</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/15/notes/">Thu, Nov 15, 2012</a></h4>
       
-      Some of my early notes &amp; derivations on the impact of red environmental noise on population dynamics as pdf:
- Roughgarden&rsquo;s paper Fieberg &amp; Ellner, (2000) &ldquo;When is it Meaningful to Estimate an Extinction Probability?&rdquo; Ecology, 81. doi. Lawton, J. H. (1988). More time means more variation. Nature, 334, 563. Petchey, O. L., Gonzalez, A., &amp; Wilson, H. B. (1997). Effects on population persistence: the interaction between environmental noise colour, intraspecific competition and space.
-      
+      <div class="article-style">
+        Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
+Is there some scalar $v_2$ such that
+$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
+e.g. a term like:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/21/van-kampen-expansion-and-stochastic-population-dynamics/">Van Kampen Expansion and Stochastic population dynamics</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/21/tuesday-visit-to-berkeley/">Tuesday: Visit to Berkeley</a></h2>
-    <h4>Wed, Sep 21, 2011</h4>
-    <div class="article-style">
-      
-      Train to Berkeley 7:15-8:32 (6:35a)  9-10:30 Harte lab meeting: Chloe presented her work on mima mounds and pocket gofers 10:30 - noon Justin (coffee, tour campus). Discussed grant opportunities: Lab has a recent NSF and likely will get a Moore grant to extend maximum entropy work. (Not to be confused with species distribution modeling maxent). noon-1p Erica (lunch). 1p-2:15 John. 2:15-3:30 Andy. Great discussions about phylogenetic methods and hierarchical models, regime shifts, open science.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/19/monday-9/">Monday</a></h2>
-    <h4>Mon, Sep 19, 2011</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -254,8 +223,12 @@ Outline  background background Fishery interactions marine mammal/seabird intera
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -342,7 +315,13 @@ Outline  background background Fishery interactions marine mammal/seabird intera
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

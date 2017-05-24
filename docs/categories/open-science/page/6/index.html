@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,122 +134,76 @@
 
 
 
+
   <h1>Open Science</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/11/23/citing-lab-notebook-entries/"></a></h2>
-    <h4>Fri, Nov 23, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/09/05/whitehouse-open-data-memorandum/">Thu, Sep 5, 2013</a></h4>
       
-      C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
-      
+      <div class="article-style">
+        Open Data Policy-Managing Information as an Asset
+Far from implemented, though the tools and resources at the newly created Project Open Data (hosted on Github!) look very promising. Some choice quotations below:
+Pursuant to Executive Order of May 9, 2013, &ldquo;Making Open and Machine Readable the New Default for Government Information&rdquo;
+Any datasets in the agency&rsquo;s enterprise data inventory that can be made publicly available must be listed at www.&lt;agency&gt;.gov/data in a human- and machine-readable format that enables automatic aggregation by Data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/09/better-tagging-practices/"></a></h2>
-    <h4>Fri, Nov 9, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/17/updates-on-managing-references/">Wed, Jul 17, 2013</a></h4>
       
-      Better tagging practices  Standardize use of tags: Match tags in notebook to project repository name. Tag papers in Mendeley by these tags as well.  I have also started tracking the medium of discovery for each paper I add to my Mendeley collection through a little set of Mendeley tags. I am curious to see through which mediums I obtain the most content, and what content. As with any ontology, I will struggle to select a vocabulary that is precise enought to be useful without being too verbose (b) to bother to continue to use this.
-      
+      <div class="article-style">
+        Mendeley API for Jekyll Finally finished off my Mendeley API for Jekyll (The top uses the Ruby API implementation from Michael Bus, copied here since it is not yet provided as a gem. scroll to the bottom for my plugin code). The Mendeley API implementation is remarkably clumsy. For instance, rather than allowing queries to the API that specify a user&rsquo;s folder and a sort-by field, we are forced to first query the folder for a list of IDs and then query document details on every document in the folder, after which we can sort locally.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/03/altmetrics-conference/"></a></h2>
-    <h4>Sat, Nov 3, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/10/forking-the-r-journal/">Wed, Jul 10, 2013</a></h4>
       
-      From Thursday Nov 1 through Saturday Nov 3 I attended the PLoS Altmetrics workshop as a member of the ROpensci project. An exciting meeting driven mostly by the opportunity to interact with a small and incredibly creative and innovative group of science publishers, funders, start-ups, and other researchers. Details of the event are largely recorded on the altmetrics 2012 workshop website. We also have a few slides addressing the ropensci slant.
-      
+      <div class="article-style">
+        All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/31/notes/"></a></h2>
-    <h4>Wed, Oct 31, 2012</h4>
-    <div class="article-style">
-      
-      I enjoyed an excellent meeting with Annette Thomas, CEO of MacMillian Publishing and Nature Publishing group at UC Davis. It was impressive to here that Annette wanted to meet with UC Davis faculty and graduate students interested in open access and open science to discuss our opinions, desires and frustrations in the scientific publishing process. It was particularly valuable to discuss some of the failed experiments in open science at Nature.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/29/notes/"></a></h2>
-    <h4>Mon, Oct 29, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/09/reviewing-software-revisited/">Tue, Jul 9, 2013</a></h4>
       
-      Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
- Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
- Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
-      
+      <div class="article-style">
+        Several weeks ago I wrote a post describing issues I commonly raise when reviewing software papers. This provoked a lively discussion among authors, editors, and other reviewers of software papers (most of us having been on at least both reviewing and authoring end), with quite varied perspectives as to whether such criteria were appropriate in this context. As I describe there, I view the concept of dedicated software papers as a somewhat necessary &ldquo;hack&rdquo; of the publishing system, and hope a more mature system will eventually come into place, as is now happening for data through efforts such as Dryad and associated journal archiving requirements.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/"></a></h2>
-    <h4>Tue, Oct 23, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/17/notes-for-van-noorden-chat/">Mon, Jun 17, 2013</a></h4>
       
-      All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure. This means that any entry can be parsed with a generic XML parser to extract the entry content in &lt;article&gt;, the &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, etc. The &lt;head&gt; section provides &lt;title&gt; and essential &lt;meta&gt; tags declaring the character encoding (which also sets the MIME type for HTML5).
-Head In _includes/header.html we introduce some basic academic archive metadata using the Dublin Core ontology.
-      
+      <div class="article-style">
+        Below are my scribble notes in prep for an interview with Richard, a writier for Nature.
+ Advice for early-career scientists on how to think about organizing and publishing research data online.
+Things like - why do it,
+ Good for science (idealist), good for reputation (careerist), etc, but most importantly: helps you do your research.
+I had the pleasure of meeting with then Secretary of Energy Stephen Chu last summer at a small Department of Energy computational science conference.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/19/notes/"></a></h2>
-    <h4>Fri, Oct 19, 2012</h4>
-    <div class="article-style">
-      
-      Semantic Notebook notes Reading
- Nice collection of posts on scholarly html, but too little mention of the serious linked data stuff coming out of biscol, ievobio/nescent, etc. In particular, Martin&rsquo;s history gives some nice perspective.
- The war for schema. Which ontologies should we choose? (e.g. schema.org&rsquo;s take  Puzzles
- How do we mix ontologies How do we meet Google Rich Snippets requirements using FOAF? How do we avoid redundant vocabulary terms?
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/10/mansucript-reviews-on-github/">Mon, Jun 10, 2013</a></h4>
+      <h4><a href="../../../../2013/06/10/mansucript-reviews-on-github/">manuscript reviews on github?</a></h4>
+      <div class="article-style">
+        I was recently impressed to learn of Trevor Bedford&rsquo;s strategy of seeking pre-approval for posting his reviewer&rsquo;s comments as Github issues. Beyond providing links to the data and source-code, I generally don&rsquo;t advertise the open science nature of papers I submit &ndash; I guess I assume that if the reader or reviewers care, it should be easy enough for them to discover it. Consequently I am usually immediately frustrated to realize that upon receiving my reviews I have to create a second, private repository for the review material, our replies to reviewers, etc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h2>
-    <h4>Sun, Oct 14, 2012</h4>
-    <div class="article-style">
-      
-      As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/09/data-management-plan/"></a></h2>
-    <h4>Tue, Oct 9, 2012</h4>
-    <div class="article-style">
-      
-      Writing out a data management plan for myself. Suggestions and feedback welcome.
-Data Types and Structure All source code, documentation, scripts and data for the analyses performed in the course of this research shall be maintained in a digital compendium using the R package structure as recommended in Gentleman and Lang (2007). The progress and results of this research shall be regularly chronicled in an electronic lab notebook, maintained openly at carlboettiger.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/05/notes/">Automated feeds in notebook entries</a></h2>
-    <h4>Fri, Oct 5, 2012</h4>
-    <div class="article-style">
-      
-      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
-{% raw %}
-{% octokit_commits pdg_control%}  {% endraw %}
-(or even to the post template) and have the commit log for the specified repository automatically imported.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -264,8 +218,12 @@ Data Types and Structure All source code, documentation, scripts and data for th
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -352,7 +310,13 @@ Data Types and Structure All source code, documentation, scripts and data for th
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,131 +134,84 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/06/23/notes-on-leveraging-the-ecological-markup-language/"></a></h2>
-    <h4>Sun, Jun 23, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/04/09/multiple-uncertainty-notes/">Wed, Apr 9, 2014</a></h4>
       
-      This post creates new tag eml for posts discussing the Ecological Markup Langauge or the implementation of an R parser thereof (reml).
-Why EML? Jones et al.(2005) give an excellent explanation describing the relative advantage of the descriptive metadata approach over vertically integrated repositories (such as Genbank, TreeBase, or many other repostories that have been the focus of rOpenSci development to date).
-In short, the EML approach allows archiving of very heterogeneous data without having to standardize everything into a narrow and pre-defined syntax.
-      
+      <div class="article-style">
+        Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
+ Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/20/nonparametric-bayes-summary-ideas/"></a></h2>
-    <h4>Thu, Jun 20, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/04/08/multiple-uncertainty-notes/">Tue, Apr 8, 2014</a></h4>
       
-      If you do know the model and are simply uncertain about the parameters, you can often do all right (e.g. better than maximum likelihood approach) by doing the SDP over the Bayesian posterior distribution of the estimated model. Not surprisingly, if you don&rsquo;t have the correct model, this can fail pretty dramatically (in particular in very nonlinear models, e.g. tipping point models I have been looking at). Model choice and model averaging approaches aren&rsquo;t much help here, because often the structurally correct model doesn&rsquo;t fit the observed data any better &ndash; since the problems occur due to model inaccuracies where we don&rsquo;t have data; e.
-      
+      <div class="article-style">
+        Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/18/figure-for-summarizing-simulations/"></a></h2>
-    <h4>Tue, Jun 18, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/04/07/notes/">Mon, Apr 7, 2014</a></h4>
       
-      Trying to find a better way to summarize outputs of simulations,
-Heavy over-plotting makes the simulation trajectories themselves hard to read, even with transparent curves. Instead, we can plot the cumulative profit (technically should be discounted first):
-We can normalize these profits as a fraction of the theoretical optimum (true), providing a comparison that is less dependent on model parameters.
-We can then attempt to plot these on a single plot, either as stacked histograms:
-      
+      <div class="article-style">
+        ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/13/notes/"></a></h2>
-    <h4>Thu, Jun 13, 2013</h4>
-    <div class="article-style">
-      
-      Assembling various loose ends and some ropensci work.
-Misc things to work out and write at some date  Catch up on literature reading (unsorted list in Mendeley). Get entries into notebook.
- Write thoughts on selecting links anchor text in the notebook knitr script workflow: externalizing chunks, cache and figure prefixes.
- branching projects and unique repositories source code for all manuscripts into repositories clean up directories. in particular, establish separate prosecutors-fallacy repository Comments on workflow: Date-oriented (notebook) vs File-oriented (Github) explanation.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/13/what-i-look-for-in-software-papers/">What I look for in &#39;Software Papers&#39;</a></h2>
-    <h4>Thu, Jun 13, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/04/03/wisconsin-visit/">Thu, Apr 3, 2014</a></h4>
       
-      Update Thanks to the rich discussion in the comments and beyond, I&rsquo;ve revised my thoughts on this somewhat, as I discuss in this more recent post.
-I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I define as publications whose primary purpose is to publicize a piece of scientific software and provide a traditional research product with hopes that it will receive citations and recognition from other researchers in grant and job reviews.
-      
+      <div class="article-style">
+        Carl Boettiger Schedule 3-4 April
+Thursday
+   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
+   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/05/semi-analytic-posteriors/"></a></h2>
-    <h4>Wed, Jun 5, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/24/review-of-progress-on-packages/">Mon, Mar 24, 2014</a></h4>
       
-      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
-      
+      <div class="article-style">
+        A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
+rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/04/analytic-marginalizing-for-posteriors/"></a></h2>
-    <h4>Tue, Jun 4, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/18/notes/">Tue, Mar 18, 2014</a></h4>
       
-      Consider the model
-$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
-with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
-$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
-To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
-      
+      <div class="article-style">
+        ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
+ Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/"></a></h2>
-    <h4>Tue, Jun 4, 2013</h4>
-    <div class="article-style">
-      
-      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
-require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
-f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/03/admb-basic-example/"></a></h2>
-    <h4>Mon, Jun 3, 2013</h4>
-    <div class="article-style">
-      
-      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
- These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
-Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/29/notes/"></a></h2>
-    <h4>Wed, May 29, 2013</h4>
-    <div class="article-style">
-      
-      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
- fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
- slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -273,8 +226,12 @@ Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x 
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -361,7 +318,13 @@ Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

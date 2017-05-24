@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,130 +134,78 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/08/21/pdg-control-updates/"></a></h2>
-    <h4>Tue, Aug 21, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/03/admb-basic-example/">Mon, Jun 3, 2013</a></h4>
       
-      Resolving S &lt; D Code updates octokit
-Reading  Macksamie, K., Cockburn, J., &amp; Wagner, J. (2012). Robust control amidst stock and flow benefits: The case of wolf-elk-hunting dynamics in the US Mountain West. 2012 AERE Summer Conference, Asheville, NC (pp. 1-33). Retrieved from <a href="http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf">http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf</a>  The Linear parameter varying (LPV) approach which allows this problem to leverage a standard LMI (linear matrix inequality) solver seeems like a clever route, but unclear if this would be restricted to the additive noise models such as they consider?
-      
+      <div class="article-style">
+        After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
+ These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
+Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/20/notes/"></a></h2>
-    <h4>Mon, Aug 20, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/29/notes/">Wed, May 29, 2013</a></h4>
       
-      Writing  Draft outline of policy costs paper sent to Paul.
-  Misc  ropensci NCEAS proposal - contacts
- MEE supplement follow-up: Wow, MEE promotes video podcasts along with publications.
- Hadley to join RStudio full time.
- A gist by Hadley on storing things like API keys across R packages.
- Joined fisheries-science mailing list
-  Reading Warning signals  Critical transitions at Amer Fisheries Society
-      
+      <div class="article-style">
+        nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
+ fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
+ slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/10/esa-2012-conference/"></a></h2>
-    <h4>Fri, Aug 10, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/28/notes/">Tue, May 28, 2013</a></h4>
       
-      My Schedule Meetings/discussion with Don Strong, Tony Ives, Marten Scheffer, Justin Yeakel, Karen Abbott, Jarrett Byrnes, Christopher Lortie.
- Check in with Paul Armsworth on working group rOpenSci tutorial session (below) tweetup My contributed talk (below)  rOpenSci tutorial, Thursday A year out from our launch at ESA last year, we presented an introduction and tutorial on rOpenSci. Slides and links to more information are all available at esa.
-      
+      <div class="article-style">
+        Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/30/notes/">Deviations from S = D</a></h2>
-    <h4>Mon, Jul 30, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control Value of information Exploring causes for deviation from S = D in the Reed model: arises from self-sustaining assumption. Working out the interpretation of the self-sustaining clause, which sounds like it needs to ensure that the stock is non-decreasing in the absence of harvest,
-$$ P(X_{t+1} \geq x | X_n = x ) = 1 $$
-This sounds like a very awkward condition to enforce for a non-trivial escapement level ( x = S ).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/23/notes/"></a></h2>
-    <h4>Mon, Jul 23, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/27/exploring-approximate-dynamic-programming-approaches/">Mon, May 27, 2013</a></h4>
       
-      Reading Vasilis&rsquo;s PLoS ONE warning signals methods out, listing different methods and announcing the earlywarings R package: 10.1371/journal.pone.0041010, and another comparing methods on some various data sets 10.1371/journal.pone.0038410, which (like Drake) advocates for a mixed method approach.
-Modeling extreme risks in ecology 10.1111/j.1539-6924.2012.01871.x
-Which is kinda like Richard Katz&rsquo;s extreme value theory in ecology article.
-NSF call for Decision, Risk and Management Science, see previously funded examples.
-A paper in Eco Lett suggests model-guided field work 10.
-      
+      <div class="article-style">
+        Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/04/notes/"></a></h2>
-    <h4>Wed, Jul 4, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/24/notes/">Fri, May 24, 2013</a></h4>
       
-      Value of information  bias table with measurement noise Fix deterministic. Run scenarios with very low noise rather than deterministic Reed S vs. D theorem Reed theorem extended to Sethi cases simulation values should import scenario list. (done for bias table).
-  Reed theorem  Not showing S = D for cost free. hmm&hellip; Not showing S constant for different profit functions?!  impact of management on warning signals Compare the probability of detection in managed and unmanaged models.
-      
+      <div class="article-style">
+        prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/02/notes/">varying recruitment function, noise form, and harvesting cost</a></h2>
-    <h4>Mon, Jul 2, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/23/notes/">Thu, May 23, 2013</a></h4>
       
+      <div class="article-style">
+        Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
+ Some edits to adapt the extraction of posteriors from the multiple chains.
+ Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
+  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
+module load gcc R jags  This appears to result in greater uncertainty:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/06/29/notes/">Progress this week, by project</a></h2>
-    <h4>Fri, Jun 29, 2012</h4>
-    <div class="article-style">
-      
-      Critical transitions Must determine the correct set of comparisons:
- Solve the SDP optim using the exact time dependent
- Simulate under an f with the same escapement policy but different functional form, i.e. logistic with K &amp; r estimated from the May example, either analytically or directly from the data.
- Considering the costs of &ldquo;cautious policy&rdquo; (calculates optimal harvest recursively but always selects a fraction P of the optimal.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/06/22/notes/">Notes on value of information runs with uniform noise</a></h2>
-    <h4>Fri, Jun 22, 2012</h4>
-    <div class="article-style">
-      
-      Debug Sethi with large uniform noise: needed to avoid havest &gt; stock in definition of f.
-  I ran the value of information calculations using the Sethi settings of a logistic map and uniform noise, which does indeed replicate their results, where the measurement error escapement is lower than the &ldquo;all low noise&rdquo; (&ldquo;deterministic&rdquo;) escapement until stock get above carrying capacity. results
-Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribution; I still find the lognormal noise pattern a bit more intuitive.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/06/21/notes/"></a></h2>
-    <h4>Thu, Jun 21, 2012</h4>
-    <div class="article-style">
-      
-      Value of information  Reed with uniform large noise, logistic map Reed with uniform large noise Reed with uniform small noise Sethi with uniform small noise, logistic map. Sethi with large noise Doesn&rsquo;t work. hmm.. voi_sethi_parameters.md , running value of information setup but with small noise &amp; logistic map. Whoops, this example solves uniform noise but simulates log-normal noise, which probably explains the positive effect of growth noise once again.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -272,8 +220,12 @@ Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribu
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -360,7 +312,13 @@ Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribu
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

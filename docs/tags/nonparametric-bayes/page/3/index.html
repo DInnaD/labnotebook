@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,127 +134,78 @@
 
 
 
+
   <h1>Nonparametric Bayes</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/05/09/notes/">Prep for ERE talk</a></h2>
-    <h4>Thu, May 9, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/03/admb-basic-example/">Mon, Jun 3, 2013</a></h4>
       
-      Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
-      
+      <div class="article-style">
+        After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
+ These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
+Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/07/notes/"></a></h2>
-    <h4>Tue, May 7, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/29/notes/">Wed, May 29, 2013</a></h4>
       
-      Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
-      
+      <div class="article-style">
+        nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
+ fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
+ slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h2>
-    <h4>Fri, May 3, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/28/notes/">Tue, May 28, 2013</a></h4>
       
-      Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
- As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
-      
+      <div class="article-style">
+        Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/"></a></h2>
-    <h4>Wed, May 1, 2013</h4>
-    <div class="article-style">
-      
-      (Development version for reference; code functions now in R/gp_mcmc.R)
-Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/01/integrating-over-posterior-gp/"></a></h2>
-    <h4>Wed, May 1, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/27/exploring-approximate-dynamic-programming-approaches/">Mon, May 27, 2013</a></h4>
       
-      Added integration over the posterior distribution of the GP
- Added example of parametric Bayesian inference based on Ricker
-  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
-      
+      <div class="article-style">
+        Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
+Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h2>
-    <h4>Tue, Apr 30, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/24/notes/">Fri, May 24, 2013</a></h4>
       
-      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
-Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
-  Define some example priors
-lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
-      
+      <div class="article-style">
+        prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/29/finishing-comparison-parametric-and-nonparametric/"></a></h2>
-    <h4>Mon, Apr 29, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/23/notes/">Thu, May 23, 2013</a></h4>
       
-      Implemented in BUGS/allen.md
-Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
- Oh, Jeromy Anglim has a rather nice collection of jags links
-  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
-      
+      <div class="article-style">
+        Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
+ Some edits to adapt the extraction of posteriors from the multiple chains.
+ Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
+  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
+module load gcc R jags  This appears to result in greater uncertainty:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h2>
-    <h4>Sat, Apr 27, 2013</h4>
-    <div class="article-style">
-      
-      Load necessary libraries,
-library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
-library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/25/notes/"></a></h2>
-    <h4>Thu, Apr 25, 2013</h4>
-    <div class="article-style">
-      
-      finish pmc post from Tuesday (done).
- Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
- Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/19/bayesian-parametric-uncertainty-sdp/"></a></h2>
-    <h4>Fri, Apr 19, 2013</h4>
-    <div class="article-style">
-      
-      Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
-f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &lt;- dim(pardist) indices &lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &lt;- sapply(indices, function(i){ # For each parameter value p &lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &lt;- f(x_t,h,p) est_sigma_g &lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &lt; x_grid[2]){ # handle the degenerate case out &lt;- numeric(length(x_grid)) out[1] &lt;- 1 out } else { out &lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &lt;- t(F_true) } snap_to_grid &lt;- function(x, grid) sapply(x, function(x) grid[which.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -269,8 +220,12 @@ f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapp
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -357,7 +312,13 @@ f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapp
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,115 +134,72 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h2>
-    <h4>Wed, Mar 3, 2010</h4>
-    <div class="article-style">
-      
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/14/writing-continues/">Thu, Oct 14, 2010</a></h4>
+      <h4><a href="../../../../2010/10/14/writing-continues/">Writing continues</a></h4>
+      <div class="article-style">
+        Deleting large sections is a great way to spur better writing. Revised organization substantially, discussion somewhat loose still. But basic framework all in place. draft off to Peter and Graham!
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/13/wednesday/">Wed, Oct 13, 2010</a></h4>
+      <h4><a href="../../../../2010/10/13/wednesday/">Wednesday</a></h4>
+      <div class="article-style">
+        Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/12/a-day-of-writing/">Tue, Oct 12, 2010</a></h4>
+      <h4><a href="../../../../2010/10/12/a-day-of-writing/">a day of writing</a></h4>
+      <div class="article-style">
+        Figuring out the best way to present the critique of AIC, introduction to the method, introduction to the power test. Seeking inspiration from Huelsenbeck 1996 and digging farther back into the literature:</p>
 
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
-      
+<p>Cox, D.R. Further results on tests of separate families of hypotheses. Journal of the Royal Stastical Society 24, 406-424(1962). Cox, D.R. Tests of Seperate Families of Hypotheses. Proceedings of the 4th Berkeley Symposium, University of California Press 105 - 123(1961).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/02/power-in-trees/">Power in trees</a></h2>
-    <h4>Tue, Mar 2, 2010</h4>
-    <div class="article-style">
-      
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/25/thursday/">Thursday</a></h2>
-    <h4>Thu, Feb 25, 2010</h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/11/still-writing/">Mon, Oct 11, 2010</a></h4>
+      <h4><a href="../../../../2010/10/11/still-writing/">Still writing</a></h4>
+      <div class="article-style">
+        Ah, back after being in bed almost a week with flu. Back to writing manuscript, reworking the presentation of the actual method. Much of the day caught up in Watson&rsquo;s practice orals (applying computational mechanics to inhibitory neuron circuits), checking in with Yun on his orals and then GTC. too many delays, hope I feel fully better soon.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/20/implementing-an-example-of-low-and-high-power-trees/">Implementing an example of low and high power trees</a></h2>
-    <h4>Sat, Feb 20, 2010</h4>
-    <div class="article-style">
-      
-      Code implementation in felsenstein_tree.R
- I consider a star tree and a Felsenstein tree each of N nodes; M = (N+1)/2 tips. I consider an uncorrelated data set of M normal random variables, such as would be generated by either BM or OU models on the star tree. I produce a correlated data set such as would be generated by Brownian motion on the felsenstein tree. I generate 8 model fits &ndash; fitting BM and OU to each tree under each data set.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/05/lr-manuscript/">Tue, Oct 5, 2010</a></h4>
+      <h4><a href="../../../../2010/10/05/lr-manuscript/">LR Manuscript</a></h4>
+      <div class="article-style">
+        Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/19/power-in-trees-continues/">Power in trees continues</a></h2>
-    <h4>Fri, Feb 19, 2010</h4>
-    <div class="article-style">
-      
-      Discussion of power in trees need a counterpoint to the example of the star tree as being devoid of information content. The best example here is probably the example tree used in the introduction of Felsenstein 1985: two star trees sharing a common ancestor. Implemented the basic creation of a balanced tree of arbitrary depth having this structure. The balanced tree has 2^h^ − 1 nodes, all internal nodes occuring at time = 1&frasl;2 and all tips at time = 1.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/04/monday/">Mon, Oct 4, 2010</a></h4>
+      <h4><a href="../../../../2010/10/04/monday/">Monday</a></h4>
+      <div class="article-style">
+        7:30 &ndash; 8:30 Read ﻿article for Wainwright&rsquo;s 270:  Streisfeld, M.a. &amp; Rausher, M.D. Population Genetics, Pleiotropy, and the Preferential Fixation of Mutations During Adaptive Evolution. Evolution no-no(2010).doi:10.1111/j.1558-5646.2010.01128.x
+Interesting approach, methods description a little light and both prediction and interpretation of pattern of mutations in coding, cis-reg, and transcription factor sites seems a little loose. Detailed notes on article in Mendeley. More comments after the discussion section at 1pm today.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/18/power-in-trees/">Power in Trees</a></h2>
-    <h4>Thu, Feb 18, 2010</h4>
-    <div class="article-style">
-      
-      Following up after yesterday&rsquo;s meeting, I am working on implementing the confidence interval analysis and quantifying information in trees. This second point I will develop by comparing the Felsenstein example tree (information-rich) to the star tree (uninformative), and develop this discussion in the context of assessing the importance of phylogenetic corrections and phylogenetic intertia (my original theme again: noise or data??).
-Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 days ago with interest in applying phylogenetic comparative methods to Primate Brain Morphometry data.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/17/meeting-goals/">Meeting Goals</a></h2>
-    <h4>Wed, Feb 17, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/16/updating-manuscript/">Updating manuscript</a></h2>
-    <h4>Tue, Feb 16, 2010</h4>
-    <div class="article-style">
-      
-      The progress of the past few days has lead to substantial revision proposals in my manuscript draft. Rewriting for discussion with Brian tomorrow. Currently revised outline:
- Intro
- Biological Motivation Comparative Methods and Comparing Models Model choice paradigm: the right direction, but incomplete  Simple Example
- The Star Tree Two hypotheses: stabilizing vs disruptive selection Information Criteria approach is insufficient Likelihood surfaces Likelihood ratio distribution  Anoles Example
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/15/parametric-bootstrapping/">Parametric bootstrapping</a></h2>
-    <h4>Mon, Feb 15, 2010</h4>
-    <div class="article-style">
-      
-      There are several ways we can frame the bootstrapping question. What is the probability that we see a given likelihood ratio statistic (that the log likelihoods differ by a certain spread) just by chance? We have two versions of chance &ndash; the chance we see this ratio when model a is correct and the chance we see this ratio when model b is correct. We simulate 2000 data sets under each model, generating a distribution of likelihood ratio scores for each data set.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/14/speciation/"></a></h2>
-    <h4>Sun, Feb 14, 2010</h4>
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -257,8 +214,12 @@ Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 da
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -345,7 +306,13 @@ Primate Brain Morphometry Daniel Mietchen contacted me through openwetware 11 da
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

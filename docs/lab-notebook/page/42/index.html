@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,130 +133,87 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/">Thu, Nov 17, 2011</a></h4>
-    <h4><a href="../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/">wrightscape and sensitivity to initial conditions</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/25/research/">Mon, Mar 25, 2013</a></h4>
       
+      <div class="article-style">
+        Reading  (Schreiber &amp; Killingback, 2013 ) (Warren, 2013 )  Notebook  Added SHA hashes. See notebook Issues #67 for details. modification date. #74, also involved resolving page path robustly, #73 analytics on history button, layout #72 push dreamhost-based images to flickr See #75  prosecutor Run with OU based data. Draw from sde package.
+Packages Knitcitations  Feature request for additional markup for page ranges #32  rfigshare  Handle pull request for rfigshare  code-tricks: notes on merging select files from pull request Pull request included changes to files we don&rsquo;t want to change.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/15/tuesday-10/">Tue, Nov 15, 2011</a></h4>
-    <h4><a href="../../../2011/11/15/tuesday-10/">Tues: Sources of stochastic variation in optimal control</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/22/research/">Fri, Mar 22, 2013</a></h4>
       
-      Adding stochasticity seems to have a small history.
-Reed 1979 Reed, 1979 Uncertainty in next year&rsquo;s stock, &ldquo;growth uncertainty&rdquo; at the time of determining harvest. Constant escapement policy, no chance of extinction.
-Clark &amp; Kirkwood 1986 Clark &amp; Kirkwood, 1986 Uncertainty in this year&rsquo;s stock, &ldquo;measurement uncertainty&rdquo; when determining harvest.
-Roughgarden &amp; Smith (1996) consider both, and add uncertainty in harvest. Sethi et al. 2005 (Sethi et. al. 2005) consider the economist&rsquo;s optimization of this.
-      
+      <div class="article-style">
+        multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">Sun, Nov 13, 2011</a></h4>
-    <h4><a href="../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/20/research/">Wed, Mar 20, 2013</a></h4>
       
-      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
-      
+      <div class="article-style">
+        pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/12/of-labrids-and-dubious-convergence/">Sat, Nov 12, 2011</a></h4>
-    <h4><a href="../../../2011/11/12/of-labrids-and-dubious-convergence/">Wainwright Retreat to Hastings Reserve</a></h4>
-    <div class="article-style">
-      
-      Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
-more labrid trait evolution alpha &amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
-Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/10/thursday-12/">Thu, Nov 10, 2011</a></h4>
-    <h4><a href="../../../2011/11/10/thursday-12/">Thursday</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/19/prosecutor-fallacy-as-large-deviations/">Tue, Mar 19, 2013</a></h4>
       
-      Forage Fish dynamics
- Forage fish consumption: who consumes, how important is it. e.g. Africa imports more quantity of fish, but of low value. net exports based on value.
- food security / undernourished regions
- forage fish substitutable? Study in Asia: Pretty inelastic.
- income elasticity vs wealth elasticity (not a real difference. but patterns of consumption of a rich person aren&rsquo;t same as poor person with a windfall, e.
-      
+      <div class="article-style">
+        (Corresponds to commit 4bd8422107 in earlywarning repo)
+For the individual-based simulation, the population dynamics are given by
+$$\begin{align} \frac{dP(n,t)}{dt} &amp;= b{n-1} P(n-1,t) + d{n+1}P(n+1,t) - (b_n+d_n) P(n,t), b_n &amp;= \frac{e K n^2}{n^2 + h^2}, d_n &amp;= e n + a, \end{align}$$
+which is provided by the saddle_node_ibm model in populationdynamics.
+For each of the warning signal statistics in question, we need to generate the distibution over all replicates and then over replicates which have been selected conditional on having experienced a crash.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/">Thu, Nov 10, 2011</a></h4>
-    <h4><a href="../../../2011/11/10/auteur-plots-for-reef-fish-jaws-and-monkey-brains-needs-tweaking/">Auteur plots for reef fish jaws and monkey brains -- needs tweaking</a></h4>
-    <div class="article-style">
-      
-      Looking at the diversification patterns from Auteur. Longer rjmcmc runs aren&rsquo;t showing a significant difference, but more attention needed in parameters such as initial merge-split probability perhaps? Seems to overestimate the change points.
-Remains true for the primate brains example:
-Set up to run on carver cluster, copy over the saved rda file and all files matching the random string already saved as outputs. Full labrid example on 20 cores still exceeds the allocation capacity for an R vector.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/19/collected-notes/">Tue, Mar 19, 2013</a></h4>
+      <h4><a href="../../../2013/03/19/collected-notes/">Collected notes from past few days</a></h4>
+      <div class="article-style">
+        Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Thu, Nov 10, 2011</a></h4>
-    <h4><a href="../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/14/notes/">Thu, Mar 14, 2013</a></h4>
       
-      Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
-parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
-      
+      <div class="article-style">
+        Writing  Meeting with Steve over outline Writing on nonparametric-bayes manuscript A few notes on notebook-features draft  Reading  EasyABC by Jabot et. al. (2013). While it&rsquo;s great that MEE publishes this stuff, this is unique in that the authors are updating and improving upon an existing package published by MEE the year before, Brook et. al. (2013). The authors of the recent manuscript have certainly made an important contribution which deserves the traditional recognition provided by a separate publication, but one must wonder why we need another package instead of building on the existing one.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Wed, Nov 9, 2011</a></h4>
-    <h4><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h4>
-    <div class="article-style">
-      
-      Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
-$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
-$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
-As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/08/sdp-solution-for-allee-model/">Tue, Nov 8, 2011</a></h4>
-    <h4><a href="../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h4>
-    <div class="article-style">
-      
-      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
-Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
-Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/06/sunday-5/">Sun, Nov 6, 2011</a></h4>
-    <h4><a href="../../../2011/11/06/sunday-5/">Sunday</a></h4>
-    <div class="article-style">
-      
-      Computing notes A few configuration related things from migrating to the new laptop.
-Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
-make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
-mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -271,9 +228,10 @@ mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -362,7 +320,13 @@ mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

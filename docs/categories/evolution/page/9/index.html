@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,142 +134,82 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/">Friday: more labrid &amp; parrotfish wrightscape examples</a></h2>
-    <h4>Fri, Jun 17, 2011</h4>
-    <div class="article-style">
-      
-      Runs from yesterday: MLE comparison of full labrid pharyngeal innovation (all parrotfish), alpha-v-sigma: Unfortunately, the all-variable mcmc over labrid tree was unsuccessful.
-Pure-brownie vs pure diversification ends up with the surprisingly opposite conclusion from the sigmas-alphas on parrotfish close ratio:
-Clearly a convergence problem but with which model? (see parameter distributions adjacent; following in photostream archive).
-Luckily this is not the case in the full labrid (size-corrected, protrusion, pharyngeal innovation) model set:
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/20/thursday-some-parrotfish-runs-on-method2/">Thu, Oct 20, 2011</a></h4>
+      <h4><a href="../../../../2011/10/20/thursday-some-parrotfish-runs-on-method2/">Thursday - some parrotfish &amp; labrid runs on method2</a></h4>
+      <div class="article-style">
+        Running:
+ farm cluster, c0-17 method2_parrotfish.R &ndash; Done. Below.
+ farm cluster, c0-27 method2_labrids.R (with three partitions)
+ farm cluster, c0-13 method2_labrids_phar.R (two partitions)
+ farm cluster, c0-19 method2_labrids_intra.R (two partitions)
+  Parrotfish Phylogeny The .y indicates the trait has been size-corrected. Parameters reported from estimations in the full model. All sets converged except open lever ratio. Error bars indicate 1 standard deviation estimated from the likelihood curvature. Lighter color indicates the presence of an intramandibular joint, as coded in the phylogeny above.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/">Wrightscape labrid/parrotfish results; Evolution pres</a></h2>
-    <h4>Thu, Jun 16, 2011</h4>
-    <div class="article-style">
-      
-      Analysis Summarizing recently completed runs:  Reviewing last night&rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&rsquo;t seem to want to run)
- the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
-  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
-Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&rsquo;s when theta could also vary.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/07/matt-helmus-visit/">Fri, Oct 7, 2011</a></h4>
+      <h4><a href="../../../../2011/10/07/matt-helmus-visit/">Matt Helmus visit</a></h4>
+      <div class="article-style">
+        Notes from presentation 1. Species-area curve:  Species sorting by environment. species clustering due to limited dispersal Random displacement (faster saturation) In-situ speciation looks like clustering Compare to colonization Phylogenetic species variability metric: compare phylogenetic covariance matrix to a star-phylogeny, not expected to increase with area.  $$ \frac{n \textrm{tr}C - \sum C }{n(n-1)}$$
+2. Simulations:  species sort along an environmental gradient. BM trait determining position. : closely related species clustered.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/">Wednesday MCMC and MLEs for wrightscape</a></h2>
-    <h4>Wed, Jun 15, 2011</h4>
-    <div class="article-style">
-      
-      Wrote plotting function for wrightscape MCMC analysis
- added support to write MCMC to a file.
- exploring divergent MCMCs. more checks on NaNs
- trying MLE initiated MCMC
- Revising talk for evolution
- tweaks to socialR reporting &ndash; include error message, exit with status=1, fewer time sigfigs; see gitlog.
-   Max likelihoods &amp; bootstraps Parrotfish protrusion (size corrected, 400 reps) If thetas are different and not allowed to vary, the alpha model will obviously do worse than the sigma model, even if it is correct.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/04/tuesday-9/">Tue, Oct 4, 2011</a></h4>
+      <h4><a href="../../../../2011/10/04/tuesday-9/">Tuesday</a></h4>
+      <div class="article-style">
+        Hastings seminar: Forest Pest Outbreaks Schedule
+Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&rsquo;s NY Times piece, (and see author&rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp; Management (Gypsy moth). * Review review (Taylor &amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/14/tuesday-evolutionwrightscape-talk-sundry/">Tuesday - Evolution/wrightscape talk &amp; sundry</a></h2>
-    <h4>Tue, Jun 14, 2011</h4>
-    <div class="article-style">
-      
-      Computing For today&rsquo;s analyses run history (with result/code links): see tweeting_cpu account or its search history (from Topsy)
-Analysis/Summary MCMC over parrotfish tree on protrusion doesn&rsquo;t converge when alpha and sigma are both free to vary.
-MLE approach, (size-corrected) protrusion (12hr run)
-Vary both theta and sigma:
-Vary alpha and theta:
-alpha-theta wins over theta-sigma:
-git ids/urls git codes must be obtained at start of run, together with commit, or link will point to the wrong code!
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/13/monday-7/">Monday -</a></h2>
-    <h4>Mon, Jun 13, 2011</h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/30/friday-wordpress-backups-pmc-edits/">Fri, Sep 30, 2011</a></h4>
+      <h4><a href="../../../../2011/09/30/friday-wordpress-backups-pmc-edits/">Friday, wordpress backups, pmc edits</a></h4>
+      <div class="article-style">
+        Wordpress local copy  configured mysqldump backup, following dreamhost wiki (added cron job manually instead of in panel).  edit local wp-config.php to use localhost. Get the database name, user name and password from the lines above it, which are used later.
+define(&lsquo;DB_HOST&rsquo;, &lsquo;localhost&rsquo;); // &hellip;and the server MySQL is running on  create user: log in as root
+mysql -u root -p  and create user
+mysql&gt; create database database_name mysql&gt; create user &lsquo;username&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;password&rsquo;; mysql&gt; create database database_name mysql&gt; grant usage on *.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/">mcmc and bootstrapped likelihood runs on parrotfish tree</a></h2>
-    <h4>Thu, Jun 9, 2011</h4>
-    <div class="article-style">
-      
-      Thursday Overview  Alan Meeting
- Still running scripts, see below
- pmc vignette
-  To Do  Got Duncan&rsquo;s ROAuth utilities for RMendeley, still need to test.
- Testing Scott&rsquo;s rplos functions
- Send Alan the paragraph for edits.
-  Computation Running on one  n 15: sim_general_mcmc.R MCMC of general model with 8 x 1e6 reps. alpha diverged. DEAD
- n14 Retry above with 8 x 1e6 and with less general model: sigma, theta indep only.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/29/thursday-10/">Thu, Sep 29, 2011</a></h4>
+      <h4><a href="../../../../2011/09/29/thursday-10/">Thursday</a></h4>
+      <div class="article-style">
+        9-9:20 Updating research statement (home page). 9:20 -9:40 Updating notebook: Review, Tuesday &amp; Wednesday meetings coffee 9:50 Application. 10-11:30:  Forage fish dynamics, Sanchirico and Essington Jim gives the broad overview, central question: What are the benefits/costs of a % reduction in the catch C of forage fish N:
+$$ \Delta C \downarrow \to \Delta N \to \Delta F, \Delta M \Delta S$$
+F predator commercial fisheries, M marine mammals, S seabirds.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/">Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree</a></h2>
-    <h4>Wed, Jun 8, 2011</h4>
-    <div class="article-style">
-      
-      Reviewed last night&rsquo;s simulations, see yesterday&rsquo;s post.  Simulated data testing: Fitting the general model well on the parrotfish tree even with clear simulated data seems hard. Simulating with alpha(intramandibulars) = .01, and others = 20, and fitting general model and the alpha-only independent model (release of constraint model). The release model MLE recovers reasonable values: alpha(intra) = 1.7, alpha(others) = 21.8, while the general model fit is clearly struggling even with SANN.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/29/phylogenetics-research-proposal/">Thu, Sep 29, 2011</a></h4>
+      <h4><a href="../../../../2011/09/29/phylogenetics-research-proposal/">Phylogenetics - Research Proposal</a></h4>
+      <div class="article-style">
+        Evolution has shaped all ecological communities. It has tested their resilience in experiments we could never perform. Now can it help us identify what characteristics make a community resilient or vulnerable to external forces?
+Anthropogenic influences such as invasive species, climate change, and urbanization pressure ecosystems everywhere on the planet. Some collapse suddenly, others appear remarkably resilient. What makes some systems more vulnerable, and how could we identify them? Ecologists have long sought to understand the factors most influencing this stability, but the scale is immense and the problem complex &ndash; making controlled experimentation difficult and limited.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/">Tuesday: Parrotfish/wrightscape runs and code modification</a></h2>
-    <h4>Tue, Jun 7, 2011</h4>
-    <div class="article-style">
-      
-      Runs: Mon midnight: parrotfish.R with updated SANN parameters and corrected output parameter labeling (always {Xo, alpha, sigma, theta} ordering), implemented on zero, nice 19. General model (&ldquo;wright&rdquo;) still not outperforming others, so still un-converged.
-[flickr]5808279169/[/flickr]
- MCMC runs of gape.y and close on one, at nice 19 and 18 1e5 reps. (Alex running matlab nice 10). protrusion.y at nice 11, 1e6 reps.
- open at nice 18 on zero, 1e6 reps.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/06/parrotfish-in-wrightscape/">Parrotfish in wrightscape</a></h2>
-    <h4>Mon, Jun 6, 2011</h4>
-    <div class="article-style">
-      
-      Bootstrapping option Needs a method to pass the optional optim arguments to the update function, such that update uses the same algorithm as the initial fit. Required being a little clever:
-[gist id=&ldquo;1010999&rdquo;]
-Done. but perhaps we won&rsquo;t always want to bootstrap under this? I suppose it is good practice but slow! Shoot, now I need a lot of really large computers really soon.
-Excellent suggestion for better ways to do this from statscicomp list.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/04/saturday-git-with-latexdiff-treebase-and-pmc-package-updates-bounds-on-lambda/">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h2>
-    <h4>Sat, Jun 4, 2011</h4>
-    <div class="article-style">
-      
-      bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
-Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -284,8 +224,12 @@ Considering user workflow for wrappers. Conceptually, makes sense for user to r
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -372,7 +316,13 @@ Considering user workflow for wrappers. Conceptually, makes sense for user to r
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

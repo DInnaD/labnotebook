@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,112 +133,92 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/10/26/correcting-for-the-mean-dynamics/">Tue, Oct 26, 2010</a></h4>
-    <h4><a href="../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h4>
-    <div class="article-style">
-      
-      Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
- First, if the mean is changing, the model fitting must be appropriate to this &ndash; either by fitting this rate of change or correcting for it.
- Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Mon, Oct 25, 2010</a></h4>
-    <h4><a href="../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h4>
-    <div class="article-style">
-      
-      Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
-A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/21/warning-signals-2/">Thu, Oct 21, 2010</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
- Proper handling of trends
- Best model for eigenvalue change
-  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/04/release-of-constraint/">Sun, Dec 4, 2011</a></h4>
+      <h4><a href="../../../2011/12/04/release-of-constraint/">Release of constraint</a></h4>
+      <div class="article-style">
+        (uncertainty estimation to follow).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/21/spatial-warning-signals-power-etc/">Thu, Oct 21, 2010</a></h4>
-    <h4><a href="../../../2010/10/21/spatial-warning-signals-power-etc/">Spatial Warning Signals, power, etc</a></h4>
-    <div class="article-style">
-      
-      Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation. Weakening stability across a set of coupled patches should result in increased autocorrelation. Decided to test this with a little visualization with help of a quick R script. Time progresses across the x-axis, 1-D space (on S1) across the y-axis. Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/20/adaptive-dynamics-abstract/">Wed, Oct 20, 2010</a></h4>
     
-    <div class="article-style">
-      
-      Adaptive dynamics is a set of recently developed techniques for understanding phenotypic evolution, using a dynamical systems approach to concepts from evolutionary game theory. In contrast to population genetics, this approach tends to explore richer ecological interactions and simpler genetic assumptions, with significant controversy. My own work has focused on a particular element of the theory known as the canonical equation, a macroscopic equation describing the deterministic rate of evolution.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/02/friday-updated-wrightscape-results/">Fri, Dec 2, 2011</a></h4>
+      <h4><a href="../../../2011/12/02/friday-updated-wrightscape-results/">Friday - updated wrightscape results - simulated examples</a></h4>
+      <div class="article-style">
+        Consider two simulated datasets, one under a release of constraint (left) one under an increase in sigma (right). Can we correctly discriminate between these models?
+Parameter differences:
+Likelihood differences:
+Yup.
+Repeated with effect-size scaled to be roughly equivalent for both traits. Wondering if it&rsquo;s easier to plot parameters out separately like this. Error bars show median and 25&frasl;75 % quantile range, with barplots showing the means (note that high outliers makes mean often larger than median).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/20/stochastic-population-dynamics-abstract/">Wed, Oct 20, 2010</a></h4>
-    <h4><a href="../../../2010/10/20/stochastic-population-dynamics-abstract/">ecology Abstract</a></h4>
-    <div class="article-style">
-      
-      Ecological population sizes fluctuate not only in response to environmental fluctuations but because of the stochastic nature of natural births and deaths. While in very large populations these fluctuations have negligible impact, ecology rarely obliges us by satisfying this limit. Age and stage structure in populations serve to amplify the effect, where the fate of the population is determined by a smaller subset of, say, the fecund adults alone. Demographic noise is probably responsible for the ultimate extinction of many populations once reduced to a small size.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/19/warning-signals/">Tue, Oct 19, 2010</a></h4>
     
-    <div class="article-style">
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thu, Dec 1, 2011</a></h4>
+      <h4><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thrusday - corrected calculation, implementing.  </a></h4>
+      <div class="article-style">
+        Implementing Wednesday night&rsquo;s calculations. Should transcribe full derivation from paper notebook, meanwhile (revealing how chaotic my work process really is):
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;equations&rdquo; min_upload_date=&ldquo;2011-12-04 11:00:37&rdquo; max_upload_date=&ldquo;2011-12-04 11:39:37&rdquo;]
+Day&rsquo;s log of plots:
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-12-01 8:00:37&rdquo; max_upload_date=&ldquo;2011-12-01 23:23:37&rdquo;]
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/18/teaching/">Mon, Oct 18, 2010</a></h4>
     
-    <div class="article-style">
-      
-      Graduate Teaching Community &ndash; reflections on teaching Haven&rsquo;t made a lot of entries in this notebook as I&rsquo;m not teaching regularly at the moment, though am still attending meetings of the Graduate Teaching Community, a record of which can be found on our GTC blog. But today in GTC we are thinking about reflections on teaching, and starting with a little bit of journaling, so this seemed like a good place to do it.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/15/status-update/">Fri, Oct 15, 2010</a></h4>
-    <h4><a href="../../../2010/10/15/status-update/">Status update</a></h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wed, Nov 30, 2011</a></h4>
+      <h4><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h4>
+      <div class="article-style">
+        rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/14/writing-continues/">Thu, Oct 14, 2010</a></h4>
-    <h4><a href="../../../2010/10/14/writing-continues/">Writing continues</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/29/tuesday-debugging/">Tue, Nov 29, 2011</a></h4>
+      <h4><a href="../../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h4>
+      <div class="article-style">
+        Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
+Unit tests.
+Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/28/monday-11/">Mon, Nov 28, 2011</a></h4>
+      <h4><a href="../../../2011/11/28/monday-11/">Monday: submodels for full traits</a></h4>
+      <div class="article-style">
+        Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
+Creating unit tests:
+Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
+require(wrightscape) data(labrids) s1_spec &lt;- list(alpha = &quot;global&quot;, sigma = &quot;indep&quot;, theta = &quot;global&quot;) s1 &lt;- multiTypeOU(data = dat[&quot;close&quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &lt;- levels(pharyngeal) s1$sigma[&quot;other&quot;] &lt;- .
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -253,9 +233,10 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -344,7 +325,13 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

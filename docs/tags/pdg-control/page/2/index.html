@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,125 +134,75 @@
 
 
 
+
   <h1>Pdg Control</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/12/21/progress-summary/"></a></h2>
-    <h4>Fri, Dec 21, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/08/06/summarizing-earlier-warning-signal-under-control-notes/">Tue, Aug 6, 2013</a></h4>
       
-      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+      <div class="article-style">
+        NSF goals:  combine control methods and warning signals do non-parametric or machine learning increase or decrease chance of transition learning  Further areas (from comment piece) baselines (statistical; emperical) context-specific (additional data sources, reflecting context in model)  Warning signals in managed systems Management decreases the signal: compare likelihood statistic in unmanaged_warning managed_warning:
+Estimating Stability in managed systems Recovery rate in optimally fished vs unfished system (based on the OU model): stability.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/20/notes/">Mon, May 20, 2013</a></h4>
+      
+      <div class="article-style">
+        EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/13/notes/">Mon, May 13, 2013</a></h4>
+      
+      <div class="article-style">
+        Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
+  Misc  Some software providing rather impressive/high fidelity pdf to html conversion&hellip; Not just rendering as images &ndash; the text is searchable, though in the html source it just looks like a bunch of binary data URIs.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/02/04/updates-across-various-projects/">Mon, Feb 4, 2013</a></h4>
+      
+      <div class="article-style">
+        At home after birth of Edward since Jan 19th, leaving little time for research. Assembled notes from a few side projects I&rsquo;ve moved forward in the wee hours. Covers the past several days.
+XML and RDFa parsing I have been using the lab notebook to explore technology for scientific communication, including making use of semantic and linked data concepts. To illustrate some of the potential these tools can offer I&rsquo;ve started working on a short post with examples parsing and exploring the XML and RDFa data in the notebook.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/21/progress-summary/">Fri, Dec 21, 2012</a></h4>
+      
+      <div class="article-style">
+        Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
 I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/12/05/notes/"></a></h2>
-    <h4>Wed, Dec 5, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/05/notes/">Wed, Dec 5, 2012</a></h4>
       
-      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
+      <div class="article-style">
+        pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
  Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/12/03/figures-3-and-4-for-policycosts/"></a></h2>
-    <h4>Mon, Dec 3, 2012</h4>
-    <div class="article-style">
-      
-      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
-Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/27/policy-costs-work/"></a></h2>
-    <h4>Tue, Nov 27, 2012</h4>
-    <div class="article-style">
-      
-      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
- Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/22/notes/"></a></h2>
-    <h4>Thu, Nov 22, 2012</h4>
-    <div class="article-style">
-      
-      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
-Uniform lognormal log  A few small tweaks to probability calculations
- Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/24/multiple-uncertainty-value-function-iteration/"></a></h2>
-    <h4>Wed, Oct 24, 2012</h4>
-    <div class="article-style">
-      
-      Multiple Uncertainty algorithm Define each of the transition matrices:
-D &lt;- matrix(NA, nrow=length(x_grid), ncol=Tmax) P &lt;- outer(x_grid, h_grid, profit) F &lt;- outer(x_grid, f(x_grid, 0, p), pdfn, sigma_g) M &lt;- outer(x_grid, x_grid, pdfn, sigma_m) I &lt;- outer(h_grid, h_grid, pdfn, sigma_i)  Probably row-normalize each:
-rownorm &lt;- function(M) t(apply(M, 1, function(x) x/sum(x))  (Note the transpose is needed since the silly function of a vector turns the column into a row. Not an issue of margin 2)
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/11/notes/"></a></h2>
-    <h4>Thu, Oct 11, 2012</h4>
-    <div class="article-style">
-      
-      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
-pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/01/multiple-uncertainty/"></a></h2>
-    <h4>Mon, Oct 1, 2012</h4>
-    <div class="article-style">
-      
-      Let
- y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
-$$ x</em>{t+1} = z_g f(x_t) $$
-In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/27/tuesday-pandoc-citations-notes-various/">Tuesday: pandoc citations notes, various</a></h2>
-    <h4>Tue, Mar 27, 2012</h4>
-    <div class="article-style">
-      
-      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/26/active-adaptive-management-solutions-belief-sdp/">Active adaptive management solutions: Belief SDP</a></h2>
-    <h4>Mon, Mar 26, 2012</h4>
-    <div class="article-style">
-      
-      Have finally gotten my active adaptive management solutions working.
-The active adaptive management solution learns very quickly and rather monotonically which model is correct, even when models differ by small amounts and the initial belief is heavily skewed to the wrong model. I&rsquo;ve implemented examples with Myers model, but in this parameter space the allee effect is well below the Reed escapement level of the alternative Beverton Holt model, so it doesn&rsquo;t exert itself.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -267,8 +217,12 @@ The active adaptive management solution learns very quickly and rather monotonic
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -355,7 +309,13 @@ The active adaptive management solution learns very quickly and rather monotonic
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

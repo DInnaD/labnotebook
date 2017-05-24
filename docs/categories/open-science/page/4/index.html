@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,125 +134,73 @@
 
 
 
+
   <h1>Open Science</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/06/17/notes-for-van-noorden-chat/"></a></h2>
-    <h4>Mon, Jun 17, 2013</h4>
-    <div class="article-style">
-      
-      Below are my scribble notes in prep for an interview with Richard, a writier for Nature.
- Advice for early-career scientists on how to think about organizing and publishing research data online.
-Things like - why do it,
- Good for science (idealist), good for reputation (careerist), etc, but most importantly: helps you do your research.
-I had the pleasure of meeting with then Secretary of Energy Stephen Chu last summer at a small Department of Energy computational science conference.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/05/04/why-i-sign-my-reviews/">Sun, May 4, 2014</a></h4>
+      <h4><a href="../../../../2014/05/04/why-i-sign-my-reviews/">why I sign my reviews</a></h4>
+      <div class="article-style">
+        For the past four years I have made an effort to sign all my reviews (which I try to keep to about one a month). It isn&rsquo;t because I believe in radical openness or something crazy like that. Its really just my self interest involved &ndash; at least mostly. Writing a review is an incredibly time consuming, and largely thankless task. Supposedly anonymous peer review is supposed to protect the reviewer, particularly the scenario of the less established scientist critiquing the work of the more established.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/10/mansucript-reviews-on-github/">manuscript reviews on github?</a></h2>
-    <h4>Mon, Jun 10, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/04/29/notes/">Tue, Apr 29, 2014</a></h4>
       
-      I was recently impressed to learn of Trevor Bedford&rsquo;s strategy of seeking pre-approval for posting his reviewer&rsquo;s comments as Github issues. Beyond providing links to the data and source-code, I generally don&rsquo;t advertise the open science nature of papers I submit &ndash; I guess I assume that if the reader or reviewers care, it should be easy enough for them to discover it. Consequently I am usually immediately frustrated to realize that upon receiving my reviews I have to create a second, private repository for the review material, our replies to reviewers, etc.
-      
+      <div class="article-style">
+        Labnotebook  Configure Github CDN Hmm, jekyll-assets. Not sure that this is preferable from just using the makefile to compile and minify assets seperately as needed. Move www.carlboettiger.info to host from gh-pages branch of labnotebook. This self-contained system is more standard, and it is strange for other gh-pages hosting to be using the same domain/subdomain to reference content that is actually on a gh-pages branch of some totally different repository.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/06/03/doi-citable/">DOI != citable</a></h2>
-    <h4>Mon, Jun 3, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/04/11/notes/">Fri, Apr 11, 2014</a></h4>
       
-      I feel I see this kind of comment almost daily:
-Is there a way to obtain DOI for a @github repository? (for citing #opensource software packages, similar to @figshare objects) #git
-&mdash; Ahmed Moustafa (@AhmedMoustafa) May 29, 2013
-Again and again, researchers suggest that DOI to makes something &ldquo;citable&rdquo;. And this frustrates me.
-Don&rsquo;t get me wrong. I love DOIs, and I love CrossRef. And I bang on the table when I have some old journal article that doesn&rsquo;t yet have a DOI.
-      
+      <div class="article-style">
+        labnotebook Updates to configuration to be more portable and lightweight:
+ Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/31/notebook-features-archiving-with-figshare/">Archiving the lab notebook on figshare</a></h2>
-    <h4>Fri, May 31, 2013</h4>
-    <div class="article-style">
-      
-      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/31/notebook-features-digital-archiving/">Notebook features: digital archiving</a></h2>
-    <h4>Fri, May 31, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/31/ropenhack-notes/">Mon, Mar 31, 2014</a></h4>
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
-      
+      <div class="article-style">
+        Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
+Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/21/comforting-trends-in-scientific-software-use/"></a></h2>
-    <h4>Tue, May 21, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/20/software-sustainability-issues-in-r/">Thu, Mar 20, 2014</a></h4>
       
-      Author&rsquo;s Note: Having refrained from actually posting this for 8 months, as I think I have quite mellowed more my critique. I do believe that education and peer review are the best way forward in tackling these issues, but cannot overstate how much of a long and rocky road that process will be. The Mozilla Science Foundation is really leading these efforts with their code review pilots (as I have discussed in posts since writing this), and through their work with Software Carpentry training.
-      
+      <div class="article-style">
+        Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
+ There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Notebook features: SHA Hashes</a></h2>
-    <h4>Fri, May 3, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/02/19/cran-and-package-dependencies/">Wed, Feb 19, 2014</a></h4>
       
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
-      
+      <div class="article-style">
+        2014-02-19 R allows you to specify &gt;= in a package dependency, not ==. The Comprehensive R Archive Network, CRAN, makes no requirement that package authors do not break their previous function API. For instance, if version 0.1 of the package had a function
+foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality in say, version 0.2 without breaking the existing API with a definition that looked like:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/05/02/scholarly-infrastructure-thoughts/"></a></h2>
-    <h4>Thu, May 2, 2013</h4>
-    <div class="article-style">
-      
-      Sustainable Research Happened across a provocative example of why we need a software ecosystem, though it was certainly not intended to be one, which led me to ask myself:
- How complex does an algorithm have to be before a talented researcher with expertise in both the relevant mathematics and computer science will make a significant mistake in their first release of the software?
- As a corollary we might also ask, &ldquo;How much less care do we put into research code not destined for release?
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/26/notebook-features-introduction/">Notebook features: an introduction</a></h2>
-    <h4>Fri, Apr 26, 2013</h4>
-    <div class="article-style">
-      
-      In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
- Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/26/notebook-features-reproducible-code/">Notebook features: reproducible code</a></h2>
-    <h4>Fri, Apr 26, 2013</h4>
-    <div class="article-style">
-      
-      I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -267,8 +215,12 @@ I version manage all changes to my entry using git. Each page is linked to its s
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -355,7 +307,13 @@ I version manage all changes to my entry using git. Each page is linked to its s
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

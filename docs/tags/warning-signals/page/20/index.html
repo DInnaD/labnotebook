@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,34 +134,85 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/02/10/meeting-w--alan/">Meeting w- Alan</a></h2>
-    <h4>Wed, Feb 10, 2010</h4>
-    <div class="article-style">
-      
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/11/monday-warning-signals-updated-graphs/">Mon, Apr 11, 2011</a></h4>
+      <h4><a href="../../../../2011/04/11/monday-warning-signals-updated-graphs/">Monday: Warning Signals - Updated graphs</a></h4>
+      <div class="article-style">
+        Trying a different set-up for the graphs. Added two additional datasets, trying layout of making all three figures into a panels in a single figure.
+Concerns:
+ Better than only one empirical example, but not sure that the three Glaciation data sets add that much since they are all quite similar. Five panels wide might be too much. Don&rsquo;t have an example where a transition is about to occur but the data doesn&rsquo;t have adequate power even for our Likelihood method, third panel.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/02/the-lab-notebook-goes-open-/">The Lab Notebook Goes Open</a></h2>
-    <h4>Tue, Feb 2, 2010</h4>
-    <div class="article-style">
-      
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/11/sunday-warning-signals-edits-continue/">Mon, Apr 11, 2011</a></h4>
+      <h4><a href="../../../../2011/04/11/sunday-warning-signals-edits-continue/">Sunday: Warning signals edits continue</a></h4>
+      <div class="article-style">
+        Marissa edits &ndash; Nearly done
+ Single-figure layout &ndash; DONE
+ equations in appendix &ndash; DONE
+ convergence / likelihood agreement between constOU and constLSN (Done, see below; consider using for a better initial-condition guessing routine for better convergence)
+ Reformulate transcritical bifurcation?
+ Rewrite cover letter
+   load(&quot;5598226674.Rdat&quot;) require(warningsignals) OU &lt;- deterior_mc$null LSN &lt;- deterior_mc$test LSN_OU &lt;- updateGauss(const_LSN, OU$pars, OU$X) c(OU$loglik, LSN$loglik, LSN_OU$loglik) [1] -1038.510 -1142.539 -1162.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/08/warning-signals-3/">Fri, Apr 8, 2011</a></h4>
+      <h4><a href="../../../../2011/04/08/warning-signals-3/">Warning signals</a></h4>
+      <div class="article-style">
+        ibm simulation fit convergence on constOU vs constLSN &ndash; are likelihood scores off from including out-of-bound parameter estimates? Consider transcritical in levins model setup Consider re-arranging figures: one panel, full-width, variance and autocorrelation only, three empirical examples. Trying smaller numbers of replicates in simulated data to get low-power examples.  flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop&rdquo; min_upload_date=&ldquo;2011-04-06 00:00:00&rdquo; max_upload_date=&ldquo;2011-04-11 23:59:59&rdquo;
+ move ibm simulation code into warningsignals package Working through Marissa&rsquo;s edits.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/06/warning-signals-manuscript-touch-ups/">Wed, Apr 6, 2011</a></h4>
+      <h4><a href="../../../../2011/04/06/warning-signals-manuscript-touch-ups/">Warning Signals - Manuscript touch-ups</a></h4>
+      <div class="article-style">
+        [toc]
+Refining examples  Updating finished runs to full formats
+ Condensing/organizing code examples under the demos to follow the structure of the paper.
+ Currently plotting code for manuscript loads a menagerie of different run results from different files. Would be better to consolidate by dataset.
+  Proposed figure changes  Consider multiple empirical examples in main text
+ Consider removing skew/kurtosis examples to the supplement?
+ Consider other empirical examples
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/01/thursday-finishing-up-appendices/">Fri, Apr 1, 2011</a></h4>
+      <h4><a href="../../../../2011/04/01/thursday-finishing-up-appendices/">Thursday finishing up appendices(?)</a></h4>
+      <div class="article-style">
+        Fresh off the cpus: single replicate examples on the Drake data
+What&rsquo;s still running:  likelihood for IBM data with 2000 replicates, nice 19 on zero (ibm_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, nice 18 on zero (deut_likelihood.R) likelihood for Glaciation I-III with 2000 replicates, (nice 19 on one)? (deut_likelihood.R) likelihood on sim data, Glaciation III and CaCO3: 80 replicates on one, nice 1 on one (figure3.R) and with 2000 replicates, nice 19 on one (figure3.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/03/30/wednesday-appendices-parameter-distributions/">Wed, Mar 30, 2011</a></h4>
+      <h4><a href="../../../../2011/03/30/wednesday-appendices-parameter-distributions/">Wednesday: appendices; parameter distributions</a></h4>
+      <div class="article-style">
+        Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -170,12 +221,18 @@
     <li><a href="../../../../tags/warning-signals/page/19/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/warning-signals/page/21/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -262,7 +319,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,105 +134,83 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/08/03/writing/">Writing</a></h2>
-    <h4>Tue, Aug 3, 2010</h4>
-    <div class="article-style">
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/08/treebase-exploratory-exercises-in-database-driven-phylogenetics/">Fri, Apr 8, 2011</a></h4>
+      <h4><a href="../../../../2011/04/08/treebase-exploratory-exercises-in-database-driven-phylogenetics/">TreeBase: exploratory exercises in database-driven phylogenetics</a></h4>
+      <div class="article-style">
+        Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/31/open-science-summit-day-3/">Open Science Summit Day 3</a></h2>
-    <h4>Sat, Jul 31, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/06/comparative-methods-paper-statusto-do/">Wed, Apr 6, 2011</a></h4>
+      <h4><a href="../../../../2011/04/06/comparative-methods-paper-statusto-do/">Comparative methods paper status/to-do</a></h4>
+      <div class="article-style">
+        Finished revisions yesterday after rewriting introduction considerably. Following Graham&rsquo;s comment, taking a closer look at aic error along power curves:
+&gt; load(&quot;../../pmc/demos/5594495254.Rdat&quot;) &gt; require(pmc) &gt; aic &lt;- 2 &gt; aic_errors_size &lt;- sapply(1:(length(n)), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) &gt; aic_errors_shape &lt;- sapply(1:length(lambda), function(i) sum(shape[[i]]$null_dist &gt; aic)/shape[[i]]$nboot ) &gt; data.frame(n, aic_errors_size) n aic_errors_size 1 10 0.1945 2 20 0.2405 3 40 0.1800 4 60 0.1590 5 80 0.0750 6 100 0.1015 7 150 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/30/open-science-summit-day-2/">Open Science Summit day 2</a></h2>
-    <h4>Fri, Jul 30, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/04/phylogenetics-manuscript-revisions/">Mon, Apr 4, 2011</a></h4>
+      <h4><a href="../../../../2011/04/04/phylogenetics-manuscript-revisions/">evolution manuscript revisions</a></h4>
+      <div class="article-style">
+        Heard back from Graham Friday on manuscript revisions. Notes on reviewing edits:
+ Reconsider title? (Currently: &ldquo;is your phylogeny informative? estimating power in phylogenetic trees&rdquo;). Suggestions from Graham/Brian?
+ 1000 taxa, 500 taxa seem to break the ouch package inferences.
+ Add table for AIC comparisons etc
+ Does AIC work better/worse on the lambda = 0 trees?
+n[1:3] [1] 10 50 100 aic_errors_size &lt;- sapply(1:(length(n)-2), function(i) sum(size[[i]]$null_dist &gt; aic)/size[[i]]$nboot ) aic_errors_size [1] 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/29/open-science-summit/">Open Science Summit</a></h2>
-    <h4>Thu, Jul 29, 2010</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/28/cetartiodactyle-data/">Cetartiodactyle data</a></h2>
-    <h4>Wed, Jul 28, 2010</h4>
-    <div class="article-style">
-      
-      Exploring the cetartiodactyle data (unreleased) Nelder-Mead fails to converge or improve upon the hansen model. Likelihood scores differ little:  &gt; bm@loglik [1] -362.6228 &gt; ou1@loglik [1] -364.9039 &gt; ws1$loglik [1] -362.7616 &gt; ou2@loglik [1] -361.6976 &gt; ws2$loglik [1] -361.2542  See Cetaceans code.</p>
 
-<p>Fig. 1 The Brownian Motion model is preferred to the OU.1 model (left). Two separate optima are supported over a single optima (right).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/03/31/a-few-large-data-problems-in-ecology-evolution/">Thu, Mar 31, 2011</a></h4>
+      <h4><a href="../../../../2011/03/31/a-few-large-data-problems-in-ecology-evolution/">A few large data problems in Ecology &amp; Evolution</a></h4>
+      <div class="article-style">
+        I&rsquo;ve joined a student-led seminar with Gabriel Becker in the Statistics department on dealing with large data, primarily in R. Offered to say a few words about large data problems in my field for a few minutes, so making some notes.
+Large dataBases  Genebank: $ &gt; 10^8$ sequences. Phylogenetic inference
+ Morphological databases: Specialized databases with semantic tools (Dahdul et. al. 2010)
+ NEON observatories data Keller et. al.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/27/parameter-estimates-for-labrid-parrotfish-model/">Parameter Estimates for Labrid-Parrotfish model</a></h2>
-    <h4>Tue, Jul 27, 2010</h4>
-    <div class="article-style">
-      
-      See fast_boot and plot.wrightscape functions in code. Gape size</p>
-
-<p>See fast_boot and plot.wrightscape functions in code Jaw Protrusion
-Figures show strong evidence for the relax of constraint hypothesis, as the strength of selection (alpha parameters) appears to have substantially weakened in both morphological traits in the parrotfish clade relative to the wrasses clade. The wrasses show strong preference for OU model with substantial stabilizing selection, while the Parrotfish estimate almost zero stabilizing selection (Brownian model, clear phylogenetic signal).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phyloseminar/">Wed, Mar 30, 2011</a></h4>
+      <h4><a href="../../../../2011/03/30/brian-omeara-discusses-new-abc-approaches-on-phyloseminar/">Brian O&#39;Meara discusses new algorithms approaches on Phylo</a></h4>
+      <div class="article-style">
+        Brian gave an excellent overview of Approximate Bayesian Computing (ABC) and described the TreEvo software he is developing with post-doc Barb Banbury. My notes from the seminar, with my own comments italics and a few added references
+Intro / Motivation  Rates of model innovation is rather slow
+ Can be impossible to specify in closed form (can&rsquo;t specify median of binomial in closed form)
+ Perhaps it would be faster if we didn&rsquo;t have to wait for someone to come up with all the likelihood functions
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/26/parrotfish-model-choice/">Parrotfish Model choice</a></h2>
-    <h4>Mon, Jul 26, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/03/19/approximate-bayesian-computing-abc-methods/">Sat, Mar 19, 2011</a></h4>
+      <h4><a href="../../../../2011/03/19/approximate-bayesian-computing-abc-methods/">Approximate Bayesian Computing (algorithms) methods</a></h4>
+      <div class="article-style">
+        Erick Matsen  asked me about the question at the end of Luke Harmon&rsquo;s phyloseminar critiquing Approximate Bayesian Computing ABC methods. The question wasn&rsquo;t any more specific, though Luke recognized the paper. Searching the literature didn&rsquo;t turn anything up, asking Leo through the MCMC group on Mendeley I think this is the paper:
+﻿Robert, C.P. et al. Lack of confidence in ABC model choice. PNAS I, 8(2011). (arXiv)
+Seems a more pointed critique to ABC then Templeton&rsquo;s discussion (Templeton, 2010) particularly as the lead author is a critic of Templeton (Berger et.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/23/writing/">Writing</a></h2>
-    <h4>Fri, Jul 23, 2010</h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio manuscript.  Labrid Herbivory data Parrotfish gape shows significant differences for independent OU models (alpha, theta, sigma different) than wrasses. While the two-peak ouch model gets no support, allowing alpha and sigma to very results in a strongly significant model improvement.
-code
-&gt; ws2$ ws2$alpha ws2$data ws2$loglik ws2$regimes ws2$sigma ws2$theta ws2$tree ws2$Xo &gt; ws2$theta [1] 0.2245493 0.9569619 &gt; ws2$alpha [1] 2.943846e+00 4.995744e-06 &gt; ws2$sigma [1] 0.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/22/writing/">Writing</a></h2>
-    <h4>Thu, Jul 22, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/07/21/writing/">Writing</a></h2>
-    <h4>Wed, Jul 21, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -247,8 +225,12 @@ code
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -335,7 +317,13 @@ code
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

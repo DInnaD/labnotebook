@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,128 +133,91 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Fri, Feb 25, 2011</a></h4>
-    <h4><a href="../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Is BM nested in OU?  Understanding likelihoods of ouch</a></h4>
-    <div class="article-style">
-      
-      A quick run of the example ouch code given by
- ?bimac  will produce something of a surprise for most users:
-require(ouch) data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) h1 &lt;- brown(log(bimac[&lsquo;size&rsquo;]),tree) h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],sqrt.alpha=1,sigma=1) c(&quot;BM LogLik&quot;=h1@loglik, &quot;OU LogLik&quot;=h2@loglik) BM LogLik OU LogLik 17.33129 15.69682  These models are supposed to be nested, right? Set OU&rsquo;s $ \alpha $ parameter to zero and you get BM, so how does it manage to do worse in log likelihood?
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/13/pdg-control-training-problem-2-update-to-group/">Tue, Mar 13, 2012</a></h4>
+      <h4><a href="../../../2012/03/13/pdg-control-training-problem-2-update-to-group/">pdg-control, Training Problem 2 update to group</a></h4>
+      <div class="article-style">
+        Intrinsic Stochasticity $$ x_{t+1} = z_t f(x_t, ht) $$ $$ max{h_t} \textrm{E} \left( \sum_t \Pi(h_t, x_t) \delta^t \right) $$ Measurement error $ m_t = z_m x_t $ Implementation error $ i_t = z_i h<em>t $
+Next: Uncertainty = we can learn and hence decrease the uncertainty. But state-space grows exponentially.
+Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t, a_t) P(a_t, \hat a_t, \sigmat) $$ Bayesian Learning state equations $$ \hat a{t+1} = \textrm{Posterior}(a | x) = \frac{ L(x|a) \textrm{Prior}(a)}{\int L(x|a) \textrm{Prior}(a) da } $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/25/phyloseminar-luke-harmon/">Fri, Feb 25, 2011</a></h4>
-    <h4><a href="../../../2011/02/25/phyloseminar-luke-harmon/">Phylo: Luke Harmon</a></h4>
-    <div class="article-style">
-      
-      My notes on Luke Harmon&rsquo;s excellent talk on Phyloseminar this morning. See the recording of Luke&rsquo;s actual talk to know what he said, below are my thoughts and notes to myself having watched the talk.
-Luke summarizes his goal rather nicely as:
- Analyzing the data that people actually have to answer the questions they actually want to know
- For him, this focuses on incomplete trees and non-Brownian models.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Sun, Mar 11, 2012</a></h4>
+      <h4><a href="../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Parameter uncertainty in stochastic control problems</a></h4>
+      <div class="article-style">
+        Day 3 of my short-term visitor stay before the working group starts.
+ Wednesday: Travel
+ Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
+  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
+ Friday Writing up Training problem II with Jake, Michael.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/23/esa-2011-abstract/">Wed, Feb 23, 2011</a></h4>
-    <h4><a href="../../../2011/02/23/esa-2011-abstract/">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h4>
-    <div class="article-style">
-      
-      Just submitted my abstract to for an oral presentation at the Ecological Society of America 2011 meeting in Austin, based on my recent work on early warning signals. Here it is:
-Limits to Detection of Early Warning Signals of Population Collapse Background/Question/Methods The recognition that ecosystems can undergo sudden shifts to alternate, less desirable stable states has led to the desire to identify early warning signs of these impending collapses.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/09/alex-pfaff-seminar-meeting/">Fri, Mar 9, 2012</a></h4>
+      <h4><a href="../../../2012/03/09/alex-pfaff-seminar-meeting/">Alex Pfaff seminar, meeting</a></h4>
+      <div class="article-style">
+        Notes from Alex Pfaff talk at UTK (during my visit for pdg-control meeting).
+ average impact vs differential impact &ndash; must compare against what would have happened to the area if unprotected (at current time/short-timescale, or in future?)
+ Proximity is not a good proxy of similarity (i.e. bc we protect steep slopes but farm the flat land nearby)
+ Instead use simple metrics available in GIS layers - distance from nearest road, etc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/21/monday-2/">Mon, Feb 21, 2011</a></h4>
-    <h4><a href="../../../2011/02/21/monday-2/">Monday: Writing, Mendeley groups, Notebook plugin tweaks</a></h4>
-    <div class="article-style">
-      
-      A day of Writing  Reviewed Chris&rsquo;s manuscript.
- Completed my revisions to phylogenetics mansucript, meeting with Peter tomorrow to discuss. Still need to work through the discussions of model adequacy Goldman, 1993, Cox&rsquo;s delta (1961&frasl;62), and going beyond (simulations by under both null and test distributions).
- Meanwhile, a few thoughts:
-  Reproducible Research Mentioned in Thursday&rsquo;s entry coming across Victoria Stodden&rsquo;s post on Reproducible research standards such as practiced by Journal of Biostatistics.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/">Sat, Feb 19, 2011</a></h4>
-    <h4><a href="../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/">Bodega evolution Workshop: Continuous Characters R session planning</a></h4>
-    <div class="article-style">
-      
-      Preparing for the Bodega Phylogenetics workshop. I&rsquo;ll be covering the R tutorial followingJusten Whittall&rsquo;s introduction to continuous characters:
- In my intro lecture i will discuss Felsenstein 1985 (including a little phylo signal), then follow with some alternatives (including the OU model). I can also discuss the tree transformations ala Pagel&rsquo;s kappa, delta, etc. and mention multivariate approaches to detecting correlated characters in a phylogenetic context.
- I&rsquo;m toying with the idea of a brief (~1hr) phylogenetic signal / model inference exercise:
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Tue, Mar 6, 2012</a></h4>
+      <h4><a href="../../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Stability analysis on fished and unfished dynamics.  </a></h4>
+      <div class="article-style">
+        In this example, we compute the distribution of the stability coefficients estimated from the fished and unfished simulations. Overall this shows little success in distinguishing between the stability of the fished and unfished populations &ndash; i.e. no hint that we are managing near an edge.
+(Originally run and posted in github notebook, but cross posting for reference here since I had trouble recalling if this was filed with the control project or the warning signals project directory.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/18/friday/">Fri, Feb 18, 2011</a></h4>
-    <h4><a href="../../../2011/02/18/friday/">Friday</a></h4>
-    <div class="article-style">
-      
-      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/06/tuesday-14/">Tue, Mar 6, 2012</a></h4>
+      <h4><a href="../../../2012/03/06/tuesday-14/">Tuesday</a></h4>
+      <div class="article-style">
+        Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
+ model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/17/thursday-4/">Thu, Feb 17, 2011</a></h4>
-    <h4><a href="../../../2011/02/17/thursday-4/">Thursday</a></h4>
-    <div class="article-style">
-      
-      Mostly working on manuscript revisions throughout this week. Haven&rsquo;t really learned to integrate this workflow into the notebook. In some ways it makes more sense not to, as it interrupts the flow of the research description. But then it looks like I&rsquo;m not doing anything when I have nothing meaningful in the entry. Perhaps I should just put a heading saying &ldquo;Writing.&rdquo;
-Morning&rsquo;s reading: Reproducible Research  Victoria Stodden highlights the Journal of Biostatistics approach to Reproducible Research.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/05/monday-17/">Mon, Mar 5, 2012</a></h4>
+      <h4><a href="../../../2012/03/05/monday-17/">Monday</a></h4>
+      <div class="article-style">
+        Trivial example of a non-optimal but more robust policy by editing the optimal strategy directly. Note in particular that this outperforms the optimal strategy economically as well as ecologically (fewer crashed populations).
+ Running the policy-costs model with Beverton Holt instead of the Myers function seems to give a clearer picture of a system responding to policy costs. The single-replicate picture probably captures this better than the policy/replicate visualizations.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/16/weds-framing-warning-signals-manuscript/">Wed, Feb 16, 2011</a></h4>
-    <h4><a href="../../../2011/02/16/weds-framing-warning-signals-manuscript/">Weds &amp; Framing warning signals manuscript</a></h4>
-    <div class="article-style">
-      
-      Alan Meeting, 10a Good meeting discussing warning signals manuscript details and organization. Particularly on the best way to present some of the major conceptual and semantic elements: there are many ways to describe the same thing, each of which carries a lot of semantic baggage.
-Do we choose to present this as:
-As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produced by the MLE model of no stability loss), hypothesis = there is (distribution produced by, MLE model with stability loss) determine p value for falsely rejecting the null and the power of the statistical test.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/16/citation-tools-future-of-publishing/">Wed, Feb 16, 2011</a></h4>
-    <h4><a href="../../../2011/02/16/citation-tools-future-of-publishing/">Citation tools &amp; Future of Publishing</a></h4>
-    <div class="article-style">
-      
-      There has been a lot of rapid development in scientific tools based on a Wordpress platform recently, perhaps spurred in part by the recent Beyond-the-PDF and sessions in Science Online conferences. A new discussion group has emerged around these tools, as described by Martin Fenner.
-I have been exploring better tools for citation management within my lab notebook. Recently I have been using the papercite plugin to add citations from my BibTeX files, which are generated from Mendeley, as I described earlier.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/16/data-mangement-on-uc3-merritt-repository/">Wed, Feb 16, 2011</a></h4>
-    <h4><a href="../../../2011/02/16/data-mangement-on-uc3-merritt-repository/">Data Mangement on UC3 Merritt Repository</a></h4>
-    <div class="article-style">
-      
-      I&rsquo;ve been trying to learn a little more about the potential for data management solutions through the UC3 Merritt repository, and decide how this compares to commercial alternatives such as Amazon S3, Picasa/Flickr (obviously for images only), and field-specific and publication specific repositories such as Dryad. Merritt email support have been very helpful in answering my questions and concerns.
- Persistence: of the data itself, of the URLs &amp; object identifiers, of access to the data?
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -269,9 +232,10 @@ I have been exploring better tools for citation management within my lab noteboo
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -360,7 +324,13 @@ I have been exploring better tools for citation management within my lab noteboo
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

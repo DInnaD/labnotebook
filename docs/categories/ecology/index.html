@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,128 +134,76 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../2014/12/04/lsn-nimble/"></a></h2>
-    <h4>Thu, Dec 4, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/07/30/gpdp-via-mdptoolbox-cont/">Thu, Jul 30, 2015</a></h4>
       
-      some sample data
-library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.Date, as.Date.numeric ## sde 2.0.15 ## Companion package to the book ## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39; ## Iacus, Springer NY, (2008) ## To check the errata corrige of the book, type vignette(&quot;sde.
-      
+      <div class="article-style">
+        knitr::opts_chunk$set(eval=FALSE) ## gp management no longer working knitr::opts_chunk$set(comment=NA) #devtools::install_github(&quot;cboettig/gpmanagement@b3b765cbceb51c9b0b8cb2724e395353ec365df9&quot;) library(&quot;MDPtoolbox&quot;) library(&quot;gpmanagement&quot;) library(&quot;tidyr&quot;) library(&quot;dplyr&quot;) library(&quot;ggplot2&quot;) library(&quot;lazyeval&quot;) True model p &lt;- c(2, 100, 50) f &lt;- function (x, h){ sapply(x, function(x) { x &lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } sigma_g &lt;- 0.1 pdfn &lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } z_g &lt;- function() rlnorm(1, 0, sigma_g) set.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/04/lsn-nimble/"></a></h2>
-    <h4>Thu, Dec 4, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/07/29/mdptoolbox-allen-model/">Wed, Jul 29, 2015</a></h4>
       
-      some sample data
-library(sde) library(nimble) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
-lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.
-      
+      <div class="article-style">
+        library(&quot;MDPtoolbox&quot;, quietly = TRUE) library(&quot;ggplot2&quot;, quietly = TRUE) K &lt;- 150 # state space limit states &lt;- 0:K # Vector of all possible states actions &lt;- states # Vector of actions: harvest sigma_g = 0.1 p &lt;- c(2, 100, 50) f &lt;- function (x, h){ sapply(x, function(x) { x &lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } pdfn &lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } # Utility function discount = 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/nimble-explore/"></a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/07/14/mdptoolbox-ex-2/">Tue, Jul 14, 2015</a></h4>
       
-      Working through quick-start example in nimble manual
-library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
-      
+      <div class="article-style">
+        Adapted from Marescot et al. appendix 5, to Reed optimal control problem, including direct comparison against (semi) analytic optimum.
+step 1: define objectives This is a conceptual step which does not require coding
+ step 2: define states K &lt;- 150 # state space limit states &lt;- 0:K # Vector of all possible states  step 3: define control actions # Vector of actions: harvest H &lt;- states  step 4: define dynamic model (with demographic parameters) p &lt;- c(6,0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/nimble-explore/"></a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Working through quick-start example in nimble manual
-The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/06/19/gp-nimble-v2/">Fri, Jun 19, 2015</a></h4>
       
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
-      
+      <div class="article-style">
+        <h1 id="devtools-install-github-quot-cboettig-gpmanagement-quot-knitr-opts-chunk-set-eval-false-gpmanagment-no-longer-runs-on-current-version-of-nimble-library-quot-gpmanagement-quot-library-quot-dplyr-quot-library-quot-ggplot2-quot-library-quot-methods-quot-set-seed-1234-tobs-lt-40-f-lt-function-x-h-p-sapply-x-function-x-x-lt-pmax-0-x-h-x-exp-p-1-1-x-p-2-x-p-3-p-2-p-lt-c-2-8-5-sigma-g-lt-0-05-z-g-lt-function-rlnorm-1-0-sigma-g-x-lt-numeric-tobs-x-1-lt-5-5-for-t-in-1-tobs-1-x-t-1-z-g-f-x-t-h-0-p-p-obs-lt-data">devtools::install_github(&quot;cboettig/gpmanagement&quot;) knitr::opts_chunk$set(eval=FALSE) ## gpmanagment no longer runs on current version of nimble library(&quot;gpmanagement&quot;) library(&quot;dplyr&quot;) library(&quot;ggplot2&quot;) library(&quot;methods&quot;)  set.seed(1234) Tobs &lt;- 40 f &lt;- function (x, h, p){ sapply(x, function(x) { x &lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } p &lt;- c(2, 8, 5) sigma_g &lt;- 0.05 z_g &lt;- function() rlnorm(1, 0, sigma_g) x &lt;- numeric(Tobs) x[1] &lt;- 5.5 for(t in 1:(Tobs-1)) x[t+1] = z_g() * f(x[t], h=0, p=p) obs &lt;- data.</h1>
+
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
-ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/06/18/ram-explore/">Thu, Jun 18, 2015</a></h4>
+      <h4><a href="../../2015/06/18/ram-explore/">Further exploration of RAM Legacy Stock Assessment data</a></h4>
+      <div class="article-style">
+        suppressPackageStartupMessages({ library(&quot;dplyr&quot;) library(&quot;RPostgreSQL&quot;) library(&quot;devtools&quot;) library(&quot;ggplot2&quot;) }) ## Perform this in data_raw to keep package dependencies minimal mydb &lt;- src_postgres(dbname = &quot;srdb&quot;, host=&quot;nautilus-vm.mathstat.dal.ca&quot;, user = &quot;srdbuser&quot;, password = &quot;srd6us3r!&quot;, port = 5432) timeseries &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.timeseries&quot;))) values &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.timeseries_values_view&quot;))) units &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.timeseries_units_view&quot;))) assessment &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.assessment&quot;))) area &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.area&quot;))) stock &lt;- collect(tbl(mydb, sql(&quot;SELECT * FROM srdb.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/14/nimble-explore/"></a></h2>
-    <h4>Fri, Nov 14, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/06/16/daniel-gp-example/">Tue, Jun 16, 2015</a></h4>
       
-      A quick first exploration of NIMBLE and some questions.
-library(&quot;nimble&quot;) library(&quot;sde&quot;)  Let&rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$
-set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))  ## sigma.x not provided, attempting symbolic derivation.  i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.
-      
+      <div class="article-style">
+        Editorial note: code no longer runs (2017-05-11)
+Setup library(&quot;nimble&quot;) library(&quot;methods&quot;) knitr::opts_chunk$set(eval = FALSE) set.seed(0) Randomly generate some sinusoidal data
+x &lt;- 1:100 y &lt;- sin(x/5) + rnorm(100, 0.1) ind &lt;- sort(sample(1:100, 40)) The next three lines are the only inputs required.
+xObs &lt;- x[ind] ## input yObs &lt;- y[ind] ## input xPred &lt;- c(x, 101:120) ## input Some initial processing
+nObs &lt;- length(xObs) nPred &lt;- length(xPred) f &lt;- function(xi, xj) (xi-xj)^2 diffOO &lt;- outer(xObs, xObs, f) diffPP &lt;- outer(xPred, xPred, f) diffPO &lt;- outer(xPred, xObs, f)  NIMBLE function for GP prediction Here’s the main function for doing the prediction from the GP model.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/13/discrete-grid-notes/"></a></h2>
-    <h4>Thu, Nov 13, 2014</h4>
-    <div class="article-style">
-      
-      Smoothing post-policy calc?
-fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smooth(lwd=1.2, method=&quot;loess&quot;, degree=1, span=0.2, level=0, n=50) + facet_wrap(~method) + xlab(&quot;stock size, x(t)&quot;) + ylab(&quot;escapement, S(t)&quot;) + scale_colour_manual(values=colorkey, guide=FALSE) fig3 library(&quot;dplyr&quot;) s<em>policies &lt;- select</em>(ggplot_build(fig3)$data[[1]], &quot;x&quot;, &quot;PANEL&quot;, &quot;y&quot;) s_policies$PANEL &lt;- mapvalues(s_policies$PANEL, from = 1:6, to = levels(policies$method)) names(s_policies) &lt;- names(policies) library(&quot;tidyr&quot;) opt_policy &lt;- s_policies %&gt;% mutate(harvest = stock - value) %&gt;% select(stock, method, value = harvest) %&gt;% spread(method, value) %&gt;% select(-stock) OPT &lt;- as.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/09/05/thoughts-on-harte-interview/"></a></h2>
-    <h4>Fri, Sep 5, 2014</h4>
-    <div class="article-style">
-      
-      Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
- From general laws flow absolutely bullet-proof insights and this is what we most need
- I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/08/14/pdg-controlfest-notes/"></a></h2>
-    <h4>Thu, Aug 14, 2014</h4>
-    <div class="article-style">
-      
-      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
-I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +216,12 @@ I think the talk on Tuesday went all right, (though thanks to a technology snafu
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +308,13 @@ I think the talk on Tuesday went all right, (though thanks to a technology snafu
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

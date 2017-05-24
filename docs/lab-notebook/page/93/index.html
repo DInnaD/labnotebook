@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,119 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/03/05/friday/">Fri, Mar 5, 2010</a></h4>
-    <h4><a href="../../../2010/03/05/friday/">Friday</a></h4>
-    <div class="article-style">
-      
-      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
-12p - 1p
- Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
- Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/05/meeting/">Fri, Mar 5, 2010</a></h4>
-    <h4><a href="../../../2010/03/05/meeting/">Meeting</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/04/big-picture-comparative-phylogenetics/">Thu, Mar 4, 2010</a></h4>
-    <h4><a href="../../../2010/03/04/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h4>
-    <div class="article-style">
-      
-      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
- Follow-up discussion on:
- List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Wed, Mar 3, 2010</a></h4>
-    <h4><a href="../../../2010/03/03/solution-to-the-strange-behavior-in-ouch/">Solution to the strange behavior in ouch</a></h4>
-    <div class="article-style">
-      
-      Looks like my troubles actually stem from a bug in the code. I summarize the problem here, just as I posted in my query to R sig phylo. Essentially the program erroneously squares alpha at the moment, explaining the pattern I found yesterday. Giving it root alpha preemptively should be a good work around.</p>
-
-<p>data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) print(h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],alpha=1,sigma=1))  The print command says alpha = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/02/power-in-trees/">Tue, Mar 2, 2010</a></h4>
-    <h4><a href="../../../2010/03/02/power-in-trees/">Power in trees</a></h4>
-    <div class="article-style">
-      
-      Back to Phylogenetics after a week with only population dynamics.  Exploration  data created by brown simulation on the star tree in ouch matches the expected variance, σ^2^t. This variance is slightly reduced when simulated on the Felsenstein tree, as might be intuitively expected due to the increased correlations. The degree of decrease should be analytically attainable, but isn&rsquo;t obvious to me at the moment. Example using functions in felsenstein_tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/01/teaching/">Mon, Mar 1, 2010</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      Evolution of Mimicry &amp; Levels of Selection  Today my turn to help facilitate in Begun&rsquo;s Monte Carlo on designing a course on evolution for non-majors. Worked with Elizabeth on an interactive case study teaching levels of selection through the example of mimicry in butterflies. Following a brief introduction, we gave a pilot run of a hands-on activity to explore population dynamics in a predator-control-model-mimic (jay-cabbage-monarch-viceroy) system. Here&rsquo;s the description.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/27/weds-manuscript/">Wed, Jul 27, 2011</a></h4>
+      <h4><a href="../../../2011/07/27/weds-manuscript/">Weds: Manuscript</a></h4>
+      <div class="article-style">
+        I&rsquo;ve removed the model choice/model adequacy section of the appendix. This is the section that Reviewer 2 said needed further development, which would be beyond the scope of this paper:
+ Here the authors claim that by using particular structural models based on assumptions about underlying dynamics their method makes it easy to identify cases that do not conform to the assumptions. It would be interesting to evaluate this claim but it would require a substantial amount of analysis that may be beyond the scope of a short paper.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/01/parallel-at-last/">Mon, Mar 1, 2010</a></h4>
-    <h4><a href="../../../2010/03/01/parallel-at-last/">Parallel at last</a></h4>
-    <div class="article-style">
-      
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits/">Wed, Jul 27, 2011</a></h4>
+      <h4><a href="../../../2011/07/27/wednesday-esa-presentation-manuscriptappendix-edits/">Wednesday: ESA presentation, manuscript/appendix edits </a></h4>
+      <div class="article-style">
+        Misc morning  Site trouble, again. requested migrating servers. Done. hope we&rsquo;re more stable now. Checking in with Peter about migrating site domain. Sent request to Matt. Looking over NERSC PI application, see first allocation instructions. Emailed Mary Ann w/ questions on forms. SMB 2012 is at NIMBioS! Nick to join ropensci. Coordinating launch, advisers, etc. Karthik and Scott have done a great job editing my intro post and sprucing up the site.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/28/parallelizing-code/">Sun, Feb 28, 2010</a></h4>
-    <h4><a href="../../../2010/02/28/parallelizing-code/">Parallelizing Code</a></h4>
-    <div class="article-style">
-      
-      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/26/tues-esa-presentation/">Tue, Jul 26, 2011</a></h4>
+      <h4><a href="../../../2011/07/26/tues-esa-presentation/">Tues: ESA presentation</a></h4>
+      <div class="article-style">
+        Working on ESA presentation. See slides and code for details.
+ Adding movie a time series which gets longer (and closer to collapse) each frame, with corresponding warning signals for the interval thus far shown below (for CV and autocorrelation). Include sparsely sampled (100) and densely sampled (1000) examples. Compare always using a sliding window-size equal to half the length of the available data (works well on longer time series) to a fixed-width sliding window (doesn&rsquo;t work well ever).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/26/friday/">Fri, Feb 26, 2010</a></h4>
-    <h4><a href="../../../2010/02/26/friday/">Friday</a></h4>
-    <div class="article-style">
-      
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/25/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">Thu, Feb 25, 2010</a></h4>
-    <h4><a href="../../../2010/02/25/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h4>
-    <div class="article-style">
-      
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/25/monday-esa/">Mon, Jul 25, 2011</a></h4>
+      <h4><a href="../../../2011/07/25/monday-esa/">Monday: ESA, appendix, etc</a></h4>
+      <div class="article-style">
+        Reading Gene expression as a continuous phenotypic trait &ndash; establishing signal for selection over drift. (Bedford &amp; Hartl, 2009) OU vs BM (or just estimation of selection in the OU model relative to tree length) would have been an obvious way to do this, but the paper tries to make the argument that scaling the data and then comparing
+$$\frac{\sigma^2}{2\alpha} $$
+is some indication.
+Model choice section on warning signals Trying to figure out whether or not to remove this section (previously Appendix H: Model Choice and Model Adequacy).
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/25/monday-algorithms-discussion-group-em-finished/">Mon, Jul 25, 2011</a></h4>
+      <h4><a href="../../../2011/07/25/monday-algorithms-discussion-group-em-finished/">Monday: Algorithms Discussion Group, EM finished</a></h4>
+      <div class="article-style">
+        Finished up the EM algorithm today. Key was getting the right function to maximize. Turns out wikipedia has a very nice write up of this very example, but in our notation:
+$$ E_p \log(p f_1) + (1-E_p) \log( (1-p) f_2 )$$
+Where $E_p$ comes from the expectation step.
+Jamie has joined us and has set up a github repository for the discussion group. Find the successful abstract algorithm there.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/24/sunday-appendix-edits/">Sun, Jul 24, 2011</a></h4>
+      <h4><a href="../../../2011/07/24/sunday-appendix-edits/">Sunday: Appendix edits</a></h4>
+      <div class="article-style">
+        Appendix A. Method Summary &ndash; Basically the &ldquo;methods&rdquo; section as we had it in the Nature version, a bit updated.
+ These sections are as before, with minor updates from the reviewers, etc. They&rsquo;re also probably the most important part:
+ Appendix B. The data sets Appendix C. Model Derivations Appendix D. Likelihood calculations Appendix E. The likelihood statistic  Appendix F. The distributions for the ROC curves &ndash; these are the former figure 1b/c distributions used to make the ROC curve.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -260,9 +230,10 @@
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -351,7 +322,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

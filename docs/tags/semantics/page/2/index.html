@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,23 +134,74 @@
 
 
 
+
   <h1>Semantics</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/02/16/citation-tools-future-of-publishing/">Citation tools &amp; Future of Publishing</a></h2>
-    <h4>Wed, Feb 16, 2011</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/">Tue, Oct 23, 2012</a></h4>
       
-      There has been a lot of rapid development in scientific tools based on a Wordpress platform recently, perhaps spurred in part by the recent Beyond-the-PDF and sessions in Science Online conferences. A new discussion group has emerged around these tools, as described by Martin Fenner.
-I have been exploring better tools for citation management within my lab notebook. Recently I have been using the papercite plugin to add citations from my BibTeX files, which are generated from Mendeley, as I described earlier.
-      
+      <div class="article-style">
+        All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure. This means that any entry can be parsed with a generic XML parser to extract the entry content in &lt;article&gt;, the &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, etc. The &lt;head&gt; section provides &lt;title&gt; and essential &lt;meta&gt; tags declaring the character encoding (which also sets the MIME type for HTML5).
+Head In _includes/header.html we introduce some basic academic archive metadata using the Dublin Core ontology.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/19/notes/">Fri, Oct 19, 2012</a></h4>
+      
+      <div class="article-style">
+        Semantic Notebook notes Reading
+ Nice collection of posts on scholarly html, but too little mention of the serious linked data stuff coming out of biscol, ievobio/nescent, etc. In particular, Martin&rsquo;s history gives some nice perspective.
+ The war for schema. Which ontologies should we choose? (e.g. schema.org&rsquo;s take  Puzzles
+ How do we mix ontologies How do we meet Google Rich Snippets requirements using FOAF? How do we avoid redundant vocabulary terms?
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/14/semantic-lab-notebook/">Sun, Oct 14, 2012</a></h4>
+      <h4><a href="../../../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h4>
+      <div class="article-style">
+        As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/14/semantic-lab-notebook/">Sun, Oct 14, 2012</a></h4>
+      <h4><a href="../../../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h4>
+      <div class="article-style">
+        As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/08/building-a-semantic-notebook/">Sun, May 8, 2011</a></h4>
+      <h4><a href="../../../../2011/05/08/building-a-semantic-notebook/">Building a semantic notebook</a></h4>
+      <div class="article-style">
+        What would a semantic lab notebook look like? What would be possible with such a structure, ideally? What is already possible now? There&rsquo;s a lot that can be done with an electronic notebook that adds value over a paper notebook: browsing by categories and tags, embedding links, time-stamping entries, searching the full text, and having automated trackbacks or pingbacks when a post is mentioned in another post or appears elsewhere on the web.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/02/16/citation-tools-future-of-publishing/">Wed, Feb 16, 2011</a></h4>
+      <h4><a href="../../../../2011/02/16/citation-tools-future-of-publishing/">Citation tools &amp; Future of Publishing</a></h4>
+      <div class="article-style">
+        There has been a lot of rapid development in scientific tools based on a Wordpress platform recently, perhaps spurred in part by the recent Beyond-the-PDF and sessions in Science Online conferences. A new discussion group has emerged around these tools, as described by Martin Fenner.
+I have been exploring better tools for citation management within my lab notebook. Recently I have been using the papercite plugin to add citations from my BibTeX files, which are generated from Mendeley, as I described earlier.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -163,8 +214,12 @@ I have been exploring better tools for citation management within my lab noteboo
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -251,7 +306,13 @@ I have been exploring better tools for citation management within my lab noteboo
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

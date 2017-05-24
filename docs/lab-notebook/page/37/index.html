@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,128 +133,84 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2012/02/20/finer-sampling-in-prosecutors-fallacy/">Mon, Feb 20, 2012</a></h4>
-    <h4><a href="../../../2012/02/20/finer-sampling-in-prosecutors-fallacy/">finer sampling in prosecutor&#39;s fallacy</a></h4>
-    <div class="article-style">
-      
-      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
-require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
-d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/09/notes/">Thu, May 9, 2013</a></h4>
+      <h4><a href="../../../2013/05/09/notes/">Prep for ERE talk</a></h4>
+      <div class="article-style">
+        Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/16/prosecutors-fallacy-initial-look/">Thu, Feb 16, 2012</a></h4>
-    <h4><a href="../../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/07/notes/">Tue, May 7, 2013</a></h4>
       
-      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
-      
+      <div class="article-style">
+        Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/16/squiggles/">Thu, Feb 16, 2012</a></h4>
-    <h4><a href="../../../2012/02/16/squiggles/">Squiggles</a></h4>
-    <div class="article-style">
-      
-      Variability in the appearance of a trend
-nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
-X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Fri, May 3, 2013</a></h4>
+      <h4><a href="../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Notebook features: SHA Hashes</a></h4>
+      <div class="article-style">
+        Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
+I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">Wed, Feb 15, 2012</a></h4>
-    <h4><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h4>
-    <div class="article-style">
-      
-      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
-Run the individual based simulation
-require(populationdynamics)  [code] Loading required package: populationdynamics
- ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/14/further-examples-for-appendices/">Tue, Feb 14, 2012</a></h4>
-    <h4><a href="../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h4>
-    <div class="article-style">
-      
-      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
-Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/03/notes/">Fri, May 3, 2013</a></h4>
+      <h4><a href="../../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h4>
+      <div class="article-style">
+        Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
+ As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/13/monday-16/">Mon, Feb 13, 2012</a></h4>
-    <h4><a href="../../../2012/02/13/monday-16/">Monday</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/02/musings-on-conservation-literature/">Thu, May 2, 2013</a></h4>
       
+      <div class="article-style">
+        Just because I&rsquo;m a theorist deeply entrenched in methodological concerns about uncertainty and decision making doesn&rsquo;t mean I don&rsquo;t think about practical conservation from time to time. Some musings from my comment here, copied over for my own reference.
+Though I would like to believe the gap stems from the problems you discuss, I think that differing objectives between research and application may play a much larger role. I suspect that scientific papers that are most useful and influential for conservation practitioners and policymakers are those which confirm what they already believe, or whatever the interests opposed to them least want to hear.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/12/sunday-6/">Sun, Feb 12, 2012</a></h4>
-    <h4><a href="../../../2012/02/12/sunday-6/">Sunday </a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/02/scholarly-infrastructure-thoughts/">Thu, May 2, 2013</a></h4>
       
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
-      
+      <div class="article-style">
+        Sustainable Research Happened across a provocative example of why we need a software ecosystem, though it was certainly not intended to be one, which led me to ask myself:
+ How complex does an algorithm have to be before a talented researcher with expertise in both the relevant mathematics and computer science will make a significant mistake in their first release of the software?
+ As a corollary we might also ask, &ldquo;How much less care do we put into research code not destined for release?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Sun, Feb 12, 2012</a></h4>
-    <h4><a href="../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Saturday: projects, reading, markdown notebook-technology</a></h4>
-    <div class="article-style">
-      
-      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
- People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
- Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Sun, Feb 12, 2012</a></h4>
-    <h4><a href="../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Elegant &amp; fast data manipulation with data.table</a></h4>
-    <div class="article-style">
-      
-      Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
-One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
-time &lt;- rep(1:10, 10) replicate &lt;- sort(time) value &lt;- rnorm(100) df &lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
-sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Fri, Feb 10, 2012</a></h4>
-    <h4><a href="../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h4>
-    <div class="article-style">
-      
-      Forage fish writing See doc, FF dropbox PopDyn
-Warning signals edits  Alan edits Figure captions, titles.
- Text changes from Noam.
-  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
-git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -269,9 +225,10 @@ git latexdiff HEAD  shows the differences between the last commit and the curren
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -360,7 +317,13 @@ git latexdiff HEAD  shows the differences between the last commit and the curren
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

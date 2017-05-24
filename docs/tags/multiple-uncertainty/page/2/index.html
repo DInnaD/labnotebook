@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,119 +134,75 @@
 
 
 
+
   <h1>Multiple Uncertainty</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/12/21/progress-summary/"></a></h2>
-    <h4>Fri, Dec 21, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/22/research/">Fri, Mar 22, 2013</a></h4>
       
-      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
-I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
-      
+      <div class="article-style">
+        multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
+function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/22/notes/"></a></h2>
-    <h4>Thu, Nov 22, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/20/research/">Wed, Mar 20, 2013</a></h4>
       
-      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+      <div class="article-style">
+        pomp Exploring pomp for examples tomorrow. See pomp-example
+ To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/13/notes/">Wed, Mar 13, 2013</a></h4>
+      
+      <div class="article-style">
+        Multiple-uncertainty  Created smaller version of table to simplify comparisons Switched to stationary policy comparisons only. (Running out over longer time shifts total value a bit but doesn&rsquo;t amplify scale of the differences much) Larger noise amplifies the effects (compare 0.3 levels to 0.5 levels) note that averaging over replicates gives rather consistent means. The differences between successive runs of the algorithm give results agreeing to the tenths place at least.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/12/notes/">Tue, Mar 12, 2013</a></h4>
+      
+      <div class="article-style">
+        Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
+  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/21/progress-summary/">Fri, Dec 21, 2012</a></h4>
+      
+      <div class="article-style">
+        Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/22/notes/">Thu, Nov 22, 2012</a></h4>
+      
+      <div class="article-style">
+        multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
 Uniform lognormal log  A few small tweaks to probability calculations
  Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/21/notes/"></a></h2>
-    <h4>Wed, Nov 21, 2012</h4>
-    <div class="article-style">
-      
-      writing comment piece. writing writing writing.
-  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h2>
-    <h4>Fri, Nov 16, 2012</h4>
-    <div class="article-style">
-      
-      Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
-See notes on code changes inline.
-Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/08/notes/"></a></h2>
-    <h4>Thu, Nov 8, 2012</h4>
-    <div class="article-style">
-      
-      Complete IACUC training for fish room. File forms: <a href="http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html">http://ehs.ucsc.edu/programs/research-safety/animal-research/index.html</a> Online training &ndash; possibly see <a href="https://www.citiprogram.org/Default.asp?">https://www.citiprogram.org/Default.asp?</a> Shiny: <a href="http://www.rstudio.com/shiny/">http://www.rstudio.com/shiny/</a>
- Comment piece
- Prep exit seminar
- Applied math club: Networks. Reading <a href="http://dx.doi.org/10.1155/2011/284909">http://dx.doi.org/10.1155/2011/284909</a>
-  Discussion of when network structure has made an important difference on our understanding of a problem. When have the common summary statistics of a network (degree-distribution) allowed us to compte network dynamics without fully resolving the network?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/01/multiple-uncertainty-corrections/"></a></h2>
-    <h4>Thu, Nov 1, 2012</h4>
-    <div class="article-style">
-      
-      Consider a stock $x_t$ at time $t$ that recruits stochastically following harvest $h_t$ from the escaped population ($s_t := x_t - ht$), $x{t+1} = z_g f(s_t)$, where $z_g$ is a multiplicative stochastic shock to the growth. We imagine the decision maker sets a policy determining the harvest quota $q_t$ each year, which is implemented as the real harvest with some error $z_i$, $h_t = z_i q_t$. Before setting a quota, the decision maker assesses the stock $y_t = z_m x_t$, so $y$ is a noisy measurement of the true stock $x$.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/09/14/analytic-solution-to-multiple-uncertainty/"></a></h2>
-    <h4>Fri, Sep 14, 2012</h4>
-    <div class="article-style">
-      
-      No idea where I went wrong, but the final graphs are not what I expected Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions
-We consider adding additional sources of noise through observation error and implementation error to the orginal model of Reed (1979), which considers only growth error. This follows in the line of exploration taken by Clark and Kirkwood (1987), Roughgarden (1996) and Sethi (2006).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/21/pdg-control-updates/"></a></h2>
-    <h4>Tue, Aug 21, 2012</h4>
-    <div class="article-style">
-      
-      Resolving S &lt; D Code updates octokit
-Reading  Macksamie, K., Cockburn, J., &amp; Wagner, J. (2012). Robust control amidst stock and flow benefits: The case of wolf-elk-hunting dynamics in the US Mountain West. 2012 AERE Summer Conference, Asheville, NC (pp. 1-33). Retrieved from <a href="http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf">http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf</a>  The Linear parameter varying (LPV) approach which allows this problem to leverage a standard LMI (linear matrix inequality) solver seeems like a clever route, but unclear if this would be restricted to the additive noise models such as they consider?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/06/13/sethi-policy-functions/">Policy functions and value functions under multiple uncertainty</a></h2>
-    <h4>Wed, Jun 13, 2012</h4>
-    <div class="article-style">
-      
-      Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
-
-<h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
-
-<p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
-pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -255,12 +211,18 @@ pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive st
     <li><a href="../../../../tags/multiple-uncertainty/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/multiple-uncertainty/page/3/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -347,7 +309,13 @@ pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive st
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

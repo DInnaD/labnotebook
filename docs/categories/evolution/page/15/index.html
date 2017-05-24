@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,128 +134,83 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/01/31/notes-on-bokma-2010-evolution-in-drifts-and-jumps/">Notes on Bokma 2010: evolution in drifts and jumps</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
-    <div class="article-style">
-      
-      Bokma 2010 asks if there is an analytic expression for the likelihood in the evolutionary model he describes.
-The trait value of the process is determined by two things &ndash; a Brownian motion random walk (diffusion) with rate parameter $ s_a^2$ and speciation events. Under a speciation event, the trait jumps to a new value that differs from it&rsquo;s parent&rsquo;s by some amount chosen from zero-mean normal distribution with variance $ s_c^2$.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/13/monday-7/">Mon, Jun 13, 2011</a></h4>
+      <h4><a href="../../../../2011/06/13/monday-7/">Monday -</a></h4>
+      <div class="article-style">
+        Algorithms group meeting Evolution presentation warningsignals runs complete and troubleshooting finalizing power in phylogenies manuscript cover letter, supplement, final check through, etc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/28/phylogenetic-signal-metrics/">Phylogenetic Signal metrics</a></h2>
-    <h4>Fri, Jan 28, 2011</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/">Thu, Jun 9, 2011</a></h4>
+      <h4><a href="../../../../2011/06/09/mcmc-and-bootstrapped-likelihood-runs-on-parrotfish-tree/">mcmc and bootstrapped likelihood runs on parrotfish tree</a></h4>
+      <div class="article-style">
+        Thursday Overview  Alan Meeting
+ Still running scripts, see below
+ pmc vignette
+  To Do  Got Duncan&rsquo;s ROAuth utilities for RMendeley, still need to test.
+ Testing Scott&rsquo;s rplos functions
+ Send Alan the paragraph for edits.
+  Computation Running on one  n 15: sim_general_mcmc.R MCMC of general model with 8 x 1e6 reps. alpha diverged. DEAD
+ n14 Retry above with 8 x 1e6 and with less general model: sigma, theta indep only.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/24/felsenstein-web-seminar/">Felsenstein (web) seminar</a></h2>
-    <h4>Mon, Jan 24, 2011</h4>
-    <div class="article-style">
-      
-      Joe Felsenstein on phyloseminar (watch here). This morning. [ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets.[/ref] Discusses bridging population genetics &amp; comparative methods: where does covariation in traits across a phylogeny come from?
-Morphometrics Using morphometrics (digitized landmarks [though now we can do spherical harmonics, CT scans, etc]) to evolve on a phylogeny under BM rather than use that data to infer phylogeny.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/">Wed, Jun 8, 2011</a></h4>
+      <h4><a href="../../../../2011/06/08/wednesday-simulated-model-fit-analysis-on-wrightscape-parrotfish-tree/">Wednesday: Simulated model fit analysis on wrightscape, parrotfish tree</a></h4>
+      <div class="article-style">
+        Reviewed last night&rsquo;s simulations, see yesterday&rsquo;s post.  Simulated data testing: Fitting the general model well on the parrotfish tree even with clear simulated data seems hard. Simulating with alpha(intramandibulars) = .01, and others = 20, and fitting general model and the alpha-only independent model (release of constraint model). The release model MLE recovers reasonable values: alpha(intra) = 1.7, alpha(others) = 21.8, while the general model fit is clearly struggling even with SANN.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/">Shape as well as size influence power of phylogeny</a></h2>
-    <h4>Fri, Jan 21, 2011</h4>
-    <div class="article-style">
-      
-      Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/">Estimating phylogenetic signal (lambda) on large trees</a></h2>
-    <h4>Thu, Jan 20, 2011</h4>
-    <div class="article-style">
-      
-      Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5370016511 [/flickr]
-[flickr size=&ldquo;small&rdquo; float=&ldquo;right&rdquo;]5370635360 [/flickr]
-compare to 281 taxa and then 600 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5310150538 [/flickr]
-By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/">Tue, Jun 7, 2011</a></h4>
+      <h4><a href="../../../../2011/06/07/tuesday-parrotfishwrightscape-runs-and-code-modification/">Tuesday: Parrotfish/wrightscape runs and code modification</a></h4>
+      <div class="article-style">
+        Runs: Mon midnight: parrotfish.R with updated SANN parameters and corrected output parameter labeling (always {Xo, alpha, sigma, theta} ordering), implemented on zero, nice 19. General model (&ldquo;wright&rdquo;) still not outperforming others, so still un-converged.
+[flickr]5808279169/[/flickr]
+ MCMC runs of gape.y and close on one, at nice 19 and 18 1e5 reps. (Alex running matlab nice 10). protrusion.y at nice 11, 1e6 reps.
+ open at nice 18 on zero, 1e6 reps.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/11/phylogenetics-wrightscape/">evolution- wrightscape</a></h2>
-    <h4>Tue, Jan 11, 2011</h4>
-    <div class="article-style">
-      
-      Interesting meeting with Peter to discuss a variety of issues in comparative phylogenetics. Short notes:
- Transforming data, log data
- Trends in directions in convergent traits
- multivariate inference
- Manuscript
-  Wrightscape First have to test PMC to make sure it works with OUCH classes. Also adding PMC-required wrappers for wrightscape. Ended up modifying PMC to handle the case of simulate functions that return replicates, like these packages do.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/06/parrotfish-in-wrightscape/">Mon, Jun 6, 2011</a></h4>
+      <h4><a href="../../../../2011/06/06/parrotfish-in-wrightscape/">Parrotfish in wrightscape</a></h4>
+      <div class="article-style">
+        Bootstrapping option Needs a method to pass the optional optim arguments to the update function, such that update uses the same algorithm as the initial fit. Required being a little clever:
+[gist id=&ldquo;1010999&rdquo;]
+Done. but perhaps we won&rsquo;t always want to bootstrap under this? I suppose it is good practice but slow! Shoot, now I need a lot of really large computers really soon.
+Excellent suggestion for better ways to do this from statscicomp list.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/09/phylo-monte-carlo-for-diversification-rates/">Phylo Monte Carlo for diversification rates</a></h2>
-    <h4>Sun, Jan 9, 2011</h4>
-    <div class="article-style">
-      
-      Writing function wrappers for geiger functions to perform Phylogenetic Monte Carlo. Any object that has methods defined for update.objecttype (object, data) and simulate.objecttype(data), and loglik.object(object) should be able to use the montecarlotest() function. OUCH almost does this but not quite, since the datatype returned by &lsquo;simulate&rsquo; doesn&rsquo;t match that needed by &lsquo;update&rsquo;. OUCH also uses S4 class styles.
-Wrote wrappers for ouch functions such that the ouch models will work with the same montecarlotest() code.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/04/saturday-git-with-latexdiff-treebase-and-pmc-package-updates-bounds-on-lambda/">Sat, Jun 4, 2011</a></h4>
+      <h4><a href="../../../../2011/06/04/saturday-git-with-latexdiff-treebase-and-pmc-package-updates-bounds-on-lambda/">Saturday: git with latexdiff, TreeBASE and PMC package updates, bounds on lambda</a></h4>
+      <div class="article-style">
+        bounds on lambda: Updated the pmc wrappers for fit_continuous to pass bounds on lambda to the bootstrapping Monte Carlo functions. Settled on passing all options explicitly after quite a bit of effort. Looking for way to pass a function all of it&rsquo;s arguments as a named arguments in a list; statscicomp list suggested do.call() function; quite brilliant.
+Considering user workflow for wrappers. Conceptually, makes sense for user to run the standard package fit routines first, and then pass the results to pmc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/02/finishing-up-my-sicb-presentation/">Finishing up my #SICB Presentation</a></h2>
-    <h4>Sun, Jan 2, 2011</h4>
-    <div class="article-style">
-      
-      Finished up my SICB presentation tweaks, slides now up on slideshare, flying off to the conference tomorrow. Created this in OpenOffice, started adding animations and then decided it would be more reliable to just duplicate slides to have parts appear (really just for the explanation of the likelihood ratio distributions under each model). Next time think I&rsquo;ll stick with my usual inkscape slides tied together with latex beamer, the lack of vector images in this one is not ideal.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/31/comparative-phylogenetics-is-the-data-informative/">Comparative evolution: Is the data informative?</a></h2>
-    <h4>Fri, Dec 31, 2010</h4>
-    <div class="article-style">
-      
-      Working on my SICB talk, going a little further into the example of fitting the lambda model on the Anoles data to illustrate the ways in which we may lack sufficient data for the question.
- The dataset may not contain adequate signal of the parameter / phenomenon in question
- The dataset may not be adequately large
-  Anoles data set (23 taxa):
-This first image shows the distribution of lambda values estimated from many datasets all simulated under a lambda = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h2>
-    <h4>Fri, Dec 24, 2010</h4>
-    <div class="article-style">
-      
-      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
-synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -270,8 +225,12 @@ synopsis of accomplishments over the year: In January I passed my qualifying exa
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -358,7 +317,13 @@ synopsis of accomplishments over the year: In January I passed my qualifying exa
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

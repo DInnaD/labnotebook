@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,82 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/11/22/power-in-simple-tests/">Power in simple tests</a></h2>
-    <h4>Mon, Nov 22, 2010</h4>
-    <div class="article-style">
-      
-      Exploring power in simple tree models. With the smaller tree from the _geospiza _dataset, (14 tips, left) is less than yesterday&rsquo;s in the bimaculus Anoles (with 23 tips, right)
-(code)
-Also wrote the OUCH-based wrapper function to fit tree transformation parameters. Unfortunately it currently transforms from ape to ouch format repeatedly (in order to use ape&rsquo;s tree transforms, need to write native ouch-format transforms), so it may not be any faster.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/19/thursday-5/">Thu, May 19, 2011</a></h4>
+      <h4><a href="../../../../2011/05/19/thursday-5/">Thursday</a></h4>
+      <div class="article-style">
+        Finish and post core notes from yesterday. Debugging locale problem in phylo packages = success. Emmanuel has already patched drop.fossils() in the ape package, will see if Gieger and TreeSim try to handle locale issue directly too. Problem in comparisons:  &gt; Sys.setlocale(locale = &quot;&quot;) # default locale using UTF8 # message deleted &gt; &quot;-1&quot; &gt; 0 [1] TRUE &gt; Sys.setlocale(locale = &quot;C&quot;) # message deleted &gt; &quot;-1&quot; &gt; 0 [1] FALSE   Posted MCMCMC notes from algorithms.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/21/two-questions/">Two questions</a></h2>
-    <h4>Sun, Nov 21, 2010</h4>
-    <div class="article-style">
-      
-      I&rsquo;ve been thinking about a few elements of the Monte Carlo approach that seem to be particularly subtle in interpretation. Thought I&rsquo;d write them out here as a separate examples to help think through them. Thoughts?
-Question 1 Should the Monte Carlo simulations use the maximum likelihood test and null model estimated from the data (as in McLachlan 1987, Goldman 1993, Huelsenbeck 1996) or draw from the distribution of model parameters for each simulation?
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/18/birth-death-tutorial-for-pbg-core/">Wed, May 18, 2011</a></h4>
+      <h4><a href="../../../../2011/05/18/birth-death-tutorial-for-pbg-core/">Birth-death Tutorial for PBG Core</a></h4>
+      <div class="article-style">
+        Ran a introductory tutorial on birth-death models for phylogenetic trees in R today for Peter Wainwright&rsquo;s section of the Pop Bio Core sequence. Notes below, in a manner that may suggest I was better organized than reality might attest. Luckily the firsties are brilliant&hellip;
+Getting Started Code is shown section by section with results in the following examples. If you prefer, you can download my full code file here, but you will have to comment out my flickr plotting utilities before it will run.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat: evolution -- porting tree transformations to OUCH?</a></h2>
-    <h4>Sat, Nov 20, 2010</h4>
-    <div class="article-style">
-      
-      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
-Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/17/tuesday-3/">Tue, May 17, 2011</a></h4>
+      <h4><a href="../../../../2011/05/17/tuesday-3/">Tuesday: Parrotfish results, MCMCMC testing, APIs</a></h4>
+      <div class="article-style">
+        Finished review for TE
+ Shared post on TreeBASE API
+ Reviewed Scott&rsquo;s updates to dryad R API, adjusted formatting.
+ Looking at documentation for the OAI-MPH queries, don&rsquo;t seem to be as rich as Phylo-ws queries. This is why treeBASE metadata searches tend to download the full metadata set into R and query that. Looks like we&rsquo;ll need to take a similar approach to Dryad, as it doesn&rsquo;t seem like there&rsquo;s a way to query the API by author name at all?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri: extending Geiger to Monte Carlo method</a></h2>
-    <h4>Fri, Nov 19, 2010</h4>
-    <div class="article-style">
-      
-      Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/18/thurs-phylogenetics-likelihood/">Thurs: evolution likelihood</a></h2>
-    <h4>Thu, Nov 18, 2010</h4>
-    <div class="article-style">
-      
-      Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
-The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/16/treebase-in-r-a-first-tutorial/">Mon, May 16, 2011</a></h4>
+      <h4><a href="../../../../2011/05/16/treebase-in-r-a-first-tutorial/">TreeBASE in R: a first tutorial</a></h4>
+      <div class="article-style">
+        My TreeBASE R package is essentially functional now. Here&rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
+TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/18/weds/">Weds</a></h2>
-    <h4>Thu, Nov 18, 2010</h4>
-    <div class="article-style">
-      
-      Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
-Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/12/thursday-fun-with-databases-continued/">Thu, May 12, 2011</a></h4>
+      <h4><a href="../../../../2011/05/12/thursday-fun-with-databases-continued/">Thursday: Fun with databases continued</a></h4>
+      <div class="article-style">
+        Dryad Hilmar pointed out the documentation for machine access to Dryad fileson the wiki, much nicer than guessing from the XML. (Good thing too, since it&rsquo;s a bit more complicated than I thought). Wiki describes four steps:
+ Get the dryad short-identifier for the datafile
+ look up the METS reference using that identifier
+ parse the XML returned by METS to find the bitstream url
+ Query the bitstream url and presto!
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">evolution today:  Discussion groups, writing, etc</a></h2>
-    <h4>Mon, Nov 15, 2010</h4>
-    <div class="article-style">
-      
-      Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
-Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
-Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/11/wednesday-treebase/">Wed, May 11, 2011</a></h4>
+      <h4><a href="../../../../2011/05/11/wednesday-treebase/">Wednesday: Treebase</a></h4>
+      <div class="article-style">
+        TREEBASE PACKAGE:
+ Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
+ Modified the package with the option to return only max number of trees,
+try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_trees, &quot;]&quot;, sep=&quot;&quot;), function(x){  &hellip;
+ Modified to check for branch lengths and remove trees without branch lengths from the returned set.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thursday: Post-predictive verification exploration; writing and figures</a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
-    <div class="article-style">
-      
-      On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
-[latex] \frac{dN}{dt} = (\lambda - \mu) N 
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/11/phylogenetics-statistics/">evolution statistics </a></h2>
-    <h4>Thu, Nov 11, 2010</h4>
-    <div class="article-style">
-      
-      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
-Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
-The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Tuesday - SDEs then back to phylogenetics</a></h2>
-    <h4>Wed, Nov 10, 2010</h4>
-    <div class="article-style">
-      
-      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
-With regards the SDE problem, note that it reduces to:
-$$ dX_1 = B_2 d B_1 $$
-and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +224,12 @@ and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic 
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +316,13 @@ and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

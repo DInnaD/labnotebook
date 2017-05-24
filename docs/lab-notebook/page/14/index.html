@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,126 +133,86 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/08/07/f1000-research/">Wed, Aug 7, 2013</a></h4>
-    <h4><a href="../../../2013/08/07/f1000-research/">F1000-Research publishing for ecologists</a></h4>
-    <div class="article-style">
-      
-      F1000-Research is waving article processing charges (APCs) for ecologists looking for an open access, open peer review platform to publish original research, null results, software papers, data papers, and an intriguing new category called &ldquo;Observations&rdquo;,
- to report serendipitous observations that they have not been able to study systematically, but that offer a starting point for further exploration. This is especially relevant for ecologists, as it provides a platform to report unexpected observations from the field, unrelated to the main goal of the field work.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/08/06/summarizing-earlier-warning-signal-under-control-notes/">Tue, Aug 6, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      NSF goals:  combine control methods and warning signals do non-parametric or machine learning increase or decrease chance of transition learning  Further areas (from comment piece) baselines (statistical; emperical) context-specific (additional data sources, reflecting context in model)  Warning signals in managed systems Management decreases the signal: compare likelihood statistic in unmanaged_warning managed_warning:
-Estimating Stability in managed systems Recovery rate in optimally fished vs unfished system (based on the OU model): stability.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/08/29/docker-notes/">Fri, Aug 29, 2014</a></h4>
+      <h4><a href="../../../2014/08/29/docker-notes/">Docker tricks of the trade and best practices thoughts</a></h4>
+      <div class="article-style">
+        Best practices questions Here are some tricks that may or may not be in keeping with best practices, input would be appreciated.
+ Keep images small: use the &ndash;no-install-recommends option for apt-get, install true dependencies rather than big metapackages (like texlive-full). Avoid creating additional AUFS layers by combining RUN commands, etc? (limit was once 42, but is now at least 127). Can use RUN git clone &hellip; to add data to a container in place of ADD, which invalidates caching.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/08/01/notes/">Thu, Aug 1, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Registered for AmNat 2014 conference in Asilomar.
- Nice collection Data Visualization pieces from Nature Methods. vim clipboard: put older items from clipboard history using: &quot;0p, &quot;1p, &quot;2p. See list in :reg. (from here) #ESA2013 Lotka-Volterra Talks Review methods to write S4 back to XML  from earlier:
-misc reading  Duncan Hull&rsquo;s Seven deadly sins of bioinformatics Carole&rsquo;s Goble&rsquo;s talk at ismb, as summarized in graphical form Interesting: researchobject.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/08/25/reproducible-research-environments-with-docker/">Mon, Aug 25, 2014</a></h4>
+      <h4><a href="../../../2014/08/25/reproducible-research-environments-with-docker/">Reproducible research environments with Docker</a></h4>
+      <div class="article-style">
+        Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
+Wouldn&rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/28/nonparametric-bayes-wrapping-up-sensitivity/">Sun, Jul 28, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/08/14/docker-notes/">Thu, Aug 14, 2014</a></h4>
       
-      Remote RStudio configuration (keep forgetting options and ports).
-ssh -o &quot;ExitOnForwardFailure yes&quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
- sensitivity.md (Myers) sensitivity-allen.md  Overall:
-ggplot(yields_dat) + geom_density(aes(value))  Compare over 12 simulation configurations with different parameters and different training data, the GP does consistently well. Only one case has relatively poor outcomes.
-ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=as.factor(simulation)), alpha=.5)   Run data backup to local disk NSF expense accounting calendar updates software paper policies email Luke Arbor reply looking at quick way to check out solutions to sums of Fisher wave equation over different diffusion coefficients (heterogenous dispersal rates), e.
-      
+      <div class="article-style">
+        Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/25/formal-semantics-with-reml/">Thu, Jul 25, 2013</a></h4>
     
-    <div class="article-style">
-      
-      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
-Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/22/xml-parsing-strategies/">Mon, Jul 22, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/08/14/pdg-controlfest-notes/">Thu, Aug 14, 2014</a></h4>
       
-      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
-Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
-      
+      <div class="article-style">
+        Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
+I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/19/notes/">Fri, Jul 19, 2013</a></h4>
-    <h4><a href="../../../2013/07/19/notes/">Notes from chat with Duncan</a></h4>
-    <div class="article-style">
-      
-      Keep metadata as part of the object Recursion problem coming up.
-  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
-  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
- Schema to create S4 objects Create R objects first, and then toXML
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/17/updates-on-managing-references/">Wed, Jul 17, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Mendeley API for Jekyll Finally finished off my Mendeley API for Jekyll (The top uses the Ruby API implementation from Michael Bus, copied here since it is not yet provided as a gem. scroll to the bottom for my plugin code). The Mendeley API implementation is remarkably clumsy. For instance, rather than allowing queries to the API that specify a user&rsquo;s folder and a sort-by field, we are forced to first query the folder for a list of IDs and then query document details on every document in the folder, after which we can sort locally.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">Fri, Aug 8, 2014</a></h4>
+      <h4><a href="../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h4>
+      <div class="article-style">
+        An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
+I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
+docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/11/visit-to-whoi/">Thu, Jul 11, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/08/07/too-much-fun-with-docker/">Thu, Aug 7, 2014</a></h4>
       
-      Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
- 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
-      
+      <div class="article-style">
+        NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
+Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
+I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/07/10/forking-the-r-journal/">Wed, Jul 10, 2013</a></h4>
     
-    <div class="article-style">
-      
-      All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
-      
     </div>
-  </div>
-  
 
   
 <nav>
@@ -267,9 +227,10 @@ Here is some quick background on different ways we might go about extracting NeX
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -358,7 +319,13 @@ Here is some quick background on different ways we might go about extracting NeX
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

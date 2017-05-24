@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,131 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2012/10/19/notes/">Fri, Oct 19, 2012</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/09/19/notes/">Thu, Sep 19, 2013</a></h4>
       
-      Semantic Notebook notes Reading
- Nice collection of posts on scholarly html, but too little mention of the serious linked data stuff coming out of biscol, ievobio/nescent, etc. In particular, Martin&rsquo;s history gives some nice perspective.
- The war for schema. Which ontologies should we choose? (e.g. schema.org&rsquo;s take  Puzzles
- How do we mix ontologies How do we meet Google Rich Snippets requirements using FOAF? How do we avoid redundant vocabulary terms?
-      
+      <div class="article-style">
+        writing manuscript slides data request to Glaser.
+  gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/17/basic-regression-in-gaussian-processes/">Wed, Oct 17, 2012</a></h4>
-    <h4><a href="../../../2012/10/17/basic-regression-in-gaussian-processes/">Basic regression in Gaussian processes</a></h4>
-    <div class="article-style">
-      
-      Working out coded examples for basic Gaussian process regression using R. I&rsquo;ve just read through the first few chapters of Rasmussen &amp; Williams (2006), this implements the examples discussed in Chapter 2.1-2.5.
-Required R libraries (for multivariate normal, also for plotting):
-require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
-set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/17/talkingpoints/">Wed, Oct 17, 2012</a></h4>
-    <h4><a href="../../../2012/10/17/talkingpoints/">Notes</a></h4>
-    <div class="article-style">
-      
-      Talking points for phone interview with Lucy
-Finding warning signals in the wild
- Gold standard &ndash; experimental group, control group Real world: We have no control group.
-  Would we know a warning signal when we saw it?
-From statistics to models: We fit a generalized models of the processes that are and aren&rsquo;t approaching a tipping point, and compare the models. The modeling approach is also more sensitive than the simple statistics.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/16/gaussian-processes/">Tue, Oct 16, 2012</a></h4>
-    <h4><a href="../../../2012/10/16/gaussian-processes/">Gaussian processes</a></h4>
-    <div class="article-style">
-      
-      Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
- Will also want to look into basis approximations for SDP acceleration.
-  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/14/semantic-lab-notebook/">Sun, Oct 14, 2012</a></h4>
-    <h4><a href="../../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h4>
-    <div class="article-style">
-      
-      As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/11/notes/">Thu, Oct 11, 2012</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/09/18/notes/">Wed, Sep 18, 2013</a></h4>
       
-      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
-pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
-      
+      <div class="article-style">
+        nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
+  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
+ code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/10/prosecutors-fallacy/">Wed, Oct 10, 2012</a></h4>
-    <h4><a href="../../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h4>
-    <div class="article-style">
-      
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/09/data-management-plan/">Tue, Oct 9, 2012</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/09/16/notes/">Mon, Sep 16, 2013</a></h4>
       
-      Writing out a data management plan for myself. Suggestions and feedback welcome.
-Data Types and Structure All source code, documentation, scripts and data for the analyses performed in the course of this research shall be maintained in a digital compendium using the R package structure as recommended in Gentleman and Lang (2007). The progress and results of this research shall be regularly chronicled in an electronic lab notebook, maintained openly at carlboettiger.
-      
+      <div class="article-style">
+        class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/05/notes/">Fri, Oct 5, 2012</a></h4>
-    <h4><a href="../../../2012/10/05/notes/">Automated feeds in notebook entries</a></h4>
-    <div class="article-style">
-      
-      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
-{% raw %}
-{% octokit_commits pdg_control%}  {% endraw %}
-(or even to the post template) and have the commit log for the specified repository automatically imported.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/10/02/solarized-colors/">Tue, Oct 2, 2012</a></h4>
-    <h4><a href="../../../2012/10/02/solarized-colors/">Solarized Colors with Twitter-Bootstrap?</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/09/11/isees-workforce-development-day-2/">Wed, Sep 11, 2013</a></h4>
       
-      Trying out rendering my notebook using Ethan Schoonover&rsquo;s Solarized color scheme. The solarized palette has been selected according to Ethan&rsquo;s exacting standards for contrast, symmetry, and readability.
-My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS files. Normal CSS is valid LESS code too, but doesn&rsquo;t have the concept of a variable. So changing colors in CSS requires changing each and every occurance of some hex colorcode.
-      
+      <div class="article-style">
+        Near the end of another excellent day of discussions we were asked to put pen to paper to outline our own views in writing. My own contribution was the following notebook scribble.
+My own vision of what ISEES should be doing for workforce development:
+ISEES would employ a multi-scale approach to improve basic computational expertise across the entire workforce necessary to fully participate in the modern software-immersed world of research through the development of training standards, while using a working-group model focused on emerging researcher-developer communities which would simultaneously improve the quality and synthesis of existing software tools while also delivering essential skills to the most transformative members of the research software communities.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/09/11/extending-data-frame-class/">Wed, Sep 11, 2013</a></h4>
+      
+      <div class="article-style">
+        I&rsquo;d like to define a class that acts just like a data.frame, just like the data.table class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle data.frame objects.
+How might this be done?
+I&rsquo;m not really sure where to start on this, so below is a summary of my attempt so far and some further puzzles I have stumbled across (e.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/09/10/isees-training-workshop-day-1/">Tue, Sep 10, 2013</a></h4>
+      
+      <div class="article-style">
+        Education / Workforce Development Group Cannot do grand synthesis opaquely and be science. must be able to scale and evolve.
+How did data succeed? What features really made the difference and what were just sideshows?
+ Sticks (Funder and journal mandates?) Working groups (NCEAS) Training external forces: there is more data.
+  Why one center? Why not 15 centers? Divided by discipline rather than region&hellip;. synthesize the synthesis centers
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -272,9 +230,10 @@ My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS fil
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -363,7 +322,13 @@ My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS fil
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

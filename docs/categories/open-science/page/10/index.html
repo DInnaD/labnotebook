@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,115 +134,73 @@
 
 
 
+
   <h1>Open Science</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/07/08/141-scientists-cant-be-wrong/">141 scientists can&#39;t be wrong?</a></h2>
-    <h4>Fri, Jul 8, 2011</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/30/note-on-notebook-figures/">Fri, Nov 30, 2012</a></h4>
       
-      Turning the author-list into a petition is becoming an almost familiar ruse in the table of contents of journals such as Nature (Simberloff, 2011), (Abbot et. al. 2011). This as prompted some rather provocative commentary on whether we have begun conducting scientific debates as popularity contests rather than arguments of evidence and logic (see David Sloan Wilson on inclusive fitness theory 137 scientists can&rsquo;t be wrong, or Chris on invasive species on ecolog.
-      
+      <div class="article-style">
+        plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
+opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
+The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/08/friday-writing-post-doc-applications/">Friday: writing post-doc applications</a></h2>
-    <h4>Fri, Jul 8, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/23/citing-lab-notebook-entries/">Fri, Nov 23, 2012</a></h4>
       
+      <div class="article-style">
+        C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/04/open-f1000-reviews/">Open F1000 reviews?</a></h2>
-    <h4>Mon, Jul 4, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/09/better-tagging-practices/">Fri, Nov 9, 2012</a></h4>
       
-      Sebastian has started posting article reviews on his website, and invites us (Teary - our theoretical ecology tea mailing list) to do likewise. He uses a rather nifty Jabref converter to display the reviews created as bibtex entries, using the format indicated below.
-These reviews are cross-posted from the reviews he (and associates) submit to Faculty of 1000, a commercial, subscription-based service. While this gives F1000 some publicity directly from his own site, it also means individuals can access these reviews freely.
-      
+      <div class="article-style">
+        Better tagging practices  Standardize use of tags: Match tags in notebook to project repository name. Tag papers in Mendeley by these tags as well.  I have also started tracking the medium of discovery for each paper I add to my Mendeley collection through a little set of Mendeley tags. I am curious to see through which mediums I obtain the most content, and what content. As with any ontology, I will struggle to select a vocabulary that is precise enought to be useful without being too verbose (b) to bother to continue to use this.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/10/workflows-that-work-making-it-easy-enough/">Workflows that Work: making it &#34;easy enough&#34;</a></h2>
-    <h4>Fri, Jun 10, 2011</h4>
-    <div class="article-style">
-      
-      I thought I had already fixed this problem. I thought I already had a way to recover the code and parameter values of figures saved in my image log. Grab the SHA hash from the comment, go to the relevant repository on github, search the commit history for the commit, find the version of that file that was current at that time of commit (which could be in an earlier version if nothing had changed&hellip;) and so forth&hellip; Instead, I would catch myself re-running the code with parameters I knew (I&rsquo;d scribble somewhere), just so I could be sure.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/28/site-configuration-file-sharing-notes/">Site configuration: file sharing notes</a></h2>
-    <h4>Sat, May 28, 2011</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/03/altmetrics-conference/">Sat, Nov 3, 2012</a></h4>
       
-      Easiest way to share files is ssh onto the carlboettiger.info server, change into the directory carlboettiger.info/ and create a new directory there &ndash; i.e. share/. This behaves as a regular static webpage directory that will list the files provided.
-Secure access can be created by going to the goodies &ndash;&gt;htaccess/WebDav page and selecting the option to make a directory or subdirectory secure, and then specifying the passwords, etc. Have created the subdirectory <a href="http://carlboettiger">http://carlboettiger</a>.
-      
+      <div class="article-style">
+        From Thursday Nov 1 through Saturday Nov 3 I attended the PLoS Altmetrics workshop as a member of the ROpensci project. An exciting meeting driven mostly by the opportunity to interact with a small and incredibly creative and innovative group of science publishers, funders, start-ups, and other researchers. Details of the event are largely recorded on the altmetrics 2012 workshop website. We also have a few slides addressing the ropensci slant.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">End of NCEAS &amp; the legacy of synthetic data</a></h2>
-    <h4>Sun, May 22, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/31/notes/">Wed, Oct 31, 2012</a></h4>
       
-      The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
- that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
-      
+      <div class="article-style">
+        I enjoyed an excellent meeting with Annette Thomas, CEO of MacMillian Publishing and Nature Publishing group at UC Davis. It was impressive to here that Annette wanted to meet with UC Davis faculty and graduate students interested in open access and open science to discuss our opinions, desires and frustrations in the scientific publishing process. It was particularly valuable to discuss some of the failed experiments in open science at Nature.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/16/mathjax-the-smart-way-child-themes/">MathJax the smart way: Child Themes</a></h2>
-    <h4>Mon, May 16, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/29/notes/">Mon, Oct 29, 2012</a></h4>
       
-      Adding mathjax by modifying the header.php file in my wordpress theme, as recommended by MathJax website, isn&rsquo;t stable to upgrades of the theme, which simply replace the header.php file with a fresh version. The &ldquo;correct&rdquo; way to do this is using child themes, which are pretty simple, even though this got me writing my first php functions.
- Create a directory in wp-content/themes with the desired name of the new theme.
-      
+      <div class="article-style">
+        Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
+ Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
+ Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/08/building-a-semantic-notebook/">Building a semantic notebook</a></h2>
-    <h4>Sun, May 8, 2011</h4>
-    <div class="article-style">
-      
-      What would a semantic lab notebook look like? What would be possible with such a structure, ideally? What is already possible now? There&rsquo;s a lot that can be done with an electronic notebook that adds value over a paper notebook: browsing by categories and tags, embedding links, time-stamping entries, searching the full text, and having automated trackbacks or pingbacks when a post is mentioned in another post or appears elsewhere on the web.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/06/reproducible-research-large-data-sets-and-si2/">Reproducible Research, Large data sets, and SI2 </a></h2>
-    <h4>Fri, May 6, 2011</h4>
-    <div class="article-style">
-      
-      What follows are my notes from May 6th, 2011 expressing the ideas that would ultimately coalesce into the rOpenSci project. Much of this was turned into an email to Duncan and Todd, whose feedback was invaluable in working through this, and several others. (The reference to SI2 refers to an NSF call from about that time, which also stimulated my thinking on this matter.) Since then I&rsquo;ve learned quite a bit about these tools, with which I now feel quite comfortable.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/06/mendeley-api-in-r/">Mendeley API in R</a></h2>
-    <h4>Fri, May 6, 2011</h4>
-    <div class="article-style">
-      
-      Started to implement the Mendeley API in R, with much help and guidance from Prof. Duncan Temple-Lang in the Stats dept. R is a widely used statistical software environment, and this should facilitate real-time statistical analysis of the rich amount of publication data available in Mendeley.
-My motivation is primarily pedagogical at the moment- Mendeley seems to have a nice modern API with both public and authentication-required elements (using OAuth). Writing out the API gives me some good practice making GET requests in RCURL and handling JSON returns, and experiencing the bumps that go with this kind of work.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -257,8 +215,12 @@ My motivation is primarily pedagogical at the moment- Mendeley seems to have a n
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -345,7 +307,13 @@ My motivation is primarily pedagogical at the moment- Mendeley seems to have a n
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

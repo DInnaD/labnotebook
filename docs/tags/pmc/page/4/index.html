@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,34 +134,70 @@
 
 
 
+
   <h1>Pmc</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/02/09/meeting-with-graham-and-peter/">Meeting with Graham and Peter</a></h2>
-    <h4>Tue, Feb 9, 2010</h4>
-    <div class="article-style">
-      
-      Discussion of Model Comparisons Primary focus of today&rsquo;s discussion was rooted in Sunday&rsquo;s entry
- On plotting quirks, haven&rsquo;t figured out lattice but here&rsquo;s yet another newer plotting engine for R I need to revisit how OUCH computes likelihood ratios and P values. Since some parameters are bounded to the positive real line (and may be small) the standard chi square isn&rsquo;t correct. I should repeat the AIC-style analysis for likelihood ratios, though this is just a shift of where I put the zero line.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/24/parallel-r/">Wed, Mar 24, 2010</a></h4>
+      <h4><a href="../../../../2010/03/24/parallel-r/">Parallel R</a></h4>
+      <div class="article-style">
+        Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/07/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
-    <h4>Sun, Feb 7, 2010</h4>
-    <div class="article-style">
-      
-      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
- I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/23/bootstrapping-likelihood-ratios/">Tue, Mar 23, 2010</a></h4>
+      <h4><a href="../../../../2010/03/23/bootstrapping-likelihood-ratios/">Bootstrapping Likelihood ratios</a></h4>
+      <div class="article-style">
+        Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
+&gt; summary(anoles_boots) [,1] [,2] [,3] [,4] [,5] [1,] 0.500000000 0.981399498 0.26514573 0.06668672 0.018154938 [2,] 0.009580545 0.500000000 0.15610274 0.04819938 0.011616566 [3,] 0.039233893 0.075349644 0.50000000 0.05699877 0.005443493 [4,] 0.004211230 0.004592917 0.01389950 0.50000000 0.006648916 [5,] 0.173457542 0.198303402 0.38893099 0.33891430 0.500000000 &gt;  Labrids: &gt; summary(labrid_boots) [,1] [,2] [,3] [,4] [1,] 0.5000000 6.036842e-05 0.0000000 0.0 [2,] 0.5424613 5.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/20/research/">Sat, Mar 20, 2010</a></h4>
+      <h4><a href="../../../../2010/03/20/research/">Research</a></h4>
+      <div class="article-style">
+        Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/19/research/">Fri, Mar 19, 2010</a></h4>
+      <h4><a href="../../../../2010/03/19/research/">Research</a></h4>
+      <div class="article-style">
+        Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/18/research/">Thu, Mar 18, 2010</a></h4>
+      <h4><a href="../../../../2010/03/18/research/">Research</a></h4>
+      <div class="article-style">
+        A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/17/research/">Wed, Mar 17, 2010</a></h4>
+      <h4><a href="../../../../2010/03/17/research/">Research</a></h4>
+      <div class="article-style">
+        Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -170,12 +206,18 @@
     <li><a href="../../../../tags/pmc/page/3/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/pmc/page/5/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -262,7 +304,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

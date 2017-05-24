@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,130 +133,83 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/03/15/models-in-phylogenetic-inference/">Tue, Mar 15, 2011</a></h4>
-    <h4><a href="../../../2011/03/15/models-in-phylogenetic-inference/">Model identifiability in phylogenetic inference GTR&#43;I&#43;G</a></h4>
-    <div class="article-style">
-      
-      Another phylogenetics paper (Perelman et. al. 2011) using GTR+I+G inspired me to look back over the discussion and objections with this model. This model is the basis of 100s of publications, 40 alone in Sys Bio in 2006(Allman et. al. 2008). There&rsquo;s a decent discussion on Dechronization about the issue. There&rsquo;s some treatment of identifiability on this issue, such as 2001 Sys Bio (Rogers, 2001) which suggests this is possible and a nice paper in Adv.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/">Wed, Mar 21, 2012</a></h4>
+      <h4><a href="../../../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/">knitr, github, and a new phase for the lab notebook</a></h4>
+      <div class="article-style">
+        I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&rsquo;t say where in the script the command came from, and it required manually specifying the script name).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/14/peters-talk/">Mon, Mar 14, 2011</a></h4>
-    <h4><a href="../../../2011/03/14/peters-talk/">Peter&#39;s talk </a></h4>
-    <div class="article-style">
-      
-      Peter spoke in Sebastian&rsquo;s lab meeting about a spatially explicit Moran model, for which he derives Fisher&rsquo;s wave equation and an ancestry process. Here&rsquo;s what he says,
- the general plan is to describe a simple spatial model of adaptation (or, could be of invasion&hellip;); and use it to derive (Fisher&rsquo;s) traveling wave; the corrections that arise if you don&rsquo;t assume the population is infinitely large; and describe how to follow lineages back through the expanding wave.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/20/tuesday-active-adaptive-management-a-first-solution/">Tue, Mar 20, 2012</a></h4>
+      <h4><a href="../../../2012/03/20/tuesday-active-adaptive-management-a-first-solution/">Tuesday: active adaptive management, a first solution</a></h4>
+      <div class="article-style">
+        Spent way more of today than I wanted to hammering out the active adaptive management implementation for a trivial model-choice problem using the discretized belief-SDP approach.
+We have alternate models $f_1$ and $f2$ of the state equations (population growth dynamics) $$ x{t+1} = z_t f(x_t) $$ and introduce a continuously valued belief probability $p$ that model 1 is correct. This lends itself to a Bayesian updating rule for our belief based on observing a transition from $x$ to $y$,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/14/warning-signals-monday/">Mon, Mar 14, 2011</a></h4>
-    <h4><a href="../../../2011/03/14/warning-signals-monday/">Warning Signals, Monday</a></h4>
-    <div class="article-style">
-      
-      Set up a few long runs of simulated data to better illustrate the effects of sampling time and density, and better resolve the distributions.
- Longer baseline run, nice 19, indicator_vs_likelihood.R 1600 reps, m=-0.015, N=500, T=100
- Longer sampling, same interval: nice 18, stronger_signal.R 160 reps m=-0.015, N = 2500, T=500
-  Fails to compute, looks like poor estimates of model fits.
- Denser sampling, nice 17: indicator_vs_likelihood.R 160 reps, m=-0.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/20/friday-some-random-notes/">Tue, Mar 20, 2012</a></h4>
+      <h4><a href="../../../2012/03/20/friday-some-random-notes/">Friday: some random notes</a></h4>
+      <div class="article-style">
+        Computational tricks  tables in github markdown via knitr. clever Getting custom C/C++ CUDA working in R  Data management and sharing solutions for large files  NERSC uses globus online for interface for transferring terabytes/hr, pretty clever. NERSC also enables web hosting to share data.
+ Software-Carpentry style Data management a nice start. An open solution could stick the data on figshare (or elsewhere), write the readmes in markdown and keep them on github with links to the data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data/">Fri, Mar 11, 2011</a></h4>
-    <h4><a href="../../../2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data/">Warning signals: summary stats vs likelihood on real and simulated data</a></h4>
-    <div class="article-style">
-      
-      Added bar of observed tau on real data to the tau distributions. Fixed the tau-distribution method, running new data and real examples now.
-Simulated data: can tell tau apart for instance, for autocorrelation (see photostream for variance, code hash for parameters, etc). While can&rsquo;t really tell anything based on the tau on the autocorrelation for the Deuterium data for Glaciation III (which has just about the clearest signal of the deuterium set): Waiting to see how the likelihood statistics compare on these examples.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models/">Thu, Mar 10, 2011</a></h4>
-    <h4><a href="../../../2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models/">Numerical challenges in likelihood estimation of time-dep OU models</a></h4>
-    <div class="article-style">
-      
-      Worried about accurate maximum likelihood estimates of parameters, as the optimization could still converge on values not far from the starting conditions (not as surprising as the starting parameters are estimated intelligently first from the summary statistics) but could also vary depending on initial conditions.
-Second, while it requires some re-parameterization, the stationary model for both linearized transcritical (LTC) bifurcation model and the linearized saddle-node (LSN) model are identically Ornstein-Uhlenbeck models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/09/warning-signals-data-examples/">Wed, Mar 9, 2011</a></h4>
-    <h4><a href="../../../2011/03/09/warning-signals-data-examples/">Warning Signals data examples</a></h4>
-    <div class="article-style">
-      
-      Working on a little data exploration while writing up manuscript. I have been puzzled why it appears that most estimates of tau on the CaCO3 data infer negative correlation, as in
-Despite the fact that there seems to be a loss of stability in the model:
-require(warningsignals) load(&quot;CaCO3.Rdat&quot;) timedep$pars Ro m theta sigma 8.36841588 -0.03347119 -2.86194248 282.03234042  So m is negative, so that the system is loosing stability, but only very gradually.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/">Mon, Mar 7, 2011</a></h4>
-    <h4><a href="../../../2011/03/07/bodega-phylogenetics-tutorial-behind-the-scenes-difficulties-in-r-packages/">Bodega evolution Tutorial: behind the scenes difficulties in R packages</a></h4>
-    <div class="article-style">
-      
-      Just finished my tutorial for comparative methods on continuous traits in R, which I&rsquo;ll be presenting on Wednesday with Justen Whittall. The tutorial is up on the Bodega Phylogenetics Wiki, together with the necessary data files.
-Errors that shouldn&rsquo;t happen: a few package bugs in simulation functions Assembling the tutorial exposed a few more frustrations in the R packages. Consider simulating OU with rTraitCont:</p>
 
-<h2 id="load-the-libraries-simulate-a-tree-require-geiger-require-treesim-tree-lt-sim">Load the libraries, simulate a tree require(geiger) require(TreeSim) tree &lt;- sim.</h2>
-
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/20/citing-r-packages/">Tue, Mar 20, 2012</a></h4>
+      <h4><a href="../../../2012/03/20/citing-r-packages/">Citing R packages</a></h4>
+      <div class="article-style">
+        I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
+citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/01/warning-signals-comparing-methods-on-climate-data/">Tue, Mar 1, 2011</a></h4>
-    <h4><a href="../../../2011/03/01/warning-signals-comparing-methods-on-climate-data/">Warning Signals: Comparing Methods on Climate Data</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/19/monday-treebase-manuscript-writing/">Mon, Mar 19, 2012</a></h4>
       
-      Continuing my exploration in applying these techniques to real climate data. Applying the Kendall&rsquo;s Tau based approach on real data.
-Greenhouse Earth, CaCO3 data:
-Glaciation I-IV (deuterium data)
-These use the unadjusted timeseries, and hence don&rsquo;t reproduce the values of Kendall&rsquo;s tau statistic reported in (Dakos et. al. 2008). In fact they don&rsquo;t even agree on the sign &ndash; visually many of the datasets are certainly decreasing in variance. I ran the Monte-Carlo distributions for tau on models estimated from these data-sets with and without warning, for variance (left) and autocorrelation (right), in the CaCO3 data:
-      
+      <div class="article-style">
+        Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/28/warning-signals-on-real-data-continued/">Mon, Feb 28, 2011</a></h4>
-    <h4><a href="../../../2011/02/28/warning-signals-on-real-data-continued/">Warning Signals on Real data continued</a></h4>
-    <div class="article-style">
-      
-      Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos et. al. 2008). After adjusting my code to deal with variably spaced sampling intervals, I reread the supplement &ndash; I had forgotten that they don&rsquo;t actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.
-Obviously this is not ideal. It is true that the autocorrelation would be impacted by non-equally spaced data, while there is no reason to do so for the variance indicator.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">Tue, Mar 13, 2012</a></h4>
+      <h4><a href="../../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">pdg-control Day 1 goals by training problem</a></h4>
+      <div class="article-style">
+        Training Problem I / Theme 1 Policy costs  Functional forms of cost &amp; Structure of the paper Comparability (view over all costs? view expected economic benefit?)
+ Visualizations Dan&rsquo;s L1 norm story (vs stochastic, discrete time?)  Transaction Fee details in cts time, deterministic Advanced problem 1 How many spatially differentiated policies are optimal 1. formulate bioeconomic model 2. modularity methods 3. comparison of GBR &amp; Caribbean examples
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/02/27/warning-signals-on-real-data/">Sun, Feb 27, 2011</a></h4>
-    <h4><a href="../../../2011/02/27/warning-signals-on-real-data/">Warning Signals on Real Data?</a></h4>
-    <div class="article-style">
-      
-      Grabbed the data used in (Dakos et. al. 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit et. al. 1999), showing transitions into the last several ice ages, and calcium carbonate from Eocene &ldquo;greenhouse&rdquo; climate (Tripati et. al. 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000). Data is all freely provided through NOAA.
- CaCO3 data file (Tripati et. al. 2005), NOAA entry.
-      
+    
     </div>
-  </div>
-  
 
   
 <nav>
@@ -271,9 +224,10 @@ Obviously this is not ideal. It is true that the autocorrelation would be impac
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -362,7 +316,13 @@ Obviously this is not ideal. It is true that the autocorrelation would be impac
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

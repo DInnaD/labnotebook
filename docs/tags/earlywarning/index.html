@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,87 +134,90 @@
 
 
 
+
   <h1>Earlywarning</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../2014/12/04/lsn-nimble/"></a></h2>
-    <h4>Thu, Dec 4, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/04/lsn-nimble/">Thu, Dec 4, 2014</a></h4>
       
-      some sample data
-library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.Date, as.Date.numeric ## sde 2.0.15 ## Companion package to the book ## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39; ## Iacus, Springer NY, (2008) ## To check the errata corrige of the book, type vignette(&quot;sde.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/04/lsn-nimble/"></a></h2>
-    <h4>Thu, Dec 4, 2014</h4>
-    <div class="article-style">
-      
-      some sample data
+      <div class="article-style">
+        some sample data
 library(sde) library(nimble) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
 lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/nimble-explore/"></a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/03/nimble-explore/">Wed, Dec 3, 2014</a></h4>
       
-      Working through quick-start example in nimble manual
-library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/nimble-explore/"></a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Working through quick-start example in nimble manual
+      <div class="article-style">
+        Working through quick-start example in nimble manual
 The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
 library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h2>
-    <h4>Wed, Dec 3, 2014</h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/03/ou-model-in-nimble/">Wed, Dec 3, 2014</a></h4>
+      <h4><a href="../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h4>
+      <div class="article-style">
+        Sanity test with a simple model, Start with some sample data from an OU process:
 library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
 ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
-      
+      </div>
     </div>
-  </div>
-  
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/04/lsn-nimble/">Thu, Dec 4, 2014</a></h4>
+      
+      <div class="article-style">
+        some sample data
+library(sde) library(nimble) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
+lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/03/nimble-explore/">Wed, Dec 3, 2014</a></h4>
+      
+      <div class="article-style">
+        Working through quick-start example in nimble manual
+The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
+library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/03/ou-model-in-nimble/">Wed, Dec 3, 2014</a></h4>
+      <h4><a href="../../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h4>
+      <div class="article-style">
+        Sanity test with a simple model, Start with some sample data from an OU process:
+library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
+ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
+      </div>
+    </div>
+    
+    </div>
 
   
+
+  </div></div>
+
 
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -301,7 +304,13 @@ ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

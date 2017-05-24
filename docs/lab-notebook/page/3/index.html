@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,125 +133,90 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2014/10/20/notes/">Mon, Oct 20, 2014</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/06/03/lazy-evaluation-thoughts/">Wed, Jun 3, 2015</a></h4>
       
-      Keep thinking about this quote from Jeroen Oom&rsquo;s recent piece on the arxiv:
- The role and shape of data is the main characteristic that distinguishes scientific computing. In most general purpose programming languages, data structures are instances of classes with well-defined fields and methods. [&hellip;] Strictly defined structures make it possible to write code implementing all required operations in advance without knowing the actual content of the data. It also creates a clear separation between developers and users [emphasis added].
-      
+      <div class="article-style">
+        This is just a draft of my reply to Gavin’s thought-provoking post pushing back on pipes and NSE in R.
+Gavin, really nice post and discussion here. I am still conflicted about some these issues myself.
+For me, the issues of NSE are somewhat separate and above my concern with pipes. I agree completely with your observation that intermediate assignment is easier to read than nested assignment, and not that much harder to read than a pipe chain.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/10/16/gitlab-and-other-configuration-notes/">Thu, Oct 16, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/05/15/diagrammer/">Fri, May 15, 2015</a></h4>
       
-      Updating gitlab setup:
-docker pull sameersbn/redis:latest docker pull sameersbn/gitlab:7.3.2-1 docker pull sameersbn/postgresql:latest mkdir -p /opt/gitlab/data mkdir -p /opt/postgresql/data docker run &ndash;name=postgresql -d \ -e &lsquo;DB_NAME=gitlabhq_production&rsquo; -e &lsquo;DB_USER=gitlab&rsquo; -e &lsquo;DB_PASS=password&rsquo; \ -v /opt/postgresql/data:/var/lib/postgresql \ sameersbn/postgresql:latest docker run &ndash;name=redis -d sameersbn/redis:latest docker run &ndash;name=gitlab -d \ &ndash;link postgresql:postgresql \ &ndash;link redis:redisio \ -p 10080:80 -p 10022:22 \ -v /opt/gitlab/data:/home/git/data \ sameersbn/gitlab:7.3.2-1  More consisely, do this with fig
-gitlab: image: sameersbn/gitlab:7.3.2-1 links: - postgres - redis:redisio ports: - &quot;10080:80&quot; - &quot;10022:22&quot; volumes: - /opt/gitlab/data:/home/git/data environment: - SMTP_USER=USER@gmail.
-      
+      <div class="article-style">
+        Exploring ways for using DiagrammeR to generate graphs/plots that can be exported to svg and included in knitr documents.
+devtools::install_github(&quot;rich-iannone/DiagrammeR&quot;) library(&quot;DiagrammeR&quot;) n &lt;- c(&quot;archive&quot;, &quot;index&quot;, &quot;share&quot;, &quot;discover&quot;, &quot;use&quot;, &quot;attribute&quot;) nodes &lt;- create_nodes(nodes = c(&quot;Repository\n Roles&quot;, n, &quot;Researcher\n Roles&quot;), shape = &quot;circle&quot;, color = c(rep(&quot;PowderBlue&quot;, 4), rep(&quot;Linen&quot;, 4)), style = &quot;filled&quot;) edges &lt;- create_edges(from = n, to = c(n[-1], n[1]), color = &quot;gray&quot;, penwidth = 4) graph &lt;- create_graph(nodes = nodes, edges = edges, graph_attrs = c(&quot;layout = circo&quot;)) out &lt;- render_graph(graph) Render as SVG
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/10/14/rocker-versioning/">Tue, Oct 14, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/05/13/gp-compare/">Wed, May 13, 2015</a></h4>
       
-      Been looking into building versioned images for previous R releases using Docker, based on somewhat common requests to our recently begun rocker project. Versioning is under early development and the best way to go about this is not yet clear. Getting the correct version of R installed is not always trivial but is relatively straight forward, and I outline two approaches below.
-Getting the correct version of packages (or even merely any compatible version of the package) to install is a considerably more difficult problem, which I&rsquo;ll discuss later.
-      
+      <div class="article-style">
+        Original go at nimble gp model, but this requires rather manual manipulation of parameter posteriors to get the GP posteriors.
+library(&quot;MASS&quot;) library(&quot;mcmc&quot;) library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;methods&quot;) library(&quot;nonparametricbayes&quot;) ## Warning: replacing previous import &#39;ggplot2::alpha&#39; by &#39;kernlab::alpha&#39; ## when loading &#39;nonparametricbayes&#39; ## Warning: replacing previous import &#39;data.table::melt&#39; by &#39;reshape2::melt&#39; ## when loading &#39;nonparametricbayes&#39; ## Warning: replacing previous import &#39;data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/10/09/lessons-learned-in-writing-dockerfiles/">Thu, Oct 9, 2014</a></h4>
     
-    <div class="article-style">
-      
-      Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
- Minimize the number of layers, but use \ to break commands across multiple lines,
- Always run apt-get update &amp;&amp; apt-get install -y .
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/10/08/response-to-software-discovery-index-report/">Wed, Oct 8, 2014</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/05/08/ram-legacy-database-explore/">Fri, May 8, 2015</a></h4>
       
-      The NIH has recently announced the report of a landmark meeting which presents a vision for a Software Discovery Index (SDI). The report is both timely and focused on the key issues of locating, citing, reusing software:
- Software developers face challenges disseminating their software and measuring its adoption. Software users have difficulty identifying the most appropriate software for their work. Journal publishers lack a consistent way to handle software citations or to ensure reproducibility of published findings.
-      
+      <div class="article-style">
+        Accessing the database Connect to the database (connection info is public), works fine:
+library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;RPostgreSQL&quot;) ## Loading required package: methods ## Loading required package: DBI library(&quot;tidyr&quot;) library(&quot;ggplot2&quot;) mydb &lt;- src_postgres(dbname = &quot;srdb&quot;, host=&quot;nautilus-vm.mathstat.dal.ca&quot;, user = &quot;srdbuser&quot;, password = &quot;srd6us3r!&quot;, port = 5432) mydb ## src: postgres 8.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/10/07/notes/">Tue, Oct 7, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/28/notes/">Tue, Apr 28, 2015</a></h4>
       
-      Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
-ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
-      
+      <div class="article-style">
+        updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &lt;- species_info(&quot;Labroides bicolor&quot;, fields = c(&quot;SpecCode&quot;, &quot;Vulnerability&quot;, &quot;PriceCateg&quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &lt;- stocks(&quot;Labroides bicolor&quot;, fields=c(&quot;SpecCode&quot;, &quot;Resilience&quot;)) You can now merge the results:
+data &lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/10/02/notes/">Thu, Oct 2, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/28/rfishbase-notes/">Tue, Apr 28, 2015</a></h4>
       
-      docker 2014-09-29:
- Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
- Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&rsquo;s talk on our Docker work.
-      
+      <div class="article-style">
+        kalman filtering  updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &lt;- species_info(&quot;Labroides bicolor&quot;, fields = c(&quot;SpecCode&quot;, &quot;Vulnerability&quot;, &quot;PriceCateg&quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &lt;- stocks(&quot;Labroides bicolor&quot;, fields=c(&quot;SpecCode&quot;, &quot;Resilience&quot;)) You can now merge the results:
+data &lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/09/24/notes/">Wed, Sep 24, 2014</a></h4>
     
-    <div class="article-style">
-      
-      rocker / docker  Talking over strategy with Dirk, see summary in #1 and follow-up issues, #3, #4, #5.  rdataone &amp; EML Trying to fix travis issues. Much craziness.
-travis.sh doesn&rsquo;t provide notes on setup for repos where the R package is in a subdirectory. Looks like cd commands are persistent though throughout a travis file. okay.
- dataone is imported by EML but suggested by dataone. Since install_github likes to install the suggests list, this creates problems:
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/09/22/containerizing-my-development-environment/">Mon, Sep 22, 2014</a></h4>
-    
-    <div class="article-style">
-      
-      A key challenge for reproducible research is developing solutions that integrate easily into a researcher&rsquo;s existing workflow. Having to move all of one&rsquo;s development onto remote machines, into a particular piece of workflow software or IDE, or even just constrained to a window running a local virtual machine in an unfamiliar or primitive environment isn&rsquo;t particularly appealing. In my experience this doesn&rsquo;t reflect the workflow of even those folks already concerned about reproducibility, and is, I suspect, a major barrier in adoption of such tools.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/09/09/server-backups/">Tue, Sep 9, 2014</a></h4>
-    
-    <div class="article-style">
-      
-      Digital Ocean Snapshots At $0.02 per gig per month, this looks like this is the cheapest way to make complete backups.
-The process is rather manual: we have to sudo poweroff the droplet and then trigger the snapshot (the container will come back online after that, though we have to restart the services / active docker containers). We also have to delete old snapshots manually. Some of this can be automated from the API.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -266,9 +231,10 @@ The process is rather manual: we have to sudo poweroff the droplet and then trig
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -357,7 +323,13 @@ The process is rather manual: we have to sudo poweroff the droplet and then trig
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

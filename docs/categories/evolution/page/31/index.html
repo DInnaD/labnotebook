@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,118 +134,74 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/02/10/follow-up-on-parametric-bootstrapping/">Follow-up on Parametric Bootstrapping</a></h2>
-    <h4>Wed, Feb 10, 2010</h4>
-    <div class="article-style">
-      
-      Continuing on yesterday&rsquo;s discussion of parametric boostrapping implementation. Peter sent some very helpful comments and agreed to having them here for reference; I&rsquo;ve added some links.  &ldquo;I&rsquo;ve read up a bit on the bootstrap just now. First off, although parametric and nonparametric bootstrapping has always seemed very different to me, they fit in the same natural framework. The general idea is that in reality, there&rsquo;s some real parameters x and some probability distribution P that&rsquo;s given us some data.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/03/likelihood-ratio-paper/">Sun, Oct 3, 2010</a></h4>
+      <h4><a href="../../../../2010/10/03/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h4>
+      <div class="article-style">
+        Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/09/meeting-with-graham-and-peter/">Meeting with Graham and Peter</a></h2>
-    <h4>Tue, Feb 9, 2010</h4>
-    <div class="article-style">
-      
-      Discussion of Model Comparisons Primary focus of today&rsquo;s discussion was rooted in Sunday&rsquo;s entry
- On plotting quirks, haven&rsquo;t figured out lattice but here&rsquo;s yet another newer plotting engine for R I need to revisit how OUCH computes likelihood ratios and P values. Since some parameters are bounded to the positive real line (and may be small) the standard chi square isn&rsquo;t correct. I should repeat the AIC-style analysis for likelihood ratios, though this is just a shift of where I put the zero line.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/09/30/adaptive-dynamics-updates/">Thu, Sep 30, 2010</a></h4>
+      <h4><a href="../../../../2010/09/30/adaptive-dynamics-updates/">Adaptive Dynamics Updates</a></h4>
+      <div class="article-style">
+        The numerical coexistence time simulations are still running, (Server rest brought down these runs two weeks ago, and they take a few weeks to do all the replicates) meanwhile here are the rest of the analytic set (and one simulation that finished). See code for parameters etc. (Below in frame)</p>
+
+<p>EVE Seminar: Brad Shaffer A rather good talk on the California Tiger salamander, emphasizing intersection of ecological and evolutionary investigation in a conservation, management-oriented context.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/08/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h2>
-    <h4>Mon, Feb 8, 2010</h4>
-    <div class="article-style">
-      
-      Working on manuscript for this today, hope to have a draft soon.
- Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
- Sent draft to Brian and Peter, and Wainwright lab.
- Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/09/15/writing/">Wed, Sep 15, 2010</a></h4>
+      <h4><a href="../../../../2010/09/15/writing/">Writing</a></h4>
+      <div class="article-style">
+        Working on likelihood ratio/phylogenetic signal manuscript.</p>
+
+<p>scrap notes from more literature combing  Cheverud 1985 autocorellational model, extended by Gittlman &amp; Kot 1990 Grafen 89, Pagen &amp; Harvey 89 extending PIC to polytomies Harvey &amp; Mace 82, Harvey &amp; Clutton Brock 85 taxonomic rather than phylogenetic  From Blomberg et al: &ldquo;The three best-justified phylogenetically based statistical methods can all be applied with a star phylogeny, in which case they yield results that are exactly the same as a conventional analysis (phylogenetically independent contrasts: Felsenstein 1985; generalized least squares: Grafen 1989; Martins and Hansen 1997; Garland and Ives 2000; Rohlf 2001; Monte Carlo simulations: Martins and Garland 1991; Garland et al.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/07/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h2>
-    <h4>Sun, Feb 7, 2010</h4>
-    <div class="article-style">
-      
-      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
- I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/05/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h2>
-    <h4>Fri, Feb 5, 2010</h4>
-    <div class="article-style">
-      
-      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
- Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/09/14/writing/">Tue, Sep 14, 2010</a></h4>
+      <h4><a href="../../../../2010/09/14/writing/">Writing</a></h4>
+      <div class="article-style">
+        Working on likelihood ratio/phylogenetic signal manuscript
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/01/18/progresschallenges/"></a></h2>
-    <h4>Mon, Jan 18, 2010</h4>
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/09/13/peter-meeting/">Mon, Sep 13, 2010</a></h4>
+      <h4><a href="../../../../2010/09/13/peter-meeting/">Peter meeting</a></h4>
+      <div class="article-style">
+        SICB conference  Abstract &ndash; sent   Phylogenetic comparative methods have become all but ubiquitous in only a few decades, forcing us to reconsider if information from a phylogenetic tree can justify the results. Existing approaches to this question have been inadequate and do not scale with tree size or the ability to resolve branches. For instance, selection between phylogenetic models typically based on information criteria fails to adequately reflect this uncertainty, and can lead to preference for arbitrarily complicated models.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/01/10/cpb-thesis-proposal/">CPB thesis proposal</a></h2>
-    <h4>Sun, Jan 10, 2010</h4>
-    <div class="article-style">
-      
-      In the spirit of archiving work in the lab notebook, this was my PhD dissertation proposal, a requirement to advance to candidacy submitted before our oral defense in the second or third year. Following some excellent advice, this is focused more narrowly than my actual dissertation. As a historical note, I started keeping an open lab notebook the month following this, on OpenWetWare (so work leading up to this isn&rsquo;t archived, though admittedly first two years were largely coursework).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/09/07/meeting-with-sam/">Tue, Sep 7, 2010</a></h4>
+      <h4><a href="../../../../2010/09/07/meeting-with-sam/">Meeting with Sam</a></h4>
+      <div class="article-style">
+        Discussing elements of likelihood ratio manuscript and review results from release of constraint data. Figure out what to include in one manuscript, what order to present elements in, and what examples are necessary.
+ Phylogenetic Signal introduction. Need for examples? A good example where phylogenetically independent contrasts is misleading, but lambda/K definition of phylogenetic signal is also misleading. Power in phylogenetic tree:  Likelihood ratio and model choice: Monte Carlo LR approach, support in the literature <a href="http://openwetware">http://openwetware</a>.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2009/08/25/diffusion-solution/"></a></h2>
-    <h4>Tue, Aug 25, 2009</h4>
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2009/08/25/drift-effects/"></a></h2>
-    <h4>Tue, Aug 25, 2009</h4>
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2009/08/25/stochastic-methods/"></a></h2>
-    <h4>Tue, Aug 25, 2009</h4>
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -260,8 +216,12 @@
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -348,7 +308,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,133 +134,82 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/10/11/notes/"></a></h2>
-    <h4>Thu, Oct 11, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/18/figure-for-summarizing-simulations/">Tue, Jun 18, 2013</a></h4>
       
-      EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
-pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
-      
+      <div class="article-style">
+        Trying to find a better way to summarize outputs of simulations,
+Heavy over-plotting makes the simulation trajectories themselves hard to read, even with transparent curves. Instead, we can plot the cumulative profit (technically should be discounted first):
+We can normalize these profits as a fraction of the theoretical optimum (true), providing a comparison that is less dependent on model parameters.
+We can then attempt to plot these on a single plot, either as stacked histograms:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h2>
-    <h4>Wed, Oct 10, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/13/notes/">Thu, Jun 13, 2013</a></h4>
       
-      My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
-Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
-      
+      <div class="article-style">
+        Assembling various loose ends and some ropensci work.
+Misc things to work out and write at some date  Catch up on literature reading (unsorted list in Mendeley). Get entries into notebook.
+ Write thoughts on selecting links anchor text in the notebook knitr script workflow: externalizing chunks, cache and figure prefixes.
+ branching projects and unique repositories source code for all manuscripts into repositories clean up directories. in particular, establish separate prosecutors-fallacy repository Comments on workflow: Date-oriented (notebook) vs File-oriented (Github) explanation.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/01/multiple-uncertainty/"></a></h2>
-    <h4>Mon, Oct 1, 2012</h4>
-    <div class="article-style">
-      
-      Let
- y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
-$$ x</em>{t+1} = z_g f(x_t) $$
-In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/13/what-i-look-for-in-software-papers/">Thu, Jun 13, 2013</a></h4>
+      <h4><a href="../../../../2013/06/13/what-i-look-for-in-software-papers/">What I look for in &#39;Software Papers&#39;</a></h4>
+      <div class="article-style">
+        Update Thanks to the rich discussion in the comments and beyond, I&rsquo;ve revised my thoughts on this somewhat, as I discuss in this more recent post.
+I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I define as publications whose primary purpose is to publicize a piece of scientific software and provide a traditional research product with hopes that it will receive citations and recognition from other researchers in grant and job reviews.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/09/19/prosecutors-fallacy/"></a></h2>
-    <h4>Wed, Sep 19, 2012</h4>
-    <div class="article-style">
-      
-      Two years ago, I scribbled an entry into my notebook entitled Wrong Picture, Wrong Model: Why warning signals don&rsquo;t look like rare events. Months later I made some off-hand remark to Alan (my Ph.D. mentor) about how transitions found in historical records, such as the Climate examples in Dakos et. al. (2008), could actually be selecting for stochastic transitions, and this selection process might make them look like traditional warning signals &ndash; i.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/09/14/analytic-solution-to-multiple-uncertainty/"></a></h2>
-    <h4>Fri, Sep 14, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/05/semi-analytic-posteriors/">Wed, Jun 5, 2013</a></h4>
       
-      No idea where I went wrong, but the final graphs are not what I expected Update: Integrated out some uncertainty in the expectation step, need to preserve full set of transtions
-We consider adding additional sources of noise through observation error and implementation error to the orginal model of Reed (1979), which considers only growth error. This follows in the line of exploration taken by Clark and Kirkwood (1987), Roughgarden (1996) and Sethi (2006).
-      
+      <div class="article-style">
+        The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/09/04/notes/"></a></h2>
-    <h4>Tue, Sep 4, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/04/analytic-marginalizing-for-posteriors/">Tue, Jun 4, 2013</a></h4>
       
-      Fallacy paper done Dissertation filing Decision theory from the ROC curve.
- Working group paper Jim/Mike paper
- wrightscape paper?
- Signature page two copies, archival paper?
- ropensci emails: Position paper: Goals
- misc emails
-  Fallacy paper finalizing appendices  Commit images and runs from yesterday (ibm simulation still running&hellip;)
- clean up appendix code
- clean up appendix text
-  Code tricks for today vim set sytnax language, useful for getting R highlighting in .
-      
+      <div class="article-style">
+        Consider the model
+$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
+with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
+$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
+To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/29/santa-cruz-postdoc/"></a></h2>
-    <h4>Wed, Aug 29, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/">Tue, Jun 4, 2013</a></h4>
       
-      Spent Monday and Tuesday visiting Santa Cruz, where I have recently accepted a post-doctoral position with Steve Munch, Marc Mangel, and Alec MacCall. I will be based primarily at the National Marine Fisheries Service building, here: ` Five fantastic years of graduate school are coming to an end: I will start officially later this fall, where I will
- join an exciting team of ecologists and applied mathematicians who work collaboratively on cutting-edge problems in ecological and evolutionary modeling through the Center for Stock Assessment Research.
-      
+      <div class="article-style">
+        Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
+require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
+f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/23/notes/"></a></h2>
-    <h4>Thu, Aug 23, 2012</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/22/warning-signals-in-management/"></a></h2>
-    <h4>Wed, Aug 22, 2012</h4>
-    <div class="article-style">
-      
-      Tour of existing files (version stable links)
- managed warning is the current direct test of this, but needs decently ranged input example where detection has a good chance to succeed.
- criticaltransition Statistics across replicate crashes that don&rsquo;t show much promise for detection.
- A heuristic implementation in response to the detection of a signal might use a simple rule like a fraction of the optimal harvest of a stable system.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/08/22/notes/">Revisions on Prosecutors Fallacy</a></h2>
-    <h4>Wed, Aug 22, 2012</h4>
-    <div class="article-style">
-      
-      Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
- Proof corrections for rfishbase manuscript. Done.
- Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
-  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
-&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -275,8 +224,12 @@ We consider adding additional sources of noise through observation error and imp
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -363,7 +316,13 @@ We consider adding additional sources of noise through observation error and imp
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

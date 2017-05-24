@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,119 +134,71 @@
 
 
 
+
   <h1>Blog</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2014/05/05/knitr-workflow-challenges/">Deep challenges to dynamic documentation in daily workflows</a></h2>
-    <h4>Mon, May 5, 2014</h4>
-    <div class="article-style">
-      
-      We often discuss dynamic documents such as Sweave and knitr in reference to final products such as publications or software package vignettes. In this case, all the elements involved are already fixed: external functions, code, text, and so forth. The dynamic documentation engine is really just a tool to combine them (knit them together). Using dynamic documentation on a day-to-day basis on ongoing research presents a compelling opportunity but a rather more complex challenge as well.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/06/04/is-statistical-software-harmful/">Wed, Jun 4, 2014</a></h4>
+      <h4><a href="../../../../2014/06/04/is-statistical-software-harmful/">Is statistical software harmful?</a></h4>
+      <div class="article-style">
+        Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
+Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/04/why-i-sign-my-reviews/">why I sign my reviews</a></h2>
-    <h4>Sun, May 4, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/05/30/plos-data-sharing-policy-reflections/">Fri, May 30, 2014</a></h4>
       
-      For the past four years I have made an effort to sign all my reviews (which I try to keep to about one a month). It isn&rsquo;t because I believe in radical openness or something crazy like that. Its really just my self interest involved &ndash; at least mostly. Writing a review is an incredibly time consuming, and largely thankless task. Supposedly anonymous peer review is supposed to protect the reviewer, particularly the scenario of the less established scientist critiquing the work of the more established.
-      
+      <div class="article-style">
+        PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
+At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/03/20/software-sustainability-issues-in-r/"></a></h2>
-    <h4>Thu, Mar 20, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/05/07/integrating-github-project-repos-into-the-notebook/">Wed, May 7, 2014</a></h4>
       
-      Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
- There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
-      
+      <div class="article-style">
+        For a while now most of my active research is developed through .Rmd scripts connected to a particular project repository (something I discuss at length in deep challenges with knitr workflows). In the previous post I discuss creating a template package with a more transparent organization of files, such as moving manuscripts from inst/doc/ to simply manuscripts/. This left these exploratory analysis scripts in inst/examples in a similarly unintuitive place.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/23/startup-culture-and-platforms-for-the-academy/"></a></h2>
-    <h4>Thu, Jan 23, 2014</h4>
-    <div class="article-style">
-      
-      Scientific Research: Moving beyond bubbles to platforms. The Economist contrasts the current start-up culture to that of the dotcom bubble. Their special report argues that while the dotcom bubble was characterized by heavy investment in a single idea with a &ldquo;Build it and they will come&rdquo; attitude, the current generation of startups is characterized by tinkering and rapid experimentation. They argue that this is possible thanks to the cheaply available &ldquo;platforms&rdquo; of open source software, cloud computing, APIs, and social media dissemination.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/14/research-gate/">So, you&#39;re active on Research Gate?</a></h2>
-    <h4>Thu, Nov 14, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/05/06/steps-to-a-more-portable-workflow/">Tue, May 6, 2014</a></h4>
       
-      I have occassionally been getting this question:
- So, you&rsquo;re active on ResearchGate?
- Sounds like being accused of some scandal, doesn&rsquo;t it?
-I&rsquo;m not generally active on it - my impression is that the open science community is mostly skeptical about ResearchGate and any other &ldquo;Social Network&rdquo; for scientists, largely on the grounds that &ldquo;we already use the same social networks everyone else uses.&rdquo; Some object on more philosophical grounds (profit, Mendeley, etc), but heck I publish in Elsevier/Springer/Wiley so I won&rsquo;t preach.
-      
+      <div class="article-style">
+        While I have made my workflow for most of my ongoing projects available on Github for some time, this does not mean that it has been particularly easy to follow. Further, as I move from project to project I have slowly improved how I handle projects. For instance, I have since added unit tests (with testthat) and continuous integration (with travis-ci) to my repositories, and my handling of manuscripts has gotten more automated, with richer latex templates, yaml metadata, and simpler and more powerful makefiles.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/13/data-science-center/">Do we need a culture of Data Science in Academia?</a></h2>
-    <h4>Wed, Nov 13, 2013</h4>
-    <div class="article-style">
-      
-      Just my draft copy of a Guest blog post I wrote for Dynamic Ecology.
-On Tuesday the Whitehouse Office of Science and Technology Policy announced the creation of a $37.8 million dollar initiative to promote a &ldquo;Data Science Culture&rdquo; in academic institutions, funded by the Gordon and Betty Moore Foundation, Alfred P. Sloan Foundation, and hosted in centers at the universities UC Berkeley, University of Washington, and New York University.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/05/05/knitr-workflow-challenges/">Mon, May 5, 2014</a></h4>
+      <h4><a href="../../../../2014/05/05/knitr-workflow-challenges/">Deep challenges to dynamic documentation in daily workflows</a></h4>
+      <div class="article-style">
+        We often discuss dynamic documents such as Sweave and knitr in reference to final products such as publications or software package vignettes. In this case, all the elements involved are already fixed: external functions, code, text, and so forth. The dynamic documentation engine is really just a tool to combine them (knit them together). Using dynamic documentation on a day-to-day basis on ongoing research presents a compelling opportunity but a rather more complex challenge as well.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/10/11/is-it-time-to-retire-pagels-lambda/">Is it time to retire Pagel&#39;s lambda?</a></h2>
-    <h4>Fri, Oct 11, 2013</h4>
-    <div class="article-style">
-      
-      Pagel&rsquo;s $\lambda$ (lambda), introduced in Pagel 1999 as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).
-Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity. There are many issues with the statistic, some of which I attempt to summarise below.
-The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/05/04/why-i-sign-my-reviews/">Sun, May 4, 2014</a></h4>
+      <h4><a href="../../../../2014/05/04/why-i-sign-my-reviews/">why I sign my reviews</a></h4>
+      <div class="article-style">
+        For the past four years I have made an effort to sign all my reviews (which I try to keep to about one a month). It isn&rsquo;t because I believe in radical openness or something crazy like that. Its really just my self interest involved &ndash; at least mostly. Writing a review is an incredibly time consuming, and largely thankless task. Supposedly anonymous peer review is supposed to protect the reviewer, particularly the scenario of the less established scientist critiquing the work of the more established.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/25/mozilla-software-review/">Reflections on the Mozilla Science Code Review Pilot</a></h2>
-    <h4>Wed, Sep 25, 2013</h4>
-    <div class="article-style">
-      
-      I was recently interviewed a Nature senior reporter Erika Check Hayden on the subject of the scientific code review project being conducted by Mozilla Science Lab. The piece appears in this week&rsquo;s issue, Hayden 2013. My blog post sharing my own approach to code review is mentioned at the beginning of the article, though it is rather Roger Peng&rsquo;s comments at the end that have stirred some interesting discussion.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/10/forking-the-r-journal/"></a></h2>
-    <h4>Wed, Jul 10, 2013</h4>
-    <div class="article-style">
-      
-      All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/09/reviewing-software-revisited/"></a></h2>
-    <h4>Tue, Jul 9, 2013</h4>
-    <div class="article-style">
-      
-      Several weeks ago I wrote a post describing issues I commonly raise when reviewing software papers. This provoked a lively discussion among authors, editors, and other reviewers of software papers (most of us having been on at least both reviewing and authoring end), with quite varied perspectives as to whether such criteria were appropriate in this context. As I describe there, I view the concept of dedicated software papers as a somewhat necessary &ldquo;hack&rdquo; of the publishing system, and hope a more mature system will eventually come into place, as is now happening for data through efforts such as Dryad and associated journal archiving requirements.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -261,8 +213,12 @@ The $\lambda$ statistic is defined by the Brownian motion model together with a 
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -349,7 +305,13 @@ The $\lambda$ statistic is defined by the Brownian motion model together with a 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

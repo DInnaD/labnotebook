@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,133 +134,76 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/03/15/computing/">Computing</a></h2>
-    <h4>Mon, Mar 15, 2010</h4>
-    <div class="article-style">
-      
-      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/11/phylogenetics-statistics/">Thu, Nov 11, 2010</a></h4>
+      <h4><a href="../../../../2010/11/11/phylogenetics-statistics/">evolution statistics </a></h4>
+      <div class="article-style">
+        Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
+Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
+The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/14/post-workshop/">Post-Workshop</a></h2>
-    <h4>Sun, Mar 14, 2010</h4>
-    <div class="article-style">
-      
-      Working on a couple new ideas:
- Multiple partitions Community phylogenetics nulls Diversification rates w/ stationary distributions  Tools exploration  Finding my forum a very useful tool for recording and organizing around idea. Nice complement to this notebook which helps me organize temporally instead. Becoming convinced I should transition from svn to git. Created a git-hub account and have started learning the basic git commands. The Git community book and the website video tutorials have been very helpful.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Wed, Nov 10, 2010</a></h4>
+      <h4><a href="../../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Tuesday - SDEs then back to phylogenetics</a></h4>
+      <div class="article-style">
+        Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
+With regards the SDE problem, note that it reduces to:
+$$ dX_1 = B_2 d B_1 $$
+and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/12/bodega-workshop-presentations/">Bodega Workshop Presentations</a></h2>
-    <h4>Fri, Mar 12, 2010</h4>
-    <div class="article-style">
-      
-      Final day of Bodega Phylogenetics workshop: a full day of student presentations. (High resolution images for the trees available by clicking on them)
-Principle figures from my investigation of the Labrid data. While morphospace doesn&rsquo;t present an obvious clustering, it can be effectively divided by my maximum likelihood partitioning scheme on fin angle. A smoothed density plot of fin angle alone reveals two identifiable modes in the traitspace.
-Based on the discretized partition, ancestral states are reconstructed under both the equal rates and independent rates model.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/08/monday-and-some-phylogenetics/">Mon, Nov 8, 2010</a></h4>
+      <h4><a href="../../../../2010/11/08/monday-and-some-phylogenetics/">Monday and some phylogenetics</a></h4>
+      <div class="article-style">
+        Working on paper revisions. Added a separate demo file just for generating the figures and analysis used in the manuscript, called likelihood_manuscript.R Need to clean and reorganize the package files and demos.
+Added full species names and islands to the tip labels of the tree. Adjusting which example paintings/regimes to include, currently focusing on the original OU.LP model (now calling it OU.3 following Brian&rsquo;s recommendation for simplicity), OU.4, (originally OU.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/11/phylogenetics-workshop-day-5/">Phylogenetics Workshop Day 5</a></h2>
-    <h4>Thu, Mar 11, 2010</h4>
-    <div class="article-style">
-      
-      Last day of lectures: Lineage Diversification
-Brian Moore: Rates of Lineage Diversification Bodega Wiki slides &amp; tutorial
- Detecting significant diversification rate variation across tree locate shifts along branches and through time (niche-filling, density dep models?) correlates of differential rates parameter estimation speciation/extinction  correlates of differential rates  Apply Felsenstein pruning algorithm to calc likelihood and hence fit model this is just the definition of a joint probability! Use this to estimate the model, then do rejection sampling to create the tree painting.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/10/bodega-workshop-day-4/">Bodega Workshop Day 4</a></h2>
-    <h4>Wed, Mar 10, 2010</h4>
-    <div class="article-style">
-      
-      Morphological Evolution Day:
- Peter Wainwright Sam Price Johnathan Eisen  We have the afternoon session off for field trips and research.</p>
 
-<p>Peter Wainwright, Comparative Analysis of Morphological Diversity  Fantastic diversity in morphology, corresponds to niche! But morphological diversity isn&rsquo;t evenly distributed across tree of life. (See slides, parallels Peter&rsquo;s section on core and gives the best biological coverage we&rsquo;ve had this week).  What changes morphological diversification rate
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/05/friday-evolution-reading-writing/">Fri, Nov 5, 2010</a></h4>
+      <h4><a href="../../../../2010/11/05/friday-evolution-reading-writing/">Friday: Evolution reading, writing</a></h4>
+      <div class="article-style">
+        Read through the article for Monday&rsquo;s PBG270, a 2009 Nature paper from the Plotkin lab on mutational robustness and the rate of evolution. They consider an interesting little setup. Start with a Moran model (individual born, may mutate, choses who to replace at random), but allow the following mutational structure (landscape). Of P possible genotypes, each can only move to one of K neighbors by a single mutation. Call the genotype(s) of optimal fitness C.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/09/bodega-phylogenetics-workshop-day-3/">Bodega Phylogenetics Workshop Day 3</a></h2>
-    <h4>Tue, Mar 9, 2010</h4>
-    <div class="article-style">
-      
-      Rich Glor, Character Evolution Official slides and tutorial
- Weakness of ancestral state reconstruction
- Cunningham 1999 Losos 1999  Testing hypotheses with ancestral reconstruction
- Parsimony Farris method. Downward/upward pass. Gives a maximum parsimony reconstruction. May miss other ones. Apparently this Parsimony analysis can be done for continuous traits as well, needs a measure of distance Likelihood Pagel 1994 Schluter 1997   R tutorial (see anolis_cheat.R)
- Discrete trait ancestral state reconstruction
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/30/short-note-trait-diversification-rates-controlled-by-other-traits/">Sat, Oct 30, 2010</a></h4>
+      <h4><a href="../../../../2010/10/30/short-note-trait-diversification-rates-controlled-by-other-traits/">Short note: Trait diversification rates controlled by other traits</a></h4>
+      <div class="article-style">
+        Peter posed an interesting question to me this afternoon: can we infer a model in which the rate of evolution in one trait (say, its Brownian diversification rate parameter) depends on the value of another trait (say, linearly and assume the other trait depends on Brownian motion). Without all those assumptions we write this generally as:
+$$ dX_t = f_x(X_t, Y_t) dt + \sigma_x(X_t, Y_t) d W_t $$ $$ dY_t = f_y(Y_t) dt + \sigma_y(Y_t) d W_t $$ (subscripts do not imply derivatives in my notation)
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/08/bodega-phylogenetics-workshop-day-2/">Bodega Phylogenetics Workshop Day 2</a></h2>
-    <h4>Mon, Mar 8, 2010</h4>
-    <div class="article-style">
-      
-      Marine lab researchers are back, and network speeds have just about given up (down to bytes/s). This post is composed offline and will be uploaded to the notebook. Details are well logged on the Bodgea Phylogenetics Wiki so these are reasonably sketchy with my comments.
-My Updates to Bodega Phylogenetics Wiki Made several contributions to the Bodega Phylogenetics Wiki today:
- User page Phylogenetics on Linux Becoming a Programmer Edits on Advice for Aspiring Phylogeneticists  Today&rsquo;s agenda  BEAST continued.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/10/15/status-update/">Fri, Oct 15, 2010</a></h4>
+      <h4><a href="../../../../2010/10/15/status-update/">Status update</a></h4>
+      <div class="article-style">
+        Actually out of town this day, but draft off to co-authors, will review Friday. meanwhile time to get back to some warning signals work, will be in other notebook for rest of the week.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/07/bodega-phylogenetics-workshop-day-1/">Bodega Phylogenetics Workshop Day 1</a></h2>
-    <h4>Sun, Mar 7, 2010</h4>
-    <div class="article-style">
-      
-      Lecture notes for the phyolgenetics workshop. These are taken in real time, so may contain errors. I&rsquo;ll see if I keep this up throughout the course. See course website.
-Huelsenbeck 9a-11a
- Parameters θ Observation X p(X | θ) is known as the likelihood. Adjust parameter to maximize likelihood. Coin toss example  θ = prob of heads on a single toss of a coin, X is # of heads observed on n tosses.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/05/friday/">Friday</a></h2>
-    <h4>Fri, Mar 5, 2010</h4>
-    <div class="article-style">
-      
-      11a Sebastian Meeting (see Stochastic Population Dynamics Notebook)
-12p - 1p
- Lunch talk in joint lab group (Schreiber Coop Moore Rannala Eisen) on coalescents for wARG. Remember to check out kcachegrind as interface to valgrind and profiler, and also mauve as a dynamic sequence alignment display tool.  Comparative Phylogenetics Discussion group 4-5p. Discussing:
- Van Bocxlaer I, Loader SP, Roelants K, Biju SD, Menegon M, and Bossuyt F.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/04/big-picture-comparative-phylogenetics/">Big Picture Comparative Phylogenetics</a></h2>
-    <h4>Thu, Mar 4, 2010</h4>
-    <div class="article-style">
-      
-      A Task View on Phylogenetic Comparative Methods (in R on CRAN) has been released today, maintained by Brian O&rsquo;Meara. Quite thorough and concise.
- Follow-up discussion on:
- List is useful, but would be nice to be able to expand / collapse the list to see more / less details about the functions available. More detail makes it harder to maintain, perhaps get the developers involved? List is also quite provocative source to realize what&rsquo;s missing (there&rsquo;s no way to estimate ancestral states under OU using existing software?
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -275,8 +218,12 @@ Huelsenbeck 9a-11a
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -363,7 +310,13 @@ Huelsenbeck 9a-11a
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

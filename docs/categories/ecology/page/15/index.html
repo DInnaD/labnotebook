@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,130 +134,81 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/12/05/notes/"></a></h2>
-    <h4>Wed, Dec 5, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/08/06/summarizing-earlier-warning-signal-under-control-notes/">Tue, Aug 6, 2013</a></h4>
       
-      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
- Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
-      
+      <div class="article-style">
+        NSF goals:  combine control methods and warning signals do non-parametric or machine learning increase or decrease chance of transition learning  Further areas (from comment piece) baselines (statistical; emperical) context-specific (additional data sources, reflecting context in model)  Warning signals in managed systems Management decreases the signal: compare likelihood statistic in unmanaged_warning managed_warning:
+Estimating Stability in managed systems Recovery rate in optimally fished vs unfished system (based on the OU model): stability.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/12/04/tgp-mcmc-for-gaussian-processes/"></a></h2>
-    <h4>Tue, Dec 4, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/08/01/notes/">Thu, Aug 1, 2013</a></h4>
       
-      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
-Example call:
-gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
-n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
-      
+      <div class="article-style">
+        Registered for AmNat 2014 conference in Asilomar.
+ Nice collection Data Visualization pieces from Nature Methods. vim clipboard: put older items from clipboard history using: &quot;0p, &quot;1p, &quot;2p. See list in :reg. (from here) #ESA2013 Lotka-Volterra Talks Review methods to write S4 back to XML  from earlier:
+misc reading  Duncan Hull&rsquo;s Seven deadly sins of bioinformatics Carole&rsquo;s Goble&rsquo;s talk at ismb, as summarized in graphical form Interesting: researchobject.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/12/03/figures-3-and-4-for-policycosts/"></a></h2>
-    <h4>Mon, Dec 3, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/28/nonparametric-bayes-wrapping-up-sensitivity/">Sun, Jul 28, 2013</a></h4>
       
-      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
-Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
-      
+      <div class="article-style">
+        Remote RStudio configuration (keep forgetting options and ports).
+ssh -o &quot;ExitOnForwardFailure yes&quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
+ sensitivity.md (Myers) sensitivity-allen.md  Overall:
+ggplot(yields_dat) + geom_density(aes(value))  Compare over 12 simulation configurations with different parameters and different training data, the GP does consistently well. Only one case has relatively poor outcomes.
+ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=as.factor(simulation)), alpha=.5)   Run data backup to local disk NSF expense accounting calendar updates software paper policies email Luke Arbor reply looking at quick way to check out solutions to sums of Fisher wave equation over different diffusion coefficients (heterogenous dispersal rates), e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h2>
-    <h4>Wed, Nov 28, 2012</h4>
-    <div class="article-style">
-      
-      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
-Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/27/policy-costs-work/"></a></h2>
-    <h4>Tue, Nov 27, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/25/formal-semantics-with-reml/">Thu, Jul 25, 2013</a></h4>
       
-      Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
- Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
-      
+      <div class="article-style">
+        A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
+Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/22/notes/"></a></h2>
-    <h4>Thu, Nov 22, 2012</h4>
-    <div class="article-style">
-      
-      multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
-Uniform lognormal log  A few small tweaks to probability calculations
- Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/19/notes/">Fri, Jul 19, 2013</a></h4>
+      <h4><a href="../../../../2013/07/19/notes/">Notes from chat with Duncan</a></h4>
+      <div class="article-style">
+        Keep metadata as part of the object Recursion problem coming up.
+  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
+  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
+ Schema to create S4 objects Create R objects first, and then toXML
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/21/notes/"></a></h2>
-    <h4>Wed, Nov 21, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/11/visit-to-whoi/">Thu, Jul 11, 2013</a></h4>
       
-      writing comment piece. writing writing writing.
-  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
-      
+      <div class="article-style">
+        Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
+ 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/19/sequential-updating/"></a></h2>
-    <h4>Mon, Nov 19, 2012</h4>
-    <div class="article-style">
-      
-      Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
-for the covariance:
-C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
-mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h2>
-    <h4>Fri, Nov 16, 2012</h4>
-    <div class="article-style">
-      
-      Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
-See notes on code changes inline.
-Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/15/notes/"></a></h2>
-    <h4>Thu, Nov 15, 2012</h4>
-    <div class="article-style">
-      
-      Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
-Is there some scalar $v_2$ such that
-$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
-e.g. a term like:
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -272,8 +223,12 @@ e.g. a term like:
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -360,7 +315,13 @@ e.g. a term like:
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

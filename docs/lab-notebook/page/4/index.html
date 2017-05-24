@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,125 +133,87 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2014/09/08/server-security-basics/">Mon, Sep 8, 2014</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/20/open-science-post-doc/">Mon, Apr 20, 2015</a></h4>
       
-      Security configuration We set up SSH key-only login on non-standard port, with root login forbidden. We then set up ufw firewall, fail2ban, and tripwire.
- Configure an SSH key login. Next, Create a user, add to sudoers, and then disable root login.. Edits /etc/ssh/sshd_config:
- Disabling root logins. (We&rsquo;ll need to add ourselves to sudo first: (adduser, edit /etc/sudoers) Change ssh port from default to something else. Whitelist user login ids   Additionally, let&rsquo;s be sure to disable password authentication: Add PasswordAuthentication no to /etc/ssh/sshd_config.
-      
+      <div class="article-style">
+        This post is a response to the query posted by Titus Brown on advice for doing an Open Science Post doc.
+Open Science is a broad tent, and I believe there are many ways to engage in open science without crossing boundaries of collaborators or PIs. Some of the most valuable open science practices are those least likely to cross boundaries: in particular, those practices associated with post-publication of academic papers.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/09/05/drone-ci-and-docker/">Fri, Sep 5, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/15/misc-notes-on-cloud-providers/">Wed, Apr 15, 2015</a></h4>
       
-      Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&rsquo;t supported out of the box).
- We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &lsquo;minion&rsquo;.
-      
+      <div class="article-style">
+        ongoing notes comparing computing resources
+Comparing compute resources:
+ AWS EC2, DigitalOcean, and Google Compute Engine look significantly cheaper than Rackspace, Azure, etc. (The Economist has estimated that AWS EC2 prices are roughly 3% below cost).
+ DigitalOcean tends to have the lowest price point for on-demand use of a given set of resources; usually comparable to the Amazon or EC2 persistent (e.g. monthly) use. All-inclusive pricing (storage, networking etc) and limited options make choices simple and total costs easy to anticipate, though lack the flexibility to fine-tune a configuration to pay for exactly what you need.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/09/05/thoughts-on-harte-interview/">Fri, Sep 5, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/10/data-science-regional-hubs/">Fri, Apr 10, 2015</a></h4>
       
-      Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
- From general laws flow absolutely bullet-proof insights and this is what we most need
- I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
-      
+      <div class="article-style">
+        Agenda  Goal Who &amp; what we have imagine and design the hub engage, govern, sustain structure a proposal   NSF overview  What does NSF mean by hub? Consortium/network with regional focus why regional? face time. regional issues NSF thinking it will fund for 9-10 years (in 3 phases). next phase will be &lt; 3 years after first phase 1: hub (executive director) phase 2: spokes (priority areas) phase 3: nodes (sustaining partner organizations)  Volunteer steering council advises ED, executive staff partner organizations (beyond steering council) (model like the CRA)
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/29/docker-notes/">Fri, Aug 29, 2014</a></h4>
-    <h4><a href="../../../2014/08/29/docker-notes/">Docker tricks of the trade and best practices thoughts</a></h4>
-    <div class="article-style">
-      
-      Best practices questions Here are some tricks that may or may not be in keeping with best practices, input would be appreciated.
- Keep images small: use the &ndash;no-install-recommends option for apt-get, install true dependencies rather than big metapackages (like texlive-full). Avoid creating additional AUFS layers by combining RUN commands, etc? (limit was once 42, but is now at least 127). Can use RUN git clone &hellip; to add data to a container in place of ADD, which invalidates caching.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/25/reproducible-research-environments-with-docker/">Mon, Aug 25, 2014</a></h4>
-    <h4><a href="../../../2014/08/25/reproducible-research-environments-with-docker/">Reproducible research environments with Docker</a></h4>
-    <div class="article-style">
-      
-      Academic research takes place in computational environments of continually increasing complexity. This creates ever-higher barriers not only to reproducing or extending the results of other researchers, but also barriers to collaboration and training of new researchers.
-Wouldn&rsquo;t it be nice if we could all work in equivalent computing environments, such that whatever worked for me on my computer would work for you on yours? Wouldn&rsquo;t it be nice if we could just clone and copy our entire software environment when we needed to move our computations over to a more powerful cloud or cluster computer?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/14/docker-notes/">Thu, Aug 14, 2014</a></h4>
     
-    <div class="article-style">
-      
-      Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/14/pdg-controlfest-notes/">Thu, Aug 14, 2014</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/09/gpdd-and-kalman-exploration-continued/">Thu, Apr 9, 2015</a></h4>
       
-      Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
-I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
-      
+      <div class="article-style">
+        Load libraries and data as before
+library(&quot;ggplot2&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;tidyr&quot;) library(&quot;knitcitations&quot;) library(&quot;rgpdd&quot;) library(&quot;FKF&quot;) ## Loading required package: RUnit ## Loading required package: methods Parallel version of dplyr::do do_parallel &lt;- function(df, f, &hellip;){ # supports only one group for now require(&quot;parallel&quot;) require(&quot;lazyeval&quot;) require(&quot;reshape2&quot;) options(mc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">Fri, Aug 8, 2014</a></h4>
-    <h4><a href="../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h4>
-    <div class="article-style">
-      
-      An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
-I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
-docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/07/too-much-fun-with-docker/">Thu, Aug 7, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/04/06/gpdd-explore/">Mon, Apr 6, 2015</a></h4>
       
-      NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
-Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
-I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
-      
+      <div class="article-style">
+        setup library(&quot;ggplot2&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;tidyr&quot;) library(&quot;rgpdd&quot;) library(&quot;FKF&quot;) ## Loading required package: RUnit ## Loading required package: methods Working through 10.1111/j.1461-0248.2011.01702.x provides a nice way to play around with the GPDD data and Kalman filtering. More interested in exploring the data and methods than in just replicating the results, which are important but also rather intuitive and thus I expect rather robust – as we add (observational) uncertainty, or indeed, any additional parameters that must be ended, we should expect to have less power to pin down a particular parameter associated with density dependence, as the paper illustrates rather nicely.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/08/06/notes/">Wed, Aug 6, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/03/26/ropensci-unconf-teaching-session/">Thu, Mar 26, 2015</a></h4>
       
-      Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
- Attempted to add Travis builds to the Docker repo (just for fun, eh?
-      
+      <div class="article-style">
+        Panel on Effective teaching with R Panel:
+Tracy Teal - Data Carpentry Hadley Wickhan - undergrads at Rice, R master classes for RStudio Mine, Prof Stats, Duke, also MOOC Roger Peng Prof Biostats, John Hopkins Jenny Bryan, Prof Stats, UBC.
+ Ben Marwick, Prof Archaelogy  How do you engage new users? (Or what doesn’t work?)
+Hadley: Start with visualization. +1 Jenny Jenny: Making an HTML page with .Rmd (+1 Mine), scaling/aggregation Roger: these days, they come to me excited about R Mine: I have to convince social scientists to use computers at all.
+      </div>
     </div>
-  </div>
-  
+    
+    </div>
 
   
 <nav>
@@ -266,9 +228,10 @@ I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m qu
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -357,7 +320,13 @@ I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m qu
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,88 +134,74 @@
 
 
 
+
   <h1>R</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/03/20/citing-r-packages/">Citing R packages</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
-    <div class="article-style">
-      
-      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
-citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/30/knitcitations/">Wed, May 30, 2012</a></h4>
+      <h4><a href="../../../../2012/05/30/knitcitations/">knitcitations</a></h4>
+      <div class="article-style">
+        EDIT: Note that this package has evolved quite a bit from this initial post. While the basic interface is the same, support for additional features and some choices in formatting differ from what is presented here. Please see the README for the latest introduction to the package. Readers may also be interested in the more recent post discussing the introduction of several new features including semantic tools in the knitcitations package
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Elegant &amp; fast data manipulation with data.table</a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
-    <div class="article-style">
-      
-      Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/07/writing-reproducibly-in-the-open-with-knitr/">Sat, Apr 7, 2012</a></h4>
+      <h4><a href="../../../../2012/04/07/writing-reproducibly-in-the-open-with-knitr/">Writing reproducibly in the open with knitr</a></h4>
+      <div class="article-style">
+        Sweave is something of a gold standard in reproducible research. It creates a dynamic document, written in a mix of LaTeX and R code where the results of the analysis (numbers, figures, tables) are automatically generated from the code and inserted into the resulting pdf document, making them easy to update if the data or methods change. It&rsquo;s a nice idea, in principle.
+However, the practical troubles are many. Coauthors don&rsquo;t know LaTeX, publishers who don&rsquo;t accept LaTeX or pdfs.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/24/citations-in-markdown-using-knitr/">Sat, Mar 24, 2012</a></h4>
+      <h4><a href="../../../../2012/03/24/citations-in-markdown-using-knitr/">Citations in markdown using knitr</a></h4>
+      <div class="article-style">
+        I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading). One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I&rsquo;d like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/">Wed, Mar 21, 2012</a></h4>
+      <h4><a href="../../../../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/">knitr, github, and a new phase for the lab notebook</a></h4>
+      <div class="article-style">
+        I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&rsquo;t say where in the script the command came from, and it required manually specifying the script name).
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/20/citing-r-packages/">Tue, Mar 20, 2012</a></h4>
+      <h4><a href="../../../../2012/03/20/citing-r-packages/">Citing R packages</a></h4>
+      <div class="article-style">
+        I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
+citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Sun, Feb 12, 2012</a></h4>
+      <h4><a href="../../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Elegant &amp; fast data manipulation with data.table</a></h4>
+      <div class="article-style">
+        Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
 One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
 time &lt;- rep(1:10, 10) replicate &lt;- sort(time) value &lt;- rnorm(100) df &lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
 sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/19/is-your-phylogeny-informative/">Is your phylogeny informative?</a></h2>
-    <h4>Thu, Jan 19, 2012</h4>
-    <div class="article-style">
-      
-      Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&rsquo;s preprint),As the open access copy doesn&rsquo;t appear on pubmed for a while, you can access my author&rsquo;s copy here. so I&rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
-I didn&rsquo;t set out to write this paper.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/10/25/treebase-package-on-cran/"></a></h2>
-    <h4>Tue, Oct 25, 2011</h4>
-    <div class="article-style">
-      
-      My treebase package is now up on the CRAN repository. (Source code is up, the binaries should appear soon). Here&rsquo;s a few introductory examples to illustrate some of the functionality of the package. Thanks in part to new data deposition requirements at journals such as Evolution, Am Nat, and Sys Bio, and data management plan requirements from NSF, I hope the package will become increasingly useful for teaching by replicating results and for meta-analyses that can be automatically updated as the repository grows.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/20/showcasing-the-latest-phylogenetic-methods-auteur/">Showcasing the latest phylogenetic methods: AUTEUR</a></h2>
-    <h4>Wed, Jul 20, 2011</h4>
-    <div class="article-style">
-      
-      While high-speed fish feeding videos may be the signature of the lab, dig a bit deeper and you&rsquo;ll find a wealth of comparative phylogenetic methods sneaking in. It&rsquo;s a natural union &ndash; expert functional morphology is the key to good comparative methods, just as phylogenies hold the key to untangling the evolutionary origins of that morphology. The lab&rsquo;s own former graduate, Brian O&rsquo;Meara, made a revolutionary step forward in the land of phylogenetic methods when he unveiled Brownie in 2006, allowing researchers to identify major shifts in trait diversification rates across the tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/16/treebase-in-r-a-first-tutorial/">TreeBASE in R: a first tutorial</a></h2>
-    <h4>Mon, May 16, 2011</h4>
-    <div class="article-style">
-      
-      My TreeBASE R package is essentially functional now. Here&rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
-TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/11/socialr-an-r-package-to-track-the-status-of-computations-with-social-network-tools/">socialR: Reproducible Research &amp; Notebook integration with R</a></h2>
-    <h4>Sat, Dec 11, 2010</h4>
-    <div class="article-style">
-      
-      I&rsquo;ve created an R package that uses social media tools for reproducible research. The goal of the package is this: whenever I run a code, output figures are automatically added to my figure repository (Flickr), linked to the timestamped version of the code that produced them in the code repository. Figures should be tagged by project and be embedded selectively or automatically into this lab notebook. The basic workflow of the notebook looks like this:[ref]Diagram of my notebook as presented at Science Online, 2011, see other slides in my entry on this.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -224,12 +210,18 @@ TreeBASE provides two APIs to query the database, one which searches by the meta
     <li><a href="../../../../tags/r/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/r/page/3/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -316,7 +308,13 @@ TreeBASE provides two APIs to query the database, one which searches by the meta
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

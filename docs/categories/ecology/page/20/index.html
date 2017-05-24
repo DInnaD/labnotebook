@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,130 +134,79 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/05/09/notes/">Infering Partially Observable Markov Processes with Iterative Particle Filtering</a></h2>
-    <h4>Wed, May 9, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/07/notes/">Tue, May 7, 2013</a></h4>
       
-      Excellent talk by Ed Ionides at UC Davis today (led me to miss Weds session of Data to Knowledge).
-Ed Ionides six problems of Bjonstead and Grenfell: an appeal for arbitrary nonlinear partially observed vector valued stochastic models.
-POMP doesn&rsquo;t mix well in the winbugs.
-simulation-based algorithm (plug-and-play)
-Think of a process being defined by:
- rprocess() dprocess() rmeasure() dmeasure()  In general we need some subset of these processes:
-      
+      <div class="article-style">
+        Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/08/notes/">Data to Knowledge Day II and other notes</a></h2>
-    <h4>Tue, May 8, 2012</h4>
-    <div class="article-style">
-      
-      Great second day at the Data to Knowledge conference (a few notes below).
-Also I have been trying to move a few projects forward during the commute and break. I&rsquo;ve sent Alan my revisions on the prosecutor&rsquo;s fallacy manuscript, getting pretty close. Following up on a query from John, ran a simulation showing the impact of having a delay in the timeseries before the slow change towards the bifurcation begins.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/03/notes/">Fri, May 3, 2013</a></h4>
+      <h4><a href="../../../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h4>
+      <div class="article-style">
+        Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
+ As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/07/notes/">Data to Knowledge Day 1</a></h2>
-    <h4>Mon, May 7, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/">Wed, May 1, 2013</a></h4>
       
-      Scaling Time Series Data Mining to trillions of series Eamonn Keogh
- Similarity search is the fundamental problem for any task This problem is now solved. As effective as possible, as efficient as possible.  What is similarity search? All about required invariances: Looking at ancient manuscripts of fish &ndash; identify multiple drawings of the same species. Invariant to color, scale, and orientation.
-(Note that rotation becomes phase, easy to handle).
-      
+      <div class="article-style">
+        (Development version for reference; code functions now in R/gp_mcmc.R)
+Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/04/notes/"></a></h2>
-    <h4>Fri, May 4, 2012</h4>
-    <div class="article-style">
-      
-      Chris Costello Talk Presents unpublished work on value of (behavioral) adaptation, using forestry practices changing under climate change as the example. If we ignore adaptive responses, we overestimate costs and underestimate benefits.
- Effect w/ adaptation:  $$ \frac{d V}{d \theta} = \frac{\partial f}{\partial r} \frac{\partial r }{\partial \theta} + \frac{\partial f}{\partial \theta} $$
- Envelope theorem: optimal point is at ( df/dr = 0 ), so no value of adaptation after optimizing with respect to r.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/03/notes/">Notes</a></h2>
-    <h4>Thu, May 3, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/01/integrating-over-posterior-gp/">Wed, May 1, 2013</a></h4>
       
-      Returned proofs for warning signals paper. Wrightscape figures sent to Peter. move fallacy to a branch off of main in earlywaring package? Running knit on the large clusters means images cannot be uploaded as they are created, since compute nodes don&rsquo;t have internet access. Saving files locally, I&rsquo;ve created a little script to parse the output file.md to find the and upload the local images, and swap the local paths for the url paths.
-      
+      <div class="article-style">
+        Added integration over the posterior distribution of the GP
+ Added example of parametric Bayesian inference based on Ricker
+  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/02/stochastic-policy-costs/">Stochastic policy costs</a></h2>
-    <h4>Wed, May 2, 2012</h4>
-    <div class="article-style">
-      
-      Updated runs for various norms, added profit plots.
- L1 L2 asymmetric: differs on the sign of the asymmetry? Penalty only for decreasing quotas. Penalty only for increasing quotas. check implementation. fixed transaction fee &ndash; whoops, fixed cost should still be free when h == h_prev.  We need to determine a the magnitude of penalty coefficient to compare between the different functional forms. For instance, for what value of c is an L2 penalty, $ c ( h_t - h_p )^2 $ comparable to the L1 penalty, $ c \operatorname{abs}(h_t - h_p ) $ ?
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Tue, Apr 30, 2013</a></h4>
+      <h4><a href="../../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h4>
+      <div class="article-style">
+        Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
+Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
+  Define some example priors
+lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/30/sethi/">Additional sources of noise (Sethi 2005)</a></h2>
-    <h4>Mon, Apr 30, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/29/finishing-comparison-parametric-and-nonparametric/">Mon, Apr 29, 2013</a></h4>
       
-      Sethi Model  author Carl Boettiger, cboettig@gmail.com license: CC0  Implements a numerical version of the SDP described in (Sethi et. al. 2005).
-Clear the workspace and load package dependencies:
-Define noise parameters
-sigma_g &lt;- 0.1 # Noise in population growth sigma_m &lt;- 0.1 # noise in stock assessment measurement sigma_i &lt;- 0.1 # noise in implementation of the quota  we&rsquo;ll use log normal noise functions. For Reed, only z_g will be random.
-      
+      <div class="article-style">
+        Implemented in BUGS/allen.md
+Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
+ Oh, Jeromy Anglim has a rather nice collection of jags links
+  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/27/ecology-notes/">Project tracking (Ecology)</a></h2>
-    <h4>Fri, Apr 27, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control Has become a variety of different directions:
-Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/26/2012-04-20/">2012-04-20</a></h2>
-    <h4>Thu, Apr 26, 2012</h4>
-    <div class="article-style">
-      
-      Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
-Added Alan&rsquo;s edits.
- Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
-Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
-Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
- These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/25/notes/">Notes</a></h2>
-    <h4>Wed, Apr 25, 2012</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -272,8 +221,12 @@ Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SE
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -360,7 +313,13 @@ Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SE
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

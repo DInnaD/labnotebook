@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,122 +134,78 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">End of NCEAS &amp; the legacy of synthetic data</a></h2>
-    <h4>Sun, May 22, 2011</h4>
-    <div class="article-style">
-      
-      The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
- that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/19/notes/">Tue, Jun 19, 2012</a></h4>
+      <h4><a href="../../../../2012/06/19/notes/">the week so far</a></h4>
+      <div class="article-style">
+        Sunday  Sent in my review for PLoS ONE. No way to attach pdf files, had to create and send a secure link instead to provide comments on the pdf.
+ AIC discussion on r-sig-phylo. For a derivation I refer to Cavanaugh, (1997), also see Daniel Schmidt&rsquo;s slides. Aikaike&rsquo;s original paper does the derivation less deliberately than Cavanaugh but does discuss this Frequentist intepretation as the maximum expected log likelihood (Akaike, 1974).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/03/monday-3/">Monday</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Today:
- Application for CPB travel funds. DONE
- Faxed receipts from Felsenstein&rsquo;s visit. DONE
-  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
-Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/13/sethi-policy-functions/">Wed, Jun 13, 2012</a></h4>
+      <h4><a href="../../../../2012/06/13/sethi-policy-functions/">Policy functions and value functions under multiple uncertainty</a></h4>
+      <div class="article-style">
+        Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
+
+<h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
+
+<p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
+pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/28/thursday-reading-notes/">Reading Notes, presentation prep treebase error handling</a></h2>
-    <h4>Thu, Apr 28, 2011</h4>
-    <div class="article-style">
-      
-      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/08/notes/">Fri, Jun 8, 2012</a></h4>
+      <h4><a href="../../../../2012/06/08/notes/">Notes</a></h4>
+      <div class="article-style">
+        pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
+ Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/19/early-warning-signals-in-coral-dynamics-economic-analysis-of-risk/">Early Warning Signals in Coral Dynamics -- Economic analysis of risk</a></h2>
-    <h4>Tue, Apr 19, 2011</h4>
-    <div class="article-style">
-      
-      Alan and I have been considering analyzing a particular system for early warning signals where we could highlight risk management from an economics stand-point, probably with the help of Jim Sanchirico. Our current work focuses on quantifying the relative risk of false alarms and missed detections. While statisticians typically accept a 5% &ldquo;false alarm&rdquo; rate, we argue this given limited data this is always a trade-off against the missed detection rate and hence the location of this threshold should properly a decision of management, not of convention.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/18/thursday-submitting-warning-signals-manuscript/">Thursday: submitting warning signals manuscript</a></h2>
-    <h4>Mon, Apr 18, 2011</h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/21/limits-to-detection-of-early-warning-signals/">Mon, May 21, 2012</a></h4>
+      <h4><a href="../../../../2012/05/21/limits-to-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h4>
+      <div class="article-style">
+        Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
+Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/13/weds-final-round-edits/">Weds: Final round edits</a></h2>
-    <h4>Wed, Apr 13, 2011</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/18/notes/">Fri, May 18, 2012</a></h4>
+      <h4><a href="../../../../2012/05/18/notes/">notes</a></h4>
+      <div class="article-style">
+        Wrote short talk for Adaptive Management class Adaptive management class short talks. teary Confirmed model-based estimation avoids fallacy on newly zoomed data. Updated cost-of-bias comparison Policy-costs: added adjustment free distribution to highlight double-cost effect
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/12/tuesday-manuscript-and-appendix-edits/">Tuesday: manuscript and appendix edits</a></h2>
-    <h4>Tue, Apr 12, 2011</h4>
-    <div class="article-style">
-      
-      Today&rsquo;s log  Edited cover letter summary for public.
- Soliciting feedback on examples in manuscript vs appendix, see Monday&rsquo;s entry. (Entry posted, images added to flickr database)
- Jeff fixed the double-post bug in twitteR, tested update.
- Improved initialization estimates for LSN model in fit_models (code), as identified &amp; discussed in Sunday&rsquo;s entry. Needs testing on a unit case, trying on ibm_analysis.R now&hellip; seems to work fine.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/16/value-of-information/">Wed, May 16, 2012</a></h4>
+      <h4><a href="../../../../2012/05/16/value-of-information/">Value of information, cost of bias</a></h4>
+      <div class="article-style">
+        Value of information The motivation for this &ldquo;value of information&rdquo; excercise comes from Costello et al. (2010), which essentially compares two scenarios: the value of a marine protected area when you the dispersal kernel is unknown (one of a discrete set of possible kernels you sum over), to the value of the protected area when the kernel is known perfectly. No intrinsic stochasticity, single time step, no learning.
+The model I&rsquo;m looking at comes from Reed (1979), and a modification by Sethi et al.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/11/monday-warning-signals-updated-graphs/">Monday: Warning Signals - Updated graphs</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
-    <div class="article-style">
-      
-      Trying a different set-up for the graphs. Added two additional datasets, trying layout of making all three figures into a panels in a single figure.
-Concerns:
- Better than only one empirical example, but not sure that the three Glaciation data sets add that much since they are all quite similar. Five panels wide might be too much. Don&rsquo;t have an example where a transition is about to occur but the data doesn&rsquo;t have adequate power even for our Likelihood method, third panel.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/11/sunday-warning-signals-edits-continue/">Sunday: Warning signals edits continue</a></h2>
-    <h4>Mon, Apr 11, 2011</h4>
-    <div class="article-style">
-      
-      Marissa edits &ndash; Nearly done
- Single-figure layout &ndash; DONE
- equations in appendix &ndash; DONE
- convergence / likelihood agreement between constOU and constLSN (Done, see below; consider using for a better initial-condition guessing routine for better convergence)
- Reformulate transcritical bifurcation?
- Rewrite cover letter
-   load(&quot;5598226674.Rdat&quot;) require(warningsignals) OU &lt;- deterior_mc$null LSN &lt;- deterior_mc$test LSN_OU &lt;- updateGauss(const_LSN, OU$pars, OU$X) c(OU$loglik, LSN$loglik, LSN_OU$loglik) [1] -1038.510 -1142.539 -1162.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/08/warning-signals-3/">Warning signals</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -264,8 +220,12 @@ Concerns:
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -352,7 +312,13 @@ Concerns:
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

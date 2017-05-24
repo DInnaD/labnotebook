@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,130 +133,88 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/11/04/sparkleshare-configuration/">Fri, Nov 4, 2011</a></h4>
-    <h4><a href="../../../2011/11/04/sparkleshare-configuration/">Sparkleshare configuration</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/13/notes/">Wed, Mar 13, 2013</a></h4>
       
-      Configured sparkleshare across my linux server &amp; laptops, and android phone. Provides a dropbox-style syncing and version history for all files using git. I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost. Wonderful.
-Basic setup Get sparkleshare working on a server is dead simple, Can also use a github server, gitorious server, etc. Setup is clearly documented, which is really just doing a bunch of standard stuff if you have a server or github already set up.
-      
+      <div class="article-style">
+        Multiple-uncertainty  Created smaller version of table to simplify comparisons Switched to stationary policy comparisons only. (Running out over longer time shifts total value a bit but doesn&rsquo;t amplify scale of the differences much) Larger noise amplifies the effects (compare 0.3 levels to 0.5 levels) note that averaging over replicates gives rather consistent means. The differences between successive runs of the algorithm give results agreeing to the tenths place at least.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/04/fridays-reading/">Fri, Nov 4, 2011</a></h4>
-    <h4><a href="../../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/12/notes/">Tue, Mar 12, 2013</a></h4>
       
-      Reading Catching up on journal table-of-contents/rss readings.
-News Australia Researchers unhappy (unknown, 2011)
-Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
- Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
-      
+      <div class="article-style">
+        Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
+  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/03/warning-signals-noise-response/">Thu, Nov 3, 2011</a></h4>
-    <h4><a href="../../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/08/notes-from-the-week/">Fri, Mar 8, 2013</a></h4>
       
-      Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
-$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
-and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
-      
+      <div class="article-style">
+        (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/02/stochastic-optimal-control/">Wed, Nov 2, 2011</a></h4>
-    <h4><a href="../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h4>
-    <div class="article-style">
-      
-      Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
-$$ X_{t+1} = Z_n f(X_n) $$
-$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
-$$ f(x) = \frac{A x}{1+B x} $$
-Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify/">Tue, Nov 1, 2011</a></h4>
-    <h4><a href="../../../2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify/">server file management from bowser: ajaxplorer, mollify</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/02/delayed-release-archives/">Sat, Mar 2, 2013</a></h4>
       
-      A few notes on trying out some server-based file sharing solutions.
-ajaXplorer Kind of amazingly good and easy to install, with configuration-free functionality like previews of images and playing mp3s. More secure file sharing (at least, public link not generated until asked for, can have password assigned to it). Sharing is the only step not activated by default. Create a folder called &ldquo;public&rdquo; in the ajaxplorer directory, and this feature will appear.
-      
+      <div class="article-style">
+        Today I dug out a handful (37) posts from the past two years that were published as #delayed-release content (and have all been tagged as such to indicate they were not public at their publication date). Many of these were connected to the #warning-signals project but involved results that I or Alan weren&rsquo;t ready to provide ahead of publication, as I discussed in a post when I first began marking some posts for delayed release, challenges with collaboration in open science These posts were created while on the Wordpress platform and had been marked private, so that they would be invisible to public browsing.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/01/pdg-control-conference-call/">Tue, Nov 1, 2011</a></h4>
-    <h4><a href="../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/02/28/notes/">Thu, Feb 28, 2013</a></h4>
       
-      Call includes everyone except Frank &amp; Claire.
-Logistics  Meeting 2: 13-15 March
- Review code/files on wiggio.
- Want a group review of material / webX tutorial? Email Paul after the call.
-  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
- Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
- Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
-      
+      <div class="article-style">
+        Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
+ classical approaches are to fix relationship of stock recruitment.
+ parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
+ A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
+ How much data we need.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/01/training-problem-2-update/">Tue, Nov 1, 2011</a></h4>
-    <h4><a href="../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/02/27/notes/">Wed, Feb 27, 2013</a></h4>
       
-      Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
-      
+      <div class="article-style">
+        Reviewing arg, reviewing. so much time.
+Seminar Kate Richerson gave a fanstastic presentation to mega group yesterday showing her integration of behavior and dispersal in krill dynamics. She derives the krill&rsquo;s behavioral movement patterns through a stochastic dynamic programming solution rather than just dictate it to the dispersal model directly.
+Reading .
+ Provicative stuff in PNAS Perretti et. al. (2013). It would be nice to see the comparison against the generating model.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/01/labrids-parrotfish-method1/">Tue, Nov 1, 2011</a></h4>
-    <h4><a href="../../../2011/11/01/labrids-parrotfish-method1/">Labrids &amp; Parrotfish, method1</a></h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/10/31/monday-openfisheries-ggplot/">Mon, Oct 31, 2011</a></h4>
-    <h4><a href="../../../2011/10/31/monday-openfisheries-ggplot/">Monday: openfisheries &amp; ggplot</a></h4>
-    <div class="article-style">
-      
-      Andrew has put together the preliminary API for the openfisheries.org project. I&rsquo;ve begun an R package, rfisheries, to interface to the openfisheries project. It would be great to incorporate data from the RAM Legacy database and the seaaroundus.org project, which may be done at the level of the R package or (perhaps more flexibly) directly through the developing openfisheries API.
-Here&rsquo;s a quick proof-of-principle example for Andrew&rsquo;s API:
-(Code linked from image as usual).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Fri, Oct 28, 2011</a></h4>
-    <h4><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h4>
-    <div class="article-style">
-      
-      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
-and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -271,9 +229,10 @@ and a chance for me to remember that I&rsquo;m out of practice writing recursive
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -362,7 +321,13 @@ and a chance for me to remember that I&rsquo;m out of practice writing recursive
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

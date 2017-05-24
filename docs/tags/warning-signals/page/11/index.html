@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,139 +134,81 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/06/27/monday-warning-signals-manuscript/">Monday: Warning Signals Manuscript</a></h2>
-    <h4>Mon, Jun 27, 2011</h4>
-    <div class="article-style">
-      
-      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
-Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
-Analyses  Maximization algorithm failing at initial conditions on deut2
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/18/friday-7/">Fri, Nov 18, 2011</a></h4>
+      <h4><a href="../../../../2011/11/18/friday-7/">Friday</a></h4>
+      <div class="article-style">
+        Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/12/sunday-3/">Sunday</a></h2>
-    <h4>Sun, Jun 12, 2011</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Wed, Nov 9, 2011</a></h4>
+      <h4><a href="../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h4>
+      <div class="article-style">
+        Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/10/friday-6/">Friday</a></h2>
-    <h4>Fri, Jun 10, 2011</h4>
-    <div class="article-style">
-      
-      Finish updates to socialR and wrote post.
- reply to Richard on DataONE workflow internship
- really should meet Bertram, re: workflow, dataONE, open science, etc.
- wrote an avereps fn to replace limma dependency. hmmf.
- setup analysis.R to run complete analysis sets. still testing.
-   To Do  consider returning myCall information on most standard functions
- Review model implementations
- model convergence error handling.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/03/warning-signals-noise-response/">Thu, Nov 3, 2011</a></h4>
+      <h4><a href="../../../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h4>
+      <div class="article-style">
+        Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/05/sunday-warning-signals-manuscript-mostly/">Sunday -- warning signals manuscript (mostly)</a></h2>
-    <h4>Sun, Jun 5, 2011</h4>
-    <div class="article-style">
-      
-      Updates to Scott&rsquo;s rspringer package
- Grabbed remaining datasets from Dakos et al., added to package
- Reading (Biggs et. al. 2009) a bit more closely
- Writing and revisions on warning signals manuscript.
-   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/02/thursday-warning-signals/">Thursday: Warning Signals</a></h2>
-    <h4>Thu, Jun 2, 2011</h4>
-    <div class="article-style">
-      
-      Alan Meeting Reviewing my edits.
- Writing writing writing
- updating graphs and package
-  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
- This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
- Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
-  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Fri, Oct 28, 2011</a></h4>
+      <h4><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h4>
+      <div class="article-style">
+        Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h2>
-    <h4>Wed, Jun 1, 2011</h4>
-    <div class="article-style">
-      
-      In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
- Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/21/friday-optimal-control/">Fri, Oct 21, 2011</a></h4>
+      <h4><a href="../../../../2011/10/21/friday-optimal-control/">Friday: Optimal Control</a></h4>
+      <div class="article-style">
+        Optimal control Imagine we&rsquo;re trying to minimize $J = \theta( y(t_F), t_F)$
+subject to both the state equations: $\dot y = f(y(t), u(t))$, Note these are continuous, applying at all times $t$.
+and boundary conditions: $\psi(y(t_F), u(t_F), t_F) = 0$. These are discrete, applying only at fixed time $t<em>F $. We have to put the continuous constraint in as an integral:
+$$ \hat J = \left[\phi + \mathbf{\nu}^T \psi \right]</em>{tF} - \int{t_I}^{t_F} \mathbf{\lambda}^T \left(\dot{\mathbf{y}} - f(\mathbf{y}(t),\mathbf{u}(t)) \right) dt $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h2>
-    <h4>Thu, May 26, 2011</h4>
-    <div class="article-style">
-      
-      Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/17/pnas-rewrites/">Mon, Oct 17, 2011</a></h4>
+      <h4><a href="../../../../2011/10/17/pnas-rewrites/">Rewrites</a></h4>
+      <div class="article-style">
+        Add more data set examples Remove skew, Remove the broken CaCO3 analysis Show distributions for increased sampling effort. Does time interval make a difference for convergence of deuterium2 run? Nope. Fails in parallel, running in series.  Code:  get away from explicit parallelization and deeply nested functions. really master optimizers, and avoid errors &amp; failed convergence. store finished data for plotting as data objects. CaCO3 example -&gt; MLE estimate of unstable model doesn&rsquo;t converge, shouldn&rsquo;t be used to simulate then!
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/25/wednesday-5/">Wednesday</a></h2>
-    <h4>Wed, May 25, 2011</h4>
-    <div class="article-style">
-      
-      R packages  Trying to build Windows binaries for R packages using win-builder service.
- First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
- Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
- Matt successfully installed CUDA on zero (2.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/24/tuesday-4/">Tuesday</a></h2>
-    <h4>Tue, May 24, 2011</h4>
-    <div class="article-style">
-      
-      Warning signals package  Reviewing Numerical challenges for faster analysis on warningsignals
- created a quick mcmcTools package so different packages can use my custom routines. Will have to explore some of the standard packages eventually, though most seem somewhat specialized (the Bayesian task-view is epic). bayesm looks promising, and LearnBayes package that accompanies Jim Albert&rsquo;s book (Albert, unknown) might be worth a closer look.
- Wrote mcmc script for warningsignals, much more debugging to handle out-of-bounds conditions then expected.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/03/monday-3/">Monday</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Today:
- Application for CPB travel funds. DONE
- Faxed receipts from Felsenstein&rsquo;s visit. DONE
-  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
-Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -281,8 +223,12 @@ Essential differences: BEST uses Mr. Bayes to compute probabilities over gene tr
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -369,7 +315,13 @@ Essential differences: BEST uses Mr. Bayes to compute probabilities over gene tr
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

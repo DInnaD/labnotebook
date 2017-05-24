@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,116 +133,85 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/04/16/notes/">Tue, Apr 16, 2013</a></h4>
-    <h4><a href="../../../2013/04/16/notes/">a few notes on various projects</a></h4>
-    <div class="article-style">
-      
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
-  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/15/notes/">Mon, Apr 15, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/24/review-of-progress-on-packages/">Mon, Mar 24, 2014</a></h4>
       
+      <div class="article-style">
+        A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
+rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/12/parametric-bayesian-example/">Fri, Apr 12, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/20/software-sustainability-issues-in-r/">Thu, Mar 20, 2014</a></h4>
       
-      As discussed with Marc in yesterday&rsquo;s meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a parametric Bayesian case, e.g. with the correct underlying model. This is implemented in BUGS (jags) through the R interface as described in Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013).
-      
+      <div class="article-style">
+        Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
+ There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/">Thu, Apr 11, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/18/notes/">Tue, Mar 18, 2014</a></h4>
       
-      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
-      
+      <div class="article-style">
+        ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
+ Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/11/nonparametric-bayes-framing-the-issues/">Thu, Apr 11, 2013</a></h4>
-    <h4><a href="../../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h4>
-    <div class="article-style">
-      
-      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
- Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Wed, Apr 10, 2013</a></h4>
-    <h4><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h4>
-    <div class="article-style">
-      
-      Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
- Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/05/a-clever-derivation-on-realized-escape-times/">Fri, Apr 5, 2013</a></h4>
     
-    <div class="article-style">
-      
-      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/04/notebook-parsing/">Thu, Apr 4, 2013</a></h4>
-    <h4><a href="../../../2013/04/04/notebook-parsing/">Notebook Features: parsing linked data in the semantic notebook</a></h4>
-    <div class="article-style">
-      
-      In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/03/further-examples-managing-tipping-points-with-gp/">Wed, Apr 3, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/11/notes/">Tue, Mar 11, 2014</a></h4>
       
-      See also:
- <a href="http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html">http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html</a>  Example with fixed priors on hyperparameters, fixed model type.
-#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2) s2.p &lt;- c(5,5) tau2.p &lt;- c(5,1) d.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) nug.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) # gamma mean s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &lt;- function(x) dinvgamma(x, tau2.
-      
+      <div class="article-style">
+        Reading  NAP report on &ldquo;Abrupt impacts of climate change: anticipating suprises.&rdquo;
+ Nice overview of major climate tipping points. Interesting that the 2011 IPCC report put to rest concerns about a sudden transition of the thermohaline circulation within this century, despite good evidence that it is a bistable dynamic. Likewise appears to dismiss concerns of a tipping point related to the release of permafrost methane, thus putting aside the two most well-known and well-studied examples.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/02/monday---tuesday/">Tue, Apr 2, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/10/notes/">Mon, Mar 10, 2014</a></h4>
       
-      Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
- More fishery managment controversy with Halpern et. al. (2013) critiquing the &lsquo;ocean food provision index&rsquo; from Nature last year, and a subset of that team replying Halpern et. al.
-      
+      <div class="article-style">
+        RNeXML merge travis integration with support for rrdf. See pull #57 Reply to Perry re nonparametric approaches 10am Andrew Skype meeting re: his manuscript rOpenSci discussion re: other services, formats. Reading Caldwell et al, Geophysical Letters. Good example of naiive data mining leading to spurious correlations from non-independent models. (/ht @FreshwaterEcology Looking over NSF&rsquo;s Data Infrastructure Building Blocks, DIBB call and previously funded work.
+ Remote control for Ubuntu via android?
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/07/notes/">Fri, Mar 7, 2014</a></h4>
+      
+      <div class="article-style">
+        Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
+ Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -257,9 +226,10 @@
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -348,7 +318,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

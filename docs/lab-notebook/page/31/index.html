@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,117 +133,86 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2012/06/08/notes/">Fri, Jun 8, 2012</a></h4>
-    <h4><a href="../../../2012/06/08/notes/">Notes</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/07/22/xml-parsing-strategies/">Mon, Jul 22, 2013</a></h4>
       
-      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
- Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
-      
+      <div class="article-style">
+        Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
+Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/30/knitcitations/">Wed, May 30, 2012</a></h4>
-    <h4><a href="../../../2012/05/30/knitcitations/">knitcitations</a></h4>
-    <div class="article-style">
-      
-      EDIT: Note that this package has evolved quite a bit from this initial post. While the basic interface is the same, support for additional features and some choices in formatting differ from what is presented here. Please see the README for the latest introduction to the package. Readers may also be interested in the more recent post discussing the introduction of several new features including semantic tools in the knitcitations package
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/07/19/notes/">Fri, Jul 19, 2013</a></h4>
+      <h4><a href="../../../2013/07/19/notes/">Notes from chat with Duncan</a></h4>
+      <div class="article-style">
+        Keep metadata as part of the object Recursion problem coming up.
+  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
+  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
+ Schema to create S4 objects Create R objects first, and then toXML
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/26/exploring-jekyll-layout/">Sat, May 26, 2012</a></h4>
-    <h4><a href="../../../2012/05/26/exploring-jekyll-layout/">Exploring Jekyll layout</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/07/17/updates-on-managing-references/">Wed, Jul 17, 2013</a></h4>
       
-      Jekyll works wonderfully with little knowledge beyond basic html/css to create _layout templates and then you&rsquo;re free to write beautiful pages and posts in markdown. But adding more dynamic content, the kind of cool stuff avialable in so many wordpress plugins, tends to require a little understanding of the template formatting language, Liquid. Liquid is actually super simple and powerful way to build a dynamic website. The project&rsquo;s wiki provides a great introduction, starting with
-      
+      <div class="article-style">
+        Mendeley API for Jekyll Finally finished off my Mendeley API for Jekyll (The top uses the Ruby API implementation from Michael Bus, copied here since it is not yet provided as a gem. scroll to the bottom for my plugin code). The Mendeley API implementation is remarkably clumsy. For instance, rather than allowing queries to the API that specify a user&rsquo;s folder and a sort-by field, we are forced to first query the folder for a list of IDs and then query document details on every document in the folder, after which we can sort locally.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/21/limits-to-detection-of-early-warning-signals/">Mon, May 21, 2012</a></h4>
-    <h4><a href="../../../2012/05/21/limits-to-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h4>
-    <div class="article-style">
-      
-      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
-Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/18/notes/">Fri, May 18, 2012</a></h4>
-    <h4><a href="../../../2012/05/18/notes/">notes</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/07/11/visit-to-whoi/">Thu, Jul 11, 2013</a></h4>
       
+      <div class="article-style">
+        Presented my work from the nonparametric-bayes project, Avoiding tipping points in the management of ecological systems: a non-parametric Bayesian approach at the Woods Hole Oceangraphic Institution as part of their weekly Biology Department Seminar Series.
+ 9 - 9:30 Julie Kellner 9:30-10:15 Ben Jones, (Kellner group) 10:15 - 11:00 Math ecology group 11:00 - 11:30 Ian Carroll 11:30-12 Seminar prep 12-1 my seminar 1-2 Lunch with the Marine Policy Center (Mike Fogarty, Hauke Kite-Powell, Di Jin), Julie Kellner  Enjoyable visit, with some particularly great questions after talk: including challenges/opportunities in multi-dimensional examples, concerns about temporal heterogeneity, partially observed systems / working with catch data in place of stock assessment data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/16/value-of-information/">Wed, May 16, 2012</a></h4>
-    <h4><a href="../../../2012/05/16/value-of-information/">Value of information, cost of bias</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/07/10/forking-the-r-journal/">Wed, Jul 10, 2013</a></h4>
       
-      Value of information The motivation for this &ldquo;value of information&rdquo; excercise comes from Costello et al. (2010), which essentially compares two scenarios: the value of a marine protected area when you the dispersal kernel is unknown (one of a discrete set of possible kernels you sum over), to the value of the protected area when the kernel is known perfectly. No intrinsic stochasticity, single time step, no learning.
-The model I&rsquo;m looking at comes from Reed (1979), and a modification by Sethi et al.
-      
+      <div class="article-style">
+        All I really wanted to do is cite a paper in the R Journal, which is peer-reviewed, open access (CC-BY), LaTeX based and without author charges. Sure, I could do that already, but I like being able to programmatically generate citation metadata from a URL &ndash; we do have this thing called the internet now, and citations are just links, right? Unfortunately, nice as it is, the R journal doesn&rsquo;t have HTML landing pages for articles that embed the metadata.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/15/fallacy/">Tue, May 15, 2012</a></h4>
-    <h4><a href="../../../2012/05/15/fallacy/">Notes</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/07/10/notes/">Wed, Jul 10, 2013</a></h4>
       
-      Prosecutors Fallacy Running the null distribution and add to plots
- generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
- knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
-      
+      <div class="article-style">
+        PRSB paper is out.  TODO: Post to arxiv now that Drake&rsquo;s side is out. Update vita. Reply to Drake. Clean up prosectors-fallacy repository. Post on paper(?)
+ Note: github record of earlier version of paper turns out handy in reply, (showed earlier wording about not necessary).
+ Also, some quick significance testing of distributional differences associated with the patterns we show in Figure 1, for what it&rsquo;s worth (in reply to query - yay for clean workflow making this easy).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/14/notes/">Mon, May 14, 2012</a></h4>
-    <h4><a href="../../../2012/05/14/notes/">notes</a></h4>
-    <div class="article-style">
-      
-      Added results into prosecutors fallacy and sent to Alex, Noam, Marissa. Ran pdf copy and sent Treebase to Duncan README added to knitcitations staticdoc documentation for knitcitations (and filed a few issues on staticdocs) Updated documentaiton on treebase, rfishbase. updated their staticdocs documentation as well. rfishbase 0.0-9 update pushed to CRAN Working on prosecutor&rsquo;s fallacy edits from Alex  Alan meeting Discuss management example with ROC curve instead of hypothesis test
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/12/notes/">Sat, May 12, 2012</a></h4>
-    <h4><a href="../../../2012/05/12/notes/">Prosecutor&#39;s fallacy notes</a></h4>
-    <div class="article-style">
-      
-      Mostly getting Prosecutor&rsquo;s Fallacy example to run with large enough sample sizes. Finer sampling or more replicates than current settings seems to crash MPI connections over farm cluster, probably a memory issue. Oh well, looks like I&rsquo;ve got a good enough sample size here.
- Prosecutor&rsquo;s Fallacy  Citations on Jekyll No ideal solution here at the moment, a couple options:
- Pandoc: My intended solution, Disadvantages: converts everything to it&rsquo;s own markdown format, which messes up my PHP Markdown tables and YAML frontmatter.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/05/11/notes/">Fri, May 11, 2012</a></h4>
-    <h4><a href="../../../2012/05/11/notes/">Computing the value of information in management of a stochastic resource</a></h4>
-    <div class="article-style">
-      
-      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -258,9 +227,10 @@ The model I&rsquo;m looking at comes from Reed (1979), and a modification by Set
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -349,7 +319,13 @@ The model I&rsquo;m looking at comes from Reed (1979), and a modification by Set
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

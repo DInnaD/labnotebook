@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,78 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2014/08/06/notes/"></a></h2>
-    <h4>Wed, Aug 6, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/05/13/gp-compare/">Wed, May 13, 2015</a></h4>
       
-      Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
- Attempted to add Travis builds to the Docker repo (just for fun, eh?
-      
+      <div class="article-style">
+        Original go at nimble gp model, but this requires rather manual manipulation of parameter posteriors to get the GP posteriors.
+library(&quot;MASS&quot;) library(&quot;mcmc&quot;) library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;methods&quot;) library(&quot;nonparametricbayes&quot;) ## Warning: replacing previous import &#39;ggplot2::alpha&#39; by &#39;kernlab::alpha&#39; ## when loading &#39;nonparametricbayes&#39; ## Warning: replacing previous import &#39;data.table::melt&#39; by &#39;reshape2::melt&#39; ## when loading &#39;nonparametricbayes&#39; ## Warning: replacing previous import &#39;data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/07/21/notes/"></a></h2>
-    <h4>Mon, Jul 21, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/05/08/ram-legacy-database-explore/">Fri, May 8, 2015</a></h4>
       
-      Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
-Remote conferencing (Based on earlier unposted notes). With so much going on, it&rsquo;s nice to be able to follow highlights from some conferences remotely
-      
+      <div class="article-style">
+        Accessing the database Connect to the database (connection info is public), works fine:
+library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;RPostgreSQL&quot;) ## Loading required package: methods ## Loading required package: DBI library(&quot;tidyr&quot;) library(&quot;ggplot2&quot;) mydb &lt;- src_postgres(dbname = &quot;srdb&quot;, host=&quot;nautilus-vm.mathstat.dal.ca&quot;, user = &quot;srdbuser&quot;, password = &quot;srd6us3r!&quot;, port = 5432) mydb ## src: postgres 8.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/07/21/ups-and-data-vs-optimal-control/">UPS and data vs optimal control</a></h2>
-    <h4>Mon, Jul 21, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/04/28/notes/">Tue, Apr 28, 2015</a></h4>
       
-      Random idea for possible further exploration:
-The use of &lsquo;big data&rsquo; by UPS to perform lots of small efficiency gains seems to be everybody&rsquo;s favorite example (NPR, The Economist). During a typical applications of optimal control for ecological conservation talk yesterday I couldn&rsquo;t help thinking back to that story. The paradigm shift is not so much the kind or amount of the data being used as it is the control levers themselves.
-      
+      <div class="article-style">
+        updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &lt;- species_info(&quot;Labroides bicolor&quot;, fields = c(&quot;SpecCode&quot;, &quot;Vulnerability&quot;, &quot;PriceCateg&quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &lt;- stocks(&quot;Labroides bicolor&quot;, fields=c(&quot;SpecCode&quot;, &quot;Resilience&quot;)) You can now merge the results:
+data &lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/07/18/notes/"></a></h2>
-    <h4>Fri, Jul 18, 2014</h4>
-    <div class="article-style">
-      
-      CRAN trivia When should you bump version for a (rejected) resubmission?  Once accepted, any change other than to the metadata (essentially the DESCRIPTION file) needs an increased version. For submissions, we prefer (but do not insist on) a new number of each attempt.
- &ndash;Prof Brian Ripley
-Using non-CRAN repositories in SUGGESTS or ENAHANCES More dubious tricks, from Yihui:
- FYI, here is how R core checks dependencies: <a href="https://github">https://github</a>.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/27/notes/"></a></h2>
-    <h4>Tue, May 27, 2014</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/04/28/rfishbase-notes/">Tue, Apr 28, 2015</a></h4>
       
-      nonparametric-bayes  nonparametric-bayes sensitivity-trends runs. nonparametric-bayes sensitivity.R runs: explore facets to see what setting causes the below-perfect performance cluster.  knitcitations  updates to knitcitations (paste fron NEWS) Looking at adapting CSL for inline text formatting csl/issues/33 Implemented pandoc rendering  ropensci  Use of .Renviron vs .Rprofile for API keys  Seems the difference between .Rprofile and .Renviron is that (a) the latter is just a named character vector, and (b) the latter is accessed by Sys.
-      
+      <div class="article-style">
+        kalman filtering  updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &lt;- species_info(&quot;Labroides bicolor&quot;, fields = c(&quot;SpecCode&quot;, &quot;Vulnerability&quot;, &quot;PriceCateg&quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &lt;- stocks(&quot;Labroides bicolor&quot;, fields=c(&quot;SpecCode&quot;, &quot;Resilience&quot;)) You can now merge the results:
+data &lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/18/notes/"></a></h2>
-    <h4>Fri, Apr 18, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/04/09/gpdd-and-kalman-exploration-continued/">Thu, Apr 9, 2015</a></h4>
       
-      EML I&rsquo;ve added a interface for custom units. You don&rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
-create_custom_unit(id = &quot;metersSquaredPerHectare&quot;, parentSI = &quot;dimensionless&quot;, unitType = &quot;dimensionless&quot;, multiplierToSI = &quot;0.0001&quot;, description = &quot;Square meters per hectare&quot;)  and then use the id you give as the unit type in your unit.defs. create_custom_unit updates a custom_units list in the EMLConfig environment, which the eml or write_eml functions detect and use to write in the additional metadata.
-      
+      <div class="article-style">
+        Load libraries and data as before
+library(&quot;ggplot2&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;tidyr&quot;) library(&quot;knitcitations&quot;) library(&quot;rgpdd&quot;) library(&quot;FKF&quot;) ## Loading required package: RUnit ## Loading required package: methods Parallel version of dplyr::do do_parallel &lt;- function(df, f, &hellip;){ # supports only one group for now require(&quot;parallel&quot;) require(&quot;lazyeval&quot;) require(&quot;reshape2&quot;) options(mc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/17/notes/"></a></h2>
-    <h4>Thu, Apr 17, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/04/06/gpdd-explore/">Mon, Apr 6, 2015</a></h4>
       
-      Units in EML Overview of how units are determined in the EML package:
-library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot;, &quot;AM&quot;)), spp = c(&quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus kisutch&quot;), stg = ordered(c(&quot;smolt&quot;, &quot;parr&quot;, &quot;smolt&quot;), levels=c(&quot;parr&quot;, &quot;smolt&quot;)), # levels indicates increasing level, eg. parr &lt; smolt ct = c(293L, 410L, 210L), day = as.Date(c(&quot;2013-09-01&quot;, &quot;2013-09-1&quot;, &quot;2013-09-02&quot;)), stringsAsFactors = FALSE, col.defs = c(&quot;River site used for collection&quot;, &quot;Species scientific name&quot;, &quot;Life Stage&quot;, &quot;count of live fish in traps&quot;, &quot;day traps were sampled (usually in morning thereof)&quot;), unit.
-      
+      <div class="article-style">
+        setup library(&quot;ggplot2&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;tidyr&quot;) library(&quot;rgpdd&quot;) library(&quot;FKF&quot;) ## Loading required package: RUnit ## Loading required package: methods Working through 10.1111/j.1461-0248.2011.01702.x provides a nice way to play around with the GPDD data and Kalman filtering. More interested in exploring the data and methods than in just replicating the results, which are important but also rather intuitive and thus I expect rather robust – as we add (observational) uncertainty, or indeed, any additional parameters that must be ended, we should expect to have less power to pin down a particular parameter associated with density dependence, as the paper illustrates rather nicely.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/10/multiple-uncertainty-notes/"></a></h2>
-    <h4>Thu, Apr 10, 2014</h4>
-    <div class="article-style">
-      
-      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
-  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/09/multiple-uncertainty-notes/"></a></h2>
-    <h4>Wed, Apr 9, 2014</h4>
-    <div class="article-style">
-      
-      Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
- Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/08/multiple-uncertainty-notes/"></a></h2>
-    <h4>Tue, Apr 8, 2014</h4>
-    <div class="article-style">
-      
-      Growth Noise Only Run:
-matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
- log normal noise sigma_g = 0.2 Other noise set to zero.
- Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
- Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +220,12 @@ matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +312,13 @@ matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

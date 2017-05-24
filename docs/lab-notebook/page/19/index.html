@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,124 +133,94 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/04/29/finishing-comparison-parametric-and-nonparametric/">Mon, Apr 29, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/10/multiple-uncertainty-notes/">Thu, Apr 10, 2014</a></h4>
       
-      Implemented in BUGS/allen.md
-Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
- Oh, Jeromy Anglim has a rather nice collection of jags links
-  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
-      
+      <div class="article-style">
+        multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
+  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">Sat, Apr 27, 2013</a></h4>
-    <h4><a href="../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h4>
-    <div class="article-style">
-      
-      Load necessary libraries,
-library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
-library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/26/notebook-features-introduction/">Fri, Apr 26, 2013</a></h4>
-    <h4><a href="../../../2013/04/26/notebook-features-introduction/">Notebook features: an introduction</a></h4>
-    <div class="article-style">
-      
-      In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
- Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/26/notebook-features-reproducible-code/">Fri, Apr 26, 2013</a></h4>
-    <h4><a href="../../../2013/04/26/notebook-features-reproducible-code/">Notebook features: reproducible code</a></h4>
-    <div class="article-style">
-      
-      I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/25/notes/">Thu, Apr 25, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/09/multiple-uncertainty-notes/">Wed, Apr 9, 2014</a></h4>
       
-      finish pmc post from Tuesday (done).
- Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
- Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
-      
+      <div class="article-style">
+        Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
+ Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/24/empirical-demonstration-of-that-clever-derivation/">Wed, Apr 24, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/08/multiple-uncertainty-notes/">Tue, Apr 8, 2014</a></h4>
       
-      Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
-After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
-      
+      <div class="article-style">
+        Growth Noise Only Run:
+matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
+ log normal noise sigma_g = 0.2 Other noise set to zero.
+ Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
+ Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/">Tue, Apr 23, 2013</a></h4>
     
-    <div class="article-style">
-      
-      The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/19/bayesian-parametric-uncertainty-sdp/">Fri, Apr 19, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/07/notes/">Mon, Apr 7, 2014</a></h4>
       
-      Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
-f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &lt;- dim(pardist) indices &lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &lt;- sapply(indices, function(i){ # For each parameter value p &lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &lt;- f(x_t,h,p) est_sigma_g &lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &lt; x_grid[2]){ # handle the degenerate case out &lt;- numeric(length(x_grid)) out[1] &lt;- 1 out } else { out &lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &lt;- t(F_true) } snap_to_grid &lt;- function(x, grid) sapply(x, function(x) grid[which.
-      
+      <div class="article-style">
+        ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
+other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
+ Related with Hadley discussion on handling tests and keys for API packages, httr/93
+ Software Carpentry developing R lessons
+  rfishbase Add FAO areas (from 04/05), see rfishbase/20
+EML  Discussion of unit handling, feedback from Karen.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/18/notes/">Thu, Apr 18, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/03/wisconsin-visit/">Thu, Apr 3, 2014</a></h4>
       
-      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
- pmc functions
-  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
-      
+      <div class="article-style">
+        Carl Boettiger Schedule 3-4 April
+Thursday
+   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
+   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/17/notes/">Wed, Apr 17, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/03/31/ropenhack-notes/">Mon, Mar 31, 2014</a></h4>
       
-      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
-      
+      <div class="article-style">
+        Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
+Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
+      </div>
     </div>
-  </div>
-  
+    
+    </div>
 
   
 <nav>
@@ -265,9 +235,10 @@ f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapp
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -356,7 +327,13 @@ f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapp
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

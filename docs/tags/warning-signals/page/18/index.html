@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,122 +134,90 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/08/16/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Aug 16, 2010</h4>
-    <div class="article-style">
-      
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/10/friday-6/">Fri, Jun 10, 2011</a></h4>
+      <h4><a href="../../../../2011/06/10/friday-6/">Friday</a></h4>
+      <div class="article-style">
+        Finish updates to socialR and wrote post.
+ reply to Richard on DataONE workflow internship
+ really should meet Bertram, re: workflow, dataONE, open science, etc.
+ wrote an avereps fn to replace limma dependency. hmmf.
+ setup analysis.R to run complete analysis sets. still testing.
+   To Do  consider returning myCall information on most standard functions
+ Review model implementations
+ model convergence error handling.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/12/warning-signals/">Warning Signals</a></h2>
-    <h4>Thu, Aug 12, 2010</h4>
-    <div class="article-style">
-      
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/05/sunday-warning-signals-manuscript-mostly/">Sun, Jun 5, 2011</a></h4>
+      <h4><a href="../../../../2011/06/05/sunday-warning-signals-manuscript-mostly/">Sunday -- warning signals manuscript (mostly)</a></h4>
+      <div class="article-style">
+        Updates to Scott&rsquo;s rspringer package
+ Grabbed remaining datasets from Dakos et al., added to package
+ Reading (Biggs et. al. 2009) a bit more closely
+ Writing and revisions on warning signals manuscript.
+   References  Biggs R, Carpenter S and Brock W (2009). &ldquo;Turning Back From The Brink: Detecting an Impending Regime Shift in Time to Avert it.&rdquo; Proceedings of The National Academy of Sciences, 106.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/02/thursday-warning-signals/">Thu, Jun 2, 2011</a></h4>
+      <h4><a href="../../../../2011/06/02/thursday-warning-signals/">Thursday: Warning Signals</a></h4>
+      <div class="article-style">
+        Alan Meeting Reviewing my edits.
+ Writing writing writing
+ updating graphs and package
+  Reading  Yet another volley in the kin-selection group-selection debate (debacle?)(Marshall, 2011)
+ This looks excellent, will have to find time for a closer read: (Davies et. al. 2011)
+ Jonah&rsquo;s Science paper, the subject of his Merton-Love seminar, (Piovia-Scott et. al. 2011)
+  References  Marshall J (2011). &ldquo;Group Selection And Kin Selection: Formally Equivalent Approaches.
+      </div>
+    </div>
+    
+    </div>
 
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/">Wed, Jun 1, 2011</a></h4>
+      <h4><a href="../../../../2011/06/01/warning-signals-literature-when-stats-are-and-arent-attempted/">Warning Signals Literature: when stats are and aren&#39;t attempted</a></h4>
+      <div class="article-style">
+        In preparing manuscript on warning signals, reviewing the literature on when statistical validation of the warning signal is included, and if so, what kind are done. There&rsquo;s certainly no consensus in the approach, with the majority of papers not even attempting a method (and those that do not finding significance). Scheffer&rsquo;s key review (Scheffer et. al. 2009) calls for the need to measure statistical significance of warning signals,
+ Therefore, it would be useful to build a set of reliable statistical procedures to test whether an increase in autocorrelation, for example, is significant.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/10/warning-signals/">Warning Signals</a></h2>
-    <h4>Tue, Aug 10, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/26/thursday-6/">Thu, May 26, 2011</a></h4>
+      <h4><a href="../../../../2011/05/26/thursday-6/">Thursday Meetings: Duncan; Alan</a></h4>
+      <div class="article-style">
+        Duncan Meeting  ROAuth/RCurl question. Mendeley is OAuth 1, github is OAuth 2 (simpler). Both are implemented in pure R in another package, may be good. OAuth 1 constructs complicated http urls with secret, and token, and random key, need to escape chars, etc. OAuth 2 is https, just uses token. Authentication options: Jeff&rsquo;s ROAuth/Duncan&rsquo;s mod, other OAuth package. RMendeley&ndash; windows binary, competition? socialR &ndash; discussed strategy to get a figure with matching code and data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/08/warning-signals/">Warning Signals</a></h2>
-    <h4>Sun, Aug 8, 2010</h4>
-    <div class="article-style">
-      
-      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/25/wednesday-5/">Wed, May 25, 2011</a></h4>
+      <h4><a href="../../../../2011/05/25/wednesday-5/">Wednesday</a></h4>
+      <div class="article-style">
+        R packages  Trying to build Windows binaries for R packages using win-builder service.
+ First have to get R CMD check working. Check runs in &ndash;vanilla mode so have to tell it where libraries are. Created the file ~/.R/check.Renviron containing the line: R_LIBS=&ldquo;/home/cboettig/R/packages&rdquo; seems to do the trick.
+ Successfully built windows binaries for RMendeley package (pre-release, still in development). Download the binaries from github.
+ Matt successfully installed CUDA on zero (2.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/07/reading/">Reading</a></h2>
-    <h4>Sat, Aug 7, 2010</h4>
-    <div class="article-style">
-      
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/17/annual-progress-report/">Annual Progress Report</a></h2>
-    <h4>Mon, May 17, 2010</h4>
-    <div class="article-style">
-      
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/10/alan-meeting/">Alan Meeting</a></h2>
-    <h4>Mon, May 10, 2010</h4>
-    <div class="article-style">
-      
-      Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
-Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/09/warning-signals-with-sdes/">Warning Signals with SDEs</a></h2>
-    <h4>Sun, May 9, 2010</h4>
-    <div class="article-style">
-      
-      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/06/goals/">Goals</a></h2>
-    <h4>Thu, May 6, 2010</h4>
-    <div class="article-style">
-      
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/04/alan-meeting/">Alan Meeting</a></h2>
-    <h4>Tue, May 4, 2010</h4>
-    <div class="article-style">
-      
-      Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
-/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -264,8 +232,12 @@ Questions  LPA vs ELLPA model Defining state space in individual-based model vs 
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -352,7 +324,13 @@ Questions  LPA vs ELLPA model Defining state space in individual-based model vs 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

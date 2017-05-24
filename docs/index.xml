@@ -12,6 +12,470 @@
     
     
     <item>
+      <title>Reflecting on five years of the open lab notebook</title>
+      <link>/2015/12/31/reflections-on-the-open-lab-notebook/</link>
+      <pubDate>Thu, 31 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/12/31/reflections-on-the-open-lab-notebook/</guid>
+      <description>I have been keeping an open lab notebook now since February of 2010 1. Those years have seen 271, 301, 164, 136, 86 and 44 posts, respectively. The notebook started on OpenWetWare, with code on (now defunct) Google Code (using svn!). By October of that year I had moved to a Wordpress.org platform running on DreamHost, with code moving to GitHub earlier that year. Wordpress meant my own domain name, control of layout and plugins, better mobile support, and perhaps most importantly, avoided the occasional day-long down-times I had seen on OpenWetWare.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/12/17/docker-workflows/</link>
+      <pubDate>Thu, 17 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/12/17/docker-workflows/</guid>
+      <description>I was recently asked to describe what my typical workflow would look for running R on a cloud machine, such as digitalocean.
+So, here’s a typical use:
+ ## Create digitalocean machine docker-machine create --driver digitalocean --digitalocean-size 1gb --digitalocean-access-token $DO_TOKEN dev ## Point docker-engine at the the new machine eval $(docker-machine env dev) ## Launch the Rocker container running RStudio docker run -d -p 8787:8787 -e PASSWORD=$PASSWORD rocker/hadleyverse ## Open browser at the IP address (e.</description>
+    </item>
+    
+    <item>
+      <title>Download and Parse Github Issues</title>
+      <link>/2015/11/20/github-issues-import/</link>
+      <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/11/20/github-issues-import/</guid>
+      <description>#devtools::install_github(&amp;quot;cscheid/rgithub&amp;quot;) library(&amp;quot;github&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;stringr&amp;quot;) library(&amp;quot;lubridate&amp;quot;) ## Loading required package: methods ## ## Attaching package: &amp;#39;lubridate&amp;#39; ## The following object is masked from &amp;#39;package:base&amp;#39;: ## ## date library(&amp;quot;readr&amp;quot;) ctx = interactive.login(Sys.getenv(&amp;quot;GH_CLIENT_ID&amp;quot;),Sys.getenv(&amp;quot;GH_CLIENT_SECRET&amp;quot;)) Thanks to @realAkhmed for this one, see: https://github.com/cscheid/rgithub/issues/30#issuecomment-150354560
+auto.page &amp;lt;- function(f) { f_call &amp;lt;- substitute(f) stopifnot(is.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/08/27/nimble-model-construction/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/08/27/nimble-model-construction/</guid>
+      <description>library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;lazyeval&amp;quot;) library(&amp;quot;methods&amp;quot;) Can we declare the nimbleCode parts in sections? Such as defining the model and priors in separate, reusable code blocks? Here’s a “model” block:
+model &amp;lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &amp;lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } }) We may also wish to define the priors separately, and with specified list of hyperparameters for the priors.</description>
+    </item>
+    
+    <item>
+      <title>a drat repository for rOpenSci (draft for ropensci blog)</title>
+      <link>/2015/08/03/a-drat-repository-for-ropensci/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/08/03/a-drat-repository-for-ropensci/</guid>
+      <description>We’re happy to announce the launch of a CRAN-style repository for rOpenSci at http://packages.ropensci.org
+This repository contains the latest nightly builds from the master branch of all rOpenSci packages currently on GitHub. This allows users to install development versions of our software without specialized functions such as install_github(), allows dependencies not hosted on CRAN to still be resolved automatically, and permits the use of update.packages().
+Using the repository To use, simply add packages.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/07/30/gpdp-via-mdptoolbox-cont/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/30/gpdp-via-mdptoolbox-cont/</guid>
+      <description>knitr::opts_chunk$set(eval=FALSE) ## gp management no longer working knitr::opts_chunk$set(comment=NA) #devtools::install_github(&amp;quot;cboettig/gpmanagement@b3b765cbceb51c9b0b8cb2724e395353ec365df9&amp;quot;) library(&amp;quot;MDPtoolbox&amp;quot;) library(&amp;quot;gpmanagement&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;dplyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;lazyeval&amp;quot;) True model p &amp;lt;- c(2, 100, 50) f &amp;lt;- function (x, h){ sapply(x, function(x) { x &amp;lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } sigma_g &amp;lt;- 0.1 pdfn &amp;lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } z_g &amp;lt;- function() rlnorm(1, 0, sigma_g) set.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/07/29/fastgp-explore/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/29/fastgp-explore/</guid>
+      <description>library(FastGP) library(mvtnorm) library(MASS) library(rbenchmark) Demo of elliptical slice sampling Relevant Parameters:
+A &amp;lt;- 1 #amplitude of the sin function used for our signal T &amp;lt;- 5 #period of the sin function used as our signal sigma &amp;lt;- 10 #variance parameter in the covariance function phi &amp;lt;- 100 #decay parameter for the exponential kernel N &amp;lt;- 100 #number of time points  A function that creates a signal, which can be toggled for multiple shapes.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/07/29/mdptoolbox-allen-model/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/29/mdptoolbox-allen-model/</guid>
+      <description>library(&amp;quot;MDPtoolbox&amp;quot;, quietly = TRUE) library(&amp;quot;ggplot2&amp;quot;, quietly = TRUE) K &amp;lt;- 150 # state space limit states &amp;lt;- 0:K # Vector of all possible states actions &amp;lt;- states # Vector of actions: harvest sigma_g = 0.1 p &amp;lt;- c(2, 100, 50) f &amp;lt;- function (x, h){ sapply(x, function(x) { x &amp;lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } pdfn &amp;lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } # Utility function discount = 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/07/14/mdptoolbox-ex-2/</link>
+      <pubDate>Tue, 14 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/14/mdptoolbox-ex-2/</guid>
+      <description>Adapted from Marescot et al. appendix 5, to Reed optimal control problem, including direct comparison against (semi) analytic optimum.
+step 1: define objectives This is a conceptual step which does not require coding
+ step 2: define states K &amp;lt;- 150 # state space limit states &amp;lt;- 0:K # Vector of all possible states  step 3: define control actions # Vector of actions: harvest H &amp;lt;- states  step 4: define dynamic model (with demographic parameters) p &amp;lt;- c(6,0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/06/19/gp-nimble-v2/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/19/gp-nimble-v2/</guid>
+      <description># devtools::install_github(&amp;quot;cboettig/gpmanagement&amp;quot;) knitr::opts_chunk$set(eval=FALSE) ## gpmanagment no longer runs on current version of nimble library(&amp;quot;gpmanagement&amp;quot;) library(&amp;quot;dplyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;methods&amp;quot;)  set.seed(1234) Tobs &amp;lt;- 40 f &amp;lt;- function (x, h, p){ sapply(x, function(x) { x &amp;lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } p &amp;lt;- c(2, 8, 5) sigma_g &amp;lt;- 0.05 z_g &amp;lt;- function() rlnorm(1, 0, sigma_g) x &amp;lt;- numeric(Tobs) x[1] &amp;lt;- 5.5 for(t in 1:(Tobs-1)) x[t+1] = z_g() * f(x[t], h=0, p=p) obs &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title>Further exploration of RAM Legacy Stock Assessment data</title>
+      <link>/2015/06/18/ram-explore/</link>
+      <pubDate>Thu, 18 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/18/ram-explore/</guid>
+      <description>suppressPackageStartupMessages({ library(&amp;quot;dplyr&amp;quot;) library(&amp;quot;RPostgreSQL&amp;quot;) library(&amp;quot;devtools&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) }) ## Perform this in data_raw to keep package dependencies minimal mydb &amp;lt;- src_postgres(dbname = &amp;quot;srdb&amp;quot;, host=&amp;quot;nautilus-vm.mathstat.dal.ca&amp;quot;, user = &amp;quot;srdbuser&amp;quot;, password = &amp;quot;srd6us3r!&amp;quot;, port = 5432) timeseries &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.timeseries&amp;quot;))) values &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.timeseries_values_view&amp;quot;))) units &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.timeseries_units_view&amp;quot;))) assessment &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.assessment&amp;quot;))) area &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.area&amp;quot;))) stock &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/06/16/daniel-gp-example/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/16/daniel-gp-example/</guid>
+      <description>Editorial note: code no longer runs (2017-05-11)
+Setup library(&amp;quot;nimble&amp;quot;) library(&amp;quot;methods&amp;quot;) knitr::opts_chunk$set(eval = FALSE) set.seed(0) Randomly generate some sinusoidal data
+x &amp;lt;- 1:100 y &amp;lt;- sin(x/5) + rnorm(100, 0.1) ind &amp;lt;- sort(sample(1:100, 40)) The next three lines are the only inputs required.
+xObs &amp;lt;- x[ind] ## input yObs &amp;lt;- y[ind] ## input xPred &amp;lt;- c(x, 101:120) ## input Some initial processing
+nObs &amp;lt;- length(xObs) nPred &amp;lt;- length(xPred) f &amp;lt;- function(xi, xj) (xi-xj)^2 diffOO &amp;lt;- outer(xObs, xObs, f) diffPP &amp;lt;- outer(xPred, xPred, f) diffPO &amp;lt;- outer(xPred, xObs, f)  NIMBLE function for GP prediction Here’s the main function for doing the prediction from the GP model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/06/03/lazy-evaluation-thoughts/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/03/lazy-evaluation-thoughts/</guid>
+      <description>This is just a draft of my reply to Gavin’s thought-provoking post pushing back on pipes and NSE in R.
+Gavin, really nice post and discussion here. I am still conflicted about some these issues myself.
+For me, the issues of NSE are somewhat separate and above my concern with pipes. I agree completely with your observation that intermediate assignment is easier to read than nested assignment, and not that much harder to read than a pipe chain.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/05/15/diagrammer/</link>
+      <pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/15/diagrammer/</guid>
+      <description>Exploring ways for using DiagrammeR to generate graphs/plots that can be exported to svg and included in knitr documents.
+devtools::install_github(&amp;quot;rich-iannone/DiagrammeR&amp;quot;) library(&amp;quot;DiagrammeR&amp;quot;) n &amp;lt;- c(&amp;quot;archive&amp;quot;, &amp;quot;index&amp;quot;, &amp;quot;share&amp;quot;, &amp;quot;discover&amp;quot;, &amp;quot;use&amp;quot;, &amp;quot;attribute&amp;quot;) nodes &amp;lt;- create_nodes(nodes = c(&amp;quot;Repository\n Roles&amp;quot;, n, &amp;quot;Researcher\n Roles&amp;quot;), shape = &amp;quot;circle&amp;quot;, color = c(rep(&amp;quot;PowderBlue&amp;quot;, 4), rep(&amp;quot;Linen&amp;quot;, 4)), style = &amp;quot;filled&amp;quot;) edges &amp;lt;- create_edges(from = n, to = c(n[-1], n[1]), color = &amp;quot;gray&amp;quot;, penwidth = 4) graph &amp;lt;- create_graph(nodes = nodes, edges = edges, graph_attrs = c(&amp;quot;layout = circo&amp;quot;)) out &amp;lt;- render_graph(graph) Render as SVG</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/05/13/gp-compare/</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/13/gp-compare/</guid>
+      <description>Original go at nimble gp model, but this requires rather manual manipulation of parameter posteriors to get the GP posteriors.
+library(&amp;quot;MASS&amp;quot;) library(&amp;quot;mcmc&amp;quot;) library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;nonparametricbayes&amp;quot;) ## Warning: replacing previous import &amp;#39;ggplot2::alpha&amp;#39; by &amp;#39;kernlab::alpha&amp;#39; ## when loading &amp;#39;nonparametricbayes&amp;#39; ## Warning: replacing previous import &amp;#39;data.table::melt&amp;#39; by &amp;#39;reshape2::melt&amp;#39; ## when loading &amp;#39;nonparametricbayes&amp;#39; ## Warning: replacing previous import &amp;#39;data.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/05/08/ram-legacy-database-explore/</link>
+      <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/08/ram-legacy-database-explore/</guid>
+      <description>Accessing the database Connect to the database (connection info is public), works fine:
+library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;RPostgreSQL&amp;quot;) ## Loading required package: methods ## Loading required package: DBI library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) mydb &amp;lt;- src_postgres(dbname = &amp;quot;srdb&amp;quot;, host=&amp;quot;nautilus-vm.mathstat.dal.ca&amp;quot;, user = &amp;quot;srdbuser&amp;quot;, password = &amp;quot;srd6us3r!&amp;quot;, port = 5432) mydb ## src: postgres 8.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/28/notes/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/28/notes/</guid>
+      <description>updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &amp;lt;- species_info(&amp;quot;Labroides bicolor&amp;quot;, fields = c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Vulnerability&amp;quot;, &amp;quot;PriceCateg&amp;quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &amp;lt;- stocks(&amp;quot;Labroides bicolor&amp;quot;, fields=c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Resilience&amp;quot;)) You can now merge the results:
+data &amp;lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/28/rfishbase-notes/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/28/rfishbase-notes/</guid>
+      <description>kalman filtering  updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &amp;lt;- species_info(&amp;quot;Labroides bicolor&amp;quot;, fields = c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Vulnerability&amp;quot;, &amp;quot;PriceCateg&amp;quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &amp;lt;- stocks(&amp;quot;Labroides bicolor&amp;quot;, fields=c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Resilience&amp;quot;)) You can now merge the results:
+data &amp;lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/20/open-science-post-doc/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/20/open-science-post-doc/</guid>
+      <description>This post is a response to the query posted by Titus Brown on advice for doing an Open Science Post doc.
+Open Science is a broad tent, and I believe there are many ways to engage in open science without crossing boundaries of collaborators or PIs. Some of the most valuable open science practices are those least likely to cross boundaries: in particular, those practices associated with post-publication of academic papers.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/15/misc-notes-on-cloud-providers/</link>
+      <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/15/misc-notes-on-cloud-providers/</guid>
+      <description>ongoing notes comparing computing resources
+Comparing compute resources:
+ AWS EC2, DigitalOcean, and Google Compute Engine look significantly cheaper than Rackspace, Azure, etc. (The Economist has estimated that AWS EC2 prices are roughly 3% below cost).
+ DigitalOcean tends to have the lowest price point for on-demand use of a given set of resources; usually comparable to the Amazon or EC2 persistent (e.g. monthly) use. All-inclusive pricing (storage, networking etc) and limited options make choices simple and total costs easy to anticipate, though lack the flexibility to fine-tune a configuration to pay for exactly what you need.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/10/data-science-regional-hubs/</link>
+      <pubDate>Fri, 10 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/10/data-science-regional-hubs/</guid>
+      <description>Agenda  Goal Who &amp;amp; what we have imagine and design the hub engage, govern, sustain structure a proposal   NSF overview  What does NSF mean by hub? Consortium/network with regional focus why regional? face time. regional issues NSF thinking it will fund for 9-10 years (in 3 phases). next phase will be &amp;lt; 3 years after first phase 1: hub (executive director) phase 2: spokes (priority areas) phase 3: nodes (sustaining partner organizations)  Volunteer steering council advises ED, executive staff partner organizations (beyond steering council) (model like the CRA)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/09/gpdd-and-kalman-exploration-continued/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/09/gpdd-and-kalman-exploration-continued/</guid>
+      <description>Load libraries and data as before
+library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;knitcitations&amp;quot;) library(&amp;quot;rgpdd&amp;quot;) library(&amp;quot;FKF&amp;quot;) ## Loading required package: RUnit ## Loading required package: methods Parallel version of dplyr::do do_parallel &amp;lt;- function(df, f, ...){ # supports only one group for now require(&amp;quot;parallel&amp;quot;) require(&amp;quot;lazyeval&amp;quot;) require(&amp;quot;reshape2&amp;quot;) options(mc.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/06/gpdd-explore/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/06/gpdd-explore/</guid>
+      <description>setup library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;rgpdd&amp;quot;) library(&amp;quot;FKF&amp;quot;) ## Loading required package: RUnit ## Loading required package: methods Working through 10.1111/j.1461-0248.2011.01702.x provides a nice way to play around with the GPDD data and Kalman filtering. More interested in exploring the data and methods than in just replicating the results, which are important but also rather intuitive and thus I expect rather robust – as we add (observational) uncertainty, or indeed, any additional parameters that must be ended, we should expect to have less power to pin down a particular parameter associated with density dependence, as the paper illustrates rather nicely.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/26/ropensci-unconf-teaching-session/</link>
+      <pubDate>Thu, 26 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/26/ropensci-unconf-teaching-session/</guid>
+      <description>Panel on Effective teaching with R Panel:
+Tracy Teal - Data Carpentry Hadley Wickhan - undergrads at Rice, R master classes for RStudio Mine, Prof Stats, Duke, also MOOC Roger Peng Prof Biostats, John Hopkins Jenny Bryan, Prof Stats, UBC.
+ Ben Marwick, Prof Archaelogy  How do you engage new users? (Or what doesn’t work?)
+Hadley: Start with visualization. +1 Jenny Jenny: Making an HTML page with .Rmd (+1 Mine), scaling/aggregation Roger: these days, they come to me excited about R Mine: I have to convince social scientists to use computers at all.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/24/docker-machine-notes/</link>
+      <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/24/docker-machine-notes/</guid>
+      <description>Docker recently released docker-machine to make managing multiple remote machines locally easier. Docker distributes binaries of docker-machine for most major architectures ready-to-go, potentially making it easier to get started on Windows and Mac as well.
+Set credentials in environmental variables so we don’t have to pass them on the command line each time:
+DIGITALOCEAN_ACCESS_TOKEN = XXX and create the docker-machine:
+docker-machine create --driver digitalocean --digitalocean-size &amp;quot;1gb&amp;quot; server-name where server-name is any name you want to give your server and DO_PAT is your access token (say, saved as an environmental variable).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/09/simpler-nimble-dai-model/</link>
+      <pubDate>Mon, 09 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/09/simpler-nimble-dai-model/</guid>
+      <description>A simpler Nimble model library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;regimeshifts&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union  LSN version A further simplified version:
+ fix sigma_x to unity and theta to zero, reflecting the detrending and scaling.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/04/gp-nimble-explore/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/04/gp-nimble-explore/</guid>
+      <description>library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;MASS&amp;quot;) ## ## Attaching package: &amp;#39;MASS&amp;#39; ## The following object is masked from &amp;#39;package:dplyr&amp;#39;: ## ## select library(&amp;quot;mcmc&amp;quot;) GP Model A successful specification looks like this:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/03/gp-nimble-setup/</link>
+      <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/03/gp-nimble-setup/</guid>
+      <description>library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union dmnorm example from Daniel, who notes we need to be explicit about vector/matrix sizes on both LHS and RHS,</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/02/notes/</link>
+      <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/02/notes/</guid>
+      <description>Misc tricks  docker X11 sharing  docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro r-base  devtools::install_version devtools::use_readme_rmd (with git commit hooks)
+ How to specify a custom action for the knit button: add knit: (function(inputFile, encoding) ...) to the top-level YAML header; e.g. to control output directory:
+  rmarkdown::render(inputFile, encoding = encoding, output_file = paste0(dirname(inputFile), basename(inputFile), &amp;quot;.pdf&amp;quot;))  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/25/nimble-on-dai-model/</link>
+      <pubDate>Wed, 25 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/25/nimble-on-dai-model/</guid>
+      <description>Testing nimble method on Dai model (shorter data series)
+devtools::install_github(&amp;quot;cboettig/regimeshifts&amp;quot;) ## Skipping install of &amp;#39;regimeshifts&amp;#39; from a github remote, the SHA1 (351c3b41) has not changed since last install. ## Use `force = TRUE` to force installation Define our mcmc procedure in Nimble
+my_mcmc &amp;lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){ Rmodel &amp;lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits) Cmodel &amp;lt;- compileNimble(Rmodel) mcmcspec &amp;lt;- configureMCMC(Rmodel, print=FALSE,thin=thin) Rmcmc &amp;lt;- buildMCMC(mcmcspec) Cmcmc &amp;lt;- compileNimble(Rmcmc, project = Cmodel) Cmcmc$run(n_iter) samples &amp;lt;- as.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/24/nimble-on-dai-model/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/24/nimble-on-dai-model/</guid>
+      <description>Testing nimble method on Dai model (long data series)
+Define our mcmc procedure in Nimble
+my_mcmc &amp;lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){ Rmodel &amp;lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits) Cmodel &amp;lt;- compileNimble(Rmodel) mcmcspec &amp;lt;- configureMCMC(Rmodel, print=FALSE,thin=thin) Rmcmc &amp;lt;- buildMCMC(mcmcspec) Cmcmc &amp;lt;- compileNimble(Rmcmc, project = Cmodel) Cmcmc$run(n_iter) samples &amp;lt;- as.data.frame(as.matrix(Cmcmc$mvSamples)) samples &amp;lt;- samples[,1:(length(inits)-1)] gather(samples) } Generate the test data:
+set.seed(1000) max_days &amp;lt;- 500 DF &amp;lt;- seq(0, 2000, length=max_days) # schedule for env degredation (increased dilution) x &amp;lt;- numeric(max_days) x[1] &amp;lt;- 1.</description>
+    </item>
+    
+    <item>
+      <title>Question-and-Answer-post on my use of Docker in research</title>
+      <link>/2015/02/24/docker-science-question-and-answer/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/24/docker-science-question-and-answer/</guid>
+      <description>I received an interesting email from an academic computing unit regarding the use of Docker in my research:
+ We’ve been reading, listing, and prototyping best practices for building base images, achieving image composition, addressing interoperability, and standardizing on common APIs. When I read your paper, I thought you might have some opinions on the subject.
+  Would you be willing to share your experiences using Docker for research with our team?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/12/dai-model/</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/12/dai-model/</guid>
+      <description>A first go at implementing the Dai et al model From the supplement to 10.1126/science.1219805, we have:
+\[n_{t+1} = n_t g(n_t + \epsilon n_t, \theta)\] \[g(n_t) = \frac{n_{t+1}}{n_t}\]
+ This model is based on two phases of daily growth: a slow exponential growth phase at low cell densities, followed by a logistic growth phase with a higher per capita growth rate at intermediate cell densities. This model has 5 parameters: T lag is the lag time before yeast cells start to grow after being transferred into new media (the total time for daily growth is 23 hours).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/06/fun-standardizing-non-standard-evaluation/</link>
+      <pubDate>Fri, 06 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/06/fun-standardizing-non-standard-evaluation/</guid>
+      <description>Using dplyr calls on the back-end of the rfishbase re-write means working around the non-standard evaluation (NSE), as described in the dplyr vignette.
+Grab the data I was using for this:
+library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union downloader::download(&amp;quot;https://github.com/cboettig/2015/raw/fc0d9185659e7976927d0ec91981912537ac6018/assets/data/2015-02-06-taxa.csv&amp;quot;, &amp;quot;taxa.csv&amp;quot;) all_taxa &amp;lt;- read.csv(&amp;quot;taxa.csv&amp;quot;) Consider a simple NSE dplyr call:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/03/dockerizing-fishbase-api/</link>
+      <pubDate>Tue, 03 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/03/dockerizing-fishbase-api/</guid>
+      <description>Dockerized MySQL background Figuring out using an external MySQL docker container for the in-development fishbase API.
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql docker run --rm -ti --link some-mysql:mysql ubuntu:latest bash Now that we’re inside the ubuntu container we can see linked environment:
+env shows
+HOSTNAME=57fd2b08094a MYSQL_ENV_MYSQL_ROOT_PASSWORD=mysecretpassword TERM=xterm MYSQL_PORT_3306_TCP_PORT=3306 MYSQL_PORT_3306_TCP=tcp://172.17.0.32:3306 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin PWD=/ MYSQL_ENV_MYSQL_VERSION=5.6.22 SHLVL=1 HOME=/root MYSQL_NAME=/some-app/mysql MYSQL_PORT_3306_TCP_PROTO=tcp MYSQL_PORT_3306_TCP_ADDR=172.17.0.32 LESSOPEN=| /usr/bin/lesspipe %s MYSQL_ENV_MYSQL_MAJOR=5.6 MYSQL_PORT=tcp://172.17.0.32:3306 LESSCLOSE=/usr/bin/lesspipe %s %s _=/usr/bin/env Great. Now we need a mysql client to access the host:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/28/notes/</link>
+      <pubDate>Wed, 28 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/28/notes/</guid>
+      <description>MDPToolbox testing  Debugging RPub record Fails even if we restrict R to be finite (h &amp;lt; 1) Different error if we try the optimal harvest   Reading  Operating Systems Review reproducibility special issue now out; (includes my article on Docker). Table of contents   Reviewing  PNAS review: done (2015-01-26). Bioinformatics review. JSS review: done.   Docker Continuous Integration Finally a way to run generic docker images on free CI: circle-ci</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/23/mdptoolbox-ex/</link>
+      <pubDate>Fri, 23 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/23/mdptoolbox-ex/</guid>
+      <description>Testing this out using MDPtoolbox, but not working yet…
+library(MDPtoolbox) ## Loading required package: Matrix ## Loading required package: linprog ## Loading required package: lpSolve library(ggplot2) f &amp;lt;- function(x, h, p){ x &amp;lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &amp;lt;- c(a = 6, b = 0.05) profit &amp;lt;- function(x, h) pmin(x,h) - 0.1 * h # vectorized for x x_grid &amp;lt;- seq(0, 150, length = 151) h_grid &amp;lt;- c(0,50,100) delta &amp;lt;- 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/22/invasives-sdp/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/22/invasives-sdp/</guid>
+      <description>library(knitr) opts_chunk$set(dev=&amp;#39;svg&amp;#39;, fig.width=4, fig.height=4, results=&amp;#39;hide&amp;#39;, fig.show=&amp;#39;hold&amp;#39;) library(pdgControl) library(ggplot2) We propose a state model consistent with 10.2139/ssrn.421007; in this case a simple Beverton-Holt model. Note that in defining \(f\) we have assumed the harvesting take place before the population recruits.
+f &amp;lt;- function(x, h, p){ x &amp;lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &amp;lt;- c(a = 6, b = 0.05) This meets Olson’s three assumptions.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/22/sdp-reed-controls-comparisons/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/22/sdp-reed-controls-comparisons/</guid>
+      <description>library(knitr) opts_chunk$set(dev=&amp;#39;png&amp;#39;, fig.width=3, fig.height=3, results=&amp;#39;hide&amp;#39;, fig.show=&amp;#39;hold&amp;#39;) library(pdgControl) library(ggplot2) Reed solution; harvest control f &amp;lt;- function(x, h, p){ x &amp;lt;- sapply(x, function(x) max(x-h,0)) p[[1]] * x / {1 + p[[2]] * x} } p &amp;lt;- c(a = 6, b = 0.05) profit &amp;lt;- function(x, h) sapply(x, min, h) # vectorized for x x_grid &amp;lt;- seq(0, 150, length = 100) h_grid &amp;lt;- seq(0,150,length = 100) delta &amp;lt;- 0.05 OptTime &amp;lt;- 1000 xT &amp;lt;- 0 sigma_g &amp;lt;- 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/13/detrend-example/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/13/detrend-example/</guid>
+      <description>library(knitr) library(nimble) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(earlywarning) library(ggplot2) library(tidyr) library(&amp;quot;methods&amp;quot;) opts_chunk$set(dev=&amp;#39;png&amp;#39;, fig.width=5, fig.height=5, results=&amp;#39;hide&amp;#39;) some sample data from earlywarning:
+set.seed(123) data(ibms) plot(ibm_critical) raw &amp;lt;- as.data.frame(ibm_critical) names(raw) &amp;lt;- &amp;quot;x&amp;quot; Rather than explicitly modeling the trend element predicted by the linearization, let us simply remove it:
+N &amp;lt;- length(raw$x) raw$t &amp;lt;- 1:N detrend &amp;lt;- loess(x ~ t, raw) data &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/07/automated-knitr-in-jekyll/</link>
+      <pubDate>Wed, 07 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/07/automated-knitr-in-jekyll/</guid>
+      <description>Combining knitr &amp;amp; jeykll using servr Yihui Xie, author &amp;amp; maintainer of knitr, has a nice little package out called servr for serving websites from R. It includes a handy jekyll function which streamlines the process of first running knitr on any .Rmd posts before running Jekyll. Having broken my notebook into volumes, my setup is now ready to take advantage of this approach.
+Configuring knitr with the build.R script The R build process can be tuned using a custom build.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/06/lsn-model-considerations/</link>
+      <pubDate>Tue, 06 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/06/lsn-model-considerations/</guid>
+      <description>Should we model the change in mean explicitly, or rely on detrending?
+One of the first things to deal with in the model setup is whether we ‘detrend’ the data first or not. As you know, in most saddle-node bifurcations the mean also moves since the stable node usually moves a bit to collide with the unstable node rather than just sitting there and waiting for the unstable node to hit it; which results in a gradual decrease of the mean prior to the actual catastrophe.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/05/notes/</link>
+      <pubDate>Mon, 05 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/05/notes/</guid>
+      <description>more user craziness with docker Should do something about rstudio script when running as a non-root user…. Fixed! Requires changing user more carefully; we cannot simply delete the existing user.
+When using a docker image with a non-root default user, we can launch a container as root by giving root’s UID instead with the --user 0 flag. (Note that we can do this with other UIDs as well, though it produces a troublesome unnamed user when the userid hasn’t been assigned to a user name).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/04/lsn-model-comparisons/</link>
+      <pubDate>Sun, 04 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/04/lsn-model-comparisons/</guid>
+      <description>library(knitr) library(nimble) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &amp;#39;fda&amp;#39; ## The following object is masked from &amp;#39;package:nimble&amp;#39;: ## ## inprod ## The following object is masked from &amp;#39;package:graphics&amp;#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/01/notebook-maintenance-and-scaling/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/01/notebook-maintenance-and-scaling/</guid>
+      <description>Electronic notebooks may not run out of pages like a paper notebook, but with five years of entries (963 posts, with a repository size approaching half a gigabyte), together with various files, layouts, experimentation and version history, some thought must be given to scale. Two closely related considerations add to this further: dynamic builds with knitr from .Rmd versions and hosting image files directly in the notebook repository rather than uploading to an external site (previously flickr or on the gh-pages of other project repositories).</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/2014/12/11/rrhack-notes/</link>
       <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
@@ -2355,6 +2819,15 @@ Heather has written an excellent post on the process of writing, which rings tru
       
       <guid>/2013/01/08/haldanes-sieve-guest-post/</guid>
       <description>Consider public archiving for your dissertation As researchers we spend an immense amount of time generating products other than papers. While we go through great lengths to see that our papers are published in just the right place to be seen by our colleagues (fretting about the different impact factors, percieved audience, editorial boards, open access policies, and many other factors that determine just how a paper will see the light of day), other products of our labors largely languish on forgotten hard-drives from long ago.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2012/12/30/learning-jekyll/</link>
+      <pubDate>Sun, 30 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>/2012/12/30/learning-jekyll/</guid>
+      <description>Some quick thoughts on learning Jekyll After recieving a few queries on how to get started with Jekyll I thought I&amp;rsquo;d jot down my own opinions here. Of course there is already rather good documentation for the software and plenty of blogs providing tutorials. While no doubt more than adequate, I have more opinions on how to get started actually learning what&amp;rsquo;s going on than I could easily fit into a tweet, and also a couple favorite links to references so I thought I&amp;rsquo;d jot down my reply in long form here.</description>
     </item>
     
     <item>

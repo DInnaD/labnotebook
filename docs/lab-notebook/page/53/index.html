@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,122 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/07/08/friday-writing-post-doc-applications/">Fri, Jul 8, 2011</a></h4>
-    <h4><a href="../../../2011/07/08/friday-writing-post-doc-applications/">Friday: writing post-doc applications</a></h4>
-    <div class="article-style">
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/10/10/prosecutors-fallacy/">Wed, Oct 10, 2012</a></h4>
+      <h4><a href="../../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h4>
+      <div class="article-style">
+        My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
+Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/07/thursday-8/">Thu, Jul 7, 2011</a></h4>
-    <h4><a href="../../../2011/07/07/thursday-8/">Thursday: sending off paper draft, starting applications</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/10/09/data-management-plan/">Tue, Oct 9, 2012</a></h4>
       
-      Add re-sampling blurb to appendix. Done
- Read over manuscript &amp; send to Marissa and Marcel. Done
- Now to spend today working on fellowship applications: research statement and proposal&hellip;
-   Appendix edits  Add distributions to the appendix.
- Show where where the data actually fall in the distribution, as would be used in traditional hypothesis testing framework.
- Add extra examples to the appendix.
-      
+      <div class="article-style">
+        Writing out a data management plan for myself. Suggestions and feedback welcome.
+Data Types and Structure All source code, documentation, scripts and data for the analyses performed in the course of this research shall be maintained in a digital compendium using the R package structure as recommended in Gentleman and Lang (2007). The progress and results of this research shall be regularly chronicled in an electronic lab notebook, maintained openly at carlboettiger.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/07/segue-easy-cloud-computing-in-r-now-with-custom-packages/">Thu, Jul 7, 2011</a></h4>
-    <h4><a href="../../../2011/07/07/segue-easy-cloud-computing-in-r-now-with-custom-packages/">Segue: Easy cloud hpc in R, now with custom packages</a></h4>
-    <div class="article-style">
-      
-      After a few helpful emails from package creator JD Long, I have the segue package running with custom R packages. The package is available on Google code. With two lines of code I can start submitting jobs to very large clusters of computers on the Amazon cloud. For a basic introduction to the package see Jeff Breen&rsquo;s post.
-Quick notes on updating using mercurial: Since I&rsquo;ve already pulled the code using
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/10/05/notes/">Fri, Oct 5, 2012</a></h4>
+      <h4><a href="../../../2012/10/05/notes/">Automated feeds in notebook entries</a></h4>
+      <div class="article-style">
+        Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
+{% raw %}
+{% octokit_commits pdg_control%}  {% endraw %}
+(or even to the post template) and have the commit log for the specified repository automatically imported.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/07/early-warning-signals-presentation-notes/">Thu, Jul 7, 2011</a></h4>
-    <h4><a href="../../../2011/07/07/early-warning-signals-presentation-notes/">Early warning signals presentation notes</a></h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Wed, Jul 6, 2011</a></h4>
-    <h4><a href="../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Exact Simulation by the Gillespie Algorithm</a></h4>
-    <div class="article-style">
-      
-      The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
-where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/10/02/solarized-colors/">Tue, Oct 2, 2012</a></h4>
+      <h4><a href="../../../2012/10/02/solarized-colors/">Solarized Colors with Twitter-Bootstrap?</a></h4>
+      <div class="article-style">
+        Trying out rendering my notebook using Ethan Schoonover&rsquo;s Solarized color scheme. The solarized palette has been selected according to Ethan&rsquo;s exacting standards for contrast, symmetry, and readability.
+My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS files. Normal CSS is valid LESS code too, but doesn&rsquo;t have the concept of a variable. So changing colors in CSS requires changing each and every occurance of some hex colorcode.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/06/wednesday-6/">Wed, Jul 6, 2011</a></h4>
-    <h4><a href="../../../2011/07/06/wednesday-6/">Wednesday: Data wrangling into graphs</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/10/01/multiple-uncertainty/">Mon, Oct 1, 2012</a></h4>
       
-      Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
-running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
-      
+      <div class="article-style">
+        Let
+ y be measured stock size, subject to measurement error from true stock x q be harvest quota, subject to implementation error from actual harvest, h  Stock next year is also subject to stochastic growth shock $z_g$, (note that $f$ will also depend on the harvest, h, unless $x<em>t$ is taken as the escapement population, $x-h$).
+$$ x</em>{t+1} = z_g f(x_t) $$
+In discrete space, let X be a vector representing the probability distribution of having stock $x$ at time $t$, restricted to some finite grid of dimension $n$.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/05/tuesday-6/">Tue, Jul 5, 2011</a></h4>
-    <h4><a href="../../../2011/07/05/tuesday-6/">Tuesday: Warning Signals Data Wrangling</a></h4>
-    <div class="article-style">
-      
-      Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
- wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/09/28/welcome-to-my-lab-notebook/">Fri, Sep 28, 2012</a></h4>
+      <h4><a href="../../../2012/09/28/welcome-to-my-lab-notebook/">Welcome to my Lab Notebook - Reloaded</a></h4>
+      <div class="article-style">
+        Welcome to my lab notebook, version 3.0. My original open lab notebooks began on the wiki platform OpenWetWare, moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform (site-config), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here. Quoting from my original introduction to the Wordpress notebook:
+ Disclaimer: Not a Blog  Welcome to my open lab notebook.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/04/open-f1000-reviews/">Mon, Jul 4, 2011</a></h4>
-    <h4><a href="../../../2011/07/04/open-f1000-reviews/">Open F1000 reviews?</a></h4>
-    <div class="article-style">
-      
-      Sebastian has started posting article reviews on his website, and invites us (Teary - our theoretical ecology tea mailing list) to do likewise. He uses a rather nifty Jabref converter to display the reviews created as bibtex entries, using the format indicated below.
-These reviews are cross-posted from the reviews he (and associates) submit to Faculty of 1000, a commercial, subscription-based service. While this gives F1000 some publicity directly from his own site, it also means individuals can access these reviews freely.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/04/warning-signals-writing-organization-appendices/">Mon, Jul 4, 2011</a></h4>
-    <h4><a href="../../../2011/07/04/warning-signals-writing-organization-appendices/">Warning Signals writing, organization, appendices</a></h4>
-    <div class="article-style">
-      
-      main text Summary Sentence. Abstract
-Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/07/01/friday-warning-signals-writing-etc/">Fri, Jul 1, 2011</a></h4>
-    <h4><a href="../../../2011/07/01/friday-warning-signals-writing-etc/">Friday, warning signals writing, etc</a></h4>
-    <div class="article-style">
-      
-      9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
-   launched ibm_analysis.R on zero, n10.
- Writing writing&hellip; first full text draft done.
-  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -263,9 +230,10 @@ Paragraphs  Early Warning matter, no-one does statistics We need quantify uncert
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -354,7 +322,13 @@ Paragraphs  Early Warning matter, no-one does statistics We need quantify uncert
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

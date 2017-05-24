@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,117 +134,73 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/08/28/rnexml-coding/"></a></h2>
-    <h4>Wed, Aug 28, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/09/23/notes/">Mon, Sep 23, 2013</a></h4>
       
-      test_ape.R unit tests now passing. Should still revise the coercion methods in nexml_write.R to something more clever. We aren&rsquo;t coercing a tree to a nexml, we are building a nexml from a tree. Likewise handling the otu assignments of species names should be done directly 11:20 am 2013/08/28 start cleaning up old read/write methods obsoleted by toNeXML/fromNeXML methods 10:59 am 2013/08/28 inherited classes now replace all the original classes 10:54 am 2013/08/28 All inheritance-based classes appearing in inst/examples/trees.
-      
+      <div class="article-style">
+        nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/22/xml-parsing-strategies/"></a></h2>
-    <h4>Mon, Jul 22, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/09/09/lost-branches/">Mon, Sep 9, 2013</a></h4>
       
-      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
+      <div class="article-style">
+        Just read Lost Branches on the Tree of Life in PLoS Biology and couldn&rsquo;t agree more! I too am frequently frustrated by the lack of deposition or replies to email requests for data. The 16% reply rate seems consistent with other such studies. I agree with the general message that what is most needed is a cultural shift towards these expectations. I loved this paper overall but nonetheless cannot resist a few nitpicks.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/09/07/rnexml-milestone/">Sat, Sep 7, 2013</a></h4>
+      
+      <div class="article-style">
+        We have also recently reached the first milestone in RNeXML. We can now read NeXML files into R and convert to the popular phylo format from the ape package, as well as writing the ape::phylo trees out into valid NeXML. We can also add basic metadata such as author, license, title and description to the file.
+Development notes At the heart of this package is an internal S4 representation of the schema.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/08/29/notes/">Thu, Aug 29, 2013</a></h4>
+      
+      <div class="article-style">
+        Digging through some old stuff in the course of correspondance on related issues, I came across a few outstanding puzzles I&rsquo;ve been meaning to wrap up one day:
+ Drift effecs &ndash; some difficulties Waiting Time  and some actual results that could deserve some renewed attention too.
+ Phase 1 Routes to branching  Also raises an interesting new question that could be addressed in this context: can we formulate a similar approach to the stochastic escape from an adaptive peak?
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/08/28/rnexml-coding/">Wed, Aug 28, 2013</a></h4>
+      
+      <div class="article-style">
+        test_ape.R unit tests now passing. Should still revise the coercion methods in nexml_write.R to something more clever. We aren&rsquo;t coercing a tree to a nexml, we are building a nexml from a tree. Likewise handling the otu assignments of species names should be done directly 11:20 am 2013/08/28 start cleaning up old read/write methods obsoleted by toNeXML/fromNeXML methods 10:59 am 2013/08/28 inherited classes now replace all the original classes 10:54 am 2013/08/28 All inheritance-based classes appearing in inst/examples/trees.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/07/22/xml-parsing-strategies/">Mon, Jul 22, 2013</a></h4>
+      
+      <div class="article-style">
+        Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
 Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/"></a></h2>
-    <h4>Tue, Apr 23, 2013</h4>
-    <div class="article-style">
-      
-      The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/16/notes/">a few notes on various projects</a></h2>
-    <h4>Tue, Apr 16, 2013</h4>
-    <div class="article-style">
-      
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
-  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/02/14/notes/"></a></h2>
-    <h4>Thu, Feb 14, 2013</h4>
-    <div class="article-style">
-      
-      Research  consolidate and revise EWS text(?) replies to Luke and Brian on model choice  Notebook meta  fix google-analytics plugin (still needs to get toggle working?) tests of notebook-parsing.Rmd. New errors on ; somehow in straight XML parsing, ignoring for the moment. Opened a few new issues around improving site semantics. (#59, #60)  ropensci  Resubmit rfishbase &ndash; silently load to local, not global namespace. Updated data cache (and ASCII-ify and compress).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/24/evolutionary-covariance/"></a></h2>
-    <h4>Wed, Oct 24, 2012</h4>
-    <div class="article-style">
-      
-      Thinking through disparity measures while writing my thoughts in R&hellip;
-Load some sample data
-library(geiger) data(geospiza) dat &lt;- treedata(geospiza$geospiza.tree, geospiza$geospiza.data$wingL)  To find the disparity relative to a particular model, we must compute the variance-covariance matrix for that model
-X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, X) bm_disparity &lt;- t(X-mean_X) %<em>% V_bm %</em>% (X-mean_X)  I believe this needs to be scaled by the Brownian rate parameter of the trait, e.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/09/evolution-conf-summary/">Evolution and iEvobio conference notes</a></h2>
-    <h4>Mon, Jul 9, 2012</h4>
-    <div class="article-style">
-      
-      Saturday  Jeremy Brown Graham Slater (Education Data Symposium) Cecile Ane Joe Felsenstein Lars Schmitz Carl Boettiger Liam Revell Brian O&rsquo;Meara (Leithan McGonigle)  Sunday  Marie-Josee Fortin Emma Goldberg 10:45 rm 209 Networks Symposium Jeremy Fox 1.30p Rm 201 (Adaptation B) Schluter 2:15p Canada 2-3 Rosie Redfield public lecture  Monday  9:00 Michael Landis, 203 9:30 Dick Gumolkiowicz 214 10:30 Dean Adams 11 (Cavender-Bares, 214) (Bolnick, 213) 11:30 Mark McPeek 214  Tuesday  Luke Harmon 9am rm 214 Luke Mahler 9am rm 210 Rafael Maia 9:15a rm 210 Sam Price 11:15a rm 210 Liam Revell 11:30 Canada 2-3 Dan Rabosky 2:30pm Canada 2-3 Tanja Stadler 3pm Canada 2-3 Chris Martin 3pm rm 213  Also: ievobio Day 1.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/08/evolution-day1/">Evolution 2012 Conference, Day 1</a></h2>
-    <h4>Sun, Jul 8, 2012</h4>
-    <div class="article-style">
-      
-      Fantastic first day at Evolution. Spent the morning in the SSB Sympossium organized by Jeremy Brown, &ldquo;Predictive approaches for assessing the fit of evolutionary models&rdquo;. Really covered both methods assessing model fit (posterior predictive simulations) and approximate likelihood approaches, which are also simulation-based. Then the afternoon in the second SSB Symposium on emerging methods for comparative phylogenetics, organized by Liam Revell and Cecile Ane, which included my talk. Lots of great talks, but Cecile&rsquo;s was perhaps the most striking results I saw presented all day.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/03/notes/">wrightscape / release of constraint</a></h2>
-    <h4>Tue, Jul 3, 2012</h4>
-    <div class="article-style">
-      
-      Here&rsquo;s a table of all the comparisons, indicating which is the preferred model in each pairwise comparison. (In my outline, Figure 4 shows the bm3 v a3 for KT and open lever ratio, and Fig 3 shows the actual parameter values for those models). This table is all for the case that allows shifts at both pharyngeal and the intramandibular transitions. I have graphs of the actual parameter values as well (which we need to see if the constraint has increased or decreased at the transition, and by how much), but gets complex quickly.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/10/notes/">Notes</a></h2>
-    <h4>Thu, May 10, 2012</h4>
-    <div class="article-style">
-      
-      Partially Observable Stochastic Processes (cont.)  Reading a bit more about pomp. Looks like SCM and PMCMC offer nicely Bayesian inference tools using the same framework (rprocess and dmeasure), making a nice platform for implementing multiple methods. Almost feels like having the likelihood equation in hand again. A bit more skeptical about nonlinear forecasting and probe matching, as they feel even more heuristic or arbitrary. I suppose that&rsquo;s just the price of having only rmeasure instead of dmeasure available though.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -259,8 +215,12 @@ X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, 
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -347,7 +307,13 @@ X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

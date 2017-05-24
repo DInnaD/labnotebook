@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,133 +134,79 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/01/10/warning-signals-power-and-sufficient-statistics/">Warning Signals, Power and Sufficient Statistics</a></h2>
-    <h4>Mon, Jan 10, 2011</h4>
-    <div class="article-style">
-      
-      Working on warning signals manuscript. Looking at overall powercurves as a function of sample size and rate of stability loss in both models. Planning to repeat that analysis with summary statistics approach to illustrate the relative loss in power of the &ldquo;leading indicator&rdquo; approach. (simulations just set up to run now, figures should appear below as they complete. Click on figures for links to code).
- Power curve based on transcritical bifurcation as a function of rate of stability loss:  [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;warningsignals, LTC, stability&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-01-10 00:00:00&rdquo; max_upload_date=&ldquo;2011-01-12 23:59:59&rdquo;]
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/07/thursday-8/">Thu, Jul 7, 2011</a></h4>
+      <h4><a href="../../../../2011/07/07/thursday-8/">Thursday: sending off paper draft, starting applications</a></h4>
+      <div class="article-style">
+        Add re-sampling blurb to appendix. Done
+ Read over manuscript &amp; send to Marissa and Marcel. Done
+ Now to spend today working on fellowship applications: research statement and proposal&hellip;
+   Appendix edits  Add distributions to the appendix.
+ Show where where the data actually fall in the distribution, as would be used in traditional hypothesis testing framework.
+ Add extra examples to the appendix.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/10/warning-signals-manuscript/">Warning signals manuscript</a></h2>
-    <h4>Fri, Dec 10, 2010</h4>
-    <div class="article-style">
-      
-      Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
- Intro/Abstract
- Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
- Nonlinearity not observed with infinite data
- reasons detection fails: Identifiability issue &amp; Power issue. Example signal that exists but inadequate power to detect?
- Eigenvalue story
- Probability of data vs Probability of a statistic
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/07/early-warning-signals-presentation-notes/">Thu, Jul 7, 2011</a></h4>
+      <h4><a href="../../../../2011/07/07/early-warning-signals-presentation-notes/">Early warning signals presentation notes</a></h4>
+      <div class="article-style">
+        motivate story of fisheries management.
+ Step advance a time series of fluctuations. Shows a gradual decline and eventually sudden crash. Predict when we crash? Introduce indicators. Advance a different time series, this time displaying summary statistics as we go. Have audience make prediction whether next step will be collapse. Present summary statistics with uncertainty included. (color code confidence?)
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/09/exploring-power-in-warning-signals/">Exploring Power in Warning Signals</a></h2>
-    <h4>Thu, Dec 9, 2010</h4>
-    <div class="article-style">
-      
-      Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
-<a href="code ids in image discription, compare to structured-popultions git log. ">flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;stochpowercurvesslides&rdquo;</a>
-Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Wed, Jul 6, 2011</a></h4>
+      <h4><a href="../../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Exact Simulation by the Gillespie Algorithm</a></h4>
+      <div class="article-style">
+        The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
+where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/04/identifying-warning-signals/">Identifying Warning Signals</a></h2>
-    <h4>Sat, Dec 4, 2010</h4>
-    <div class="article-style">
-      
-      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
-    <div class="article-style">
-      
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/06/wednesday-6/">Wed, Jul 6, 2011</a></h4>
+      <h4><a href="../../../../2011/07/06/wednesday-6/">Wednesday: Data wrangling into graphs</a></h4>
+      <div class="article-style">
+        Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
+running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/29/further-treatment-of-the-limiting-models/">Further treatment of the limiting models</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
-    <div class="article-style">
-      
-      Have spent the last three days building and testing the infrastructure to fit the canonical form of a saddle-node (fold) bifurcation by likelihood. Actually I don&rsquo;t use the canonical form straight up: $ dx/dt = x^2 +r$ cannot be fit directly in this manner, since it needs a couple scale transformations on the variables to get the units right (a multiple for the unit scale and an additive factor for the zero point), and more importantly, isn&rsquo;t a stochastic model so cannot assign probabilities to the outcomes.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/05/tuesday-6/">Tue, Jul 5, 2011</a></h4>
+      <h4><a href="../../../../2011/07/05/tuesday-6/">Tuesday: Warning Signals Data Wrangling</a></h4>
+      <div class="article-style">
+        Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
+ wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/28/likelihoods-for-quadratic-models-cont/">Likelihoods for quadratic models cont</a></h2>
-    <h4>Sun, Nov 28, 2010</h4>
-    <div class="article-style">
-      
-      Considering the fits of the quadratic models from yesterday.
-[flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;quadraticfitslides&rdquo; tag_mode=&ldquo;all&rdquo;]
-Analysis of fits Of course these fits rely entirely on mapping the location of the stable point and the slope through that point, something they still cannot do all that well. In this parameterization the the stable intercept is $$ \hat x = \sqrt{r}+\theta $$ and slope at intercept is $$ \frac{\partial f(\hat x)}{\partial x} = -2\sqrt{r} $$ This creates a numerical optimization problem, since there is high importance on getting the mean right, and less on the variance, the routine tends to fix the combination of r and theta to get the mean right, and then cannot change r to get the slope correct without getting penalized for the loss of likelihood in changing the mean.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/04/warning-signals-writing-organization-appendices/">Mon, Jul 4, 2011</a></h4>
+      <h4><a href="../../../../2011/07/04/warning-signals-writing-organization-appendices/">Warning Signals writing, organization, appendices</a></h4>
+      <div class="article-style">
+        main text Summary Sentence. Abstract
+Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/27/implementing-likelihoods-for-quadratic-models/">Implementing Likelihoods for quadratic models</a></h2>
-    <h4>Sat, Nov 27, 2010</h4>
-    <div class="article-style">
-      
-      Working from the quadratic model for the saddle node bifurcation rather than the linear (OU) model. Recall that the dynamics are:
-$$dX = \left( r - (x-\theta)^2\right)dt + \beta \sqrt{X} dB_t $$
-and the linear noise approximation gives a linear Fokker Planck equation such that the probability distribution is Gaussian with moments ((corrected from yesterday to scale noise, basically as pure-birth Poisson process))
-$$\frac{d \hat{x}}{dt} &amp;= r - (\hat{x}-\theta)^2 $$ $$ \frac{d \sigma^2}{dt} &amp;= -2 (\hat x - \theta )\sigma^2 + \beta \left(r - (\hat{x}-\theta)^2 \right) $$
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/24/warning-signals-likelihoods-straight-up/">Warning signals: Likelihoods Straight-up</a></h2>
-    <h4>Wed, Nov 24, 2010</h4>
-    <div class="article-style">
-      
-      Meeting with Alan this morning. I haven&rsquo;t solved likelihood of power spectra (previous couple entries in Stoch. Pop / warning signals), though after meeting with Sebastian (11&frasl;9) probably the best method works from the correlation function. Define a new stochastic process Y $$ Y_1 = X_1 X_2 + X_2 X_3 + X_3 X_4 + \ldots $$ $$ Y_2 = X_1 X_3 + X_2 X_4 + \ldots $$ $$ Y_3 = \ldots $$
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/03/getting-the-details-right-on-the-fourier-transform-approach-to-likelihood/">Getting the details right on the Fourier Transform approach to likelihood</a></h2>
-    <h4>Wed, Nov 3, 2010</h4>
-    <div class="article-style">
-      
-      Recall that we consider the power spectrum of some measurable fluctuating quantity x(t), defined as
-$$ y(\omega) = \int0^T dt e^{i\omega t} x(t) $$ $$ S(\omega) = \lim{T \to \infty} \frac{1}{2\pi T} \left| y(\omega)\right|^2 $$
-A little work can show is equal to the Fourier transform of the autocorrelation function, $ \langle x(t) x(t&rsquo;) \rangle = C(t-t&rsquo;) $.
-We evaluate the correlation function of their Fourier transform (note $ x (\omega) $ is really $ \tilde x(\omega)$, the new transformed variable, I&rsquo;ve dropped the tilde only out of laziness):
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -275,8 +221,12 @@ We evaluate the correlation function of their Fourier transform (note $ x (\omeg
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -363,7 +313,13 @@ We evaluate the correlation function of their Fourier transform (note $ x (\omeg
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

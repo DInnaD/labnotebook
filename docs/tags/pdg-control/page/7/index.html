@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,38 +134,79 @@
 
 
 
+
   <h1>Pdg Control</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/09/12/pretty-darn-good-control-working-group/">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
-    <div class="article-style">
-      
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wed, Nov 30, 2011</a></h4>
+      <h4><a href="../../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h4>
+      <div class="article-style">
+        rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/09/12/pretty-darn-good-control-working-group/">Pretty Darn Good Control Working Group</a></h2>
-    <h4>Mon, Sep 12, 2011</h4>
-    <div class="article-style">
-      
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/28/handling-other-sources-of-noise/">Mon, Nov 28, 2011</a></h4>
+      <h4><a href="../../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h4>
+      <div class="article-style">
+        I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
+$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/23/getting-the-right-distributions/">Wed, Nov 23, 2011</a></h4>
+      <h4><a href="../../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h4>
+      <div class="article-style">
+        Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
+$$x_{t+1} = z_t f(x_t) $$
+where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
+$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/15/tuesday-10/">Tue, Nov 15, 2011</a></h4>
+      <h4><a href="../../../../2011/11/15/tuesday-10/">Tues: Sources of stochastic variation in optimal control</a></h4>
+      <div class="article-style">
+        Adding stochasticity seems to have a small history.
+Reed 1979 Reed, 1979 Uncertainty in next year&rsquo;s stock, &ldquo;growth uncertainty&rdquo; at the time of determining harvest. Constant escapement policy, no chance of extinction.
+Clark &amp; Kirkwood 1986 Clark &amp; Kirkwood, 1986 Uncertainty in this year&rsquo;s stock, &ldquo;measurement uncertainty&rdquo; when determining harvest.
+Roughgarden &amp; Smith (1996) consider both, and add uncertainty in harvest. Sethi et al. 2005 (Sethi et. al. 2005) consider the economist&rsquo;s optimization of this.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">Sun, Nov 13, 2011</a></h4>
+      <h4><a href="../../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h4>
+      <div class="article-style">
+        I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/08/sdp-solution-for-allee-model/">Tue, Nov 8, 2011</a></h4>
+      <h4><a href="../../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h4>
+      <div class="article-style">
+        Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -174,12 +215,18 @@ $$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
     <li><a href="../../../../tags/pdg-control/page/6/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/pdg-control/page/8/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -266,7 +313,13 @@ $$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

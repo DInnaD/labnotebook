@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,126 +133,88 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/11/26/notes/">Tue, Nov 26, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/24/coreos-docker-registries-etc/">Mon, Nov 24, 2014</a></h4>
       
-      RNeXML Character metadata EML provides a nice illustration of the kind of metadata we would want to typically accompany character trait data; at minimum, at the attribute level.
-Some of this is already there &ndash; we know if states are continuous or discrete, what possible states they can take on, and can add labels to state nodes to define what the symbols mean (however, perhaps an additional meta annotation node would be preferred).
-      
+      <div class="article-style">
+        A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/19/notes/">Tue, Nov 19, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/19/coreos-and-other-infrastructure-notes/">Wed, Nov 19, 2014</a></h4>
       
-      RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
- Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&rsquo;t have to wrap some C library myself&hellip;  nonparametric-bayes Writing writing.
- Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.
-      
+      <div class="article-style">
+        CoreOS? Security model looks excellent. Some things not so clear:
+ In a single node setup, what happens with updates? Would containers being run directly come down and not go back up automatically? In general, how effective or troublesome is it to run a single, low-demand app on a single node CoreOS rather than, say, an ubuntu image (e.g. just to benefit from the security updates model)? For instance, would an update cause a running app to exit in this scenario?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/17/rnexml-metadata-queries/">Sun, Nov 17, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/17/wssspe-feedback/">Mon, Nov 17, 2014</a></h4>
       
-      (From issue #20)
-Basic metadata queries a question of how the user queries that metadata. Currently we have a metadata function that simply extracts all the metadata at the specified level (nexml, otus, trees, tree, etc) and returns a named character string in which the name corresponds to the rel or property and the value corresponds to the content or href, e.g.:
-birds &lt;- read.nexml(&quot;birdOrders.xml&quot;) meta &lt;- get_metadata(birds)  prints the named string with the top-level (default-level) metadata elements as so:
-      
+      <div class="article-style">
+        WSSSPE working groups: Reproducibility, Reuse, and Sharing (Neil Che Hong) Our group focused on journal policies regarding software papers. Our objectives were:
+ A Survey of journals that publish software papers. The Software Sustainability Institute already maintains a list
+ A summary of policies each of these journals has in place regarding software papers. (e.g. licensing requirements, repository requirements, required sections in the manuscripts regarding installation or tests, etc).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/14/notes/">Thu, Nov 14, 2013</a></h4>
     
-    <div class="article-style">
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/14/research-gate/">Thu, Nov 14, 2013</a></h4>
-    <h4><a href="../../../2013/11/14/research-gate/">So, you&#39;re active on Research Gate?</a></h4>
-    <div class="article-style">
-      
-      I have occassionally been getting this question:
- So, you&rsquo;re active on ResearchGate?
- Sounds like being accused of some scandal, doesn&rsquo;t it?
-I&rsquo;m not generally active on it - my impression is that the open science community is mostly skeptical about ResearchGate and any other &ldquo;Social Network&rdquo; for scientists, largely on the grounds that &ldquo;we already use the same social networks everyone else uses.&rdquo; Some object on more philosophical grounds (profit, Mendeley, etc), but heck I publish in Elsevier/Springer/Wiley so I won&rsquo;t preach.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/13/data-science-center/">Wed, Nov 13, 2013</a></h4>
-    <h4><a href="../../../2013/11/13/data-science-center/">Do we need a culture of Data Science in Academia?</a></h4>
-    <div class="article-style">
-      
-      Just my draft copy of a Guest blog post I wrote for Dynamic Ecology.
-On Tuesday the Whitehouse Office of Science and Technology Policy announced the creation of a $37.8 million dollar initiative to promote a &ldquo;Data Science Culture&rdquo; in academic institutions, funded by the Gordon and Betty Moore Foundation, Alfred P. Sloan Foundation, and hosted in centers at the universities UC Berkeley, University of Washington, and New York University.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/08/mbi-day-five-notes/">Fri, Nov 8, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/14/nimble-explore/">Fri, Nov 14, 2014</a></h4>
       
-      Panel discussion
- Hugh&rsquo;s question on the usefulness of dynamic vs static models: do we have dynamical systems envy? Chris: are temporal dynamics historical artefact, and space the new frontier? Hugh: though decision theory is fundamentally temporal. really question of sequential decision vs single decision Hugh, on what would be his priority if he had time for new question: Solve the 2 player, 2 step SDP competition closed form.
-      
+      <div class="article-style">
+        A quick first exploration of NIMBLE and some questions.
+library(&quot;nimble&quot;) library(&quot;sde&quot;)  Let&rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$
+set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))  ## sigma.x not provided, attempting symbolic derivation.  i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/07/mbi-day-four-notes/">Thu, Nov 7, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/13/discrete-grid-notes/">Thu, Nov 13, 2014</a></h4>
       
-      Morning session Iadine Chades  Chadès, I., Carwardine, J., Martin, T.G., Nicol, S., Sabbadin, R. &amp; Buffet, O. (2012) MOMDPs: a solution for modelling adaptive management problems. The Twenty-Sixth AAAI Conference on Artificial Intelligence (AAAI-12), pp. 267-273. Toronto, Canada.
- 10.1098/rspb.2013.0325 Migratory connectivity magnifies the consequences of habitat loss from sea-level rise for shorebird populations
-  Jake LaRiviera presents the challenges of the uncertainty table. Additional challenges in making an apples-to-apples comparison of the benefit of decreasing noise of different systems (e.
-      
+      <div class="article-style">
+        Smoothing post-policy calc?
+fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smooth(lwd=1.2, method=&quot;loess&quot;, degree=1, span=0.2, level=0, n=50) + facet_wrap(~method) + xlab(&quot;stock size, x(t)&quot;) + ylab(&quot;escapement, S(t)&quot;) + scale_colour_manual(values=colorkey, guide=FALSE) fig3 library(&quot;dplyr&quot;) s<em>policies &lt;- select</em>(ggplot_build(fig3)$data[[1]], &quot;x&quot;, &quot;PANEL&quot;, &quot;y&quot;) s_policies$PANEL &lt;- mapvalues(s_policies$PANEL, from = 1:6, to = levels(policies$method)) names(s_policies) &lt;- names(policies) library(&quot;tidyr&quot;) opt_policy &lt;- s_policies %&gt;% mutate(harvest = stock - value) %&gt;% select(stock, method, value = harvest) %&gt;% spread(method, value) %&gt;% select(-stock) OPT &lt;- as.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/06/mbi-day-three/">Wed, Nov 6, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/13/draft-wssspe-thoughts/">Thu, Nov 13, 2014</a></h4>
       
-      MBI Workshop Becky Epanchin-Niell  Motivating example of Rabies spatial control in Switzerland
- 2012 Eco Let: should New Zealand survey for bark beetle? Cost of survellience, control, and damage. Epanchin-Niell et al. (2012)
- 2012 JEEM spatial spread of star thistle: control spread and eradication as an integer programming problem in deterministic context. (with Wilen) Epanchin-Niell &amp; Wilen (2012)
- Breaking landscape into individual landowners makes it less valuable to control early.
-      
+      <div class="article-style">
+        Scratching out notes for lightning talk at WSSSPE&hellip;
+(CB from ropensci, Karthik too. )
+ Responses to the challenges of academic software can be divided into roughly two categories. Give them better tools! Give them better training!
+We do software: over 50 packages for accessing data repositories, integrating and manipulating, annotating and publishing data. We do training: workshops, online tutorials, developing course materials. But most importantly, we aim to build community.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/11/05/mbi-day-two/">Tue, Nov 5, 2013</a></h4>
     
-    <div class="article-style">
-      
-      MBI Workshop Paul Armsworth Very nice example of control in creating a market for ecosystem services for landowners. Key feature is that multiple land-owners respond by adjusting their prices, and so payments can be divided into fraction going into subsidy and fraction going into conservation. When one land-owner controls land that is particularly good cost per conservation accomplished, they also stand to gain largest value.
-Also looked at auction mechanism and impact of cooperation among landowners to create hold outs.
-      
     </div>
-  </div>
-  
 
   
 <nav>
@@ -267,9 +229,10 @@ Also looked at auction mechanism and impact of cooperation among landowners to c
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -358,7 +321,13 @@ Also looked at auction mechanism and impact of cooperation among landowners to c
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

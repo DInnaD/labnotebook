@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,131 +133,85 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2014/04/18/notes/">Fri, Apr 18, 2014</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/01/23/mdptoolbox-ex/">Fri, Jan 23, 2015</a></h4>
       
-      EML I&rsquo;ve added a interface for custom units. You don&rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
-create_custom_unit(id = &quot;metersSquaredPerHectare&quot;, parentSI = &quot;dimensionless&quot;, unitType = &quot;dimensionless&quot;, multiplierToSI = &quot;0.0001&quot;, description = &quot;Square meters per hectare&quot;)  and then use the id you give as the unit type in your unit.defs. create_custom_unit updates a custom_units list in the EMLConfig environment, which the eml or write_eml functions detect and use to write in the additional metadata.
-      
+      <div class="article-style">
+        Testing this out using MDPtoolbox, but not working yet…
+library(MDPtoolbox) ## Loading required package: Matrix ## Loading required package: linprog ## Loading required package: lpSolve library(ggplot2) f &lt;- function(x, h, p){ x &lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &lt;- c(a = 6, b = 0.05) profit &lt;- function(x, h) pmin(x,h) - 0.1 * h # vectorized for x x_grid &lt;- seq(0, 150, length = 151) h_grid &lt;- c(0,50,100) delta &lt;- 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/17/notes/">Thu, Apr 17, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/01/22/invasives-sdp/">Thu, Jan 22, 2015</a></h4>
       
-      Units in EML Overview of how units are determined in the EML package:
-library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot;, &quot;AM&quot;)), spp = c(&quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus kisutch&quot;), stg = ordered(c(&quot;smolt&quot;, &quot;parr&quot;, &quot;smolt&quot;), levels=c(&quot;parr&quot;, &quot;smolt&quot;)), # levels indicates increasing level, eg. parr &lt; smolt ct = c(293L, 410L, 210L), day = as.Date(c(&quot;2013-09-01&quot;, &quot;2013-09-1&quot;, &quot;2013-09-02&quot;)), stringsAsFactors = FALSE, col.defs = c(&quot;River site used for collection&quot;, &quot;Species scientific name&quot;, &quot;Life Stage&quot;, &quot;count of live fish in traps&quot;, &quot;day traps were sampled (usually in morning thereof)&quot;), unit.
-      
+      <div class="article-style">
+        library(knitr) opts_chunk$set(dev=&#39;svg&#39;, fig.width=4, fig.height=4, results=&#39;hide&#39;, fig.show=&#39;hold&#39;) library(pdgControl) library(ggplot2) We propose a state model consistent with 10.2139/ssrn.421007; in this case a simple Beverton-Holt model. Note that in defining (f) we have assumed the harvesting take place before the population recruits.
+f &lt;- function(x, h, p){ x &lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &lt;- c(a = 6, b = 0.05) This meets Olson’s three assumptions.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/11/notes/">Fri, Apr 11, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/01/22/sdp-reed-controls-comparisons/">Thu, Jan 22, 2015</a></h4>
       
-      labnotebook Updates to configuration to be more portable and lightweight:
- Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
-      
+      <div class="article-style">
+        library(knitr) opts_chunk$set(dev=&#39;png&#39;, fig.width=3, fig.height=3, results=&#39;hide&#39;, fig.show=&#39;hold&#39;) library(pdgControl) library(ggplot2) Reed solution; harvest control f &lt;- function(x, h, p){ x &lt;- sapply(x, function(x) max(x-h,0)) p[[1]] * x / {1 + p[[2]] * x} } p &lt;- c(a = 6, b = 0.05) profit &lt;- function(x, h) sapply(x, min, h) # vectorized for x x_grid &lt;- seq(0, 150, length = 100) h_grid &lt;- seq(0,150,length = 100) delta &lt;- 0.05 OptTime &lt;- 1000 xT &lt;- 0 sigma_g &lt;- 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/10/multiple-uncertainty-notes/">Thu, Apr 10, 2014</a></h4>
     
-    <div class="article-style">
-      
-      multiple uncertainty  Set up Paul Fackler&rsquo;s MDPSOLVE and run Paul&rsquo;s code. Installing user-contributed extensions in matlab seems mostly a matter adding the unzipped source directories to the path, e.g. as so:
-  currentdir = cd cd /home/cboettig/.matlab/MDPSOLVE addpath(genpath(cd)) cd /home/cboettig/.matlab/plot2svg addpath(genpath(cd)) cd(currentdir)  (I still find matlab/octave&rsquo;s syntax of not distinguishing character strings from variable names from function names kind of terrifying, but I guess that&rsquo;s the price of working with economists.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/09/multiple-uncertainty-notes/">Wed, Apr 9, 2014</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/01/13/detrend-example/">Tue, Jan 13, 2015</a></h4>
       
-      Attempt to replicate Figure 3, but with one noise at a time  Code: one_noise_at_a_time.m Uniform Noise Large noise means devation of 0.5, as in Sethi Other noise terms are 0 instead of 0.1  Figure 3  Code: carl_fig3.m Uniform Noise Large noise means devation of 0.5, as in Sethi Small noise means 0.1, as in Sethi  Now fixed. See:
- Updated code version of carl_fig3.m  One noise at a time, lognormal noise, sigma = 0.
-      
+      <div class="article-style">
+        library(knitr) library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(earlywarning) library(ggplot2) library(tidyr) library(&quot;methods&quot;) opts_chunk$set(dev=&#39;png&#39;, fig.width=5, fig.height=5, results=&#39;hide&#39;) some sample data from earlywarning:
+set.seed(123) data(ibms) plot(ibm_critical) raw &lt;- as.data.frame(ibm_critical) names(raw) &lt;- &quot;x&quot; Rather than explicitly modeling the trend element predicted by the linearization, let us simply remove it:
+N &lt;- length(raw$x) raw$t &lt;- 1:N detrend &lt;- loess(x ~ t, raw) data &lt;- data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/08/multiple-uncertainty-notes/">Tue, Apr 8, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/01/07/automated-knitr-in-jekyll/">Wed, Jan 7, 2015</a></h4>
       
-      Growth Noise Only Run:
-matlab -nodesktop &lt; testing.m &gt; testing.log  Results from running testing.m:
- log normal noise sigma_g = 0.2 Other noise set to zero.
- Coarse grid 0:5:150 (See linked code all parameters)  measurement Noise only  Code: measurement_uncertainty.m sigma_m = 0.5 Other noise set to zero.
- Fine grid 0:1:150 (See linked code all parameters)  Implementation Noise only  Code: implementation_uncertainty.m sigma_i = 0.
-      
+      <div class="article-style">
+        Combining knitr &amp; jeykll using servr Yihui Xie, author &amp; maintainer of knitr, has a nice little package out called servr for serving websites from R. It includes a handy jekyll function which streamlines the process of first running knitr on any .Rmd posts before running Jekyll. Having broken my notebook into volumes, my setup is now ready to take advantage of this approach.
+Configuring knitr with the build.R script The R build process can be tuned using a custom build.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/07/notes/">Mon, Apr 7, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/01/06/lsn-model-considerations/">Tue, Jan 6, 2015</a></h4>
       
-      ropensci Working on proposal. Discussion of section 2: other players in the domain (or rather, the many community interfaces with rOpenSci).
-other  Discussion with Hadley re: API testing and test_if functionality, see testthat/141.
- Related with Hadley discussion on handling tests and keys for API packages, httr/93
- Software Carpentry developing R lessons
-  rfishbase Add FAO areas (from 04/05), see rfishbase/20
-EML  Discussion of unit handling, feedback from Karen.
-      
+      <div class="article-style">
+        Should we model the change in mean explicitly, or rely on detrending?
+One of the first things to deal with in the model setup is whether we ‘detrend’ the data first or not. As you know, in most saddle-node bifurcations the mean also moves since the stable node usually moves a bit to collide with the unstable node rather than just sitting there and waiting for the unstable node to hit it; which results in a gradual decrease of the mean prior to the actual catastrophe.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/04/03/wisconsin-visit/">Thu, Apr 3, 2014</a></h4>
     
-    <div class="article-style">
-      
-      Carl Boettiger Schedule 3-4 April
-Thursday
-   Person/activity Time Location     Arrive 3:00 Dane County Airport   Tony 4:00 pickup at hotel   Jesse Miller 4:30 Birge 448   Kyle Webert 5:00 Birge 457   Cristina Herren 5:30 Birge 456   Dinner with Tony, Karen Strier 6:00 leave from Birge Hall    Friday
-   Person/activity Time Location     Breakfast, Meghan Fitzgerald and Fan Huan 7:30 pickup at hotel   Cecile Ane, Lam Si Tung Ho 9:00 Birge 341   Steve Carpenter and CFL folk 10:45 CFL 226A   Jeremy Ash 2:00 Birge 338   Break, walk over with Jacob 2:30 Birge 460   prep for seminar 3:00 Nolan Hall   seminar 3:30 Nolan Hall   reception 6:00 Tony&rsquo;s house    Misc notes:
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/03/31/ropenhack-notes/">Mon, Mar 31, 2014</a></h4>
-    
-    <div class="article-style">
-      
-      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
-Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/03/24/review-of-progress-on-packages/">Mon, Mar 24, 2014</a></h4>
-    
-    <div class="article-style">
-      
-      A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
-rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -272,9 +226,10 @@ rfigshare Changes to httr interface orginally broke rfigshare, though working wi
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -363,7 +318,13 @@ rfigshare Changes to httr interface orginally broke rfigshare, though working wi
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

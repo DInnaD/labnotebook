@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,134 +134,77 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/09/18/notes/"></a></h2>
-    <h4>Wed, Sep 18, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/11/14/nimble-explore/">Fri, Nov 14, 2014</a></h4>
       
-      nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
-  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
- code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
-      
+      <div class="article-style">
+        A quick first exploration of NIMBLE and some questions.
+library(&quot;nimble&quot;) library(&quot;sde&quot;)  Let&rsquo;s simulate from a simple OU process: $dX = \alpha (\theta - X) dt + \sigma dB_t$
+set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=100, N=400))  ## sigma.x not provided, attempting symbolic derivation.  i.e. $\alpha = 0.5$, $\theta = 10$, $\sigma=1$, starting at $X_0 = 6$ and running for 100 time units with a dense sampling of 400 points.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/16/notes/"></a></h2>
-    <h4>Mon, Sep 16, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/11/13/discrete-grid-notes/">Thu, Nov 13, 2014</a></h4>
       
-      class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
-      
+      <div class="article-style">
+        Smoothing post-policy calc?
+fig3 &lt;- ggplot(policies, aes(stock, stock - value, color=method)) + stat_smooth(lwd=1.2, method=&quot;loess&quot;, degree=1, span=0.2, level=0, n=50) + facet_wrap(~method) + xlab(&quot;stock size, x(t)&quot;) + ylab(&quot;escapement, S(t)&quot;) + scale_colour_manual(values=colorkey, guide=FALSE) fig3 library(&quot;dplyr&quot;) s<em>policies &lt;- select</em>(ggplot_build(fig3)$data[[1]], &quot;x&quot;, &quot;PANEL&quot;, &quot;y&quot;) s_policies$PANEL &lt;- mapvalues(s_policies$PANEL, from = 1:6, to = levels(policies$method)) names(s_policies) &lt;- names(policies) library(&quot;tidyr&quot;) opt_policy &lt;- s_policies %&gt;% mutate(harvest = stock - value) %&gt;% select(stock, method, value = harvest) %&gt;% spread(method, value) %&gt;% select(-stock) OPT &lt;- as.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/08/some-rfishbase-updates/"></a></h2>
-    <h4>Sun, Sep 8, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/09/05/thoughts-on-harte-interview/">Fri, Sep 5, 2014</a></h4>
       
-      Ever since writing the rfishbase package I&rsquo;ve been frustrated by the lack of a proper API from Fishbase.org that would allow access to that wealth of information that is not exposed in the &ldquo;Summary XML&rdquo; files from which rfishbase extracts its content. Since writing the paper in Journal of Fish Biology, I continue to receive user requests asking if or how such-and-such a data element might be extracted. Usually this involves a disappointing boiler-plate reply about how the package is limited to the &ldquo;Summary XML&rdquo; data and that improved query potential must wait for a proper API from Fishbase.
-      
+      <div class="article-style">
+        Read this delightful John Harte Interview (ht @DynamicEcology) which resonates rather well with me (no surprise given our common background). Nevertheless, I would have to push back on a few pieces.
+ From general laws flow absolutely bullet-proof insights and this is what we most need
+ I must disagree. Bullet-proof insights are mathematical theorems. Their generality is an empirical question about their assumptions (not their predictions). (And lastly, I&rsquo;m pretty much in support of the &ldquo;what we most need&rdquo; part, but it deserves to be substantiated.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/06/nsf-math-bio-postdoc/"></a></h2>
-    <h4>Fri, Sep 6, 2013</h4>
-    <div class="article-style">
-      
-      Guess it&rsquo;s that time of year again. Just saw the reminder for this year&rsquo;s RFP for NSF Biology Post-docs. As I was fortunate enough to receive one of these for the &ldquo;Mathematical Biology&rdquo; track through last year&rsquo;s call, I have received a few requests for materials and advice. I&rsquo;m not sure if I have any more insight for having received this funding, but as I appreciated the advice of others this time last year I&rsquo;ll give it a shot.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/02/reml-milestone/"></a></h2>
-    <h4>Mon, Sep 2, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/08/14/pdg-controlfest-notes/">Thu, Aug 14, 2014</a></h4>
       
-      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
-An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
-      
+      <div class="article-style">
+        Just wanted to give a quick update on stuff relevant to our adjustment costs paper in events of this week.
+I think the talk on Tuesday went all right, (though thanks to a technology snafu going from reveal.js to pdf my most useful figure actually showing the bluefin tuna didn&rsquo;t display &ndash; I tried not to let on). I tried to keep the focus pretty big-picture throughout (we ignore these costs when we model, they matter) and avoid being too bold / prescriptive (e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/26/notes/"></a></h2>
-    <h4>Mon, Aug 26, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/08/06/notes/">Wed, Aug 6, 2014</a></h4>
       
-      misc tricks Always forget how to see the function definition of an S4 method:
-showMethods(&quot;xmlToS4&quot;, includeDefs=TRUE)  ropensci  Closed rfigshare issue #50 Still retooling reml to S4 and ReXML to inheritance-based S4 classes building classes on the schema&rsquo;s inheritance model 10:49 am 2013/08/26  In behavioral ecology we usually equate optimality with expected behavior arising from natural selection &ndash; i.e. the extent to which the observed behavior deviates from the optimal behavior is assumed to be due to modeling inaccuracies (optimizing the wrong thing).
-      
+      <div class="article-style">
+        Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
+ Attempted to add Travis builds to the Docker repo (just for fun, eh?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/23/notes/"></a></h2>
-    <h4>Fri, Aug 23, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/07/21/notes/">Mon, Jul 21, 2014</a></h4>
       
-      Work Work  Finished review for R Journal (Wednesday) Finished review for TE. Began review for NSF updated service list (vita) Handling reimbursement of expenses  Misc  Whoa, we can/should now use <a href="http://doi.org">http://doi.org</a> instead of <a href="http://dx.doi.org">http://dx.doi.org</a>  Software Sustainability materials Seems like a popular new item, listing a couple recent articles in one place here:
- Perspective in Science Magazine; also a critique and author&rsquo;s rebuttal in a later edition.
-      
+      <div class="article-style">
+        Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
+Remote conferencing (Based on earlier unposted notes). With so much going on, it&rsquo;s nice to be able to follow highlights from some conferences remotely
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/14/isees-day-2/"></a></h2>
-    <h4>Wed, Aug 14, 2013</h4>
-    <div class="article-style">
-      
-      Other services: Tangible infrastructure support services  Discovery registration system. Includes:  Software review and certification Use and quality metrics Ticket tracking Seed funding to join the ecosystem   Community Building  user defined registry  // Hackathon?
-Consulting services  Support software lifecycle
- Function: Assist in full lifecycle software development: e.g. (and order notwithstanding) initiation, licensing, maintenance, hardening, extensible, release, decommissioning
- Mechanisms:
- Call for Proposals - to solicit consulting help (or to nominate a project to receive help) (e.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/13/isees-day-1/">ISEES software lifecycle and components workshop, Day 1</a></h2>
-    <h4>Tue, Aug 13, 2013</h4>
-    <div class="article-style">
-      
-      Range of large project to the long tail.
- statistical analyses One-off models community model Services (Blast)  Science Challenges Outcomes of previous community workshops
-18 Grand Challenge areas. Highlights: Supermodels. human/biophysical systems shape and be shaped by water availability. (A vision similar to Microsoft&rsquo;s &ldquo;Model all Earth&rdquo; Purves et al)
-Functions and services areas: (priority ordering)
- Computational training (early career - all career) Assimilation and QA/QC tools Collaborative environment decisions and workflows software discovery consultants / collaborator community hub to converge on standards merging disparate tools user-friendly interfaces multiscale coupled modeling framework Software vetting (how about paper vetting?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/08/esa-2013-notes-for-week/"></a></h2>
-    <h4>Thu, Aug 8, 2013</h4>
-    <div class="article-style">
-      
-      Sun Co-Leading the Workshop on R, DataONE and open science.
-All material on github
-Mon  Ives Plenary  Talking to Dave, Vasilis, Tye,
- Lunch Vasilis, Ryan Batt
- 2:30 Chesson L100H / Ryan Batt L100J
- 3:20 O&rsquo;Regan L100H
- 3:40 Adler L100H
- 4 Yaekel M100HC
- ropensci meetup, funded by Github. Great turnout, great success. (And rare shot of dev team together in person).
- Theoretical ecology mixer
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -276,8 +219,12 @@ Mon  Ives Plenary  Talking to Dave, Vasilis, Tye,
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -364,7 +311,13 @@ Mon  Ives Plenary  Talking to Dave, Vasilis, Tye,
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

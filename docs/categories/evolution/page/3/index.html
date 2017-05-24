@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,128 +134,73 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/04/27/evolution-notes/">Project tracking (Evolution)</a></h2>
-    <h4>Fri, Apr 27, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/23/we-need-more-object-oriented-design-in-comparative-methods/">Tue, Apr 23, 2013</a></h4>
       
-      Evolution I&rsquo;m also still wrapping up a variety of projects on the Evolution front.
-treebase  Dynamic manuscript. Reorganize, simplify? add, document, employ the additional functions to avoid sapply commands. Prune examples? iEvoBio challenge entry?  Wrightscape  Start synthesizing documents Evidence for release in open lever ratio and kt Illustrating the different models Consider updated data format outputs and graphical processing functions for the model choice steps  fishbase  submitted!
-      
+      <div class="article-style">
+        The bad news is that the latest Geiger version (which is much improved in all respects) breaks my little pmc package, owing to changes in how fitContinuous output is structured. The good news is that the new geiger is much better than the old one, and that the pmc package is pretty trivial. So this should not be read as a complaint, but I think as a scientific developer community as a whole we could learn a few simple lessons here, which can help our code more reproducible and extensible.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/19/monday-treebase-manuscript-writing/"></a></h2>
-    <h4>Mon, Mar 19, 2012</h4>
-    <div class="article-style">
-      
-      Catching up on unfinished work: today has been spent mostly working over my little treebase applications note. I&rsquo;m still deciding what/how to present in terms of the meta-analysis section &ndash; looking at the classic trends on diversification rate statistics: $\gamma$ statistic (Pybus &amp; Harvey, 2000) and diversification rate, and dependence on number of taxa. Not sure how best to handle issues of data choice, quality, or to just average over the available data.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/16/notes/">Tue, Apr 16, 2013</a></h4>
+      <h4><a href="../../../../2013/04/16/notes/">a few notes on various projects</a></h4>
+      <div class="article-style">
+        warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/02/14/notes/">Thu, Feb 14, 2013</a></h4>
       
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
-      
+      <div class="article-style">
+        Research  consolidate and revise EWS text(?) replies to Luke and Brian on model choice  Notebook meta  fix google-analytics plugin (still needs to get toggle working?) tests of notebook-parsing.Rmd. New errors on ; somehow in straight XML parsing, ignoring for the moment. Opened a few new issues around improving site semantics. (#59, #60)  ropensci  Resubmit rfishbase &ndash; silently load to local, not global namespace. Updated data cache (and ASCII-ify and compress).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/12/sunday-6/">Sunday </a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
-    <div class="article-style">
-      
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/19/is-your-phylogeny-informative/">Is your phylogeny informative?</a></h2>
-    <h4>Thu, Jan 19, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/24/evolutionary-covariance/">Wed, Oct 24, 2012</a></h4>
       
-      Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&rsquo;s preprint),As the open access copy doesn&rsquo;t appear on pubmed for a while, you can access my author&rsquo;s copy here. so I&rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
-I didn&rsquo;t set out to write this paper.
-      
+      <div class="article-style">
+        Thinking through disparity measures while writing my thoughts in R&hellip;
+Load some sample data
+library(geiger) data(geospiza) dat &lt;- treedata(geospiza$geospiza.tree, geospiza$geospiza.data$wingL)  To find the disparity relative to a particular model, we must compute the variance-covariance matrix for that model
+X &lt;- dat$data V_bm &lt;- vcv(dat$phy) mean_X &lt;- geiger:::phylogMean(V_bm, X) bm_disparity &lt;- t(X-mean_X) %<em>% V_bm %</em>% (X-mean_X)  I believe this needs to be scaled by the Brownian rate parameter of the trait, e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/04/wrightscape-examples/">wrightscape examples</a></h2>
-    <h4>Wed, Jan 4, 2012</h4>
-    <div class="article-style">
-      
-      [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2012-01-03 7:00:37&rdquo; max_upload_date=&ldquo;2012-01-03 22:23:37&rdquo;]
- kt and open seem the best focal traits. Unclear what good null traits to use would be.
- Unclear if anything is gained by indep thetas in this example.
- Performance of alpha v theta?
-  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/07/09/evolution-conf-summary/">Mon, Jul 9, 2012</a></h4>
+      <h4><a href="../../../../2012/07/09/evolution-conf-summary/">Evolution and iEvobio conference notes</a></h4>
+      <div class="article-style">
+        Saturday  Jeremy Brown Graham Slater (Education Data Symposium) Cecile Ane Joe Felsenstein Lars Schmitz Carl Boettiger Liam Revell Brian O&rsquo;Meara (Leithan McGonigle)  Sunday  Marie-Josee Fortin Emma Goldberg 10:45 rm 209 Networks Symposium Jeremy Fox 1.30p Rm 201 (Adaptation B) Schluter 2:15p Canada 2-3 Rosie Redfield public lecture  Monday  9:00 Michael Landis, 203 9:30 Dick Gumolkiowicz 214 10:30 Dean Adams 11 (Cavender-Bares, 214) (Bolnick, 213) 11:30 Mark McPeek 214  Tuesday  Luke Harmon 9am rm 214 Luke Mahler 9am rm 210 Rafael Maia 9:15a rm 210 Sam Price 11:15a rm 210 Liam Revell 11:30 Canada 2-3 Dan Rabosky 2:30pm Canada 2-3 Tanja Stadler 3pm Canada 2-3 Chris Martin 3pm rm 213  Also: ievobio Day 1.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/03/tuesday-pmc-package-latex-to-word-attempts/">Tuesday: pmc package, latex to word attempts</a></h2>
-    <h4>Tue, Jan 3, 2012</h4>
-    <div class="article-style">
-      
-      Back from Oz.
-Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
- tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
- pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/07/08/evolution-day1/">Sun, Jul 8, 2012</a></h4>
+      <h4><a href="../../../../2012/07/08/evolution-day1/">Evolution 2012 Conference, Day 1</a></h4>
+      <div class="article-style">
+        Fantastic first day at Evolution. Spent the morning in the SSB Sympossium organized by Jeremy Brown, &ldquo;Predictive approaches for assessing the fit of evolutionary models&rdquo;. Really covered both methods assessing model fit (posterior predictive simulations) and approximate likelihood approaches, which are also simulation-based. Then the afternoon in the second SSB Symposium on emerging methods for comparative phylogenetics, organized by Liam Revell and Cecile Ane, which included my talk. Lots of great talks, but Cecile&rsquo;s was perhaps the most striking results I saw presented all day.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/12/09/friday-9/">Friday</a></h2>
-    <h4>Fri, Dec 9, 2011</h4>
-    <div class="article-style">
-      
-      Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/12/08/thursday-11/">Thursday</a></h2>
-    <h4>Thu, Dec 8, 2011</h4>
-    <div class="article-style">
-      
-      Another day of working on 4 different projects at once.
-Warning signals  review Alan pulses manuscript
- review (Dulvy et. al. 2003) Paper discussing the data you want $ \neq $ the data you want
-  No way in Anchoveta data, look at time series:
-Example in the cod data using only up until 1991 data:
- Way forward &ndash; construct the step-wise predictor of probabilities. Add the economic costs of both.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/12/07/wednesday-11/">Wednesday - wrightscape runs and various other things</a></h2>
-    <h4>Wed, Dec 7, 2011</h4>
-    <div class="article-style">
-      
-      pdg-control  plots for changing costs Report out to Training Problem II group.  ggplot note defining functions that return a ggplot object can be tricky. If you compute some objects in the plot function (stats etc), those stats are not stored by the object (due to lazy evaluation, usually a very nice time-saving feature), so the plot cannot be produced unless the function returns those things to the global environment (or from wherever the plot will be printed/evaluated).
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -270,8 +215,12 @@ Example in the cod data using only up until 1991 data:
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -358,7 +307,13 @@ Example in the cod data using only up until 1991 data:
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

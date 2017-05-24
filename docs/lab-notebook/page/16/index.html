@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,128 +133,85 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/06/13/what-i-look-for-in-software-papers/">Thu, Jun 13, 2013</a></h4>
-    <h4><a href="../../../2013/06/13/what-i-look-for-in-software-papers/">What I look for in &#39;Software Papers&#39;</a></h4>
-    <div class="article-style">
-      
-      Update Thanks to the rich discussion in the comments and beyond, I&rsquo;ve revised my thoughts on this somewhat, as I discuss in this more recent post.
-I am more and more frequently reviewing &lsquo;software papers:&rsquo; which I define as publications whose primary purpose is to publicize a piece of scientific software and provide a traditional research product with hopes that it will receive citations and recognition from other researchers in grant and job reviews.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/06/10/mansucript-reviews-on-github/">Mon, Jun 10, 2013</a></h4>
-    <h4><a href="../../../2013/06/10/mansucript-reviews-on-github/">manuscript reviews on github?</a></h4>
-    <div class="article-style">
-      
-      I was recently impressed to learn of Trevor Bedford&rsquo;s strategy of seeking pre-approval for posting his reviewer&rsquo;s comments as Github issues. Beyond providing links to the data and source-code, I generally don&rsquo;t advertise the open science nature of papers I submit &ndash; I guess I assume that if the reader or reviewers care, it should be easy enough for them to discover it. Consequently I am usually immediately frustrated to realize that upon receiving my reviews I have to create a second, private repository for the review material, our replies to reviewers, etc.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/06/05/semi-analytic-posteriors/">Wed, Jun 5, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/06/12/knitcitations-updates/">Thu, Jun 12, 2014</a></h4>
       
-      The difficulty in comparing the nonparametric Bayesian inference against parametric Bayesian inference is ensuring that the poorer performance of the latter is not do to numerical limitations of the MCMC (no one is quite so worried about the cases where the mcmc solution appears to work well&hellip;) Convergence is almost impossible to truly establish, and lots of pathologies (correlations between variables, particularly without simulataneous updating) can frustrate it considerably. While multiple chains and long run times are the reasonable default, for simple enough models we can take a more direct approach.
-      
+      <div class="article-style">
+        Used some down-time while traveling to hammer out a long overdue update to my knitcitations package.
+My first task inovled a backwards-compatible update fixing a few minor issues (see NEWS) and providing pandoc style inline citations v0.6-2, on CRAN.
+I followed this with a ground-up rewrite, as I summarize in NEWS:
+v1.0-1 This version is a ground-up rewrite of knitcitations, providing a more powerful interface while also streamlining the back end, mostly by relying more on external libraries for knitty gritty.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/06/04/analytic-marginalizing-for-posteriors/">Tue, Jun 4, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Consider the model
-$$ X_{t+1} = X_t r e^{-\beta X_t + \sigma Z_t } $$
-with $Z_t$ a unit normal random variable. The likelihood of the sequence of $T$ observations of $X$ under this model is thus
-$$P(X | r, \beta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}^{T-1}} \exp\left(\frac{\sumt^{T-1} \left(\log X{t+1} - \log X_t - \log r + \beta X_t\right)^2 }{2 \sigma^2}\right) $$
-To integrate out $r$, $P(X | \beta, \sigma) = \int P(X | r, \beta, \sigma ) P&reg; dr$, we&rsquo;ll make this look like a Gaussian in $\log r$ by completing the square; getting the square on the outside of the sum.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/06/04/is-statistical-software-harmful/">Wed, Jun 4, 2014</a></h4>
+      <h4><a href="../../../2014/06/04/is-statistical-software-harmful/">Is statistical software harmful?</a></h4>
+      <div class="article-style">
+        Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
+Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/06/04/sensitivity-of-gp-comparisons-in-further-examples/">Tue, Jun 4, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/30/plos-data-sharing-policy-reflections/">Fri, May 30, 2014</a></h4>
       
-      Comparison of Nonparametric Bayesian Gaussian Process estimates to standard the Parametric Bayesian approach Plotting and knitr options, (can generally be ignored)
-require(modeest) posterior.mode &lt;- function(x) { mlv(x, method=&quot;shorth&quot;)$M }  Model and parameters Uses the model derived in citet(&quot;10.<sup>1080</sup>&frasl;<sub>10236190412331335373</sub>&quot;), of a Ricker-like growth curve with an allee effect, defined in the pdgControl package,
-f &lt;- RickerAllee p &lt;- c(2, 8, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less allee &lt;- 5 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
-      
+      <div class="article-style">
+        PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
+At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/06/03/admb-basic-example/">Mon, Jun 3, 2013</a></h4>
     
-    <div class="article-style">
-      
-      After a few iterations I have a working minimal example (below). Hoping that ADMB is a bit more robust than vanilla optim out of R as I loop over data sets for the sensitivity analysis (#32). Does not seem to hold in simple example here, not sure why.
- These notes correspond to script 84a102/admb-example.md  Learning ADMB Plotting and knitr options, (can generally be ignored)
-Model and parameters f &lt;- function(x,h,p) x * exp(p[1] * (1 - x / p[2]) * (x - p[3]) / p[2] ) p &lt;- c(1, 10, 5) K &lt;- 10 # approx, a li&rsquo;l&rsquo; less Xo &lt;- 6 # approx, a li&rsquo;l&rsquo; less  Various parameters defining noise dynamics, grid, and policy costs.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/06/03/doi-citable/">Mon, Jun 3, 2013</a></h4>
-    <h4><a href="../../../2013/06/03/doi-citable/">DOI != citable</a></h4>
-    <div class="article-style">
-      
-      I feel I see this kind of comment almost daily:
-Is there a way to obtain DOI for a @github repository? (for citing #opensource software packages, similar to @figshare objects) #git
-&mdash; Ahmed Moustafa (@AhmedMoustafa) May 29, 2013
-Again and again, researchers suggest that DOI to makes something &ldquo;citable&rdquo;. And this frustrates me.
-Don&rsquo;t get me wrong. I love DOIs, and I love CrossRef. And I bang on the table when I have some old journal article that doesn&rsquo;t yet have a DOI.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/31/notebook-features-archiving-with-figshare/">Fri, May 31, 2013</a></h4>
-    <h4><a href="../../../2013/05/31/notebook-features-archiving-with-figshare/">Archiving the lab notebook on figshare</a></h4>
-    <div class="article-style">
-      
-      Robust archiving through CLOCKSS One of the most comprehensive approaches I have come across so far uses figshare. This offers the most promising avenue for content preservation, but is weakest in managing the URIs and associating them with the original content. All figshare content is archived by CLOCKSS, an international library cooperation providing redundant and geopolitically distributed backup of the archives around the world (and used by many academic journals, both subscription based &amp; open access).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/31/notebook-features-digital-archiving/">Fri, May 31, 2013</a></h4>
-    <h4><a href="../../../2013/05/31/notebook-features-digital-archiving/">Notebook features: digital archiving</a></h4>
-    <div class="article-style">
-      
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-Archival preservation of digital scholarly content is an important challenge throughout the research community. As the notebook is the permanent record of my regular scholarly endeavors, this provides the opportunity to experiment with tools and techniques for digital archiving while also better preserving the notebook. In the experimental spirit that drives all my exploration here, I am testing several ways to accomplish this.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/29/notes/">Wed, May 29, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
-      
-      nonparametric-bayes Not getting good convergence from jags models with uniformative priors without observation noise and arbitary starting postions. See examples:
- fixed myers_jags run, loads knitr_defaults 11:18 am 2013/05/29 trouble with MCMC convergence for process-noise-only: Now with longer runs and better posterior estimator. Set for run on zero. 11:01 am 2013/05/29  Also a few updates:
- slides for adp section of group meeting 11:44 am 2013/05/29 updated adp-intro 11:43 am 2013/05/29  prosecutor  Combine comment code into single file for both models: comment_reply.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/28/notes/">Wed, May 28, 2014</a></h4>
+      <h4><a href="../../../2014/05/28/notes/">packrat and rmarkdown</a></h4>
+      <div class="article-style">
+        I&rsquo;m pretty happy with the way rmarkdown looks like it can pretty much replace my [Makefile approach]() with a simple R command to rmarkdown::render(). Notably, a lot of the pandoc configuration can already go into the document&rsquo;s yaml header (bibliography, csl, template, documentclass, etc), avoiding any messing around with the Makefile, etc.
+Even more exciting is the pending RStudio integration with pandoc. This exposes the features of the rmarkdown package to the RStudio IDE buttons, but more importantly, seems like it will simplify the pandoc/latex dependency issues cross-platform.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/27/notes/">Tue, May 27, 2014</a></h4>
+      
+      <div class="article-style">
+        nonparametric-bayes  nonparametric-bayes sensitivity-trends runs. nonparametric-bayes sensitivity.R runs: explore facets to see what setting causes the below-perfect performance cluster.  knitcitations  updates to knitcitations (paste fron NEWS) Looking at adapting CSL for inline text formatting csl/issues/33 Implemented pandoc rendering  ropensci  Use of .Renviron vs .Rprofile for API keys  Seems the difference between .Rprofile and .Renviron is that (a) the latter is just a named character vector, and (b) the latter is accessed by Sys.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/21/notes/">Wed, May 21, 2014</a></h4>
+      <h4><a href="../../../2014/05/21/notes/">DIMACS Workshop on Global Change</a></h4>
+      <div class="article-style">
+        Program Website My slides   Venue: 2063 Valley Life Science Building. 8:00 - 8:30 Registration and Breakfast 8:30 - 9:00 Welcome and Background 9:00 - 9:40 Revolutionizing Science &amp; Mathematics Education: the global change challenge Mark McCaffrey, National Center of Science Education 9:40 - 10:20 Mathematics and Climate: A New Partnership Hans Kaper, Georgetown University 10:20 - 10:50 Break 10:50 - 11:30 The Application of Information Theory to Ecology John Harte, University of California - Berkeley 11:30 - 12:10 A GIS Global Change Case Study Kevin Koy, University of California - Berkeley 12:10 - 1:30 Lunch 1:30 - 3:00 Panel 1: Communicating Global Change: Minda Berbeco, National Center of Science Education, Barbara Cozzens, Holly Gaff, Old Dominion University 3:00 - 3:30 Break 3:30 - 5:30 Contributed Talks: Sea-ice Albedo Feedback and the Tipping Points in Algae Dynamics Ivan Sudakov, University of Utah Predicting Future Extinction Debt from Present-Day Community Patterns Justin Kitzes, University of California-Berkeley Optimal Control of Restoration - the Role of Economic Threshold Adam Lampert, University of California-Davis Both Climate Change and Land Use Change Influenceinvasive Species&rsquo; Future Ranges Jennifer Weaver, University of California-Berkeley Towards a National Early Warning System for Human West Nile Virus Incidence Carrie Manore, Tulane University Wastes to Fuel - Waste a Valuable Resource Viral Sagar, Rutgers University 6:00 - 9:00 Banquet Dinner and Talk Finding the Sweet Spot Richard Salter, Oberlin College Location: The Faculty Club Howard Room University of California, Berkeley Tuesday, May 20, 2014 8:00 - 8:30 Breakfast 8:30 - 9:10 Massive Data Set Management and Analysis in the Context of Global Change Carl Boettiger, University of California - Santa Cruz 9:10 - 9:50 Understanding Socio-Ecosystems as Complex Networks in Changing Environments Neo Martinez, University of Arizona 9:50 - 10:30 Applications of GIS in Emerging Zoonotic Processes Jason Blackburn, University of Florida 10:30 - 11:00 Break 11:00 - 12:20 Panel 2: Data Deluge or Drought (Quality and Quantity): David Ackerly, University of California - Berkeley, Fred Roberts, Rutgers University, Philip Stark, University of California - Berkeley 12:20 - 1:30 Lunch 1:30 - 3:00 Workshops 1 and 2 (in parallel) 1: Student driven: Using Mathematics to Interface Global and Ecosystem Processes 2: Student driven: Using Mathematics to Link Individual and Population Level Processes 3:00 - 3:30 Break 3:30 - 4:30 Workshops 1 and 2 (continue) 1: Student driven: Using Mathematics to Interface Global and Ecosystem Processes 2: Student driven: Using Mathematics to Link Individual and Population Level Processes 4:30 - 5:00 Workshop report back Wednesday, May 21, 2014 8:00 - 8:30 Breakfast 8:30 - 9:10 When All Models are Wrong Andrea Saltelli, European Commission JRC 9:10 - 10:30 Panel 3: Are Our Models Adequate for Policy Formation: Solomon Hsiang, University of California - Berkeley, Donald Lucas, Lawrence Livermore National Laboratories, A.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -269,9 +226,10 @@ Archival preservation of digital scholarly content is an important challenge thr
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -360,7 +318,13 @@ Archival preservation of digital scholarly content is an important challenge thr
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

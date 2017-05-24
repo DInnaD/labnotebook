@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,128 +134,81 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/06/08/notes/">Notes</a></h2>
-    <h4>Fri, Jun 8, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/01/12/tipping-points-comment-in-nature/">Sat, Jan 12, 2013</a></h4>
       
-      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
- Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
-      
+      <div class="article-style">
+        On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
+Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/21/limits-to-detection-of-early-warning-signals/">Limits to the detection of early warning signals</a></h2>
-    <h4>Mon, May 21, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/21/progress-summary/">Fri, Dec 21, 2012</a></h4>
       
-      Our paper, limits to the detection of early warning signals for critical transitions, has now appeared in the Proceedings of the Royal Interface. An open-access copy is available under CC-by license on the ArXiv. The essence of the paper is to bring a more model-based approach to early warning signals, while seeking to remain as general as possible.
-Without a model-based approach, it is difficult to leverage statistically meaningful comparisons to identify what is a real warning signal and what is just noise.
-      
+      <div class="article-style">
+        Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/15/fallacy/">Notes</a></h2>
-    <h4>Tue, May 15, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/17/random_ews_example/">Mon, Dec 17, 2012</a></h4>
       
-      Prosecutors Fallacy Running the null distribution and add to plots
- generate nulls add to fallacy Questions on plots &ndash; show the full replicates plot? Emphasize the two different distributions that result. Additional replicates narrow the null distribution further. hmm&hellip; run model fit part again modelfallacy.Rmd. Need to add the model fit data analysis section into this script.
- knitr&rsquo;s caching really is the way to go with debugging things that need HPC.
-      
+      <div class="article-style">
+        ENSO EWS Let&rsquo;s just see what happens with the MEI data for PDO:
+dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/mei.csv&quot;">http://www.carlboettiger.info/assets/data/mei.csv&quot;</a>, header=TRUE)  For the moment let&rsquo;s ignore annual structure and just collapse this into timeseries sampled bimonthly.
+require(reshape2) dt &lt;- melt(dat, id=&quot;YEAR&quot;) X &lt;- dt$value Z &lt;- X[!is.na(X)] Z &lt;- data.frame(1:(length(Z)-1), Z[1:(length(Z)-1)])  png(&quot;mei.png&quot;) require(earlywarnings) a &lt;- generic_ews(Z, detrending=&quot;gaussian&quot;)  How about the data from MacDonald (2005)
+original data link
+dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;">http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;</a>, header=TRUE)  png(&quot;macdonald2005.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/14/notes/">notes</a></h2>
-    <h4>Mon, May 14, 2012</h4>
-    <div class="article-style">
-      
-      Added results into prosecutors fallacy and sent to Alex, Noam, Marissa. Ran pdf copy and sent Treebase to Duncan README added to knitcitations staticdoc documentation for knitcitations (and filed a few issues on staticdocs) Updated documentaiton on treebase, rfishbase. updated their staticdocs documentation as well. rfishbase 0.0-9 update pushed to CRAN Working on prosecutor&rsquo;s fallacy edits from Alex  Alan meeting Discuss management example with ROC curve instead of hypothesis test
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/12/notes/">Prosecutor&#39;s fallacy notes</a></h2>
-    <h4>Sat, May 12, 2012</h4>
-    <div class="article-style">
-      
-      Mostly getting Prosecutor&rsquo;s Fallacy example to run with large enough sample sizes. Finer sampling or more replicates than current settings seems to crash MPI connections over farm cluster, probably a memory issue. Oh well, looks like I&rsquo;ve got a good enough sample size here.
- Prosecutor&rsquo;s Fallacy  Citations on Jekyll No ideal solution here at the moment, a couple options:
- Pandoc: My intended solution, Disadvantages: converts everything to it&rsquo;s own markdown format, which messes up my PHP Markdown tables and YAML frontmatter.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/17/talkingpoints/">Wed, Oct 17, 2012</a></h4>
+      <h4><a href="../../../../2012/10/17/talkingpoints/">Notes</a></h4>
+      <div class="article-style">
+        Talking points for phone interview with Lucy
+Finding warning signals in the wild
+ Gold standard &ndash; experimental group, control group Real world: We have no control group.
+  Would we know a warning signal when we saw it?
+From statistics to models: We fit a generalized models of the processes that are and aren&rsquo;t approaching a tipping point, and compare the models. The modeling approach is also more sensitive than the simple statistics.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/27/ecology-notes/">Project tracking (Ecology)</a></h2>
-    <h4>Fri, Apr 27, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/11/notes/">Thu, Oct 11, 2012</a></h4>
       
-      pdg-control Has become a variety of different directions:
-Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
-      
+      <div class="article-style">
+        EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
+pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/26/2012-04-20/">2012-04-20</a></h2>
-    <h4>Thu, Apr 26, 2012</h4>
-    <div class="article-style">
-      
-      Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
-Added Alan&rsquo;s edits.
- Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
-Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
-Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
- These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/10/prosecutors-fallacy/">Wed, Oct 10, 2012</a></h4>
+      <h4><a href="../../../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h4>
+      <div class="article-style">
+        My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
+Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/19/catching-up/">Catching up</a></h2>
-    <h4>Thu, Apr 19, 2012</h4>
-    <div class="article-style">
-      
-      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
-rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h2>
-    <h4>Tue, Apr 10, 2012</h4>
-    <div class="article-style">
-      
-      rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/28/warning-signals-in-fish-collapse/">Warning Signals in Fish Collapse</a></h2>
-    <h4>Tue, Feb 28, 2012</h4>
-    <div class="article-style">
-      
-      Description: an example trying to detect early warning signals in data from fisheries collapses
-Set up markdown format and image uploads.
-render_wordpress() opts_knit$set(upload = TRUE) opts_knit$set(imgur.key = getOption(&amp;amp;quot;imgur&amp;amp;quot;))  Load required libraries
-require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia &amp;amp;lt;- read.csv(&amp;amp;quot;../../data/rawdata/sau_scotia.csv&amp;amp;quot;)  Visualize data dat_scotia &amp;amp;lt;- melt(scotia, id = &amp;amp;quot;Year&amp;amp;quot;) p_scotia &amp;amp;lt;- ggplot(dat_scotia, aes(Year, value, fill = variable)) + geom_area() print(p_scotia)  Compute some indicators Define some indicators
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -270,8 +223,12 @@ require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -358,7 +315,13 @@ require(warningsignals) require(ggplot2) require(reshape2)  Load the data scotia
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

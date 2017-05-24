@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,124 +133,87 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2014/07/31/notes/">Thu, Jul 31, 2014</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/03/24/docker-machine-notes/">Tue, Mar 24, 2015</a></h4>
       
-      Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
-Highly recommend their paper for the first explanation I&rsquo;ve actually been able to follow that provides a definition of &ldquo;DevOpts&rdquo; (essentially, using scripts rather than documentation to manage consistent cross-platform installation) and explains the differences and similarities between the various programs operating in this sphere, sometimes as alternatives and simultaneously.
-      
+      <div class="article-style">
+        Docker recently released docker-machine to make managing multiple remote machines locally easier. Docker distributes binaries of docker-machine for most major architectures ready-to-go, potentially making it easier to get started on Windows and Mac as well.
+Set credentials in environmental variables so we don’t have to pass them on the command line each time:
+DIGITALOCEAN_ACCESS_TOKEN = XXX and create the docker-machine:
+docker-machine create &ndash;driver digitalocean &ndash;digitalocean-size &quot;1gb&quot; server-name where server-name is any name you want to give your server and DO_PAT is your access token (say, saved as an environmental variable).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/07/21/notes/">Mon, Jul 21, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/03/09/simpler-nimble-dai-model/">Mon, Mar 9, 2015</a></h4>
       
-      Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
-Remote conferencing (Based on earlier unposted notes). With so much going on, it&rsquo;s nice to be able to follow highlights from some conferences remotely
-      
+      <div class="article-style">
+        A simpler Nimble model library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;methods&quot;) library(&quot;regimeshifts&quot;) library(&quot;tidyr&quot;) library(&quot;ggplot2&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union  LSN version A further simplified version:
+ fix sigma_x to unity and theta to zero, reflecting the detrending and scaling.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/07/21/ups-and-data-vs-optimal-control/">Mon, Jul 21, 2014</a></h4>
-    <h4><a href="../../../2014/07/21/ups-and-data-vs-optimal-control/">UPS and data vs optimal control</a></h4>
-    <div class="article-style">
-      
-      Random idea for possible further exploration:
-The use of &lsquo;big data&rsquo; by UPS to perform lots of small efficiency gains seems to be everybody&rsquo;s favorite example (NPR, The Economist). During a typical applications of optimal control for ecological conservation talk yesterday I couldn&rsquo;t help thinking back to that story. The paradigm shift is not so much the kind or amount of the data being used as it is the control levers themselves.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/07/18/notes/">Fri, Jul 18, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/03/04/gp-nimble-explore/">Wed, Mar 4, 2015</a></h4>
       
-      CRAN trivia When should you bump version for a (rejected) resubmission?  Once accepted, any change other than to the metadata (essentially the DESCRIPTION file) needs an increased version. For submissions, we prefer (but do not insist on) a new number of each attempt.
- &ndash;Prof Brian Ripley
-Using non-CRAN repositories in SUGGESTS or ENAHANCES More dubious tricks, from Yihui:
- FYI, here is how R core checks dependencies: <a href="https://github">https://github</a>.
-      
+      <div class="article-style">
+        library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;methods&quot;) library(&quot;ggplot2&quot;) library(&quot;tidyr&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;MASS&quot;) ## ## Attaching package: &#39;MASS&#39; ## The following object is masked from &#39;package:dplyr&#39;: ## ## select library(&quot;mcmc&quot;) GP Model A successful specification looks like this:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/07/10/notes-on-tricks-in-manuscript-submission-and-collaboration/">Thu, Jul 10, 2014</a></h4>
     
-    <div class="article-style">
-      
-      Some thoughts on collaborating with markdown / dynamic document workflow Collaborating on manuscripts with other researchers when not writing in MS Word has been a perpetual nuisance for those of us not using Word (no doubt the others might say the same). When I first began writing papers I worked in LaTeX, and at that time I collaborated largely with others who already knew TeX (e.g. my mentors), so this wasn&rsquo;t much of a problem.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/06/12/knitcitations-updates/">Thu, Jun 12, 2014</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/03/03/gp-nimble-setup/">Tue, Mar 3, 2015</a></h4>
       
-      Used some down-time while traveling to hammer out a long overdue update to my knitcitations package.
-My first task inovled a backwards-compatible update fixing a few minor issues (see NEWS) and providing pandoc style inline citations v0.6-2, on CRAN.
-I followed this with a ground-up rewrite, as I summarize in NEWS:
-v1.0-1 This version is a ground-up rewrite of knitcitations, providing a more powerful interface while also streamlining the back end, mostly by relying more on external libraries for knitty gritty.
-      
+      <div class="article-style">
+        library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;methods&quot;) library(&quot;ggplot2&quot;) library(&quot;tidyr&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union dmnorm example from Daniel, who notes we need to be explicit about vector/matrix sizes on both LHS and RHS,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/06/04/is-statistical-software-harmful/">Wed, Jun 4, 2014</a></h4>
-    <h4><a href="../../../2014/06/04/is-statistical-software-harmful/">Is statistical software harmful?</a></h4>
-    <div class="article-style">
-      
-      Ben Bolker has an excellent post on this complex issue over at Dynamic Ecology, which got me thinking about writing my own thoughts on the topic in reply.
-Google recently announced that it will be making it&rsquo;s own self-driving cars, rather than modifying those of others. Cars that won&rsquo;t have steering wheels and pedals. Just a button that says &ldquo;stop.&rdquo; What does this tell us about the future of user-friendly complex statistical software?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/05/30/plos-data-sharing-policy-reflections/">Fri, May 30, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/03/02/notes/">Mon, Mar 2, 2015</a></h4>
       
-      PLOS has posted an excellent update reflecting on their experiences a few months in to their new data sharing policy, which requires authors to include a statement of where the data can be obtained rather than providing it upon request. They do a rather excellent job of highlighting common concerns and offering well justified and explained replies where appropriate.
-At the end of the piece they pose several excellent questions, which I reflect on here (mostly as a way of figuring out my own thoughts on these issues).
-      
+      <div class="article-style">
+        Misc tricks  docker X11 sharing  docker run -ti &ndash;rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro r-base  devtools::install_version devtools::use_readme_rmd (with git commit hooks)
+ How to specify a custom action for the knit button: add knit: (function(inputFile, encoding) &hellip;) to the top-level YAML header; e.g. to control output directory:
+  rmarkdown::render(inputFile, encoding = encoding, output_file = paste0(dirname(inputFile), basename(inputFile), &quot;.pdf&quot;))
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/05/28/notes/">Wed, May 28, 2014</a></h4>
-    <h4><a href="../../../2014/05/28/notes/">packrat and rmarkdown</a></h4>
-    <div class="article-style">
-      
-      I&rsquo;m pretty happy with the way rmarkdown looks like it can pretty much replace my [Makefile approach]() with a simple R command to rmarkdown::render(). Notably, a lot of the pandoc configuration can already go into the document&rsquo;s yaml header (bibliography, csl, template, documentclass, etc), avoiding any messing around with the Makefile, etc.
-Even more exciting is the pending RStudio integration with pandoc. This exposes the features of the rmarkdown package to the RStudio IDE buttons, but more importantly, seems like it will simplify the pandoc/latex dependency issues cross-platform.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2014/05/27/notes/">Tue, May 27, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2015/02/25/nimble-on-dai-model/">Wed, Feb 25, 2015</a></h4>
       
-      nonparametric-bayes  nonparametric-bayes sensitivity-trends runs. nonparametric-bayes sensitivity.R runs: explore facets to see what setting causes the below-perfect performance cluster.  knitcitations  updates to knitcitations (paste fron NEWS) Looking at adapting CSL for inline text formatting csl/issues/33 Implemented pandoc rendering  ropensci  Use of .Renviron vs .Rprofile for API keys  Seems the difference between .Rprofile and .Renviron is that (a) the latter is just a named character vector, and (b) the latter is accessed by Sys.
-      
+      <div class="article-style">
+        Testing nimble method on Dai model (shorter data series)
+devtools::install_github(&quot;cboettig/regimeshifts&quot;) ## Skipping install of &#39;regimeshifts&#39; from a github remote, the SHA1 (351c3b41) has not changed since last install. ## Use <code>force = TRUE</code> to force installation Define our mcmc procedure in Nimble
+my_mcmc &lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){ Rmodel &lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits) Cmodel &lt;- compileNimble(Rmodel) mcmcspec &lt;- configureMCMC(Rmodel, print=FALSE,thin=thin) Rmcmc &lt;- buildMCMC(mcmcspec) Cmcmc &lt;- compileNimble(Rmcmc, project = Cmodel) Cmcmc$run(n_iter) samples &lt;- as.
+      </div>
     </div>
-  </div>
-  
+    
+    </div>
 
   
 <nav>
@@ -265,9 +228,10 @@ Even more exciting is the pending RStudio integration with pandoc. This exposes 
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -356,7 +320,13 @@ Even more exciting is the pending RStudio integration with pandoc. This exposes 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

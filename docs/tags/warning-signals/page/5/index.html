@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,124 +134,81 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/02/27/monday-14/">Monday</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/09/19/prosecutors-fallacy/">Wed, Sep 19, 2012</a></h4>
       
-      Warning Signals  Added resulting indicator distributions on finer sampling results.
- Re-running now excluding the final dive (population below 300).
-  Treebase working on manuscript. A few examples using the improved meta-data queries:
-Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
-      
+      <div class="article-style">
+        Two years ago, I scribbled an entry into my notebook entitled Wrong Picture, Wrong Model: Why warning signals don&rsquo;t look like rare events. Months later I made some off-hand remark to Alan (my Ph.D. mentor) about how transitions found in historical records, such as the Climate examples in Dakos et. al. (2008), could actually be selecting for stochastic transitions, and this selection process might make them look like traditional warning signals &ndash; i.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/23/esa-2012-abstract/">ESA 2012 Abstract</a></h2>
-    <h4>Thu, Feb 23, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/23/notes/">Thu, Aug 23, 2012</a></h4>
       
-      Submitted my abstract for ESA 2012, in Portland. Getting a title and abstract pinned down about seven months in advance is itself an exercise in decision making under uncertainty. I&rsquo;ve added some further background below.
-Unknown unknowns: management strategies under uncertainty &amp; alternate stable states Background/Question/Methods The effective management of natural resource populations such as fisheries or forests and the ecosystems in which they are embedded is a central goal of much work in both theoretical and applied ecological research.
-      
+      <div class="article-style">
+        Fallacy with May model runs
+ $$ X_{t+1} = X_t \exp\left( r \left(1 - \frac{ X_t }{ K } \right) - \frac{ a * X_t ^ {Q - 1} }{s ^ Q + H ^ Q} \right) $$  Working on unmanaged warning. (see #21)
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/22/warning-signals-in-management/">Wed, Aug 22, 2012</a></h4>
       
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
-      
+      <div class="article-style">
+        Tour of existing files (version stable links)
+ managed warning is the current direct test of this, but needs decently ranged input example where detection has a good chance to succeed.
+ criticaltransition Statistics across replicate crashes that don&rsquo;t show much promise for detection.
+ A heuristic implementation in response to the detection of a signal might use a simple rule like a fraction of the optimal harvest of a stable system.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/20/finer-sampling-in-prosecutors-fallacy/">finer sampling in prosecutor&#39;s fallacy</a></h2>
-    <h4>Mon, Feb 20, 2012</h4>
-    <div class="article-style">
-      
-      Create the data. We&rsquo;ll save files as some of these code chunks need to be run on the cluster for large memory use.
-require(populationdynamics) pars = c(Xo = 500, e = 0.5, a = 180, K = 1000, h = 200, i = 0, Da = 0, Dt = 0, p = 2) sn &lt;- saddle_node_ibm(pars, times=seq(0,5000, length=50000), reps=1) save(&quot;sn&quot;, &quot;file=prosecutor.rda&quot;)  Subset the chance transitions
-d &lt;- dim(sn$x1) crashed &lt;- which(sn$x1[d[1],]==0) dat &lt;- melt( sn$x1[,crashed] ) names(dat) = c(&quot;time&quot;, &quot;reps&quot;, &quot;value&quot;) save(&quot;dat&quot;, file=&quot;crashed.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/16/prosecutors-fallacy-initial-look/">prosecutor&#39;s fallacy initial look</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
-    <div class="article-style">
-      
-      So I&rsquo;ve simulated 1000 replicates of a system that has alternative stable states, but is not approaching the bifurcation. I&rsquo;ve added enough noise (demographic stochasticity in this case, but doesn&rsquo;t matter what) that 129&frasl;1000 transition stochastically to the bad state, so I have decent sample sizes in each. Here&rsquo;s what I&rsquo;m finding: If I condition on having crashed (i.e. take the 129 that transition) and apply our model-based early warning signal, it doesn&rsquo;t detect any early warning sign.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/22/notes/">Wed, Aug 22, 2012</a></h4>
+      <h4><a href="../../../../2012/08/22/notes/">Revisions on Prosecutors Fallacy</a></h4>
+      <div class="article-style">
+        Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
+ Proof corrections for rfishbase manuscript. Done.
+ Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
+  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
+&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/16/squiggles/">Squiggles</a></h2>
-    <h4>Thu, Feb 16, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/07/23/notes/">Mon, Jul 23, 2012</a></h4>
       
-      Variability in the appearance of a trend
-nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
-X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
-      
+      <div class="article-style">
+        Reading Vasilis&rsquo;s PLoS ONE warning signals methods out, listing different methods and announcing the earlywarings R package: 10.1371/journal.pone.0041010, and another comparing methods on some various data sets 10.1371/journal.pone.0038410, which (like Drake) advocates for a mixed method approach.
+Modeling extreme risks in ecology 10.1111/j.1539-6924.2012.01871.x
+Which is kinda like Richard Katz&rsquo;s extreme value theory in ecology article.
+NSF call for Decision, Risk and Management Science, see previously funded examples.
+A paper in Eco Lett suggests model-guided field work 10.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h2>
-    <h4>Wed, Feb 15, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/21/notes/">Thu, Jun 21, 2012</a></h4>
       
-      This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
-Run the individual based simulation
-require(populationdynamics)  [code] Loading required package: populationdynamics
- ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
-      
+      <div class="article-style">
+        Value of information  Reed with uniform large noise, logistic map Reed with uniform large noise Reed with uniform small noise Sethi with uniform small noise, logistic map. Sethi with large noise Doesn&rsquo;t work. hmm.. voi_sethi_parameters.md , running value of information setup but with small noise &amp; logistic map. Whoops, this example solves uniform noise but simulates log-normal noise, which probably explains the positive effect of growth noise once again.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h2>
-    <h4>Tue, Feb 14, 2012</h4>
-    <div class="article-style">
-      
-      Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
-Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/13/monday-16/">Monday</a></h2>
-    <h4>Mon, Feb 13, 2012</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/12/sunday-6/">Sunday </a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
-    <div class="article-style">
-      
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -266,8 +223,12 @@ Show the parameter distributions: We can also look at the bootstraps of the para
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -354,7 +315,13 @@ Show the parameter distributions: We can also look at the bootstraps of the para
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

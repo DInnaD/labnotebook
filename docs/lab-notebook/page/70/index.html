@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,120 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/12/30/stochastic-limits-to-evolutionary-branching/">Thu, Dec 30, 2010</a></h4>
-    <h4><a href="../../../2010/12/30/stochastic-limits-to-evolutionary-branching/">Stochastic limits to evolutionary branching</a></h4>
-    <div class="article-style">
-      
-      My last post was a bit pessimistic, sometimes I can still miss the forest for the trees. Hidden in those figures, the main point has been staring me in the face. So let&rsquo;s try this again.
-Stochastic limits to evolutionary branching is the story of two dueling timescales. The first timescale is that of the evolutionary process: the frequency of steps (mutation rate, $ \mu$) and the size of the steps (mutation kernel standard deviation $ \sigma_{\mu}$), on top of which we add the selection gradient, created by the ecology.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Sun, Feb 12, 2012</a></h4>
+      <h4><a href="../../../2012/02/12/elegant-fast-data-manipulation-with-data-table/">Elegant &amp; fast data manipulation with data.table</a></h4>
+      <div class="article-style">
+        Just learned about the R data.table package (ht @recology_) makes R data frames into ultra-fast, SQL-like objects.
+One thing we get is some very nice and powerful syntax. Consider some simple data of replicate time series:
+time &lt;- rep(1:10, 10) replicate &lt;- sort(time) value &lt;- rnorm(100) df &lt;- data.frame(replicate, time, value)  To apply a function to each set of replicates, instead of
+sapply(1:max(df$replicate), function(i) mean( df[df$replicate == i,]$value) )  We can use
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/30/open-notebook-science-abstract/">Thu, Dec 30, 2010</a></h4>
-    <h4><a href="../../../2010/12/30/open-notebook-science-abstract/">Open Notebook Science Abstract</a></h4>
-    <div class="article-style">
-      
-      In addition to my primary research categories, I make some entries in my lab notebook to document and reflect on my experiment in open notebook science. This includes my notes on tools I try out for open and collaborative science, including uses of social media, cloud computing, and scientific databases and repositories.
-This serves as a cover-page for the open science entries in my notebook, displaying the most recent entries, articles, figures and code through rss feeds.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Fri, Feb 10, 2012</a></h4>
+      <h4><a href="../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h4>
+      <div class="article-style">
+        Forage fish writing See doc, FF dropbox PopDyn
+Warning signals edits  Alan edits Figure captions, titles.
+ Text changes from Noam.
+  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
+git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/30/parameter-exploration-in-adaptive-dynamics-branching/">Thu, Dec 30, 2010</a></h4>
-    <h4><a href="../../../2010/12/30/parameter-exploration-in-adaptive-dynamics-branching/">Parameter exploration in adaptive dynamics branching</a></h4>
-    <div class="article-style">
-      
-      Ran a series of simulations overnight to explore aspects of time-to-branching at different phases of the branching process. Still using only 16 replicates per data point, though increased maximum time for a run another order of magnitude to avoid timing out runs influencing the dataset for the slow-rate parameters. Still seems to suggest a regime beyond which branching becomes completely improbable. Not clear that the transition is a sharp as the Arrhenius approximation might suggest.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">Wed, Feb 8, 2012</a></h4>
+      <h4><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">UC Davis graduate student symposium proposal</a></h4>
+      <div class="article-style">
+        Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/29/adaptive-dynamics-simulations/">Wed, Dec 29, 2010</a></h4>
-    <h4><a href="../../../2010/12/29/adaptive-dynamics-simulations/">adaptive-dynamics Simulations</a></h4>
-    <div class="article-style">
-      
-      Setting up some adaptive dynamics simulations to complete the parameter-space search. Currently the demo library contains two files, providing the coexistence-only tests and the full evolutionary simulation. This picks up from Aug 30/Sept 1 on coexistence times and Aug 12&frasl;13 entries on waiting times until branching (while still on OWW).
-coexistence times coexist_times.R creates contour plots of the coexistence time under demographic noise expected at a particular position of the pairwise invasibility plot (PIP).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/24/doe-renewal-and-a-year-in-review/">Fri, Dec 24, 2010</a></h4>
-    <h4><a href="../../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h4>
-    <div class="article-style">
-      
-      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
-synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/06/some-collaborative-tools-for-science/">Mon, Feb 6, 2012</a></h4>
+      <h4><a href="../../../2012/02/06/some-collaborative-tools-for-science/">Some Collaborative Tools for Science</a></h4>
+      <div class="article-style">
+        Ania Truszczynski invited me to give a little talk on the use of various collaborative tools for scientists. I enjoyed presenting this as a chalk-talk, but alas no slides to link so here&rsquo;s a list of reference. Rather than the impossible attempt to be comprehensive, this is restricted to resources I use regularly and have found to be the best of their class. All are freely available.
+Tools   Science Blogs (e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/23/writing-cloud-computing-and-scio11/">Thu, Dec 23, 2010</a></h4>
-    <h4><a href="../../../2010/12/23/writing-cloud-computing-and-scio11/">Writing, Cloud Computing, and #scio11</a></h4>
-    <div class="article-style">
-      
-      Working on a few things in today&rsquo;s lab notebook entry. Some more notes on exploring cloud computing tools, sketching out some ideas for my #scio11 science online panel discussion on open notebook science, and otherwise working on my phylogenetics mansucript.
-Cloud Computing An interesting package was announced over the r-sig-hpc list today, creating an arbitrarily large Hadoop cluster out of Amazon EC2 instances directly from the R command line. JD Long has been very responsive to my naive questions on setting it up, so I was able to quickly activate an Elastic Map Reduce account via Amazon Web Services and run the example code.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Fri, Feb 3, 2012</a></h4>
+      <h4><a href="../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Different ways of visualizing distribution overlap</a></h4>
+      <div class="article-style">
+        I spend a lot of time comparing distributions. There&rsquo;s lots of different ways to visualize these comparisons, I&rsquo;m not sure what is the most effective &amp; intuitive way to indicate their overlap.
+Distributions Boxplot Violinplot Beanplot ROC Curve These images in gallery format with examples from two other data sources as well (click on image to zoom into gallery).
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;warningsignals&rdquo; min_upload_date=&ldquo;2012-02-03 00:00:00&rdquo; max_upload_date=&ldquo;2012-02-03 11:00:00&rdquo;]
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/20/sun-visualizing-my-coding-over-the-past-year/">Mon, Dec 20, 2010</a></h4>
-    <h4><a href="../../../2010/12/20/sun-visualizing-my-coding-over-the-past-year/">Sun: Visualizing my coding over the past year</a></h4>
-    <div class="article-style">
-      
-      Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the Mendeley&rsquo;s example). So in the spirit of year-in-review reflections, here&rsquo;s my development from the past year (just for the phylogenetic statistics work).
-Quality is a little too poor to read file names, more entertaining than practical. Other user icons appear in December corresponding with my move to running the code from Amazon cloud.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/02/thursday-13/">Thu, Feb 2, 2012</a></h4>
+      <h4><a href="../../../2012/02/02/thursday-13/">Thursday</a></h4>
+      <div class="article-style">
+        rOpenSci  Dryad submission xml parsing example to Scott essentially see (fishbase example , and xpath tutoral ) knitr and latex figure placement (use float package with H to enforce placement). cc0 &amp; OSI &hellip; pmc purchase order, dryad data id approval. &amp; writing writing writing&hellip; Re-formating data for ggplot version of graphs, realized I should be specifying id.vars to melt (example from my Q on SO)  Reading  Great special feature on the data era in TREE ((which I mention despite it&rsquo;s misfortune of being connected to Elsivier right now)) (Page, 2012), (Michener &amp; Jones, 2012), (Porter et.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/16/thurs-writing-section-on-comparing-to-aic/">Thu, Dec 16, 2010</a></h4>
-    <h4><a href="../../../2010/12/16/thurs-writing-section-on-comparing-to-aic/">Thurs: writing section on comparing to AIC</a></h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/15/weds-example-sets-more-ec2/">Wed, Dec 15, 2010</a></h4>
-    <h4><a href="../../../2010/12/15/weds-example-sets-more-ec2/">Weds: Example sets &amp; more EC2</a></h4>
-    <div class="article-style">
-      
-      A bit delayed from having to rerun analyses on EC2 (still learning&hellip;) More to run today (lambda trials for Anoles &ndash; should really recode this in C!).
-Trying to decide if its best to start off with the power curves and work backwards or build up from the basics. Probably doesn&rsquo;t matter too much which. Also figuring out which examples to present first:
-Where the painted trees are the following:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/14/tues-phylogenetics-thoughts-while-writing/">Tue, Dec 14, 2010</a></h4>
-    <h4><a href="../../../2010/12/14/tues-phylogenetics-thoughts-while-writing/">Tues: evolution thoughts while writing...</a></h4>
-    <div class="article-style">
-      
-      Again spending most of the day writing. (Maybe) processing some ideas in writing by writing in my notebook as I make my edits.
-Ideas I&rsquo;m trying to get across in today&rsquo;s edits Parameter estimation is more demanding of the data than model choice. Knowing if a value is different from zero is easier than knowing what it is.
-Code updates to-do  Need to add S3 wrapper functions for ouch so both can call montecarlotest() in the pmc package.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -261,9 +230,10 @@ Code updates to-do  Need to add S3 wrapper functions for ouch so both can call m
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -352,7 +322,13 @@ Code updates to-do  Need to add S3 wrapper functions for ouch so both can call m
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,133 +133,90 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/08/29/algorithms-group-hidden-markov-models/">Mon, Aug 29, 2011</a></h4>
-    <h4><a href="../../../2011/08/29/algorithms-group-hidden-markov-models/">Algorithms group: Hidden Markov Models</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/22/notes/">Thu, Nov 22, 2012</a></h4>
       
-      Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&rsquo;s awesome graph.
-As usual in the notebook, click on the graph to get link-through to the code.
-      
+      <div class="article-style">
+        multiple-uncertainty Working out the multiple uncertainty computational performance and noise forms. Fixing a few things in the way log-normal noise was calculated. Uniform noise in particular can still give rather non-smooth policy, needs a bit of digging. Uniform noise doesn&rsquo;t show the non-monotonicity of the log-normal noise in measurement uncertainty though.
+Uniform lognormal log  A few small tweaks to probability calculations
+ Handle the case of mu = grid zero, not just exactly zero, to avoid introducing NAs Calculate dlnorm as (x_grid/mu, 0, sigma), rather than as (x_grid, mu, sigma).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/29/monday-scaling-wrightscape-examples/">Mon, Aug 29, 2011</a></h4>
-    <h4><a href="../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/21/notes/">Wed, Nov 21, 2012</a></h4>
       
-      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
- Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
-   Commits to taxize pushed to Scott.
-wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
-      
+      <div class="article-style">
+        writing comment piece. writing writing writing.
+  Also today (misc):  Check in with Peter re: Labrids paper Fix issue #32 rfigshare Follow up with Nina about improved FishBase API pay ESA and SSE dues Santa Cruz SOE email lists uniform growth noise version on corrected multiple-uncertainty run transparent plots in new ggplot theme? Set in dev.args=list(bg=&quot;transparent&quot;) Consider SOE AMS lecturer pool? Description, Application  CV, Letter of application with course list.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/28/sunday-scaling-runs/">Sun, Aug 28, 2011</a></h4>
-    <h4><a href="../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/19/sequential-updating/">Mon, Nov 19, 2012</a></h4>
       
-      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
-Set up for running primates.R in likelihood mode with abstracted parallelization:
-Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
-hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
-      
+      <div class="article-style">
+        Fixed the sequential updating algorithm (avoids numerical instabilities associated with matrix inversion). Currently defined as the function recursion:
+for the covariance:
+C_seq &lt;- function(X, X_prime, i){ if(i &lt;= 1) cov(X, X_prime) - mmult(cov(X,x[i]), cov(x[i], X_prime)) / as.numeric( cov(x[i], x[i]) + sigma_n^2) else C_seq(X, X_prime, i-1) - mmult(C_seq(X,x[i], i-1), C_seq(x[i], X_prime, i-1)) / as.numeric( C_seq(x[i], x[i], i-1) + sigma_n^2 ) }  for the mean:
+mu_seq &lt;- function(X, i){ if(i &lt;= 1) cov(x[i], X) * (y[i]-mu[i]) / as.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Sat, Aug 27, 2011</a></h4>
-    <h4><a href="../../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Saturday: working on computational scaling, ion, etc</a></h4>
-    <div class="article-style">
-      
-      Can I get a generic montecarlotest function working for both warningsignals and pmc?
-Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">Fri, Aug 26, 2011</a></h4>
-    <h4><a href="../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h4>
-    <div class="article-style">
-      
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/16/mult-uncertainty/">Fri, Nov 16, 2012</a></h4>
+      <h4><a href="../../../2012/11/16/mult-uncertainty/">Multiple uncertainty corrected</a></h4>
+      <div class="article-style">
+        Fixed the multiple uncertainty calculation implementation. Code had transposed $\mathbb{I}$, also one of the $\mathbb{M}$ matrices. Should still confirm final implementation. In the below example each case has log-normal growth noise present. The non-monotonic section of the measurement uncertainty
+See notes on code changes inline.
+Additional notes from walking through algoritm step by step.  $x$ index in the true state space $y$ index in the observed state space $h$ index in the true action $q$ index in the policy/decision space
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/26/fishbase-from-r-some-xml-parsing/">Fri, Aug 26, 2011</a></h4>
-    <h4><a href="../../../2011/08/26/fishbase-from-r-some-xml-parsing/">FishBASE from R: some XML parsing</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/15/notes/">Thu, Nov 15, 2012</a></h4>
       
-      cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
-In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
-      
+      <div class="article-style">
+        Stuck on many things  Have not correctly defined the recursion in the sequential updating approach. Can I really calculate $P(y_3 | (y2 | y_1))$ in place of $P(y_3 | y2, y1)$? e.g. instead of calculating:  $$V_3 = K(y<em>3, y3) - K(y{1:2}, y3) K(y{1:2}, y</em>{1:2})^{-1} ) K(y3, y{1:2}) $$
+Is there some scalar $v_2$ such that
+$$V_3 = K(y_3, y3) - K(y{1:2}, y_3) K(y3, y{1:2}) / v_2$$
+e.g. a term like:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/25/datacite-day-2/">Thu, Aug 25, 2011</a></h4>
-    <h4><a href="../../../2011/08/25/datacite-day-2/">DataCite Day 2</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/09/better-tagging-practices/">Fri, Nov 9, 2012</a></h4>
       
-      9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
- Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
-  see great example of the ACRID database
- Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
-      
+      <div class="article-style">
+        Better tagging practices  Standardize use of tags: Match tags in notebook to project repository name. Tag papers in Mendeley by these tags as well.  I have also started tracking the medium of discovery for each paper I add to my Mendeley collection through a little set of Mendeley tags. I am curious to see through which mediums I obtain the most content, and what content. As with any ontology, I will struggle to select a vocabulary that is precise enought to be useful without being too verbose (b) to bother to continue to use this.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/24/datacite-day-1/">Wed, Aug 24, 2011</a></h4>
-    <h4><a href="../../../2011/08/24/datacite-day-1/">DataCite Day 1</a></h4>
-    <div class="article-style">
-      
-      12:00pm-1:00pm Lunch
- 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
-Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
- 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
- Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tue, Aug 23, 2011</a></h4>
-    <h4><a href="../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h4>
-    <div class="article-style">
-      
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/21/academic-year-2011-summary/">Sun, Aug 21, 2011</a></h4>
-    <h4><a href="../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h4>
-    <div class="article-style">
-      
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -274,9 +231,10 @@ TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computa
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -365,7 +323,13 @@ TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computa
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

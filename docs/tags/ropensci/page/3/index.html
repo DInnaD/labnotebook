@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,122 +134,79 @@
 
 
 
+
   <h1>Ropensci</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/11/04/mbi-notes/"></a></h2>
-    <h4>Mon, Nov 4, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/01/07/notes/">Tue, Jan 7, 2014</a></h4>
       
-      SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
- NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
- language barriers: What&rsquo;s a model?
-      
+      <div class="article-style">
+        Coding  fishbase API discussions rfishbase updates pushed to CRAN Merges and minor bug fixes for rfigshare
+ RNeXML: After some cooperative sleuth-work, we successfully resolved issue #23, uncovering a bug (missing feature really) in xmllint.
+  as usual, detailed activity on github.
+Reading  The sudden collapse of pollinator communities - Jelle Lever - 2014 - Ecology Letters - Wiley Online Library <a href="http://goo.gl/ZKuKsj">http://goo.gl/ZKuKsj</a> Github has traffic stats again.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/10/17/rnexml-semantic-considerations/"></a></h2>
-    <h4>Thu, Oct 17, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/01/06/notes/">Mon, Jan 6, 2014</a></h4>
       
-      Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular #26 and #24) I only paraphrase here.
-One of the central advantages we can offer in programmatic generation of NeXML in the R environment is the ability to validate names and enhance the metadata included in the resulting nexml file using programmatic queries to taxonomic name resolution services such as ITIS, EOL, NCBI, as provided in the taxize package.
-      
+      <div class="article-style">
+        fishbase API discussions knitcitations (push previous updates to CRAN) data extraction from sardine collapse story (see EML in data/), news article My thoughts on SWC teaching web-native publication workflow reading, ToCs speaker invitation replies review request replies  Reading  &ldquo;Are rapid transitions btwn invasive and native species caused by alt stable states, and does it matter?&rdquo; <a href="http://feedly.com/k/1gbEIWT">http://feedly.com/k/1gbEIWT</a>
+ &ldquo;Phylogenetic trait-based analyses of ecological networks.&rdquo; <a href="http://feedly.com/k/1gbEvD6">http://feedly.com/k/1gbEvD6</a>
+ Nice editorial on &ldquo;core elements of a TPB paper.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/10/16/notes/"></a></h2>
-    <h4>Wed, Oct 16, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/26/notes/">Tue, Nov 26, 2013</a></h4>
       
-      RNeXML  Example methods for metadata: <a href="https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772">https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772</a> Closes #19 <a href="https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110">https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110</a> Discussion of best identifiers for OTUs #24. Now waiting on Scott for choice of implementation  Misc R puzzle In R&rsquo;s S4 methods, I can define methods with different signatures, i.e. different object classes for the same function call. But can I alter the names and number of arguments for a method?
-As usual, see Github for details on commits and issues.
-      
+      <div class="article-style">
+        RNeXML Character metadata EML provides a nice illustration of the kind of metadata we would want to typically accompany character trait data; at minimum, at the attribute level.
+Some of this is already there &ndash; we know if states are continuous or discrete, what possible states they can take on, and can add labels to state nodes to define what the symbols mean (however, perhaps an additional meta annotation node would be preferred).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/10/10/notes/"></a></h2>
-    <h4>Thu, Oct 10, 2013</h4>
-    <div class="article-style">
-      
-      Authenticating via DataOne API Matt Jones provides a nice dataone package to handle accessing and posting data to DataOne nodes such as the KNB from R. Uploading files through the API requires authentication, which in turn requires a certificate from CILogin. As this process proved a bit tricky to me, I add some documentation here. I am using a Ubuntu (13.04) system, so the procedure might differ slightly for other systems.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/10/09/notes/"></a></h2>
-    <h4>Wed, Oct 9, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/19/notes/">Tue, Nov 19, 2013</a></h4>
       
-      ugh, most journals don&rsquo;t seem to hold to their own data publication policies.
-PNAS theoretically endorses UPSIDE, r citet(&quot;10.1073/pnas.0400437101&quot;) principles from the National Academy of Science:
- Principle 1. Authors should include in their publications the data, algorithms, or other information that is central or integral to the publication—that is, whatever is necessary to support the major claims of the paper and would enable one skilled in the art to verify or replicate the claims.
-      
+      <div class="article-style">
+        RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
+ Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&rsquo;t have to wrap some C library myself&hellip;  nonparametric-bayes Writing writing.
+ Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/10/07/nexml-phylo-class-extension/">Extending ape::phylo class to NeXML:</a></h2>
-    <h4>Mon, Oct 7, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/17/rnexml-metadata-queries/">Sun, Nov 17, 2013</a></h4>
       
-      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
-To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
-      
+      <div class="article-style">
+        (From issue #20)
+Basic metadata queries a question of how the user queries that metadata. Currently we have a metadata function that simply extracts all the metadata at the specified level (nexml, otus, trees, tree, etc) and returns a named character string in which the name corresponds to the rel or property and the value corresponds to the content or href, e.g.:
+birds &lt;- read.nexml(&quot;birdOrders.xml&quot;) meta &lt;- get_metadata(birds)  prints the named string with the top-level (default-level) metadata elements as so:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/23/notes/"></a></h2>
-    <h4>Mon, Sep 23, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/14/notes/">Thu, Nov 14, 2013</a></h4>
       
-      nonparametric bayes Reading  Arnqvist, G. 2013 Editorial rejects? Novelty, schnovelty! Trends in ecology &amp; evolution 28, 448-9. (doi:10.1016/j.tree.2013.05.007) Accounting for Complementarity to Maximize Monitoring Power for Species Management. 27, 988-999. (doi:10.1111/cobi.12092) Nes, E. H. Van, Hirota, M., Holmgren, M. &amp; Scheffer, M. 2013 Tipping points in tropical tree cover: linking theory to data. (doi:10.1111/gcb.12398) Millar, R. B. 2002 Reference priors for Bayesian fisheries models. , 1492-1502. (doi:10.1139/F02-108) Mcallister, M.
-      
+      <div class="article-style">
+        ropensci  ropensci stategic planning: wrote personal vision statement  RNeXML  Comments on issues #12 and #15, thinking about character matrices comments on #20, thinking about metadata parsing. (If only everyone knew xpath&hellip;)  Commit details on Github
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/19/notes/"></a></h2>
-    <h4>Thu, Sep 19, 2013</h4>
-    <div class="article-style">
-      
-      writing manuscript slides data request to Glaser.
-  gpdd  Global Popluation Dynamics Database initiated package rgpdd data extraction &ndash; No API, but does provide direct dump in the form of a Microsoft Access mdb database. For the moment I&rsquo;m using mdbtools: mdb-tables and mdb-extract to convert to CSV and then reading those into R. RODBC package installs but cannot read the database directly for me. Since data will fit into working memory no real reason to support database calls from R?
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/18/notes/"></a></h2>
-    <h4>Wed, Sep 18, 2013</h4>
-    <div class="article-style">
-      
-      nonparametric-bayes writing writing. see commits. Started slides for Mangel group retreat. (in progress). Working on requested review&hellip; background reading too. reml read methods for data.set class, extending attributeList metadata tools.
-  Scribble notes for interivew  we are where math was 400 years ago - present theorem without proof.
- code plays an ever-increasing role in our research, and hence in describing what we have done potentially the most precise and consise way to describe a method.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/16/notes/"></a></h2>
-    <h4>Mon, Sep 16, 2013</h4>
-    <div class="article-style">
-      
-      class=&ldquo;task-list&rdquo; finish up and push backlog of notebook updates knitcitations slidify (issue 46) recently resolved several further issues/requests with rfishbase  ropensci Have implemented a solution to extending data.frame with metadata that I was tackling the other day. This raises several open questions on how we do the implementation, including whether we restrict this extension to providing the attributeList-level metadata (or a subset thereof), or if we allow higher level nodes of eml to act as extensions of data.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -264,8 +221,12 @@ To illustrate this issue, consider the S3 class phylo provided by the ape packag
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -352,7 +313,13 @@ To illustrate this issue, consider the S3 class phylo provided by the ape packag
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,116 +134,82 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/10/28/a-new-twist-on-the-approach/">A new twist on the approach</a></h2>
-    <h4>Thu, Oct 28, 2010</h4>
-    <div class="article-style">
-      
-      Matching the warning signal to different SDE models couldn&rsquo;t retain the simplicity and generality needed, so I intend to work on the transformed data instead. Taking the power spectrum of the data, we have a new curve fitting problem:
-(Code). This can be turned into a linear curve fitting problem by taking the log of the inverse Fourrier transform, then the slope is our stability parameter. Can we do this estimation by likelihood instead of least-squares?
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/07/01/friday-warning-signals-writing-etc/">Fri, Jul 1, 2011</a></h4>
+      <h4><a href="../../../../2011/07/01/friday-warning-signals-writing-etc/">Friday, warning signals writing, etc</a></h4>
+      <div class="article-style">
+        9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
+   launched ibm_analysis.R on zero, n10.
+ Writing writing&hellip; first full text draft done.
+  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/27/warning-signals-where-are-we-now/">Warning Signals -- Where are we now?</a></h2>
-    <h4>Wed, Oct 27, 2010</h4>
-    <div class="article-style">
-      
-      The last few days have involved an investigation into the ability to capture the essential features of the dynamics leading up to a saddle node bifurcation as a linear stochastic differential equation. The warning signals question then becomes a model-choice problem between constant and time-dependent coefficients:
-$$ dX_t = \alpha \left(\theta_t - X_t\right) dt + \sigma_t dW_t $$
-and
-$$ dX_t = \alpha_t (\theta_t - X_t) dt + \sigma_t dW_t $$
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/30/thursday-7/">Thu, Jun 30, 2011</a></h4>
+      <h4><a href="../../../../2011/06/30/thursday-7/">Thursday: Warning Signals writing, figures, segue</a></h4>
+      <div class="article-style">
+        Alan meeting Figure 1: Introducing the ROC Curve Figure 2: Standard approach Figure 3: ROC curves corresponding to standard approach Do we show the distributions? &ndash; Create for each, but log in appendix
+ROC curves corresponding to increased sampling &ndash; our method, other stats? organize how?
+Computational Runs Running at constant sample points rather than sample effort.
+ On eleven: n5ibm_stable.R 6pm On zero, n10 drake_analysis.R 6pm On zero, n19 deut_analysis.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/26/correcting-for-the-mean-dynamics/">Correcting for the mean dynamics</a></h2>
-    <h4>Tue, Oct 26, 2010</h4>
-    <div class="article-style">
-      
-      Yesterday I began to address concerns of different models that have different mean dynamics, and how this influences the warning signals. This poses several kinds of issues.
- First, if the mean is changing, the model fitting must be appropriate to this &ndash; either by fitting this rate of change or correcting for it.
- Second, the variance is expected to scale with the mean, and scale differently under different noise models (particularly environmental vs.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort/">Wed, Jun 29, 2011</a></h4>
+      <h4><a href="../../../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort/">Warning signals: summary statistic performance at varying sampling effort</a></h4>
+      <div class="article-style">
+        oikos post launch case of increased sampling on sim data for autocorrelation (is our approach more robust to model differences?)  IBM data Example Using data from the individual-based model simulation of a system approaching a saddle-node.
+Variance While the initial example with variance shows almost no signal, increasing the sampling effort substantially improves the performance. This can be seen in the ROC curves and as a tightening and spreading out of the null and test distributions as the sampling effort is increased.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/25/wrong-picture-wrong-model-why-warning-signals-dont-look-like-rare-events/">Wrong picture, wrong model: why warning signals don&#39;t look like rare events</a></h2>
-    <h4>Mon, Oct 25, 2010</h4>
-    <div class="article-style">
-      
-      Detecting a warning signal of collapse isn&rsquo;t about detecting that a system is non-stationary, but more specifically, that the system is about to do something sudden. The classic saddle-node bifurcation example results in a picture like this:
-A visible steady decrease interrupted by a sudden jump. The goal is to distinguish this from the case of a steady decrease that involves no loss of stability &ndash; such as would be created by continually lowering the carrying capacity of logistic-model system at a linear rate.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/21/warning-signals-2/"></a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
-    <div class="article-style">
-      
-      Trying to select clear examples of sufficient and sufficient power in detecting warning signals. Addressing a couple side issues today as well:
- Proper handling of trends
- Best model for eigenvalue change
-  Computed an example with steeper nonlinearity to compare rate of change in lambda. Here&rsquo;s an example with Hill coefficient of 5 (see code for details). Note that the plot simply shows whichever root the numerical algorithm converges to at the time, should modify to express all roots.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/29/warning-signals-writing/">Wed, Jun 29, 2011</a></h4>
+      <h4><a href="../../../../2011/06/29/warning-signals-writing/">Warning Signals writing</a></h4>
+      <div class="article-style">
+        Alan Meeting: Discussed yesterday&rsquo;s possible representations, post-doc considerations.
+Misc &amp; Reading  Catching up on ToCs, now 13 papers to review Installing pilot mx database for comparative methods data accessible semantic web introduction Dean&rsquo;s Lab statement of mutual expectations: nice guide for things that are too rarely spelled out.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/21/spatial-warning-signals-power-etc/">Spatial Warning Signals, power, etc</a></h2>
-    <h4>Thu, Oct 21, 2010</h4>
-    <div class="article-style">
-      
-      Noam gave an interesting presentation in our lab today, prompted me to do a little experimentation. Weakening stability across a set of coupled patches should result in increased autocorrelation. Decided to test this with a little visualization with help of a quick R script. Time progresses across the x-axis, 1-D space (on S1) across the y-axis. Each patch suffers a slow loss of stability, resulting in a clearly visible increase in autocorrelation.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/27/monday-warning-signals-manuscript/">Mon, Jun 27, 2011</a></h4>
+      <h4><a href="../../../../2011/06/27/monday-warning-signals-manuscript/">Monday: Warning Signals Manuscript</a></h4>
+      <div class="article-style">
+        Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
+Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
+Analyses  Maximization algorithm failing at initial conditions on deut2
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/19/warning-signals/"></a></h2>
-    <h4>Tue, Oct 19, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/12/sunday-3/">Sun, Jun 12, 2011</a></h4>
+      <h4><a href="../../../../2011/06/12/sunday-3/">Sunday</a></h4>
+      <div class="article-style">
+        SocialR updates: print runtime, handle NULL mentions, and truncate messages to avoid over-length errors.
+ Rmendeley repackage in response to user issue. Updated issues list.
+ _warningsignals: _Separate demo scripts for each data set, running analysis now
+ reversed nboot and cpu values, way to create very annoying error. Back up and running all demo scripts now.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/19/entry-title/">Entry title</a></h2>
-    <h4>Thu, Aug 19, 2010</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/18/warning-signals----still-in-code-development/">Warning Signals -- still in code development</a></h2>
-    <h4>Wed, Aug 18, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/17/warning-signals/">Warning Signals</a></h2>
-    <h4>Tue, Aug 17, 2010</h4>
-    <div class="article-style">
-      
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -258,8 +224,12 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -346,7 +316,13 @@ A visible steady decrease interrupted by a sudden jump. The goal is to distingu
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

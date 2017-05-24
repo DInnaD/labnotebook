@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,140 +134,78 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/03/24/thursday-3/">Thursday</a></h2>
-    <h4>Thu, Mar 24, 2011</h4>
-    <div class="article-style">
-      
-      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
- Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/07/notes/">Mon, May 7, 2012</a></h4>
+      <h4><a href="../../../../2012/05/07/notes/">Data to Knowledge Day 1</a></h4>
+      <div class="article-style">
+        Scaling Time Series Data Mining to trillions of series Eamonn Keogh
+ Similarity search is the fundamental problem for any task This problem is now solved. As effective as possible, as efficient as possible.  What is similarity search? All about required invariances: Looking at ancient manuscripts of fish &ndash; identify multiple drawings of the same species. Invariant to color, scale, and orientation.
+(Note that rotation becomes phase, easy to handle).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/23/wednesday-2/">Wednesday</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/04/notes/">Fri, May 4, 2012</a></h4>
       
-      Still to do on figures:
- Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
- Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
- separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
- bootstrap_indicators should have option of which indicators are included &ndash; DONE
- all_indicators should have option of which indicators are included &ndash; DONE
-      
+      <div class="article-style">
+        Chris Costello Talk Presents unpublished work on value of (behavioral) adaptation, using forestry practices changing under climate change as the example. If we ignore adaptive responses, we overestimate costs and underestimate benefits.
+ Effect w/ adaptation:  $$ \frac{d V}{d \theta} = \frac{\partial f}{\partial r} \frac{\partial r }{\partial \theta} + \frac{\partial f}{\partial \theta} $$
+ Envelope theorem: optimal point is at ( df/dr = 0 ), so no value of adaptation after optimizing with respect to r.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/23/tuesday-figures-figures-figures/">Tuesday: Figures, figures, figures</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
-    <div class="article-style">
-      
-      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/03/notes/">Thu, May 3, 2012</a></h4>
+      <h4><a href="../../../../2012/05/03/notes/">Notes</a></h4>
+      <div class="article-style">
+        Returned proofs for warning signals paper. Wrightscape figures sent to Peter. move fallacy to a branch off of main in earlywaring package? Running knit on the large clusters means images cannot be uploaded as they are created, since compute nodes don&rsquo;t have internet access. Saving files locally, I&rsquo;ve created a little script to parse the output file.md to find the and upload the local images, and swap the local paths for the url paths.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/22/monday-edits-and-organization/">Monday -- Edits and organization</a></h2>
-    <h4>Tue, Mar 22, 2011</h4>
-    <div class="article-style">
-      
-      Skype with Alan: 9-9:4
- Figures as panels
- Write Appendix
- Finish References
- Move into Word
-   Sims  LSN m = -0.049, N =50, T=100
- LSN m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=50
- LTC m = -0.049, N =100, T=200
-  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/21/sunday-manuscript-and-simulations/">Sunday - manuscript and simulations</a></h2>
-    <h4>Mon, Mar 21, 2011</h4>
-    <div class="article-style">
-      
-      Working on manuscript. lot of writing / editing.
-Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
- m = -0.04, N = 50, nboot = 160, (with all moments)
- m = -0.04, N = 50, nboot = 800, (with all moments)
- m = -0.05, N = 50, nboot = 800, (with all moments)
- m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/02/stochastic-policy-costs/">Wed, May 2, 2012</a></h4>
+      <h4><a href="../../../../2012/05/02/stochastic-policy-costs/">Stochastic policy costs</a></h4>
+      <div class="article-style">
+        Updated runs for various norms, added profit plots.
+ L1 L2 asymmetric: differs on the sign of the asymmetry? Penalty only for decreasing quotas. Penalty only for increasing quotas. check implementation. fixed transaction fee &ndash; whoops, fixed cost should still be free when h == h_prev.  We need to determine a the magnitude of penalty coefficient to compare between the different functional forms. For instance, for what value of c is an L2 penalty, $ c ( h_t - h_p )^2 $ comparable to the L1 penalty, $ c \operatorname{abs}(h_t - h_p ) $ ?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/20/writing-warning-signals-mansucript/">Writing: Warning Signals Mansucript</a></h2>
-    <h4>Sun, Mar 20, 2011</h4>
-    <div class="article-style">
-      
-      Summary Paragraph
- Critical transitions exist (Holling, 1973), (May, 1977),(Scheffer et. al. 2001) Warning signals exist (Scheffer et. al. 2009), (Drake &amp; Griffen, 2010) Warning signals are summary statistics, critical slowing down (Wissel, 1984). Statement of general problem: double-edged sword &ndash; no quantification of the chance detection scheme will fail. We provide a way to do this We find existing methods lack sufficient power and have high false-alarm potential We provide a model-based solution using machinery of modern likelihood statistics  Background  Define CSD, standard detection scheme.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/30/sethi/">Mon, Apr 30, 2012</a></h4>
+      <h4><a href="../../../../2012/04/30/sethi/">Additional sources of noise (Sethi 2005)</a></h4>
+      <div class="article-style">
+        Sethi Model  author Carl Boettiger, cboettig@gmail.com license: CC0  Implements a numerical version of the SDP described in (Sethi et. al. 2005).
+Clear the workspace and load package dependencies:
+Define noise parameters
+sigma_g &lt;- 0.1 # Noise in population growth sigma_m &lt;- 0.1 # noise in stock assessment measurement sigma_i &lt;- 0.1 # noise in implementation of the quota  we&rsquo;ll use log normal noise functions. For Reed, only z_g will be random.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/19/warning-signals-examples-and-tracking-graphs/">Warning Signals examples and tracking graphs</a></h2>
-    <h4>Sat, Mar 19, 2011</h4>
-    <div class="article-style">
-      
-      Working on more examples for the notebook. Currently exploring a collection of simulated examples. In particular, would be useful to have simulated examples that look as realistic in data-density as possible (i.e. fewer sample points, also shorter sampling interval relative to timescale, so doesn&rsquo;t look like a fuzzy caterpillar. Second, would be good to include examples on data simulated from non-linearized systems made to represent some richer bifurcation examples. Finally it would be good to include as many real-data examples as reasonable.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/27/ecology-notes/">Fri, Apr 27, 2012</a></h4>
+      <h4><a href="../../../../2012/04/27/ecology-notes/">Project tracking (Ecology)</a></h4>
+      <div class="article-style">
+        pdg-control Has become a variety of different directions:
+Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/17/warning-signals-in-ecological-systems-drake-griffen-data/">Warning Signals in Ecological Systems: Revisions and Drake &amp; Griffen Data</a></h2>
-    <h4>Thu, Mar 17, 2011</h4>
-    <div class="article-style">
-      
-      Manuscript revisions  Heard back from Alan this morning on manuscript, need to cut wordcount in half, from 3000 to 1500 words. Should emphasize the countless and utterly arbitrary choices made in every one of these analyses. Should emphasize our approach can be applied without replicates. (also without interpolating/having evenly sampled data) Should do coefficient of variation on non-detrended data(?) should discuss?  Chemostat data This morning Alan sent me the data used by Drake &amp; Griffen (Drake &amp; Griffen, 2010).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/16/wednesday/">Wednesday</a></h2>
-    <h4>Wed, Mar 16, 2011</h4>
-    <div class="article-style">
-      
-      Updated dependencies of warningsignals package. Removed old dependencies, migrated montecarlotest into package, removing the pmc dependency.
- Updated my webpage teaching statement (lunch break)
- montecarlotest wasn&rsquo;t getting sfLibrary(warningsignals) called in yesterday&rsquo;s runs, so redoing this.
- Writing &ndash; conclusion, finalized organization, sent off to Alan.
-   To Do:  Panel for models. Appendix for model derivations.
- Panel for approach/algorithm. Appendix for algorithm implementation.
- Figure review
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/15/tuesday-2/">Tuesday</a></h2>
-    <h4>Tue, Mar 15, 2011</h4>
-    <div class="article-style">
-      
-      Variance and warning signals Sebastian has several examples of dynamical systems that decrease in variance as they approach a bifurcation. In some sense this is not surprising, both are through the collapse of periodic attractors. Figure 2d in TPB paperSchreiber, 2003 has an example in a discrete system, and Figure 5a in the Ecology Letters paper (Schreiber &amp; Rudolf, 2008) has a continuous-time example. Consider for instance the supercritical Hopf bifurcation, in which a stable limit cycle vanishes into an unstable node, as in a van der Pol oscillator,
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -282,8 +220,12 @@ Edited package and example to include skew and kurtosis bootstrap estimates of t
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -370,7 +312,13 @@ Edited package and example to include skew and kurtosis bootstrap estimates of t
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

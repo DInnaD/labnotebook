@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,124 +133,83 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/05/13/notes/">Mon, May 13, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/29/notes/">Tue, Apr 29, 2014</a></h4>
       
-      Prosecutor&rsquo;s Fallacy comment  Fallacy comment revisions Comment reply letter (draft) ROC curves instead? (examples) Add example of system with an alternative stable state?  Policy costs (pdg-control)  touched up tex document following Paul&rsquo;s edits (mostly reflects comments and decisions from Meeting 3). Reminder of why collaborating on TeX documents can be annoying even when co-authors are tex-literate. Attempted quick conversion to markdown but mapping is troublesome.
-  Misc  Some software providing rather impressive/high fidelity pdf to html conversion&hellip; Not just rendering as images &ndash; the text is searchable, though in the html source it just looks like a bunch of binary data URIs.
-      
+      <div class="article-style">
+        Labnotebook  Configure Github CDN Hmm, jekyll-assets. Not sure that this is preferable from just using the makefile to compile and minify assets seperately as needed. Move www.carlboettiger.info to host from gh-pages branch of labnotebook. This self-contained system is more standard, and it is strange for other gh-pages hosting to be using the same domain/subdomain to reference content that is actually on a gh-pages branch of some totally different repository.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/09/notes/">Thu, May 9, 2013</a></h4>
-    <h4><a href="../../../2013/05/09/notes/">Prep for ERE talk</a></h4>
-    <div class="article-style">
-      
-      Talk prep  Finished preparing slides for Environmental Resources Economics talk  Toying around with animations for final plots. Building up plot by subsetting progressively more of the data each time is a bit of a nuciance (both in coding and efficiency). Can convert replicates to characters and assign as a data.table key for fast join subsetting, but straight-forward subsetting seems best (e.g. once we want reps 1:5 from both &ldquo;True&rdquo; and &ldquo;Ricker&rdquo; models, dt[J(c(&quot;True&quot;, &quot;Ricker&quot;), as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/07/notes/">Tue, May 7, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/24/notebook-design-notes/">Thu, Apr 24, 2014</a></h4>
       
-      Monday  MacKenzie meeting paperwork to Marc paperwork to Karthik Writing  Tuesday Log  Weak thresholds example &ndash; no cost but no profit if stocks are reduced below a certain threshold 09:31 pm 2013/05/07 example using short (20 pts) observation period 02:00 pm 2013/05/07 subset plotting of simulations (for slides potentially) 02:00 pm 2013/05/07 script for the parallel analysis based on policy thresholds 01:59 pm 2013/05/07 short vs long observation time runs 12:54 pm 2013/05/07 online example of replicates comparing all models 12:28 pm 2013/05/07  Misc  latex templates for UCSC AMS dept Gosh sometimes it&rsquo;s nice to be officially in a department that understands tex.
-      
+      <div class="article-style">
+        Reading a little about Flat UI design (1, 2). Basic concept is that users now realize they can click on things without them looking like actual three-dimensional buttons. (Along with links, checkboxes, and forms). Frequently seems to use many different colors on a single page to bring some life back, though this might just make the design look like Windows 8 instead. I&rsquo;ve started noticing this everwhere now that I know what it is.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Fri, May 3, 2013</a></h4>
-    <h4><a href="../../../2013/05/03/notebook-features-hashes-providing-an-immutable-and-verifiable-research-record/">Notebook features: SHA Hashes</a></h4>
-    <div class="article-style">
-      
-      Note: this entry is part of a series of posts which explain some of the technical features of my lab notebook.
-I version manage all changes to my entry using git. Each page is linked to its source history on Github, which will display a list of all previous edits to the post with an easy-to-read commit log and highlighted diffs. A version history is often considered an essential part of an open lab notebook, where changes to the notebook are documented and preserved.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/03/notes/">Fri, May 3, 2013</a></h4>
-    <h4><a href="../../../2013/05/03/notes/">Reading and potential examples for talk to ERE next week</a></h4>
-    <div class="article-style">
-      
-      Parametric Bayesian comparisons  Added parameteric Bayesian version of Ricker to the set of comparisons, see allen.Rmd Adjusted thinning of posterior sample before determining optimum of GP  Reading / Examples Need a nice set of basic fisheries examples involving potential tipping points for ERE talk. hmm.
- As mentioned in Worm et al. (2009) . Algal-reef example from Aronson &amp; Precht (2000) Fish collapse following reef distruction Paddack et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/02/musings-on-conservation-literature/">Thu, May 2, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/23/multiple-uncertainty-notes/">Wed, Apr 23, 2014</a></h4>
       
-      Just because I&rsquo;m a theorist deeply entrenched in methodological concerns about uncertainty and decision making doesn&rsquo;t mean I don&rsquo;t think about practical conservation from time to time. Some musings from my comment here, copied over for my own reference.
-Though I would like to believe the gap stems from the problems you discuss, I think that differing objectives between research and application may play a much larger role. I suspect that scientific papers that are most useful and influential for conservation practitioners and policymakers are those which confirm what they already believe, or whatever the interests opposed to them least want to hear.
-      
+      <div class="article-style">
+        Multiple uncertainty Handling variation in different grids. Cleaned up a bunch of transpose expressions in the code and make sure that dimensions are always properly aligned. Now problem can be solved on arbitrarily different grid discritizations for stock $x$, observed stock $y$, harvest $h$ and quota $q$. See multiple_uncertainty.m and example calls in testing.m
+Taking a look a how we handle normalization when some of the probability density falls outside the discritized space.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/02/scholarly-infrastructure-thoughts/">Thu, May 2, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Sustainable Research Happened across a provocative example of why we need a software ecosystem, though it was certainly not intended to be one, which led me to ask myself:
- How complex does an algorithm have to be before a talented researcher with expertise in both the relevant mathematics and computer science will make a significant mistake in their first release of the software?
- As a corollary we might also ask, &ldquo;How much less care do we put into research code not destined for release?
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/">Wed, May 1, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/18/notes/">Fri, Apr 18, 2014</a></h4>
       
-      (Development version for reference; code functions now in R/gp_mcmc.R)
-Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
-      
+      <div class="article-style">
+        EML I&rsquo;ve added a interface for custom units. You don&rsquo;t have to mess around with additionalMetadata as it should be handled automatically. Just define the unit itself, like this 1:
+create_custom_unit(id = &quot;metersSquaredPerHectare&quot;, parentSI = &quot;dimensionless&quot;, unitType = &quot;dimensionless&quot;, multiplierToSI = &quot;0.0001&quot;, description = &quot;Square meters per hectare&quot;)  and then use the id you give as the unit type in your unit.defs. create_custom_unit updates a custom_units list in the EMLConfig environment, which the eml or write_eml functions detect and use to write in the additional metadata.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/01/integrating-over-posterior-gp/">Wed, May 1, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/17/notes/">Thu, Apr 17, 2014</a></h4>
       
-      Added integration over the posterior distribution of the GP
- Added example of parametric Bayesian inference based on Ricker
-  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
-      
+      <div class="article-style">
+        Units in EML Overview of how units are determined in the EML package:
+library(EML) dat &lt;- data.set(river = factor(c(&quot;SAC&quot;, &quot;SAC&quot;, &quot;AM&quot;)), spp = c(&quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus tshawytscha&quot;, &quot;Oncorhynchus kisutch&quot;), stg = ordered(c(&quot;smolt&quot;, &quot;parr&quot;, &quot;smolt&quot;), levels=c(&quot;parr&quot;, &quot;smolt&quot;)), # levels indicates increasing level, eg. parr &lt; smolt ct = c(293L, 410L, 210L), day = as.Date(c(&quot;2013-09-01&quot;, &quot;2013-09-1&quot;, &quot;2013-09-02&quot;)), stringsAsFactors = FALSE, col.defs = c(&quot;River site used for collection&quot;, &quot;Species scientific name&quot;, &quot;Life Stage&quot;, &quot;count of live fish in traps&quot;, &quot;day traps were sampled (usually in morning thereof)&quot;), unit.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Tue, Apr 30, 2013</a></h4>
-    <h4><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2014/04/11/notes/">Fri, Apr 11, 2014</a></h4>
       
-      Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
-Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
-  Define some example priors
-lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
-      
+      <div class="article-style">
+        labnotebook Updates to configuration to be more portable and lightweight:
+ Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
+      </div>
     </div>
-  </div>
-  
+    
+    </div>
 
   
 <nav>
@@ -265,9 +224,10 @@ lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- u
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -356,7 +316,13 @@ lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- u
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

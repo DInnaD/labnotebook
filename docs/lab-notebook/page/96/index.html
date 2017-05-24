@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,117 +133,87 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/02/08/exploring-difficulties-with-existing-methods-continued/">Mon, Feb 8, 2010</a></h4>
-    <h4><a href="../../../2010/02/08/exploring-difficulties-with-existing-methods-continued/">Exploring Difficulties with Existing Methods continued</a></h4>
-    <div class="article-style">
-      
-      Working on manuscript for this today, hope to have a draft soon.
- Just added a basic example using a star-burst tree to illustrate the challenges associated with this kind of model choice inference.
- Sent draft to Brian and Peter, and Wainwright lab.
- Still needs a figure explaining the BM, OU(1) and OU(LP) models for those not familiar with Butler and King 2004 paper, general polishing.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/08/updates-to-code/">Mon, Feb 8, 2010</a></h4>
-    <h4><a href="../../../2010/02/08/updates-to-code/">Updates to Code</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/07/exploring-difficulties-with-existing-methods/">Sun, Feb 7, 2010</a></h4>
-    <h4><a href="../../../2010/02/07/exploring-difficulties-with-existing-methods/">Exploring Difficulties with Existing Methods</a></h4>
-    <div class="article-style">
-      
-      Model choice plays an increasingly dominant role in comparative phylogenetics. The software OUCH of Butler and King (2004) is built around the model comparison framework and returns a variety of information criteria for choosing between different models fitted to the tree.
- I&rsquo;ve written a short R script to explore how robust these inferences are, and the results are rather surprising. None of the inferences holds up to the classical P value standard of 95% probability of being right, and the inference can be wrong more often than it is right &ndash; a coin flip out-performs the model choice method based on these information criteria in certain cases.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/05/lunch-with-wainwright-lab/">Fri, Feb 5, 2010</a></h4>
-    <h4><a href="../../../2010/02/05/lunch-with-wainwright-lab/">Lunch with Wainwright Lab</a></h4>
-    <div class="article-style">
-      
-      Friday lunch with Wainwright lab continues to be a very useful chance to bounce ideas off of lab members with an excellent grasp of both the models involved and the real biology, morphology and evolution in question. Today&rsquo;s discussion hit several topics.
- Should regime transitions be restricted to nodes? The general consensus was No. On one hand, the position of nodes may contain information about the timing of an actual environmental change responsible for a regime shift.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/04/teaching/">Thu, Feb 4, 2010</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      Early Warning Signals to Regime Shifts Seminar  I was just responsible for covering a relatively technical paper on the idea of detecting early warning signals to regime shifts. This is a class of about 10 people. First half we took turns on the board, relying entirely on graphical analysis, and going from a birth death model through stability analysis to illustrate bi-stability to the bifurcation diagram and the energy landscape representation.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Wed, Jul 6, 2011</a></h4>
+      <h4><a href="../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Exact Simulation by the Gillespie Algorithm</a></h4>
+      <div class="article-style">
+        The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
+where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/03/hastings-meeting/">Wed, Feb 3, 2010</a></h4>
-    <h4><a href="../../../2010/02/03/hastings-meeting/">Hastings Meeting</a></h4>
-    <div class="article-style">
-      
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/02/02/the-lab-notebook-goes-open-/">Tue, Feb 2, 2010</a></h4>
-    <h4><a href="../../../2010/02/02/the-lab-notebook-goes-open-/">The Lab Notebook Goes Open</a></h4>
-    <div class="article-style">
-      
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/01/25/teaching/">Mon, Jan 25, 2010</a></h4>
     
-    <div class="article-style">
-      
-      Clash of Old and New Today was my day to facilitate for a graduate student discussion seminar. The seminar is well attended by quite a handful of faculty and post-docs, some thirty people. The discussion is almost always dominated by a few faculty, which is a great source of information but offers little opportunity for students to ask questions or wrestle with ideas themselves. To get at this, I tried breaking the class into small groups for the first half and passing out different sets of discussion questions.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/06/wednesday-6/">Wed, Jul 6, 2011</a></h4>
+      <h4><a href="../../../2011/07/06/wednesday-6/">Wednesday: Data wrangling into graphs</a></h4>
+      <div class="article-style">
+        Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
+running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/01/18/progresschallenges/">Mon, Jan 18, 2010</a></h4>
     
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/05/tuesday-6/">Tue, Jul 5, 2011</a></h4>
+      <h4><a href="../../../2011/07/05/tuesday-6/">Tuesday: Warning Signals Data Wrangling</a></h4>
+      <div class="article-style">
+        Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
+ wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/01/10/cpb-thesis-proposal/">Sun, Jan 10, 2010</a></h4>
-    <h4><a href="../../../2010/01/10/cpb-thesis-proposal/">CPB thesis proposal</a></h4>
-    <div class="article-style">
-      
-      In the spirit of archiving work in the lab notebook, this was my PhD dissertation proposal, a requirement to advance to candidacy submitted before our oral defense in the second or third year. Following some excellent advice, this is focused more narrowly than my actual dissertation. As a historical note, I started keeping an open lab notebook the month following this, on OpenWetWare (so work leading up to this isn&rsquo;t archived, though admittedly first two years were largely coursework).
-      
+    
     </div>
-  </div>
-  
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/04/open-f1000-reviews/">Mon, Jul 4, 2011</a></h4>
+      <h4><a href="../../../2011/07/04/open-f1000-reviews/">Open F1000 reviews?</a></h4>
+      <div class="article-style">
+        Sebastian has started posting article reviews on his website, and invites us (Teary - our theoretical ecology tea mailing list) to do likewise. He uses a rather nifty Jabref converter to display the reviews created as bibtex entries, using the format indicated below.
+These reviews are cross-posted from the reviews he (and associates) submit to Faculty of 1000, a commercial, subscription-based service. While this gives F1000 some publicity directly from his own site, it also means individuals can access these reviews freely.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/04/warning-signals-writing-organization-appendices/">Mon, Jul 4, 2011</a></h4>
+      <h4><a href="../../../2011/07/04/warning-signals-writing-organization-appendices/">Warning Signals writing, organization, appendices</a></h4>
+      <div class="article-style">
+        main text Summary Sentence. Abstract
+Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/07/01/friday-warning-signals-writing-etc/">Fri, Jul 1, 2011</a></h4>
+      <h4><a href="../../../2011/07/01/friday-warning-signals-writing-etc/">Friday, warning signals writing, etc</a></h4>
+      <div class="article-style">
+        9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
+   launched ibm_analysis.R on zero, n10.
+ Writing writing&hellip; first full text draft done.
+  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -258,9 +228,10 @@
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -349,7 +320,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

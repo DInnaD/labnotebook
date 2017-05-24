@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,133 +133,87 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/09/12/pretty-darn-good-control-working-group/">Mon, Sep 12, 2011</a></h4>
-    <h4><a href="../../../2011/09/12/pretty-darn-good-control-working-group/">Pretty Darn Good Control Working Group</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/04/tgp-mcmc-for-gaussian-processes/">Tue, Dec 4, 2012</a></h4>
       
-      Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
-Training problem 0: Optimal Control Jim
-maximize present discounted value:
-$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
-      
+      <div class="article-style">
+        Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
+Example call:
+gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
+n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/10/likelihood-expressions-for-branching-processes/">Sat, Sep 10, 2011</a></h4>
-    <h4><a href="../../../2011/09/10/likelihood-expressions-for-branching-processes/">Likelihood expressions for branching processes</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/03/figures-3-and-4-for-policycosts/">Mon, Dec 3, 2012</a></h4>
       
-      Lineage-through-time approach Nee, then Paradis (Paradis, 2003) introduces unresolved tips
-Distribution of branch-lengths approach Note that in any Markov branching process, only node depth, not topology, influence the likelihood.
-See also:  Notes on bootstrapping in laser
- Earlier Notes on distribution derivation from Kendall 1948
- My derivation of the analytic probability of N individuals in pure birth (from van Kampen approximation)
-  (manual list)
-Refs Kendall, D.
-      
+      <div class="article-style">
+        Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
+Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/09/how-google-views-me-by-search-terms-or-citation-counts/">Fri, Sep 9, 2011</a></h4>
-    <h4><a href="../../../2011/09/09/how-google-views-me-by-search-terms-or-citation-counts/">How google views me: by search terms or citation counts?</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/30/note-on-notebook-figures/">Fri, Nov 30, 2012</a></h4>
       
-      How Google search views me: here&rsquo;s a word cloud of search terms reaching my site in August. Word cloud produced with R: click-through for link to source-code. Uses the rather convenient tm package for text-mining functions in R. Note that this shows the frequency of individual words used in searches, rather than the whole search term.
-Code:
-require&trade; require(wordcloud) require(RColorBrewer) carl &lt;- read.csv(&quot;searchterms.csv&quot;, colClasses=c(&quot;character&quot;, &quot;numeric&quot;)) words &lt;- character(sum(carl[[2]])) m &lt;- 1 for(i in 1:length(carl[[1]])){ n &lt;- carl[[2]][i] x &lt;- carl[[1]][i] words[m:(m+(n-1))] &lt;- rep(x, n) m &lt;- m+n } carl &lt;- Corpus(DataframeSource(carl)) carl &lt;- tm_map(carl, removePunctuation) carl &lt;- tm_map(carl, tolower) carl.
-      
+      <div class="article-style">
+        plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
+opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
+The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/08/discriminating-early-bursts/">Thu, Sep 8, 2011</a></h4>
-    <h4><a href="../../../2011/09/08/discriminating-early-bursts/">discriminating early bursts</a></h4>
-    <div class="article-style">
-      
-      Looking at cases when early burst can be discriminated from OU, a la Harmon et al 2010 (Harmon et. al. 2010). Fixed models can be told apart. Rather trivially, none of these models can be told apart if initially estimated from Brownian data. Rather encouraging: models estimated from common data can be told apart. 600 taxa tree
-Still works on 60 taxa, identifying OU correctly when sim under OU (left), and EB for EB data (right):
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/07/memory-management-cron/">Wed, Sep 7, 2011</a></h4>
-    <h4><a href="../../../2011/09/07/memory-management-cron/">memory management, cron</a></h4>
-    <div class="article-style">
-      
-      Create the memcheck.sh script that will write a mem.log file with the data, and agnuplot script that will plot it.
-[gist id=1201994]
-Then set up a cron job. First, set the editor to something functional:
-export EDITOR=vi  then, crontab -e to edit the cron table. Add this line to run the command every 2 minutes (see wikipedia entry for quick intro), and plot it every 15 minutes:
-*/2 * * * * /home/cboettig/.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/28/nonparametric-bayes-work/">Wed, Nov 28, 2012</a></h4>
+      <h4><a href="../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h4>
+      <div class="article-style">
+        Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
+Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/07/wednesday-8/">Wed, Sep 7, 2011</a></h4>
-    <h4><a href="../../../2011/09/07/wednesday-8/">Wednesday</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/27/policy-costs-work/">Tue, Nov 27, 2012</a></h4>
       
-      Alan Meeting Next steps directions
- economics of uncertainty in early warning
- simulated data approach - insect pest dynamics.
- cod data set. fisheries depensation
-  Send Alan: Slides, CV (for post doc apps)
-Discussed some relevant literature, mostly for the warning signals in fisheries questions: (Colchero &amp; Clark, 2012), (Hutchings, 2000), HUTCHINGS &amp; REYNOLDS, 2004, (Minckley et. al. 2012), (Myers et. al. 1995), (Schröder et. al. 2012)
-      
+      <div class="article-style">
+        Scripts to estimate apples to apples comparisons for different penalty functions and plot instances of the resulting policy. Example run with fixed linear costs on effort.
+ Double the actual variance leads to terminal overfishing 11:16 am 2012/11/28 use fixed seed. 09:45 am 2012/11/28 Compare GP to Reed optimum for BH (successful run this time) 09:37 am 2012/11/28 basic GP example in BH system, compared to Reed Optimum 09:17 am 2012/11/28  Content of current working example, run on server zero.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/02/rfishbase-demo/">Fri, Sep 2, 2011</a></h4>
-    <h4><a href="../../../2011/09/02/rfishbase-demo/">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/11/23/citing-lab-notebook-entries/">Fri, Nov 23, 2012</a></h4>
       
-      I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
-For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
-      
+      <div class="article-style">
+        C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/01/thursday-reading/">Thu, Sep 1, 2011</a></h4>
-    <h4><a href="../../../2011/09/01/thursday-reading/">Thursday Reading</a></h4>
-    <div class="article-style">
-      
-      Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/31/wednesday-7/">Wed, Aug 31, 2011</a></h4>
-    <h4><a href="../../../2011/08/31/wednesday-7/">Wednesday</a></h4>
-    <div class="article-style">
-      
-      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
- Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/08/30/tuesday-8/">Tue, Aug 30, 2011</a></h4>
-    <h4><a href="../../../2011/08/30/tuesday-8/">Tuesday</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -274,9 +228,10 @@ For instance, here&rsquo;s a quick demo based on a question from Peter Wainwrigh
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -365,7 +320,13 @@ For instance, here&rsquo;s a quick demo based on a question from Peter Wainwrigh
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

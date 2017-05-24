@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,111 +134,81 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/11/08/monday-and-some-phylogenetics/">Monday and some phylogenetics</a></h2>
-    <h4>Mon, Nov 8, 2010</h4>
-    <div class="article-style">
-      
-      Working on paper revisions. Added a separate demo file just for generating the figures and analysis used in the manuscript, called likelihood_manuscript.R Need to clean and reorganize the package files and demos.
-Added full species names and islands to the tip labels of the tree. Adjusting which example paintings/regimes to include, currently focusing on the original OU.LP model (now calling it OU.3 following Brian&rsquo;s recommendation for simplicity), OU.4, (originally OU.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/10/interfaces-for-databases-treebase-dryad-dataone/">Tue, May 10, 2011</a></h4>
+      <h4><a href="../../../../2011/05/10/interfaces-for-databases-treebase-dryad-dataone/">Interfaces for databases: TreeBASE, Dryad, DataONE</a></h4>
+      <div class="article-style">
+        Next Steps Treebase  (See Sunday&rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
+ RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
+ Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/05/friday-evolution-reading-writing/">Friday: Evolution reading, writing</a></h2>
-    <h4>Fri, Nov 5, 2010</h4>
-    <div class="article-style">
-      
-      Read through the article for Monday&rsquo;s PBG270, a 2009 Nature paper from the Plotkin lab on mutational robustness and the rate of evolution. They consider an interesting little setup. Start with a Moran model (individual born, may mutate, choses who to replace at random), but allow the following mutational structure (landscape). Of P possible genotypes, each can only move to one of K neighbors by a single mutation. Call the genotype(s) of optimal fitness C.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/09/monday-4/">Mon, May 9, 2011</a></h4>
+      <h4><a href="../../../../2011/05/09/monday-4/">Monday: meetings, notebook</a></h4>
+      <div class="article-style">
+        Coop &amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
+Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
+$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
+$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
+Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/30/short-note-trait-diversification-rates-controlled-by-other-traits/">Short note: Trait diversification rates controlled by other traits</a></h2>
-    <h4>Sat, Oct 30, 2010</h4>
-    <div class="article-style">
-      
-      Peter posed an interesting question to me this afternoon: can we infer a model in which the rate of evolution in one trait (say, its Brownian diversification rate parameter) depends on the value of another trait (say, linearly and assume the other trait depends on Brownian motion). Without all those assumptions we write this generally as:
-$$ dX_t = f_x(X_t, Y_t) dt + \sigma_x(X_t, Y_t) d W_t $$ $$ dY_t = f_y(Y_t) dt + \sigma_y(Y_t) d W_t $$ (subscripts do not imply derivatives in my notation)
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/08/sunday-a-few-treebase-r-package-updates/">Sun, May 8, 2011</a></h4>
+      <h4><a href="../../../../2011/05/08/sunday-a-few-treebase-r-package-updates/">Sunday: a few Treebase R package updates</a></h4>
+      <div class="article-style">
+        Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/15/status-update/">Status update</a></h2>
-    <h4>Fri, Oct 15, 2010</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/14/writing-continues/">Writing continues</a></h2>
-    <h4>Thu, Oct 14, 2010</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/13/wednesday/">Wednesday</a></h2>
-    <h4>Wed, Oct 13, 2010</h4>
-    <div class="article-style">
-      
-      Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/12/a-day-of-writing/">a day of writing</a></h2>
-    <h4>Tue, Oct 12, 2010</h4>
-    <div class="article-style">
-      
-      Figuring out the best way to present the critique of AIC, introduction to the method, introduction to the power test. Seeking inspiration from Huelsenbeck 1996 and digging farther back into the literature:</p>
 
-<p>Cox, D.R. Further results on tests of separate families of hypotheses. Journal of the Royal Stastical Society 24, 406-424(1962). Cox, D.R. Tests of Seperate Families of Hypotheses. Proceedings of the 4th Berkeley Symposium, University of California Press 105 - 123(1961).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/05/thursday-parrotfish-analysis/">Thu, May 5, 2011</a></h4>
+      <h4><a href="../../../../2011/05/05/thursday-parrotfish-analysis/">Thursday: parrotfish analysis</a></h4>
+      <div class="article-style">
+        Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
+Tree: alpha is favored in all the ratio traits, sometimes substantially.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/11/still-writing/">Still writing</a></h2>
-    <h4>Mon, Oct 11, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/04/weds-parrotfish-data-set-analysis/">Wed, May 4, 2011</a></h4>
+      <h4><a href="../../../../2011/05/04/weds-parrotfish-data-set-analysis/">Weds: Parrotfish data set analysis</a></h4>
+      <div class="article-style">
+        Parrotfish  Need better convergence error handling.
+ Need to remedy: &ldquo;Function cannot be evaluated at initial parameters&rdquo; errors &ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
+ Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/05/lr-manuscript/">LR Manuscript</a></h2>
-    <h4>Tue, Oct 5, 2010</h4>
-    <div class="article-style">
-      
-      Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/03/tuesday-phylogenetics-wrightscape-coding/">Tue, May 3, 2011</a></h4>
+      <h4><a href="../../../../2011/05/03/tuesday-phylogenetics-wrightscape-coding/">Tuesday: phylogenetics- wrightscape coding</a></h4>
+      <div class="article-style">
+        Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
+[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-05-03 00:00:00&rdquo; max_upload_date=&ldquo;2011-05-03 23:59:59&rdquo;]
+See code: loop_models_traits_regimes.R
+Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/10/04/monday/">Monday</a></h2>
-    <h4>Mon, Oct 4, 2010</h4>
-    <div class="article-style">
-      
-      7:30 &ndash; 8:30 Read ﻿article for Wainwright&rsquo;s 270:  Streisfeld, M.a. &amp; Rausher, M.D. Population Genetics, Pleiotropy, and the Preferential Fixation of Mutations During Adaptive Evolution. Evolution no-no(2010).doi:10.1111/j.1558-5646.2010.01128.x
-Interesting approach, methods description a little light and both prediction and interpretation of pattern of mutations in coding, cis-reg, and transcription factor sites seems a little loose. Detailed notes on article in Mendeley. More comments after the discussion section at 1pm today.
-      
+    
     </div>
-  </div>
-  
 
   
 <nav>
@@ -253,8 +223,12 @@ Interesting approach, methods description a little light and both prediction and
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -341,7 +315,13 @@ Interesting approach, methods description a little light and both prediction and
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

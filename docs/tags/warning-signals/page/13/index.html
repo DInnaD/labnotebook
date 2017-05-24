@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,143 +134,84 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/03/29/tuesday-simulations-appendix/">Tuesday, simulations &amp; appendix</a></h2>
-    <h4>Tue, Mar 29, 2011</h4>
-    <div class="article-style">
-      
-      Today mostly working over code sets for examples in appendix, and increasing replicates. Somehow more trouble than it should be, see commit history for today.
-ibm_sim.R &ndash; simulate from individual-based dynamics containing a saddle-node bifurcation (fully hysteresis model).
-ibm_analysis.R &ndash; run figure1, 2, 3 analysis (correlation test, bootstrap of test, likelihood test) on each data.
-ibm_likelihood.R &ndash; shouldn&rsquo;t be needed, all code is in deut_examples.R. Running now due to earlier parallel instance errors during montecarlotest.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/12/pretty-darn-good-control-working-group/">Mon, Sep 12, 2011</a></h4>
+      <h4><a href="../../../../2011/09/12/pretty-darn-good-control-working-group/">Pretty Darn Good Control Working Group</a></h4>
+      <div class="article-style">
+        Monday, August 12 8:00 Coffee &amp; Breakfast at NIMBioS 8:45 Welcome to NIMBioS (Lou Gross, Director of NIMBioS) 9:00 Intro to the pdg-control Working Group (Paul Armsworth) 9:30 Introductions by each Working Group Participant 5-minute self-introduction to the group, including your background, expertise, and current work 10:30 Break 11:00 Introduction to Training Problem 1 &amp; Discussion (Jim Sanchirico)
+Training problem 0: Optimal Control Jim
+maximize present discounted value:
+$$\max_{h_t} \int_0^T e^{-rt} \Pi(h_t) dt $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/29/monday-appendices-continue/">Monday, appendices continue...</a></h2>
-    <h4>Tue, Mar 29, 2011</h4>
-    <div class="article-style">
-      
-      Finished writing up section on correlations (time averages vs ensembles) and the following section on error types. (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:
- Must figure out what data examples are going into the supplement. Most should be reasonably straight-forward to set up, may take a while to run.
- Have to figure out what to say about likelihood-based statistical method beyond definition of Cox&rsquo;s delta,
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/07/wednesday-8/">Wed, Sep 7, 2011</a></h4>
+      <h4><a href="../../../../2011/09/07/wednesday-8/">Wednesday</a></h4>
+      <div class="article-style">
+        Alan Meeting Next steps directions
+ economics of uncertainty in early warning
+ simulated data approach - insect pest dynamics.
+ cod data set. fisheries depensation
+  Send Alan: Slides, CV (for post doc apps)
+Discussed some relevant literature, mostly for the warning signals in fisheries questions: (Colchero &amp; Clark, 2012), (Hutchings, 2000), HUTCHINGS &amp; REYNOLDS, 2004, (Minckley et. al. 2012), (Myers et. al. 1995), (Schröder et. al. 2012)
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/27/sunday-edits-and-appendices/">Sunday -- edits and appendices</a></h2>
-    <h4>Sun, Mar 27, 2011</h4>
-    <div class="article-style">
-      
-      Read over Scheffer&rsquo;s rather nice introduction(Scheffer, 2010) to the Drake paper(Drake &amp; Griffen, 2010). Last paragraph is particularly pertinenant:
- Clearly, we have just scratched the surface in exploring the possibilities and limitations of this emerging field. However, the prospect of identifying generic indicators is exciting, as the approach may provide an independent way to assess the risk of critical transitions. Expansion of our toolbox for prediction is especially welcome given the almost insurmountable problem of modelling complex systems in a quantitatively accurate way.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/01/thursday-reading/">Thu, Sep 1, 2011</a></h4>
+      <h4><a href="../../../../2011/09/01/thursday-reading/">Thursday Reading</a></h4>
+      <div class="article-style">
+        Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/26/saturday-appendices/">Saturday-- Appendices</a></h2>
-    <h4>Sat, Mar 26, 2011</h4>
-    <div class="article-style">
-      
-      Appendices Working on Appendices
-Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
-Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/25/friday-3/">Friday</a></h2>
-    <h4>Fri, Mar 25, 2011</h4>
-    <div class="article-style">
-      
-      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
- Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
- Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/31/wednesday-7/">Wed, Aug 31, 2011</a></h4>
+      <h4><a href="../../../../2011/08/31/wednesday-7/">Wednesday</a></h4>
+      <div class="article-style">
+        Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/24/thursday-3/">Thursday</a></h2>
-    <h4>Thu, Mar 24, 2011</h4>
-    <div class="article-style">
-      
-      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
- Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/30/tuesday-8/">Tue, Aug 30, 2011</a></h4>
+      <h4><a href="../../../../2011/08/30/tuesday-8/">Tuesday</a></h4>
+      <div class="article-style">
+        Completed review for Methods.
+ First read-through of review/resubmission for THEE.
+ Working on Evolution manuscript
+ Wrightscape: root should have the option of being fixed at phylogenetic mean for all models. Do root estimates occur far from this currently?
+ Check graph color schemes, seem inconsistent.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/23/wednesday-2/">Wednesday</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
-    <div class="article-style">
-      
-      Still to do on figures:
- Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
- Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
- separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
- bootstrap_indicators should have option of which indicators are included &ndash; DONE
- all_indicators should have option of which indicators are included &ndash; DONE
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/09/esa-tuesday/">Tue, Aug 9, 2011</a></h4>
+      <h4><a href="../../../../2011/08/09/esa-tuesday/">ESA Tuesday</a></h4>
+      <div class="article-style">
+        Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
+twitter-log    cboettig Great Eco Let mixer. Kudos to Marcel &amp; crew for increasing citation rates w/o decreasing acceptance. Now how bout data sharing reqs? #esa11
+   cboettig RT @IceAgeEcologist: #ESA11 Marten Scheffer gets Honorary Member Award (max 20 living awardees); Don Strong ge… (cont) <a href="http://deck">http://deck</a>.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/23/tuesday-figures-figures-figures/">Tuesday: Figures, figures, figures</a></h2>
-    <h4>Wed, Mar 23, 2011</h4>
-    <div class="article-style">
-      
-      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/22/monday-edits-and-organization/">Monday -- Edits and organization</a></h2>
-    <h4>Tue, Mar 22, 2011</h4>
-    <div class="article-style">
-      
-      Skype with Alan: 9-9:4
- Figures as panels
- Write Appendix
- Finish References
- Move into Word
-   Sims  LSN m = -0.049, N =50, T=100
- LSN m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=100
- LTC m = -0.049, N =100, T=50
- LTC m = -0.049, N =100, T=200
-  Autocorrelation [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;stochpop, acor&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-03-21 10:00:00&rdquo; max_upload_date=&ldquo;2011-03-22 10:00:00&rdquo;]
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/21/sunday-manuscript-and-simulations/">Sunday - manuscript and simulations</a></h2>
-    <h4>Mon, Mar 21, 2011</h4>
-    <div class="article-style">
-      
-      Working on manuscript. lot of writing / editing.
-Edited package and example to include skew and kurtosis bootstrap estimates of tau. Currently testing.
- m = -0.04, N = 50, nboot = 160, (with all moments)
- m = -0.04, N = 50, nboot = 800, (with all moments)
- m = -0.05, N = 50, nboot = 800, (with all moments)
- m = -0.02, N = 500, nboot = 800 (without skew/kurtosis yet)
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -285,8 +226,12 @@ Edited package and example to include skew and kurtosis bootstrap estimates of t
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -373,7 +318,13 @@ Edited package and example to include skew and kurtosis bootstrap estimates of t
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

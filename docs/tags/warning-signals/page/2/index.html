@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,117 +134,81 @@
 
 
 
+
   <h1>Warning Signals</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/04/16/notes/">a few notes on various projects</a></h2>
-    <h4>Tue, Apr 16, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/20/notes/">Mon, May 20, 2013</a></h4>
       
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
+      <div class="article-style">
+        EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
+ Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/05/16/notes/">Thu, May 16, 2013</a></h4>
+      
+      <div class="article-style">
+        Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/18/notes/">Thu, Apr 18, 2013</a></h4>
+      
+      <div class="article-style">
+        Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
+ pmc functions
+  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/17/notes/">Wed, Apr 17, 2013</a></h4>
+      
+      <div class="article-style">
+        warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/16/notes/">Tue, Apr 16, 2013</a></h4>
+      <h4><a href="../../../../2013/04/16/notes/">a few notes on various projects</a></h4>
+      <div class="article-style">
+        warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
   phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/15/notes/"></a></h2>
-    <h4>Mon, Apr 15, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/15/notes/">Mon, Apr 15, 2013</a></h4>
       
+      <div class="article-style">
+        class=&ldquo;task-list&rdquo; TE revisions [x] PRSB reply
+ [x] Finish bayes parametric example
+ [x] Ideas in Ecology &amp; Evolution Review
+ [x] Finish recent posts for this week
+ [x] Finish tutorial post for Vasilis
+ [x] Move the Bayesian parametric example into project repo
+ [x] Update CV for Susan for processing appt (see list)
+ [x] Alistair review
+ [ ] PMC update
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/"></a></h2>
-    <h4>Thu, Apr 11, 2013</h4>
-    <div class="article-style">
-      
-      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h2>
-    <h4>Thu, Apr 11, 2013</h4>
-    <div class="article-style">
-      
-      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
- Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/05/a-clever-derivation-on-realized-escape-times/"></a></h2>
-    <h4>Fri, Apr 5, 2013</h4>
-    <div class="article-style">
-      
-      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/22/research/"></a></h2>
-    <h4>Fri, Mar 22, 2013</h4>
-    <div class="article-style">
-      
-      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
-function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/19/collected-notes/">Collected notes from past few days</a></h2>
-    <h4>Tue, Mar 19, 2013</h4>
-    <div class="article-style">
-      
-      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
- ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/08/notes-from-the-week/"></a></h2>
-    <h4>Fri, Mar 8, 2013</h4>
-    <div class="article-style">
-      
-      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
-Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/01/12/tipping-points-comment-in-nature/"></a></h2>
-    <h4>Sat, Jan 12, 2013</h4>
-    <div class="article-style">
-      
-      On Wednesday my comment piece with Alan, Tipping points: from patterns to predictions appeared in Nature (next to a nice comment by Heather Piwowar on NSF&rsquo;s move to recognizing products of research more broadly than publications alone).
-Heather has written an excellent post on the process of writing, which rings true with my own experience. Working with an editor with clear expertise in science writing and communication who was otherwise unfamiliar with the details of this field was an immensely rewarding experience, and her contributions really ought to be recognized more clearly.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/12/21/progress-summary/"></a></h2>
-    <h4>Fri, Dec 21, 2012</h4>
-    <div class="article-style">
-      
-      Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
-I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -259,8 +223,12 @@ I then developed an algorithm for applying the Gaussian process inference of the
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -347,7 +315,13 @@ I then developed an algorithm for applying the Gaussian process inference of the
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

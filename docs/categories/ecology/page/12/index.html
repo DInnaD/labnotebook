@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,79 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/03/26/research/"></a></h2>
-    <h4>Tue, Mar 26, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/06/mbi-day-three/">Wed, Nov 6, 2013</a></h4>
       
-      nonparametric-bayes writing writing &hellip;
-multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
- multiple-uncertainty.m example  Compare to
- R algorithm example  Matlab code shows the same pattern in which growth noise results in constant escapement, but either implementation or measurement noise cause deviations from this rule (most dramatic in the case of implementation uncertainty).
-Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline intro #78.
-      
+      <div class="article-style">
+        MBI Workshop Becky Epanchin-Niell  Motivating example of Rabies spatial control in Switzerland
+ 2012 Eco Let: should New Zealand survey for bark beetle? Cost of survellience, control, and damage. Epanchin-Niell et al. (2012)
+ 2012 JEEM spatial spread of star thistle: control spread and eradication as an integer programming problem in deterministic context. (with Wilen) Epanchin-Niell &amp; Wilen (2012)
+ Breaking landscape into individual landowners makes it less valuable to control early.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/25/research/"></a></h2>
-    <h4>Mon, Mar 25, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/05/mbi-day-two/">Tue, Nov 5, 2013</a></h4>
       
-      Reading  (Schreiber &amp; Killingback, 2013 ) (Warren, 2013 )  Notebook  Added SHA hashes. See notebook Issues #67 for details. modification date. #74, also involved resolving page path robustly, #73 analytics on history button, layout #72 push dreamhost-based images to flickr See #75  prosecutor Run with OU based data. Draw from sde package.
-Packages Knitcitations  Feature request for additional markup for page ranges #32  rfigshare  Handle pull request for rfigshare  code-tricks: notes on merging select files from pull request Pull request included changes to files we don&rsquo;t want to change.
-      
+      <div class="article-style">
+        MBI Workshop Paul Armsworth Very nice example of control in creating a market for ecosystem services for landowners. Key feature is that multiple land-owners respond by adjusting their prices, and so payments can be divided into fraction going into subsidy and fraction going into conservation. When one land-owner controls land that is particularly good cost per conservation accomplished, they also stand to gain largest value.
+Also looked at auction mechanism and impact of cooperation among landowners to create hold outs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/22/research/"></a></h2>
-    <h4>Fri, Mar 22, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/04/mbi-notes/">Mon, Nov 4, 2013</a></h4>
       
-      multiple-uncertainty  Fixed issues with translation to matlab and applyfun. Element-wise calls can use meshgrid arguments directly, and one can force functions to use element-wise operations with bxfun. So the following are equivalent: :  [X, Y] = meshgrid(x,y) applyfun(@min, X, Y)  or
-function out = element_min(x,y) bxfun(@min, x, y) element_min(X, Y)  Meanwhile my challenge with additional arguments to applyfun can be circumvented with an inline function,
-      
+      <div class="article-style">
+        SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
+ NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
+ language barriers: What&rsquo;s a model?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/20/research/"></a></h2>
-    <h4>Wed, Mar 20, 2013</h4>
-    <div class="article-style">
-      
-      pomp Exploring pomp for examples tomorrow. See pomp-example
- To access help on S4 methods  print method source code: getMethod(&quot;simulate&quot;, &quot;pomp&quot;) access help file on available methods: method?show(&quot;pomp&quot;)  pomp simulate method returns object of class pomp with data in object@data, unless user sets either/both of obs=TRUE and state=TRUE to return the observed and true state data (in list objects). Seems to be the only way to get the true state data out of the simulate routine (other than shortcutting the observation method rmeasure).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/19/prosecutor-fallacy-as-large-deviations/"></a></h2>
-    <h4>Tue, Mar 19, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/10/10/notes/">Thu, Oct 10, 2013</a></h4>
       
-      (Corresponds to commit 4bd8422107 in earlywarning repo)
-For the individual-based simulation, the population dynamics are given by
-$$\begin{align} \frac{dP(n,t)}{dt} &amp;= b{n-1} P(n-1,t) + d{n+1}P(n+1,t) - (b_n+d_n) P(n,t), b_n &amp;= \frac{e K n^2}{n^2 + h^2}, d_n &amp;= e n + a, \end{align}$$
-which is provided by the saddle_node_ibm model in populationdynamics.
-For each of the warning signal statistics in question, we need to generate the distibution over all replicates and then over replicates which have been selected conditional on having experienced a crash.
-      
+      <div class="article-style">
+        Authenticating via DataOne API Matt Jones provides a nice dataone package to handle accessing and posting data to DataOne nodes such as the KNB from R. Uploading files through the API requires authentication, which in turn requires a certificate from CILogin. As this process proved a bit tricky to me, I add some documentation here. I am using a Ubuntu (13.04) system, so the procedure might differ slightly for other systems.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/19/collected-notes/">Collected notes from past few days</a></h2>
-    <h4>Tue, Mar 19, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/10/09/notes/">Wed, Oct 9, 2013</a></h4>
       
-      Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
- ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
-      
+      <div class="article-style">
+        ugh, most journals don&rsquo;t seem to hold to their own data publication policies.
+PNAS theoretically endorses UPSIDE, r citet(&quot;10.1073/pnas.0400437101&quot;) principles from the National Academy of Science:
+ Principle 1. Authors should include in their publications the data, algorithms, or other information that is central or integral to the publication—that is, whatever is necessary to support the major claims of the paper and would enable one skilled in the art to verify or replicate the claims.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/14/notes/"></a></h2>
-    <h4>Thu, Mar 14, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/10/08/notes/">Tue, Oct 8, 2013</a></h4>
       
-      Writing  Meeting with Steve over outline Writing on nonparametric-bayes manuscript A few notes on notebook-features draft  Reading  EasyABC by Jabot et. al. (2013). While it&rsquo;s great that MEE publishes this stuff, this is unique in that the authors are updating and improving upon an existing package published by MEE the year before, Brook et. al. (2013). The authors of the recent manuscript have certainly made an important contribution which deserves the traditional recognition provided by a separate publication, but one must wonder why we need another package instead of building on the existing one.
-      
+      <div class="article-style">
+        Fisheries data from Glaser et al. (2013) available at IchthyoDB Larvae and egg counts. About 4 GB, initialized in calcofi repo (local only).
+Reading early warning with &ldquo;Quickest Detection&rdquo; algorithm described in Carpenter et al. (2013) and used by Batt et al. (2013), which includes a rather friendly explanation in the appendix (SI).
+Uses a likelihood based method along with rather simple models of the probability of being in each state, and interestingly relies on the presence of a control system that has already experienced the transition.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/13/notes/"></a></h2>
-    <h4>Wed, Mar 13, 2013</h4>
-    <div class="article-style">
-      
-      Multiple-uncertainty  Created smaller version of table to simplify comparisons Switched to stationary policy comparisons only. (Running out over longer time shifts total value a bit but doesn&rsquo;t amplify scale of the differences much) Larger noise amplifies the effects (compare 0.3 levels to 0.5 levels) note that averaging over replicates gives rather consistent means. The differences between successive runs of the algorithm give results agreeing to the tenths place at least.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/12/notes/"></a></h2>
-    <h4>Tue, Mar 12, 2013</h4>
-    <div class="article-style">
-      
-      Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
-  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/03/08/notes-from-the-week/"></a></h2>
-    <h4>Fri, Mar 8, 2013</h4>
-    <div class="article-style">
-      
-      (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
-Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +221,12 @@ Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE revie
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +313,13 @@ Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE revie
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

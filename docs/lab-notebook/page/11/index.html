@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,129 +133,85 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/11/04/mbi-notes/">Mon, Nov 4, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
- NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
- language barriers: What&rsquo;s a model?
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/07/dear-docker-hub-users/">Fri, Nov 7, 2014</a></h4>
+      <h4><a href="../../../2014/11/07/dear-docker-hub-users/">Dear DockerHub users: please configure your repository links</a></h4>
+      <div class="article-style">
+        The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
+Unfortunately, far fewer users configure Repository Links to trigger builds to update even when the resulting Dockerfile is unchanged.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/17/rnexml-semantic-considerations/">Thu, Oct 17, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular #26 and #24) I only paraphrase here.
-One of the central advantages we can offer in programmatic generation of NeXML in the R environment is the ability to validate names and enhance the metadata included in the resulting nexml file using programmatic queries to taxonomic name resolution services such as ITIS, EOL, NCBI, as provided in the taxize package.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/05/notes/">Wed, Nov 5, 2014</a></h4>
+      <h4><a href="../../../2014/11/05/notes/">linking binaries from other containers</a></h4>
+      <div class="article-style">
+        Been thinking about this for a while, but @benmarwick &rsquo;s examples with &ndash;volumes-from convinced me to give this a try.
+While there&rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&rsquo;t have it built in, like rocker/rstudio.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/16/notes/">Wed, Oct 16, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/11/03/three-interfaces-for-docker/">Mon, Nov 3, 2014</a></h4>
       
-      RNeXML  Example methods for metadata: <a href="https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772">https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772</a> Closes #19 <a href="https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110">https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110</a> Discussion of best identifiers for OTUs #24. Now waiting on Scott for choice of implementation  Misc R puzzle In R&rsquo;s S4 methods, I can define methods with different signatures, i.e. different object classes for the same function call. But can I alter the names and number of arguments for a method?
-As usual, see Github for details on commits and issues.
-      
+      <div class="article-style">
+        Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/11/is-it-time-to-retire-pagels-lambda/">Fri, Oct 11, 2013</a></h4>
-    <h4><a href="../../../2013/10/11/is-it-time-to-retire-pagels-lambda/">Is it time to retire Pagel&#39;s lambda?</a></h4>
-    <div class="article-style">
-      
-      Pagel&rsquo;s $\lambda$ (lambda), introduced in Pagel 1999 as a potential measure of &ldquo;phylogenetic signal,&rdquo; the extent to which correlations in traits reflect their shared evolutionary history (as approximated by Brownian motion).
-Numerous critiques and ready alternatives have not appeared to decrease it&rsquo;s popularity. There are many issues with the statistic, some of which I attempt to summarise below.
-The $\lambda$ statistic is defined by the Brownian motion model together with a transformation of the branch lengths: multiply all internal branches by $\lambda$.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/10/notes/">Thu, Oct 10, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Authenticating via DataOne API Matt Jones provides a nice dataone package to handle accessing and posting data to DataOne nodes such as the KNB from R. Uploading files through the API requires authentication, which in turn requires a certificate from CILogin. As this process proved a bit tricky to me, I add some documentation here. I am using a Ubuntu (13.04) system, so the procedure might differ slightly for other systems.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/09/notes/">Wed, Oct 9, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
-      
-      ugh, most journals don&rsquo;t seem to hold to their own data publication policies.
-PNAS theoretically endorses UPSIDE, r citet(&quot;10.1073/pnas.0400437101&quot;) principles from the National Academy of Science:
- Principle 1. Authors should include in their publications the data, algorithms, or other information that is central or integral to the publication—that is, whatever is necessary to support the major claims of the paper and would enable one skilled in the art to verify or replicate the claims.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/10/28/jekyll-free/">Tue, Oct 28, 2014</a></h4>
+      <h4><a href="../../../2014/10/28/jekyll-free/">Goodbye Jekyll?</a></h4>
+      <div class="article-style">
+        The great strength of Jekyll is in providing a really convenient HTML templating system through the _layouts and _includes directories and Liquid variables (including the auto-populated ones like page.previous.url).
+For quickly deploying simple sites though, this is often unnecessary: one or two layout files will suffice, and an _includes directory is not so useful with only a single layout. The ease of maintenance by having a template divided into modular chunks is somewhat trumped by the greater simplicity of copying a single template or set of templates over into a new directory.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/08/notes/">Tue, Oct 8, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/10/21/docker-and-user-permissions-crazyness/">Tue, Oct 21, 2014</a></h4>
       
-      Fisheries data from Glaser et al. (2013) available at IchthyoDB Larvae and egg counts. About 4 GB, initialized in calcofi repo (local only).
-Reading early warning with &ldquo;Quickest Detection&rdquo; algorithm described in Carpenter et al. (2013) and used by Batt et al. (2013), which includes a rather friendly explanation in the appendix (SI).
-Uses a likelihood based method along with rather simple models of the probability of being in each state, and interestingly relies on the presence of a control system that has already experienced the transition.
-      
+      <div class="article-style">
+        Lots of crazyness getting to the bottom of permissions changes, as discussed in:
+ rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
+Here&rsquo;s the SO version of the question, for my reference:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/10/07/nexml-phylo-class-extension/">Mon, Oct 7, 2013</a></h4>
-    <h4><a href="../../../2013/10/07/nexml-phylo-class-extension/">Extending ape::phylo class to NeXML:</a></h4>
-    <div class="article-style">
-      
-      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
-To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/09/30/regime-vs-state/">Mon, Sep 30, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/10/20/notes/">Mon, Oct 20, 2014</a></h4>
       
-      Scratching out some thoughts here to address an issue that continues to bug me with the way the literature discusses these two very different issues.
-The ecological literature on early warning signals and related subjects continually seems to confuse the concept of state and regime.
-Let&rsquo;s get this straight.
-Regime $=$ Attractor
- State $\neq$ Attractor
- Nonlinear state change $\neq$ Regime shift
-Evidence that a regime shift occurred, and when the shift occurred (e.
-      
+      <div class="article-style">
+        Keep thinking about this quote from Jeroen Oom&rsquo;s recent piece on the arxiv:
+ The role and shape of data is the main characteristic that distinguishes scientific computing. In most general purpose programming languages, data structures are instances of classes with well-defined fields and methods. [&hellip;] Strictly defined structures make it possible to write code implementing all required operations in advance without knowing the actual content of the data. It also creates a clear separation between developers and users [emphasis added].
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/09/25/mozilla-software-review/">Wed, Sep 25, 2013</a></h4>
-    <h4><a href="../../../2013/09/25/mozilla-software-review/">Reflections on the Mozilla Science Code Review Pilot</a></h4>
-    <div class="article-style">
-      
-      I was recently interviewed a Nature senior reporter Erika Check Hayden on the subject of the scientific code review project being conducted by Mozilla Science Lab. The piece appears in this week&rsquo;s issue, Hayden 2013. My blog post sharing my own approach to code review is mentioned at the beginning of the article, though it is rather Roger Peng&rsquo;s comments at the end that have stirred some interesting discussion.
-      
+    
     </div>
-  </div>
-  
 
   
 <nav>
@@ -270,9 +226,10 @@ Evidence that a regime shift occurred, and when the shift occurred (e.
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -361,7 +318,13 @@ Evidence that a regime shift occurred, and when the shift occurred (e.
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

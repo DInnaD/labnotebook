@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,105 +133,93 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/04/14/wednesday/">Wed, Apr 14, 2010</a></h4>
-    <h4><a href="../../../2010/04/14/wednesday/">Wednesday</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/13/teaching/">Tue, Apr 13, 2010</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/28/sunday-scaling-runs/">Sun, Aug 28, 2011</a></h4>
+      <h4><a href="../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h4>
+      <div class="article-style">
+        laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
+Set up for running primates.R in likelihood mode with abstracted parallelization:
+Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
+hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/13/tuesday/">Tue, Apr 13, 2010</a></h4>
-    <h4><a href="../../../2010/04/13/tuesday/">Tuesday</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/12/teaching/">Mon, Apr 12, 2010</a></h4>
     
-    <div class="article-style">
-      
-      Notes potentially for my EDG talk.
-&ldquo;Keeping Up&rdquo; &ndash; a talk to EDG? Science is growing. Fast. Number of papers published. Genomes on Genbank. Software on CRAN. Everyone&rsquo;s felt the pressure. So what do we do? Keeping with tradition, I&rsquo;ll present my own work in developing comparative phylogenetic methods to identify niche differentiation in Labrid fish. I will try and use this context to pose the question &ndash; what do we do about this information explosion?
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Sat, Aug 27, 2011</a></h4>
+      <h4><a href="../../../2011/08/27/saturday-working-on-computational-scaling-abstraction-etc/">Saturday: working on computational scaling, ion, etc</a></h4>
+      <div class="article-style">
+        Can I get a generic montecarlotest function working for both warningsignals and pmc?
+Needs to be able to handle S4 classes as well as S3 classes, or need to define the methods update, simulate, loglik and getParameters for any object that would use the method. i.e. these need to be defined in warningsignals for its functions and in wrightscape/pmc for its creatures. then the generic can be used. Implementing now&hellip; Completed.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/12/primate-chronogram/">Mon, Apr 12, 2010</a></h4>
-    <h4><a href="../../../2010/04/12/primate-chronogram/">Primate chronogram</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/11/effective-warning-signals/">Sun, Apr 11, 2010</a></h4>
-    <h4><a href="../../../2010/04/11/effective-warning-signals/">Effective warning signals</a></h4>
-    <div class="article-style">
-      
-      Predicting variance of variance by direct calculation &ndash; still need to crunch some math for the expected convergence.
- Still, the approach should be able to do more than describe single points as unexpected deviates. Still need to address gradual change vs change point analysis. Essentially the same as the phyolgenentic problem &ndash; one rate vs two rates. Model selection approaches? So far theory is essentially built on a model selection between linear models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/09/research/">Fri, Apr 9, 2010</a></h4>
-    <h4><a href="../../../2010/04/09/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Working on bootstrapping theta parameters bootstrapping multiple parameters doesn&rsquo;t seem effective in the context of the boot package, despite claiming it can use a vector of stats. Certainly part of challenge is that different models have different numbers of parameters, so this isn&rsquo;t a fixed size vector. Approaching manually for the moment, inhibits use of bootstrap confidence intervals function from the boot package. Some irregular behavior in bootstrapping parameters &ndash; have to load package and then reload likelihood_bootstrap library source file or else bootstraps are NAs, needs further investigation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/08/comparative-phylogenetics-notebook/">Thu, Apr 8, 2010</a></h4>
     
-    <div class="article-style">
-      
-      Research  Wrote summary function using bootstrap confidence intervals for the bootstraps of the likelihoods directly. On interpreting the bootstraps of likelihoods directly:   The extent to which the distributions themselves are distinct provides an indication of the ability to distinguish between models on the given phylogenetic tree and the actual data. For instance, if the tree was a star tree and the data produced by either BM or OU1, then all distributions would fall on top of one another.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">Fri, Aug 26, 2011</a></h4>
+      <h4><a href="../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h4>
+      <div class="article-style">
+        rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/08/research/">Thu, Apr 8, 2010</a></h4>
-    <h4><a href="../../../2010/04/08/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Reviewed timescales manuscript. Revisiting  Meeting  Basically I want to apply central limit theorem for stationary processes (accounts for covariances), assuming mean zero  where
- Discussion of Freidlin-Wentzell theory in connection to Arrhenius law and the well-defined stochastic tipping point which occurs before the branch point. Kurtz results don&rsquo;t really help in the case of ergodicity, can make statements about the (even non-stationary) ensemble limit.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/07/research/">Wed, Apr 7, 2010</a></h4>
-    <h4><a href="../../../2010/04/07/research/">Research</a></h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/26/fishbase-from-r-some-xml-parsing/">Fri, Aug 26, 2011</a></h4>
+      <h4><a href="../../../2011/08/26/fishbase-from-r-some-xml-parsing/">FishBASE from R: some XML parsing</a></h4>
+      <div class="article-style">
+        cross-posted from Wainwright Lab blog, archiving in the notebook here. This early tutorial includes some background on XML parsing from R using XPath. See the later rfishbase tutorial for more functionality.
+In lab known for its quality data collection, high-speed video style, writing the weekly blog post can be a bit of a challenge for the local code monkey. That&rsquo;s right, no videos today. But lucky for me, even this group can still make good use of publicly available data.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/25/datacite-day-2/">Thu, Aug 25, 2011</a></h4>
+      <h4><a href="../../../2011/08/25/datacite-day-2/">DataCite Day 2</a></h4>
+      <div class="article-style">
+        9:00am-10:30am Session 4: Data and the Scholarly Output  MacKenzie Smith, Research Director, MIT Libraries. Orcid: the Open Researcher and Contributor ID Registry. (slides)
+ Greg Janee, Digital Library Research Specialist, Earth Research Institute, University of California, Santa Barbara. Earth Science Data:Second-Class Citizen in the Scholarly Record.
+  see great example of the ACRID database
+ Dr. Micah Altman, Archival Director, Henry A. Murray Research Archive, Senior Research Scientist, Harvard University.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/24/datacite-day-1/">Wed, Aug 24, 2011</a></h4>
+      <h4><a href="../../../2011/08/24/datacite-day-1/">DataCite Day 1</a></h4>
+      <div class="article-style">
+        12:00pm-1:00pm Lunch
+ 1:15pm-2:00pm Keynote Address: John Wilbanks, Vice President for Science, Creative Commons. Citation in the Commons. (Slides)    Find -&gt; access -&gt; understand -&gt; be influenced -&gt; cite.
+Lesson of the Library of Babel, Early Web (Greenspun, 1995) Simple and weak is best &ndash; scalable. (Rule of least power).
+ 2:00pm-3:30pm Session 1: Exposing Dataset DOIs and Citations
+ Heather Piwowar, DataONE Postdoctoral Researcher, NESCent and Dryad.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -246,9 +234,10 @@
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -337,7 +326,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

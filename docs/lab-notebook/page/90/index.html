@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,137 +133,90 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/04/06/research/">Tue, Apr 6, 2010</a></h4>
-    <h4><a href="../../../2010/04/06/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Seem to have successfully fixed the behavior when getting over parameterized models. See diffs against the git log for details.
- Will work on acceleration of code (avoiding refitting), meanwhile a little more trouble shooting and queuing some long runs.
- ace function fails on certain data sets for unknown reasons. Think rewriting this from scratch will be an important step.
-  Mixture Models in Bayesian context  Josh sent me this paper regarding our discussion on model choice in Bayesian context last Friday.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/06/towards-a-meaningful-warning-signal-metric/">Tue, Apr 6, 2010</a></h4>
-    <h4><a href="../../../2010/04/06/towards-a-meaningful-warning-signal-metric/">Towards a meaningful warning signal metric</a></h4>
-    <div class="article-style">
-      
-      Most papers do not give a statistical approach, but merely argue for the existence of a trend. Kendall&rsquo;s tau approach proved very unreliable. While the preliminary de-trending approach is unjustified in that the simulated data is known to be absent from trends, as a kind of windowed averaging it may sense as a way to detect changes. Should distinguish between the gradual slow changes and change-point estimation. Perhaps change-point provides a more rigorous starting point.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/05/research/">Mon, Apr 5, 2010</a></h4>
-    <h4><a href="../../../2010/04/05/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Bootstrapping procedures should have the option to refit the painting. Currently use the fixed painting but refit parameters. wrote the function peaks_update() which update the painting as well as the OU peak parameters.  20 replicates, bootstraps the painting step as well
-Computing / Package  LR_bootstrap and model_bootstrap should be the same function call with an optional second model for the LR bootstrapping. Similarly the LR_bootstrap_all and model_bootstrap_all() should be the same function call.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/04/research/">Sun, Apr 4, 2010</a></h4>
-    <h4><a href="../../../2010/04/04/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Trouble-shooting on parameter refitting version of LR bootstraps.<br />
-NESCent  Considering a visit to NESCent, meet researchers and learn about programs, post-docs, etc.  People  Todd Vision, UNC &ndash; Ass. Director Informatics. Contact Re: Dryad project. Consider a white paper on interdisciplinary evolutionary synthesis. Brian Weigmann NCSU Diptera Systematics. Ass. Director Outreach NESCent Allen Rodrigo Director NESCent. (Computational evolutionary biology). Discuss possible catalysis meeting, working group, visiting scholar.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/03/warning-signals-research/">Sat, Apr 3, 2010</a></h4>
-    <h4><a href="../../../2010/04/03/warning-signals-research/">Warning Signals Research</a></h4>
-    <div class="article-style">
-      
-      Deuterium early warning signal used for Glaciation I-IV presented in Dakos 2008:  Deuterium signal over past 4 glaciations
- Does smoothing to remove trends &ndash; longer-scale fluctuations? Seems unnatural, many of those are part of the signal. Also applied to simulated time series &ndash; even those these are at stationarity! Bandwidth chosen by visual inspection. Get the CaCO3 presented in Scheffer 2010 and Dakos 2008. &ndash; Done: CaCO3
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/02/research/">Fri, Apr 2, 2010</a></h4>
-    <h4><a href="../../../2010/04/02/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Graham &amp; Peter Meeting Fig 1
-Fig 2
- Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/02/warning-signals/">Fri, Apr 2, 2010</a></h4>
-    <h4><a href="../../../2010/04/02/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
-      Current Puzzles &amp; Goals 1 rep
-100 reps
- Kendall&rsquo;s tau unreliable, exploring alternatives. Sliding window for identifying when warning is first detected? Goal is to detect any decrease in stability or distance from critical point? Chasing down data from Scheffer. Climate data reuses the CaCO3 from Dakos. Chasing down data from Dakos   Fig. 1 M Cariaco Basin, data file Vostok deuterium CaCO3 data Tropical Pacific core 1218   Warning signals examples with actual tipping points (Figures left).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/01/research/">Thu, Apr 1, 2010</a></h4>
-    <h4><a href="../../../2010/04/01/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Single replicate. Almost all warning signals have significant correlation despite the constant environment.
-False warning signals remain just as common when signals are averaged across 100 replicates?
- Exploring statistical qualification of early warning signals. Dakos et. al. (2008) use a correlation significance test (based on Kendall&rsquo;s tau) on the autocorrelation to detect the warning signals. Correlation significance test seems a very poor estimate of signal, high false positive rate at any threshold p-value for sufficiently frequent sampling.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/31/comparative-phylogenetics-notebook/">Wed, Mar 31, 2010</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      Research Labrid Paper Outline Biology Letters format, 2500 words, 2 figures.
-Fig 1?
-Fig 2?
- Title: Phylogenetic Evidence for Multiple Morphological Niches in Coral Reef Fish Summary (&lt; 200 words)
- We present phylogenetic evidence for two distinct evolutionary optima in the fin morphology of Labrid Fish.  Keywords: Evolution, Phylogenetics, Comparative Methods, Labrids, Multiple Niches
- Introduction
- Labrid Fin Morphology Is clustering in Trait space evidence of Selection or Phylogenetic Inertia?
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tue, Aug 23, 2011</a></h4>
+      <h4><a href="../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h4>
+      <div class="article-style">
+        rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
+XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
+&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/03/31/research/">Wed, Mar 31, 2010</a></h4>
-    <h4><a href="../../../2010/03/31/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Writing up work just on ensemble vs single instance detection of regime shifts. See this entry</p>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/21/academic-year-2011-summary/">Sun, Aug 21, 2011</a></h4>
+      <h4><a href="../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h4>
+      <div class="article-style">
+        Brief summary of events for this past academic year, as submitted to my dissertation committee.
+TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thu, Aug 18, 2011</a></h4>
+      <h4><a href="../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thursday: reviewing edits, ropensci, computers.</a></h4>
+      <div class="article-style">
+        Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
+Brief topic notes from today&rsquo;s meeting:
+ set up different take on layout: lambda, AIC, power
+      </div>
+    </div>
+    
+    </div>
 
-<p>Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wed, Aug 17, 2011</a></h4>
+      <h4><a href="../../../2011/08/17/wednesday-migrating-codes-into-mpi/">Wednesday: migrating codes into MPI</a></h4>
+      <div class="article-style">
+        Parellelization/Scaling of code MPI on farm cluster
+Got my MPI codes running.
+Much better way to get jobs into the queue, asking for 16 threads that don&rsquo;t have to be on the same node is much faster. Can also ask for 161 threads, but will wait longer in the queue.
+The trick to getting this to run was mostly getting the library set correctly. Setting the library path at the top of the script did the trick:
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/17/wrightscape-a-brief-tutorial/">Wed, Aug 17, 2011</a></h4>
+      <h4><a href="../../../2011/08/17/wrightscape-a-brief-tutorial/">Wrightscape: a brief tutorial</a></h4>
+      <div class="article-style">
+        While the wrightscape package is still in active development, I realize the code base doesn&rsquo;t contain any introductory examples. So as a first tutorial, here&rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
+require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/16/tuesday-7/">Tue, Aug 16, 2011</a></h4>
+      <h4><a href="../../../2011/08/16/tuesday-7/">Tuesday:</a></h4>
+      <div class="article-style">
+        Finished first round of edits and sent off to Graham and Peter.
+ Exploring wrightscape runs on additional data sets
+ Exploring migrating code into MPI
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -278,9 +231,10 @@ Introduction Background on Warning Signals
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -369,7 +323,13 @@ Introduction Background on Warning Signals
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

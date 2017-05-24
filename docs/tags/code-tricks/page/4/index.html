@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,132 +134,85 @@
 
 
 
+
   <h1>Code Tricks</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/04/28/thursday-reading-notes/">Reading Notes, presentation prep treebase error handling</a></h2>
-    <h4>Thu, Apr 28, 2011</h4>
-    <div class="article-style">
-      
-      Reading  Oikos journal recently started a rather nice blog. A journal long responsible for some of the best examples of developing and confronting ecological theory with empirical results, with an commendable emphasis on general principles and synthesis, it&rsquo;s nice to see them enter the Web2.0 ecosystem. Editor Jeremy Fox has a nice introduction to the goals of the blog &ndash; check out the &ldquo;new ideas&rdquo; categories for worthwhile reading.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/20/friday-some-random-notes/">Tue, Mar 20, 2012</a></h4>
+      <h4><a href="../../../../2012/03/20/friday-some-random-notes/">Friday: some random notes</a></h4>
+      <div class="article-style">
+        Computational tricks  tables in github markdown via knitr. clever Getting custom C/C++ CUDA working in R  Data management and sharing solutions for large files  NERSC uses globus online for interface for transferring terabytes/hr, pretty clever. NERSC also enables web hosting to share data.
+ Software-Carpentry style Data management a nice start. An open solution could stick the data on figshare (or elsewhere), write the readmes in markdown and keep them on github with links to the data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/09/01/entry-title/">Entry title</a></h2>
-    <h4>Wed, Sep 1, 2010</h4>
-    <div class="article-style">
-      
-      Automated scripts for image uploads. Tag-based generation of a slideshow:</p>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/02/27/monday-14/">Mon, Feb 27, 2012</a></h4>
+      <h4><a href="../../../../2012/02/27/monday-14/">Monday</a></h4>
+      <div class="article-style">
+        Warning Signals  Added resulting indicator distributions on finer sampling results.
+ Re-running now excluding the final dive (population below 300).
+  Treebase working on manuscript. A few examples using the improved meta-data queries:
+Computing configuration vim and R  install vim-r-plugin. Download, then run vim-addons install r-plugin install screen plugin add to .vimrc:   set nocompatible syntax enable filetype plugin on filetype indent on let vimrplugin_underscore = 0   learn some key bindings Really \rf to launch, and \d Also see this post for configuration with vim-latex-suite.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Fri, Feb 10, 2012</a></h4>
+      <h4><a href="../../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h4>
+      <div class="article-style">
+        Forage fish writing See doc, FF dropbox PopDyn
+Warning signals edits  Alan edits Figure captions, titles.
+ Text changes from Noam.
+  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
+git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
+      </div>
+    </div>
+    
+    </div>
 
-<p>Running the script:
- ./flickr_slideshow *.png  Creates the html code that can be embedded into the notebook for a slideshow those images. Images only get the date-time tag as a unique id.</p>
-
-<p>This one uses the mediawiki plugin. More formatting options could be incorporated of course. (Creates the thumbnail images down the right-hand side).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/01/30/monday-15/">Mon, Jan 30, 2012</a></h4>
+      <h4><a href="../../../../2012/01/30/monday-15/">Monday</a></h4>
+      <div class="article-style">
+        pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
+view sourcecode, Reed.R
+NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/16/warning-signals/">Warning Signals</a></h2>
-    <h4>Mon, Aug 16, 2010</h4>
-    <div class="article-style">
-      
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/01/18/wednesday-meetings/">Wed, Jan 18, 2012</a></h4>
+      <h4><a href="../../../../2012/01/18/wednesday-meetings/">Wednesday -- meetings</a></h4>
+      <div class="article-style">
+        Alan meeting write write write
+Duncan Meeting Troubleshooting S3 and S4 Try adding methods? Changing order on NAMESPACE?
+Leaving ouch off the import list: no errors, but within functions, don&rsquo;t get S4 method. import but don&rsquo;t depend on ouch: error. accurate, since simulate is left as an s3 function at the user level.
+What a headache. See stackQ.
+manuscript Duncan&rsquo;s feedback
+Meredith Meeting Run a science policy workshop with Davis open science group?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/31/csgf-survey/">CSGF Survey</a></h2>
-    <h4>Mon, May 31, 2010</h4>
-    <div class="article-style">
-      
-      Wrote survey. Getting feedback and will send out this week.  previous comments
-Wiki Tricks Exploring use of mvs to download and upload entries from openwetware. The mediawiki client is easy to install as described in the link. Doesn&rsquo;t seem to have a tool to grab everything in my Notebook namespace, but with a little bash script I can grab all the entries in a particular notebook:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/01/09/monday-13/">Mon, Jan 9, 2012</a></h4>
+      <h4><a href="../../../../2012/01/09/monday-13/">Monday - Sweave workflow</a></h4>
+      <div class="article-style">
+        Bibtex, Mendeley &amp; Sweave Mendeley&rsquo;s repeated entries in the bibfile is particularly annoying with my sweave workflow, as it throws an error from bibtex command that Make doesn&rsquo;t want to ignore.
+Also, in writing the documentation I&rsquo;d like to point the .Rnw file to my global library&rsquo;s bibtex document, but then this means having the .Rnw/tex file generated to by the package pointing to a file that&rsquo;s outside the package.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/27/summary-of-structured-population-noise-so-far/">Summary of Structured Population noise so far</a></h2>
-    <h4>Thu, May 27, 2010</h4>
-    <div class="article-style">
-      
-      Fig 1 Code b=5, ue= 0, ul = 0.001, up = 0, ua = 0.01, ae = .13*k, al = .01*k, ap = .15*k, cle = .2, cap = .1, cae = 5, V=volume
-Fig 2 b=5, ue= 0, ul = 0.001, up = 0, ua = .001, ae = .1*k, al = .01*k, ap = .1*k, cle = 1, cap = .4, cae = 1, V=volume</p>
-
-<p>System Size Expansion  Analytic calculation captures the noise propagation through the age structure correctly.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/17/annual-progress-report/">Annual Progress Report</a></h2>
-    <h4>Mon, May 17, 2010</h4>
-    <div class="article-style">
-      
-      Tomorrow will be meeting with my dissertation committee: Alan Hastings, Peter Wainwright, and Brian Moore. This provides a good opportunity to summarize the status of my current projects and my principle accomplishments for the year. Will try a tex&rsquo;d document as I&rsquo;ve done in previous years but here&rsquo;s for some preliminary brainstorming.
- Summary: In the past year, I&rsquo;ve published one paper, given 4 talks (CPB, NIMBioS, Berkeley, IIASA), read 144+ articles and wrote 9000+ lines of code.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/09/warning-signals-with-sdes/">Warning Signals with SDEs</a></h2>
-    <h4>Sun, May 9, 2010</h4>
-    <div class="article-style">
-      
-      Summary  Have a functional likelihood calculation from the full individual-based simulation, see Friday. Accuracy needs more testing, and the computation is probably too slow for optimization routines. Have an implementation of the linear decrease in stability model with analytic conditional probability density. Needed a couple adjustments today. Need to add direct simulation to the warning signals package, currently retunrs only time-averaged/ensemble averaged stats. Can be approximated by setting the window equal to the timestep and ensembles equal to one.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/06/goals/">Goals</a></h2>
-    <h4>Thu, May 6, 2010</h4>
-    <div class="article-style">
-      
-      Model choice exercise with sdes general likelihood calculation from simulation  Test Case <em>dX</em>~t~ = α~t~(θ − X~t~)<em>dt</em> + σ*d*t
-*d*α~t~ = − β</p>
-
-<p>Approach  The linear approximation to the warning signals dynamics can be captured by the OU process, look for changing α SDE models will also provide some of the coarser approximations for the structured population dynamics. Formulations of these still to do.  Conditional probability Solution to the time dependent OU process, see Gardiner 4th ed.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/05/05/primates/">Primates</a></h2>
-    <h4>Wed, May 5, 2010</h4>
-    <div class="article-style">
-      
-      Primates project now has a Github repository. Updates are embedded from here.
- Experimenting with distributing code and data effectively. Pluses and minuses of three options:
-   zipped file with R code and data. Requires setting working directory, harder to update. Subsequent uploads must include all the data, rather than incremental. Directly grab repository over github. Simple to update and access, stores only incremental changes. Requires knowledge of git R package: Nicely integrates data, code, and documentation.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/04/22/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Thu, Apr 22, 2010</h4>
-    <div class="article-style">
-      
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -274,8 +227,12 @@ objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solut
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -362,7 +319,13 @@ objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solut
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

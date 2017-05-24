@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,125 +134,75 @@
 
 
 
+
   <h1>Code Tricks</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../2014/08/06/notes/"></a></h2>
-    <h4>Wed, Aug 6, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/08/06/notes/">Wed, Aug 6, 2014</a></h4>
       
-      Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
+      <div class="article-style">
+        Writing  Working on / finishing up slides for ESA talk and slides for hastingsfest  Exploring  Poking around a bit more in Docker yesterday, built some basic R containers for testing ropensci packages. <a href="https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci">https://github.com/ropensci/docker-ubuntu-r/tree/master/add-r-ropensci</a> . Somewhat skeptical but still curious about the potential (or the need) to publish a docker image as a reproducible research object.
  Attempted to add Travis builds to the Docker repo (just for fun, eh?
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/07/31/notes/"></a></h2>
-    <h4>Thu, Jul 31, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/07/31/notes/">Thu, Jul 31, 2014</a></h4>
       
-      Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
+      <div class="article-style">
+        Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
 Highly recommend their paper for the first explanation I&rsquo;ve actually been able to follow that provides a definition of &ldquo;DevOpts&rdquo; (essentially, using scripts rather than documentation to manage consistent cross-platform installation) and explains the differences and similarities between the various programs operating in this sphere, sometimes as alternatives and simultaneously.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/07/21/notes/"></a></h2>
-    <h4>Mon, Jul 21, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/07/21/notes/">Mon, Jul 21, 2014</a></h4>
       
-      Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
+      <div class="article-style">
+        Reading Looking for this in my notes and couldn&rsquo;t find it: An excellent paper from the Software Sustainability Institute and friends outlining the need and possible structure for sustaining career paths for software developers. &ldquo;The research software engineer&rdquo;, Dirk Gorissen. Provides a good response to the software issues highlighted by climategate, etc.
 Remote conferencing (Based on earlier unposted notes). With so much going on, it&rsquo;s nice to be able to follow highlights from some conferences remotely
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/04/11/notes/"></a></h2>
-    <h4>Fri, Apr 11, 2014</h4>
-    <div class="article-style">
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/04/11/notes/">Fri, Apr 11, 2014</a></h4>
       
-      labnotebook Updates to configuration to be more portable and lightweight:
+      <div class="article-style">
+        labnotebook Updates to configuration to be more portable and lightweight:
  Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/02/19/cran-and-package-dependencies/"></a></h2>
-    <h4>Wed, Feb 19, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/02/19/cran-and-package-dependencies/">Wed, Feb 19, 2014</a></h4>
       
-      2014-02-19 R allows you to specify &gt;= in a package dependency, not ==. The Comprehensive R Archive Network, CRAN, makes no requirement that package authors do not break their previous function API. For instance, if version 0.1 of the package had a function
+      <div class="article-style">
+        2014-02-19 R allows you to specify &gt;= in a package dependency, not ==. The Comprehensive R Archive Network, CRAN, makes no requirement that package authors do not break their previous function API. For instance, if version 0.1 of the package had a function
 foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality in say, version 0.2 without breaking the existing API with a definition that looked like:
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2013/10/07/nexml-phylo-class-extension/">Extending ape::phylo class to NeXML:</a></h2>
-    <h4>Mon, Oct 7, 2013</h4>
-    <div class="article-style">
-      
-      While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
+    
+    <div class="col-md-4">
+      <h4><a href="../../2013/10/07/nexml-phylo-class-extension/">Mon, Oct 7, 2013</a></h4>
+      <h4><a href="../../2013/10/07/nexml-phylo-class-extension/">Extending ape::phylo class to NeXML:</a></h4>
+      <div class="article-style">
+        While working on the RNeXML package, I have recently I have been puzzling over extending S3 objects to share some of the nice properties of S4 objects and methods while continuing to function with the potentially huge library of functions written to work with them. SO:
 To illustrate this issue, consider the S3 class phylo provided by the ape package and used by most of the 30+ packages that reverse depend or reverse import ape.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2013/09/11/extending-data-frame-class/"></a></h2>
-    <h4>Wed, Sep 11, 2013</h4>
-    <div class="article-style">
-      
-      I&rsquo;d like to define a class that acts just like a data.frame, just like the data.table class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle data.frame objects.
-How might this be done?
-I&rsquo;m not really sure where to start on this, so below is a summary of my attempt so far and some further puzzles I have stumbled across (e.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2013/07/28/nonparametric-bayes-wrapping-up-sensitivity/"></a></h2>
-    <h4>Sun, Jul 28, 2013</h4>
-    <div class="article-style">
-      
-      Remote RStudio configuration (keep forgetting options and ports).
-ssh -o &quot;ExitOnForwardFailure yes&quot; -f -N -L 1234:localhost:8787 one  Initialize runs for sensitivity, looping over parameters and data. See:
- sensitivity.md (Myers) sensitivity-allen.md  Overall:
-ggplot(yields_dat) + geom_density(aes(value))  Compare over 12 simulation configurations with different parameters and different training data, the GP does consistently well. Only one case has relatively poor outcomes.
-ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=as.factor(simulation)), alpha=.5)   Run data backup to local disk NSF expense accounting calendar updates software paper policies email Luke Arbor reply looking at quick way to check out solutions to sums of Fisher wave equation over different diffusion coefficients (heterogenous dispersal rates), e.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2013/06/24/notes/"></a></h2>
-    <h4>Mon, Jun 24, 2013</h4>
-    <div class="article-style">
-      
-      Exploring XML Schema in R I danced around the room after reading these lines in the excellent XML and Web Technologies for Data Sciences with R book:
- We can generate S4 class definitions corresponding to the data structures that are represented in the XML document. We can programmatically generate R code that will map an XML document adhering to this schema to corresponding R data structures. Similarly, we can automate the creation of code to serialize, or write, an R object of a particular type to a suitable XML format corresponding to the schema
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2013/05/28/notes/"></a></h2>
-    <h4>Tue, May 28, 2013</h4>
-    <div class="article-style">
-      
-      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -265,8 +215,12 @@ ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=a
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -353,7 +307,13 @@ ggplot(yields_dat) + geom_density(aes(value, color=as.factor(simulation), fill=a
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

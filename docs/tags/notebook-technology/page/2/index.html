@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,123 +134,72 @@
 
 
 
+
   <h1>Notebook Technology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/12/06/github-issues-tracker-the-perfect-research-todo-list/"></a></h2>
-    <h4>Thu, Dec 6, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Wed, Apr 10, 2013</a></h4>
+      <h4><a href="../../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h4>
+      <div class="article-style">
+        Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
+ Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/04/notebook-parsing/">Thu, Apr 4, 2013</a></h4>
+      <h4><a href="../../../../2013/04/04/notebook-parsing/">Notebook Features: parsing linked data in the semantic notebook</a></h4>
+      <div class="article-style">
+        In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/08/notes-from-the-week/">Fri, Mar 8, 2013</a></h4>
       
-      Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
+      <div class="article-style">
+        (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/01/24/data-uris-for-image-archives/">Thu, Jan 24, 2013</a></h4>
+      
+      <div class="article-style">
+        Figures have been one of the standing challenges of the open notebook. Displaying figures online requires that they are first uploaded to a server somewhere. Recently I have used automated uploads to external servers such as figshare to host all images generated in the course of my research, and simply point to those graphs which I wish to include in a notebook page using an image link. Unfortunately, this means that the images themselves are not being permanently archived when I deposit my notebook entries into their annual archives on figshare.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/30/learning-jekyll/">Sun, Dec 30, 2012</a></h4>
+      
+      <div class="article-style">
+        Some quick thoughts on learning Jekyll After recieving a few queries on how to get started with Jekyll I thought I&rsquo;d jot down my own opinions here. Of course there is already rather good documentation for the software and plenty of blogs providing tutorials. While no doubt more than adequate, I have more opinions on how to get started actually learning what&rsquo;s going on than I could easily fit into a tweet, and also a couple favorite links to references so I thought I&rsquo;d jot down my reply in long form here.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/12/06/github-issues-tracker-the-perfect-research-todo-list/">Thu, Dec 6, 2012</a></h4>
+      
+      <div class="article-style">
+        Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
 Issues not only have title and tags, but support a comment thread for progress and discussion of the issue.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/30/note-on-notebook-figures/"></a></h2>
-    <h4>Fri, Nov 30, 2012</h4>
-    <div class="article-style">
-      
-      plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
-opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
-The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/23/citing-lab-notebook-entries/"></a></h2>
-    <h4>Fri, Nov 23, 2012</h4>
-    <div class="article-style">
-      
-      C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/11/06/notes/"></a></h2>
-    <h4>Tue, Nov 6, 2012</h4>
-    <div class="article-style">
-      
-      Monday  altmetrics post post for multiple uncertainty, email to Steve, Marc Marc meeting ropensci proposals Phylotastic  Notebook configuration  trying out <a href="http://greycite.knowledgeblog.org/">http://greycite.knowledgeblog.org/</a>. Add to knitcitations. Add Greycite recommended opengraph and google scholar metadata metadata.html Import metadata from _config.yml. Any custom variable defined in config can be accessed at site.varname. See updated _config.yml  Reading  Schnitzler, J., Graham, C. H., Dormann, C. F., Schiffers, K., &amp; Peter Linder, H.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/29/notes/"></a></h2>
-    <h4>Mon, Oct 29, 2012</h4>
-    <div class="article-style">
-      
-      Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
- Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
- Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/"></a></h2>
-    <h4>Tue, Oct 23, 2012</h4>
-    <div class="article-style">
-      
-      All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure. This means that any entry can be parsed with a generic XML parser to extract the entry content in &lt;article&gt;, the &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, etc. The &lt;head&gt; section provides &lt;title&gt; and essential &lt;meta&gt; tags declaring the character encoding (which also sets the MIME type for HTML5).
-Head In _includes/header.html we introduce some basic academic archive metadata using the Dublin Core ontology.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h2>
-    <h4>Sun, Oct 14, 2012</h4>
-    <div class="article-style">
-      
-      As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/05/notes/">Automated feeds in notebook entries</a></h2>
-    <h4>Fri, Oct 5, 2012</h4>
-    <div class="article-style">
-      
-      Exploring the use of automated feeds in my notebook entries, which would make writing posts both faster and more complete. I had recently modified my Jekyll plugins to include commits on the day of the post. Consequently, I could add a bit of liquid code to any post, such as:
-{% raw %}
-{% octokit_commits pdg_control%}  {% endraw %}
-(or even to the post template) and have the commit log for the specified repository automatically imported.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/10/02/solarized-colors/">Solarized Colors with Twitter-Bootstrap?</a></h2>
-    <h4>Tue, Oct 2, 2012</h4>
-    <div class="article-style">
-      
-      Trying out rendering my notebook using Ethan Schoonover&rsquo;s Solarized color scheme. The solarized palette has been selected according to Ethan&rsquo;s exacting standards for contrast, symmetry, and readability.
-My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS files. Normal CSS is valid LESS code too, but doesn&rsquo;t have the concept of a variable. So changing colors in CSS requires changing each and every occurance of some hex colorcode.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/09/28/welcome-to-my-lab-notebook/">Welcome to my Lab Notebook - Reloaded</a></h2>
-    <h4>Fri, Sep 28, 2012</h4>
-    <div class="article-style">
-      
-      Welcome to my lab notebook, version 3.0. My original open lab notebooks began on the wiki platform OpenWetWare, moved to a personally hosted Wordpress platform, and now run on a Jekyll-powered platform (site-config), but the basic idea remains the same. For completeness, earlier entries from both platforms have been migrated here. Quoting from my original introduction to the Wordpress notebook:
- Disclaimer: Not a Blog  Welcome to my open lab notebook.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -265,8 +214,12 @@ My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS fil
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -353,7 +306,13 @@ My site CSS is built with Twitter-Bootstrap, which uses LESS to generate CSS fil
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

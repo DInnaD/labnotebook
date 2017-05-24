@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,134 +133,84 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/03/30/wednesday-appendices-parameter-distributions/">Wed, Mar 30, 2011</a></h4>
-    <h4><a href="../../../2011/03/30/wednesday-appendices-parameter-distributions/">Wednesday: appendices; parameter distributions</a></h4>
-    <div class="article-style">
-      
-      Fixed bug causing montecarlotest() calls not to complete: in likelihood_bifurcation_models, LTC error checking uses any() to see if any Vx are negative, returns NA if none are negative but has NAs. rm.na=TRUE fixed this. GetParNames works, probably worth an appendix section to discuss parameter bootstraps as well, particularly in the cases of low power. Updated codes to turn this flag back on and am re-running. Figure3 plot has been using the 160 bootstrap replicates, updated to the 2000 replicates.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/04/10/monday-tuesday/">Tue, Apr 10, 2012</a></h4>
+      <h4><a href="../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h4>
+      <div class="article-style">
+        rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/29/tuesday-simulations-appendix/">Tue, Mar 29, 2011</a></h4>
-    <h4><a href="../../../2011/03/29/tuesday-simulations-appendix/">Tuesday, simulations &amp; appendix</a></h4>
-    <div class="article-style">
-      
-      Today mostly working over code sets for examples in appendix, and increasing replicates. Somehow more trouble than it should be, see commit history for today.
-ibm_sim.R &ndash; simulate from individual-based dynamics containing a saddle-node bifurcation (fully hysteresis model).
-ibm_analysis.R &ndash; run figure1, 2, 3 analysis (correlation test, bootstrap of test, likelihood test) on each data.
-ibm_likelihood.R &ndash; shouldn&rsquo;t be needed, all code is in deut_examples.R. Running now due to earlier parallel instance errors during montecarlotest.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/04/07/writing-reproducibly-in-the-open-with-knitr/">Sat, Apr 7, 2012</a></h4>
+      <h4><a href="../../../2012/04/07/writing-reproducibly-in-the-open-with-knitr/">Writing reproducibly in the open with knitr</a></h4>
+      <div class="article-style">
+        Sweave is something of a gold standard in reproducible research. It creates a dynamic document, written in a mix of LaTeX and R code where the results of the analysis (numbers, figures, tables) are automatically generated from the code and inserted into the resulting pdf document, making them easy to update if the data or methods change. It&rsquo;s a nice idea, in principle.
+However, the practical troubles are many. Coauthors don&rsquo;t know LaTeX, publishers who don&rsquo;t accept LaTeX or pdfs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/29/monday-appendices-continue/">Tue, Mar 29, 2011</a></h4>
-    <h4><a href="../../../2011/03/29/monday-appendices-continue/">Monday, appendices continue...</a></h4>
-    <div class="article-style">
-      
-      Finished writing up section on correlations (time averages vs ensembles) and the following section on error types. (yay, that writing went much better than yesterday). Appendices nearly done, a few more bits:
- Must figure out what data examples are going into the supplement. Most should be reasonably straight-forward to set up, may take a while to run.
- Have to figure out what to say about likelihood-based statistical method beyond definition of Cox&rsquo;s delta,
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/04/06/friday-8/">Fri, Apr 6, 2012</a></h4>
+      <h4><a href="../../../2012/04/06/friday-8/">Friday</a></h4>
+      <div class="article-style">
+        Fishbase  Revisions based on Duncan&rsquo;s feedback Formatting to Journal of Fish Biology guidelines Updated formatting   fixed footnotes issue in pdf version. Externalize tables in word version.
+  knit_hooks$set(chunk = function(x, options) { if (!options$split) return(x) cat(x, file = fig_path(&lsquo;.md&rsquo;, options)) }   Consider more intuitive function names rather than function arguments?  TreeBase  Needs additional functions replacing sapply queries and argument queries. Table of functions re-organize presentation  rOpenSci GSOC GSoC applications were due at noon today.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/27/sunday-edits-and-appendices/">Sun, Mar 27, 2011</a></h4>
-    <h4><a href="../../../2011/03/27/sunday-edits-and-appendices/">Sunday -- edits and appendices</a></h4>
-    <div class="article-style">
-      
-      Read over Scheffer&rsquo;s rather nice introduction(Scheffer, 2010) to the Drake paper(Drake &amp; Griffen, 2010). Last paragraph is particularly pertinenant:
- Clearly, we have just scratched the surface in exploring the possibilities and limitations of this emerging field. However, the prospect of identifying generic indicators is exciting, as the approach may provide an independent way to assess the risk of critical transitions. Expansion of our toolbox for prediction is especially welcome given the almost insurmountable problem of modelling complex systems in a quantitatively accurate way.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/26/saturday-appendices/">Sat, Mar 26, 2011</a></h4>
-    <h4><a href="../../../2011/03/26/saturday-appendices/">Saturday-- Appendices</a></h4>
-    <div class="article-style">
-      
-      Appendices Working on Appendices
-Ergodicity Null of Kendall&rsquo;s tau/rank correlations &ndash; independence of X and Y, not satisfied even over replicates. Adjusted codes to use Pearson&rsquo;s (default option, need to pass option up to higher-level functions). Repeated Figure 2 plots with Pearson&rsquo;s, results not much different, funny multimodal though:
-Actually verifying independence is rather more challenging, though convenient in this case that a test such as Pearson&rsquo;s is not designed to do this, see <a href="http://en">http://en</a>.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/04/05/jordans-bigdata-talk-in-mathstats-series/">Thu, Apr 5, 2012</a></h4>
+      <h4><a href="../../../2012/04/05/jordans-bigdata-talk-in-mathstats-series/">Jordan&#39;s bigdata talk in Math/Stats series</a></h4>
+      <div class="article-style">
+        Really excellent talk by Professor Michael Jordan from the Berkeley Statistics department visiting us at Davis yesterday. Haven&rsquo;t seen a talk cover technical content with remarkable clarity for the algorithms and insights involved, while also covering such a breadth of material. My notes didn&rsquo;t really keep up, but transcribing some of my scribbling into electronic form will have to wait until I have more time. (Their pubs are probably a better reference anyway.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/25/friday-3/">Fri, Mar 25, 2011</a></h4>
-    <h4><a href="../../../2011/03/25/friday-3/">Friday</a></h4>
-    <div class="article-style">
-      
-      Reading Some nice theoretical ecology papers out from our group recently, looking over today:
- Paul&rsquo;s paper (Williams &amp; Hastings, 2011) deals with some interesting work on persistence in complex models, (stochastic systems of mixture models), curious how it compares to the conclusions of (Schreiber, 2010).
- Sebastian&rsquo;s paper (Schreiber et. al. 2011) with Dan Bolnick and Burger, another example of the importance of individual heterogeneity, this time in a nice phenotype/genotype specific way by combining quantitative genetics approaches with predator dynamics.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/04/03/mondaytuesday/">Tue, Apr 3, 2012</a></h4>
+      <h4><a href="../../../2012/04/03/mondaytuesday/">Monday/Tuesday</a></h4>
+      <div class="article-style">
+        knitr + markdown + pandoc + latex Troubleshooting this workflow still&hellip;
+ Fonts xtable for html &amp; latex/pdf xtable comments display tikz device trouble Pandoc table trouble pandoc footnotes Getting a satisfactory LaTeX template.
+ Makefile   writing writing writing: Mostly writing this week, so my notebook has been lacking in entries. Trying to move several manuscripts forward: two are papers accompanying software packages for extracting, manipulating and visualizing data from online repositories (TreeBase and FishBase); part of the rOpenSci project.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/24/thursday-3/">Thu, Mar 24, 2011</a></h4>
-    <h4><a href="../../../2011/03/24/thursday-3/">Thursday</a></h4>
-    <div class="article-style">
-      
-      Assembled plots for figures 1,2,3 see paper_plots.R. Considerable adjustment of axes/layout. Sent figures out for comments.
- Considered removing skew/kurtosis from Figure 1 &amp;/or Figure 2, currently leaving in (particularly in Figure 2 to make point clear that no indicator works well?) Easy to remove using paper_plots.R script.   To Do list:  Figure 3 layout should mimic Figure 2 as much as possible (font sizes, margins, etc).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/03/29/relevant-initiatives-from-todays-big-data-press-release/">Thu, Mar 29, 2012</a></h4>
+      <h4><a href="../../../2012/03/29/relevant-initiatives-from-todays-big-data-press-release/">Relevant initiatives from today&#39;s Big Data press release</a></h4>
+      <div class="article-style">
+        An exciting day for Big Data (particularly if your Berkeley).
+NSF  Encouraging research universities to develop interdisciplinary graduate programs to prepare the next generation of data scientists and engineers; Funding a $10 million Expeditions in Computing project based at the University of California, Berkeley, that will integrate three powerful approaches for turning data into information - machine learning, cloud computing, and crowd sourcing; Providing the first round of grants to support “EarthCube” - a system that will allow geoscientists to access, analyze and share information about our planet; Convening researchers across disciplines to determine how Big Data can transform teaching and learning.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/24/data-management-workshop-at-uc-davis-center-for-population-biology-video-archive/">Thu, Mar 24, 2011</a></h4>
-    <h4><a href="../../../2011/03/24/data-management-workshop-at-uc-davis-center-for-population-biology-video-archive/">Data Management Workshop at UC Davis Center for Population Biology: Video archive</a></h4>
-    <div class="article-style">
-      
-      Videos are now up from our workshop, The Future of Data, held at the UC Davis Center for Population Biology March 2nd-4th.
-Panel  Don Strong, Editor-in-Chief of Ecology
- Marcel Holyoak, Editor-in-Chief, **Ecology Letters **
- Jonathan Eisen, Editor-in-Chief, PLoS Biology
- Alan Hastings, founding Editor-in-Chief, Theoretical Ecology
- Robert Hijmans, Asst Professor of Environmental Science &amp; Policy
- Trisha Cruse (Director), with Associate Directors Stephen Abrams &amp; John Kunze from UC Curation Center.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/23/wednesday-2/">Wed, Mar 23, 2011</a></h4>
-    <h4><a href="../../../2011/03/23/wednesday-2/">Wednesday</a></h4>
-    <div class="article-style">
-      
-      Still to do on figures:
- Plots with and without skew/kurtosis &ndash; DONE, enabled for Figure 1 &amp; 2
- Combine plots into full panels &ndash; DONE for Figure 1 &amp; Figure 2
- separate plotting codes from analysis codes (at least whenever takes any computational effort/time to produce). &ndash; DONE
- bootstrap_indicators should have option of which indicators are included &ndash; DONE
- all_indicators should have option of which indicators are included &ndash; DONE
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/03/23/tuesday-figures-figures-figures/">Wed, Mar 23, 2011</a></h4>
-    <h4><a href="../../../2011/03/23/tuesday-figures-figures-figures/">Tuesday: Figures, figures, figures</a></h4>
-    <div class="article-style">
-      
-      Today working mostly on selecting examples of data sets to include in the figure patterns. Working with the idea of three figures &ndash; data, bootstraps of Tau, bootstraps of likelihood &ndash; in panels for several examples: some real data sets and some simulated data sets with and without warning. In addition to this, I still have some more work to do with references, and refining the writing of a few of the appendices.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -275,9 +225,10 @@ Panel  Don Strong, Editor-in-Chief of Ecology
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -366,7 +317,13 @@ Panel  Don Strong, Editor-in-Chief of Ecology
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

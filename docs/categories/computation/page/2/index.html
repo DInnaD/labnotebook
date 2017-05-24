@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,123 +134,77 @@
 
 
 
+
   <h1>Computation</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2014/10/02/notes/"></a></h2>
-    <h4>Thu, Oct 2, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/11/05/notes/">Wed, Nov 5, 2014</a></h4>
+      <h4><a href="../../../../2014/11/05/notes/">linking binaries from other containers</a></h4>
+      <div class="article-style">
+        Been thinking about this for a while, but @benmarwick &rsquo;s examples with &ndash;volumes-from convinced me to give this a try.
+While there&rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&rsquo;t have it built in, like rocker/rstudio.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/11/03/three-interfaces-for-docker/">Mon, Nov 3, 2014</a></h4>
       
-      docker 2014-09-29:
+      <div class="article-style">
+        Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/10/21/docker-and-user-permissions-crazyness/">Tue, Oct 21, 2014</a></h4>
+      
+      <div class="article-style">
+        Lots of crazyness getting to the bottom of permissions changes, as discussed in:
+ rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
+Here&rsquo;s the SO version of the question, for my reference:
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/10/09/lessons-learned-in-writing-dockerfiles/">Thu, Oct 9, 2014</a></h4>
+      
+      <div class="article-style">
+        Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
+ Minimize the number of layers, but use \ to break commands across multiple lines,
+ Always run apt-get update &amp;&amp; apt-get install -y .
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/10/07/notes/">Tue, Oct 7, 2014</a></h4>
+      
+      <div class="article-style">
+        Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
+ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/10/02/notes/">Thu, Oct 2, 2014</a></h4>
+      
+      <div class="article-style">
+        docker 2014-09-29:
  Discussion with Dirk on repositories, library paths, versions. library paths: apt-get users the usr/lib path, while user-run install commands (e.g. install.packages) uses usr/local/lib/, path. Dirk recommends that /usr/local/lib/R/site-library is configured to be user-writable for package installation, rather than installing into home. building directly from CRAN building dependencies: apt-get build-dep, needs the corresponding deb-src lines. issues and tweaks to littler see PR #2  2014-10-01:
  Discussion on minimal images Discussion on analogsea + docker Blog coverage of Dirk&rsquo;s talk on our Docker work.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/09/24/notes/"></a></h2>
-    <h4>Wed, Sep 24, 2014</h4>
-    <div class="article-style">
-      
-      rocker / docker  Talking over strategy with Dirk, see summary in #1 and follow-up issues, #3, #4, #5.  rdataone &amp; EML Trying to fix travis issues. Much craziness.
-travis.sh doesn&rsquo;t provide notes on setup for repos where the R package is in a subdirectory. Looks like cd commands are persistent though throughout a travis file. okay.
- dataone is imported by EML but suggested by dataone. Since install_github likes to install the suggests list, this creates problems:
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/09/05/drone-ci-and-docker/"></a></h2>
-    <h4>Fri, Sep 5, 2014</h4>
-    <div class="article-style">
-      
-      Drone CI: Continous integration in custom docker environments Having gotten accustomed to Docker, configuring the appropriate build environment for a Continuous Integration system like Travis CI or Shippable CI starts to feel incredibly tedious and archaic (particularly if you work primarily in a language like R or haskell that usually isn&rsquo;t supported out of the box).
- We do not have to hack together a custom image environment We can build and test our environment locally instead of having to rely on trial-and-error pushes to the CI server We do not have to download, compile and install the development environment each time, (which frequently takes longer than the CI checks themselves and can break)  (Shippable provides a persistent environment too, by preserving the state of your &lsquo;minion&rsquo;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/02/scientific-computing-notes/"></a></h2>
-    <h4>Fri, May 2, 2014</h4>
-    <div class="article-style">
-      
-      In my experience EC2 is good for some things but not for others. Consequently having some funding allocated for it would be great, but it would still be necessary to have other resources as well. I&rsquo;ve found EC2 very good for running some reasonably portable analysis where you temporarily want some extra processors or memory. On the other hand, I&rsquo;ve had some frustrations with it as well. You don&rsquo;t have a persistent development environment unless you explicitly make and maintain a machine image, which means installing any software dependencies from scratch; sometimes a particular nuisance when you aren&rsquo;t familiar with the architecture.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/11/isees-workforce-development-day-2/"></a></h2>
-    <h4>Wed, Sep 11, 2013</h4>
-    <div class="article-style">
-      
-      Near the end of another excellent day of discussions we were asked to put pen to paper to outline our own views in writing. My own contribution was the following notebook scribble.
-My own vision of what ISEES should be doing for workforce development:
-ISEES would employ a multi-scale approach to improve basic computational expertise across the entire workforce necessary to fully participate in the modern software-immersed world of research through the development of training standards, while using a working-group model focused on emerging researcher-developer communities which would simultaneously improve the quality and synthesis of existing software tools while also delivering essential skills to the most transformative members of the research software communities.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/11/extending-data-frame-class/"></a></h2>
-    <h4>Wed, Sep 11, 2013</h4>
-    <div class="article-style">
-      
-      I&rsquo;d like to define a class that acts just like a data.frame, just like the data.table class does, but contains some additional metadata (e.g. the units associated with the columns) and has some additional methods associated with it (e.g. that might do something with those units) while also working with any function that simply knows how to handle data.frame objects.
-How might this be done?
-I&rsquo;m not really sure where to start on this, so below is a summary of my attempt so far and some further puzzles I have stumbled across (e.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/10/isees-training-workshop-day-1/"></a></h2>
-    <h4>Tue, Sep 10, 2013</h4>
-    <div class="article-style">
-      
-      Education / Workforce Development Group Cannot do grand synthesis opaquely and be science. must be able to scale and evolve.
-How did data succeed? What features really made the difference and what were just sideshows?
- Sticks (Funder and journal mandates?) Working groups (NCEAS) Training external forces: there is more data.
-  Why one center? Why not 15 centers? Divided by discipline rather than region&hellip;. synthesize the synthesis centers
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/07/27/csgf-conference/"></a></h2>
-    <h4>Fri, Jul 27, 2012</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/05/jordans-bigdata-talk-in-mathstats-series/">Jordan&#39;s bigdata talk in Math/Stats series</a></h2>
-    <h4>Thu, Apr 5, 2012</h4>
-    <div class="article-style">
-      
-      Really excellent talk by Professor Michael Jordan from the Berkeley Statistics department visiting us at Davis yesterday. Haven&rsquo;t seen a talk cover technical content with remarkable clarity for the algorithms and insights involved, while also covering such a breadth of material. My notes didn&rsquo;t really keep up, but transcribing some of my scribbling into electronic form will have to wait until I have more time. (Their pubs are probably a better reference anyway.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/29/relevant-initiatives-from-todays-big-data-press-release/">Relevant initiatives from today&#39;s Big Data press release</a></h2>
-    <h4>Thu, Mar 29, 2012</h4>
-    <div class="article-style">
-      
-      An exciting day for Big Data (particularly if your Berkeley).
-NSF  Encouraging research universities to develop interdisciplinary graduate programs to prepare the next generation of data scientists and engineers; Funding a $10 million Expeditions in Computing project based at the University of California, Berkeley, that will integrate three powerful approaches for turning data into information - machine learning, cloud computing, and crowd sourcing; Providing the first round of grants to support “EarthCube” - a system that will allow geoscientists to access, analyze and share information about our planet; Convening researchers across disciplines to determine how Big Data can transform teaching and learning.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -265,8 +219,12 @@ NSF  Encouraging research universities to develop interdisciplinary graduate pro
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -353,7 +311,13 @@ NSF  Encouraging research universities to develop interdisciplinary graduate pro
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

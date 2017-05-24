@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,120 +134,74 @@
 
 
 
+
   <h1>Notebook Technology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/09/27/migrating-oww-posts-to-jekyll/"></a></h2>
-    <h4>Thu, Sep 27, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/30/note-on-notebook-figures/">Fri, Nov 30, 2012</a></h4>
       
-      This Open Lab Notebook started on a public MediaWiki-based site, OpenWetWare (OWW), which was created with the ambitious vision of having a single wiki for biological sciences (or at least, synthetic microbiology, since such the wiki grew out of a collection of such labs). Users could have their own pages that served as a personal website or lab group site, contribute pages on specific protocols, host course websites, and most interestingly, were encouraged to create open lab notebooks using specially designed templates for the purpose.
-      
+      <div class="article-style">
+        plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
+opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
+The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/09/19/migrating-from-wordpress-to-jekyll/"></a></h2>
-    <h4>Wed, Sep 19, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/23/citing-lab-notebook-entries/">Fri, Nov 23, 2012</a></h4>
       
-      Thanks to a recent bugfix in the exitwp scripts I was able to export all my Wordpress entries. The script pulls the entries from the Wordpress database and formats them in markdown, along with extracting all metadata such as timestamp, tags, categories, publication status, and Wordpress id number, which are all embedded as YAML header information.
-Why migrate the old entries? When I moved to the Jekyll notebook, I left the Wordpress site standing with all its existing content and simply remapped the home pages.
-      
+      <div class="article-style">
+        C. Titus Brown has an excellent post discussing his exploration into the merits and technicalities cross-posting his blog posts to figshare. The rfigshare package written by Ted Hart and myself can do just this, once we puzzled out some of the same challenges (Notes to Titus: though the documentation doesn&rsquo;t mention it, you can get a programmatic list of available categories from <a href="http://api.figshare.com/v1/categories">http://api.figshare.com/v1/categories</a>. Figshare can also take code as a fileset or dataset, and may soon add a type for it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/26/exploring-jekyll-layout/">Exploring Jekyll layout</a></h2>
-    <h4>Sat, May 26, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/11/06/notes/">Tue, Nov 6, 2012</a></h4>
       
-      Jekyll works wonderfully with little knowledge beyond basic html/css to create _layout templates and then you&rsquo;re free to write beautiful pages and posts in markdown. But adding more dynamic content, the kind of cool stuff avialable in so many wordpress plugins, tends to require a little understanding of the template formatting language, Liquid. Liquid is actually super simple and powerful way to build a dynamic website. The project&rsquo;s wiki provides a great introduction, starting with
-      
+      <div class="article-style">
+        Monday  altmetrics post post for multiple uncertainty, email to Steve, Marc Marc meeting ropensci proposals Phylotastic  Notebook configuration  trying out <a href="http://greycite.knowledgeblog.org/">http://greycite.knowledgeblog.org/</a>. Add to knitcitations. Add Greycite recommended opengraph and google scholar metadata metadata.html Import metadata from _config.yml. Any custom variable defined in config can be accessed at site.varname. See updated _config.yml  Reading  Schnitzler, J., Graham, C. H., Dormann, C. F., Schiffers, K., &amp; Peter Linder, H.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/03/testing-out-a-jekyll-based-notebook/">Testing out a Jekyll-based notebook</a></h2>
-    <h4>Thu, May 3, 2012</h4>
-    <div class="article-style">
-      
-      I am trying out Jekyll as an alternative to Wordpress for powering this site and my open lab notebook. If you subscribe, the new RSS (atom) feed for the new notebook is at <a href="http://carlboettiger.info/atom.xml">http://carlboettiger.info/atom.xml</a>. I&rsquo;d love to hear any feedback, good or bad, about the switch. A recent post gives my own reflections. The site&rsquo;s source-code is available on github.
-Navigating two platforms The Wordpress site now lives at <a href="http://carlboettiger">http://carlboettiger</a>.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/03/notes/">Notes</a></h2>
-    <h4>Thu, May 3, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/29/notes/">Mon, Oct 29, 2012</a></h4>
       
-      Returned proofs for warning signals paper. Wrightscape figures sent to Peter. move fallacy to a branch off of main in earlywaring package? Running knit on the large clusters means images cannot be uploaded as they are created, since compute nodes don&rsquo;t have internet access. Saving files locally, I&rsquo;ve created a little script to parse the output file.md to find the and upload the local images, and swap the local paths for the url paths.
-      
+      <div class="article-style">
+        Misc  Mostly writing application today&hellip; Review for EcoLet looking over pomdp/momdp
+ Notebook archives now on figshare (plain-txt versions). Can now also cite entries by doi, e.g.: Lab Notebook (2010) doi:10.6084/m9.figshare.96916, and Lab Notebook, (2011) doi:10.6084/m9.figshare.96919. Would publishing individual entries and individual figshare objects be preferable or just annoying?
+ Meeting tomorrow with Annette Thomas, CEO NPG/MacMillian. review interview with David Worlock  Munch data project  Data extraction for geospatial life history project (file  R script for converting place names into latitude/longitude:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/01/jekyll-vs-wordpress/">Jekyll vs Wordpress</a></h2>
-    <h4>Tue, May 1, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/23/semantic-markup-examples-for-the-lab-notebook/">Tue, Oct 23, 2012</a></h4>
       
-      I am now trying out a Jekyll-based platform rather than a Wordpress based for my website and lab notebook. Don&rsquo;t worry, the Wordpress site still remains where it was with links intact, I&rsquo;ve simply remapped the homepage. For now this is an experiment, we&rsquo;ll see how it goes.
-Why switch? Speed Wordpress was great, meeting most of my needs for a customizable site that I couldn&rsquo;t really accomplish in my first online notebook on OpenWetWare.
-      
+      <div class="article-style">
+        All notebook entries are formatted with XHTML compliant (polyglot) HTML5 semantic structure. This means that any entry can be parsed with a generic XML parser to extract the entry content in &lt;article&gt;, the &lt;header&gt;, &lt;footer&gt;, &lt;aside&gt;, etc. The &lt;head&gt; section provides &lt;title&gt; and essential &lt;meta&gt; tags declaring the character encoding (which also sets the MIME type for HTML5).
+Head In _includes/header.html we introduce some basic academic archive metadata using the Dublin Core ontology.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/19/catching-up/">Catching up</a></h2>
-    <h4>Thu, Apr 19, 2012</h4>
-    <div class="article-style">
-      
-      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
-rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/14/semantic-lab-notebook/">Sun, Oct 14, 2012</a></h4>
+      <h4><a href="../../../../2012/10/14/semantic-lab-notebook/">Semantic Lab Notebook</a></h4>
+      <div class="article-style">
+        As the lab notebook grows, to make the maximum use of content it would be particularly useful to maximize the ability for a computer to understand the content, allowing us to identify, manipulate, and connect data using scripts and software. This is the concept of linked data, or a semantic notebook. I have explored this this idea before in the context of a wordpress-based platform, but now that Jekyll has let me strip away some of the abstraction of Wordpress it seems a good time to revisit this idea.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Saturday: projects, reading, markdown notebook-technology</a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
-    <div class="article-style">
-      
-      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
- People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
- Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/30/monday-15/">Monday</a></h2>
-    <h4>Mon, Jan 30, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
-view sourcecode, Reed.R
-NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/12/12/monday-12/">Monday</a></h2>
-    <h4>Mon, Dec 12, 2011</h4>
-    <div class="article-style">
-      
-      Wrote method2 test functions out in knitr/sweave. Sent document to Peter. Move my ropensci git origins to the ropensci github page. Ropensci comments on \dontrun: recommended for anything non-trivial, including web calls. Richer tests should be put into testthat. Reply to Charles Jervis, biology high school teacher interested in tools to teach math/modeling in ecology. Sounds like he&rsquo;s already doing some cool stuff with phylogenies with his students. prepare vignette for rfishbase based on tutorial.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -262,8 +216,12 @@ NIMBioS short visitor application Have been thinking that it would be really use
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -350,7 +308,13 @@ NIMBioS short visitor application Have been thinking that it would be really use
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,115 +133,92 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/08/13/adaptive-dynamics/">Fri, Aug 13, 2010</a></h4>
-    <h4><a href="../../../2010/08/13/adaptive-dynamics/">Adaptive Dynamics</a></h4>
-    <div class="article-style">
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/03/warning-signals-noise-response/">Thu, Nov 3, 2011</a></h4>
+      <h4><a href="../../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h4>
+      <div class="article-style">
+        Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/12/adaptive-dynamics/">Thu, Aug 12, 2010</a></h4>
-    <h4><a href="../../../2010/08/12/adaptive-dynamics/">Adaptive Dynamics</a></h4>
-    <div class="article-style">
-      
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/02/stochastic-optimal-control/">Wed, Nov 2, 2011</a></h4>
+      <h4><a href="../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h4>
+      <div class="article-style">
+        Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
+$$ X_{t+1} = Z_n f(X_n) $$
+$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
+$$ f(x) = \frac{A x}{1+B x} $$
+Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/12/warning-signals/">Thu, Aug 12, 2010</a></h4>
-    <h4><a href="../../../2010/08/12/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
-      Reworking code to allow standard format for:   evaluating likelihood, &ndash; Done fitting by maximum-likelihood, &ndash; Done simulating, &ndash; Done bootstrapping plotting models and bootstrap results.  changePt.sim, changePt.lik implemented.</p>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify/">Tue, Nov 1, 2011</a></h4>
+      <h4><a href="../../../2011/11/01/server-file-management-from-bowser-ajaxplorer-mollify/">server file management from bowser: ajaxplorer, mollify</a></h4>
+      <div class="article-style">
+        A few notes on trying out some server-based file sharing solutions.
+ajaXplorer Kind of amazingly good and easy to install, with configuration-free functionality like previews of images and playing mp3s. More secure file sharing (at least, public link not generated until asked for, can have password assigned to it). Sharing is the only step not activated by default. Create a folder called &ldquo;public&rdquo; in the ajaxplorer directory, and this feature will appear.
+      </div>
+    </div>
+    
+    </div>
 
-<p>Function Behavior notes  R&rsquo;s mle function wants a named list.
- Updated parameter handling of OU.lik to allow parameters in alpha,theta,sigma format or theta1, theta2, theta3 format, as either lists or numerics, named or unnamed. Type handling in each function isn&rsquo;t helping the speed, but optimization will have to wait.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/01/pdg-control-conference-call/">Tue, Nov 1, 2011</a></h4>
+      <h4><a href="../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h4>
+      <div class="article-style">
+        Call includes everyone except Frank &amp; Claire.
+Logistics  Meeting 2: 13-15 March
+ Review code/files on wiggio.
+ Want a group review of material / webX tutorial? Email Paul after the call.
+  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
+ Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
+ Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/11/adaptive-dynamics/">Wed, Aug 11, 2010</a></h4>
-    <h4><a href="../../../2010/08/11/adaptive-dynamics/">Adaptive Dynamics</a></h4>
-    <div class="article-style">
-      
-      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
- use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/01/training-problem-2-update/">Tue, Nov 1, 2011</a></h4>
+      <h4><a href="../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h4>
+      <div class="article-style">
+        Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/10/likelihood-ratio-update/">Tue, Aug 10, 2010</a></h4>
-    <h4><a href="../../../2010/08/10/likelihood-ratio-update/">Likelihood ratio update</a></h4>
-    <div class="article-style">
-      
-      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/01/labrids-parrotfish-method1/">Tue, Nov 1, 2011</a></h4>
+      <h4><a href="../../../2011/11/01/labrids-parrotfish-method1/">Labrids &amp; Parrotfish, method1</a></h4>
+      <div class="article-style">
+        Parrotfish only: Shift at intramandibular joint in BM rate only. Shift in constraint, $ \alpha $ at intramandibular innovation. Labrids: Wrasses vs parrotfish Shift in BM rate Shift in constraint, $ \alpha $ Compare to: method2
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/10/warning-signals/">Tue, Aug 10, 2010</a></h4>
-    <h4><a href="../../../2010/08/10/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/09/warning-signals-by-model-choice/">Mon, Aug 9, 2010</a></h4>
-    <h4><a href="../../../2010/08/09/warning-signals-by-model-choice/">Warning Signals by model choice</a></h4>
-    <div class="article-style">
-      
-      Finished implementation of simulation from saddle-node example Implemented simulation from transition density for all three models  Whoops  The change point model can&rsquo;t be summarized by the transition density, as this depends only on the time interval and not the absolute time. The nice description of being able to solve for the transition density when the transition occurs during the time interval specified is neither necessary nor applicable in this context!
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/08/warning-signals/">Sun, Aug 8, 2010</a></h4>
-    <h4><a href="../../../2010/08/08/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
-      Working on implementation of the the TwoRates model looking for changepoint: See for most of code implementation sde_likelihood.R and for the model choice example see warning_example.R  General Code cleanup  Added a saddle-node bifurcation simulation in the format of the metapop/hastings/crowley/beetles models already in the stochastic population dynamics library. Allows for C-based parallelized ensemble simulation using my Gillespie library. R call to all of these models can be found in ind_based_models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/07/reading/">Sat, Aug 7, 2010</a></h4>
-    <h4><a href="../../../2010/08/07/reading/">Reading</a></h4>
-    <div class="article-style">
-      
-      Trying to make this show reading of the day, the script below shows only current reading:
-Friendfeed discussion on solving this:
-Warning Signals  Implementing likelihood-based methods for early warning signals. Trying three models:<br />
- Model 3 is intended to be a changepoint analysis, where α(t) is piecewise constant. I solved analytically the transition probability density in Model 2 on User:Carl Boettiger/Notebook/Stochastic Population Dynamics/2010/05/06, see this and the following entry.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/05/batch-data/">Thu, Aug 5, 2010</a></h4>
-    <h4><a href="../../../2010/08/05/batch-data/">Batch Data</a></h4>
-    <div class="article-style">
-      
-      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -256,9 +233,10 @@ Warning Signals  Implementing likelihood-based methods for early warning signals
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -347,7 +325,13 @@ Warning Signals  Implementing likelihood-based methods for early warning signals
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

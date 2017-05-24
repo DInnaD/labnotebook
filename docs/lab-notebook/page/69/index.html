@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,130 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/">Fri, Jan 21, 2011</a></h4>
-    <h4><a href="../../../2011/01/21/shape-as-well-as-size-influence-power-of-phylogeny/">Shape as well as size influence power of phylogeny</a></h4>
-    <div class="article-style">
-      
-      Finished the runs comparing the power to detect different strengths of selection using different size phylogenetic trees all generated under pure-birth process simulation, and then under trees of the same size but gradually lengthening the tips, (or rather shortening everything but the tips) using the lambda transformation, which puts the informative differences deep in the past where they are less reflected in the stationary state. Bure-birth (also the constant rate birth-death) trees on the other hand are particularly twiggy and quite informative.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/16/squiggles/">Thu, Feb 16, 2012</a></h4>
+      <h4><a href="../../../2012/02/16/squiggles/">Squiggles</a></h4>
+      <div class="article-style">
+        Variability in the appearance of a trend
+nreps &lt;- 64  require(populationdynamics) pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 990, length = 100) sn &lt;- saddle_node_ibm(pars, time, reps = nreps)  We reformat the replicates into long form,
+X &lt;- data.frame(time = time, value = sn$x1) require(reshape) dat &lt;- melt(X, id = &quot;time&quot;) names(dat)[2] &lt;- &quot;reps&quot;  require(plyr) window &lt;- length(X[[&quot;time&quot;]])/2 tmp &lt;- ddply(dat, &quot;reps&quot;, function(X) window_autocorr(X$value, windowsize = window))  Tidy up the warning signal data
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/">Thu, Jan 20, 2011</a></h4>
-    <h4><a href="../../../2011/01/20/estimating-phylogenetic-signal-lambda-on-large-trees/">Estimating phylogenetic signal (lambda) on large trees</a></h4>
-    <div class="article-style">
-      
-      Used a simulated tree of 600 taxa to show that lambda distribution continues to improve with larger taxa. Recall the results with 13 taxa and with 23 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5370016511 [/flickr]
-[flickr size=&ldquo;small&rdquo; float=&ldquo;right&rdquo;]5370635360 [/flickr]
-compare to 281 taxa and then 600 taxa:
-[flickr size=&ldquo;small&rdquo; float=&ldquo;left&rdquo;]5310150538 [/flickr]
-By 281 taxa the distribution is at least centered on the true value. The width of that distribution gets somewhat tighter with more taxa, though the increase is marginal.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">Wed, Feb 15, 2012</a></h4>
+      <h4><a href="../../../2012/02/15/getting-signal-from-autocorrelation/">getting signal from autocorrelation</a></h4>
+      <div class="article-style">
+        This example goes through the steps to demonstrate that in a sufficiently-frequently sampled timeseries, autocorrelation does contain some signal of early warning. ((Post markdown generated automatically from knitr.))
+Run the individual based simulation
+require(populationdynamics)  [code] Loading required package: populationdynamics
+ ```R pars = c(Xo = 730, e = 0.5, a = 100, K = 1000, h = 200, i = 0, Da = 0.09, Dt = 0, p = 2) time = seq(0, 500, length = 500) sn &lt;- saddle_node_ibm(pars, time) X &lt;- data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/19/robert-hijmans-on-models-to-predict-sp-response-to-climate-change/">Wed, Jan 19, 2011</a></h4>
-    <h4><a href="../../../2011/01/19/robert-hijmans-on-models-to-predict-sp-response-to-climate-change/">Robert Hijmans on Models to predict sp response to climate change</a></h4>
-    <div class="article-style">
-      
-      Notes from seminar.[ref]These are my own notes as taken during the seminar and may not accurately reflect everything. I merely confirm with the speaker that my notes are publicly visible. My own commentary/thoughts indicated in square brackets. [/ref] Robert speaks to an utterly packed room. Predicting future range of species: 4 topics. 1 cross-validation, 2 niches, 3 unit (sp?), 4 mechanism. Presence-absence predictions from machine learning, maxent.
-Opening: AUC for measure of fit- lousy stat!
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/14/further-examples-for-appendices/">Tue, Feb 14, 2012</a></h4>
+      <h4><a href="../../../2012/02/14/further-examples-for-appendices/">Further examples for appendices</a></h4>
+      <div class="article-style">
+        Going through additional examples of things I&rsquo;d like to see / demonstrate but do not fit into the narrative of the manuscript. Writing these in knitr/dynamic documentation to confirm code produces the examples listed, and give a bit tighter integration between text and code examples.
+Show the parameter distributions: We can also look at the bootstraps of the parameters. Another helper function will reformat this data from reps list. The fit column uses a two-letter code to indicate first what model was used to simulate the data, and then what model was fit to the data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/15/reflections-from-scio11-saturdays-open-science-track/">Sat, Jan 15, 2011</a></h4>
-    <h4><a href="../../../2011/01/15/reflections-from-scio11-saturdays-open-science-track/">Reflections from #scio11: Saturday&#39;s Open Science Track</a></h4>
-    <div class="article-style">
-      
-      Have just returned from the amazing and energetic science online 2011 conference, where I will now, like the rest of the attendees, turn to catching up on sleep, following new online acquaintances, struggling not to append #scio11 to everything I write, and composing that nearly obligatory post-event blog entry we all use like a glass of water after a party; with the hope in may help me metabolize the experience.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/11/phylogenetics-wrightscape/">Tue, Jan 11, 2011</a></h4>
-    <h4><a href="../../../2011/01/11/phylogenetics-wrightscape/">evolution- wrightscape</a></h4>
-    <div class="article-style">
-      
-      Interesting meeting with Peter to discuss a variety of issues in comparative phylogenetics. Short notes:
- Transforming data, log data
- Trends in directions in convergent traits
- multivariate inference
- Manuscript
-  Wrightscape First have to test PMC to make sure it works with OUCH classes. Also adding PMC-required wrappers for wrightscape. Ended up modifying PMC to handle the case of simulate functions that return replicates, like these packages do.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/13/monday-16/">Mon, Feb 13, 2012</a></h4>
+      <h4><a href="../../../2012/02/13/monday-16/">Monday</a></h4>
+      <div class="article-style">
+        I&rsquo;ve created the more extend-able earlywarning package out of my warningsignals package. The individual-based simulations are carried out separately via my new populationdynamics package.
+Fallacy plots Appendices Trying a knitr-based platform for tighter integration of code, figures, and text. See today&rsquo;s analysis in markdown generated by knitr, posted as a github wiki page.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/10/warning-signals-power-and-sufficient-statistics/">Mon, Jan 10, 2011</a></h4>
-    <h4><a href="../../../2011/01/10/warning-signals-power-and-sufficient-statistics/">Warning Signals, Power and Sufficient Statistics</a></h4>
-    <div class="article-style">
-      
-      Working on warning signals manuscript. Looking at overall powercurves as a function of sample size and rate of stability loss in both models. Planning to repeat that analysis with summary statistics approach to illustrate the relative loss in power of the &ldquo;leading indicator&rdquo; approach. (simulations just set up to run now, figures should appear below as they complete. Click on figures for links to code).
- Power curve based on transcritical bifurcation as a function of rate of stability loss:  [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;warningsignals, LTC, stability&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-01-10 00:00:00&rdquo; max_upload_date=&ldquo;2011-01-12 23:59:59&rdquo;]
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/12/sunday-6/">Sun, Feb 12, 2012</a></h4>
+      <h4><a href="../../../2012/02/12/sunday-6/">Sunday </a></h4>
+      <div class="article-style">
+        phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
+ ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/09/phylo-monte-carlo-for-diversification-rates/">Sun, Jan 9, 2011</a></h4>
-    <h4><a href="../../../2011/01/09/phylo-monte-carlo-for-diversification-rates/">Phylo Monte Carlo for diversification rates</a></h4>
-    <div class="article-style">
-      
-      Writing function wrappers for geiger functions to perform Phylogenetic Monte Carlo. Any object that has methods defined for update.objecttype (object, data) and simulate.objecttype(data), and loglik.object(object) should be able to use the montecarlotest() function. OUCH almost does this but not quite, since the datatype returned by &lsquo;simulate&rsquo; doesn&rsquo;t match that needed by &lsquo;update&rsquo;. OUCH also uses S4 class styles.
-Wrote wrappers for ouch functions such that the ouch models will work with the same montecarlotest() code.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Sun, Feb 12, 2012</a></h4>
+      <h4><a href="../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Saturday: projects, reading, markdown notebook-technology</a></h4>
+      <div class="article-style">
+        Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
+ People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
+ Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/06/two-routes-to-adaptive-branching/">Thu, Jan 6, 2011</a></h4>
-    <h4><a href="../../../2011/01/06/two-routes-to-adaptive-branching/">Two routes to adaptive branching</a></h4>
-    <div class="article-style">
-      
-      Simulations completed, help accentuate the different paths for branching. When the most failures occur while waiting for the first mutation to enter first established dimorphism, mutation rate seems limiting (left):
-(right) With a higher mutation rate, most collapses back to monomorphism occur after a mutation successfully invades in the dimorphic population. Unfortunately these runs result in large fraction of the ensemble never reaching the final branching, those that do, do so fast:
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/01/02/finishing-up-my-sicb-presentation/">Sun, Jan 2, 2011</a></h4>
-    <h4><a href="../../../2011/01/02/finishing-up-my-sicb-presentation/">Finishing up my #SICB Presentation</a></h4>
-    <div class="article-style">
-      
-      Finished up my SICB presentation tweaks, slides now up on slideshare, flying off to the conference tomorrow. Created this in OpenOffice, started adding animations and then decided it would be more reliable to just duplicate slides to have parts appear (really just for the explanation of the likelihood ratio distributions under each model). Next time think I&rsquo;ll stick with my usual inkscape slides tied together with latex beamer, the lack of vector images in this one is not ideal.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/12/31/comparative-phylogenetics-is-the-data-informative/">Fri, Dec 31, 2010</a></h4>
-    <h4><a href="../../../2010/12/31/comparative-phylogenetics-is-the-data-informative/">Comparative evolution: Is the data informative?</a></h4>
-    <div class="article-style">
-      
-      Working on my SICB talk, going a little further into the example of fitting the lambda model on the Anoles data to illustrate the ways in which we may lack sufficient data for the question.
- The dataset may not contain adequate signal of the parameter / phenomenon in question
- The dataset may not be adequately large
-  Anoles data set (23 taxa):
-This first image shows the distribution of lambda values estimated from many datasets all simulated under a lambda = 0.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -271,9 +230,10 @@ This first image shows the distribution of lambda values estimated from many dat
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -362,7 +322,13 @@ This first image shows the distribution of lambda values estimated from many dat
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

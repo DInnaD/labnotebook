@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,136 +134,83 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/05/12/thursday-fun-with-databases-continued/">Thursday: Fun with databases continued</a></h2>
-    <h4>Thu, May 12, 2011</h4>
-    <div class="article-style">
-      
-      Dryad Hilmar pointed out the documentation for machine access to Dryad fileson the wiki, much nicer than guessing from the XML. (Good thing too, since it&rsquo;s a bit more complicated than I thought). Wiki describes four steps:
- Get the dryad short-identifier for the datafile
- look up the METS reference using that identifier
- parse the XML returned by METS to find the bitstream url
- Query the bitstream url and presto!
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/09/02/rfishbase-demo/">Fri, Sep 2, 2011</a></h4>
+      <h4><a href="../../../../2011/09/02/rfishbase-demo/">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h4>
+      <div class="article-style">
+        I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
+For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/11/wednesday-treebase/">Wednesday: Treebase</a></h2>
-    <h4>Wed, May 11, 2011</h4>
-    <div class="article-style">
-      
-      TREEBASE PACKAGE:
- Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
- Modified the package with the option to return only max number of trees,
-try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_trees, &quot;]&quot;, sep=&quot;&quot;), function(x){  &hellip;
- Modified to check for branch lengths and remove trees without branch lengths from the returned set.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/31/wednesday-7/">Wed, Aug 31, 2011</a></h4>
+      <h4><a href="../../../../2011/08/31/wednesday-7/">Wednesday</a></h4>
+      <div class="article-style">
+        Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/10/interfaces-for-databases-treebase-dryad-dataone/">Interfaces for databases: TreeBASE, Dryad, DataONE</a></h2>
-    <h4>Tue, May 10, 2011</h4>
-    <div class="article-style">
-      
-      Next Steps Treebase  (See Sunday&rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
- RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
- Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/30/tuesday-8/">Tue, Aug 30, 2011</a></h4>
+      <h4><a href="../../../../2011/08/30/tuesday-8/">Tuesday</a></h4>
+      <div class="article-style">
+        Completed review for Methods.
+ First read-through of review/resubmission for THEE.
+ Working on Evolution manuscript
+ Wrightscape: root should have the option of being fixed at phylogenetic mean for all models. Do root estimates occur far from this currently?
+ Check graph color schemes, seem inconsistent.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/09/monday-4/">Monday: meetings, notebook</a></h2>
-    <h4>Mon, May 9, 2011</h4>
-    <div class="article-style">
-      
-      Coop &amp; Moore 270: Species Trees Discussing Bucky paper (Ane et. al. 2006)
-Approach of BEST and *BEAST (last time): Prior probability on gene trees P(G|S), given species trees. Goal: Posterior of species trees,
-$$ P(S|X) = \intG \Pi{\ell} \left[ P(X{\ell}|G{\ell}) P(G_{\ell}|S) \right] P(S) dG $$
-$$ P(G{\ell}|S) = \Pi{b \in S} P(Hb(G{\ell})|S_b) $$
-Uses a Dirchlet process model for clustering genes by topologies. All genes in a cluster agree to share a common topology.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/08/sunday-a-few-treebase-r-package-updates/">Sunday: a few Treebase R package updates</a></h2>
-    <h4>Sun, May 8, 2011</h4>
-    <div class="article-style">
-      
-      Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/29/monday-scaling-wrightscape-examples/">Mon, Aug 29, 2011</a></h4>
+      <h4><a href="../../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h4>
+      <div class="article-style">
+        syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/05/thursday-parrotfish-analysis/">Thursday: parrotfish analysis</a></h2>
-    <h4>Thu, May 5, 2011</h4>
-    <div class="article-style">
-      
-      Summarizing parrotfish data under the single shift at the intramandibular joint. See version stable code for data loading/transforms (parrotfish_data.R), and for plots (parrotfish.R) as shown, and for analysis functions (loop_models_traits_regimes.R). Models are named by the parameter which is regime-dependent. Results are shown sorted by likelihood, so the best model is on top, and likelihood values are scaled by the weakest model.
-Tree: alpha is favored in all the ratio traits, sometimes substantially.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/28/sunday-scaling-runs/">Sun, Aug 28, 2011</a></h4>
+      <h4><a href="../../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h4>
+      <div class="article-style">
+        laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
+Set up for running primates.R in likelihood mode with abstracted parallelization:
+Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
+hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/04/weds-parrotfish-data-set-analysis/">Weds: Parrotfish data set analysis</a></h2>
-    <h4>Wed, May 4, 2011</h4>
-    <div class="article-style">
-      
-      Parrotfish  Need better convergence error handling.
- Need to remedy: &ldquo;Function cannot be evaluated at initial parameters&rdquo; errors &ndash; Occur when attempting very large values of alpha, resulting in NaN output (trouble with exponentials of alpha in calculations).
- Changed summaries to group by painting, so compare models and traits. Less natural than comparing across painting for a single trait since that allows comparisons both across models and across paintings, but makes sense when comparing only a single partition.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">Fri, Aug 26, 2011</a></h4>
+      <h4><a href="../../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h4>
+      <div class="article-style">
+        rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
+I always forget that I have to drop nulls by indexing, not my return values of sapply.
+x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/03/tuesday-phylogenetics-wrightscape-coding/">Tuesday: phylogenetics- wrightscape coding</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Writing methods to loop wrightscape models over lists of different traits, regimes, and model specifications. Easy to end up with large-dimensional output, challenge for visualization. Experimenting with different groupings.
-[flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2011-05-03 00:00:00&rdquo; max_upload_date=&ldquo;2011-05-03 23:59:59&rdquo;]
-See code: loop_models_traits_regimes.R
-Routine attempts hansen fit for initial estimates of alpha and sigma. Could be greatly improved. Should extend attempts to guess initial conditions for optimization. Should add better convergence testing, simulated annealing option.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/03/treebase-an-r-interface-proposal-for-ievobio/">treeBASE R interface: proposal for #iEvoBio</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/03/monday-3/">Monday</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Today:
- Application for CPB travel funds. DONE
- Faxed receipts from Felsenstein&rsquo;s visit. DONE
-  Seminar on Species trees Coop/Moore Seminar on *BEAST (Heled &amp; Drummond, 2009) and BEST (Liu et. al. 2008).
-Essential differences: BEST uses Mr. Bayes to compute probabilities over gene trees (over uniform prior). Then estimates the species tree by importance sampling from this distribution to reflect constraints under a convergence model. Integrates over effective population sizes rather than estimating (highly uncertain anyway), requires rooting, and a rather fast/loose implementation of ultra-metricizing trees.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -278,8 +225,12 @@ Essential differences: BEST uses Mr. Bayes to compute probabilities over gene tr
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -366,7 +317,13 @@ Essential differences: BEST uses Mr. Bayes to compute probabilities over gene tr
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

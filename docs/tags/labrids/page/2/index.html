@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,44 +134,78 @@
 
 
 
+
   <h1>Labrids</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/03/17/research/">Research</a></h2>
-    <h4>Wed, Mar 17, 2010</h4>
-    <div class="article-style">
-      
-      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/04/02/research/">Fri, Apr 2, 2010</a></h4>
+      <h4><a href="../../../../2010/04/02/research/">Research</a></h4>
+      <div class="article-style">
+        Graham &amp; Peter Meeting Fig 1
+Fig 2
+ Decided that bootstrapping against fixed model parameters would be more difficult to interpret, Fig 1. Simulated data results with refitting seem strange (Fig. 2), perhaps related to fitting of the tree. Observed LR for data should at least remain symmetric, so something has gone wrong. Expected pattern should be deducible simply by upper left triangle of graphs, should accept the first model where the data becomes typical.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/15/computing/">Computing</a></h2>
-    <h4>Mon, Mar 15, 2010</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/31/comparative-phylogenetics-notebook/">Wed, Mar 31, 2010</a></h4>
       
-      Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
-      
+      <div class="article-style">
+        Research Labrid Paper Outline Biology Letters format, 2500 words, 2 figures.
+Fig 1?
+Fig 2?
+ Title: Phylogenetic Evidence for Multiple Morphological Niches in Coral Reef Fish Summary (&lt; 200 words)
+ We present phylogenetic evidence for two distinct evolutionary optima in the fin morphology of Labrid Fish.  Keywords: Evolution, Phylogenetics, Comparative Methods, Labrids, Multiple Niches
+ Introduction
+ Labrid Fin Morphology Is clustering in Trait space evidence of Selection or Phylogenetic Inertia?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/12/bodega-workshop-presentations/">Bodega Workshop Presentations</a></h2>
-    <h4>Fri, Mar 12, 2010</h4>
-    <div class="article-style">
-      
-      Final day of Bodega Phylogenetics workshop: a full day of student presentations. (High resolution images for the trees available by clicking on them)
-Principle figures from my investigation of the Labrid data. While morphospace doesn&rsquo;t present an obvious clustering, it can be effectively divided by my maximum likelihood partitioning scheme on fin angle. A smoothed density plot of fin angle alone reveals two identifiable modes in the traitspace.
-Based on the discretized partition, ancestral states are reconstructed under both the equal rates and independent rates model.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/30/research/">Tue, Mar 30, 2010</a></h4>
+      <h4><a href="../../../../2010/03/30/research/">Research</a></h4>
+      <div class="article-style">
+        Current Situation &amp; Challenges 2000 bootstraps of models fitted to simulated ou2 data
+ A single data set is produced by simulation under a specified ou2 model on the Labrid tree (actually one that was fitted to the original Labrid data). Each model (Brownian motion and 1 to 5 separate OU peaks (assigned by my partition function) is fitted to this dataset. Each fitted model is used to generate 2000 replicate datasets For each replicate dataset, the model used to generate it is compared to each other model in likelihood ratio test 2(log(L~1~) − log(L~2~)), where L~1~ is the likelihood of the model that generated the data.
+      </div>
     </div>
-  </div>
-  
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/24/parallel-r/">Wed, Mar 24, 2010</a></h4>
+      <h4><a href="../../../../2010/03/24/parallel-r/">Parallel R</a></h4>
+      <div class="article-style">
+        Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/17/research/">Wed, Mar 17, 2010</a></h4>
+      <h4><a href="../../../../2010/03/17/research/">Research</a></h4>
+      <div class="article-style">
+        Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/03/15/computing/">Mon, Mar 15, 2010</a></h4>
+      <h4><a href="../../../../2010/03/15/computing/">Computing</a></h4>
+      <div class="article-style">
+        Exploring parallel computing options. OpenMP for distributed memory applications. learning git &ndash; need to get used to the branch and merge, install on one.  Research The failure of the Anoles data set to robustly select the more common model can easily be explained by the likelihood distribution: Not surprising since this dataset consists of only 23 taxa. The Labrid tree of 114 taxa clearly resolves the difference between the different models.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -180,12 +214,18 @@ Based on the discretized partition, ancestral states are reconstructed under bot
     <li><a href="../../../../tags/labrids/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/labrids/page/3/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -272,7 +312,13 @@ Based on the discretized partition, ancestral states are reconstructed under bot
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

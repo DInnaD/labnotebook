@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,24 +134,77 @@
 
 
 
+
   <h1>Tribolium</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/02/02/the-lab-notebook-goes-open-/">The Lab Notebook Goes Open</a></h2>
-    <h4>Tue, Feb 2, 2010</h4>
-    <div class="article-style">
-      
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/12/hastings-beetle-workshop/">Wed, May 12, 2010</a></h4>
+      <h4><a href="../../../../2010/05/12/hastings-beetle-workshop/">Hastings Beetle Workshop</a></h4>
+      <div class="article-style">
+        Bob Costantino and Brett Melbourne are joining us for the next two days to talk about stochastic population dynamics in Tribolium.
+ Morning Session, 9a - 11a
+ Outline the individual based model, toolbox  Group lunch, noon-1:30
+ My lab Presentation, 2p-3p
+ Present multidimensional linear noise approximation approach to characterizing the demographically stochastic key class.  Afternoon session, 3p-4p
+ Follow-up on understanding noise propagation in age structure dynamics.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/11/demographic-noise/">Tue, May 11, 2010</a></h4>
+      <h4><a href="../../../../2010/05/11/demographic-noise/">Demographic Noise</a></h4>
+      <div class="article-style">
+        Crowley Model  Exploring the extent to which demographic stochasticity in a key class can reverberate through the entire population dynamics. Starting with a simple test case of a modified Crowley model:   Model is implemented on a branch of the warningSignals package. Model in crowley.c, Depends on modified gillespie.c library in this package. Branching necessary as implementation simplifies the gillespie function dependencies, but these changes would break compatibility with warning_signals.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/10/alan-meeting/">Mon, May 10, 2010</a></h4>
+      <h4><a href="../../../../2010/05/10/alan-meeting/">Alan Meeting</a></h4>
+      <div class="article-style">
+        Updates  Likelihood calculation for beetle model. Proposed model and calculations Linear parameter change for warning signal model. Results in a few test cases. Likelihood methods within SDE framework, an outline of methods. Subtle problems, good approximations, powerful approaches.<br />
+Questions  LPA vs ELLPA model Defining state space in individual-based model vs stage based model, setting initial conditions? Conclusion: Means non-Markovian system, so likelihood isn&rsquo;t determined in one step approach.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/07/likelihood-calculation/">Fri, May 7, 2010</a></h4>
+      <h4><a href="../../../../2010/05/07/likelihood-calculation/">Likelihood calculation</a></h4>
+      <div class="article-style">
+        Implemented the likelihood calculation in simulate.R code. See today&rsquo;s revision changes via github beetle_sim() updated to return the full simulation to R. likelihood calculation by simulation done in parallel  library(beetles) sim &lt;- beetle_sim() L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], Dt = sim$state[2,1]-sim$state[1,1] ) -sum(log(L))  Decent estimates of likelihood may be challenging: Modifying default settings for longer tome series:
+&gt; sim &lt;- beetle_sim(dt = 7, T = 500) &gt; L &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; L2 &lt;- likelihood(par=sim$par, X=sim$state[,2:6], dt = sim$state[2,1]-sim$state[1,1], reps=100 ) &gt; -sum(log(L2)) [1] 2132.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/05/wednesday/">Wed, May 5, 2010</a></h4>
+      <h4><a href="../../../../2010/05/05/wednesday/">Wednesday</a></h4>
+      <div class="article-style">
+        Structured populations part of project migrated to github from the google code page. Finally switched to using STL for linked list in simulation. Have working simulation function ensemble run function also calculates the probability based on kernel-density estimation from the replicates. Working on likelihood calculation.  Code progress  Lots of fun trying to get full structured population simulator working accurately. See git log for details, but ended up abandoning two separate versions of custom-written C linked lists and just switched entire code over to C++ to use the STL&rsquo;s linked list, which finally worked like a charm.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/04/alan-meeting/">Tue, May 4, 2010</a></h4>
+      <h4><a href="../../../../2010/05/04/alan-meeting/">Alan Meeting</a></h4>
+      <div class="article-style">
+        Goals next week: Bob &amp; Brian beetle data: what an analysis would be with complete stochastic description. Compare models with different  Full model: Parameter list from current code:
+/* Biological Parameters. eggs and pupa can get canibalized <em>/ double b = 5; /</em> Birth rate (per day) <em>/ double u_egg = 0, u_larva = 0.001, u_pupa = 0, u_adult = 0.003; /</em> Mortality rate (per day) */ double a_egg = 3.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -160,12 +213,18 @@
     <li><a href="../../../../tags/tribolium/page/2/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/tribolium/page/4/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -252,7 +311,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

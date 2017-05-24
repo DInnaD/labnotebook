@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,120 +133,91 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">Wed, Feb 8, 2012</a></h4>
-    <h4><a href="../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">UC Davis graduate student symposium proposal</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/01/bayesian-gp-regression-by-metropolis-hastings/">Wed, May 1, 2013</a></h4>
       
-      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
-      
+      <div class="article-style">
+        (Development version for reference; code functions now in R/gp_mcmc.R)
+Function definitions library(mcmc) #&rsquo; Basic regression in Gaussian processes #&rsquo; #&rsquo; #&rsquo; @param x Observed x values, (vector or matrix with columns for each dimension of data) #&rsquo; @param y Vector of observed y values in the training data #&rsquo; @param init_pars the initial guesses for lengthscale l and process noise sigma_n #&rsquo; @param n iterations of the metropolis algorithm #&rsquo; @details Currently assumes the covariance function.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/06/some-collaborative-tools-for-science/">Mon, Feb 6, 2012</a></h4>
-    <h4><a href="../../../2012/02/06/some-collaborative-tools-for-science/">Some Collaborative Tools for Science</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/05/01/integrating-over-posterior-gp/">Wed, May 1, 2013</a></h4>
       
-      Ania Truszczynski invited me to give a little talk on the use of various collaborative tools for scientists. I enjoyed presenting this as a chalk-talk, but alas no slides to link so here&rsquo;s a list of reference. Rather than the impossible attempt to be comprehensive, this is restricted to resources I use regularly and have found to be the best of their class. All are freely available.
-Tools   Science Blogs (e.
-      
+      <div class="article-style">
+        Added integration over the posterior distribution of the GP
+ Added example of parametric Bayesian inference based on Ricker
+  Log  varying parameters 06:07 pm 2013/05/01 example based on gp means 03:44 pm 2013/05/01 run means example as separate script 02:55 pm 2013/05/01 compare against just using means 02:52 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:26 pm 2013/05/01 Merge branch &lsquo;master&rsquo; of github.com:cboettig/nonparametric-bayes 02:23 pm 2013/05/01 add gp posteriors to package 02:16 pm 2013/05/01 staging run for integrating over GP posterior (large memory reqs) 02:13 pm 2013/05/01 updated example of gp basics includes mcmc and shows influence of the prior 01:15 pm 2013/05/01 example testing new routine 01:14 pm 2013/05/01 tidying repo 01:07 pm 2013/05/01 merge analyses back into allen.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Fri, Feb 3, 2012</a></h4>
-    <h4><a href="../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Different ways of visualizing distribution overlap</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Tue, Apr 30, 2013</a></h4>
+      <h4><a href="../../../2013/04/30/tgp-difficulties-and-custom-mcmc-for-gp/">Difficulties with tgp; taking custom mcmc approach for GPs</a></h4>
+      <div class="article-style">
+        Running into some unpredictable and not consistently replicable memory errors in the tgp function calls. Also rather troublesome that return object provides only posterior means for the process mean and covariance matrix.
+Generic GP methods  Implemented MCMC sampler. Excerpt below based on my gaussian-process-basics.md script, as updated to include this case.
+  Define some example priors
+lpriors &lt;- function(pars){ d.p &lt;- c(5, 5) s2.p &lt;- c(5, 5) prior &lt;- unname( dgamma(exp(pars[1]), d.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/02/02/thursday-13/">Thu, Feb 2, 2012</a></h4>
-    <h4><a href="../../../2012/02/02/thursday-13/">Thursday</a></h4>
-    <div class="article-style">
-      
-      rOpenSci  Dryad submission xml parsing example to Scott essentially see (fishbase example , and xpath tutoral ) knitr and latex figure placement (use float package with H to enforce placement). cc0 &amp; OSI &hellip; pmc purchase order, dryad data id approval. &amp; writing writing writing&hellip; Re-formating data for ggplot version of graphs, realized I should be specifying id.vars to melt (example from my Q on SO)  Reading  Great special feature on the data era in TREE ((which I mention despite it&rsquo;s misfortune of being connected to Elsivier right now)) (Page, 2012), (Michener &amp; Jones, 2012), (Porter et.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration/">Tue, Jan 31, 2012</a></h4>
-    <h4><a href="../../../2012/01/31/journey-to-freedom-a-codes-tale-of-open-source-license-migration/">Journey to freedom - a code&#39;s tale of open source license migration</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/29/finishing-comparison-parametric-and-nonparametric/">Mon, Apr 29, 2013</a></h4>
       
-      My software wants to be free. It wants to be seen and used and loved by as many people as possible. When first it heard of open source licenses, it set sail to join the company of great software in the promised land, but finding true freedom has been a tortured journey.
-In the clutches of the GPL Created and defended by the Free Software Foundation and used by such venerable institutions as the Linux Kernel, the gcc compiler, and the R statistical environment, the GNU&rsquo;s General Public License seemed like a gold standard to call home.
-      
+      <div class="article-style">
+        Implemented in BUGS/allen.md
+Inverse gamma priors on variances 36888da Uniform prior on standard deviations 75df941 Mean plot for parametric fit 75df941 [x] Convergence diagnostics for both parametric and nonparametric MCMC, using similar visual layout 75df941
+ Oh, Jeromy Anglim has a rather nice collection of jags links
+  On Variance Priors for the Parametric MCMC  Gelman recommends uniform priors on standard deviations for the noise terms: in the .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/01/30/monday-15/">Mon, Jan 30, 2012</a></h4>
-    <h4><a href="../../../2012/01/30/monday-15/">Monday</a></h4>
-    <div class="article-style">
-      
-      pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
-view sourcecode, Reed.R
-NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">Sat, Apr 27, 2013</a></h4>
+      <h4><a href="../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h4>
+      <div class="article-style">
+        Load necessary libraries,
+library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
+library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/01/24/pdg-control-training-problem-ii-update/">Tue, Jan 24, 2012</a></h4>
-    <h4><a href="../../../2012/01/24/pdg-control-training-problem-ii-update/">pdg-control Training Problem II update</a></h4>
-    <div class="article-style">
-      
-      Basically we&rsquo;ve done some simple stuff and now would be a good time to think about tools for some heavy-lifting computational challenges standing in the way. Michael &amp; Jim have been a great help on this, and Jake has also helped with theoretical underpinnings.
-Statement of problem
-We consider the impact of uncertainty in the harvesting of fisheries which involve alternative stable state dynamics.
-Current Findings
- Adding uncertainty in current state means optimal escapement isn&rsquo;t the optimal solution (contrary to Reed model) (Sethi et.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/26/notebook-features-introduction/">Fri, Apr 26, 2013</a></h4>
+      <h4><a href="../../../2013/04/26/notebook-features-introduction/">Notebook features: an introduction</a></h4>
+      <div class="article-style">
+        In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
+ Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/01/24/tuesday-11/">Tue, Jan 24, 2012</a></h4>
-    <h4><a href="../../../2012/01/24/tuesday-11/">Tuesday</a></h4>
-    <div class="article-style">
-      
-      Resilience seminar  the unhelpful resilience of invaded systems (ecosystem engineers anyone? Cheatgrass change the fire regime, salt-cedar ) Examples in cheatgrass invading sagebrush, and saltcedar invading cottonwoods. Variables on axes? Problem of dimensionality? resilient to what? Carpenter&rsquo;s rigidity trap (need to eliminate something) vs poverty trap (something is missing) promote a small disturbance to reset the system &ndash; when are small disturbances stabilizing? (escape the rachet?)  pdg-control  Summary for Training Problem II  Warning Signals  Figures for Alan paper.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/01/20/friday-lab-group-meeting-notes/">Fri, Jan 20, 2012</a></h4>
-    <h4><a href="../../../2012/01/20/friday-lab-group-meeting-notes/">Friday (lab group meeting notes)</a></h4>
-    <div class="article-style">
-      
-      Theme inspired by Jane Lubchenco&rsquo;s talk last week: how do we connect science to management? We&rsquo;re breaking down this topic, with individual leaders for each week, as follows:
- 1&frasl;27: Carl: optimal vs. actionable management recommendations 2&frasl;3: Jaime/Noam(?): monitoring for management 2&frasl;10: Allison: informing management vs. advocacy 2&frasl;17: Lewis: what types of research are must useful to management 2&frasl;24: Noam/Jaime: communicating uncertainty 3&frasl;2: Marissa: funding sources for applied research, building collaborations outside academia, and service opportunities ((this is one of the days of the PFMC meeting in Sacramento, which would be rather relevant to our theme, so we might push this topic to next quarter)) 3&frasl;9: Emil: obstacles to implementing scientific advise 3&frasl;16: Scott: the quality of science along the basic-applied spectrum (perceptions and reality)  Also shared some coding tricks and ways to share them.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/01/19/is-your-phylogeny-informative/">Thu, Jan 19, 2012</a></h4>
-    <h4><a href="../../../2012/01/19/is-your-phylogeny-informative/">Is your phylogeny informative?</a></h4>
-    <div class="article-style">
-      
-      Yesterday my paper (Boettiger et. al. 2012) appeared in early view in Evolution (author&rsquo;s preprint),As the open access copy doesn&rsquo;t appear on pubmed for a while, you can access my author&rsquo;s copy here. so I&rsquo;d like to take this chance to share the back-story and highlight my own view on some of our findings, and the associated package on CRAN.Just submitted, meanwhile, the code is always on github.
-I didn&rsquo;t set out to write this paper.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -261,9 +232,10 @@ I didn&rsquo;t set out to write this paper.
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -352,7 +324,13 @@ I didn&rsquo;t set out to write this paper.
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

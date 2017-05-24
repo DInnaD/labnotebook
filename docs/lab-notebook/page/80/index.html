@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,109 +133,96 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/08/04/data-format-functions/">Wed, Aug 4, 2010</a></h4>
-    <h4><a href="../../../2010/08/04/data-format-functions/">Data Format functions</a></h4>
-    <div class="article-style">
-      
-      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
- Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
- should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/10/31/monday-openfisheries-ggplot/">Mon, Oct 31, 2011</a></h4>
+      <h4><a href="../../../2011/10/31/monday-openfisheries-ggplot/">Monday: openfisheries &amp; ggplot</a></h4>
+      <div class="article-style">
+        Andrew has put together the preliminary API for the openfisheries.org project. I&rsquo;ve begun an R package, rfisheries, to interface to the openfisheries project. It would be great to incorporate data from the RAM Legacy database and the seaaroundus.org project, which may be done at the level of the R package or (perhaps more flexibly) directly through the developing openfisheries API.
+Here&rsquo;s a quick proof-of-principle example for Andrew&rsquo;s API:
+(Code linked from image as usual).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/03/writing/">Tue, Aug 3, 2010</a></h4>
-    <h4><a href="../../../2010/08/03/writing/">Writing</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Fri, Oct 28, 2011</a></h4>
+      <h4><a href="../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h4>
+      <div class="article-style">
+        Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/31/open-science-summit-day-3/">Sat, Jul 31, 2010</a></h4>
-    <h4><a href="../../../2010/07/31/open-science-summit-day-3/">Open Science Summit Day 3</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/10/27/optimal-control-next-steps/">Thu, Oct 27, 2011</a></h4>
+      <h4><a href="../../../2011/10/27/optimal-control-next-steps/">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h4>
+      <div class="article-style">
+        Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
+ Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
+ Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
+  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/30/open-science-summit-day-2/">Fri, Jul 30, 2010</a></h4>
-    <h4><a href="../../../2010/07/30/open-science-summit-day-2/">Open Science Summit day 2</a></h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/29/open-science-summit/">Thu, Jul 29, 2010</a></h4>
-    <h4><a href="../../../2010/07/29/open-science-summit/">Open Science Summit</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/28/cetartiodactyle-data/">Wed, Jul 28, 2010</a></h4>
-    <h4><a href="../../../2010/07/28/cetartiodactyle-data/">Cetartiodactyle data</a></h4>
-    <div class="article-style">
-      
-      Exploring the cetartiodactyle data (unreleased) Nelder-Mead fails to converge or improve upon the hansen model. Likelihood scores differ little:  &gt; bm@loglik [1] -362.6228 &gt; ou1@loglik [1] -364.9039 &gt; ws1$loglik [1] -362.7616 &gt; ou2@loglik [1] -361.6976 &gt; ws2$loglik [1] -361.2542  See Cetaceans code.</p>
 
-<p>Fig. 1 The Brownian Motion model is preferred to the OU.1 model (left). Two separate optima are supported over a single optima (right).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/10/26/labrid-submodels/">Wed, Oct 26, 2011</a></h4>
+      <h4><a href="../../../2011/10/26/labrid-submodels/">Labrid submodels</a></h4>
+      <div class="article-style">
+        Updates to labrids results:
+ Results from Parrotfish tree &amp; 2-partition Labrid tree on full model.  Full model, Labrids Pharyngeal Shift
+Alphas Sigmas Full Model, Intramandibular Shift .
+Labrid tree, multi-sigma model, both shifts Surprising less powerful at identifying the differences.
+Note that this still estimates OU models, and hence has a global alpha, and unique thetas:
+LABRID TREE, MULTI-alpha, BOTH SHIFTS Parrotfish tree, multi-sigma model: Parrotfish tree, multi-alpha model: Labrid pharyngeal only, multi-sigma model: Labrid pharyngeal, multi-alpha Labrid intramandibular only, multi-sigma model: Labrid intramandibular, multi-alpha Full model plots with: method2_plots.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/27/parameter-estimates-for-labrid-parrotfish-model/">Tue, Jul 27, 2010</a></h4>
-    <h4><a href="../../../2010/07/27/parameter-estimates-for-labrid-parrotfish-model/">Parameter Estimates for Labrid-Parrotfish model</a></h4>
-    <div class="article-style">
-      
-      See fast_boot and plot.wrightscape functions in code. Gape size</p>
-
-<p>See fast_boot and plot.wrightscape functions in code Jaw Protrusion
-Figures show strong evidence for the relax of constraint hypothesis, as the strength of selection (alpha parameters) appears to have substantially weakened in both morphological traits in the parrotfish clade relative to the wrasses clade. The wrasses show strong preference for OU model with substantial stabilizing selection, while the Parrotfish estimate almost zero stabilizing selection (Brownian model, clear phylogenetic signal).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/10/26/monday-misc-notes/">Wed, Oct 26, 2011</a></h4>
+      <h4><a href="../../../2011/10/26/monday-misc-notes/">Monday, misc notes</a></h4>
+      <div class="article-style">
+        R packages relevant to the optimal control problems
+ BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
+ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/26/parrotfish-model-choice/">Mon, Jul 26, 2010</a></h4>
-    <h4><a href="../../../2010/07/26/parrotfish-model-choice/">Parrotfish Model choice</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/10/25/tuesday-notes-package-work-mostly/">Tue, Oct 25, 2011</a></h4>
+      <h4><a href="../../../2011/10/25/tuesday-notes-package-work-mostly/">Tuesday notes: package work mostly.</a></h4>
+      <div class="article-style">
+        Treebase release  write updated tutorial.
+ cran needs mac and windows binaries.
+  Trying devtools win_builder(); emailing Kurt. Nevermind, just got the email saying the binary has been built.
+ write email announcement  rfishbase data formatting My problem turned out not to be about &ldquo;&amp;rdquo; at all, these were octal encodings of symbols used in the XML data, eg: Cape Bojador (26°N)
+which xmlValue() would read in using the octal encoding &rdquo;Cape Bojador (26\302\260N)&rdquo;
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/23/writing/">Fri, Jul 23, 2010</a></h4>
-    <h4><a href="../../../2010/07/23/writing/">Writing</a></h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio manuscript.  Labrid Herbivory data Parrotfish gape shows significant differences for independent OU models (alpha, theta, sigma different) than wrasses. While the two-peak ouch model gets no support, allowing alpha and sigma to very results in a strongly significant model improvement.
-code
-&gt; ws2$ ws2$alpha ws2$data ws2$loglik ws2$regimes ws2$sigma ws2$theta ws2$tree ws2$Xo &gt; ws2$theta [1] 0.2245493 0.9569619 &gt; ws2$alpha [1] 2.943846e+00 4.995744e-06 &gt; ws2$sigma [1] 0.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/07/22/writing/">Thu, Jul 22, 2010</a></h4>
-    <h4><a href="../../../2010/07/22/writing/">Writing</a></h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -250,9 +237,10 @@ code
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -341,7 +329,13 @@ code
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

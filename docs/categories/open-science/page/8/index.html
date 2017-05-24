@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,119 +134,75 @@
 
 
 
+
   <h1>Open Science</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/05/01/jekyll-vs-wordpress/">Jekyll vs Wordpress</a></h2>
-    <h4>Tue, May 1, 2012</h4>
-    <div class="article-style">
-      
-      I am now trying out a Jekyll-based platform rather than a Wordpress based for my website and lab notebook. Don&rsquo;t worry, the Wordpress site still remains where it was with links intact, I&rsquo;ve simply remapped the homepage. For now this is an experiment, we&rsquo;ll see how it goes.
-Why switch? Speed Wordpress was great, meeting most of my needs for a customizable site that I couldn&rsquo;t really accomplish in my first online notebook on OpenWetWare.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/26/notebook-features-introduction/">Fri, Apr 26, 2013</a></h4>
+      <h4><a href="../../../../2013/04/26/notebook-features-introduction/">Notebook features: an introduction</a></h4>
+      <div class="article-style">
+        In keeping this open lab notebook, I have sought to address three goals (in addition to all the traditional reasons for keeping a lab notebook)
+ Provide an educational resource Experiment with scientific infrastructure and tools for sharing and replicating research Facilitate the rapid and open dissemination of scientific research  which are coincidentally evocative of NSF&rsquo;s Broader Impacts areas. In this series of posts I plan to explore and illustrate some of my experiments to address these goals through various web-based tools available for an open notebook platform.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/07/writing-reproducibly-in-the-open-with-knitr/">Writing reproducibly in the open with knitr</a></h2>
-    <h4>Sat, Apr 7, 2012</h4>
-    <div class="article-style">
-      
-      Sweave is something of a gold standard in reproducible research. It creates a dynamic document, written in a mix of LaTeX and R code where the results of the analysis (numbers, figures, tables) are automatically generated from the code and inserted into the resulting pdf document, making them easy to update if the data or methods change. It&rsquo;s a nice idea, in principle.
-However, the practical troubles are many. Coauthors don&rsquo;t know LaTeX, publishers who don&rsquo;t accept LaTeX or pdfs.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/26/notebook-features-reproducible-code/">Fri, Apr 26, 2013</a></h4>
+      <h4><a href="../../../../2013/04/26/notebook-features-reproducible-code/">Notebook features: reproducible code</a></h4>
+      <div class="article-style">
+        I now use the dynamic documentation software called knitr to write most entries that shore results and figures. The code to replicate the results is included automatically, ensuring that what I say I did and what code I actually ran to get the results are consistent. Though I have written about knitr before, both regarding its use in my notebook and in my manuscripts, here I provide a quick summary of how a reader might actually reproduce a figure or result they come across in the notebook, as well as some of the possible problems involved.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/29/relevant-initiatives-from-todays-big-data-press-release/">Relevant initiatives from today&#39;s Big Data press release</a></h2>
-    <h4>Thu, Mar 29, 2012</h4>
-    <div class="article-style">
-      
-      An exciting day for Big Data (particularly if your Berkeley).
-NSF  Encouraging research universities to develop interdisciplinary graduate programs to prepare the next generation of data scientists and engineers; Funding a $10 million Expeditions in Computing project based at the University of California, Berkeley, that will integrate three powerful approaches for turning data into information - machine learning, cloud computing, and crowd sourcing; Providing the first round of grants to support “EarthCube” - a system that will allow geoscientists to access, analyze and share information about our planet; Convening researchers across disciplines to determine how Big Data can transform teaching and learning.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Wed, Apr 10, 2013</a></h4>
+      <h4><a href="../../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h4>
+      <div class="article-style">
+        Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
+ Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/24/citations-in-markdown-using-knitr/">Citations in markdown using knitr</a></h2>
-    <h4>Sat, Mar 24, 2012</h4>
-    <div class="article-style">
-      
-      I am finding myself more and more drawn to markdown rather then tex/Rnw as my standard format (not least of which is the ease of displaying the files on github, particularly now that we have automatic image uploading). One thing I miss from latex is the citation commands. (I understand these can be provided to markdown via Pandoc, but I&rsquo;d like to simply have to knit the document, and not then run it through pandoc, latex, or another interpreter).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/21/knitr-github-and-a-new-phase-for-the-lab-notebook/">knitr, github, and a new phase for the lab notebook</a></h2>
-    <h4>Wed, Mar 21, 2012</h4>
-    <div class="article-style">
-      
-      I have recently modified the basic workflow of my lab notebook since discovering knitr. Before, I would write code files which I could track on github, push figures created by the code to flickr, and then write a notebook entry on wordpress describing what I was doing. I&rsquo;d embed each figure I wanted into the entry, and each figure got an automatic link to github for the script that created it (which usually worked, though it didn&rsquo;t say where in the script the command came from, and it required manually specifying the script name).
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/04/notebook-parsing/">Thu, Apr 4, 2013</a></h4>
+      <h4><a href="../../../../2013/04/04/notebook-parsing/">Notebook Features: parsing linked data in the semantic notebook</a></h4>
+      <div class="article-style">
+        In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/20/citing-r-packages/">Citing R packages</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/02/delayed-release-archives/">Sat, Mar 2, 2013</a></h4>
       
-      I&rsquo;m not always careful in citing all the R packages I use. R actually has some rather nice built-in mechanisms to support this, so I really have no excuse. Here&rsquo;s some quick examples:
-citation(&quot;ouch&quot;)  To cite the ouch package in publications use: Aaron A. King and Marguerite A. Butler (2009), ouch: Ornstein-Uhlenbeck models for phylogenetic comparative hypotheses (R package), <a href="http://ouch.r-forge.r-project.org">http://ouch.r-forge.r-project.org</a> Butler, M. A. and King, A. A. (2004) Phylogenetic comparative analysis: a modeling approach for adaptive evolution Am.
-      
+      <div class="article-style">
+        Today I dug out a handful (37) posts from the past two years that were published as #delayed-release content (and have all been tagged as such to indicate they were not public at their publication date). Many of these were connected to the #warning-signals project but involved results that I or Alan weren&rsquo;t ready to provide ahead of publication, as I discussed in a post when I first began marking some posts for delayed release, challenges with collaboration in open science These posts were created while on the Wordpress platform and had been marked private, so that they would be invisible to public browsing.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/28/knitr-with-flickr-and-wordpress/">Knitr with flickr and wordpress</a></h2>
-    <h4>Tue, Feb 28, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/02/28/notes/">Thu, Feb 28, 2013</a></h4>
       
-      It&rsquo;s amazing how nice it is to work with well-developed software. It took me about 20 minutes to extend Yuhui&rsquo;s interface to allow me to upload images through flickr instead of imgur, and embed them into a wordpress blog using the shortcode from the flickr gallery plugin.
-To do this, I just modified the hook used by the markdown format. First, I define a quick R function that uploads to flickr and returns the flickr identifier number.
-      
+      <div class="article-style">
+        Meeting with Marc Selection of problem: consider simpler models only. Sep through complexity hierarchy at the beginning:
+ classical approaches are to fix relationship of stock recruitment.
+ parameter uncertainty Gaussian processes for model uncertainty  The Discussion section can deal with model uncertainty model choice approaches.
+ A method where we don&rsquo;t have to assume the stock recuritment relationship How well we can do with that.
+ How much data we need.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/27/using-knitr-and-rwordpress-to-publish-results-directly-from-r-6/">Using knitr and RWordPress to publish results directly from R</a></h2>
-    <h4>Mon, Feb 27, 2012</h4>
-    <div class="article-style">
-      
-      Update: The original source file for this post, generates this output file formatted for wordpress. The source file has been knitted for markdown formatting so this post displays in Jekyll. The rendered post relies on Wordpress shortcodes, as raw the output file shows above. The markdown-based rendering shows the images and the shortcodes wordpress uses for codeblocks.
-One of the great things about knitr is its flexibility. Here I set knitr up to publish to Wordpress.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/24/visuals-for-communicating-uncertainty/">Visuals for Communicating Uncertainty </a></h2>
-    <h4>Fri, Feb 24, 2012</h4>
-    <div class="article-style">
-      
-      Visiting the question of communicating uncertainty in Marissa&rsquo;s lab meeting, focusing on this excellent Science article (Spiegelhalter et. al. 2011). Noam and Jamie are leading the discussion, and suggested we pick a few favorite examples. None on my list really address the challenge of communicating uncertainty directly, though the first one probably comes closest. I think they do highlight some of the potential and the challenges of good data visualization though, which is certainly one of the essential building blocks to visual communication of uncertainty.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/21/tues-research-seminar-managing-for-resilience-talk-future-of-libraries-etc/">Tues: Research, seminar (managing for resilience), talk (future of libraries), etc...</a></h2>
-    <h4>Tue, Feb 21, 2012</h4>
-    <div class="article-style">
-      
-      research Stuff warningsignals  Exceeded wall time on NERSC, readjusting and running this again.  treebase  Working on treebase manuscript. Treebase Rewrote handling of server errors, added pauses to reduce load, etc.  PMC  A user pointed out my support for &ldquo;white&rdquo; model was incomplete. Fix is now on github (install instructions for development version are also now on github), will push to CRAN soon.
- Another user points out that pmc support for additional functions would be nice, such as rbrownie, fit.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -261,8 +217,12 @@ One of the great things about knitr is its flexibility. Here I set knitr up to p
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -349,7 +309,13 @@ One of the great things about knitr is its flexibility. Here I set knitr up to p
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

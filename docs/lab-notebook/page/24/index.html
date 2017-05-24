@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,129 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2012/12/17/random_ews_example/">Mon, Dec 17, 2012</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/11/14/notes/">Thu, Nov 14, 2013</a></h4>
       
-      ENSO EWS Let&rsquo;s just see what happens with the MEI data for PDO:
-dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/mei.csv&quot;">http://www.carlboettiger.info/assets/data/mei.csv&quot;</a>, header=TRUE)  For the moment let&rsquo;s ignore annual structure and just collapse this into timeseries sampled bimonthly.
-require(reshape2) dt &lt;- melt(dat, id=&quot;YEAR&quot;) X &lt;- dt$value Z &lt;- X[!is.na(X)] Z &lt;- data.frame(1:(length(Z)-1), Z[1:(length(Z)-1)])  png(&quot;mei.png&quot;) require(earlywarnings) a &lt;- generic_ews(Z, detrending=&quot;gaussian&quot;)  How about the data from MacDonald (2005)
-original data link
-dat &lt;- read.table(&quot;<a href="http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;">http://www.carlboettiger.info/assets/data/pdo-macdonald2005.csv&quot;</a>, header=TRUE)  png(&quot;macdonald2005.
-      
+      <div class="article-style">
+        ropensci  ropensci stategic planning: wrote personal vision statement  RNeXML  Comments on issues #12 and #15, thinking about character matrices comments on #20, thinking about metadata parsing. (If only everyone knew xpath&hellip;)  Commit details on Github
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/15/nonparametric-bayes-comparisons/">Sat, Dec 15, 2012</a></h4>
     
-    <div class="article-style">
-      
-      Notes on structure of examples Externalized code so that different example scripts call identical commands for fitting and plotting to avoid duplication of code. Example scripts tend to be pretty text poor at the moment, would probably benefit by better descriptions in the markdown. May still involve redundant and potentially out of date descriptions though.
-Currently, externalized code for GP comparison experiments is in gaussian-process-control.R, and is called by may79-example.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2013/11/14/research-gate/">Thu, Nov 14, 2013</a></h4>
+      <h4><a href="../../../2013/11/14/research-gate/">So, you&#39;re active on Research Gate?</a></h4>
+      <div class="article-style">
+        I have occassionally been getting this question:
+ So, you&rsquo;re active on ResearchGate?
+ Sounds like being accused of some scandal, doesn&rsquo;t it?
+I&rsquo;m not generally active on it - my impression is that the open science community is mostly skeptical about ResearchGate and any other &ldquo;Social Network&rdquo; for scientists, largely on the grounds that &ldquo;we already use the same social networks everyone else uses.&rdquo; Some object on more philosophical grounds (profit, Mendeley, etc), but heck I publish in Elsevier/Springer/Wiley so I won&rsquo;t preach.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/11/nonparametric-bayes-notes/">Tue, Dec 11, 2012</a></h4>
     
-    <div class="article-style">
-      
-      Code gp_transition_matrix for generic multi-dimensional case  Understanding Gaussian Process performance If the estimated recruitment dynamics correspond to population dynamics that are non-persistent (might call this non self-sustaining, but in a rather stricter sense than when Reed (1979) introduced that term), and if no reward is offered at the terminal time point for a standing stock (zero scrap value), the GP dictates the rather counter-intuitive practice of simply removing the stock entirely.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2013/11/13/data-science-center/">Wed, Nov 13, 2013</a></h4>
+      <h4><a href="../../../2013/11/13/data-science-center/">Do we need a culture of Data Science in Academia?</a></h4>
+      <div class="article-style">
+        Just my draft copy of a Guest blog post I wrote for Dynamic Ecology.
+On Tuesday the Whitehouse Office of Science and Technology Policy announced the creation of a $37.8 million dollar initiative to promote a &ldquo;Data Science Culture&rdquo; in academic institutions, funded by the Gordon and Betty Moore Foundation, Alfred P. Sloan Foundation, and hosted in centers at the universities UC Berkeley, University of Washington, and New York University.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/10/prior-distributions-for-tgp-mcmc/">Mon, Dec 10, 2012</a></h4>
     
-    <div class="article-style">
-      
-      I am trying to understand the interface for tgp method, but much of it is not well documented (yes, despite reading through the package R manual, two nice vignettes, and a the PhD Thesis describing it.)
-Just to get some consistent notation down: consider the case of a Gaussian process with a Gaussian/radial basis function kernel, parameterized as:
-$$K(X, X&rsquo;) = \sigma^2 e^{\frac{(X-X&rsquo;)^2}{d}}$$
-And observations from $Z = f(X) + \varepsilon$, for which we seek to approximate $f$ as a (multivariate) Gaussian process, $Z | X ~ N(\mu, C)$.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/06/github-issues-tracker-the-perfect-research-todo-list/">Thu, Dec 6, 2012</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/11/08/mbi-day-five-notes/">Fri, Nov 8, 2013</a></h4>
       
-      Github issues tracker has increasingly become my research to-do list. Far beyond bugs and features of the code associated with the project, the issues sign-post different directions for investigation and the progress I&rsquo;ve made in each. Tags serve to group issues related to a common sub-project (as in my pdg-control) repo or priotize tasks (as in my nonparametric-bayes repo.
-Issues not only have title and tags, but support a comment thread for progress and discussion of the issue.
-      
+      <div class="article-style">
+        Panel discussion
+ Hugh&rsquo;s question on the usefulness of dynamic vs static models: do we have dynamical systems envy? Chris: are temporal dynamics historical artefact, and space the new frontier? Hugh: though decision theory is fundamentally temporal. really question of sequential decision vs single decision Hugh, on what would be his priority if he had time for new question: Solve the 2 player, 2 step SDP competition closed form.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/05/notes/">Wed, Dec 5, 2012</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/11/07/mbi-day-four-notes/">Thu, Nov 7, 2013</a></h4>
       
-      pdg-control Call  Send Figure 3 and 4 with stock dynamics to Paul.  Detailed to do items coming out of talk filed as Github Issues for pdg-control (policycosts)
- Comparisons between assumed and true policy costs (Figure 5 style but as a Table) Snappier, more meaningful names for &ldquo;L1&rdquo;, &ldquo;L2&rdquo; etc Write real-world context/significance of L1, L2, fixed, etc. Add graph &amp; discussion of stock dynamics for Fig 3 &amp; 4 Figure 5 interpretation Fix boundary issues in Figure 4 Resolve confusion about apples-to-apples / definition of NPV0 Resolve cost structure question On functional forms, drop ALL asymmetric cases for now.
-      
+      <div class="article-style">
+        Morning session Iadine Chades  Chadès, I., Carwardine, J., Martin, T.G., Nicol, S., Sabbadin, R. &amp; Buffet, O. (2012) MOMDPs: a solution for modelling adaptive management problems. The Twenty-Sixth AAAI Conference on Artificial Intelligence (AAAI-12), pp. 267-273. Toronto, Canada.
+ 10.1098/rspb.2013.0325 Migratory connectivity magnifies the consequences of habitat loss from sea-level rise for shorebird populations
+  Jake LaRiviera presents the challenges of the uncertainty table. Additional challenges in making an apples-to-apples comparison of the benefit of decreasing noise of different systems (e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/04/tgp-mcmc-for-gaussian-processes/">Tue, Dec 4, 2012</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2013/11/06/mbi-day-three/">Wed, Nov 6, 2013</a></h4>
       
-      Exploring implementation through tgp package MCMC routine and background reading (manual, vignettes, thesis).
-Example call:
-gp &lt;- bgp(X=X, XX=XX, Z=Z, meanfn=&quot;constant&quot;, bprior=&quot;b0&quot;, BTE=c(1000,6000,2), m0r1=TRUE, verb=4, corr=&quot;exp&quot;, trace=TRUE, s2.p=c(5,10), tau2.p=c(5,10), s2.lam=&quot;fixed&quot;, tau2.lam=&quot;fixed&quot;)  Verbose return:
-n=39, d=1, nn=101 BTE=(1000,6000,2), R=1, linburn=0 RNG state RK using rk_seed preds: data krige T[alpha,beta,nmin,smin,bmax]=[0,0,10,1,1] mean function: constant beta prior: b0 hierarchical s2[a0,g0]=[5,10] s2 prior fixed tau2[a0,g0]=[5,10] tau2 prior fixed corr prior: isotropic power nug[a,b][0,1]=[1,1],[1,1] nug prior fixed gamlin=[0,0.
-      
+      <div class="article-style">
+        MBI Workshop Becky Epanchin-Niell  Motivating example of Rabies spatial control in Switzerland
+ 2012 Eco Let: should New Zealand survey for bark beetle? Cost of survellience, control, and damage. Epanchin-Niell et al. (2012)
+ 2012 JEEM spatial spread of star thistle: control spread and eradication as an integer programming problem in deterministic context. (with Wilen) Epanchin-Niell &amp; Wilen (2012)
+ Breaking landscape into individual landowners makes it less valuable to control early.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/12/03/figures-3-and-4-for-policycosts/">Mon, Dec 3, 2012</a></h4>
     
-    <div class="article-style">
-      
-      Straight-forward tasks can sometimes take forever. In advance of our upcoming conference call for the Pretty Darn Good Control (pdg-control) NIMBioS working group, I had a few remaining issues to touch up in Figures 3 and 4.
-Figure 3 shows harvest and stock dynamics under the different functional forms fo the cost. The goal is to provide a very intuitive, visual sense of how the policies differ under these different functional forms, such as a fixed &ldquo;transaction fee&rdquo; (fixed) or a cost that is proportional to the size of the change in policy (L1), or the square of that change (L2), etc.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/11/30/note-on-notebook-figures/">Fri, Nov 30, 2012</a></h4>
-    
-    <div class="article-style">
-      
-      plots for the notebook I have started uploading images to my own server, rather than flickr. Programmatically, this is just a matter of switching the knitr upload function:
-opts_knit$set(upload.fun = socialR::notebook.url)  from my custom flickr.url function (a wrapper to Rflickr) to a custom function notebook.url using a system call to cp (to my local jekyll notebook) and rsync (so the figure displays before my next jekyll push).
-The new script names image by date and the first 10 characters of the sha hash, as well as the knitr chunk name.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2012/11/28/nonparametric-bayes-work/">Wed, Nov 28, 2012</a></h4>
-    <h4><a href="../../../2012/11/28/nonparametric-bayes-work/">early results in nonparametric-bayes approaches to optimal policy</a></h4>
-    <div class="article-style">
-      
-      Resolving Numerical and Computational issues Sequential approach? (issue #4) Thinking through whether or not it is worth optimizing the computational performance of the sequential approach.
-Can it be demonstrated that this actually has higher numerical stability? Alternatively, can it be demonstrated that this is (or is not) equivalent to the calculation performed by the direct inversion? What is the difference in computational complexity between these approaches? e.g. the inverse ends up effectively O(n^3), but what is the recursion?
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -270,9 +230,10 @@ Can it be demonstrated that this actually has higher numerical stability? Altern
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -361,7 +322,13 @@ Can it be demonstrated that this actually has higher numerical stability? Altern
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

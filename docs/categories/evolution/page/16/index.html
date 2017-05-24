@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,74 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/12/20/sun-visualizing-my-coding-over-the-past-year/">Sun: Visualizing my coding over the past year</a></h2>
-    <h4>Mon, Dec 20, 2010</h4>
-    <div class="article-style">
-      
-      Not really working today, as holidays approach, but came across the Gource toolkit for creating video visualization from git development (inspired by the Mendeley&rsquo;s example). So in the spirit of year-in-review reflections, here&rsquo;s my development from the past year (just for the phylogenetic statistics work).
-Quality is a little too poor to read file names, more entertaining than practical. Other user icons appear in December corresponding with my move to running the code from Amazon cloud.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/03/friday-5/">Fri, Jun 3, 2011</a></h4>
+      <h4><a href="../../../../2011/06/03/friday-5/">Friday</a></h4>
+      <div class="article-style">
+        A day&rsquo;s agenda  Scott&rsquo;s got us going on aR package forPLoS API, released Tuesday. Checked over the package and did some basic reorganization to put it in R package form. lots of feedback on my FF question on pw vs private for delayed-disclosure entries. warning signals manuscript package, figures, writing 9-11a Going through Peter&rsquo;s revisions 11-1p Meeting with Peter &amp; Graham 1-2p Meeting with Mikaela, Betta for GTC 2-4 PDG on Brian&rsquo;s Autoparts paper 4-5:30  Colored git diff&rsquo;s etc (from progit.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/16/thurs-writing-section-on-comparing-to-aic/">Thurs: writing section on comparing to AIC</a></h2>
-    <h4>Thu, Dec 16, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/31/tuesday-5/">Tue, May 31, 2011</a></h4>
+      <h4><a href="../../../../2011/05/31/tuesday-5/">Tuesday: PMC, confidence intervals; screen code-tricks</a></h4>
+      <div class="article-style">
+        PMC  Final read through of manuscript from me and Peter.
+ Looking at confidence intervals in fitContinuous? Package used to use the hessian from optim, but it was later removed due to errors. I added this back manually and attempt a few estimates. Given the Hessian (likelihood surface curvature) this is approximated by
+sqrt(diag(solve(out$hessian)))
+ See conf_interval_ex.R. i.e for Geospiza tree is:
+[1] SE sigma: +/ 0.6763731 SE lambda: +/- 1.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/15/weds-example-sets-more-ec2/">Weds: Example sets &amp; more EC2</a></h2>
-    <h4>Wed, Dec 15, 2010</h4>
-    <div class="article-style">
-      
-      A bit delayed from having to rerun analyses on EC2 (still learning&hellip;) More to run today (lambda trials for Anoles &ndash; should really recode this in C!).
-Trying to decide if its best to start off with the power curves and work backwards or build up from the basics. Probably doesn&rsquo;t matter too much which. Also figuring out which examples to present first:
-Where the painted trees are the following:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/30/monday-6/">Mon, May 30, 2011</a></h4>
+      <h4><a href="../../../../2011/05/30/monday-6/">Monday</a></h4>
+      <div class="article-style">
+        Power in Phylogenies Paper (PMC)  Working through / incorporated Graham&rsquo;s edits Added confidence intervals discussion tweaks to associated pmc package Exploring confidence intervals (and lack thereof) in literature on comparative methods. Pagel (1999) (Pagel, 1999) includes them, but few other papers do. He does not include any discussion about how these are calculated. Seems Sweave makes sense for the recreate-figures code from the cached data-files, but perhaps not for the entire analysis code-base (in demos/).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/14/tues-phylogenetics-thoughts-while-writing/">Tues: evolution thoughts while writing...</a></h2>
-    <h4>Tue, Dec 14, 2010</h4>
-    <div class="article-style">
-      
-      Again spending most of the day writing. (Maybe) processing some ideas in writing by writing in my notebook as I make my edits.
-Ideas I&rsquo;m trying to get across in today&rsquo;s edits Parameter estimation is more demanding of the data than model choice. Knowing if a value is different from zero is easier than knowing what it is.
-Code updates to-do  Need to add S3 wrapper functions for ouch so both can call montecarlotest() in the pmc package.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/13/back-to-writing/">Back to Writing</a></h2>
-    <h4>Mon, Dec 13, 2010</h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/29/sunday-2/">Sun, May 29, 2011</a></h4>
+      <h4><a href="../../../../2011/05/29/sunday-2/">Sunday</a></h4>
+      <div class="article-style">
+        Completed phylogenetic power manuscript updates based on Peter&rsquo;s comments. Graham will read Monday. Took a whack at updating the treebase package with a method for grabbing nexus character matrices. Seegithub issues log, querying Emmanuel on this one. Local directory management / cleanup  Prepare annual progress report for committee  Phylogenetics Power manuscript. Nearly there. (SICB presentation) Warning signals manuscript resubmission. (Presenting at ESA) Generalized comparative method/release of constraint &ndash; method done, time to write.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/08/practice-sicb-presentation/">Practice SICB Presentation</a></h2>
-    <h4>Wed, Dec 8, 2010</h4>
-    <div class="article-style">
-      
-      Gave my practice talk for Society for Integrative and Comparative Biology in Wainwright lab this afternoon, after (not quite) finishing the presentation. Trying to figure out the best way to introduce these ideas to a broad audience (same challenge as with the manuscript).
-Talk storyboard:
-Looking at other talks in my session: Macroevolution I - Methods and Character Evolution, looks like a reasonably sophisticated group.
-Good feedback from the Wainwright Lab:  Emphasize: Currently we worry that we don&rsquo;t have the right models.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">Sun, May 22, 2011</a></h4>
+      <h4><a href="../../../../2011/05/22/end-of-nceas-the-legacy-of-synthetic-data/">End of NCEAS &amp; the legacy of synthetic data</a></h4>
+      <div class="article-style">
+        The upcoming termination of NSF funding for NCEAS has recently been receiving a bit of attention, including this nice piece in Science (Stokstad, 2011). I was particularly intrigued by Oikos&rsquo;s treatment of this, in which Oikos editor Jeremy Fox writes,
+ that&rsquo;s probably NCEAS&rsquo; biggest legacy-the sense that the answers to all, or at least many, of our questions are already out there, in existing data that just needs to be pulled together&rdquo;
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/07/mapping-out-sicb-presentation-is-your-phylogeny-informative/">Mapping out SICB Presentation: Is your phylogeny informative?</a></h2>
-    <h4>Tue, Dec 7, 2010</h4>
-    <div class="article-style">
-      
-      Assembling material/outline for my SICB presentation in January, will be giving a practice talk in the Wainwright lab on Wednesday. 15 minute presentation with 5 minutes for questions.
- Designing presentation in &ldquo;storyboard&rdquo; format in Inkscape. Will figure out if I convert to slides or not.
- Simulations under the Anoles dataset to show posterior distributions of lambda. Exploring the connection between the likelihood of a parameter under each model to that of the distributions of the likelihood ratio.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/05/19/algorithms-group-mcmcmc/">Thu, May 19, 2011</a></h4>
+      <h4><a href="../../../../2011/05/19/algorithms-group-mcmcmc/">Algorithms group: MCMCMC</a></h4>
+      <div class="article-style">
+        Discussed $\text{MC}^3$, the Metropolis coupled Markov Chain Monte Carlo, in Monday&rsquo;s algorithms group meeting, just getting around to posting code. The MrBayes paper is a good reference for this (Altekar et. al. 2004). Ourpractice example needed some debugging. I re-wrote a general purpose mcmcmc function in R to illustrate the algorithm, below. Recall that it modifies our original MCMC in two ways. The normal proposal step gets weighted by temperature, allowing heated chains to step downhill more often.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/06/follow-up-from-fri-discussions-revisiting-post-predictive-evaluation/">follow up from Fri discussions: Revisiting post-predictive evaluation</a></h2>
-    <h4>Mon, Dec 6, 2010</h4>
-    <div class="article-style">
-      
-      A few weeks ago, a seminar prompted me to take a closer look at a particular post-predictive evaluation technique applied reasonably often in our recent literature,see earlier entry. I think by phrasing the approach more concisely and precisely it will be clear what the difficulty is.
-As usual, we consider some data $ \vec X$ and a set of $ N$ models specified by parameters, $ \lbrace \vec \theta_1, \vec \theta_2, \vec \ldots \theta_N\rbrace $, then we can express the likelihood of the model as the probability of the data under the given model and parameter values:
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/01/cpb-seminar-david-collar/">CPB : David Collar</a></h2>
-    <h4>Wed, Dec 1, 2010</h4>
-    <div class="article-style">
-      
-      Identifying ecological constraint on morph and function using phylogenies. 2007 CPB grad, losos post doc, now postdoc w Rita.
-Indep origin of &lsquo;bass&rsquo; cranial morph. Also unique patterns- stonefish. Phylo comparative methods to address why and how. Three types of factors on morphology: ecological, time!, intrinsic (genetic, behavior) constraints. Outline:
-I. determinants of morph diversification.
-II. Complex traits.
-I. Diversification rate vary by habitat? (Dragon lizards- diverse morph, diverse habitat). Reconstruct history of habitat use (4 types), (assign discrete traits) then stoch character maps to reconstruct (paint) tree.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/29/challenges-in-estimating-phylogenetic-signal/">Challenges in estimating phylogenetic signal</a></h2>
-    <h4>Mon, Nov 29, 2010</h4>
-    <div class="article-style">
-      
-      Uncertainty in estimate of lambda illustrated by simulating 1000 data sets on the Geopsiza tree under a model with lambda = 0.62. Shows the high uncertainty in estimating lambda at all, despite the power in the estimate at this value.
-(Code)
-Will fill this out further later. Will be interesting to compare at different base values of lambda used for the simulation.
-Have updated the codbase to provide bootstraps of parameters as part of the monte carlo output.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +216,12 @@ Have updated the codbase to provide bootstraps of parameters as part of the mont
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +308,13 @@ Have updated the codbase to provide bootstraps of parameters as part of the mont
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

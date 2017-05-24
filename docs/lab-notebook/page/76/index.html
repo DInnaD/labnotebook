@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,118 +133,102 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/10/13/wednesday/">Wed, Oct 13, 2010</a></h4>
-    <h4><a href="../../../2010/10/13/wednesday/">Wednesday</a></h4>
-    <div class="article-style">
-      
-      Monte Carlo  Reading Sanderson&rsquo;s nonparametric rate smoothing and semi-parametric r8s papers in Monte Carlo with Rannala. Comments on articles in text, but great discussion today, particularly Bruce&rsquo;s take on this style of approach.   Sanderson, M.J. Estimating absolute rates of molecular evolution and divergence times: a penalized likelihood approach. Molecular biology and evolution 19, 101-9(2002). Sanderson, M.J. A Nonparametric Approach of Rate Constancy to Estimating Divergence Times in the Absence.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/28/handling-other-sources-of-noise/">Mon, Nov 28, 2011</a></h4>
+      <h4><a href="../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h4>
+      <div class="article-style">
+        I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
+$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/12/a-day-of-writing/">Tue, Oct 12, 2010</a></h4>
-    <h4><a href="../../../2010/10/12/a-day-of-writing/">a day of writing</a></h4>
-    <div class="article-style">
-      
-      Figuring out the best way to present the critique of AIC, introduction to the method, introduction to the power test. Seeking inspiration from Huelsenbeck 1996 and digging farther back into the literature:</p>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Fri, Nov 25, 2011</a></h4>
+      <h4><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Friday: wrightscape, ggplot, wp memory</a></h4>
+      <div class="article-style">
+        more sub-model comparisons wrightscape sub-models:
+ a1 independent alphas, global theta, sigmas
+ bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
+ a2 independent alpha, theta, global sigma
+ s1 indep sigma, global alpha, theta
+ s2 indep sigma, theta, global alpha
+  Basic Nelder Mead Simulated annealing associated parameter estimates
+This approach is really not finding a very robust solution.
+Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/23/getting-the-right-distributions/">Wed, Nov 23, 2011</a></h4>
+      <h4><a href="../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h4>
+      <div class="article-style">
+        Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
+$$x_{t+1} = z_t f(x_t) $$
+where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
+$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
+      </div>
+    </div>
+    
+    </div>
 
-<p>Cox, D.R. Further results on tests of separate families of hypotheses. Journal of the Royal Stastical Society 24, 406-424(1962). Cox, D.R. Tests of Seperate Families of Hypotheses. Proceedings of the 4th Berkeley Symposium, University of California Press 105 - 123(1961).
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">Tue, Nov 22, 2011</a></h4>
+      <h4><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">some configuration notes: RStudio setup, syntax highlighting in sweave</a></h4>
+      <div class="article-style">
+        Installing R-Studio on my dreamhost VPS server. Dreamhost runs debian lenny, which is a bit dated, making it necessary to install from source. (Would be easy on a modern ubuntu server). Here we go.
+First, we probably want to install R from source to begin with (Lenny comes with cutting-edge R 2.7.1&hellip;). This needs to be done with shared libs enabled. Also I needed to run it without recommended-packages to get the initial install working
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/11/still-writing/">Mon, Oct 11, 2010</a></h4>
-    <h4><a href="../../../2010/10/11/still-writing/">Still writing</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/18/friday-7/">Fri, Nov 18, 2011</a></h4>
+      <h4><a href="../../../2011/11/18/friday-7/">Friday</a></h4>
+      <div class="article-style">
+        Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
+Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
+Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
+Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/05/lr-manuscript/">Tue, Oct 5, 2010</a></h4>
-    <h4><a href="../../../2010/10/05/lr-manuscript/">LR Manuscript</a></h4>
-    <div class="article-style">
-      
-      Still writing. Working on the comparisons to AIC section. Things to think about adding: Explicitly show p values on bootstrap What are we calling this thing anyway? After Hulsenbeck &amp; Bull, 1996: ``likelihood heterogeneity test All-different seems to have some stability/convergence problems, perhaps a less aggressive example would be better? &ndash;Carl Boettiger 19:46, 5 October 2010 (EDT) Stability issues resulted from different fitting methods in initial fit vs. bootstraps.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Thu, Nov 17, 2011</a></h4>
+      <h4><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Steve Pacala - Storer lecture</a></h4>
+      <div class="article-style">
+        Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
+Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
+ Carbon sink is half ocean, half terrestrial
+  A grim future:
+ 450ppm not feasible
+ 500ppm best case
+ 550ppm is likely even if we are largely successful
+  Even worse if the terrestrial sink collapses.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/04/monday/">Mon, Oct 4, 2010</a></h4>
-    <h4><a href="../../../2010/10/04/monday/">Monday</a></h4>
-    <div class="article-style">
-      
-      7:30 &ndash; 8:30 Read ﻿article for Wainwright&rsquo;s 270:  Streisfeld, M.a. &amp; Rausher, M.D. Population Genetics, Pleiotropy, and the Preferential Fixation of Mutations During Adaptive Evolution. Evolution no-no(2010).doi:10.1111/j.1558-5646.2010.01128.x
-Interesting approach, methods description a little light and both prediction and interpretation of pattern of mutations in coding, cis-reg, and transcription factor sites seems a little loose. Detailed notes on article in Mendeley. More comments after the discussion section at 1pm today.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/10/03/likelihood-ratio-paper/">Sun, Oct 3, 2010</a></h4>
-    <h4><a href="../../../2010/10/03/likelihood-ratio-paper/">Likelihood Ratio Paper</a></h4>
-    <div class="article-style">
-      
-      Higher resolution power plot for Anoles tree Figure (below right) shows power for increasing alpha in the Anoles tree. The vertical line shows the estimated value of alpha for the body-size data &ndash; unlikely that a tree of this size can detect selection that is this weak even if it were present. Consequently, this fit should not be taken as evidence that BM is a better fit than the OU, but rather that the data is insufficient to inform this analysis.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/09/30/adaptive-dynamics-updates/">Thu, Sep 30, 2010</a></h4>
-    <h4><a href="../../../2010/09/30/adaptive-dynamics-updates/">Adaptive Dynamics Updates</a></h4>
-    <div class="article-style">
-      
-      The numerical coexistence time simulations are still running, (Server rest brought down these runs two weeks ago, and they take a few weeks to do all the replicates) meanwhile here are the rest of the analytic set (and one simulation that finished). See code for parameters etc. (Below in frame)</p>
-
-<p>EVE Seminar: Brad Shaffer A rather good talk on the California Tiger salamander, emphasizing intersection of ecological and evolutionary investigation in a conservation, management-oriented context.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/09/30/thursday/">Thu, Sep 30, 2010</a></h4>
-    <h4><a href="../../../2010/09/30/thursday/">Thursday</a></h4>
-    <div class="article-style">
-      
-      Alan will write introduction to manuscript. Schedule meeting for next week. Scheduling the Hastings lab meeting doodle Coordinate with Baskett lab  Resources for ABC / Bayesian inference in ecological and spatial context workshop  Sisson Sa, Fan Y, Tanaka MM. Sequential Monte Carlo without likelihoods. Proceedings of the National Academy of Sciences of the United States of America. 2007;104(6):1760-5. Available at: <a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract">http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=1794282&amp;tool=pmcentrez&amp;rendertype=abstract</a>. de Valpine P, Hastings A. Fitting Population Models Incorporating Process Noise and Observation Error.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/09/15/writing/">Wed, Sep 15, 2010</a></h4>
-    <h4><a href="../../../2010/09/15/writing/">Writing</a></h4>
-    <div class="article-style">
-      
-      Working on likelihood ratio/phylogenetic signal manuscript.</p>
-
-<p>scrap notes from more literature combing  Cheverud 1985 autocorellational model, extended by Gittlman &amp; Kot 1990 Grafen 89, Pagen &amp; Harvey 89 extending PIC to polytomies Harvey &amp; Mace 82, Harvey &amp; Clutton Brock 85 taxonomic rather than phylogenetic  From Blomberg et al: &ldquo;The three best-justified phylogenetically based statistical methods can all be applied with a star phylogeny, in which case they yield results that are exactly the same as a conventional analysis (phylogenetically independent contrasts: Felsenstein 1985; generalized least squares: Grafen 1989; Martins and Hansen 1997; Garland and Ives 2000; Rohlf 2001; Monte Carlo simulations: Martins and Garland 1991; Garland et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/09/14/power-plots/">Tue, Sep 14, 2010</a></h4>
-    <h4><a href="../../../2010/09/14/power-plots/">Power plots</a></h4>
-    <div class="article-style">
-      
-      Testing power code. currently null and test distributions of likelihood scores are distinguishable even for small beta on the long time scale. See code for run.
- running on shorter timescale. Note that parameters match but small code differences in repository code on the last commit since I committed the version on the local machine (my laptop, for development) but ran a slightly tweaked code (typo in reps vs nboot, .
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -259,9 +243,10 @@ Interesting approach, methods description a little light and both prediction and
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -350,7 +335,13 @@ Interesting approach, methods description a little light and both prediction and
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,109 +134,76 @@
 
 
 
+
   <h1>Ropensci</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/05/22/sunday/">Sunday</a></h2>
-    <h4>Sun, May 22, 2011</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/02/13/notes/">Wed, Feb 13, 2013</a></h4>
       
-      Reading  International Symposium on Biomathematics and Ecology: Education and Research &ndash; This looks excellent, wonder if I can make it. Besides, it&rsquo;s in Portland and the acronym is promising. Pacific Ecoinformatics and Computational Ecology Lab - Based in Berkeley, looks rather intriguing, hard to tell how active this is as a group. Ecoinformatics? So it does exist? Paraphrasing Jeremy Fox, has it done anything? A rather nice review in ARES: (Jones et.
-      
+      <div class="article-style">
+        ropensci  rfishbase: 0.1-1 released to CRAN: bugfix updating server address. (Broke updateCache()). See NEWS for details.
+ rfigshare: 0.2-4 released to CRAN: added method to remove attached files (issue #42), see NEWS for details  Misc  My reply to John on Prosecutor&rsquo;s Fallacy piece. Thinking about a better way to provide convenient, stable access to code and data. Should provide csv versions of data.table outputs used to create each of the figures.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/16/treebase-in-r-a-first-tutorial/">TreeBASE in R: a first tutorial</a></h2>
-    <h4>Mon, May 16, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/02/12/notes/">Tue, Feb 12, 2013</a></h4>
       
-      My TreeBASE R package is essentially functional now. Here&rsquo;s a quick tutorial on the kinds of things it can do. Grab the treebase package here, install and load the library into R.
-TreeBASE provides two APIs to query the database, one which searches by the metadata associated with different publications (called OAI-PMH), and another which queries the phylogenies directly (called Phylo-ws). They have somewhat redundant functions, but for our purposes the second one returns the actual data, while the first returns metadata.
-      
+      <div class="article-style">
+        Writing  Working on nonparametric-bayes.  Reading Interesting PNAS comment from Doney &amp; Sailley, (2013) (&ldquo;When an ecological regime shift is really just stochastic noise&rdquo;) on the Di Lorenzo &amp; Ohman, (2013) piece in the same issue, showing that time integrated zooplankton data correlates closely with environmental drivers: in this case, the pacific decadal oscillation (PDO) index, which would be missed by the traditional approach of direct correlations. This refutes the previous explanation of such shifts observed in the krill populations as being driven by nonlinear ecological interactions, rather than merely linearly tracking the environment ((Hare &amp; Mantua, 2000)).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/11/wednesday-treebase/">Wednesday: Treebase</a></h2>
-    <h4>Wed, May 11, 2011</h4>
-    <div class="article-style">
-      
-      TREEBASE PACKAGE:
- Modified treebase package to return the treebase id in the phylo class as phy$id, so that I can use the id to query the appropriate meta data.
- Modified the package with the option to return only max number of trees,
-try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_trees, &quot;]&quot;, sep=&quot;&quot;), function(x){  &hellip;
- Modified to check for branch lengths and remove trees without branch lengths from the returned set.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/05/10/notes/">Thu, May 10, 2012</a></h4>
+      <h4><a href="../../../../2012/05/10/notes/">Notes</a></h4>
+      <div class="article-style">
+        Partially Observable Stochastic Processes (cont.)  Reading a bit more about pomp. Looks like SCM and PMCMC offer nicely Bayesian inference tools using the same framework (rprocess and dmeasure), making a nice platform for implementing multiple methods. Almost feels like having the likelihood equation in hand again. A bit more skeptical about nonlinear forecasting and probe matching, as they feel even more heuristic or arbitrary. I suppose that&rsquo;s just the price of having only rmeasure instead of dmeasure available though.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/10/interfaces-for-databases-treebase-dryad-dataone/">Interfaces for databases: TreeBASE, Dryad, DataONE</a></h2>
-    <h4>Tue, May 10, 2011</h4>
-    <div class="article-style">
-      
-      Next Steps Treebase  (See Sunday&rsquo;s post) - Phylo-ws implemented, but a few extra functions would strengthen the interface a bit: limit the number of trees returned, querying trees for branch lengths,
- RaXML pipeline for returning rough branch lengths conditioned on the given topology, user documentation, more test examples.
- Implement OAI-PMH test cases for treebase: For instance, query all records after a given date (or all possible other queries), i.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/08/sunday-a-few-treebase-r-package-updates/">Sunday: a few Treebase R package updates</a></h2>
-    <h4>Sun, May 8, 2011</h4>
-    <div class="article-style">
-      
-      Working on a few updates to the TreeBASE package. This flushes out the basic functionality provided by the phylo-ws API now. Needs a bit more testing of the possible queries and some bells and whistles options. Meanwhile, going to start looking at the metadata side with the OAI-PMH API. With this I should be able to grab metadata associated with a tree or the tree associated with the metadata. Should also be able to extend the queries over to other databases such as Dryad.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/26/2012-04-20/">Thu, Apr 26, 2012</a></h4>
+      <h4><a href="../../../../2012/04/26/2012-04-20/">2012-04-20</a></h4>
+      <div class="article-style">
+        Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
+Added Alan&rsquo;s edits.
+ Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
+Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
+Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
+ These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/05/03/treebase-an-r-interface-proposal-for-ievobio/">treeBASE R interface: proposal for #iEvoBio</a></h2>
-    <h4>Tue, May 3, 2011</h4>
-    <div class="article-style">
-      
-      Lightning Talk Proposal  I will present the R package treeBASE, which provides an R implementation of the treeBASE phylows API. This package makes it possible to search and import data from this database of published phylogenetic trees easily from within an R script. Recent data archiving requirements at major evolutionary journals such as The American Naturalist (Whitlock et. al. 2010) and Evolution (Fairbairn, 2011) to deposit data used in the study on the Dryad digital repository (and deposit accompanying trees in TreeBASE), along with new requirements for data management from funderssuch as NSF are rapidly changing the landscape of data availability.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/19/catching-up/">Thu, Apr 19, 2012</a></h4>
+      <h4><a href="../../../../2012/04/19/catching-up/">Catching up</a></h4>
+      <div class="article-style">
+        Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/26/accessing-phylognenies-in-treebase-from-r/">Accessing phylognenies in TreeBASE from R</a></h2>
-    <h4>Tue, Apr 26, 2011</h4>
-    <div class="article-style">
-      
-      I&rsquo;ve recently ((25 April, 8 April)) begun a project to see if I can search for and load phylogenies from TreeBASE directly into R. Thanks to the rather brilliant API in place (documented on the treeBASE wiki) for TreeBASE, some advice from Rutger Vos (TreeBASE developer), and some xpaths R code from Gabe Becker (stats grad student, UC Davis), I have a (mostly) working demonstration. As I get a chance, I&rsquo;ll be adding the rest of the queries available in the API, improve the error handling and give some more thought to a user interface.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/10/monday-tuesday/">Tue, Apr 10, 2012</a></h4>
+      <h4><a href="../../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h4>
+      <div class="article-style">
+        rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/20/wednesday-3/">Wednesday</a></h2>
-    <h4>Wed, Apr 20, 2011</h4>
-    <div class="article-style">
-      
-      Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/04/08/treebase-exploratory-exercises-in-database-driven-phylogenetics/">TreeBase: exploratory exercises in database-driven phylogenetics</a></h2>
-    <h4>Fri, Apr 8, 2011</h4>
-    <div class="article-style">
-      
-      Taking a look at the TreeBase database for potential project with Gabe &amp; Duncan&rsquo;s Large Data seminar. It would be interesting to get a working knowledge of the database and the API, making large-scale meta-analyses easy. Many studies seem to select taxa based on what they have in their own lab rather than re-use existing phylogenies, not because it is better suited to answering the questions but because it is more familiar.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -245,12 +212,18 @@ try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_t
     <li><a href="../../../../tags/ropensci/page/8/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/ropensci/page/10/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -337,7 +310,13 @@ try(xpathApply(search_returns, paste(&quot;//rdf:li[position()&lt; &quot;, max_t
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

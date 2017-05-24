@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,120 +134,77 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/04/19/catching-up/">Catching up</a></h2>
-    <h4>Thu, Apr 19, 2012</h4>
-    <div class="article-style">
-      
-      Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
-rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">Sat, Apr 27, 2013</a></h4>
+      <h4><a href="../../../../2013/04/27/comparison-of-nonparametric-and-parametric-approaches/">A comparison of nonparametric Bayesian Gaussian process estimates to standard the parametric Bayesian approach</a></h4>
+      <div class="article-style">
+        Load necessary libraries,
+library(pdgControl) # custom SDP functions library(nonparametricbayes) # custom library(reshape2) # data manipulation library(data.table) # data manipulation library(plyr) # data manipulation library(ggplot2) # plotting library(tgp) # Gaussian Processes library(MCMCpack) # Markov Chain Monte Carlo tools library(R2jags) # Markov Chain Monte Carlo tools library(emdbook) # Markov Chain Monte Carlo tools library(coda) # Markov Chain Monte Carlo tools  Plotting and knitr options, (can generally be ignored)
+library(knitcitations) opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE) opts_knit$set(upload.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h2>
-    <h4>Tue, Apr 10, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/25/notes/">Thu, Apr 25, 2013</a></h4>
       
-      rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
-      
+      <div class="article-style">
+        finish pmc post from Tuesday (done).
+ Submit comment reply (done).  Nonparametric-bayes  Finishing up parametric vs nonparametric Bayes comparison runs Need to add parametric Bayesian mean to the state-space diagram, fig 1 Compare with uniform priors on inverse standard deviations (precision) Sensitivity analysis mcmc convergence analysis for both Bayesian approaches See allen.md example scripts in BUGS/, adapted to post soon  Code tricks Plotting tricks
+ Selecting the order in the simulation legend requires declaring the model types as an ordered factor instead of a character,  dt$method = factor(dt$method, ordered=TRUE, levels=names(OPT))  and then set custom colors and match colors to the desired factor labels with scale_colour_manual, and override alpha for legends,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/06/friday-8/">Friday</a></h2>
-    <h4>Fri, Apr 6, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/24/empirical-demonstration-of-that-clever-derivation/">Wed, Apr 24, 2013</a></h4>
       
-      Fishbase  Revisions based on Duncan&rsquo;s feedback Formatting to Journal of Fish Biology guidelines Updated formatting   fixed footnotes issue in pdf version. Externalize tables in word version.
-  knit_hooks$set(chunk = function(x, options) { if (!options$split) return(x) cat(x, file = fig_path(&lsquo;.md&rsquo;, options)) }   Consider more intuitive function names rather than function arguments?  TreeBase  Needs additional functions replacing sapply queries and argument queries. Table of functions re-organize presentation  rOpenSci GSOC GSoC applications were due at noon today.
-      
+      <div class="article-style">
+        Another unexpected gem from keeping an online notebook: Empirical evidence for the expected escape time problem! Getting to that in a moment&hellip;.
+After Marc pointed out to me that there is a clever analytic demonstration to back my claims about realized exit times being fast (posted earlier in my notebook under the title, a clever derivation of realized escape times, I&rsquo;ve enjoyed a bit of a tangent in understanding this result that has long since been worked out by mathematicians but appears to be periodically rediscovered in ecological and evolutionary work in the most delightful ways.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/03/mondaytuesday/">Monday/Tuesday</a></h2>
-    <h4>Tue, Apr 3, 2012</h4>
-    <div class="article-style">
-      
-      knitr + markdown + pandoc + latex Troubleshooting this workflow still&hellip;
- Fonts xtable for html &amp; latex/pdf xtable comments display tikz device trouble Pandoc table trouble pandoc footnotes Getting a satisfactory LaTeX template.
- Makefile   writing writing writing: Mostly writing this week, so my notebook has been lacking in entries. Trying to move several manuscripts forward: two are papers accompanying software packages for extracting, manipulating and visualizing data from online repositories (TreeBase and FishBase); part of the rOpenSci project.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/29/data-to-knowledge-conference-uc-berkeley-application-abstract/">Data to Knowledge Conference, UC Berkeley: application </a></h2>
-    <h4>Thu, Mar 29, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/19/bayesian-parametric-uncertainty-sdp/">Fri, Apr 19, 2013</a></h4>
       
-      I&rsquo;ve just been accepted to the Data to Knowledge Conference in Berkeley this May. I think this conference will address some of the key issues facing us in Big Data today across many different fields, and I hope to learn much that could be useful to ecology and evolution. Given the audience I look forward to being a source of questions rather than answers as I put on my biologist&rsquo;s cap.
-      
+      <div class="article-style">
+        Adapting the parametric uncertainty represented by the posterior distributions of the Bayesian estimate (see earlier notes) to the stochastic dynamic programming solution for the optimal policy. Simply requires evaluating the expectation over the distribution, but is computationally intensive given the spread and the three parameters.
+f_transition_matrix &lt;- function(f, p, x_grid, h_grid, sigma_g, pardist){ lapply(h_grid, par_F, f, p, x_grid, sigma_g, pardist) } par_F &lt;- function(h, f, p, x_grid, sigma_g, pardist, n_mc = 100){ # Set up monte carlo sampling d &lt;- dim(pardist) indices &lt;- round(runif(n_mc,1, d[1])) # Compute the matrix F_true &lt;- sapply(x_grid, function(x_t){ # For each x_t bypar &lt;- sapply(indices, function(i){ # For each parameter value p &lt;- unname(pardist[i,c(4,1,5)]) # parameters for the mean, at current sample mu &lt;- f(x_t,h,p) est_sigma_g &lt;- pardist[i,2] # Variance parameter if(snap_to_grid(mu,x_grid) &lt; x_grid[2]){ # handle the degenerate case out &lt;- numeric(length(x_grid)) out[1] &lt;- 1 out } else { out &lt;- dlnorm(x_grid/mu, 0, est_sigma_g) } }) ave_over_pars &lt;- apply(bypar, 1, sum) # collapse by weighted average over possible parameters ave_over_pars / sum(ave_over_pars) }) F_true &lt;- t(F_true) } snap_to_grid &lt;- function(x, grid) sapply(x, function(x) grid[which.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/27/tuesday-pandoc-citations-notes-various/">Tuesday: pandoc citations notes, various</a></h2>
-    <h4>Tue, Mar 27, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/18/notes/">Thu, Apr 18, 2013</a></h4>
       
-      Markdown over latex? knitr may have solved the fundamental challenge of all Sweave/latex users with Markdown. Too many of us must be able to work with collaborators who don&rsquo;t know LaTeX and journals that won&rsquo;t accept LaTeX. It&rsquo;s a sad state of the affairs, and has improved slowly for journals (at least many will take pdfs for initial submissions) if not for collaborators. Consequently getting away from LaTeX would be nice, but Word or Google docs just won&rsquo;t cut it.
-      
+      <div class="article-style">
+        Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
+ pmc functions
+  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/26/active-adaptive-management-solutions-belief-sdp/">Active adaptive management solutions: Belief SDP</a></h2>
-    <h4>Mon, Mar 26, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/04/17/notes/">Wed, Apr 17, 2013</a></h4>
       
-      Have finally gotten my active adaptive management solutions working.
-The active adaptive management solution learns very quickly and rather monotonically which model is correct, even when models differ by small amounts and the initial belief is heavily skewed to the wrong model. I&rsquo;ve implemented examples with Myers model, but in this parameter space the allee effect is well below the Reed escapement level of the alternative Beverton Holt model, so it doesn&rsquo;t exert itself.
-      
+      <div class="article-style">
+        warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/22/robust-control-uncertainty-reading-notes/">Robust control &amp; uncertainty - reading notes</a></h2>
-    <h4>Thu, Mar 22, 2012</h4>
-    <div class="article-style">
-      
-      Ecologists/TREE (Fischer et. al. 2009), (Polasky et. al. 2011) give a nice overview/introduction to the problem. Perhaps most interestingly, both set up resilience approaches as a foil or alternate approach in contrast to a decision-theoretic problem. Fischer&rsquo;s group does a particularly nice job handling the case that these two are separate approaches &ndash; it&rsquo;s easy to dismiss resilience thinking as fuzzy optimization of fuzzy objective functions.
-The Polasky piece does a nice job refocusing us on the obvious but brushed-over question of the objective function.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/21/policy-costs-to-changing-mangement-tp-1b-apples-to-apples/">Policy costs to changing mangement, TP 1b: Apples to Apples</a></h2>
-    <h4>Wed, Mar 21, 2012</h4>
-    <div class="article-style">
-      
-      A central question of training problem 1b addressed at the working group was how to compare the different penalties. Following up on those discussions, here are a few notes on how far I&rsquo;ve gotten in the analysis regarding the best way to make these comparisons.
- simulate_npv_curves Nice job of showing the performance of the variance ratio, clear example for L2. Correlation test should probably be applied to differences, pattern is much less clear.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/03/20/tuesday-active-adaptive-management-a-first-solution/">Tuesday: active adaptive management, a first solution</a></h2>
-    <h4>Tue, Mar 20, 2012</h4>
-    <div class="article-style">
-      
-      Spent way more of today than I wanted to hammering out the active adaptive management implementation for a trivial model-choice problem using the discretized belief-SDP approach.
-We have alternate models $f_1$ and $f2$ of the state equations (population growth dynamics) $$ x{t+1} = z_t f(x_t) $$ and introduce a continuously valued belief probability $p$ that model 1 is correct. This lends itself to a Bayesian updating rule for our belief based on observing a transition from $x$ to $y$,
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -262,8 +219,12 @@ We have alternate models $f_1$ and $f2$ of the state equations (population growt
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -350,7 +311,13 @@ We have alternate models $f_1$ and $f2$ of the state equations (population growt
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,127 +134,89 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/02/25/is-bm-nested-in-ou-understanding-likelihoods-of-ouch/">Is BM nested in OU?  Understanding likelihoods of ouch</a></h2>
-    <h4>Fri, Feb 25, 2011</h4>
-    <div class="article-style">
-      
-      A quick run of the example ouch code given by
- ?bimac  will produce something of a surprise for most users:
-require(ouch) data(bimac) tree &lt;- with(bimac,ouchtree(node,ancestor,time/max(time),species)) h1 &lt;- brown(log(bimac[&lsquo;size&rsquo;]),tree) h2 &lt;- hansen(log(bimac[&lsquo;size&rsquo;]),tree,bimac[&lsquo;OU.1&rsquo;],sqrt.alpha=1,sigma=1) c(&quot;BM LogLik&quot;=h1@loglik, &quot;OU LogLik&quot;=h2@loglik) BM LogLik OU LogLik 17.33129 15.69682  These models are supposed to be nested, right? Set OU&rsquo;s $ \alpha $ parameter to zero and you get BM, so how does it manage to do worse in log likelihood?
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/19/evolution-day-2/">Sun, Jun 19, 2011</a></h4>
+      <h4><a href="../../../../2011/06/19/evolution-day-2/">Evolution Day 2</a></h4>
+      <div class="article-style">
+        Second day of the conference. Many of the talks I most want to see are coming up Monday and Tuesday, and I have a bit more to do to prepare my own talk, so I take it a bit light on sessions. Highlight of the day was definitely the discussion with Mark McPeek and the other journal editors during and following the &ldquo;Happy hour with the editors&rdquo; session, which was perhaps the best event of the conference, despite a rather unimpressive attendance.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/25/phyloseminar-luke-harmon/">Phylo: Luke Harmon</a></h2>
-    <h4>Fri, Feb 25, 2011</h4>
-    <div class="article-style">
-      
-      My notes on Luke Harmon&rsquo;s excellent talk on Phyloseminar this morning. See the recording of Luke&rsquo;s actual talk to know what he said, below are my thoughts and notes to myself having watched the talk.
-Luke summarizes his goal rather nicely as:
- Analyzing the data that people actually have to answer the questions they actually want to know
- For him, this focuses on incomplete trees and non-Brownian models.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/18/evolution-conference-day-1/">Sat, Jun 18, 2011</a></h4>
+      <h4><a href="../../../../2011/06/18/evolution-conference-day-1/">Evolution Conference Day 1</a></h4>
+      <div class="article-style">
+        Morning Sessions SSB Symposium 8:30 - noon: Unified Approaches for Understanding Patterns of Character Evolution and Diversification  Stacey Smith (U. of Nebraska-Lincoln) and Boris Igic (U.of Illinois-Chicago) - &ldquo;Introduction to models of character state-dependent diversification&rdquo;  Introduces the BiSSE model.
+ Richard Fitzjohn (U. of British Columbia) - &ldquo;Stochastic mapping incorporating differential diversification&rdquo;  BiSSE comparison to traditional discrete-trait transition rate which ignores the correlation.
+ Folmer Bokma (Umeå University) - &ldquo;Estimating speciation and extinction with incomplete phylogenies&rdquo;   Emma Goldberg (University of Illinois-Chicago) - &ldquo;Modes of speciation and character change from phylogenetic trees&rdquo;
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/19/bodega-phylogenetics-workshop-continuous-characters-r-session-planning/">Bodega evolution Workshop: Continuous Characters R session planning</a></h2>
-    <h4>Sat, Feb 19, 2011</h4>
-    <div class="article-style">
-      
-      Preparing for the Bodega Phylogenetics workshop. I&rsquo;ll be covering the R tutorial followingJusten Whittall&rsquo;s introduction to continuous characters:
- In my intro lecture i will discuss Felsenstein 1985 (including a little phylo signal), then follow with some alternatives (including the OU model). I can also discuss the tree transformations ala Pagel&rsquo;s kappa, delta, etc. and mention multivariate approaches to detecting correlated characters in a phylogenetic context.
- I&rsquo;m toying with the idea of a brief (~1hr) phylogenetic signal / model inference exercise:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/">Fri, Jun 17, 2011</a></h4>
+      <h4><a href="../../../../2011/06/17/friday-more-labrid-parrotfish-wrightscape-examples/">Friday: more labrid &amp; parrotfish wrightscape examples</a></h4>
+      <div class="article-style">
+        Runs from yesterday: MLE comparison of full labrid pharyngeal innovation (all parrotfish), alpha-v-sigma: Unfortunately, the all-variable mcmc over labrid tree was unsuccessful.
+Pure-brownie vs pure diversification ends up with the surprisingly opposite conclusion from the sigmas-alphas on parrotfish close ratio:
+Clearly a convergence problem but with which model? (see parameter distributions adjacent; following in photostream archive).
+Luckily this is not the case in the full labrid (size-corrected, protrusion, pharyngeal innovation) model set:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/18/friday/">Friday</a></h2>
-    <h4>Fri, Feb 18, 2011</h4>
-    <div class="article-style">
-      
-      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/17/thursday-4/">Thursday</a></h2>
-    <h4>Thu, Feb 17, 2011</h4>
-    <div class="article-style">
-      
-      Mostly working on manuscript revisions throughout this week. Haven&rsquo;t really learned to integrate this workflow into the notebook. In some ways it makes more sense not to, as it interrupts the flow of the research description. But then it looks like I&rsquo;m not doing anything when I have nothing meaningful in the entry. Perhaps I should just put a heading saying &ldquo;Writing.&rdquo;
-Morning&rsquo;s reading: Reproducible Research  Victoria Stodden highlights the Journal of Biostatistics approach to Reproducible Research.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/">Thu, Jun 16, 2011</a></h4>
+      <h4><a href="../../../../2011/06/16/wrightscape-labridparrotfish-results-evolution-pres/">Wrightscape labrid/parrotfish results; Evolution pres</a></h4>
+      <div class="article-style">
+        Analysis Summarizing recently completed runs:  Reviewing last night&rsquo;s runs. Some mcmcs complete:  Labrid prot.y alpha  and some crashed mcmc&rsquo;s on Zero launched Tuesday night. (gape.y, close, open don&rsquo;t seem to want to run)
+ the sigma-theta Vs alpha-theta on parrotfish (size-corrected) protrusion (over intramandibular innovation), which looks indistinguishable:
+  sigma-theta vs alpha-theta, parrotfish prot.y alpha v sigma also indistinguishable on this data, see yesterday.
+Closing, alpha vs sigma, parrotfish (intramandibular, 200 reps) Alpha Sigma Comparison Would like nicer with more replicates, but clearly distinguishable, as were yesterday&rsquo;s when theta could also vary.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/14/monday/">Monday</a></h2>
-    <h4>Mon, Feb 14, 2011</h4>
-    <div class="article-style">
-      
-      Excellent CPB visiting weekend with perspective students Thurs evening - Sunday morning. Hosting students, etc doesn&rsquo;t make for much of a research entry Friday. Catching up with many things today.
- ESA registration. Topics, Abstract
- Checking in with Alan
- Data workshop: create &amp; post advertisement, map out subject areas
- Reading: Syst Bio issue
- Updated pubmed author alerts
- Checking in with Peter &amp; Graham on revisions
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/">Wed, Jun 15, 2011</a></h4>
+      <h4><a href="../../../../2011/06/15/wednesday-mcmc-and-mles-for-wrightscape/">Wednesday MCMC and MLEs for wrightscape</a></h4>
+      <div class="article-style">
+        Wrote plotting function for wrightscape MCMC analysis
+ added support to write MCMC to a file.
+ exploring divergent MCMCs. more checks on NaNs
+ trying MLE initiated MCMC
+ Revising talk for evolution
+ tweaks to socialR reporting &ndash; include error message, exit with status=1, fewer time sigfigs; see gitlog.
+   Max likelihoods &amp; bootstraps Parrotfish protrusion (size corrected, 400 reps) If thetas are different and not allowed to vary, the alpha model will obviously do worse than the sigma model, even if it is correct.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/10/thursday-2/">Thursday</a></h2>
-    <h4>Thu, Feb 10, 2011</h4>
-    <div class="article-style">
-      
-      Organizing for Future of Data workshop. Confirming time/room booking, etc. Science makes open access a special issue on Dealing with Data  Hosting visiting prospective CPB student, scheduling events. Going over edits questions with Peter R. on phylogenetics manuscript. Editing/pruning plugins &ndash; starting to choke my Wordpress hosting. Folks at DreamHost have been very helpful, hopefully no key plugins are off. Apparently deactivating doesn&rsquo;t necessarily prevent plugin from contributing to the memory load.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/06/14/tuesday-evolutionwrightscape-talk-sundry/">Tue, Jun 14, 2011</a></h4>
+      <h4><a href="../../../../2011/06/14/tuesday-evolutionwrightscape-talk-sundry/">Tuesday - Evolution/wrightscape talk &amp; sundry</a></h4>
+      <div class="article-style">
+        Computing For today&rsquo;s analyses run history (with result/code links): see tweeting_cpu account or its search history (from Topsy)
+Analysis/Summary MCMC over parrotfish tree on protrusion doesn&rsquo;t converge when alpha and sigma are both free to vary.
+MLE approach, (size-corrected) protrusion (12hr run)
+Vary both theta and sigma:
+Vary alpha and theta:
+alpha-theta wins over theta-sigma:
+git ids/urls git codes must be obtained at start of run, together with commit, or link will point to the wrong code!
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/09/phylogenetic-monte-carlo-for-the-laser-package/">Phylogenetic Monte Carlo for the Laser package</a></h2>
-    <h4>Wed, Feb 9, 2011</h4>
-    <div class="article-style">
-      
-      Laser simulations: First ensuring example has expected behaviour, can in general get the expected likelihood differences between fits of Yule and birth-death models.
-Estimated models had been appearing identical in the runs (on left), seems to have been a bug. Distributions appear roughly the same across different tree sizes and values of death rate. General pattern of likelihood tests is reminiscent of the lambda models: high variability in likelihood ratios under bd simulations relative to the pure-birth simulations.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/08/notes-during-revisions-on-phylogenetics-manuscript/">Notes during revisions on phylogenetics manuscript</a></h2>
-    <h4>Tue, Feb 8, 2011</h4>
-    <div class="article-style">
-      
-      I have made the revisions to attempt to address Graham&rsquo;s annotations and Peter&rsquo;s comments. (revisions are also up on the git repo.) I have added a brief section introducing the models immediately after the introduction. I also rewrote more of the PMC method to include definitions of p and power in the context of comparing model likelihood ratios. I moved the AIC section up before I talk about the other comparisons.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/31/more-phylogenetic-signal-metrics-brownie-comparison/">more Phylogenetic signal metrics &amp; Brownie comparison</a></h2>
-    <h4>Mon, Jan 31, 2011</h4>
-    <div class="article-style">
-      
-      Blomberg&rsquo;s K estimates on trees of different sizes. Estimates differ across the distribution of possible data generated by BM model and generated from white noise. In principle, the K statistic should be able to distinguish between data simulated between these two. Of course, the ability to do this depends on the size and structure of the phylogenetic tree &ndash; Blomberg&rsquo;s K is not an estimate of whether the phylogeny is sufficiently structured as to be informative.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -269,8 +231,12 @@ Estimated models had been appearing identical in the runs (on left), seems to ha
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -357,7 +323,13 @@ Estimated models had been appearing identical in the runs (on left), seems to ha
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

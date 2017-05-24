@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,79 @@
 
 
 
+
   <h1>Computation</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../2014/12/11/rrhack-notes/"></a></h2>
-    <h4>Thu, Dec 11, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2015/02/06/fun-standardizing-non-standard-evaluation/">Fri, Feb 6, 2015</a></h4>
       
-      Misc notes from #rrhack. Much more detail under our Github organization, including the issues tracker &amp; wiki for the meeting and the start of the repositories for the various teaching modules.
+      <div class="article-style">
+        Using dplyr calls on the back-end of the rfishbase re-write means working around the non-standard evaluation (NSE), as described in the dplyr vignette.
+Grab the data I was using for this:
+library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union downloader::download(&quot;<a href="https://github.com/cboettig/2015/raw/fc0d9185659e7976927d0ec91981912537ac6018/assets/data/2015-02-06-taxa.csv&quot;">https://github.com/cboettig/2015/raw/fc0d9185659e7976927d0ec91981912537ac6018/assets/data/2015-02-06-taxa.csv&quot;</a>, &quot;taxa.csv&quot;) all_taxa &lt;- read.csv(&quot;taxa.csv&quot;) Consider a simple NSE dplyr call:
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/11/rrhack-notes/">Thu, Dec 11, 2014</a></h4>
+      
+      <div class="article-style">
+        Misc notes from #rrhack. Much more detail under our Github organization, including the issues tracker &amp; wiki for the meeting and the start of the repositories for the various teaching modules.
 Also see rrhack slack forum and twitter hashtag.
 Key questions  Audience and motivation. Reproducibility isn&rsquo;t a goal, it&rsquo;s a means to an ends. Accelerating science is the goal. Motivation should be to accelerate &amp; scale your own science.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/12/07/self-destroy-droplet-on-completion/"></a></h2>
-    <h4>Sun, Dec 7, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/12/07/self-destroy-droplet-on-completion/">Sun, Dec 7, 2014</a></h4>
       
-      Scott&rsquo;s analogsea package provides a great way to script commands for cloud instances on the digitalocean platform. for instance, we can use analogsea to automatically start an instance of the desired size, submit a computationally intensive task, and then terminate the instance when the task completes successfully. This last step is particularly convenient since it makes it easier to use a very powerful (and thus expensive) instance for a short time, knowing it will terminate and avoid extra charges while idle.
-      
+      <div class="article-style">
+        Scott&rsquo;s analogsea package provides a great way to script commands for cloud instances on the digitalocean platform. for instance, we can use analogsea to automatically start an instance of the desired size, submit a computationally intensive task, and then terminate the instance when the task completes successfully. This last step is particularly convenient since it makes it easier to use a very powerful (and thus expensive) instance for a short time, knowing it will terminate and avoid extra charges while idle.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/17/wssspe-feedback/"></a></h2>
-    <h4>Mon, Nov 17, 2014</h4>
-    <div class="article-style">
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/11/17/wssspe-feedback/">Mon, Nov 17, 2014</a></h4>
       
-      WSSSPE working groups: Reproducibility, Reuse, and Sharing (Neil Che Hong) Our group focused on journal policies regarding software papers. Our objectives were:
+      <div class="article-style">
+        WSSSPE working groups: Reproducibility, Reuse, and Sharing (Neil Che Hong) Our group focused on journal policies regarding software papers. Our objectives were:
  A Survey of journals that publish software papers. The Software Sustainability Institute already maintains a list
  A summary of policies each of these journals has in place regarding software papers. (e.g. licensing requirements, repository requirements, required sections in the manuscripts regarding installation or tests, etc).
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/13/draft-wssspe-thoughts/"></a></h2>
-    <h4>Thu, Nov 13, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/11/13/draft-wssspe-thoughts/">Thu, Nov 13, 2014</a></h4>
       
-      Scratching out notes for lightning talk at WSSSPE&hellip;
+      <div class="article-style">
+        Scratching out notes for lightning talk at WSSSPE&hellip;
 (CB from ropensci, Karthik too. )
  Responses to the challenges of academic software can be divided into roughly two categories. Give them better tools! Give them better training!
 We do software: over 50 packages for accessing data repositories, integrating and manipulating, annotating and publishing data. We do training: workshops, online tutorials, developing course materials. But most importantly, we aim to build community.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/07/dear-docker-hub-users/">Dear DockerHub users: please configure your repository links</a></h2>
-    <h4>Fri, Nov 7, 2014</h4>
-    <div class="article-style">
-      
-      The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
+    
+    <div class="col-md-4">
+      <h4><a href="../../2014/11/07/dear-docker-hub-users/">Fri, Nov 7, 2014</a></h4>
+      <h4><a href="../../2014/11/07/dear-docker-hub-users/">Dear DockerHub users: please configure your repository links</a></h4>
+      <div class="article-style">
+        The DockerHub is a great resource for discovering and distributing Dockerfiles. Many users sharing public images take advantage of the Docker Hub&rsquo;s Automated Build configuration, which is excellent as this automatically allows the Hub to display the Dockerfile and provides some medium of security above simply downloading and running some untrusted binary black box.
 Unfortunately, far fewer users configure Repository Links to trigger builds to update even when the resulting Dockerfile is unchanged.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/05/notes/">linking binaries from other containers</a></h2>
-    <h4>Wed, Nov 5, 2014</h4>
-    <div class="article-style">
-      
-      Been thinking about this for a while, but @benmarwick &rsquo;s examples with &ndash;volumes-from convinced me to give this a try.
-While there&rsquo;s an obvious level of convenience in having something like LaTeX bundled into the hadleyverse container so that users can build nice pdfs, if often feels not very docker-esque to me to just throw the kitchen sink into a container. At the risk of some added complexity, we can provide LaTeX from a dedicated TeX container to a container that doesn&rsquo;t have it built in, like rocker/rstudio.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/11/03/three-interfaces-for-docker/"></a></h2>
-    <h4>Mon, Nov 3, 2014</h4>
-    <div class="article-style">
-      
-      Here I outline three broad, different strategies for incorporating Docker into a user&rsquo;s workflow, particularly from the perspective of an instructor getting a group of students up and running in a containerized environment, but also in the context of more generic collaborations. The options require progressively more setup and result in a progressively more &lsquo;native&rsquo; feel to running Docker. My emphasis is on running Dockerized R applications and RStudio, though much the same thing can be accomplished with iPython notebooks and many other web apps.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/10/21/docker-and-user-permissions-crazyness/"></a></h2>
-    <h4>Tue, Oct 21, 2014</h4>
-    <div class="article-style">
-      
-      Lots of crazyness getting to the bottom of permissions changes, as discussed in:
- rocker issues tracker Stackoverflow question Docker mailing list  Long story short: docker cares only about UIDs, so we have to explicitly make sure these match. Some very good answers including from Docker core-team members on the discussion list. Overall approach outlined at the end of the rocker issues tracker.
-Here&rsquo;s the SO version of the question, for my reference:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/10/09/lessons-learned-in-writing-dockerfiles/"></a></h2>
-    <h4>Thu, Oct 9, 2014</h4>
-    <div class="article-style">
-      
-      Writing dockerfiles is pretty straight forward. Nevertheless, a little extra care goes a long way. Docker&rsquo;s own Best Practices are a great starting point, covering everything from formatting to use of certain commands. In Rocker, We&rsquo;ve tried to follow all of these suggestions and have found them very helpful. In particular:
- Minimize the number of layers, but use \ to break commands across multiple lines,
- Always run apt-get update &amp;&amp; apt-get install -y .
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../2014/10/07/notes/"></a></h2>
-    <h4>Tue, Oct 7, 2014</h4>
-    <div class="article-style">
-      
-      Misc Docker Notes  funny business with Locales, see #19  Misc notes on littler  INSTALL page is outdated. Instead, do:  apt-get update \ &amp;&amp; apt-get build-dep -y littler \ &amp;&amp; apt-get install autoconf git \ &amp;&amp; git clone <a href="https://github.com/eddelbuettel/littler.git">https://github.com/eddelbuettel/littler.git</a> \ &amp;&amp; /littler/./bootstrap  May want to symlink too:
-ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /littler/examples/install2.r /usr/local/bin/install2.r \ &amp;&amp; ln -s /littler/examples/installGithub.r /usr/local/bin/installGithub.r \ &amp;&amp; ln -s /littler/examples/testInstalled.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -266,8 +219,12 @@ ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /l
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -354,7 +311,13 @@ ln -s /littler/examples/install.r /usr/local/bin/install.r \ &amp;&amp; ln -s /l
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,32 +134,77 @@
 
 
 
+
   <h1>Adaptive Dynamics</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2009/08/25/stochastic-methods/"></a></h2>
-    <h4>Tue, Aug 25, 2009</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/05/01/phase1/">Sat, May 1, 2010</a></h4>
       
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+      <div class="article-style">
+        editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2009/07/28/branching-times/"></a></h2>
-    <h4>Tue, Jul 28, 2009</h4>
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/04/30/adaptive-dynamics/">Fri, Apr 30, 2010</a></h4>
+      <h4><a href="../../../../2010/04/30/adaptive-dynamics/">Adaptive Dynamics</a></h4>
+      <div class="article-style">
+        Modified code phase definitions: phasetime[0] is the first time dimorphism is established. Dimorphism may be lost and restablished, last (most recent) time it establishes is phasetime1. Other times are still the most recent time at which the phase was accomplished.
+ Fiddling with analytic approximations. These shouldn&rsquo;t integrate to evaluate at each value, but should be done in a fully discretized system. Prototyping in R, the discrete version is probably fast enough to handle in scripted code alone.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/04/26/adaptive-dynamics/">Mon, Apr 26, 2010</a></h4>
+      <h4><a href="../../../../2010/04/26/adaptive-dynamics/">Adaptive Dynamics</a></h4>
+      <div class="article-style">
+        Matching theoretical approximations to simulation:
+ Implemented the first analytic approximation, calculating the waiting time to complete phase 1. Established dimophisms are often still lost, hence the first successful completion of phase 1 (dimorphic population in coexistence region with each above threshold size) doesn&rsquo;t match the time of the last completion of phase 1. Phase 2, an established third population seems to happen soon after the last successful phase 1, giving the illusion this step is easy rather than the reality that this process requires fast traversal to persist past the coexistence time.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/04/23/adaptive-dynamics/">Fri, Apr 23, 2010</a></h4>
+      <h4><a href="../../../../2010/04/23/adaptive-dynamics/">Adaptive Dynamics</a></h4>
+      <div class="article-style">
+        Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
+ seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/04/22/adaptive-dynamics/">Thu, Apr 22, 2010</a></h4>
+      <h4><a href="../../../../2010/04/22/adaptive-dynamics/">Adaptive Dynamics</a></h4>
+      <div class="article-style">
+        compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
+ Solution:
+  C++ file mangles names in .so, changing the .C call. to get the object name:
+objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
+ extern C {<br />
+ Problem: Trouble getting R to export the C library to all nodes.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/04/21/adaptive-dynamics/">Wed, Apr 21, 2010</a></h4>
+      <h4><a href="../../../../2010/04/21/adaptive-dynamics/">Adaptive Dynamics</a></h4>
+      <div class="article-style">
+        Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -168,12 +213,18 @@
     <li><a href="../../../../tags/adaptive-dynamics/page/3/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/adaptive-dynamics/page/5/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -260,7 +311,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

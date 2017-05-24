@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,77 @@
 
 
 
+
   <h1>Ropensci</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2014/03/07/notes/"></a></h2>
-    <h4>Fri, Mar 7, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/31/ropenhack-notes/">Mon, Mar 31, 2014</a></h4>
       
-      Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
- Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
-      
+      <div class="article-style">
+        Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
+Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/31/weekly-review/"></a></h2>
-    <h4>Fri, Jan 31, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/24/review-of-progress-on-packages/">Mon, Mar 24, 2014</a></h4>
       
-      EML  bug fixes and replies to various input from community on EML package
+      <div class="article-style">
+        A lot of the past week has been focused on some catching up and tidying up in my active projects in metadata manipulation and publishing tools, EML, RNeXML, and rfigshare. The full story of the week and half unfolds on github, but summarizing progress here.
+rfigshare Changes to httr interface orginally broke rfigshare, though working with @hadley the original mechanism was restored through sign_oauth1.0(). The changes provided a much nicer mechanism for handling oauth authentication without having to specify tokens directly, and resulted in a relatively straightforward overhaul of the authentication mechanism in the package, while still preserving the package API.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/18/notes/">Tue, Mar 18, 2014</a></h4>
+      
+      <div class="article-style">
+        ropensci  Ensuring interoperability in R / ropensci projects. See pre-hackathon discussion: ropensci/hackathon/issues/#20 rfigshare to use new oauth interface of httr, see rfigshare/#72 Ugh. More fun with travis integration on RNeXML RNeXML/#61  pdg-control / policycosts  Started tidying up this repo&rsquo;s manuscript folder a bit.
+ Merge Paul&rsquo;s various changes on tex and Word documents into Rmd  Misc  Whoops. Couldn&rsquo;r resist a wee rant on G+, 2014-03-02 on this #PLOSfail discussion.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/10/notes/">Mon, Mar 10, 2014</a></h4>
+      
+      <div class="article-style">
+        RNeXML merge travis integration with support for rrdf. See pull #57 Reply to Perry re nonparametric approaches 10am Andrew Skype meeting re: his manuscript rOpenSci discussion re: other services, formats. Reading Caldwell et al, Geophysical Letters. Good example of naiive data mining leading to spurious correlations from non-independent models. (/ht @FreshwaterEcology Looking over NSF&rsquo;s Data Infrastructure Building Blocks, DIBB call and previously funded work.
+ Remote control for Ubuntu via android?
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/03/07/notes/">Fri, Mar 7, 2014</a></h4>
+      
+      <div class="article-style">
+        Thursday  Reading through Andrew&rsquo;s manuscript Working on RNeXML checks / travis continuous integration. Completing documentation, updating unit tests to reflect recent API changes.
+ Difficulty getting taxize dependency to pass travis check. Needed these lines in travis:  - sudo apt-get install gdal-bin libgdal1 libgdal1-dev netcdf-bin libproj-dev - ./travis-tool.sh install_aptget gdal-bin   Interview with Nature Careers journalist Amanda, discussing open notebook and open science developments  Friday  Finish up RNeXML checks / travis integration.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/01/31/weekly-review/">Fri, Jan 31, 2014</a></h4>
+      
+      <div class="article-style">
+        EML  bug fixes and replies to various input from community on EML package
  Thoughts on understanding and using EML in research, including Dryad. See <a href="https://github.com/ropensci/EML/issues/82#issuecomment-33558301">https://github.com/ropensci/EML/issues/82#issuecomment-33558301</a>
   multiple-uncertainty Jim and Mike meeting  Why the steps in the optimal solution of the deterministic case? Irregularities in value function in first iteration: sometimes not exact ties; actually preferring to fish at almost 0 rather than 0.
  address range constraints on h and x.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/07/notes/"></a></h2>
-    <h4>Tue, Jan 7, 2014</h4>
-    <div class="article-style">
-      
-      Coding  fishbase API discussions rfishbase updates pushed to CRAN Merges and minor bug fixes for rfigshare
- RNeXML: After some cooperative sleuth-work, we successfully resolved issue #23, uncovering a bug (missing feature really) in xmllint.
-  as usual, detailed activity on github.
-Reading  The sudden collapse of pollinator communities - Jelle Lever - 2014 - Ecology Letters - Wiley Online Library <a href="http://goo.gl/ZKuKsj">http://goo.gl/ZKuKsj</a> Github has traffic stats again.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/06/notes/"></a></h2>
-    <h4>Mon, Jan 6, 2014</h4>
-    <div class="article-style">
-      
-      fishbase API discussions knitcitations (push previous updates to CRAN) data extraction from sardine collapse story (see EML in data/), news article My thoughts on SWC teaching web-native publication workflow reading, ToCs speaker invitation replies review request replies  Reading  &ldquo;Are rapid transitions btwn invasive and native species caused by alt stable states, and does it matter?&rdquo; <a href="http://feedly.com/k/1gbEIWT">http://feedly.com/k/1gbEIWT</a>
- &ldquo;Phylogenetic trait-based analyses of ecological networks.&rdquo; <a href="http://feedly.com/k/1gbEvD6">http://feedly.com/k/1gbEvD6</a>
- Nice editorial on &ldquo;core elements of a TPB paper.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/26/notes/"></a></h2>
-    <h4>Tue, Nov 26, 2013</h4>
-    <div class="article-style">
-      
-      RNeXML Character metadata EML provides a nice illustration of the kind of metadata we would want to typically accompany character trait data; at minimum, at the attribute level.
-Some of this is already there &ndash; we know if states are continuous or discrete, what possible states they can take on, and can add labels to state nodes to define what the symbols mean (however, perhaps an additional meta annotation node would be preferred).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/19/notes/"></a></h2>
-    <h4>Tue, Nov 19, 2013</h4>
-    <div class="article-style">
-      
-      RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
- Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&rsquo;t have to wrap some C library myself&hellip;  nonparametric-bayes Writing writing.
- Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/17/rnexml-metadata-queries/"></a></h2>
-    <h4>Sun, Nov 17, 2013</h4>
-    <div class="article-style">
-      
-      (From issue #20)
-Basic metadata queries a question of how the user queries that metadata. Currently we have a metadata function that simply extracts all the metadata at the specified level (nexml, otus, trees, tree, etc) and returns a named character string in which the name corresponds to the rel or property and the value corresponds to the content or href, e.g.:
-birds &lt;- read.nexml(&quot;birdOrders.xml&quot;) meta &lt;- get_metadata(birds)  prints the named string with the top-level (default-level) metadata elements as so:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/14/notes/"></a></h2>
-    <h4>Thu, Nov 14, 2013</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/08/mbi-day-five-notes/"></a></h2>
-    <h4>Fri, Nov 8, 2013</h4>
-    <div class="article-style">
-      
-      Panel discussion
- Hugh&rsquo;s question on the usefulness of dynamic vs static models: do we have dynamical systems envy? Chris: are temporal dynamics historical artefact, and space the new frontier? Hugh: though decision theory is fundamentally temporal. really question of sequential decision vs single decision Hugh, on what would be his priority if he had time for new question: Solve the 2 player, 2 step SDP competition closed form.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/05/mbi-day-two/"></a></h2>
-    <h4>Tue, Nov 5, 2013</h4>
-    <div class="article-style">
-      
-      MBI Workshop Paul Armsworth Very nice example of control in creating a market for ecosystem services for landowners. Key feature is that multiple land-owners respond by adjusting their prices, and so payments can be divided into fraction going into subsidy and fraction going into conservation. When one land-owner controls land that is particularly good cost per conservation accomplished, they also stand to gain largest value.
-Also looked at auction mechanism and impact of cooperation among landowners to create hold outs.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +219,12 @@ Also looked at auction mechanism and impact of cooperation among landowners to c
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +311,13 @@ Also looked at auction mechanism and impact of cooperation among landowners to c
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

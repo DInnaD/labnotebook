@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,124 +133,85 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../2014/12/11/rrhack-notes/">Thu, Dec 11, 2014</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      Misc notes from #rrhack. Much more detail under our Github organization, including the issues tracker &amp; wiki for the meeting and the start of the repositories for the various teaching modules.
-Also see rrhack slack forum and twitter hashtag.
-Key questions  Audience and motivation. Reproducibility isn&rsquo;t a goal, it&rsquo;s a means to an ends. Accelerating science is the goal. Motivation should be to accelerate &amp; scale your own science.
-      
+    <div class="col-md-4">
+      <h4><a href="../2015/12/31/reflections-on-the-open-lab-notebook/">Thu, Dec 31, 2015</a></h4>
+      <h4><a href="../2015/12/31/reflections-on-the-open-lab-notebook/">Reflecting on five years of the open lab notebook</a></h4>
+      <div class="article-style">
+        I have been keeping an open lab notebook now since February of 2010 1. Those years have seen 271, 301, 164, 136, 86 and 44 posts, respectively. The notebook started on OpenWetWare, with code on (now defunct) Google Code (using svn!). By October of that year I had moved to a Wordpress.org platform running on DreamHost, with code moving to GitHub earlier that year. Wordpress meant my own domain name, control of layout and plugins, better mobile support, and perhaps most importantly, avoided the occasional day-long down-times I had seen on OpenWetWare.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/07/self-destroy-droplet-on-completion/">Sun, Dec 7, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../2015/12/17/docker-workflows/">Thu, Dec 17, 2015</a></h4>
       
-      Scott&rsquo;s analogsea package provides a great way to script commands for cloud instances on the digitalocean platform. for instance, we can use analogsea to automatically start an instance of the desired size, submit a computationally intensive task, and then terminate the instance when the task completes successfully. This last step is particularly convenient since it makes it easier to use a very powerful (and thus expensive) instance for a short time, knowing it will terminate and avoid extra charges while idle.
-      
+      <div class="article-style">
+        I was recently asked to describe what my typical workflow would look for running R on a cloud machine, such as digitalocean.
+So, here’s a typical use:
+ ## Create digitalocean machine docker-machine create &ndash;driver digitalocean &ndash;digitalocean-size 1gb &ndash;digitalocean-access-token $DO_TOKEN dev ## Point docker-engine at the the new machine eval $(docker-machine env dev) ## Launch the Rocker container running RStudio docker run -d -p 8787:8787 -e PASSWORD=$PASSWORD rocker/hadleyverse ## Open browser at the IP address (e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/04/lsn-nimble/">Thu, Dec 4, 2014</a></h4>
     
-    <div class="article-style">
-      
-      some sample data
-library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.Date, as.Date.numeric ## sde 2.0.15 ## Companion package to the book ## &#39;Simulation and Inference for Stochastic Differential Equations With R Examples&#39; ## Iacus, Springer NY, (2008) ## To check the errata corrige of the book, type vignette(&quot;sde.
-      
+    <div class="col-md-4">
+      <h4><a href="../2015/11/20/github-issues-import/">Fri, Nov 20, 2015</a></h4>
+      <h4><a href="../2015/11/20/github-issues-import/">Download and Parse Github Issues</a></h4>
+      <div class="article-style">
+        #devtools::install_github(&quot;cscheid/rgithub&quot;) library(&quot;github&quot;) library(&quot;dplyr&quot;) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(&quot;stringr&quot;) library(&quot;lubridate&quot;) ## Loading required package: methods ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date library(&quot;readr&quot;) ctx = interactive.login(Sys.getenv(&quot;GH_CLIENT_ID&quot;),Sys.getenv(&quot;GH_CLIENT_SECRET&quot;)) Thanks to @realAkhmed for this one, see: <a href="https://github.com/cscheid/rgithub/issues/30#issuecomment-150354560">https://github.com/cscheid/rgithub/issues/30#issuecomment-150354560</a>
+auto.page &lt;- function(f) { f_call &lt;- substitute(f) stopifnot(is.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/04/lsn-nimble/">Thu, Dec 4, 2014</a></h4>
     
-    <div class="article-style">
-      
-      some sample data
-library(sde) library(nimble) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  LSN version Test case: Set prior for m $\approx 0$:
-lsn &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) sigma_x ~ dunif(1e-10, 100.0) sigma_y ~ dunif(1e-10, 100.0) m ~ dunif(-1e2, 1e2) x[1] ~ dunif(0, 100) y[1] ~ dunif(0, 100) for(i in 1:(N-1)){ mu_x[i] &lt;- x[i] + y[i] * (theta - x[i]) x[i+1] ~ dnorm(mu_x[i], sd = sigma_x) mu_y[i] &lt;- y[i] + m * t[i] y[i+1] ~ dnorm(mu_y[i], sd = sigma_y) } })  Constants in the model definition are the length of the dataset, $N$ and the time points of the sample.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/03/nimble-explore/">Wed, Dec 3, 2014</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../2015/08/27/nimble-model-construction/">Thu, Aug 27, 2015</a></h4>
       
-      Working through quick-start example in nimble manual
-library(methods) library(knitr) # set dev to png for graphs with &gt; 1e3 points ## caching nimble can create trouble! The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate pumpCode &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.
-      
+      <div class="article-style">
+        library(&quot;nimble&quot;) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(&quot;lazyeval&quot;) library(&quot;methods&quot;) Can we declare the nimbleCode parts in sections? Such as defining the model and priors in separate, reusable code blocks? Here’s a “model” block:
+model &lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } }) We may also wish to define the priors separately, and with specified list of hyperparameters for the priors.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/03/nimble-explore/">Wed, Dec 3, 2014</a></h4>
     
-    <div class="article-style">
-      
-      Working through quick-start example in nimble manual
-The manual gives essentially no introduction to what appears to be a classic BUGS example model for stochastically failing pumps.
-library(nimble) pumpCode &lt;- modelCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } alpha ~ dexp(1.0) beta ~ dgamma(0.1,1.0) })  pumpConsts &lt;- list(N = 10, t = c(94.3, 15.7, 62.9, 126, 5.24, 31.4, 1.05, 1.05, 2.1, 10.5)) pumpData &lt;- list(x = c(5, 1, 5, 14, 3, 19, 1, 1, 4, 22))  pumpInits &lt;- list(alpha = 1, beta = 1, theta = rep(0.
-      
+    <div class="col-md-4">
+      <h4><a href="../2015/08/03/a-drat-repository-for-ropensci/">Mon, Aug 3, 2015</a></h4>
+      <h4><a href="../2015/08/03/a-drat-repository-for-ropensci/">a drat repository for rOpenSci (draft for ropensci blog)</a></h4>
+      <div class="article-style">
+        We’re happy to announce the launch of a CRAN-style repository for rOpenSci at <a href="http://packages.ropensci.org">http://packages.ropensci.org</a>
+This repository contains the latest nightly builds from the master branch of all rOpenSci packages currently on GitHub. This allows users to install development versions of our software without specialized functions such as install_github(), allows dependencies not hosted on CRAN to still be resolved automatically, and permits the use of update.packages().
+Using the repository To use, simply add packages.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/03/ou-model-in-nimble/">Wed, Dec 3, 2014</a></h4>
-    <h4><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/12/03/ou-model-in-nimble/">Wed, Dec 3, 2014</a></h4>
-    <h4><a href="../2014/12/03/ou-model-in-nimble/">OU model in Nimble</a></h4>
-    <div class="article-style">
-      
-      Sanity test with a simple model, Start with some sample data from an OU process:
-library(&quot;sde&quot;) library(&quot;nimble&quot;) set.seed(123) d &lt;- expression(0.5 * (10-x)) s &lt;- expression(1) data &lt;- as.data.frame(sde.sim(X0=6,drift=d, sigma=s, T=20, N=100))  sigma.x not provided, attempting symbolic derivation.  plot(data)  Specify this model in Nimble BUGS code
-ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ dunif(1e-10, 100) x[1] ~ dunif(0, 100) for(t in 1:(N-1)){ mu[t] &lt;- x[t] + r * (theta - x[t]) x[t+1] ~ dnorm(mu[t], sd = sigma) } })  nimble parameters
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/11/26/coreos-cluster-gotchas/">Wed, Nov 26, 2014</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../2015/07/30/gpdp-via-mdptoolbox-cont/">Thu, Jul 30, 2015</a></h4>
       
-      Overall impression is that CoreOS is a promising way to easily set up a highly available cluster (e.g. when most important thing is that a service stays up when a node goes down) since it can migrate a containerized app to a new machine rather than having to already have the same app running on all machines. Either way a load-balancer needs to handle the addressing, which is do-able but somewhat tricky.
-      
+      <div class="article-style">
+        knitr::opts_chunk$set(eval=FALSE) ## gp management no longer working knitr::opts_chunk$set(comment=NA) #devtools::install_github(&quot;cboettig/gpmanagement@b3b765cbceb51c9b0b8cb2724e395353ec365df9&quot;) library(&quot;MDPtoolbox&quot;) library(&quot;gpmanagement&quot;) library(&quot;tidyr&quot;) library(&quot;dplyr&quot;) library(&quot;ggplot2&quot;) library(&quot;lazyeval&quot;) True model p &lt;- c(2, 100, 50) f &lt;- function (x, h){ sapply(x, function(x) { x &lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } sigma_g &lt;- 0.1 pdfn &lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } z_g &lt;- function() rlnorm(1, 0, sigma_g) set.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../2014/11/24/coreos-docker-registries-etc/">Mon, Nov 24, 2014</a></h4>
     
-    <div class="article-style">
-      
-      A secure docker registry Running one&rsquo;s own docker registry is far more elegant than moving tarballs between machines (e.g. when migrating between servers, particularly for images that may contain sensitive data such as security credentials). While it&rsquo;s super convenient to have a containerized version of the Docker registry ready for action, it doesn&rsquo;t do much good without putting it behind an HTTPS server (otherwise we have to restart our entire docker service with the insecure flag to permit communication with an unauthenticated registry &ndash; doesn&rsquo;t sound like a good idea).
-      
     </div>
-  </div>
-  
 
   
 <nav>
@@ -263,9 +224,10 @@ ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ 
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -354,7 +316,13 @@ ou &lt;- modelCode({ theta ~ dunif(1e-10, 100.0) r ~ dunif(1e-10, 20.0) sigma ~ 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

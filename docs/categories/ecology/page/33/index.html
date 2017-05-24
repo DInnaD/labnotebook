@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,121 +134,86 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/07/07/early-warning-signals-presentation-notes/">Early warning signals presentation notes</a></h2>
-    <h4>Thu, Jul 7, 2011</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/22/warning-signals-in-management/">Wed, Aug 22, 2012</a></h4>
       
+      <div class="article-style">
+        Tour of existing files (version stable links)
+ managed warning is the current direct test of this, but needs decently ranged input example where detection has a good chance to succeed.
+ criticaltransition Statistics across replicate crashes that don&rsquo;t show much promise for detection.
+ A heuristic implementation in response to the detection of a signal might use a simple rule like a fraction of the optimal harvest of a stable system.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/06/exact-simulation-by-the-gillespie-algorithm/">Exact Simulation by the Gillespie Algorithm</a></h2>
-    <h4>Wed, Jul 6, 2011</h4>
-    <div class="article-style">
-      
-      The Gillespie algorithm has two parts: (1) determine what event happens, (2) determine when it happens. Consider the system of equations $$ \dot X_i = f_i(\vec X) $$
-where the $f_i$ give the rates of creation and annihilation (negative and postive parts of $f_i(\vec X)$ must be listed seperately) for all species $x_i$. We assume this gives the mean rate at which each event occurs, drawn from on exponential distribution. We could simply draw the associated random exponential time for each reaction, and pick the minimum for which event occurs.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/22/notes/">Wed, Aug 22, 2012</a></h4>
+      <h4><a href="../../../../2012/08/22/notes/">Revisions on Prosecutors Fallacy</a></h4>
+      <div class="article-style">
+        Email Alan re: Prosecutor&rsquo;s fallacy manuscript. Schedule meeting.
+ Proof corrections for rfishbase manuscript. Done.
+ Fallacy simulations: calibration range for May model: expect small fraction of runs to transition by chance from stable state.
+  Here we&rsquo;re getting a bit less than 2% chance transitions in 5000 steps.
+&gt; sn &lt;- + sapply(1:1000, function(rep){ + x &lt;- vector(mode=&quot;double&quot;, length=n) + x[1] &lt;- 8 # positive equilibrium + z &lt;- rlnorm(n, 0, .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/06/wednesday-6/">Wednesday: Data wrangling into graphs</a></h2>
-    <h4>Wed, Jul 6, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/21/pdg-control-updates/">Tue, Aug 21, 2012</a></h4>
       
-      Really high sampling runs (20000 pts) still don&rsquo;t seem to show any improvement in deut3 dataset summary statistics, perhaps it is the window size. testing by launching deut_replot.R, n5 on zero, 500, 1000, 2000 on a fixed windowsize of 60, see how it compares to the half window. probably because is such a weak signal.
-running drake tau sampling with corrected (1&frasl;2 length) windowsizes. &ndash; destroys any improvement in indicators:
-      
+      <div class="article-style">
+        Resolving S &lt; D Code updates octokit
+Reading  Macksamie, K., Cockburn, J., &amp; Wagner, J. (2012). Robust control amidst stock and flow benefits: The case of wolf-elk-hunting dynamics in the US Mountain West. 2012 AERE Summer Conference, Asheville, NC (pp. 1-33). Retrieved from <a href="http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf">http://www.webmeets.com/files/papers/AERE/2012/3/AEREConfPaper05172012.pdf</a>  The Linear parameter varying (LPV) approach which allows this problem to leverage a standard LMI (linear matrix inequality) solver seeems like a clever route, but unclear if this would be restricted to the additive noise models such as they consider?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/05/tuesday-6/">Tuesday: Warning Signals Data Wrangling</a></h2>
-    <h4>Tue, Jul 5, 2011</h4>
-    <div class="article-style">
-      
-      Revise abstract. 10a-11a. done.  Misc data handling 11-1pm
- wrote a file to fix flickr data file names that are occasionally mangled by parallel loop printing. wrote a file to plot $m T$ values on each dataset to get a sense of which have the most dramatic warning signals. running on one.   locale troubles on install lead to errors in data read  Error in make.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/04/warning-signals-writing-organization-appendices/">Warning Signals writing, organization, appendices</a></h2>
-    <h4>Mon, Jul 4, 2011</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/20/notes/">Mon, Aug 20, 2012</a></h4>
       
-      main text Summary Sentence. Abstract
-Paragraphs  Early Warning matter, no-one does statistics We need quantify uncertainty stats ROC curve shows this trade-off ROC also compares different methods &amp; data sizes (i.e. Fig 4) Quantifying &ldquo;increasing variance&rdquo; etc &ndash; we&rsquo;ll use tau We&rsquo;ll also do a likelihood-based method Introduce the datasets ROC curves on the data, Fig 3 Quantifying data necessary, Fig 4 Disclaimers: Not completely general Conclusion  Supporting Online Material Original Appendix had:
-      
+      <div class="article-style">
+        Writing  Draft outline of policy costs paper sent to Paul.
+  Misc  ropensci NCEAS proposal - contacts
+ MEE supplement follow-up: Wow, MEE promotes video podcasts along with publications.
+ Hadley to join RStudio full time.
+ A gist by Hadley on storing things like API keys across R packages.
+ Joined fisheries-science mailing list
+  Reading Warning signals  Critical transitions at Amer Fisheries Society
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/07/01/friday-warning-signals-writing-etc/">Friday, warning signals writing, etc</a></h2>
-    <h4>Fri, Jul 1, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/08/10/esa-2012-conference/">Fri, Aug 10, 2012</a></h4>
       
-      9-10a email, etc 10 am check simulations: Daphnia examples (Drake data) runs done. A few examples, see neighboring plots in image database for the corresponding distributions and further examples. Runtime of this code (click images for script) about 10 hours on 16 cores on zero.
-   launched ibm_analysis.R on zero, n10.
- Writing writing&hellip; first full text draft done.
-  Trying to get started on the centos cluster, some trouble submitting job to queue, see email discussion with Bill.
-      
+      <div class="article-style">
+        My Schedule Meetings/discussion with Don Strong, Tony Ives, Marten Scheffer, Justin Yeakel, Karen Abbott, Jarrett Byrnes, Christopher Lortie.
+ Check in with Paul Armsworth on working group rOpenSci tutorial session (below) tweetup My contributed talk (below)  rOpenSci tutorial, Thursday A year out from our launch at ESA last year, we presented an introduction and tutorial on rOpenSci. Slides and links to more information are all available at esa.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/30/thursday-7/">Thursday: Warning Signals writing, figures, segue</a></h2>
-    <h4>Thu, Jun 30, 2011</h4>
-    <div class="article-style">
-      
-      Alan meeting Figure 1: Introducing the ROC Curve Figure 2: Standard approach Figure 3: ROC curves corresponding to standard approach Do we show the distributions? &ndash; Create for each, but log in appendix
-ROC curves corresponding to increased sampling &ndash; our method, other stats? organize how?
-Computational Runs Running at constant sample points rather than sample effort.
- On eleven: n5ibm_stable.R 6pm On zero, n10 drake_analysis.R 6pm On zero, n19 deut_analysis.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/07/30/notes/">Mon, Jul 30, 2012</a></h4>
+      <h4><a href="../../../../2012/07/30/notes/">Deviations from S = D</a></h4>
+      <div class="article-style">
+        pdg-control Value of information Exploring causes for deviation from S = D in the Reed model: arises from self-sustaining assumption. Working out the interpretation of the self-sustaining clause, which sounds like it needs to ensure that the stock is non-decreasing in the absence of harvest,
+$$ P(X_{t+1} \geq x | X_n = x ) = 1 $$
+This sounds like a very awkward condition to enforce for a non-trivial escapement level ( x = S ).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/29/warning-signals-summary-statistic-performance-at-varying-sampling-effort/">Warning signals: summary statistic performance at varying sampling effort</a></h2>
-    <h4>Wed, Jun 29, 2011</h4>
-    <div class="article-style">
-      
-      oikos post launch case of increased sampling on sim data for autocorrelation (is our approach more robust to model differences?)  IBM data Example Using data from the individual-based model simulation of a system approaching a saddle-node.
-Variance While the initial example with variance shows almost no signal, increasing the sampling effort substantially improves the performance. This can be seen in the ROC curves and as a tightening and spreading out of the null and test distributions as the sampling effort is increased.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/29/warning-signals-writing/">Warning Signals writing</a></h2>
-    <h4>Wed, Jun 29, 2011</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/06/27/monday-warning-signals-manuscript/">Monday: Warning Signals Manuscript</a></h2>
-    <h4>Mon, Jun 27, 2011</h4>
-    <div class="article-style">
-      
-      Looking at ways to visually explain receiver-operator characteristic (ROC) curves. Should probably be done in a way that maps the curves to the points along the curve. May make a nice graphic but perhaps unnecessary.
-Perhaps simpler to present as single panel Integrating the test distribution to the left instead of the right gives the error rate (Type I/Type II errors, False Alarms/Missed Events):
-Analyses  Maximization algorithm failing at initial conditions on deut2
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -263,8 +228,12 @@ Analyses  Maximization algorithm failing at initial conditions on deut2
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -351,7 +320,13 @@ Analyses  Maximization algorithm failing at initial conditions on deut2
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

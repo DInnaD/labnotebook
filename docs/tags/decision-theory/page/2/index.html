@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,104 +134,82 @@
 
 
 
+
   <h1>Decision Theory</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/06/21/notes/"></a></h2>
-    <h4>Thu, Jun 21, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/07/04/notes/">Wed, Jul 4, 2012</a></h4>
       
-      Value of information  Reed with uniform large noise, logistic map Reed with uniform large noise Reed with uniform small noise Sethi with uniform small noise, logistic map. Sethi with large noise Doesn&rsquo;t work. hmm.. voi_sethi_parameters.md , running value of information setup but with small noise &amp; logistic map. Whoops, this example solves uniform noise but simulates log-normal noise, which probably explains the positive effect of growth noise once again.
-      
+      <div class="article-style">
+        Value of information  bias table with measurement noise Fix deterministic. Run scenarios with very low noise rather than deterministic Reed S vs. D theorem Reed theorem extended to Sethi cases simulation values should import scenario list. (done for bias table).
+  Reed theorem  Not showing S = D for cost free. hmm&hellip; Not showing S constant for different profit functions?!  impact of management on warning signals Compare the probability of detection in managed and unmanaged models.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/06/13/sethi-policy-functions/">Policy functions and value functions under multiple uncertainty</a></h2>
-    <h4>Wed, Jun 13, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/07/02/notes/">Mon, Jul 2, 2012</a></h4>
+      <h4><a href="../../../../2012/07/02/notes/">varying recruitment function, noise form, and harvesting cost</a></h4>
+      <div class="article-style">
+        Seems that the level of caution observed in the deterministic scenario relative to the increasing noise scenarios comes, perhaps not surprisingly, from the addition of harvesting costs, rather than from overcompensatory dynamics or the asymmetric forms of the noise, which seem to have quantitative but not qualitative differences.
+Table for NPV under biased parameters
+ Beverton-Holt recruitment, lognormal noise, cost-free BH, lognormal, costs BH, uniform, free BH, uniform, costs logistic, lognormal, free logistic, lognormal, costs logistic, uniform, free logistic, uniform, costs
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/29/notes/">Fri, Jun 29, 2012</a></h4>
+      <h4><a href="../../../../2012/06/29/notes/">Progress this week, by project</a></h4>
+      <div class="article-style">
+        Critical transitions Must determine the correct set of comparisons:
+ Solve the SDP optim using the exact time dependent
+ Simulate under an f with the same escapement policy but different functional form, i.e. logistic with K &amp; r estimated from the May example, either analytically or directly from the data.
+ Considering the costs of &ldquo;cautious policy&rdquo; (calculates optimal harvest recursively but always selects a fraction P of the optimal.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/22/notes/">Fri, Jun 22, 2012</a></h4>
+      <h4><a href="../../../../2012/06/22/notes/">Notes on value of information runs with uniform noise</a></h4>
+      <div class="article-style">
+        Debug Sethi with large uniform noise: needed to avoid havest &gt; stock in definition of f.
+  I ran the value of information calculations using the Sethi settings of a logistic map and uniform noise, which does indeed replicate their results, where the measurement error escapement is lower than the &ldquo;all low noise&rdquo; (&ldquo;deterministic&rdquo;) escapement until stock get above carrying capacity. results
+Kinda of interesting that this patterns isn&rsquo;t robust to the noise distribution; I still find the lognormal noise pattern a bit more intuitive.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/21/notes/">Thu, Jun 21, 2012</a></h4>
       
-      Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
+      <div class="article-style">
+        Value of information  Reed with uniform large noise, logistic map Reed with uniform large noise Reed with uniform small noise Sethi with uniform small noise, logistic map. Sethi with large noise Doesn&rsquo;t work. hmm.. voi_sethi_parameters.md , running value of information setup but with small noise &amp; logistic map. Whoops, this example solves uniform noise but simulates log-normal noise, which probably explains the positive effect of growth noise once again.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/06/13/sethi-policy-functions/">Wed, Jun 13, 2012</a></h4>
+      <h4><a href="../../../../2012/06/13/sethi-policy-functions/">Policy functions and value functions under multiple uncertainty</a></h4>
+      <div class="article-style">
+        Implements a numerical version of the SDP described in (Sethi et. al. 2005).</p>
 
 <h2 id="clear-the-workspace-and-load-package-dependencies-rm-list-ls-require-pdgcontrol-require-reshape2-require-ggplot2-require-data-table-we-consider-a-beverton-holt-state-equation-governing-population-dynamics-f-x-h-frac-a-x-1-b-x">Clear the workspace and load package dependencies: rm(list=ls()) require(pdgControl) require(reshape2) require(ggplot2) require(data.table)  We consider a Beverton Holt state equation governing population dynamics, $f(x,h) = \frac{A x}{1 + B x}$</h2>
 
 <p>f &lt;- BevHolt  With parameters A = 1.5 and B = 0.05.
 pars &lt;- c(1.5, 0.05) K &lt;- (pars[1] - 1)/pars[2]  Note that the positive stationary root of the model is given by ( \frac{A-1}{B} ), or carring capacity K = 10.
-      
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/06/08/notes/">Notes</a></h2>
-    <h4>Fri, Jun 8, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control Working group  send summary briefing for stochastic policy costs paper &ndash; DONE send latex/pdf to group  Value of information  To better get at Jim&rsquo;s question, should compare (profit from growth only noise) - (profit from deterministic) + ((profit from measurement only) - (profit from deterministic)) to (profit from growth+measurement) - (determinsitic), i.e. is (growth+measurement) greater/less than (growth) + (measurement) - deterministic?
- Clarify this! is (profit from growth only) the case in which (a) the manager includes growth noise in the solution when in reality it is absent (hence the deterministic solution is optimal), (b) the case where the manager includes growth noise and it is present (i.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/16/value-of-information/">Value of information, cost of bias</a></h2>
-    <h4>Wed, May 16, 2012</h4>
-    <div class="article-style">
-      
-      Value of information The motivation for this &ldquo;value of information&rdquo; excercise comes from Costello et al. (2010), which essentially compares two scenarios: the value of a marine protected area when you the dispersal kernel is unknown (one of a discrete set of possible kernels you sum over), to the value of the protected area when the kernel is known perfectly. No intrinsic stochasticity, single time step, no learning.
-The model I&rsquo;m looking at comes from Reed (1979), and a modification by Sethi et al.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/11/notes/">Computing the value of information in management of a stochastic resource</a></h2>
-    <h4>Fri, May 11, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control After reading Costello et. al. (2010), taking a look at value of information in a dynamic context. Consider the model of Sethi et. al. (2005) (Costello is part of et al); a dynamic fisheries model with stochastic growth (a la Reed, (1979)), stochastic measurement assessing the stock size, and stochastic implementation of the harvest. I first imagine the case where the real system is quite deterministic, say, with a tiny amount of growth stochasticity only.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/05/02/stochastic-policy-costs/">Stochastic policy costs</a></h2>
-    <h4>Wed, May 2, 2012</h4>
-    <div class="article-style">
-      
-      Updated runs for various norms, added profit plots.
- L1 L2 asymmetric: differs on the sign of the asymmetry? Penalty only for decreasing quotas. Penalty only for increasing quotas. check implementation. fixed transaction fee &ndash; whoops, fixed cost should still be free when h == h_prev.  We need to determine a the magnitude of penalty coefficient to compare between the different functional forms. For instance, for what value of c is an L2 penalty, $ c ( h_t - h_p )^2 $ comparable to the L1 penalty, $ c \operatorname{abs}(h_t - h_p ) $ ?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/30/sethi/">Additional sources of noise (Sethi 2005)</a></h2>
-    <h4>Mon, Apr 30, 2012</h4>
-    <div class="article-style">
-      
-      Sethi Model  author Carl Boettiger, cboettig@gmail.com license: CC0  Implements a numerical version of the SDP described in (Sethi et. al. 2005).
-Clear the workspace and load package dependencies:
-Define noise parameters
-sigma_g &lt;- 0.1 # Noise in population growth sigma_m &lt;- 0.1 # noise in stock assessment measurement sigma_i &lt;- 0.1 # noise in implementation of the quota  we&rsquo;ll use log normal noise functions. For Reed, only z_g will be random.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/04/27/ecology-notes/">Project tracking (Ecology)</a></h2>
-    <h4>Fri, Apr 27, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control Has become a variety of different directions:
-Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can policy costs pay for themselves? notes  Additional Noise  Starts with replicating Sethi et al. (2005). Consider the performance of various non-optimal solutions, particularly regarding imperfect implementation These are losely collected in Robustness examples, needs some evaluation of the most interesting.  Approaches to parameter, structural, and state uncertainty  (Morph of) Training problem II from the working group.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -240,12 +218,18 @@ Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can polic
     <li><a href="../../../../tags/decision-theory/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../tags/decision-theory/page/3/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -332,7 +316,13 @@ Policy Costs  Considering different norms. L1 L2 Assymetric fixed When can polic
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -6,10 +6,253 @@
     <description>Recent content in Ecology on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/ecology/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>/2015/07/30/gpdp-via-mdptoolbox-cont/</link>
+      <pubDate>Thu, 30 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/30/gpdp-via-mdptoolbox-cont/</guid>
+      <description>knitr::opts_chunk$set(eval=FALSE) ## gp management no longer working knitr::opts_chunk$set(comment=NA) #devtools::install_github(&amp;quot;cboettig/gpmanagement@b3b765cbceb51c9b0b8cb2724e395353ec365df9&amp;quot;) library(&amp;quot;MDPtoolbox&amp;quot;) library(&amp;quot;gpmanagement&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;dplyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;lazyeval&amp;quot;) True model p &amp;lt;- c(2, 100, 50) f &amp;lt;- function (x, h){ sapply(x, function(x) { x &amp;lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } sigma_g &amp;lt;- 0.1 pdfn &amp;lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } z_g &amp;lt;- function() rlnorm(1, 0, sigma_g) set.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/07/29/mdptoolbox-allen-model/</link>
+      <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/29/mdptoolbox-allen-model/</guid>
+      <description>library(&amp;quot;MDPtoolbox&amp;quot;, quietly = TRUE) library(&amp;quot;ggplot2&amp;quot;, quietly = TRUE) K &amp;lt;- 150 # state space limit states &amp;lt;- 0:K # Vector of all possible states actions &amp;lt;- states # Vector of actions: harvest sigma_g = 0.1 p &amp;lt;- c(2, 100, 50) f &amp;lt;- function (x, h){ sapply(x, function(x) { x &amp;lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } pdfn &amp;lt;- function(x, mu, sigma = sigma_g){ dlnorm(x, log(mu), sdlog = sigma) } # Utility function discount = 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/07/14/mdptoolbox-ex-2/</link>
+      <pubDate>Tue, 14 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/07/14/mdptoolbox-ex-2/</guid>
+      <description>Adapted from Marescot et al. appendix 5, to Reed optimal control problem, including direct comparison against (semi) analytic optimum.
+step 1: define objectives This is a conceptual step which does not require coding
+ step 2: define states K &amp;lt;- 150 # state space limit states &amp;lt;- 0:K # Vector of all possible states  step 3: define control actions # Vector of actions: harvest H &amp;lt;- states  step 4: define dynamic model (with demographic parameters) p &amp;lt;- c(6,0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/06/19/gp-nimble-v2/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/19/gp-nimble-v2/</guid>
+      <description># devtools::install_github(&amp;quot;cboettig/gpmanagement&amp;quot;) knitr::opts_chunk$set(eval=FALSE) ## gpmanagment no longer runs on current version of nimble library(&amp;quot;gpmanagement&amp;quot;) library(&amp;quot;dplyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;methods&amp;quot;)  set.seed(1234) Tobs &amp;lt;- 40 f &amp;lt;- function (x, h, p){ sapply(x, function(x) { x &amp;lt;- pmax(0, x - h) x * exp(p[1] * (1 - x/p[2]) * (x - p[3])/p[2]) }) } p &amp;lt;- c(2, 8, 5) sigma_g &amp;lt;- 0.05 z_g &amp;lt;- function() rlnorm(1, 0, sigma_g) x &amp;lt;- numeric(Tobs) x[1] &amp;lt;- 5.5 for(t in 1:(Tobs-1)) x[t+1] = z_g() * f(x[t], h=0, p=p) obs &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title>Further exploration of RAM Legacy Stock Assessment data</title>
+      <link>/2015/06/18/ram-explore/</link>
+      <pubDate>Thu, 18 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/18/ram-explore/</guid>
+      <description>suppressPackageStartupMessages({ library(&amp;quot;dplyr&amp;quot;) library(&amp;quot;RPostgreSQL&amp;quot;) library(&amp;quot;devtools&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) }) ## Perform this in data_raw to keep package dependencies minimal mydb &amp;lt;- src_postgres(dbname = &amp;quot;srdb&amp;quot;, host=&amp;quot;nautilus-vm.mathstat.dal.ca&amp;quot;, user = &amp;quot;srdbuser&amp;quot;, password = &amp;quot;srd6us3r!&amp;quot;, port = 5432) timeseries &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.timeseries&amp;quot;))) values &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.timeseries_values_view&amp;quot;))) units &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.timeseries_units_view&amp;quot;))) assessment &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.assessment&amp;quot;))) area &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.area&amp;quot;))) stock &amp;lt;- collect(tbl(mydb, sql(&amp;quot;SELECT * FROM srdb.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/06/16/daniel-gp-example/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/16/daniel-gp-example/</guid>
+      <description>Editorial note: code no longer runs (2017-05-11)
+Setup library(&amp;quot;nimble&amp;quot;) library(&amp;quot;methods&amp;quot;) knitr::opts_chunk$set(eval = FALSE) set.seed(0) Randomly generate some sinusoidal data
+x &amp;lt;- 1:100 y &amp;lt;- sin(x/5) + rnorm(100, 0.1) ind &amp;lt;- sort(sample(1:100, 40)) The next three lines are the only inputs required.
+xObs &amp;lt;- x[ind] ## input yObs &amp;lt;- y[ind] ## input xPred &amp;lt;- c(x, 101:120) ## input Some initial processing
+nObs &amp;lt;- length(xObs) nPred &amp;lt;- length(xPred) f &amp;lt;- function(xi, xj) (xi-xj)^2 diffOO &amp;lt;- outer(xObs, xObs, f) diffPP &amp;lt;- outer(xPred, xPred, f) diffPO &amp;lt;- outer(xPred, xObs, f)  NIMBLE function for GP prediction Here’s the main function for doing the prediction from the GP model.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/05/13/gp-compare/</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/13/gp-compare/</guid>
+      <description>Original go at nimble gp model, but this requires rather manual manipulation of parameter posteriors to get the GP posteriors.
+library(&amp;quot;MASS&amp;quot;) library(&amp;quot;mcmc&amp;quot;) library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;nonparametricbayes&amp;quot;) ## Warning: replacing previous import &amp;#39;ggplot2::alpha&amp;#39; by &amp;#39;kernlab::alpha&amp;#39; ## when loading &amp;#39;nonparametricbayes&amp;#39; ## Warning: replacing previous import &amp;#39;data.table::melt&amp;#39; by &amp;#39;reshape2::melt&amp;#39; ## when loading &amp;#39;nonparametricbayes&amp;#39; ## Warning: replacing previous import &amp;#39;data.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/05/08/ram-legacy-database-explore/</link>
+      <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/08/ram-legacy-database-explore/</guid>
+      <description>Accessing the database Connect to the database (connection info is public), works fine:
+library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;RPostgreSQL&amp;quot;) ## Loading required package: methods ## Loading required package: DBI library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) mydb &amp;lt;- src_postgres(dbname = &amp;quot;srdb&amp;quot;, host=&amp;quot;nautilus-vm.mathstat.dal.ca&amp;quot;, user = &amp;quot;srdbuser&amp;quot;, password = &amp;quot;srd6us3r!&amp;quot;, port = 5432) mydb ## src: postgres 8.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/28/notes/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/28/notes/</guid>
+      <description>updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &amp;lt;- species_info(&amp;quot;Labroides bicolor&amp;quot;, fields = c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Vulnerability&amp;quot;, &amp;quot;PriceCateg&amp;quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &amp;lt;- stocks(&amp;quot;Labroides bicolor&amp;quot;, fields=c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Resilience&amp;quot;)) You can now merge the results:
+data &amp;lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/28/rfishbase-notes/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/28/rfishbase-notes/</guid>
+      <description>kalman filtering  updates to drat repo  rescript personal deploy.R script pull request   rfishbase rfishbase queries from users: getting “Resilience,” “Vulnerability” and “Price Category” data:
+x &amp;lt;- species_info(&amp;quot;Labroides bicolor&amp;quot;, fields = c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Vulnerability&amp;quot;, &amp;quot;PriceCateg&amp;quot;)) It so happens that “Resilience” is not in that table, but in the “stocks” table instead:
+y &amp;lt;- stocks(&amp;quot;Labroides bicolor&amp;quot;, fields=c(&amp;quot;SpecCode&amp;quot;, &amp;quot;Resilience&amp;quot;)) You can now merge the results:
+data &amp;lt;- merge(x,y) In general, you can see a list of all the columns in a given table by just omitting the “fields” argument:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/09/gpdd-and-kalman-exploration-continued/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/09/gpdd-and-kalman-exploration-continued/</guid>
+      <description>Load libraries and data as before
+library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;knitcitations&amp;quot;) library(&amp;quot;rgpdd&amp;quot;) library(&amp;quot;FKF&amp;quot;) ## Loading required package: RUnit ## Loading required package: methods Parallel version of dplyr::do do_parallel &amp;lt;- function(df, f, ...){ # supports only one group for now require(&amp;quot;parallel&amp;quot;) require(&amp;quot;lazyeval&amp;quot;) require(&amp;quot;reshape2&amp;quot;) options(mc.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/06/gpdd-explore/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/06/gpdd-explore/</guid>
+      <description>setup library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;rgpdd&amp;quot;) library(&amp;quot;FKF&amp;quot;) ## Loading required package: RUnit ## Loading required package: methods Working through 10.1111/j.1461-0248.2011.01702.x provides a nice way to play around with the GPDD data and Kalman filtering. More interested in exploring the data and methods than in just replicating the results, which are important but also rather intuitive and thus I expect rather robust – as we add (observational) uncertainty, or indeed, any additional parameters that must be ended, we should expect to have less power to pin down a particular parameter associated with density dependence, as the paper illustrates rather nicely.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/09/simpler-nimble-dai-model/</link>
+      <pubDate>Mon, 09 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/09/simpler-nimble-dai-model/</guid>
+      <description>A simpler Nimble model library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;regimeshifts&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union  LSN version A further simplified version:
+ fix sigma_x to unity and theta to zero, reflecting the detrending and scaling.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/04/gp-nimble-explore/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/04/gp-nimble-explore/</guid>
+      <description>library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union library(&amp;quot;MASS&amp;quot;) ## ## Attaching package: &amp;#39;MASS&amp;#39; ## The following object is masked from &amp;#39;package:dplyr&amp;#39;: ## ## select library(&amp;quot;mcmc&amp;quot;) GP Model A successful specification looks like this:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/03/gp-nimble-setup/</link>
+      <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/03/gp-nimble-setup/</guid>
+      <description>library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;methods&amp;quot;) library(&amp;quot;ggplot2&amp;quot;) library(&amp;quot;tidyr&amp;quot;) library(&amp;quot;dplyr&amp;quot;) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union dmnorm example from Daniel, who notes we need to be explicit about vector/matrix sizes on both LHS and RHS,</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/25/nimble-on-dai-model/</link>
+      <pubDate>Wed, 25 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/25/nimble-on-dai-model/</guid>
+      <description>Testing nimble method on Dai model (shorter data series)
+devtools::install_github(&amp;quot;cboettig/regimeshifts&amp;quot;) ## Skipping install of &amp;#39;regimeshifts&amp;#39; from a github remote, the SHA1 (351c3b41) has not changed since last install. ## Use `force = TRUE` to force installation Define our mcmc procedure in Nimble
+my_mcmc &amp;lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){ Rmodel &amp;lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits) Cmodel &amp;lt;- compileNimble(Rmodel) mcmcspec &amp;lt;- configureMCMC(Rmodel, print=FALSE,thin=thin) Rmcmc &amp;lt;- buildMCMC(mcmcspec) Cmcmc &amp;lt;- compileNimble(Rmcmc, project = Cmodel) Cmcmc$run(n_iter) samples &amp;lt;- as.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/24/nimble-on-dai-model/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/24/nimble-on-dai-model/</guid>
+      <description>Testing nimble method on Dai model (long data series)
+Define our mcmc procedure in Nimble
+my_mcmc &amp;lt;- function(code, constants, data, inits, n_iter=1e5, thin = 1e2){ Rmodel &amp;lt;- nimbleModel(code = code, constants = constants, data = data, inits = inits) Cmodel &amp;lt;- compileNimble(Rmodel) mcmcspec &amp;lt;- configureMCMC(Rmodel, print=FALSE,thin=thin) Rmcmc &amp;lt;- buildMCMC(mcmcspec) Cmcmc &amp;lt;- compileNimble(Rmcmc, project = Cmodel) Cmcmc$run(n_iter) samples &amp;lt;- as.data.frame(as.matrix(Cmcmc$mvSamples)) samples &amp;lt;- samples[,1:(length(inits)-1)] gather(samples) } Generate the test data:
+set.seed(1000) max_days &amp;lt;- 500 DF &amp;lt;- seq(0, 2000, length=max_days) # schedule for env degredation (increased dilution) x &amp;lt;- numeric(max_days) x[1] &amp;lt;- 1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/02/12/dai-model/</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/02/12/dai-model/</guid>
+      <description>A first go at implementing the Dai et al model From the supplement to 10.1126/science.1219805, we have:
+\[n_{t+1} = n_t g(n_t + \epsilon n_t, \theta)\] \[g(n_t) = \frac{n_{t+1}}{n_t}\]
+ This model is based on two phases of daily growth: a slow exponential growth phase at low cell densities, followed by a logistic growth phase with a higher per capita growth rate at intermediate cell densities. This model has 5 parameters: T lag is the lag time before yeast cells start to grow after being transferred into new media (the total time for daily growth is 23 hours).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/28/notes/</link>
+      <pubDate>Wed, 28 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/28/notes/</guid>
+      <description>MDPToolbox testing  Debugging RPub record Fails even if we restrict R to be finite (h &amp;lt; 1) Different error if we try the optimal harvest   Reading  Operating Systems Review reproducibility special issue now out; (includes my article on Docker). Table of contents   Reviewing  PNAS review: done (2015-01-26). Bioinformatics review. JSS review: done.   Docker Continuous Integration Finally a way to run generic docker images on free CI: circle-ci</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/23/mdptoolbox-ex/</link>
+      <pubDate>Fri, 23 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/23/mdptoolbox-ex/</guid>
+      <description>Testing this out using MDPtoolbox, but not working yet…
+library(MDPtoolbox) ## Loading required package: Matrix ## Loading required package: linprog ## Loading required package: lpSolve library(ggplot2) f &amp;lt;- function(x, h, p){ x &amp;lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &amp;lt;- c(a = 6, b = 0.05) profit &amp;lt;- function(x, h) pmin(x,h) - 0.1 * h # vectorized for x x_grid &amp;lt;- seq(0, 150, length = 151) h_grid &amp;lt;- c(0,50,100) delta &amp;lt;- 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/22/invasives-sdp/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/22/invasives-sdp/</guid>
+      <description>library(knitr) opts_chunk$set(dev=&amp;#39;svg&amp;#39;, fig.width=4, fig.height=4, results=&amp;#39;hide&amp;#39;, fig.show=&amp;#39;hold&amp;#39;) library(pdgControl) library(ggplot2) We propose a state model consistent with 10.2139/ssrn.421007; in this case a simple Beverton-Holt model. Note that in defining \(f\) we have assumed the harvesting take place before the population recruits.
+f &amp;lt;- function(x, h, p){ x &amp;lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &amp;lt;- c(a = 6, b = 0.05) This meets Olson’s three assumptions.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/22/sdp-reed-controls-comparisons/</link>
+      <pubDate>Thu, 22 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/22/sdp-reed-controls-comparisons/</guid>
+      <description>library(knitr) opts_chunk$set(dev=&amp;#39;png&amp;#39;, fig.width=3, fig.height=3, results=&amp;#39;hide&amp;#39;, fig.show=&amp;#39;hold&amp;#39;) library(pdgControl) library(ggplot2) Reed solution; harvest control f &amp;lt;- function(x, h, p){ x &amp;lt;- sapply(x, function(x) max(x-h,0)) p[[1]] * x / {1 + p[[2]] * x} } p &amp;lt;- c(a = 6, b = 0.05) profit &amp;lt;- function(x, h) sapply(x, min, h) # vectorized for x x_grid &amp;lt;- seq(0, 150, length = 100) h_grid &amp;lt;- seq(0,150,length = 100) delta &amp;lt;- 0.05 OptTime &amp;lt;- 1000 xT &amp;lt;- 0 sigma_g &amp;lt;- 0.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/13/detrend-example/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/13/detrend-example/</guid>
+      <description>library(knitr) library(nimble) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(earlywarning) library(ggplot2) library(tidyr) library(&amp;quot;methods&amp;quot;) opts_chunk$set(dev=&amp;#39;png&amp;#39;, fig.width=5, fig.height=5, results=&amp;#39;hide&amp;#39;) some sample data from earlywarning:
+set.seed(123) data(ibms) plot(ibm_critical) raw &amp;lt;- as.data.frame(ibm_critical) names(raw) &amp;lt;- &amp;quot;x&amp;quot; Rather than explicitly modeling the trend element predicted by the linearization, let us simply remove it:
+N &amp;lt;- length(raw$x) raw$t &amp;lt;- 1:N detrend &amp;lt;- loess(x ~ t, raw) data &amp;lt;- data.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/01/04/lsn-model-comparisons/</link>
+      <pubDate>Sun, 04 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/01/04/lsn-model-comparisons/</guid>
+      <description>library(knitr) library(nimble) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &amp;#39;fda&amp;#39; ## The following object is masked from &amp;#39;package:nimble&amp;#39;: ## ## inprod ## The following object is masked from &amp;#39;package:graphics&amp;#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &amp;#39;zoo&amp;#39; ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## as.</description>
+    </item>
     
     <item>
       <title></title>

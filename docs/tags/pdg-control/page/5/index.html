@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,141 +134,79 @@
 
 
 
+
   <h1>Pdg Control</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h2>
-    <h4>Sun, Nov 13, 2011</h4>
-    <div class="article-style">
-      
-      I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Sun, Mar 11, 2012</a></h4>
+      <h4><a href="../../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Parameter uncertainty in stochastic control problems</a></h4>
+      <div class="article-style">
+        Day 3 of my short-term visitor stay before the working group starts.
+ Wednesday: Travel
+ Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
+  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
+ Friday Writing up Training problem II with Jake, Michael.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h2>
-    <h4>Tue, Nov 8, 2011</h4>
-    <div class="article-style">
-      
-      Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
-Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
-Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/06/tuesday-14/">Tue, Mar 6, 2012</a></h4>
+      <h4><a href="../../../../2012/03/06/tuesday-14/">Tuesday</a></h4>
+      <div class="article-style">
+        Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
+ model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h2>
-    <h4>Wed, Nov 2, 2011</h4>
-    <div class="article-style">
-      
-      Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
-$$ X_{t+1} = Z_n f(X_n) $$
-$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
-$$ f(x) = \frac{A x}{1+B x} $$
-Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/05/monday-17/">Mon, Mar 5, 2012</a></h4>
+      <h4><a href="../../../../2012/03/05/monday-17/">Monday</a></h4>
+      <div class="article-style">
+        Trivial example of a non-optimal but more robust policy by editing the optimal strategy directly. Note in particular that this outperforms the optimal strategy economically as well as ecologically (fewer crashed populations).
+ Running the policy-costs model with Beverton Holt instead of the Myers function seems to give a clearer picture of a system responding to policy costs. The single-replicate picture probably captures this better than the policy/replicate visualizations.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h2>
-    <h4>Tue, Nov 1, 2011</h4>
-    <div class="article-style">
-      
-      Call includes everyone except Frank &amp; Claire.
-Logistics  Meeting 2: 13-15 March
- Review code/files on wiggio.
- Want a group review of material / webX tutorial? Email Paul after the call.
-  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
- Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
- Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h2>
-    <h4>Tue, Nov 1, 2011</h4>
-    <div class="article-style">
-      
-      Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/03/thursday-friday-saturday/">Sat, Mar 3, 2012</a></h4>
+      <h4><a href="../../../../2012/03/03/thursday-friday-saturday/">Thursday, Friday, Saturday</a></h4>
+      <div class="article-style">
+        forage fish seminar - Patrick and Jay with interesting stuff. Sounds like compensating benefits due to quality-response (larger fish) and stock effect (easier to find) will be more minor in this fishery, but demand response be compensating.  knit hooks externalization example working (based on Reed.R). Still unsure how I feel about externalization vs fully literate code. Redundant typing is bad but isn&rsquo;t that why common tasks are functionalized?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h2>
-    <h4>Fri, Oct 28, 2011</h4>
-    <div class="article-style">
-      
-      Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
-and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/02/22/stochastic-optimization/">Wed, Feb 22, 2012</a></h4>
+      <h4><a href="../../../../2012/02/22/stochastic-optimization/">Stochastic optimization </a></h4>
+      <div class="article-style">
+        Surprising heterogeneity of profit distribution under a simple Beverton-Holt model Usually I expect the alternate stable state dynamics to be the ones producing bimodal distribution of profit:
+The pattern is driven by a costs to harvesting making harvest unprofitable most of the time, while chance fluctuations push some populations across this threshold again and again. The ensemble variation in harvest is suggestive of this:
+but we really see what is going on when we color-code the population dynamics of the most profitable and least profitable realizations of the stochastic dynamics:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/10/27/optimal-control-next-steps/">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h2>
-    <h4>Thu, Oct 27, 2011</h4>
-    <div class="article-style">
-      
-      Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
- Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
- Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
-  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/01/30/monday-15/">Mon, Jan 30, 2012</a></h4>
+      <h4><a href="../../../../2012/01/30/monday-15/">Monday</a></h4>
+      <div class="article-style">
+        pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
+view sourcecode, Reed.R
+NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/10/26/monday-misc-notes/">Monday, misc notes</a></h2>
-    <h4>Wed, Oct 26, 2011</h4>
-    <div class="article-style">
-      
-      R packages relevant to the optimal control problems
- BB: solving system of nonlinear equations bvpSolve: boundary value problems  lunch with Alan &amp; visiting professor from Ottowa, Frithjof Lutscher.
-ADG (algorithm discussion group)  Reviewed github, basic git commands. Added roxygen function documentation Created basic package, toyHMM Some git notes: The quick git-undo for a destroyed file:  git checkout filename  This will checkout the file from HEAD, overwriting your change.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/10/24/optimal-control-training-problem-2-problem-statement/">Training problem 2: the economist&#39;s problem statement</a></h2>
-    <h4>Mon, Oct 24, 2011</h4>
-    <div class="article-style">
-      
-      pdg-control Problem statement: Maximize profits subject to $$\max_{h(t)} \int_0^T e^{-\rho t} \pi(x, h, t) dt $$ Subject to the state equations (biology):
-$$ \dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h $$
-Note that we consider the control variable to be effort, $h$ instead of harvest, $\mathcal{H}$, where $\mathcal{H} = h x$.
-and the constraints: $$ x(0) = X_0 \qquad x(T) = X_T $$ We have fixed boundary conditions (equalities) and equalities in the state equations, so we have a nice straight-forward problem.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/10/19/optimal-control-exploration/">Optimal Control Exploration</a></h2>
-    <h4>Wed, Oct 19, 2011</h4>
-    <div class="article-style">
-      
-      Translating Jim&rsquo;s Matlab code.
-Adapted for Octave.
-R version.
-Document review:
- Chapter 04_Sanchirico_Final.pdf
- SanchiricoOptimalSpace_JEEM.pdf (Sanchirico &amp; Wilen, 2005)
- Optimal_Rebuilding_AJAE2010.pdf, Optimal_Rebuilding_Supp_Material.pdf (Sanchirico et. al. 2010)
- Sanchirico_editsembedded.pdf: Book Chapter 1: Economically Optimal Management of a Metapopulation
-  Reviewing Bett&rsquo;s Practical Methods for Optimal Control using Nonlinear Programming. (( Practical Methods for Optimal Control and Estimation Using Nonlinear Programming, Second Edition (Advances in Design and Control) John T.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -283,8 +221,12 @@ Document review:
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -371,7 +313,13 @@ Document review:
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

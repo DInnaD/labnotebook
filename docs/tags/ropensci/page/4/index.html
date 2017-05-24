@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,123 +134,75 @@
 
 
 
+
   <h1>Ropensci</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/09/08/some-rfishbase-updates/"></a></h2>
-    <h4>Sun, Sep 8, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/08/mbi-day-five-notes/">Fri, Nov 8, 2013</a></h4>
       
-      Ever since writing the rfishbase package I&rsquo;ve been frustrated by the lack of a proper API from Fishbase.org that would allow access to that wealth of information that is not exposed in the &ldquo;Summary XML&rdquo; files from which rfishbase extracts its content. Since writing the paper in Journal of Fish Biology, I continue to receive user requests asking if or how such-and-such a data element might be extracted. Usually this involves a disappointing boiler-plate reply about how the package is limited to the &ldquo;Summary XML&rdquo; data and that improved query potential must wait for a proper API from Fishbase.
-      
+      <div class="article-style">
+        Panel discussion
+ Hugh&rsquo;s question on the usefulness of dynamic vs static models: do we have dynamical systems envy? Chris: are temporal dynamics historical artefact, and space the new frontier? Hugh: though decision theory is fundamentally temporal. really question of sequential decision vs single decision Hugh, on what would be his priority if he had time for new question: Solve the 2 player, 2 step SDP competition closed form.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/07/rnexml-milestone/"></a></h2>
-    <h4>Sat, Sep 7, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/05/mbi-day-two/">Tue, Nov 5, 2013</a></h4>
       
-      We have also recently reached the first milestone in RNeXML. We can now read NeXML files into R and convert to the popular phylo format from the ape package, as well as writing the ape::phylo trees out into valid NeXML. We can also add basic metadata such as author, license, title and description to the file.
-Development notes At the heart of this package is an internal S4 representation of the schema.
-      
+      <div class="article-style">
+        MBI Workshop Paul Armsworth Very nice example of control in creating a market for ecosystem services for landowners. Key feature is that multiple land-owners respond by adjusting their prices, and so payments can be divided into fraction going into subsidy and fraction going into conservation. When one land-owner controls land that is particularly good cost per conservation accomplished, they also stand to gain largest value.
+Also looked at auction mechanism and impact of cooperation among landowners to create hold outs.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/09/02/reml-milestone/"></a></h2>
-    <h4>Mon, Sep 2, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/04/mbi-notes/">Mon, Nov 4, 2013</a></h4>
       
-      Reached a milestone in reml development today with basic implementation of reading, writing, and publishing valid EML files and a working test suite.
-An S4-based structure This involved a complete re-write of the pre-ESA code and is now completely S4-class based, allowing a more flexible structure that is easier and faster to extend. For instance, rather than having to explicitly think about the commands to parse and serialize a new metadata element that needs to be added from the schema, we just define the class for the object.
-      
+      <div class="article-style">
+        SUSTAINABLE MANAGEMENT OF LIVING NATURAL RESOURCES  Description Full Schedule Participants  Introductions Hastings Lou Gross  Big picture: big data, computational challenges.
+ NEON, DataONE, ADW, iDigBio &ldquo;Convergence&rdquo; as the new interdisciplinary (National Academies) Rise of synthesis centers &ldquo;Enabling architecture for next gen life science research&rdquo; &ndash; National Academies report Lou Gross (2013) Comp Science for Natural Resource Management &ndash; Fuller, Wang, Gross (2007)
+ language barriers: What&rsquo;s a model?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/28/rnexml-coding/"></a></h2>
-    <h4>Wed, Aug 28, 2013</h4>
-    <div class="article-style">
-      
-      test_ape.R unit tests now passing. Should still revise the coercion methods in nexml_write.R to something more clever. We aren&rsquo;t coercing a tree to a nexml, we are building a nexml from a tree. Likewise handling the otu assignments of species names should be done directly 11:20 am 2013/08/28 start cleaning up old read/write methods obsoleted by toNeXML/fromNeXML methods 10:59 am 2013/08/28 inherited classes now replace all the original classes 10:54 am 2013/08/28 All inheritance-based classes appearing in inst/examples/trees.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/26/notes/"></a></h2>
-    <h4>Mon, Aug 26, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/10/17/rnexml-semantic-considerations/">Thu, Oct 17, 2013</a></h4>
       
-      misc tricks Always forget how to see the function definition of an S4 method:
-showMethods(&quot;xmlToS4&quot;, includeDefs=TRUE)  ropensci  Closed rfigshare issue #50 Still retooling reml to S4 and ReXML to inheritance-based S4 classes building classes on the schema&rsquo;s inheritance model 10:49 am 2013/08/26  In behavioral ecology we usually equate optimality with expected behavior arising from natural selection &ndash; i.e. the extent to which the observed behavior deviates from the optimal behavior is assumed to be due to modeling inaccuracies (optimizing the wrong thing).
-      
+      <div class="article-style">
+        Some very good feedback from Hilmar as I tackle some of the semantic capabilities of NeXML in RNeXML. As the complete discussion is already archived in the Github issues tracking, (see in particular #26 and #24) I only paraphrase here.
+One of the central advantages we can offer in programmatic generation of NeXML in the R environment is the ability to validate names and enhance the metadata included in the resulting nexml file using programmatic queries to taxonomic name resolution services such as ITIS, EOL, NCBI, as provided in the taxize package.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/08/01/notes/"></a></h2>
-    <h4>Thu, Aug 1, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/10/16/notes/">Wed, Oct 16, 2013</a></h4>
       
-      Registered for AmNat 2014 conference in Asilomar.
- Nice collection Data Visualization pieces from Nature Methods. vim clipboard: put older items from clipboard history using: &quot;0p, &quot;1p, &quot;2p. See list in :reg. (from here) #ESA2013 Lotka-Volterra Talks Review methods to write S4 back to XML  from earlier:
-misc reading  Duncan Hull&rsquo;s Seven deadly sins of bioinformatics Carole&rsquo;s Goble&rsquo;s talk at ismb, as summarized in graphical form Interesting: researchobject.
-      
+      <div class="article-style">
+        RNeXML  Example methods for metadata: <a href="https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772">https://github.com/ropensci/RNeXML/issues/20#issuecomment-26457772</a> Closes #19 <a href="https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110">https://github.com/ropensci/RNeXML/issues/19#issuecomment-26459110</a> Discussion of best identifiers for OTUs #24. Now waiting on Scott for choice of implementation  Misc R puzzle In R&rsquo;s S4 methods, I can define methods with different signatures, i.e. different object classes for the same function call. But can I alter the names and number of arguments for a method?
+As usual, see Github for details on commits and issues.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/25/formal-semantics-with-reml/"></a></h2>
-    <h4>Thu, Jul 25, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/10/10/notes/">Thu, Oct 10, 2013</a></h4>
       
-      A lot has been happening in the reml development over on our package Github page, particularly through discussion on the issues tracker we have been working through several of the major conceptual challenges in designing the package.
-Semantics Writing Semantics. Lots of elements of the EML schema have semantic meaning, but we can&rsquo;t start leveraging ontological tools while these terms are defined only as part of the Schema vocabulary. In their current state, they are just &ldquo;meaningless bits of syntax&rdquo;, e.
-      
+      <div class="article-style">
+        Authenticating via DataOne API Matt Jones provides a nice dataone package to handle accessing and posting data to DataOne nodes such as the KNB from R. Uploading files through the API requires authentication, which in turn requires a certificate from CILogin. As this process proved a bit tricky to me, I add some documentation here. I am using a Ubuntu (13.04) system, so the procedure might differ slightly for other systems.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/22/xml-parsing-strategies/"></a></h2>
-    <h4>Mon, Jul 22, 2013</h4>
-    <div class="article-style">
-      
-      Writing out some advice for our GSOC student on XML parsing. (Now filed as RNeXML/#11
-Here is some quick background on different ways we might go about extracting NeXML into an R object we want to work with. We can use S4 classes, R&rsquo;s native data.frame and list types, or extract specific terms of interest with xpath. I illustrate each of these below using the example &ldquo;trees.xml&rdquo; in your repository.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/19/notes/">Notes from chat with Duncan</a></h2>
-    <h4>Fri, Jul 19, 2013</h4>
-    <div class="article-style">
-      
-      Keep metadata as part of the object Recursion problem coming up.
-  Validating:  <a href="https://github.com/ropensci/reml/issues/7">https://github.com/ropensci/reml/issues/7</a> Duncan has code using Matt&rsquo;s java API If the EML isn&rsquo;t valid, so what? Important for developers, users don&rsquo;t care.
-  API design  what&rsquo;s with the do.call? This forces evaluation, can mess up lazyLoading, making for inefficient function handling.
- Schema to create S4 objects Create R objects first, and then toXML
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/07/08/reml-update/"></a></h2>
-    <h4>Mon, Jul 8, 2013</h4>
-    <div class="article-style">
-      
-      Made substanial progress on the reml project. We have reached our first milestone, being able to:
- Successfully validate the EML generated (#28) Start a unit test suite write eml unit tests (#14) Extract appropriate R objects from EML dataTable read eml (#6) Add function to publish EML data through figshare publish eml (#3) Generate an EML file given a data.frame and appropriate metadata write eml (#2)  As illustrated by the example shown in the Readme:
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -265,8 +217,12 @@ Here is some quick background on different ways we might go about extracting NeX
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -353,7 +309,13 @@ Here is some quick background on different ways we might go about extracting NeX
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

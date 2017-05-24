@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,60 +134,85 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/02/09/code-development-for-exploring-regimes-shifts/">Code Development for Exploring Regimes Shifts</a></h2>
-    <h4>Tue, Feb 9, 2010</h4>
-    <div class="article-style">
-      
-      Just committed changes to the google project. warning_signals.c now provides a fully functional, ensemble enabled simulation written with functional API for general Gillespie simulations (at last! I&rsquo;ve come quite a way in my C coding from those early Gillespie simulations for adaptive dynamics two years ago). Still need to pull the API out of the single file. Doxygen-compatible literate programming included, but needs significant expansion before it can really be used effectively as an API for other users.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/02/stochastic-optimal-control/">Wed, Nov 2, 2011</a></h4>
+      <h4><a href="../../../../2011/11/02/stochastic-optimal-control/">Stochastic Optimal Control</a></h4>
+      <div class="article-style">
+        Starting with Reed 1979 Reed, 1979. Consider the stochastic population growth model
+$$ X_{t+1} = Z_n f(X_n) $$
+$ f(x) $ is concave and non-decreasing (compensating, not over-compensating). A natural choice is the Beverton-Holt model,
+$$ f(x) = \frac{A x}{1+B x} $$
+Cost of harvest is Schaefer production function $ c(x) = k/q x $, (i.e. doubling fish density halves the cost, assume $q $ constant), or Cobbs-Douglas form $ c(x) = k/x^{\theta} $ where $ \theta = 1+\beta \leq 1$.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/08/updates-to-code/">Updates to Code</a></h2>
-    <h4>Mon, Feb 8, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/01/pdg-control-conference-call/">Tue, Nov 1, 2011</a></h4>
+      <h4><a href="../../../../2011/11/01/pdg-control-conference-call/">pdg-control Conference Call</a></h4>
+      <div class="article-style">
+        Call includes everyone except Frank &amp; Claire.
+Logistics  Meeting 2: 13-15 March
+ Review code/files on wiggio.
+ Want a group review of material / webX tutorial? Email Paul after the call.
+  Training Problem 1b: penalty to policy-change rate. Group is: Paul, Jake, Dan, Carl T, Jim, Frank, &hellip;
+ Dan: L2 done. Code coming (in Python, matlab coming). L1 is hard.
+ Control variable becomes $ dh/dt $, and $ h $ becomes a control variable.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/03/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Wed, Feb 3, 2010</h4>
-    <div class="article-style">
-      
-      Meeting with Dr. Alan Hastings soon to discuss progress on this project. We&rsquo;ll also see what he thinks of the open lab notebook. There&rsquo;s a lot I want to cover in this meeting.  Warning Signals  Tomorrow I&rsquo;m leading a discussion in seminar on regime shift literature, so I need to review major ideas of the paper with Alan. Particularly need to be clear on the role of dimensionality and if/when the population dynamics lack an appropriate Hamiltonian and whether that&rsquo;s an important part of the argument.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/01/training-problem-2-update/">Tue, Nov 1, 2011</a></h4>
+      <h4><a href="../../../../2011/11/01/training-problem-2-update/">Training Problem 2 update</a></h4>
+      <div class="article-style">
+        Problem Statement We consider the stochastic optimal control problem of fisheries harvests under the scenarios involving alternate stable states, with uncertainty about the parameters of harvest. We consider a series of introductory problems to prepare us for the full problem. We begin with classical optimal control approaches (Pontraygin&rsquo;s principle to transform into an ordinary differential equation boundary-value problem) for continuous time state equations (fish population dynamics) as a reference point.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/02/the-lab-notebook-goes-open-/">The Lab Notebook Goes Open</a></h2>
-    <h4>Tue, Feb 2, 2010</h4>
-    <div class="article-style">
-      
-      (Originally posted on OpenWetWare)
- This is the first entry in my lab notebook, but not the beginning of the project. I have been exploring demographic and colored environmental noise since beginning my graduate program at UC Davis. Much of that time has been spent in building the appropriate tool set though, so now it&rsquo;s time to dive in.
- A good starting point is Denis et. al. (2001) Ecological Monographs 71.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2008/06/09/popbio-core-review-notes/"></a></h2>
-    <h4>Mon, Jun 9, 2008</h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/31/monday-openfisheries-ggplot/">Mon, Oct 31, 2011</a></h4>
+      <h4><a href="../../../../2011/10/31/monday-openfisheries-ggplot/">Monday: openfisheries &amp; ggplot</a></h4>
+      <div class="article-style">
+        Andrew has put together the preliminary API for the openfisheries.org project. I&rsquo;ve begun an R package, rfisheries, to interface to the openfisheries project. It would be great to incorporate data from the RAM Legacy database and the seaaroundus.org project, which may be done at the level of the R package or (perhaps more flexibly) directly through the developing openfisheries API.
+Here&rsquo;s a quick proof-of-principle example for Andrew&rsquo;s API:
+(Code linked from image as usual).
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Fri, Oct 28, 2011</a></h4>
+      <h4><a href="../../../../2011/10/28/optimal-control-examples-continued-bellman-dynamic-programming/">Optimal Control examples continued: Bellman,  Dynamic Programming</a></h4>
+      <div class="article-style">
+        Discrete-time state equation Discrete-time solution appears to be all about dynamic programming
+and a chance for me to remember that I&rsquo;m out of practice writing recursive functions. It&rsquo;s just that in thinking about the problem, you start from the end, with the trivial subcase, and keep adding the layers. But the recursive function kinda starts at the beginning, and that trivial case is the exit condition. R doesn&rsquo;t seem very efficient with these recursive functions, so this might become a C sub-routine eventually.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/10/27/optimal-control-next-steps/">Thu, Oct 27, 2011</a></h4>
+      <h4><a href="../../../../2011/10/27/optimal-control-next-steps/">Optimal control sample problems (Mostly continuous time by Pontryagin principle)</a></h4>
+      <div class="article-style">
+        Optimal Control by Pontryagin principle Problem statement  State equation: $\dot x = x \exp \left( \alpha \left(1-\frac{x}{K}\right) \left( \frac{x-C}{K} \right) \right) - x h$
+ Utility function $\pi(h, x, t) = \frac{h^{1+\gamma}}{1+\gamma}$
+ Boundary constraints: $x(0) = X_0 \qquad x(T) = X_T$
+  See problem statement and analytic BVP formulation details in this post. Additionally we scale the variables appropriately. Then we can begin with some basic parameter exploration in the original model formulation.
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -196,12 +221,18 @@
     <li><a href="../../../../categories/ecology/page/48/">&laquo; Previous</a></li>
     
     
+    <li><a href="../../../../categories/ecology/page/50/">Next &raquo;</a></li>
+    
   </ul>
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -288,7 +319,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

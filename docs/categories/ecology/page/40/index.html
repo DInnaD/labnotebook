@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,129 +134,81 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/01/10/warning-signals-power-and-sufficient-statistics/">Warning Signals, Power and Sufficient Statistics</a></h2>
-    <h4>Mon, Jan 10, 2011</h4>
-    <div class="article-style">
-      
-      Working on warning signals manuscript. Looking at overall powercurves as a function of sample size and rate of stability loss in both models. Planning to repeat that analysis with summary statistics approach to illustrate the relative loss in power of the &ldquo;leading indicator&rdquo; approach. (simulations just set up to run now, figures should appear below as they complete. Click on figures for links to code).
- Power curve based on transcritical bifurcation as a function of rate of stability loss:  [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;warningsignals, LTC, stability&rdquo; tag_mode=&ldquo;all&rdquo; min_upload_date=&ldquo;2011-01-10 00:00:00&rdquo; max_upload_date=&ldquo;2011-01-12 23:59:59&rdquo;]
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">Tue, Mar 13, 2012</a></h4>
+      <h4><a href="../../../../2012/03/13/pdg-control-day-1-goals-by-training-problem/">pdg-control Day 1 goals by training problem</a></h4>
+      <div class="article-style">
+        Training Problem I / Theme 1 Policy costs  Functional forms of cost &amp; Structure of the paper Comparability (view over all costs? view expected economic benefit?)
+ Visualizations Dan&rsquo;s L1 norm story (vs stochastic, discrete time?)  Transaction Fee details in cts time, deterministic Advanced problem 1 How many spatially differentiated policies are optimal 1. formulate bioeconomic model 2. modularity methods 3. comparison of GBR &amp; Caribbean examples
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/01/06/two-routes-to-adaptive-branching/">Two routes to adaptive branching</a></h2>
-    <h4>Thu, Jan 6, 2011</h4>
-    <div class="article-style">
-      
-      Simulations completed, help accentuate the different paths for branching. When the most failures occur while waiting for the first mutation to enter first established dimorphism, mutation rate seems limiting (left):
-(right) With a higher mutation rate, most collapses back to monomorphism occur after a mutation successfully invades in the dimorphic population. Unfortunately these runs result in large fraction of the ensemble never reaching the final branching, those that do, do so fast:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/13/pdg-control-training-problem-2-update-to-group/">Tue, Mar 13, 2012</a></h4>
+      <h4><a href="../../../../2012/03/13/pdg-control-training-problem-2-update-to-group/">pdg-control, Training Problem 2 update to group</a></h4>
+      <div class="article-style">
+        Intrinsic Stochasticity $$ x_{t+1} = z_t f(x_t, ht) $$ $$ max{h_t} \textrm{E} \left( \sum_t \Pi(h_t, x_t) \delta^t \right) $$ Measurement error $ m_t = z_m x_t $ Implementation error $ i_t = z_i h<em>t $
+Next: Uncertainty = we can learn and hence decrease the uncertainty. But state-space grows exponentially.
+Parametric Uncertainty Biological state equation $$ x</em>{t+1} = z_t f(x_t, h_t, a_t) P(a_t, \hat a_t, \sigmat) $$ Bayesian Learning state equations $$ \hat a{t+1} = \textrm{Posterior}(a | x) = \frac{ L(x|a) \textrm{Prior}(a)}{\int L(x|a) \textrm{Prior}(a) da } $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/30/stochastic-limits-to-evolutionary-branching/">Stochastic limits to evolutionary branching</a></h2>
-    <h4>Thu, Dec 30, 2010</h4>
-    <div class="article-style">
-      
-      My last post was a bit pessimistic, sometimes I can still miss the forest for the trees. Hidden in those figures, the main point has been staring me in the face. So let&rsquo;s try this again.
-Stochastic limits to evolutionary branching is the story of two dueling timescales. The first timescale is that of the evolutionary process: the frequency of steps (mutation rate, $ \mu$) and the size of the steps (mutation kernel standard deviation $ \sigma_{\mu}$), on top of which we add the selection gradient, created by the ecology.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Sun, Mar 11, 2012</a></h4>
+      <h4><a href="../../../../2012/03/11/parameter-uncertainty-in-stochastic-control-problems-2/">Parameter uncertainty in stochastic control problems</a></h4>
+      <div class="article-style">
+        Day 3 of my short-term visitor stay before the working group starts.
+ Wednesday: Travel
+ Thursday: 8:45 Group Meeting: Paul, Michael, Lance, Dan, Jake, Carl.
+  Training problem II discussion &ndash; problem taxonomy: stochastic , model uncertainty, parameter uncertainty, state uncertainty. Learning on uncertainty (passive/adaptive active management) in the uncertainty cases, all of which increase the parameter space. Evening with Paul&rsquo;s students.
+ Friday Writing up Training problem II with Jake, Michael.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/30/parameter-exploration-in-adaptive-dynamics-branching/">Parameter exploration in adaptive dynamics branching</a></h2>
-    <h4>Thu, Dec 30, 2010</h4>
-    <div class="article-style">
-      
-      Ran a series of simulations overnight to explore aspects of time-to-branching at different phases of the branching process. Still using only 16 replicates per data point, though increased maximum time for a run another order of magnitude to avoid timing out runs influencing the dataset for the slow-rate parameters. Still seems to suggest a regime beyond which branching becomes completely improbable. Not clear that the transition is a sharp as the Arrhenius approximation might suggest.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/29/adaptive-dynamics-simulations/">adaptive-dynamics Simulations</a></h2>
-    <h4>Wed, Dec 29, 2010</h4>
-    <div class="article-style">
-      
-      Setting up some adaptive dynamics simulations to complete the parameter-space search. Currently the demo library contains two files, providing the coexistence-only tests and the full evolutionary simulation. This picks up from Aug 30/Sept 1 on coexistence times and Aug 12&frasl;13 entries on waiting times until branching (while still on OWW).
-coexistence times coexist_times.R creates contour plots of the coexistence time under demographic noise expected at a particular position of the pairwise invasibility plot (PIP).
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/09/alex-pfaff-seminar-meeting/">Fri, Mar 9, 2012</a></h4>
+      <h4><a href="../../../../2012/03/09/alex-pfaff-seminar-meeting/">Alex Pfaff seminar, meeting</a></h4>
+      <div class="article-style">
+        Notes from Alex Pfaff talk at UTK (during my visit for pdg-control meeting).
+ average impact vs differential impact &ndash; must compare against what would have happened to the area if unprotected (at current time/short-timescale, or in future?)
+ Proximity is not a good proxy of similarity (i.e. bc we protect steep slopes but farm the flat land nearby)
+ Instead use simple metrics available in GIS layers - distance from nearest road, etc.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/24/doe-renewal-and-a-year-in-review/">DoE renewal and a year in review</a></h2>
-    <h4>Fri, Dec 24, 2010</h4>
-    <div class="article-style">
-      
-      This time of year I have to file my renewal for my DOE Fellowship, including a statement of accomplishments and a summary of the computational aspects of my work. Seemed like a good idea to jot these down in my notebook as well:
-synopsis of accomplishments over the year: In January I passed my qualifying exam, advancing to candidacy where my dissertation remains my only requirement. In March I attended the phylogenetics workshop in Bodega Bay, an internationally known week-long training program.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Tue, Mar 6, 2012</a></h4>
+      <h4><a href="../../../../2012/03/06/stability-analysis-on-fished-and-unfished-dynamics/">Stability analysis on fished and unfished dynamics.  </a></h4>
+      <div class="article-style">
+        In this example, we compute the distribution of the stability coefficients estimated from the fished and unfished simulations. Overall this shows little success in distinguishing between the stability of the fished and unfished populations &ndash; i.e. no hint that we are managing near an edge.
+(Originally run and posted in github notebook, but cross posting for reference here since I had trouble recalling if this was filed with the control project or the warning signals project directory.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/10/warning-signals-manuscript/">Warning signals manuscript</a></h2>
-    <h4>Fri, Dec 10, 2010</h4>
-    <div class="article-style">
-      
-      Meeting with Alan today to discuss outline. Came up with basic break-down of paragraphs:
- Intro/Abstract
- Scope: Previous work, scope simple example existence of warning signal/CSD is clear. Identifiability/Power not clear. Mention the issue of Replicates
- Nonlinearity not observed with infinite data
- reasons detection fails: Identifiability issue &amp; Power issue. Example signal that exists but inadequate power to detect?
- Eigenvalue story
- Probability of data vs Probability of a statistic
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/03/06/tuesday-14/">Tue, Mar 6, 2012</a></h4>
+      <h4><a href="../../../../2012/03/06/tuesday-14/">Tuesday</a></h4>
+      <div class="article-style">
+        Confirm travel plans for tomorrow  pdg-control  Stability analysis speeding up policycosts (extra loop) will probably require some C coding. Meanwhile could hard-code in the profit function to accelerate things.
+ model averaging (mimic the fisheries science work &amp; climate models that present distribution of outcomes over different models as the range of possibilities, lacking probabilities assigned to those models&hellip;). work on model estimation externalization: Note that we can tangle a file to create a .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/09/exploring-power-in-warning-signals/">Exploring Power in Warning Signals</a></h2>
-    <h4>Thu, Dec 9, 2010</h4>
-    <div class="article-style">
-      
-      Started trying to get the power curves for sample-size and rate of change. Currently focusing on the transcritical bifurcation model. This first pass uses just 100 replicates, which appears to be not nearly enough. Need some troubleshooting on handling to get power curves out. Scroll through, the set has 65 different images:
-<a href="code ids in image discription, compare to structured-popultions git log. ">flickr-gallery mode=&ldquo;tag&rdquo; tags=&ldquo;stochpowercurvesslides&rdquo;</a>
-Includes plots of the timeseries, giving a visual clue of how dramatic the warning signal is under each case.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/12/04/identifying-warning-signals/">Identifying Warning Signals</a></h2>
-    <h4>Sat, Dec 4, 2010</h4>
-    <div class="article-style">
-      
-      Updated methods for the Monte Carlo estimate of the distributions of likelihood ratios completed on Wednesday this week, modulo some troubleshooting of code. Now exploring the parameter range in which warning signals can be identified with accurate power. Individual power tests provide a good start, but remains to generate power curves for each bifurcation type by magnitude of the loss of stability, length/duration of the timeseries and the sampling frequency.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/11/30/tues-fitting-the-limiting-ou-models-to-each-bifurcation/">Tues: Fitting the limiting OU models to each bifurcation</a></h2>
-    <h4>Tue, Nov 30, 2010</h4>
-    <div class="article-style">
-      
-      Yesterday I derived the linearized SDEs for the saddle node bifurcation :
-$$ dX = 2\sqrt{r(t)} (\sqrt{r(t)} + \theta -X) dt + \sigma \sqrt{\sqrt{r(t)}+\theta} dB_t $$
-and the transcritical bifurcation
-$$ dX = r(t) (K - X) dt + \sqrt{K} dB_t $$
-Now to implement them for fitting by likelihood using generic $ r(t) $. I go back to the warning() model implemented in sde_likelihood.R code. We can just solve the odes directly:
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -271,8 +223,12 @@ Now to implement them for fitting by likelihood using generic $ r(t) $. I go ba
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -359,7 +315,13 @@ Now to implement them for fitting by likelihood using generic $ r(t) $. I go ba
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

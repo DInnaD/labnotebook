@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,139 +133,87 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thu, Dec 1, 2011</a></h4>
-    <h4><a href="../../../2011/12/01/thrusday-corrected-calculation-implementing/">Thrusday - corrected calculation, implementing.  </a></h4>
-    <div class="article-style">
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Wed, Apr 10, 2013</a></h4>
+      <h4><a href="../../../2013/04/10/fun-and-not-so-fun-with-bibliographic-apis/">Notebook tweaks: APIs in Ruby, Github hosting</a></h4>
+      <div class="article-style">
+        Crossref API and Faraday Looking at automating vita entries. The faraday gem looks like a nice general tool for API queries in Ruby (ht Martin Fenner)
+ Example exploration  Mendeley API and omniauth  Omniauth appears to be a solution for Rails apps only? Not clear if it can be used in vanilla Ruby. Still stumped by this case; question on SO  Bisonomy and its API  RSS feeds too, e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wed, Nov 30, 2011</a></h4>
-    <h4><a href="../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/05/a-clever-derivation-on-realized-escape-times/">Fri, Apr 5, 2013</a></h4>
       
-      rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
- Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
-      
+      <div class="article-style">
+        I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/29/tuesday-debugging/">Tue, Nov 29, 2011</a></h4>
-    <h4><a href="../../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h4>
-    <div class="article-style">
-      
-      Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
-Unit tests.
-Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/04/notebook-parsing/">Thu, Apr 4, 2013</a></h4>
+      <h4><a href="../../../2013/04/04/notebook-parsing/">Notebook Features: parsing linked data in the semantic notebook</a></h4>
+      <div class="article-style">
+        In a post a while back I originally put forward the idea of a semantic lab notebook. Semantics, or linked data, are among the most powerful concepts to emerge in online science for scholarly data organization and communication. I have slowly been adding and exploring new ways to introduce semantic concepts into the notebook, which I have documented along the way under my #semantics tag. In this post, rather than discuss how to generate the semantic data, I try to focus on some of the things we can do with it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/28/monday-11/">Mon, Nov 28, 2011</a></h4>
-    <h4><a href="../../../2011/11/28/monday-11/">Monday: submodels for full traits</a></h4>
-    <div class="article-style">
-      
-      Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
-Creating unit tests:
-Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
-require(wrightscape) data(labrids) s1_spec &lt;- list(alpha = &quot;global&quot;, sigma = &quot;indep&quot;, theta = &quot;global&quot;) s1 &lt;- multiTypeOU(data = dat[&quot;close&quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &lt;- levels(pharyngeal) s1$sigma[&quot;other&quot;] &lt;- .
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/28/handling-other-sources-of-noise/">Mon, Nov 28, 2011</a></h4>
-    <h4><a href="../../../2011/11/28/handling-other-sources-of-noise/">Handling other sources of noise</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/03/further-examples-managing-tipping-points-with-gp/">Wed, Apr 3, 2013</a></h4>
       
-      I&rsquo;m now computing the optimal solution under three sources of noise (compare with my earlier examples of calculating the optimal solution assuming only growth noise, but simulating dynamics with other noise sources). See the statement of problem details, essentially:
-$$ \max_{ { q_t } \leq 0 } \mathbb{E} \left{ \sum_0^{\infty} \alpha^t h_t \right} $$ s.t. Fish population follows: $ x<em>t = zt^g f( x{t-1} - h</em>{t-1} ) $ and measured stock is given by: $ m_t = z_t^m x_t $ while harvest is: $ h_t = \min (x_t, z_t^i q_t) $ Where $ z^g $ denotes uncertainty in population growth, $ z^m $ denotes uncertainty in measurement for the stock assessment, and $ z^i $ denotes uncertainty in harvest implementation.
-      
+      <div class="article-style">
+        See also:
+ <a href="http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html">http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html</a>  Example with fixed priors on hyperparameters, fixed model type.
+#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2) s2.p &lt;- c(5,5) tau2.p &lt;- c(5,1) d.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) nug.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) # gamma mean s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &lt;- function(x) dinvgamma(x, tau2.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Fri, Nov 25, 2011</a></h4>
-    <h4><a href="../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Friday: wrightscape, ggplot, wp memory</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/04/02/monday---tuesday/">Tue, Apr 2, 2013</a></h4>
       
-      more sub-model comparisons wrightscape sub-models:
- a1 independent alphas, global theta, sigmas
- bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
- a2 independent alpha, theta, global sigma
- s1 indep sigma, global alpha, theta
- s2 indep sigma, theta, global alpha
-  Basic Nelder Mead Simulated annealing associated parameter estimates
-This approach is really not finding a very robust solution.
-Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
-      
+      <div class="article-style">
+        Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
+ More fishery managment controversy with Halpern et. al. (2013) critiquing the &lsquo;ocean food provision index&rsquo; from Nature last year, and a subset of that team replying Halpern et. al.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/23/getting-the-right-distributions/">Wed, Nov 23, 2011</a></h4>
-    <h4><a href="../../../2011/11/23/getting-the-right-distributions/">Getting the right distributions</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2013/03/26/research/">Tue, Mar 26, 2013</a></h4>
       
-      Determining the stochastic transition matrix is the essential computational step of SDP solution. If stochasticity enters only in the growth process:
-$$x_{t+1} = z_t f(x_t) $$
-where $zt$ is a draw from a log-normal density distribution function $ \log \mathcal{N} (x; \mu, \sigma) $, then the probability that $x{t+1}$ falls within a bin $ [x_i-\Delta,x_i+\Delta] $ given that at it is currently at $x_t = y$ is
-$$ P([x_i-\Delta,xi+\Delta] |y) = \int{x-\Delta}^{x+\Delta} \log \mathcal{N}(x; \log(f(y)) + \mu, \sigma) dx$$
-      
+      <div class="article-style">
+        nonparametric-bayes writing writing &hellip;
+multiple-uncertainty Fixed matlab implementation. (Some fun with matrix transposes in translating from R. #4) See:
+ multiple-uncertainty.m example  Compare to
+ R algorithm example  Matlab code shows the same pattern in which growth noise results in constant escapement, but either implementation or measurement noise cause deviations from this rule (most dramatic in the case of implementation uncertainty).
+Notebook Some feedback and ideas from Noam, such as landing pages #77 and inline intro #78.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">Tue, Nov 22, 2011</a></h4>
-    <h4><a href="../../../2011/11/22/some-configuration-notes-rstudio-setup-syntax-highlighting-in-sweave/">some configuration notes: RStudio setup, syntax highlighting in sweave</a></h4>
-    <div class="article-style">
-      
-      Installing R-Studio on my dreamhost VPS server. Dreamhost runs debian lenny, which is a bit dated, making it necessary to install from source. (Would be easy on a modern ubuntu server). Here we go.
-First, we probably want to install R from source to begin with (Lenny comes with cutting-edge R 2.7.1&hellip;). This needs to be done with shared libs enabled. Also I needed to run it without recommended-packages to get the initial install working
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/18/friday-7/">Fri, Nov 18, 2011</a></h4>
-    <h4><a href="../../../2011/11/18/friday-7/">Friday</a></h4>
-    <div class="article-style">
-      
-      Connecting weather fluctuations to trends in climate: should really consider replicating (Min et. al. 2011) and (Pall et. al. 2011).
-Ooh.. David&rsquo;s Nature Climate paper (McCollum et. al. 2011). (Does UC Davis really not have access to this journal?)
-Sebastian mentioned his advisor&rsquo;s work oninverting the sphere without creating a fold, including a proof through a series of physical models made with chickenwire. Math is crazy.
-Reviewing Sebastian&rsquo;s manuscript on stochastic sinks at lab meeting.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Thu, Nov 17, 2011</a></h4>
-    <h4><a href="../../../2011/11/17/steve-pacala-storer-lecture/">Steve Pacala - Storer lecture</a></h4>
-    <div class="article-style">
-      
-      Excellent visit from a former advisor, Steve Pacala, at Davis for a Storer lecture.
-Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated by the natural carbon sink
- Carbon sink is half ocean, half terrestrial
-  A grim future:
- 450ppm not feasible
- 500ppm best case
- 550ppm is likely even if we are largely successful
-  Even worse if the terrestrial sink collapses.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -280,9 +228,10 @@ Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -371,7 +320,13 @@ Seminar  atmospheric CO2 is roughly half CO2 production, rest is being mitigated
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

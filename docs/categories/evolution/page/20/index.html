@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,115 +134,77 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/08/27/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h2>
-    <h4>Fri, Aug 27, 2010</h4>
-    <div class="article-style">
-      
-      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
- Create package around power analysis, including ability to test bootstraps
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/25/treebase-interface-continued/">Mon, Apr 25, 2011</a></h4>
+      <h4><a href="../../../../2011/04/25/treebase-interface-continued/">TreeBASE interface continued...</a></h4>
+      <div class="article-style">
+        Returning to exploration of treeBASE interface and my attempt to implement an R interface the API (earlier entry)
+Rutger Vos has gotten me started, pointing out that the handling of the metadata interface is done separately from the handling of the content (phylogenies and matrices).
+Meta data Meta-data interface uses the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) which has a beginners tutorial. The tutorial provides broad background about the initiative and the basic xml schema, but I didn&rsquo;t find it particularly accessible or get a clear idea of how interacting with the protocol works.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/26/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h2>
-    <h4>Thu, Aug 26, 2010</h4>
-    <div class="article-style">
-      
-      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
-0.5735 0.29 0.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/24/wrightscape-profiling/">Sun, Apr 24, 2011</a></h4>
+      <h4><a href="../../../../2011/04/24/wrightscape-profiling/">wrightscape profiling</a></h4>
+      <div class="article-style">
+        Optimization at the R level is substantially slower than at the C level:
+system.time(wright_test = wright(data,tree,regimes, alpha=ou2@sqrt.alpha^2, sigma=ou2@sigma)) user system elapsed 82.157 0.068 82.346 system.time(ws2 = wrightscape(trait, labrid$tree, regime=labrid$regimes, (ou2@sqrt.alpha)^2, ou2@sigma, theta=ou2@theta[[1]])) iter: 229, llik = 34.750, size = 0.000, par values = 0.000069 2.456353 0.000026 0.225234 0.973002 0.488713 user system elapsed 4.964 0.000 4.971  This is possibly due to repeating the lca matrix calculation. As it&rsquo;s not done in a separate R function yet, the profiler cannot tell us this.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/25/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h2>
-    <h4>Wed, Aug 25, 2010</h4>
-    <div class="article-style">
-      
-      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
-This is great, nice to know there&rsquo;s a basis for it.
-&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/22/release-of-constraint-in-labrids/">Fri, Apr 22, 2011</a></h4>
+      <h4><a href="../../../../2011/04/22/release-of-constraint-in-labrids/">Release of constraint in labrids?</a></h4>
+      <div class="article-style">
+        Started writing outline, assembling references
+ Reviewed brownie-lite as an alternative model to compare the release-of-constraint, but looks like it will be easier just to modify wrightscape code to keep parameters fixed or global.
+ Writing a wrapper to move the likelihood function for wrightscape to up to the R level.
+ Figure out which function to pass up: easiest is to build off of fit_model, but just evaluate, don&rsquo;t optimize the likelihood.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/19/writing/">Writing</a></h2>
-    <h4>Thu, Aug 19, 2010</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/13/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Fri, Aug 13, 2010</h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/20/wednesday-3/">Wed, Apr 20, 2011</a></h4>
+      <h4><a href="../../../../2011/04/20/wednesday-3/">Wednesday</a></h4>
+      <div class="article-style">
+        Reading  GrrlScientist disagrees with M. Nielsen (and I add my 2c: Open Science might not give you the credit you need to get a job in today&rsquo;s science culture, but hey, in all probability, neither will the traditional strategy, so have fun). Nature says: Too many PhDs Some useful tools for data visualization: particularly want to try:Fusion Tables, Gephi, DataViz Mendeley groups don&rsquo;t display (or share) stars. Can only sort A-Z or by most recent.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/12/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Thu, Aug 12, 2010</h4>
-    <div class="article-style">
-      
-      Created plotting functions for:   waiting time distribution by phase, (cumulative and difference), distribution of number of failures before invasion of dimophism can occur and after it has occurred (indicating if mutational rate is more limiting or mutational step size (selection gradient). Adding to the pairwise invasibility plot the locations where dimorphism collapses, color coded by the time of collapse.  Exploring branching time distributions in different regimes by phase.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/17/treepar-changing-rates-of-evolution/">Sun, Apr 17, 2011</a></h4>
+      <h4><a href="../../../../2011/04/17/treepar-changing-rates-of-evolution/">TreePar: changing rates of evolution</a></h4>
+      <div class="article-style">
+        Review &amp; Comments on Article T. Stadler&rsquo;s article Mammalian phylogeny reveals recent diversification rate shifts (Stadler, 2011) describes her new TreePar package, evaluating shifts in the mammalian phylogeny (from and analyzed by (Bininda-Emonds et. al. 2007)) as an example.
+The heart of the article is the calculation of the likelihood for a branching process model with rate shifts at specified times. This approach is dramatically more powerful and less susceptible to spurious conclusions than the earlier approach of looking for a shift in slope in the lineage-through-time (LTT) plot.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/11/adaptive-dynamics/">Adaptive Dynamics</a></h2>
-    <h4>Wed, Aug 11, 2010</h4>
-    <div class="article-style">
-      
-      Adding demos directory for the simulations to create the figures in User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/03 and User:Carl Boettiger/Notebook/Comparative Phylogenetics/2010/05/04 Updating the contour plot figure as per suggestions by Rupert and Ulf:  Branching times, original figure
- use more points for the simulation, and don&rsquo;t put them on a regular grid, but maybe draw them from a uniform distribution, so as not to create spurious impressions of symmetry. You could then maybe also use the tripack package to draw colored Voronoi cells instead of same-sized symbols.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/04/16/friday-4/">Sat, Apr 16, 2011</a></h4>
+      <h4><a href="../../../../2011/04/16/friday-4/">Friday</a></h4>
+      <div class="article-style">
+        Reading  Arxiv has several articles on the EM-algorithm from J. Statistical Science unknown, unknown. What makes this distinct from applying any traditional optimization routine (Nelder-Mead, simulated annealing, etc) to the likelihood function? Just in that it determines the probability distribution as well as maximum?
+ UPDATE ON EM: brief discussion with Graham, Peter, Yaniv on this, now my impression is: Not necessarily get the distribution, but doesn&rsquo;t just generically take a function and minimize it, but may not calculate the likelihood at each step.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/10/likelihood-ratio-update/">Likelihood ratio update</a></h2>
-    <h4>Tue, Aug 10, 2010</h4>
-    <div class="article-style">
-      
-      Sent drafts of Likelihood ratio paper to Peter Wainwright (Sunday 08/08) and Graham Coop (Monday 08/09)  Wrightscape  Sent Peter more information on the release of constraint results in the Labrid system. Starting wrightscape manuscript.  Changes to wrightscape.R  added a tree plotting function to the wrighttree class. labels on parameter bootstrap distributions for labrids in last week&rsquo;s entry reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/05/batch-data/">Batch Data</a></h2>
-    <h4>Thu, Aug 5, 2010</h4>
-    <div class="article-style">
-      
-      Some of the nexus files don&rsquo;t seem to read into R. Opening and saving the file in figtree solves this.  Data Sets Labrid traits &ndash;Carl Boettiger 00:52, 11 August 2010 (EDT) Note: labels on parameter bootstrap distributions have reversed wrasses and parrotfish. I&rsquo;ve updated the software so that the plotting function takes care of the labeling automatically (when these were made it had to be added manually, while the automation of the data conversions and the painting by clade reversed the label assignments).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/08/04/data-format-functions/">Data Format functions</a></h2>
-    <h4>Wed, Aug 4, 2010</h4>
-    <div class="article-style">
-      
-      Spent much of the day trying to code an intelligent data-preprocessing function. Seems to mostly be working now, see github for details. Testing on a variety of datasets.
- Currently the function assumes paintings can be specified by common ancestors of a set of tips, assumes non-overlapping clades. Doesn&rsquo;t error-check for this either.
- should also have more output processing functions, particularly to return a &ldquo;phylo&rdquo; object together with paintings (see earlier existing code in my Comparative-Phylogenetics repository).
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -257,8 +219,12 @@ This is great, nice to know there&rsquo;s a basis for it.
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -345,7 +311,13 @@ This is great, nice to know there&rsquo;s a basis for it.
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

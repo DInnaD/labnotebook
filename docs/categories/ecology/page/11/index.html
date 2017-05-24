@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,117 +134,83 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2013/04/18/notes/"></a></h2>
-    <h4>Thu, Apr 18, 2013</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/01/06/notes/">Mon, Jan 6, 2014</a></h4>
       
-      Misc coding  knitcitations handling of html formatting in tooltip: html inside the tag must needs be escaped. knitcitations/#37
- pmc functions
-  hmm.. how do we easily wrap a function such that it returns its arguments (given and default) in a named list (appropriate for do.call(function_name, args_list))? match.call() inside the function will give the literal string of how the function was called, which, if evaluated in the same environment with same variables in working space, will return the same results, but doesn&rsquo;t lend itself to updating any one of those arguments.
-      
+      <div class="article-style">
+        fishbase API discussions knitcitations (push previous updates to CRAN) data extraction from sardine collapse story (see EML in data/), news article My thoughts on SWC teaching web-native publication workflow reading, ToCs speaker invitation replies review request replies  Reading  &ldquo;Are rapid transitions btwn invasive and native species caused by alt stable states, and does it matter?&rdquo; <a href="http://feedly.com/k/1gbEIWT">http://feedly.com/k/1gbEIWT</a>
+ &ldquo;Phylogenetic trait-based analyses of ecological networks.&rdquo; <a href="http://feedly.com/k/1gbEvD6">http://feedly.com/k/1gbEvD6</a>
+ Nice editorial on &ldquo;core elements of a TPB paper.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/17/notes/"></a></h2>
-    <h4>Wed, Apr 17, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/12/10/notes/">Tue, Dec 10, 2013</a></h4>
       
-      warning-signals  Finishing up edits. Writing PRSB reply  Logistics  In tomorrow&rsquo;s Marc meeting, check in about what to include for the CSTAR report manuscript / analysis updates Comments on recent lit?  ropensci  treebase/#4  Reading  Dai et. al. (2013) , with introductory piece by Carpenter (2013) . In this they look only at the spatial extent of a perturbation. Presumbably one might attempt to compare the spatial extent over time to establish a baseline, or otherwise identify a control system.
-      
+      <div class="article-style">
+        Consider the model
+$$d X_t = \alpha \left(\theta - X_t\right)dt + \sigma dB_t $$
+By Ito Isometry, we have:
+$$\langle X \rangle_t = E_t(X) = \theta \left(1 - e^{-\alpha t} \right) + X_0 e^{-\alpha t}$$
+and
+$$\langle X^2 \rangle_t - \langle X \rangle_t^2 = V<em>t(X) = \frac{\sigma^2}{2 \alpha }\left(1 - e^{-2 \alpha t} \right)$$
+If we assume discrete, uniform sampling of spacing $\tau$, then we have,
+$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp\left(-\frac{\sumt^{T-1} \left(X{t+1} - E\right)^2 }{2V}\right) $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/16/notes/">a few notes on various projects</a></h2>
-    <h4>Tue, Apr 16, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/19/notes/">Tue, Nov 19, 2013</a></h4>
       
-      warning-signals  Working on revisions for ews-review Grr, the challenges of open science &ndash; can&rsquo;t stick confidential reviews in ews-review repo where they belong, or track them on the issues tracker, without disclosing their contents. What are the terms of use for these things anyhow&gt;
-  phylogentics / pmc  Apparently pmc does have users &ndash; at least one recognized that my Vignette is broken following the latest Gieger update.
-      
+      <div class="article-style">
+        RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
+ Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&rsquo;t have to wrap some C library myself&hellip;  nonparametric-bayes Writing writing.
+ Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/15/notes/"></a></h2>
-    <h4>Mon, Apr 15, 2013</h4>
-    <div class="article-style">
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/12/parametric-bayesian-example/"></a></h2>
-    <h4>Fri, Apr 12, 2013</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/14/notes/">Thu, Nov 14, 2013</a></h4>
       
-      As discussed with Marc in yesterday&rsquo;s meeting, it would be useful to compare the Gaussian process, as a nonparametric Bayesian estimate, to the optimal management solution under a parametric Bayesian case, e.g. with the correct underlying model. This is implemented in BUGS (jags) through the R interface as described in Bolker B, Gardner B, Maunder M, Berg C, Brooks M, Comita L, Crone E, Cubaynes S, Davies T, de Valpine P, Ford J, Gimenez O, Kery M, Kim E, Lennert-Cody C, Magnusson A, Martell S, Nash J, Nielsen A, Regetz J, Skaug H and Zipkin E (2013).
-      
+      <div class="article-style">
+        ropensci  ropensci stategic planning: wrote personal vision statement  RNeXML  Comments on issues #12 and #15, thinking about character matrices comments on #20, thinking about metadata parsing. (If only everyone knew xpath&hellip;)  Commit details on Github
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/11/tutorial-on-likelihood-and-roc-methods-for-early-warning-signals/"></a></h2>
-    <h4>Thu, Apr 11, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/08/mbi-day-five-notes/">Fri, Nov 8, 2013</a></h4>
       
-      In this tutorial we walk through how to use the likelihood-based approach of Boettiger &amp; Hastings (2012) to provide an early warning signal for a critical transition, and how to generate ROC curves discussed in the same paper for comparing different early warning signals. Context and details about the methodology are presented in the paper; here we focus on using the methodology provided in the accompanying R package. All of the examples shown here can be reproduced by pasting the code provided into an R terminal.
-      
+      <div class="article-style">
+        Panel discussion
+ Hugh&rsquo;s question on the usefulness of dynamic vs static models: do we have dynamical systems envy? Chris: are temporal dynamics historical artefact, and space the new frontier? Hugh: though decision theory is fundamentally temporal. really question of sequential decision vs single decision Hugh, on what would be his priority if he had time for new question: Solve the 2 player, 2 step SDP competition closed form.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/11/nonparametric-bayes-framing-the-issues/">nonparametric-bayes: framing the issues for the manuscript</a></h2>
-    <h4>Thu, Apr 11, 2013</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/11/07/mbi-day-four-notes/">Thu, Nov 7, 2013</a></h4>
       
-      Marc meeting: nonparametric-bayes manuscript Very good meeting today going over some big picture considerations in the presentation of the nonparametric-bayes manuscript with Marc. (Also see new entries in issues log on nonparametric-bayes.) Make it clear that we are making a point rather than providing a tool. Focus on the tipping point context rather than the general management context.
- Comparison against a parametric Bayesian model (40) Comparison against an active learning parametric model facing a tipping point (41)  Parametric Bayesian model Drafting parametric Bayesian case for comparison, following Marc&rsquo;s suggestion.
-      
+      <div class="article-style">
+        Morning session Iadine Chades  Chadès, I., Carwardine, J., Martin, T.G., Nicol, S., Sabbadin, R. &amp; Buffet, O. (2012) MOMDPs: a solution for modelling adaptive management problems. The Twenty-Sixth AAAI Conference on Artificial Intelligence (AAAI-12), pp. 267-273. Toronto, Canada.
+ 10.1098/rspb.2013.0325 Migratory connectivity magnifies the consequences of habitat loss from sea-level rise for shorebird populations
+  Jake LaRiviera presents the challenges of the uncertainty table. Additional challenges in making an apples-to-apples comparison of the benefit of decreasing noise of different systems (e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/05/a-clever-derivation-on-realized-escape-times/"></a></h2>
-    <h4>Fri, Apr 5, 2013</h4>
-    <div class="article-style">
-      
-      I have often observed (e.g. Boettiger &amp; Hastings (2012) ) that if purely stochastic transitions out of a potential well happen, then they happen fast (dispite the fact that waiting time for them to happen is very long). Yesterday Marc mentioned an interesting proof of this from Don Ludwig, who was able to show that the waiting time to reach a large deviation in a time $t$, given that it reaches it at all, is of the same order as the return time from the large deviation to the equilibrium, $\log(L/\sigma)$.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/03/further-examples-managing-tipping-points-with-gp/"></a></h2>
-    <h4>Wed, Apr 3, 2013</h4>
-    <div class="article-style">
-      
-      See also:
- <a href="http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html">http://www.carlboettiger.info/2012/12/20/results-comparing-gp-to-parametric.html</a>  Example with fixed priors on hyperparameters, fixed model type.
-#inv gamma has mean b / (a - 1) (assuming a&gt;1) and variance b ^ 2 / ((a - 2) * (a - 1) ^ 2) (assuming a&gt;2) s2.p &lt;- c(5,5) tau2.p &lt;- c(5,1) d.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) nug.p = c(10, <sup>1</sup>&frasl;<sub>0</sub>.1, 10, <sup>1</sup>&frasl;<sub>0</sub>.1) # gamma mean s2_prior &lt;- function(x) dinvgamma(x, s2.p[1], s2.p[2]) tau2_prior &lt;- function(x) dinvgamma(x, tau2.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/04/02/monday---tuesday/"></a></h2>
-    <h4>Tue, Apr 2, 2013</h4>
-    <div class="article-style">
-      
-      Writing  still working on non-parametric bayes draft today..  Reviewing  review sent to PRSB  Reading  Came across this rather nice summary of big data in Ecology through some buzz in the twittersphereHampton et. al. (2013) .
- More fishery managment controversy with Halpern et. al. (2013) critiquing the &lsquo;ocean food provision index&rsquo; from Nature last year, and a subset of that team replying Halpern et. al.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -259,8 +225,12 @@
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -347,7 +317,13 @@
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

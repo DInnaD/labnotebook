@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,132 +134,80 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h2>
-    <h4>Sun, Aug 21, 2011</h4>
-    <div class="article-style">
-      
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/23/notes/">Tue, Oct 23, 2012</a></h4>
+      <h4><a href="../../../../2012/10/23/notes/">Gaussian process inference on sample functions</a></h4>
+      <div class="article-style">
+        This example uses the direct inversion of the covariance function. I have also been exploring the potentially faster Cholksy decomposition without success. Sometimes the match is very good, other times not, see compare-cholsky.md This example also on github as reed-example.md.
+ Basic likelihood optimization needs to be checked. See commits estimating sigma_n and estimating l. Compare the example below to a different set of fixed hyperparameters here  Example require(pdgControl) require(ggplot2)  Simulate some training data under a stochastic growth function with standard parameterization,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/13/esa-personal-notes-people-goals/">ESA personal notes: people, goals</a></h2>
-    <h4>Sat, Aug 13, 2011</h4>
-    <div class="article-style">
-      
-      Meetings  John Drake Suzanne O&rsquo;Regan (Post-doc with John, strong dynamical systems) Justin Kinze &ndash; great post-doc at Berkeley with John Harte, should visit. Paul Armsworth &ndash; with Alan, have asked me to join NIMBioS working group on Pretty Darn Good Control (Tuesday evening). Hal Caswell &ndash; interested in some of the data management / provenance for theoretical work. (Mon) Jeremy Fox &ndash; Interesting lunch discussion, clonal interference as ecological insight?
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/22/notes/">Mon, Oct 22, 2012</a></h4>
+      <h4><a href="../../../../2012/10/22/notes/">Comparing numerical methods</a></h4>
+      <div class="article-style">
+        require(MASS) require(ggplot2) require(kernlab)  Parameterization-specific
+X &lt;- seq(-5,5,len=50) obs &lt;- data.frame(x = c(-4, -3, -1, 0, 2), y = c(-2, 0, 1, 2, -1)) l &lt;- 1 sigma_n &lt;- 0.8  Radial basis function/Gaussian kernel:
+SE &lt;- function(Xi,Xj, l) exp(-0.5 * (Xi - Xj) ^ 2 / l ^ 2) cov &lt;- function(X, Y) outer(X, Y, SE, l)  Cholksy method
+n &lt;- length(obs$x) K &lt;- cov(obs$x, obs$x) I &lt;- diag(1, n) L &lt;- chol(K + sigma_n^2 * I) alpha &lt;- solve(t(L), solve(L, obs$y)) k_star &lt;- cov(obs$x, X) Y &lt;- t(k_star) %<em>% alpha v &lt;- solve(L, k_star) Var &lt;- cov(X,X) - t(v) %</em>% v loglik &lt;- -.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/13/saturday/">Saturday: Post ESA, NSF Intersections post-doc?</a></h2>
-    <h4>Sat, Aug 13, 2011</h4>
-    <div class="article-style">
-      
-      run system backup
- reading TOCs
- Catch up from ESA
- Working on review for THEE
- New phylogenetic methods in _Evolution _(Paradis, 2012), (Revell et. al. 2012)
- Next steps for fellowship applications.
-   Post ESA  Theoretical Ecology Review
- Revisions on Evolution manuscript
- TreeBASE paper. See Kemp et. al. 2012
- outline next steps on warning signals
- wrightscape manuscript, finalize examples
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/17/basic-regression-in-gaussian-processes/">Wed, Oct 17, 2012</a></h4>
+      <h4><a href="../../../../2012/10/17/basic-regression-in-gaussian-processes/">Basic regression in Gaussian processes</a></h4>
+      <div class="article-style">
+        Working out coded examples for basic Gaussian process regression using R. I&rsquo;ve just read through the first few chapters of Rasmussen &amp; Williams (2006), this implements the examples discussed in Chapter 2.1-2.5.
+Required R libraries (for multivariate normal, also for plotting):
+require(MASS) require(reshape2) require(ggplot2)  Set a seed for repeatable plots
+set.seed(12345)  Define the points at which we want to compute the function values (x values of the prediction points or test points), and the scale parameter for the covariance function $\ell=1$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/12/esa-friday/">ESA Friday</a></h2>
-    <h4>Fri, Aug 12, 2011</h4>
-    <div class="article-style">
-      
-      Great last day of the conference, despite noticeably decreased attendance. Once again just pulling in my tweets, since I haven&rsquo;t had a chance to transcribe proper notes. Meanwhile, some of the bloggers have done a rather nice day-to-day coverage; no idea how they all manage to keep up. Links below, with a nice mix of those targeting more theory oriented, more application oriented and more outreach oriented sessions.
-Twitter-log    cboettig ESA should have science cafes!
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/11/esa-thursday/">ESA Thursday</a></h2>
-    <h4>Thu, Aug 11, 2011</h4>
-    <div class="article-style">
-      
-      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-Twitter-log    cboettig Predicting rare; predicting ubiquitous/noxious weed species by machine learning vs GLMs #esa11
-   cboettig Beautiful thing when you know just how talk methods will proceed after 2 min of intro to problem.. but stay tuned for surprises #esa11
-   cboettig Deitterich: how to reconstruct life history patterns from abundance fluctuations #esa11 inferring what we want from what we have w models
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/16/gaussian-processes/">Tue, Oct 16, 2012</a></h4>
+      <h4><a href="../../../../2012/10/16/gaussian-processes/">Gaussian processes</a></h4>
+      <div class="article-style">
+        Great methods tutorial/overview with Steve. Now getting up to speed on background reading in both Gaussian processes and embedding dimensions.
+ Will also want to look into basis approximations for SDP acceleration.
+  Gaussian Processes  New project, New tag: nonparametric-bayes, and associated github repostitory  Reading  Rasmussen &amp; Williams (2006) 2nd ed, full text avialable online. read Ch 1 &amp; 2.   Can be thought of as a Bayesian version of Support Vector Machines
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/10/esa-wednesday/">ESA Wednesday</a></h2>
-    <h4>Wed, Aug 10, 2011</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/11/notes/">Thu, Oct 11, 2012</a></h4>
       
-      My talk today, as well as several others from our Theory group at Davis. Journal review requirements mean posting my slides is gonna be delayed somewhat, but appreciated some excellent questions and those who laughed at my jokes in between slides. Meanwhile, automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-Twitter-log    cboettig @carlystrasser Here&rsquo;s the paper I mentioned for introducing ontologies/linked data into spreadsheetshttp://t.
-      
+      <div class="article-style">
+        EWS review Composing a simple EWS review highlighting where signals are and are not expected and what this means for the system dynamics. With Alan and Noam. See manuscript repository, cboettig/ews-review.
+pdg control  Does the matrix formulation fail to account for the treating profits as a function of realized harvest and true stock size rather than quota and measured size?  notebook  fixing some inline equations 04:34 pm 2012/10/09 Updated Readme 02:57 pm 2012/10/09  scicomp discussions on reproducibility  Asked about longevity of code (re: data managment plan) Replied to best practices for linking code to publications  discussions/tweets  @hylopsar @mwpennell thanks - I always find it tricky to explain conditional probabilities clearly, so that&rsquo;s nice to hear Nice paper by +Matt Pennell, Saver &amp;@lukejharmon on biases in inferring early bursts of evolution.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/09/esa-tuesday/">ESA Tuesday</a></h2>
-    <h4>Tue, Aug 9, 2011</h4>
-    <div class="article-style">
-      
-      Just automatically generating a log form twitter since I cannot find the time to write proper notes. Perhaps those will amended eventually&hellip;
-twitter-log    cboettig Great Eco Let mixer. Kudos to Marcel &amp; crew for increasing citation rates w/o decreasing acceptance. Now how bout data sharing reqs? #esa11
-   cboettig RT @IceAgeEcologist: #ESA11 Marten Scheffer gets Honorary Member Award (max 20 living awardees); Don Strong ge… (cont) <a href="http://deck">http://deck</a>.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/10/10/prosecutors-fallacy/">Wed, Oct 10, 2012</a></h4>
+      <h4><a href="../../../../2012/10/10/prosecutors-fallacy/">My Prosecutor&#39;s Fallacy paper and other recent warning signals literature</a></h4>
+      <div class="article-style">
+        My recent paper with Alan Hastings, &ldquo;Early warning signals and the prosecutor&rsquo;s fallacy&rdquo;, is now out in PRSB. An open access preprint can be found on the (arXiv) and accompanying (source code) for the analysis can be found on Github.
+Recent papers in early warning signals This invistigation is in a very similar spirit to two other recent papers on the subject. Kéfi et al. addresses a different kind of false positive for early warning signals, arising in systems approaching other transitions or bifurcations than the intended culprit, the saddle-node bifurcation.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/08/monday-esa-conference/">Monday: ESA Conference</a></h2>
-    <h4>Mon, Aug 8, 2011</h4>
-    <div class="article-style">
-      
-      Hope to process the day&rsquo;s happenings later, meanwhile just a snapshot of my twitter-stream notes. My own highlights certainly include Steve Pacala&rsquo;s fantastic plenary session in receiving the MacArthur award, and Mark Urban&rsquo;s crystal clear presentation on &ldquo;climate collisions.&rdquo; I thought I was less tolerant of data-free models with arbitrary assumptions these days, but somehow Mark just swept those concerns away. In pointing out really fundamental concepts, such details just aren&rsquo;t so important.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/02/fisheries-stock-assessments-for-early-warning/">Fisheries stock assessments for early warning</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
-    <div class="article-style">
-      
-      What you want to look for are stock assessments. For example, for the species closest to home, under the Pacific Fisheries Management Council:
-<a href="http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/">http://www.pcouncil.org/groundfish/stock-assessments/archived-stock-assessments/</a>
-Three rockfish species that might be good to look into for your purposes are widow, yelloweye, and bocaccio, but these will have shorter-term data than any of the cod data. Also, NOAA NMFS Technical Reports on individual stocks often have long appendices with lots of data.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/02/monday-8/">Monday</a></h2>
-    <h4>Tue, Aug 2, 2011</h4>
-    <div class="article-style">
-      
-      Peter advice  Figure out your focus. Have all the stuff from your PhD published (at least submitted), make sure your post-doc moves forward. (#1 mistake). Publish with data folks to show you have much to offer the non-theorist community Speak to potential advisers, get them excited about the work. Berkeley over Michigan over NESCent/NIMBioS. Visit Berkeley. Ackerley on sabbatical?  Review for Theoretical Ecology Working on another review. Not a bad paper, but presenting many classical results as novel.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -274,8 +222,12 @@ Three rockfish species that might be good to look into for your purposes are wid
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -362,7 +314,13 @@ Three rockfish species that might be good to look into for your purposes are wid
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

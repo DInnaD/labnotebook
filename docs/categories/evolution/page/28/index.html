@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,112 +134,75 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/03/26/still-puzzling-on-lr/">Still puzzling on LR</a></h2>
-    <h4>Fri, Mar 26, 2010</h4>
-    <div class="article-style">
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat, Nov 20, 2010</a></h4>
+      <h4><a href="../../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat: evolution -- porting tree transformations to OUCH?</a></h4>
+      <div class="article-style">
+        The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
+Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/25/research/">Research</a></h2>
-    <h4>Thu, Mar 25, 2010</h4>
-    <div class="article-style">
-      
-      New Simulations  Now have code to run partitioned models on the Anoles dataset, compare partitioned models to the paintings chosen by Butler and King. Preliminary figures below. Models with _s are partitioned by my algorithm, others are the the original ones from earlier.   Also have examples with simulated data with a known number of partitions, to check the method. Tested with data produced at two peaks on the Labrid tree, the pattern seems similar to that of the Labrids &ndash; comparisons involving any model with more than 2 peaks produce LR ratios that become very unlikely in either pairwise comparison.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri, Nov 19, 2010</a></h4>
+      <h4><a href="../../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri: extending Geiger to Monte Carlo method</a></h4>
+      <div class="article-style">
+        Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/24/parallel-r/">Parallel R</a></h2>
-    <h4>Wed, Mar 24, 2010</h4>
-    <div class="article-style">
-      
-      Parallelized LR_bootstrap_all() and model_bootstrap_all() bootstrapping functions. Lets the bootstrapping of different models (or LRs between models) to be performed on different machines. Using the snowfall package in R for easy parallel computing. The parallel loop is done through the sfLapply() function. Had to get libraries and functions exported to all loops using sfLibrary() and sfExportAll(). R-sig-hpc mailing list was very helpful at getting this up and running at 4am.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/18/thurs-phylogenetics-likelihood/">Thu, Nov 18, 2010</a></h4>
+      <h4><a href="../../../../2010/11/18/thurs-phylogenetics-likelihood/">Thurs: evolution likelihood</a></h4>
+      <div class="article-style">
+        Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
+The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/23/bootstrapping-likelihood-ratios/">Bootstrapping Likelihood ratios</a></h2>
-    <h4>Tue, Mar 23, 2010</h4>
-    <div class="article-style">
-      
-      Bootstraps of the likelihood ratio, holding the parameters fixed, finally completed.  Anoles: Summary Anoles table:
-&gt; summary(anoles_boots) [,1] [,2] [,3] [,4] [,5] [1,] 0.500000000 0.981399498 0.26514573 0.06668672 0.018154938 [2,] 0.009580545 0.500000000 0.15610274 0.04819938 0.011616566 [3,] 0.039233893 0.075349644 0.50000000 0.05699877 0.005443493 [4,] 0.004211230 0.004592917 0.01389950 0.50000000 0.006648916 [5,] 0.173457542 0.198303402 0.38893099 0.33891430 0.500000000 &gt;  Labrids: &gt; summary(labrid_boots) [,1] [,2] [,3] [,4] [1,] 0.5000000 6.036842e-05 0.0000000 0.0 [2,] 0.5424613 5.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/22/phylogenetic-tree-formats/">Phylogenetic Tree formats</a></h2>
-    <h4>Mon, Mar 22, 2010</h4>
-    <div class="article-style">
-      
-      Consider a tree with N nodes. has tips and internal nodes.  ape Format: class &ldquo;phylo&rdquo;  Elements of the data structure: phy$edge &ndash; Topology. 2 by N-1 matrix. First column has internal nodes only, each node appearing twice. Internal nodes range from 1+(N+1)/2 to N-1, while the tip numbers go from 1 to (N+1)/2. Each node appears once in the second column, and is a child of the node identified in the first column.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/18/weds/">Thu, Nov 18, 2010</a></h4>
+      <h4><a href="../../../../2010/11/18/weds/">Weds</a></h4>
+      <div class="article-style">
+        Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
+Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/20/research/">Research</a></h2>
-    <h4>Sat, Mar 20, 2010</h4>
-    <div class="article-style">
-      
-      Bootstrap the fitted models (rather than allow the parameters to be refit, simply evaluate the likelihood of the model under each simulated dataset) Directly evaluate Neyman-Pearson lemma for each pairwise model comparison. Also analyze the bootstrapped likelihoods directly (and without refitting) for each model.  To Do  Add a summary function for the likelihood_ratio_bootstrap.R library final wrapper function for infer_niches.R partitioning library More error handling and documentation Example of partitioning Anoles then bootstrapping Bootstrapping likelihoods directly  References on thinking about bootstrapping model comparisons  The original Neyman-Pearson paper Testing Statistical Hypotheses Text by Lehmann &amp; Romano Permutation, Parametric and Bootstrap Tests of Hypotheses by Good Thanks to Peter on these; Bibsonomy collection  ouch2ape.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">Mon, Nov 15, 2010</a></h4>
+      <h4><a href="../../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">evolution today:  Discussion groups, writing, etc</a></h4>
+      <div class="article-style">
+        Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
+Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
+Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/19/research/">Research</a></h2>
-    <h4>Fri, Mar 19, 2010</h4>
-    <div class="article-style">
-      
-      Bootstrapped against 2000 replicate simulations overnight on both the Anoles dataset and the Labrids dataset. Distributions that overlap zero represent replicates that choose the wrong model. The Anoles data below; the first column corresponds to the likelihood ratios shown in Butler &amp; King (2004), comparing each model against BM.   The Labrid dataset:   Find matching figures for the case of parameters held fixed on more recent entry
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thu, Nov 11, 2010</a></h4>
+      <h4><a href="../../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thursday: Post-predictive verification exploration; writing and figures</a></h4>
+      <div class="article-style">
+        On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
+[latex] \frac{dN}{dt} = (\lambda - \mu) N 
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/18/research/">Research</a></h2>
-    <h4>Thu, Mar 18, 2010</h4>
-    <div class="article-style">
-      
-      A some point I&rsquo;ll want to think more seriously about incorporating geographic information into comparative analyses. At some level this data is more available than appropriate continuous traits, as illustrated in the example phylogenetics wiki from Prof. Roderic Page that I just came across.  Today&rsquo;s Goals  Repeating last night&rsquo;s bootstraps on the likelihood ratio. Need to clean up and incorporate my bootstrap codes first. Should also explore the bootstrapping of the partitioning functions from yesterday.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/17/research/">Research</a></h2>
-    <h4>Wed, Mar 17, 2010</h4>
-    <div class="article-style">
-      
-      Maximum likelihood assignment based on arbitrary number of partitions now completed. Working on stochastic assignment. Now have functions for:   partitioning data into k groups, inferring an ancestral state painting based on this partition inferring a continuous model with k OU regimes based on this painting   need to add my function for the proper model-comparison bootstrap of likelihood ratio values rather than the likelihoods themselves. See my original entry on this approach.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/03/16/graham-and-peter-meeting/">Graham &amp; Peter Meeting</a></h2>
-    <h4>Tue, Mar 16, 2010</h4>
-    <div class="article-style">
-      
-      Discussed inverse problem approach. Discussed bootstrapping likelihoods directly vs bootstrapping likelihood ratio Integrating over uncertainty in the likelihood assignment<br />
-Research Progress  Completed writing the bootstrapping function for the partition scheme, ouch2ape function completed for converting ouch tree formats back to ape. modifies code from r-forge More details and log on the repository  Goals for Wainwright meeting tomorrow  Repeat Labrid Fin analysis with tripartition Bootstrap likelihood ratio functions
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -254,8 +217,12 @@ Research Progress  Completed writing the bootstrapping function for the partitio
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -342,7 +309,13 @@ Research Progress  Completed writing the bootstrapping function for the partitio
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

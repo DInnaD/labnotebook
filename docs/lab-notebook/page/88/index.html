@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,130 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/04/23/adaptive-dynamics/">Fri, Apr 23, 2010</a></h4>
-    <h4><a href="../../../2010/04/23/adaptive-dynamics/">Adaptive Dynamics</a></h4>
-    <div class="article-style">
-      
-      Computing Challenges  10 - 1p Adding solutions to yesterday&rsquo;s puzzles, see Yesterday&rsquo;s Entry The random number generator solution is imperfect, as it limits the total number of seeds to 1e9 since coercing to an integer will create NAs with larger numbers.<br />
- seeds &lt;- 1e9*runif(reps) out &lt;- sfSapply(1:reps, function(i){ branch_simulation(seed=seeds[i]) })  Analytic Solutions Git Log  Created commit da58a6e: random number seeds now set to avoid parallel cores running with same seed
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/22/adaptive-dynamics/">Thu, Apr 22, 2010</a></h4>
-    <h4><a href="../../../2010/04/22/adaptive-dynamics/">Adaptive Dynamics</a></h4>
-    <div class="article-style">
-      
-      compiling with R and C and parallel computing  Problem: cannot get the R code to take advantage of parallelization via openMP.
- Solution:
-  C++ file mangles names in .so, changing the .C call. to get the object name:
-objdump -x file.so  Carl Boettiger 03:01, 25 May 2010 (EDT): More standard solution: enclose cpp code in
- extern C {<br />
- Problem: Trouble getting R to export the C library to all nodes.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/21/adaptive-dynamics/">Wed, Apr 21, 2010</a></h4>
-    <h4><a href="../../../2010/04/21/adaptive-dynamics/">Adaptive Dynamics</a></h4>
-    <div class="article-style">
-      
-      Wrapping up paper on waiting time to branching in adaptive dynamics. Cleaning up code from summer. Now in a local git repository in adaptiveDynamics/code Moved ensemble parallelization to higher level, so parallelization can be performed in R or C. Adding documentation  Current status  Calculates the waiting time to complete phase 1, phase 2, and phase 3 successfully from individual-based simulation.  Phase 1 ~ Completed when 2 branches exist over threshold Phase 2 ~ Completed when a third population has established over threshold exterior to a stable pair Phase 3 ~ Completed when two populations over threshold are separated in traitspace by more than finishline units
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/20/waiting-time/">Tue, Apr 20, 2010</a></h4>
+    <div class="row">
     
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/09/02/rfishbase-demo/">Fri, Sep 2, 2011</a></h4>
+      <h4><a href="../../../2011/09/02/rfishbase-demo/">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h4>
+      <div class="article-style">
+        I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
+For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/20/alan-meeting/">Tue, Apr 20, 2010</a></h4>
-    <h4><a href="../../../2010/04/20/alan-meeting/">Alan Meeting</a></h4>
-    <div class="article-style">
-      
-      From 03/31, see below for more!
-Outline Title
-On the ability to detect leading indicators of catastrophe in unreplicated time series
-Introduction Background on Warning Signals
- literature Saddle Node bifurcation Detecting decreasing stabilization &ndash; gradual vs changepoint estimation  Reasons detection can fail:
- Ergodicity: ensembles vs single instances Sufficient statistical power Appropriate dynamics  Methods
- Defining an indicator &ndash; significant Kendall rank correlation coefficient τ as in doi:10.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/20/r-sig-phylo/">Tue, Apr 20, 2010</a></h4>
-    <h4><a href="../../../2010/04/20/r-sig-phylo/">R-sig-phylo</a></h4>
-    <div class="article-style">
-      
-      A couple interesting discussions on R-sig-phylo   estimating alpha and sigma reliably, knowing when you hit a likelihood ridge. See discussion. strange behavior in ace. Tried new ace function, same problem.<br />
-Research  Working on logs paper Waiting on Primate data Waiting on feedback on Labrids paper<br />
-DoE Conference Registration  Submitted Poster title and abstract corresponding to my iEvoBio proposal.  Reading  podcast on the Science Careers story.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/19/research/">Mon, Apr 19, 2010</a></h4>
-    <h4><a href="../../../2010/04/19/research/">Research</a></h4>
-    <div class="article-style">
-      
-      Sent Peter updated draft of Labrids manuscript Writing up logarithms manuscript finally&hellip; Contacting Helen re. primates data Created Labrid Functional Morphology literature collection:  Research collected using Mendeley
- Started stochastic methods and model inference collection:  Research collected using Mendeley
-Various To Do  Add Peter&rsquo;s bootstrap references and books to stochastic methods and model inference library. Add Science of Science papers to Future of Science collection. Adding tags, abstracts, etc to Mendeley public Library Personal/extended task view (and opinion?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/18/maticce/">Sun, Apr 18, 2010</a></h4>
-    <h4><a href="../../../2010/04/18/maticce/">MATICCE</a></h4>
-    <div class="article-style">
-      
-      Testing out Andrew Hipp&rsquo;s maticce package, doi:10.1093/bioinformatics/btp625. Goal of package is to model-average over trees and regimes. Takes a brownie approach to regimes, identifying nodes at which a transition may have occurred.<br />
-The Approach Takes a brute force approach to avoid user-defined paintings in the ouch framework. Users identify nodes of interest, software tries combinations of possible shifts.
-runBatchHansen()  User identifies a set of nodes of interest, and optionally a maximum number of transitions.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/16/ievobio-submission/">Fri, Apr 16, 2010</a></h4>
-    <h4><a href="../../../2010/04/16/ievobio-submission/">iEvoBio Submission</a></h4>
-    <div class="article-style">
-      
-      Quantifying Information in a Phylogenetic Tree: The Robustness of Phylogenetic Signal Since Felsenstein (1985)&rsquo;s influential paper on phylogenetic contrasts, phylogenetically-based inferences of evolutionary patterns have gotten increasingly more complex (Hansen, 1997; Butler and King, 2004; Freckleton and Harvey, 2006; O&rsquo;Meara et al., 2006; Pagel and Meade, 2006). More and more sophisticated models are applied to datasets of species mean traits on a phylogenetic tree in an attempt to answer such questions as reconstructing ancestral states, identify changes in rates of character evolution across time and across clades, identify the number and location of evolutionary optima or the strength of stabilizing selection.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/04/15/branching-paper/">Thu, Apr 15, 2010</a></h4>
     
-    <div class="article-style">
-      
-      editorial note: These notes pre-date the formal start of my online laboratory notebook, Feb 2 2010: The Lab Notebook Goes Open and were adapted from a LaTeX document in which I kept notes on this topic during my summer at IIASA. Lacking a proper notebook then, documents like this one were updated periodically and occassionally branched into new ones. The post date represents the last time the LaTeX document was edited in the course of that research.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2011/09/01/thursday-reading/">Thu, Sep 1, 2011</a></h4>
+      <h4><a href="../../../2011/09/01/thursday-reading/">Thursday Reading</a></h4>
+      <div class="article-style">
+        Very interesting article on tipping points that seems to answer a question I put to Vasilis back in 2009 at IIASA: whether critical transitions due to bifurcations could be distinguished from stochastic transitions due to rare events Ditlevsen &amp; Johnsen, 2010. Argues that some of the well-known climate transitions may have been stochastic transitions instead. Will need a closer read to better assess how they are distinguishing between such transitions in the data.
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/31/wednesday-7/">Wed, Aug 31, 2011</a></h4>
+      <h4><a href="../../../2011/08/31/wednesday-7/">Wednesday</a></h4>
+      <div class="article-style">
+        Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
+ Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/30/tuesday-8/">Tue, Aug 30, 2011</a></h4>
+      <h4><a href="../../../2011/08/30/tuesday-8/">Tuesday</a></h4>
+      <div class="article-style">
+        Completed review for Methods.
+ First read-through of review/resubmission for THEE.
+ Working on Evolution manuscript
+ Wrightscape: root should have the option of being fixed at phylogenetic mean for all models. Do root estimates occur far from this currently?
+ Check graph color schemes, seem inconsistent.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/29/algorithms-group-hidden-markov-models/">Mon, Aug 29, 2011</a></h4>
+      <h4><a href="../../../2011/08/29/algorithms-group-hidden-markov-models/">Algorithms group: Hidden Markov Models</a></h4>
+      <div class="article-style">
+        Great group discussion on Hidden Markov Models tag-teamed by Yaniv and Alisa. Walked through the coin flip example, creating the forward algorithm, and the posterior decoding. In this case it is assumed model and parameters are known: two coins, known ratios, known rate of swapping; goal is to guess which coin is being used in a given interval. Algorithm does quite well, as shown in Yaniv&rsquo;s awesome graph.
+As usual in the notebook, click on the graph to get link-through to the code.
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/08/29/monday-scaling-wrightscape-examples/">Mon, Aug 29, 2011</a></h4>
+      <h4><a href="../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h4>
+      <div class="article-style">
+        syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
+ Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
+   Commits to taxize pushed to Scott.
+wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
+      </div>
+    </div>
+    
+    </div>
 
   
 <nav>
@@ -271,9 +230,10 @@ runBatchHansen()  User identifies a set of nodes of interest, and optionally a m
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -362,7 +322,13 @@ runBatchHansen()  User identifies a set of nodes of interest, and optionally a m
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

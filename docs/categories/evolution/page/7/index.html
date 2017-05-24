@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,126 +134,87 @@
 
 
 
+
   <h1>Evolution</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/09/02/rfishbase-demo/">rfishbase demo: Are there more Goby or Labrid species on reefs?</a></h2>
-    <h4>Fri, Sep 2, 2011</h4>
-    <div class="article-style">
-      
-      I have updated the package to 0.0-3 alpha, having all the target functionality now. Improved error handling, downloading of data, processing. Get the source or windows binary here. I now download the full database and cache it locally for faster querying. Just about any kind of manipulation is then possible and fast.
-For instance, here&rsquo;s a quick demo based on a question from Peter Wainwright: &ldquo;are there more gobys or labrids on reefs?
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wed, Nov 30, 2011</a></h4>
+      <h4><a href="../../../../2011/11/30/wednesday-various-logistics-then-checking-likelihood-calculation/">Wednesday - various logistics, then checking likelihood calculation</a></h4>
+      <div class="article-style">
+        rOpenSci  rOpenSci wins runner up prize in PLoS + Mendeley&rsquo;s Binary Battle! Write replies to interview questions with Mendeley. roxygenizing documentation for RMendeley &ndash; about half done  pdg-control  Call with Jake scheduled for tomorrow Emails with Michael. I&rsquo;ll implement delay intervals, he&rsquo;ll add costs to adjustment. Need to fix/finish delay interval optimization calculation (exponent of matrix &amp; beta)  Warning Signals Meeting with Alan
+ Regime shifts Emphasize the RO curve in uncertainty analysis See (Dulvy et.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/31/wednesday-7/">Wednesday</a></h2>
-    <h4>Wed, Aug 31, 2011</h4>
-    <div class="article-style">
-      
-      Reading Wait, the storage effect is often evolutionarily unstable? Yikes. (Snyder &amp; Adler, 2011). Will have to read this more closely.
- Vasseur &amp; Fox nice AD paper in PNAS Am Nat (Vasseur &amp; Fox, 2011), ((One day Am Nat will finish registering the doi for these papers?))   Contrary to previous verbal arguments that suggest that character convergence leads to neutral stability, coadaptation of competing consumers always leads to stable coexistence.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/29/tuesday-debugging/">Tue, Nov 29, 2011</a></h4>
+      <h4><a href="../../../../2011/11/29/tuesday-debugging/">Tuesday debugging</a></h4>
+      <div class="article-style">
+        Wrote seven unit tests to identify source of how/why I can get $ \alpha $&rsquo;s to be larger in the parrotfish group than wrasses (when only $alpha $ varies across regimes) on the same trait for which $ \sigma $&rsquo;s are larger (when only they vary). Tests successively restrict pattern into the likelihood equation, some treatment of the regimes must be wrong.
+Unit tests.
+Nov 29, 2011  also need to double-check calc of lca_matrix &ndash; needs to obey same sc… …  52a5d0bf12  Browse code
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/30/tuesday-8/">Tuesday</a></h2>
-    <h4>Tue, Aug 30, 2011</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/28/monday-11/">Mon, Nov 28, 2011</a></h4>
+      <h4><a href="../../../../2011/11/28/monday-11/">Monday: submodels for full traits</a></h4>
+      <div class="article-style">
+        Two shifts alpha sigma likelihood Pharyngeal shift alpha sigma likelihood Intramandibular shift alpha sigma likelihood Intramandibular shift (parrotfish only) alpha sigma likelihood Troubleshooting It seems alpha is often higher in the regime that has a the higher sigma when variance is restricted to sigma. This cannot be right.
+Creating unit tests:
+Sigma behaves correctly in the following way. Simulate data where regimes have different sigmas.
+require(wrightscape) data(labrids) s1_spec &lt;- list(alpha = &quot;global&quot;, sigma = &quot;indep&quot;, theta = &quot;global&quot;) s1 &lt;- multiTypeOU(data = dat[&quot;close&quot;], tree = tree, regimes = pharyngeal, model_spec = s1_spec, control = list(maxit=5000)) # Order of entries in sigma is the order regime names are given by levels (alphabetical) names(s1$sigma) &lt;- levels(pharyngeal) s1$sigma[&quot;other&quot;] &lt;- .
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/29/monday-scaling-wrightscape-examples/">Monday: scaling wrightscape examples</a></h2>
-    <h4>Mon, Aug 29, 2011</h4>
-    <div class="article-style">
-      
-      syntaxHighligher isn&rsquo;t working. no idea why, posted to forums.
- Still no luck compiling gsl on carver. Can&rsquo;t install gsl R package or compile wrightscape C code. posted C issue to NERSC, R issue to statscicomp.
-   Commits to taxize pushed to Scott.
-wrightscape parrotfish example Convergence test: with simple (common) initial values (alpha=.1, sigma=1), the different methods behave mostly appropriately: outer nested models out-perform inner ones, and likelihoods roughly agree between ouch package methods and wrightscape equivalents:
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/28/sunday-scaling-runs/">Sunday: scaling, runs</a></h2>
-    <h4>Sun, Aug 28, 2011</h4>
-    <div class="article-style">
-      
-      laptop: ubuntu upgrades: 10.04 LTS -&gt; 10.10 -&gt; 11.04, geesh.
-Set up for running primates.R in likelihood mode with abstracted parallelization:
-Carver trouble getting wrightscape installed: even after module load gsl, cannot find gsl library. Testing on zero in mpi mode, 16. Testing on farm, mpi mode with snow, 16 cores.
-hmm, high (9%) memory usage on primates.R on zero&hellip; monitoring situation closely&hellip; Only .3% on farm so far, which has 24G instead of zero&rsquo;s 32Gig RAM.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Fri, Nov 25, 2011</a></h4>
+      <h4><a href="../../../../2011/11/25/friday-wrightscape-ggplot-wp-memory/">Friday: wrightscape, ggplot, wp memory</a></h4>
+      <div class="article-style">
+        more sub-model comparisons wrightscape sub-models:
+ a1 independent alphas, global theta, sigmas
+ bm &ldquo;brownie&rdquo; (alpha = 0, indep sigmas)
+ a2 independent alpha, theta, global sigma
+ s1 indep sigma, global alpha, theta
+ s2 indep sigma, theta, global alpha
+  Basic Nelder Mead Simulated annealing associated parameter estimates
+This approach is really not finding a very robust solution.
+Plotting with stats_summary() Using stats_summary instead of melt and cast computations and line and ribbon geometries for adding statistical layers to plots.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/26/rfishbase-and-some-taxonomy-in-r-with-taxize/">rropensci and some taxonomy in R with taxize</a></h2>
-    <h4>Fri, Aug 26, 2011</h4>
-    <div class="article-style">
-      
-      rfishbase Went through demo of rfishbase with Tomomi. Improved error handling, added a few data types and a few use cases.
-I always forget that I have to drop nulls by indexing, not my return values of sapply.
-x[!sapply(x, is.null)]  Very annoyed with fishbase id numbers (being discontinuous listings and unable to query xml by anything more intelligent). Querying all fishbase ids 1:30000, I get only 999 fish. hmm.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/">Thu, Nov 17, 2011</a></h4>
+      <h4><a href="../../../../2011/11/17/wrightscape-and-sensitivity-to-initial-conditions/">wrightscape and sensitivity to initial conditions</a></h4>
+      <div class="article-style">
+        Seems ouma performs poorly, though the sign of the effect seems correct. Starting conditions cause this.
+Even starting conditions: improves the fit and flips the sign of the result.
+More parameters: addendum Longer runs using simulated annealing can still get stuck.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/23/tuesday-rfishbase-rmpi-manuscripts/">Tuesday: rropensci, Rmpi, manuscripts, ...</a></h2>
-    <h4>Tue, Aug 23, 2011</h4>
-    <div class="article-style">
-      
-      rfishbase In answer to Tomomi&rsquo;s question from last week, have basic functionality as an R package on github, rfishbase. Learned some slightly richer XML parsing in the process.
-XML Notes Had to identify blocks by a child node that specifies the identity, and then find the sibling node that contains the content I needed. Goes something like this:
-&lt;dataObject&gt; &lt;dc:identifier&gt;FB-Size-2&lt;/dc:identifier&gt; &lt;dc:description&gt; Text I need &lt;/dc:description&gt; &lt;/dataObject&gt;  Which I parsed in R as:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/12/of-labrids-and-dubious-convergence/">Sat, Nov 12, 2011</a></h4>
+      <h4><a href="../../../../2011/11/12/of-labrids-and-dubious-convergence/">Wainwright Retreat to Hastings Reserve</a></h4>
+      <div class="article-style">
+        Two-day mini conference with Wainwright lab, Mike Alfaro lab, Rita Mehta lab, Tim Higham lab at the Hastings reserve, with everyone (about 30 of us) presenting, and discussions on convergence and on modularity.
+more labrid trait evolution alpha &amp; sigma models on two shifts, not converged runs. should really consider the mcmc or at least simulated annealing.
+Peter proposes looking at model adequacy by deviance of a observed traits from what is expected under the model (by replicate simulations).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/21/academic-year-2011-summary/">Academic Year 2011 Summary</a></h2>
-    <h4>Sun, Aug 21, 2011</h4>
-    <div class="article-style">
-      
-      Brief summary of events for this past academic year, as submitted to my dissertation committee.
-TALKS  Model Choice for Phylogenetic Comparative Methods, Evolution 2010 Computational Methods for comparative inference (poster), DoE CSGF Meeting, 2010. My experiment with open notebook science, iEvoBio 2010 Power in Phylogenetic Comparative Methods, SICB 2011 Open Notebook Science - Connections to databases. Science Online, 2011 General model of evolution for continuous traits on phylogenies, Evolution 2011 Automated meta-analyses via an R - TreeBASE package, iEvoBio 2011 Early Warning Signals, ESA 2011.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/18/thursday-reviewing-edits-fishbase-computers/">Thursday: reviewing edits, ropensci, computers.</a></h2>
-    <h4>Thu, Aug 18, 2011</h4>
-    <div class="article-style">
-      
-      Graham &amp; Peter meeting Going over review and figuring out how to address issues. Plan: Will write our line-by-line responses under the reviewer comments in the Google Doc. Peter and I will implement remaining changes on the .tex file, then we&rsquo;ll compose the reply letter from the notes under the comments and include the latex-diff.
-Brief topic notes from today&rsquo;s meeting:
- set up different take on layout: lambda, AIC, power
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/08/17/wrightscape-a-brief-tutorial/">Wrightscape: a brief tutorial</a></h2>
-    <h4>Wed, Aug 17, 2011</h4>
-    <div class="article-style">
-      
-      While the wrightscape package is still in active development, I realize the code base doesn&rsquo;t contain any introductory examples. So as a first tutorial, here&rsquo;s a short walk-through of the package. We begin by loading the package and a few useful additional packages:
-require(wrightscape} # My package for this analysis require(auteur) # for the data only require(maticce) # to create paintings  We&rsquo;ll load a data set of 233 taxa of primates with their body sizes(REDDING et.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -268,8 +229,12 @@ require(wrightscape} # My package for this analysis require(auteur) # for the da
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -356,7 +321,13 @@ require(wrightscape} # My package for this analysis require(auteur) # for the da
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

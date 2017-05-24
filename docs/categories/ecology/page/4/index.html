@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,136 +134,73 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2014/02/05/workflows-working-group-day-1/"></a></h2>
-    <h4>Wed, Feb 5, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/01/28/notes/">Wed, Jan 28, 2015</a></h4>
       
-      Goals  Develop ideas for larger synthesis across systems Introduce scientists to the concept of workflow systems Introduce scientists to open data and methods sharing Gather requirements for collaboration tools that would allow scientists to use them and share data and workflows.  Participants  Ilkay Altintas, UC San Diego, Carl Boettiger, UC Davis, Erica Christensen, Utah State, Elsa Cleland, UCSD, Scott Collins, U New Mexico, Sam Fey, Dartmouth, Corinna Gries, U Wisconsin, Lauren Hallett, Berkeley, Stan Harpole, Iowa State, Dave Harris, UC Davis, Matt Jones, UC Santa Barbara, Sydney Jones, U New Mexico, Julie Ripplinger, Arizona State University, Andrew Rypel, WDNR, David Seekell, UVa, Elizabeth Siddon, U.
-      
+      <div class="article-style">
+        MDPToolbox testing  Debugging RPub record Fails even if we restrict R to be finite (h &lt; 1) Different error if we try the optimal harvest   Reading  Operating Systems Review reproducibility special issue now out; (includes my article on Docker). Table of contents   Reviewing  PNAS review: done (2015-01-26). Bioinformatics review. JSS review: done.   Docker Continuous Integration Finally a way to run generic docker images on free CI: circle-ci
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/31/notes/"></a></h2>
-    <h4>Fri, Jan 31, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/01/23/mdptoolbox-ex/">Fri, Jan 23, 2015</a></h4>
       
-      Scratch notes on uncertainty.
-Function definition: multiple_uncertainty.m
-Settings:
-f=@(x, h) max( (x-h) * (1 - (x-h) ./ 100) + (x-h), 0); x_grid = [0:5:100]; h_grid = x_grid; % Must be same dimensions as x_grid, or L91 errors&hellip; Tmax = 5; sigma_g = 0.1; sigma_m = 0.; sigma_i = 0.0; delta = 0.05; pdf = @(p,mu,s) lognpdf(p ./ mu, 0, s); %pdf = @(p,mu,s) unifpdf(p, mu .* (1 - s), mu .
-      
+      <div class="article-style">
+        Testing this out using MDPtoolbox, but not working yet…
+library(MDPtoolbox) ## Loading required package: Matrix ## Loading required package: linprog ## Loading required package: lpSolve library(ggplot2) f &lt;- function(x, h, p){ x &lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &lt;- c(a = 6, b = 0.05) profit &lt;- function(x, h) pmin(x,h) - 0.1 * h # vectorized for x x_grid &lt;- seq(0, 150, length = 151) h_grid &lt;- c(0,50,100) delta &lt;- 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/31/weekly-review/"></a></h2>
-    <h4>Fri, Jan 31, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/01/22/invasives-sdp/">Thu, Jan 22, 2015</a></h4>
       
-      EML  bug fixes and replies to various input from community on EML package
- Thoughts on understanding and using EML in research, including Dryad. See <a href="https://github.com/ropensci/EML/issues/82#issuecomment-33558301">https://github.com/ropensci/EML/issues/82#issuecomment-33558301</a>
-  multiple-uncertainty Jim and Mike meeting  Why the steps in the optimal solution of the deterministic case? Irregularities in value function in first iteration: sometimes not exact ties; actually preferring to fish at almost 0 rather than 0.
- address range constraints on h and x.
-      
+      <div class="article-style">
+        library(knitr) opts_chunk$set(dev=&#39;svg&#39;, fig.width=4, fig.height=4, results=&#39;hide&#39;, fig.show=&#39;hold&#39;) library(pdgControl) library(ggplot2) We propose a state model consistent with 10.2139/ssrn.421007; in this case a simple Beverton-Holt model. Note that in defining (f) we have assumed the harvesting take place before the population recruits.
+f &lt;- function(x, h, p){ x &lt;- x - h p[[1]] * x / {1 + p[[2]] * x} } p &lt;- c(a = 6, b = 0.05) This meets Olson’s three assumptions.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/15/asn-conference/"></a></h2>
-    <h4>Wed, Jan 15, 2014</h4>
-    <div class="article-style">
-      
-      Note: posting this considerably after the fact as I did not have a chance to make a proper entry during the conference.
- Full program, abstracts, etc.
- President&rsquo;s debate: are ecological communities saturated in species diversity? Watch the whole debate on youtube tweet log, maybe?. Or from the editor&rsquo;s desk  Some highlights (such as on the top of my head 2 months later anyway, certainly others I&rsquo;ve forgotten to mention.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/09/notes/"></a></h2>
-    <h4>Thu, Jan 9, 2014</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/01/22/sdp-reed-controls-comparisons/">Thu, Jan 22, 2015</a></h4>
       
-      fishbase API discussions continue some discussion / work on rfigshare continues (As Karthik writes comprehensive test suite, yay).
- Possible ontological term for simulated data? modeling and simulation operation looking for example using this term now&hellip;
- Request for term on OBI
- Moore DDD investigators, full call
-  .@NOAA gives a glimpse of what the future of scipub could be w/ web native format for this peer-reviewed report: <a href="http://t">http://t</a>.
-      
+      <div class="article-style">
+        library(knitr) opts_chunk$set(dev=&#39;png&#39;, fig.width=3, fig.height=3, results=&#39;hide&#39;, fig.show=&#39;hold&#39;) library(pdgControl) library(ggplot2) Reed solution; harvest control f &lt;- function(x, h, p){ x &lt;- sapply(x, function(x) max(x-h,0)) p[[1]] * x / {1 + p[[2]] * x} } p &lt;- c(a = 6, b = 0.05) profit &lt;- function(x, h) sapply(x, min, h) # vectorized for x x_grid &lt;- seq(0, 150, length = 100) h_grid &lt;- seq(0,150,length = 100) delta &lt;- 0.05 OptTime &lt;- 1000 xT &lt;- 0 sigma_g &lt;- 0.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/07/notes/"></a></h2>
-    <h4>Tue, Jan 7, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/01/13/detrend-example/">Tue, Jan 13, 2015</a></h4>
       
-      Coding  fishbase API discussions rfishbase updates pushed to CRAN Merges and minor bug fixes for rfigshare
- RNeXML: After some cooperative sleuth-work, we successfully resolved issue #23, uncovering a bug (missing feature really) in xmllint.
-  as usual, detailed activity on github.
-Reading  The sudden collapse of pollinator communities - Jelle Lever - 2014 - Ecology Letters - Wiley Online Library <a href="http://goo.gl/ZKuKsj">http://goo.gl/ZKuKsj</a> Github has traffic stats again.
-      
+      <div class="article-style">
+        library(knitr) library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(earlywarning) library(ggplot2) library(tidyr) library(&quot;methods&quot;) opts_chunk$set(dev=&#39;png&#39;, fig.width=5, fig.height=5, results=&#39;hide&#39;) some sample data from earlywarning:
+set.seed(123) data(ibms) plot(ibm_critical) raw &lt;- as.data.frame(ibm_critical) names(raw) &lt;- &quot;x&quot; Rather than explicitly modeling the trend element predicted by the linearization, let us simply remove it:
+N &lt;- length(raw$x) raw$t &lt;- 1:N detrend &lt;- loess(x ~ t, raw) data &lt;- data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/01/06/notes/"></a></h2>
-    <h4>Mon, Jan 6, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2015/01/04/lsn-model-comparisons/">Sun, Jan 4, 2015</a></h4>
       
-      fishbase API discussions knitcitations (push previous updates to CRAN) data extraction from sardine collapse story (see EML in data/), news article My thoughts on SWC teaching web-native publication workflow reading, ToCs speaker invitation replies review request replies  Reading  &ldquo;Are rapid transitions btwn invasive and native species caused by alt stable states, and does it matter?&rdquo; <a href="http://feedly.com/k/1gbEIWT">http://feedly.com/k/1gbEIWT</a>
- &ldquo;Phylogenetic trait-based analyses of ecological networks.&rdquo; <a href="http://feedly.com/k/1gbEvD6">http://feedly.com/k/1gbEvD6</a>
- Nice editorial on &ldquo;core elements of a TPB paper.
-      
+      <div class="article-style">
+        library(knitr) library(nimble) ## ## Attaching package: &#39;nimble&#39; ## The following object is masked from &#39;package:stats&#39;: ## ## simulate library(sde) ## Loading required package: MASS ## Loading required package: stats4 ## Loading required package: fda ## Loading required package: splines ## Loading required package: Matrix ## ## Attaching package: &#39;fda&#39; ## The following object is masked from &#39;package:nimble&#39;: ## ## inprod ## The following object is masked from &#39;package:graphics&#39;: ## ## matplot ## Loading required package: zoo ## ## Attaching package: &#39;zoo&#39; ## The following objects are masked from &#39;package:base&#39;: ## ## as.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/12/10/notes/"></a></h2>
-    <h4>Tue, Dec 10, 2013</h4>
-    <div class="article-style">
-      
-      Consider the model
-$$d X_t = \alpha \left(\theta - X_t\right)dt + \sigma dB_t $$
-By Ito Isometry, we have:
-$$\langle X \rangle_t = E_t(X) = \theta \left(1 - e^{-\alpha t} \right) + X_0 e^{-\alpha t}$$
-and
-$$\langle X^2 \rangle_t - \langle X \rangle_t^2 = V<em>t(X) = \frac{\sigma^2}{2 \alpha }\left(1 - e^{-2 \alpha t} \right)$$
-If we assume discrete, uniform sampling of spacing $\tau$, then we have,
-$$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp\left(-\frac{\sumt^{T-1} \left(X{t+1} - E\right)^2 }{2V}\right) $$
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/19/notes/"></a></h2>
-    <h4>Tue, Nov 19, 2013</h4>
-    <div class="article-style">
-      
-      RNeXML  Feedback from Rutger, need to add about attributes so that RDFa abstraction references the right level of the DOM (issue #35).
- Looking for strategy for distilling RDF from RDFa in R, see my question on SO. Hopefully don&rsquo;t have to wrap some C library myself&hellip;  nonparametric-bayes Writing writing.
- Update pandoc templates to use yaml metadata for author, affiliation, abstract, etc. Avoids having to manually edit the elsarticle.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2013/11/14/notes/"></a></h2>
-    <h4>Thu, Nov 14, 2013</h4>
-    <div class="article-style">
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -278,8 +215,12 @@ $$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -366,7 +307,13 @@ $$P(\theta | X; \alpha, \sigma) = \sqrt{\frac{1}{2\pi V</em>{\tau} }}^{T-1} \exp
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

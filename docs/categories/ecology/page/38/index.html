@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,128 +134,81 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2011/03/14/warning-signals-monday/">Warning Signals, Monday</a></h2>
-    <h4>Mon, Mar 14, 2011</h4>
-    <div class="article-style">
-      
-      Set up a few long runs of simulated data to better illustrate the effects of sampling time and density, and better resolve the distributions.
- Longer baseline run, nice 19, indicator_vs_likelihood.R 1600 reps, m=-0.015, N=500, T=100
- Longer sampling, same interval: nice 18, stronger_signal.R 160 reps m=-0.015, N = 2500, T=500
-  Fails to compute, looks like poor estimates of model fits.
- Denser sampling, nice 17: indicator_vs_likelihood.R 160 reps, m=-0.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/26/2012-04-20/">Thu, Apr 26, 2012</a></h4>
+      <h4><a href="../../../../2012/04/26/2012-04-20/">2012-04-20</a></h4>
+      <div class="article-style">
+        Warning Signals Warning signals paper accepted. Making minor edits before submitting final copy.
+Added Alan&rsquo;s edits.
+ Review model section again Letter: Response to reviewers Create Diff Media Summary Submit  Done!
+Database papers  rfishbase edits made, reformatting in word, sent to Peter Ethics form, recommended reviewers, cover letter. Submit  Done!
+Misc NERSC web directory: create www in /project/projectdirs/m1366 NSF Arctic SEES grants
+ These larger, integrated efforts would promote understanding of Arctic systems and would develop optimized models, multiple stable state scenarios, sustainable pathways, decision matrices, visualization techniques and data infrastructure to aid decision making and communication, and structural, energy and communications technology solutions which would inform community practices, management, and policy for a more sustainable Arctic environment.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/11/warning-signals-summary-stats-vs-likelihood-on-real-and-simulated-data/">Warning signals: summary stats vs likelihood on real and simulated data</a></h2>
-    <h4>Fri, Mar 11, 2011</h4>
-    <div class="article-style">
-      
-      Added bar of observed tau on real data to the tau distributions. Fixed the tau-distribution method, running new data and real examples now.
-Simulated data: can tell tau apart for instance, for autocorrelation (see photostream for variance, code hash for parameters, etc). While can&rsquo;t really tell anything based on the tau on the autocorrelation for the Deuterium data for Glaciation III (which has just about the clearest signal of the deuterium set): Waiting to see how the likelihood statistics compare on these examples.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/25/notes/">Wed, Apr 25, 2012</a></h4>
+      <h4><a href="../../../../2012/04/25/notes/">Notes</a></h4>
+      <div class="article-style">
+        Working on IGPS Presentation.
+Experimenting with recent tools for Amazon cloud computing via R. Whit Armstrong&rsquo;s packages seem like a good place to start, but some trouble with credentials on both this and on Segue at the moment.
+Submitted nominations for EVE Seminar. Splitting nominations among the theory group, this year I&rsquo;ve filed nominations for
+ Marten Scheffer (profile) Hugh Possingham (profile) John Drake
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/10/numerical-challenges-in-likelihood-estimation-of-time-dep-ou-models/">Numerical challenges in likelihood estimation of time-dep OU models</a></h2>
-    <h4>Thu, Mar 10, 2011</h4>
-    <div class="article-style">
-      
-      Worried about accurate maximum likelihood estimates of parameters, as the optimization could still converge on values not far from the starting conditions (not as surprising as the starting parameters are estimated intelligently first from the summary statistics) but could also vary depending on initial conditions.
-Second, while it requires some re-parameterization, the stationary model for both linearized transcritical (LTC) bifurcation model and the linearized saddle-node (LSN) model are identically Ornstein-Uhlenbeck models.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/19/catching-up/">Thu, Apr 19, 2012</a></h4>
+      <h4><a href="../../../../2012/04/19/catching-up/">Catching up</a></h4>
+      <div class="article-style">
+        Catching up on notebook entries for last week and the beginning of this week in one go here. In the process of wrapping up a variety of older projects, so this is kinda all over the place.
+rfishbase  Create function table, finalize functions Add support for references. Done, see getRefs. (And isn&rsquo;t it awesome that you can link to a specific linenumber (i.e. line 280) in github by adding #L280 to the end of the url?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/09/warning-signals-data-examples/">Warning Signals data examples</a></h2>
-    <h4>Wed, Mar 9, 2011</h4>
-    <div class="article-style">
-      
-      Working on a little data exploration while writing up manuscript. I have been puzzled why it appears that most estimates of tau on the CaCO3 data infer negative correlation, as in
-Despite the fact that there seems to be a loss of stability in the model:
-require(warningsignals) load(&quot;CaCO3.Rdat&quot;) timedep$pars Ro m theta sigma 8.36841588 -0.03347119 -2.86194248 282.03234042  So m is negative, so that the system is loosing stability, but only very gradually.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/03/01/warning-signals-comparing-methods-on-climate-data/">Warning Signals: Comparing Methods on Climate Data</a></h2>
-    <h4>Tue, Mar 1, 2011</h4>
-    <div class="article-style">
-      
-      Continuing my exploration in applying these techniques to real climate data. Applying the Kendall&rsquo;s Tau based approach on real data.
-Greenhouse Earth, CaCO3 data:
-Glaciation I-IV (deuterium data)
-These use the unadjusted timeseries, and hence don&rsquo;t reproduce the values of Kendall&rsquo;s tau statistic reported in (Dakos et. al. 2008). In fact they don&rsquo;t even agree on the sign &ndash; visually many of the datasets are certainly decreasing in variance. I ran the Monte-Carlo distributions for tau on models estimated from these data-sets with and without warning, for variance (left) and autocorrelation (right), in the CaCO3 data:
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/10/monday-tuesday/">Tue, Apr 10, 2012</a></h4>
+      <h4><a href="../../../../2012/04/10/monday-tuesday/">Monday / Tuesday</a></h4>
+      <div class="article-style">
+        rfishbase updated to Duncan&rsquo;s feedback writing intro section on Prosecutor&rsquo;s Fallacy. wrightscape update project repository. Scripts mostly in demos, results in notebook. Notebook makes is easy to get the most recent writeup on the topic, from where I can start to track back the history, but doesn&rsquo;t provide a good at-a-glance view of the analyses I&rsquo;ve run side-by-side. Moving the R script demos/ into markdown knitted files in inst/examples/ and rerunning.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/28/warning-signals-on-real-data-continued/">Warning Signals on Real data continued</a></h2>
-    <h4>Mon, Feb 28, 2011</h4>
-    <div class="article-style">
-      
-      Continuing my tweaks to code to apply warning signals to the climate data used in (Dakos et. al. 2008). After adjusting my code to deal with variably spaced sampling intervals, I reread the supplement &ndash; I had forgotten that they don&rsquo;t actually consider data with variable time-scales, but instead interpolate the curves to have equally spaced sampling intervals.
-Obviously this is not ideal. It is true that the autocorrelation would be impacted by non-equally spaced data, while there is no reason to do so for the variance indicator.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/06/friday-8/">Fri, Apr 6, 2012</a></h4>
+      <h4><a href="../../../../2012/04/06/friday-8/">Friday</a></h4>
+      <div class="article-style">
+        Fishbase  Revisions based on Duncan&rsquo;s feedback Formatting to Journal of Fish Biology guidelines Updated formatting   fixed footnotes issue in pdf version. Externalize tables in word version.
+  knit_hooks$set(chunk = function(x, options) { if (!options$split) return(x) cat(x, file = fig_path(&lsquo;.md&rsquo;, options)) }   Consider more intuitive function names rather than function arguments?  TreeBase  Needs additional functions replacing sapply queries and argument queries. Table of functions re-organize presentation  rOpenSci GSOC GSoC applications were due at noon today.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/27/warning-signals-on-real-data/">Warning Signals on Real Data?</a></h2>
-    <h4>Sun, Feb 27, 2011</h4>
-    <div class="article-style">
-      
-      Grabbed the data used in (Dakos et. al. 2008), which is includes climate data from the Deuterium levels in the Vostok ice core (Petit et. al. 1999), showing transitions into the last several ice ages, and calcium carbonate from Eocene &ldquo;greenhouse&rdquo; climate (Tripati et. al. 2005), and carbon-14 data from the Younger Dryas (Hughen, 2000). Data is all freely provided through NOAA.
- CaCO3 data file (Tripati et. al. 2005), NOAA entry.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2012/04/03/mondaytuesday/">Tue, Apr 3, 2012</a></h4>
+      <h4><a href="../../../../2012/04/03/mondaytuesday/">Monday/Tuesday</a></h4>
+      <div class="article-style">
+        knitr + markdown + pandoc + latex Troubleshooting this workflow still&hellip;
+ Fonts xtable for html &amp; latex/pdf xtable comments display tikz device trouble Pandoc table trouble pandoc footnotes Getting a satisfactory LaTeX template.
+ Makefile   writing writing writing: Mostly writing this week, so my notebook has been lacking in entries. Trying to move several manuscripts forward: two are papers accompanying software packages for extracting, manipulating and visualizing data from online repositories (TreeBase and FishBase); part of the rOpenSci project.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/23/esa-2011-abstract/">ESA 2011 Abstract: Limits to Detection of Early Warning Signals</a></h2>
-    <h4>Wed, Feb 23, 2011</h4>
-    <div class="article-style">
-      
-      Just submitted my abstract to for an oral presentation at the Ecological Society of America 2011 meeting in Austin, based on my recent work on early warning signals. Here it is:
-Limits to Detection of Early Warning Signals of Population Collapse Background/Question/Methods The recognition that ecosystems can undergo sudden shifts to alternate, less desirable stable states has led to the desire to identify early warning signs of these impending collapses.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/18/friday/">Friday</a></h2>
-    <h4>Fri, Feb 18, 2011</h4>
-    <div class="article-style">
-      
-      Spoke with Prof. Jim Carey about getting Data Mangement Workshop videocast with Cametasia (and possibly Adobe Connect for live streaming). Jim has worked with Entomology seminar series, and UCTV on videocasting seminars, see his recent PLoS Biology paper Carey et. al. 2010.  Spoke with Marissa about some of the resources at NCEAS. Learned a bit about data standards from FGDC and NBII. Working on manuscript revisions (phylogenetics) Writing (warning signals) Revised Weds post, reviewing context for Goldman 1993 Goldman, 1993 relative to original simulation-based parametric bootstrap of Cox&rsquo;s statistic as illustrated in (McLachlan, 1987) in mixture models.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2011/02/16/weds-framing-warning-signals-manuscript/">Weds &amp; Framing warning signals manuscript</a></h2>
-    <h4>Wed, Feb 16, 2011</h4>
-    <div class="article-style">
-      
-      Alan Meeting, 10a Good meeting discussing warning signals manuscript details and organization. Particularly on the best way to present some of the major conceptual and semantic elements: there are many ways to describe the same thing, each of which carries a lot of semantic baggage.
-Do we choose to present this as:
-As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produced by the MLE model of no stability loss), hypothesis = there is (distribution produced by, MLE model with stability loss) determine p value for falsely rejecting the null and the power of the statistical test.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -270,8 +223,12 @@ As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produ
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -358,7 +315,13 @@ As Hypothesis Testing Null = isn&rsquo;t a loss of stability (distribution produ
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,124 +133,89 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2011/10/04/tuesday-9/">Tue, Oct 4, 2011</a></h4>
-    <h4><a href="../../../2011/10/04/tuesday-9/">Tuesday</a></h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/30/learning-jekyll/">Sun, Dec 30, 2012</a></h4>
       
-      Hastings seminar: Forest Pest Outbreaks Schedule
-Prof Dave Rizzo  Reviews major pest outbreaks (Major Forest Insect &amp; Disease Conditions in the United States 2009 Update)  Mentions weekend&rsquo;s NY Times piece, (and see author&rsquo;s commentary), reviews major pest outrbreak trends.   David Kling Allee effects &amp; Management (Gypsy moth). * Review review (Taylor &amp; Hastings, 2005). * Simulation exploration: pmid: 19831081, * Also discuss (Tobin et. al. 2011).
-      
+      <div class="article-style">
+        Some quick thoughts on learning Jekyll After recieving a few queries on how to get started with Jekyll I thought I&rsquo;d jot down my own opinions here. Of course there is already rather good documentation for the software and plenty of blogs providing tutorials. While no doubt more than adequate, I have more opinions on how to get started actually learning what&rsquo;s going on than I could easily fit into a tweet, and also a couple favorite links to references so I thought I&rsquo;d jot down my reply in long form here.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/30/friday-wordpress-backups-pmc-edits/">Fri, Sep 30, 2011</a></h4>
-    <h4><a href="../../../2011/09/30/friday-wordpress-backups-pmc-edits/">Friday, wordpress backups, pmc edits</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/27/notes/">Thu, Dec 27, 2012</a></h4>
       
-      Wordpress local copy  configured mysqldump backup, following dreamhost wiki (added cron job manually instead of in panel).  edit local wp-config.php to use localhost. Get the database name, user name and password from the lines above it, which are used later.
-define(&lsquo;DB_HOST&rsquo;, &lsquo;localhost&rsquo;); // &hellip;and the server MySQL is running on  create user: log in as root
-mysql -u root -p  and create user
-mysql&gt; create database database_name mysql&gt; create user &lsquo;username&rsquo;@&lsquo;localhost&rsquo; identified by &lsquo;password&rsquo;; mysql&gt; create database database_name mysql&gt; grant usage on *.
-      
+      <div class="article-style">
+        Nonparametric Bayes Continuing sensitivity analysis The commit log to sensitivity.md and earlier to myer-exploration.md (now depricated) capture the summary figures for replicate runs of the observation data, with commits corresponding to various parameter configurations, etc. Here is a nice collection of replicates from sensitivity.md
+ Harvest during observations Tweaked calculation of observation data given the harvest regime under which observations were taken (simulation was not implementing all harvests).
+ Also adjusted norm used in GP (the parametric use log-normal densities in calculating the transition function on the untransformed data.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/29/thursday-10/">Thu, Sep 29, 2011</a></h4>
-    <h4><a href="../../../2011/09/29/thursday-10/">Thursday</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/23/notes/">Sun, Dec 23, 2012</a></h4>
       
-      9-9:20 Updating research statement (home page). 9:20 -9:40 Updating notebook: Review, Tuesday &amp; Wednesday meetings coffee 9:50 Application. 10-11:30:  Forage fish dynamics, Sanchirico and Essington Jim gives the broad overview, central question: What are the benefits/costs of a % reduction in the catch C of forage fish N:
-$$ \Delta C \downarrow \to \Delta N \to \Delta F, \Delta M \Delta S$$
-F predator commercial fisheries, M marine mammals, S seabirds.
-      
+      <div class="article-style">
+        added generation of observational data under varying harvest conditions (issue #19)
+ added MLE fit based on the data-generating model (issue #20)
+ GP plot with and without nugget variance (issue #17)
+ Run longer simulations under policy such that sustainable profits clearly beat out collapsing the fishery (part of issue #22)
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/29/phylogenetics-research-proposal/">Thu, Sep 29, 2011</a></h4>
-    <h4><a href="../../../2011/09/29/phylogenetics-research-proposal/">Phylogenetics - Research Proposal</a></h4>
-    <div class="article-style">
-      
-      Evolution has shaped all ecological communities. It has tested their resilience in experiments we could never perform. Now can it help us identify what characteristics make a community resilient or vulnerable to external forces?
-Anthropogenic influences such as invasive species, climate change, and urbanization pressure ecosystems everywhere on the planet. Some collapse suddenly, others appear remarkably resilient. What makes some systems more vulnerable, and how could we identify them? Ecologists have long sought to understand the factors most influencing this stability, but the scale is immense and the problem complex &ndash; making controlled experimentation difficult and limited.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/28/wednesday-berkeley-visits/">Wed, Sep 28, 2011</a></h4>
-    <h4><a href="../../../2011/09/28/wednesday-berkeley-visits/">Wednesday - Berkeley visits</a></h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/21/progress-summary/">Fri, Dec 21, 2012</a></h4>
       
-      Consultation call with Rebecca Lawrence, F1000. F1000 is exploring offering a data publishing platform, and we discussed some of the potential challenges (submission incentives, data review/reproducible review, meta-data standards).   anyone who might be interested in working with us to get this project off the ground, with a scientific PhD background, a reasonable understanding of data sharing/mining issues and some knowledge of technical issues (not necessarily a coder but I guess it might help) then do let me know.
-      
+      <div class="article-style">
+        Progress mid-October through mid-December 80% Time: nonparametric-bayes The bulk of my time has been spent becoming familiar with the literature on Gaussian Processes and their numerical implementation. I have written my own Gaussian process code from scratch to convince myself of my understanding of the methodology, and explored some of the related numerical issues addressing computational speed and stability.
+I then developed an algorithm for applying the Gaussian process inference of the state dynamics to stochastic dynamic programming methods for determining an optimal harvesting policy.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/27/tuesday-berkeley-visits/">Tue, Sep 27, 2011</a></h4>
-    <h4><a href="../../../2011/09/27/tuesday-berkeley-visits/">Tuesday - Berkeley visits</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/20/results-comparing-gp-to-parametric/">Thu, Dec 20, 2012</a></h4>
       
+      <div class="article-style">
+        Comparison of the Gaussian process inference to the true optimum and a parametric estimate.
+Comparison across 100 simulations under the policies inferred from each approach show the nearly optimal performance of the GP and the tragic crashes introduced by the parametric management.
+Sensitivity analysis Working through an exploratory sensitivity analysis to see GP performance over different parameters.
+ Example from 32 replicates   Distribution of yield over replicates shows the parametric model performing rather poorly, while most of the GP replicates perform nearly optimally.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/26/monday-10/">Mon, Sep 26, 2011</a></h4>
-    <h4><a href="../../../2011/09/26/monday-10/">Monday</a></h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/12/19/exploring-gp-model-space/">Wed, Dec 19, 2012</a></h4>
       
-      Phylogenetics paper  Grayscale the figures  Moore &amp; Coop PBG 270: Phylo methods for exploring correlations between character traits and lineage rates.
- Models ((Are the generalized birth-death models (e.g. Kendall 1948) good limit to interesting process? somtimes. ))    detecting variation in rates
- locating shifts along branches
- locating shifts in time
- correlates of differential rates (_e.g. _traits; our subject for today/course).
- Parameter estimation
-      
+      <div class="article-style">
+        Trying to think about a more systematic way to go about varying the parameters: the underlying parametric model has 3 parameters for the stock-recruitment curve&rsquo;s deterministic skeleton, plus growth noise. (My first exploratory phase has been just to try different things. See my various tweaks in the history log Clearly time to be more systematic about both running and visualizing the various cases.)
+Should I just choose a handful of parameter combinations to test?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/24/saturday-2/">Sat, Sep 24, 2011</a></h4>
-    <h4><a href="../../../2011/09/24/saturday-2/">Saturday</a></h4>
-    <div class="article-style">
-      
-      NIMBioS Working group follow-up:  Install pdf plugin (pdf24, Kalin&rsquo;s pdf, epub all don&rsquo;t display equations) &hellip; Posted issue to wordpress-for-scientists list. Solution: simply print to file (pdf) from google-chrome. (Doesn&rsquo;t work when printing from firefox 6.0) Reply to Paul, add pdf of notes on wiggio.  Fellowship stuff  Email Alan, David, George, John, Perry  Reviews  Answer request to review for Ecology Answer request to review for Evolution _**Working on reviews (see private notes) **_3-6pm  Misc  Testing Droideley.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/23/friday-ropensci-manuscript-edits/">Fri, Sep 23, 2011</a></h4>
-    <h4><a href="../../../2011/09/23/friday-ropensci-manuscript-edits/">Friday: ropensci, manuscript edits</a></h4>
-    <div class="article-style">
-      
-      rOpenSci Conference Call Catalyst grant  Reviewed budget. Karthik will merge current proposals, Carl will review. Goal: send out next week. Ask Mark Hahnel to look it over  Blog posts  Carley planning to make guest blog post within the next week.  Mendeley/Plos Binary battle  Carl will file entry form. Karthik push edits to rplos Scott will add rplos tutorial to ropensci.org Carl will add rmendeley tutorial to ropensci.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2011/09/22/thursday-9/">Thu, Sep 22, 2011</a></h4>
-    <h4><a href="../../../2011/09/22/thursday-9/">Thursday</a></h4>
-    <div class="article-style">
-      
-      Sent off review. finally.
-Sanchirico seminar with Tim Essington (U Washington). Goal: Prepare for a review on forage fisheries.
-Outline  background background Fishery interactions marine mammal/seabird interactions Climate &amp; forage fish Fishmeal (Demand side) direct consumption (Demand side) Vitamin supp / health benefits (Demand side) Non-market value marine mammals Synthesis  Forage-fish: &ldquo;foundation species&rdquo; in marine ecosystems, get energy from zooplankton/upwelling to high-level predators (high-market target fisheries). Sardines/pilchards, anchovies, sandeels, krill, herrings, capelin, menhaden.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -265,9 +230,10 @@ Outline  background background Fishery interactions marine mammal/seabird intera
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -356,7 +322,13 @@ Outline  background background Fishery interactions marine mammal/seabird intera
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

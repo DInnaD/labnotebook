@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,121 +134,76 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2012/02/13/monday-16/">Monday</a></h2>
-    <h4>Mon, Feb 13, 2012</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/19/prosecutor-fallacy-as-large-deviations/">Tue, Mar 19, 2013</a></h4>
       
+      <div class="article-style">
+        (Corresponds to commit 4bd8422107 in earlywarning repo)
+For the individual-based simulation, the population dynamics are given by
+$$\begin{align} \frac{dP(n,t)}{dt} &amp;= b{n-1} P(n-1,t) + d{n+1}P(n+1,t) - (b_n+d_n) P(n,t), b_n &amp;= \frac{e K n^2}{n^2 + h^2}, d_n &amp;= e n + a, \end{align}$$
+which is provided by the saddle_node_ibm model in populationdynamics.
+For each of the warning signal statistics in question, we need to generate the distibution over all replicates and then over replicates which have been selected conditional on having experienced a crash.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/12/sunday-6/">Sunday </a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
-    <div class="article-style">
-      
-      phylogenetics  Exploring display of phylogeny. Unlabled, painted fan?   tweaking release-of-constraint plot - vary alpha, less strong? release at T/2? Animated version?  Creating paintings of phylogenies Creating from a specified set of taxa is a somewhat common task for me. Wrightscape supports doing this for both ouch and ape trees.
- ape-based phylogenies ouch-based phylogenies use some legacy maticce functions  intra_ancestor &lt;- mrcaOUCH(c(&quot;Chlorurus_sordidus&quot;, &quot;Hipposcarus_longiceps&quot;), labrid$tree) intramandibular &lt;- paintBranches(intra_ancestor, labrid$tree, c(&quot;other&quot;,&quot;intramandibular&quot;)) pharyngeal_ancestor&lt;-mrcaOUCH(c(&quot;Bolbometopon_muricatum&quot;, &quot;Sparisoma_radians&quot;), labrid$tree) pharyngeal &lt;- paintBranches(pharyngeal_ancestor, labrid$tree, c(&quot;other&quot;,&quot;pharyngeal&quot;)) two_shifts &lt;- paintBranches(c(pharyngeal_ancestor, intra_ancestor), labrid$tree, c(&quot;wrasses&quot;, &quot;pharyngeal&quot;, intramandibular&quot;) )  The ouch-trees can be converted back to ape trees in a way that can plot them, but for some reason break the fan-plot mode but not the standard phylogram plot mode.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/19/collected-notes/">Tue, Mar 19, 2013</a></h4>
+      <h4><a href="../../../../2013/03/19/collected-notes/">Collected notes from past few days</a></h4>
+      <div class="article-style">
+        Friday  some ropensci coordination Adapt basic science abstract and broader impacts statement some writing on notebook features draft nonparametric writing!  Monday  nonparametric-bayes writing. Combining my generic position piece (beyond-mechanistic-models.Rmd) with the technical nonparametric-bayes writeup (nonparametric-bayes.Rmd) to get a more general-audience paper.
+ ropensci reviewing Note: annoying feature of knitr&rsquo;s purl: appears to generate valid &ldquo;external&rdquo; knitr code, but includes all options in comment headers instead of just the chunk names.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/12/saturday-projects-reading-markdown-plugins/">Saturday: projects, reading, markdown notebook-technology</a></h2>
-    <h4>Sun, Feb 12, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/14/notes/">Thu, Mar 14, 2013</a></h4>
       
-      Greatly enjoyed seeing this perspective on power laws (Stumpf &amp; Porter, 2012) Or as Richard McElreath put even more concisely,
- People get amazed by power laws but never by normal distributions. Seems like some max ent outcomes astonish while others don&rsquo;t. When so many mechanisms aggregate to common densities, I&rsquo;d hope we&rsquo;d stop trying to argue that we can go backwards from pattern to process so easily.
- Projects  fishbase example query for Peter Commit edits to warningsignals paper, send to Alan.
-      
+      <div class="article-style">
+        Writing  Meeting with Steve over outline Writing on nonparametric-bayes manuscript A few notes on notebook-features draft  Reading  EasyABC by Jabot et. al. (2013). While it&rsquo;s great that MEE publishes this stuff, this is unique in that the authors are updating and improving upon an existing package published by MEE the year before, Brook et. al. (2013). The authors of the recent manuscript have certainly made an important contribution which deserves the traditional recognition provided by a separate publication, but one must wonder why we need another package instead of building on the existing one.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/10/thursday-writing-some-latexdiff-notes/">Thursday: writing; some latexdiff notes</a></h2>
-    <h4>Fri, Feb 10, 2012</h4>
-    <div class="article-style">
-      
-      Forage fish writing See doc, FF dropbox PopDyn
-Warning signals edits  Alan edits Figure captions, titles.
- Text changes from Noam.
-  A better git latexdiff solution Placing the script below somewhere in the path like /usr/local/bin and modify ~/.gitconfig as indicated in the header comments. Then oen can view pdf-diffs of the latex of the current version against previous versions with commands such as
-git latexdiff HEAD  shows the differences between the last commit and the current (uncommitted) changes.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/08/uc-davis-graduate-student-symposium-proposal/">UC Davis graduate student symposium proposal</a></h2>
-    <h4>Wed, Feb 8, 2012</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/13/notes/">Wed, Mar 13, 2013</a></h4>
       
-      Abstract The recog­ni­tion that ecosys­tems can undergo sud­den shifts to alter­nate, less desir­able sta­ble states has led to the desire to iden­tify early warn­ing signs of these impend­ing col­lapses. Motivated by the math­e­mat­ics of bifur­ca­tions, the search for early warn­ing signs seeks to detect subtle patterns that may precede these shift. Faced with limited and imperfect data, such forecasting is fraught with uncertainty. I will present work illustrating how we can quantify the risks of false alarms and missed detection of these early warning signals, and illustrate how this information can be used to inform robust decision-making that may avoid collapse.
-      
+      <div class="article-style">
+        Multiple-uncertainty  Created smaller version of table to simplify comparisons Switched to stationary policy comparisons only. (Running out over longer time shifts total value a bit but doesn&rsquo;t amplify scale of the differences much) Larger noise amplifies the effects (compare 0.3 levels to 0.5 levels) note that averaging over replicates gives rather consistent means. The differences between successive runs of the algorithm give results agreeing to the tenths place at least.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/03/different-ways-of-visualizing-distribution-overlap/">Different ways of visualizing distribution overlap</a></h2>
-    <h4>Fri, Feb 3, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/12/notes/">Tue, Mar 12, 2013</a></h4>
       
+      <div class="article-style">
+        Monday  multiple_uncertainty abstract Meeting with Robin Snyder application writing  Tuesday Morning  applications Coordinating summer conference travel ropensci proposals EML is not an ontology, not analgous to Dublin Core, etc. Just an XML schema. see OBOE for an ecological ontology. to explore later.
+  Afternoon multiple-uncertainty  Revisiting multiple-uncertainty runs. Running smaller table example. Recoded script to allow arbitrary set of noise configurations to be consistently compared.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/02/02/thursday-13/">Thursday</a></h2>
-    <h4>Thu, Feb 2, 2012</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2013/03/08/notes-from-the-week/">Fri, Mar 8, 2013</a></h4>
       
-      rOpenSci  Dryad submission xml parsing example to Scott essentially see (fishbase example , and xpath tutoral ) knitr and latex figure placement (use float package with H to enforce placement). cc0 &amp; OSI &hellip; pmc purchase order, dryad data id approval. &amp; writing writing writing&hellip; Re-formating data for ggplot version of graphs, realized I should be specifying id.vars to melt (example from my Q on SO)  Reading  Great special feature on the data era in TREE ((which I mention despite it&rsquo;s misfortune of being connected to Elsivier right now)) (Page, 2012), (Michener &amp; Jones, 2012), (Porter et.
-      
+      <div class="article-style">
+        (Working from Galveston this week while at Louise&rsquo;s conference, looking after little one. some progress below.)
+Monday Alan Skype meeting  Comment piece / reply ews-review Comments on TE review? IARPA Conference, funding options?  Tasks  On Marc&rsquo;s suggestion, writing comparison of pattern-based and mechanism based approaches to modeling, particularly in decision theory context. draft in nonparametric-bayes Review edits and writing on ews-review  Tuesday Kathy Skype  Decision theory in early warning signals?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/30/monday-15/">Monday</a></h2>
-    <h4>Mon, Jan 30, 2012</h4>
-    <div class="article-style">
-      
-      pdg-control, aside exercise Lab group commented that optimum in Reed model looks unrealistic due to frequency with which it shuts down all fishing. This is an artifact of not having extraction costs increase sufficiently for small catch, and can be easily fixed by increasing that cost (c in the profit eq, profits-costs = p*x-c/x)
-view sourcecode, Reed.R
-NIMBioS short visitor application Have been thinking that it would be really useful to have some extra time at Nimbios to meet with folks at the time of our next working group meeting (March 12-15).
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/24/pdg-control-training-problem-ii-update/">pdg-control Training Problem II update</a></h2>
-    <h4>Tue, Jan 24, 2012</h4>
-    <div class="article-style">
-      
-      Basically we&rsquo;ve done some simple stuff and now would be a good time to think about tools for some heavy-lifting computational challenges standing in the way. Michael &amp; Jim have been a great help on this, and Jake has also helped with theoretical underpinnings.
-Statement of problem
-We consider the impact of uncertainty in the harvesting of fisheries which involve alternative stable state dynamics.
-Current Findings
- Adding uncertainty in current state means optimal escapement isn&rsquo;t the optimal solution (contrary to Reed model) (Sethi et.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2012/01/24/tuesday-11/">Tuesday</a></h2>
-    <h4>Tue, Jan 24, 2012</h4>
-    <div class="article-style">
-      
-      Resilience seminar  the unhelpful resilience of invaded systems (ecosystem engineers anyone? Cheatgrass change the fire regime, salt-cedar ) Examples in cheatgrass invading sagebrush, and saltcedar invading cottonwoods. Variables on axes? Problem of dimensionality? resilient to what? Carpenter&rsquo;s rigidity trap (need to eliminate something) vs poverty trap (something is missing) promote a small disturbance to reset the system &ndash; when are small disturbances stabilizing? (escape the rachet?)  pdg-control  Summary for Training Problem II  Warning Signals  Figures for Alan paper.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -263,8 +218,12 @@ Current Findings
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -351,7 +310,13 @@ Current Findings
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

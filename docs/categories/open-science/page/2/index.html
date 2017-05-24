@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,117 +134,77 @@
 
 
 
+
   <h1>Open Science</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2014/05/28/notes/">packrat and rmarkdown</a></h2>
-    <h4>Wed, May 28, 2014</h4>
-    <div class="article-style">
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/08/14/docker-notes/">Thu, Aug 14, 2014</a></h4>
       
-      I&rsquo;m pretty happy with the way rmarkdown looks like it can pretty much replace my [Makefile approach]() with a simple R command to rmarkdown::render(). Notably, a lot of the pandoc configuration can already go into the document&rsquo;s yaml header (bibliography, csl, template, documentclass, etc), avoiding any messing around with the Makefile, etc.
-Even more exciting is the pending RStudio integration with pandoc. This exposes the features of the rmarkdown package to the RStudio IDE buttons, but more importantly, seems like it will simplify the pandoc/latex dependency issues cross-platform.
-      
+      <div class="article-style">
+        Ticking through a few more of the challenges I raised in my first post on docker; here I explore some of the issues about facilitating interaction with a docker container so that a user&rsquo;s experience is more similar to working in their own environment and less like working on a remote terminal over ssh. While technically minor, these issues are probably the first stumbling blocks in making this a valid platform for new users.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/07/integrating-github-project-repos-into-the-notebook/"></a></h2>
-    <h4>Wed, May 7, 2014</h4>
-    <div class="article-style">
-      
-      For a while now most of my active research is developed through .Rmd scripts connected to a particular project repository (something I discuss at length in deep challenges with knitr workflows). In the previous post I discuss creating a template package with a more transparent organization of files, such as moving manuscripts from inst/doc/ to simply manuscripts/. This left these exploratory analysis scripts in inst/examples in a similarly unintuitive place.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">Fri, Aug 8, 2014</a></h4>
+      <h4><a href="../../../../2014/08/08/an-appropriate-amount-of-fun-with-docker/">An appropriate amount of fun with docker?</a></h4>
+      <div class="article-style">
+        An update on my exploration with Docker. Title courtesy of Ted, with my hopes that this really does move us in a direction where we can spend less time thinking about the tools and computational environments. Not there yet though
+I&rsquo;ve gotten RStudio Server working in the ropensci-docker image (Issues/pull requests welcome!).
+docker run -d -p 8787:8787 cboettig/ropensci-docker  will make an RStudio server instance available to you in your browser at localhost:8787.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/06/steps-to-a-more-portable-workflow/"></a></h2>
-    <h4>Tue, May 6, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/08/07/too-much-fun-with-docker/">Thu, Aug 7, 2014</a></h4>
       
-      While I have made my workflow for most of my ongoing projects available on Github for some time, this does not mean that it has been particularly easy to follow. Further, as I move from project to project I have slowly improved how I handle projects. For instance, I have since added unit tests (with testthat) and continuous integration (with travis-ci) to my repositories, and my handling of manuscripts has gotten more automated, with richer latex templates, yaml metadata, and simpler and more powerful makefiles.
-      
+      <div class="article-style">
+        NOTE: This post was originally drafted as a set of questions to the revived ropensci-discuss list, hopefully readers might join the discussion from there.
+Been thinking about Docker and the discussion about reproducible research in the comments of Rich et al&rsquo;s recent post on the rOpenSci blog where quite a few of people mentioned the potential for Docker as a way to facilitate this.
+I&rsquo;ve only just started playing around with Docker, and though I&rsquo;m quite impressed, I&rsquo;m still rather skeptical that non-crazies would ever use it productively.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/05/knitr-workflow-challenges/">Deep challenges to dynamic documentation in daily workflows</a></h2>
-    <h4>Mon, May 5, 2014</h4>
-    <div class="article-style">
-      
-      We often discuss dynamic documents such as Sweave and knitr in reference to final products such as publications or software package vignettes. In this case, all the elements involved are already fixed: external functions, code, text, and so forth. The dynamic documentation engine is really just a tool to combine them (knit them together). Using dynamic documentation on a day-to-day basis on ongoing research presents a compelling opportunity but a rather more complex challenge as well.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/05/04/why-i-sign-my-reviews/">why I sign my reviews</a></h2>
-    <h4>Sun, May 4, 2014</h4>
-    <div class="article-style">
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/07/31/notes/">Thu, Jul 31, 2014</a></h4>
       
-      For the past four years I have made an effort to sign all my reviews (which I try to keep to about one a month). It isn&rsquo;t because I believe in radical openness or something crazy like that. Its really just my self interest involved &ndash; at least mostly. Writing a review is an incredibly time consuming, and largely thankless task. Supposedly anonymous peer review is supposed to protect the reviewer, particularly the scenario of the less established scientist critiquing the work of the more established.
-      
+      <div class="article-style">
+        Berkeley Collaborative Environment Trying out the Berkeley image (Essentially ubuntu 14.04 XFCE with ipython and RStudio installed, but finely tuned to improve user experience; e.g. solid colors for faster remote window connections.)
+Highly recommend their paper for the first explanation I&rsquo;ve actually been able to follow that provides a definition of &ldquo;DevOpts&rdquo; (essentially, using scripts rather than documentation to manage consistent cross-platform installation) and explains the differences and similarities between the various programs operating in this sphere, sometimes as alternatives and simultaneously.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/29/notes/"></a></h2>
-    <h4>Tue, Apr 29, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/07/10/notes-on-tricks-in-manuscript-submission-and-collaboration/">Thu, Jul 10, 2014</a></h4>
       
-      Labnotebook  Configure Github CDN Hmm, jekyll-assets. Not sure that this is preferable from just using the makefile to compile and minify assets seperately as needed. Move www.carlboettiger.info to host from gh-pages branch of labnotebook. This self-contained system is more standard, and it is strange for other gh-pages hosting to be using the same domain/subdomain to reference content that is actually on a gh-pages branch of some totally different repository.
-      
+      <div class="article-style">
+        Some thoughts on collaborating with markdown / dynamic document workflow Collaborating on manuscripts with other researchers when not writing in MS Word has been a perpetual nuisance for those of us not using Word (no doubt the others might say the same). When I first began writing papers I worked in LaTeX, and at that time I collaborated largely with others who already knew TeX (e.g. my mentors), so this wasn&rsquo;t much of a problem.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/04/11/notes/"></a></h2>
-    <h4>Fri, Apr 11, 2014</h4>
-    <div class="article-style">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2014/06/12/knitcitations-updates/">Thu, Jun 12, 2014</a></h4>
       
-      labnotebook Updates to configuration to be more portable and lightweight:
- Drop APIs for Mendeley and Github in favor of just pulling from atom/rss feeds. Doesn&rsquo;t require a platform-specific API or authentication, and has proven more robust, if sometimes less flexible and fancy. Drop git-modified and sha timestamps. It&rsquo;s nice having these on the pages and included in the rdfa, but the information is accessible from the git repository and from Github.
-      
+      <div class="article-style">
+        Used some down-time while traveling to hammer out a long overdue update to my knitcitations package.
+My first task inovled a backwards-compatible update fixing a few minor issues (see NEWS) and providing pandoc style inline citations v0.6-2, on CRAN.
+I followed this with a ground-up rewrite, as I summarize in NEWS:
+v1.0-1 This version is a ground-up rewrite of knitcitations, providing a more powerful interface while also streamlining the back end, mostly by relying more on external libraries for knitty gritty.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/03/31/ropenhack-notes/"></a></h2>
-    <h4>Mon, Mar 31, 2014</h4>
-    <div class="article-style">
-      
-      Breakfast  discussion of what makes an API good or a total pain discussion of extending data.set class with metadata  Morning Session Chatting with Hadley:
-Best practices for R client packages to REST APIs  (When) Do we return response call metadata? Very modular function construction Error handling, assertthat checks Explicit parsing, as seperate function. e.g. Better alternatives in place of require when loading SUGGESTS lists, which still pollutes the namespace; see examples in httr.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/03/20/software-sustainability-issues-in-r/"></a></h2>
-    <h4>Thu, Mar 20, 2014</h4>
-    <div class="article-style">
-      
-      Editorial note: The following is slightly edited text from my post to R-devel discussing this issue, which I first drafted here.
- There seems to be some question of how frequently changes to software packages result in irreproducible results. I am sure that research using functions like glm and other functions that are shipped with base R are quite reliable; and after all they already benefit from being versioned with R releases (as Jeroen has argued).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2014/02/19/cran-and-package-dependencies/"></a></h2>
-    <h4>Wed, Feb 19, 2014</h4>
-    <div class="article-style">
-      
-      2014-02-19 R allows you to specify &gt;= in a package dependency, not ==. The Comprehensive R Archive Network, CRAN, makes no requirement that package authors do not break their previous function API. For instance, if version 0.1 of the package had a function
-foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality in say, version 0.2 without breaking the existing API with a definition that looked like:
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -259,8 +219,12 @@ foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality i
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -347,7 +311,13 @@ foo &lt;- function(x, y = 5){ &hellip; }  then one could add new functionality i
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

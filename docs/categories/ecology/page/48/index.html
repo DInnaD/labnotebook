@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -134,121 +134,83 @@
 
 
 
+
   <h1>Ecology</h1>
 
+   
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h2><a href="../../../../2010/03/01/parallel-at-last/">Parallel at last</a></h2>
-    <h4>Mon, Mar 1, 2010</h4>
-    <div class="article-style">
-      
-      svn revision 27 should have functional parallel code! Certainly I&rsquo;ve gotten much better at openmp in the past few days. Difficult to maintain a general API that is agnostic to the model details and still knows enough about the data formats to declare them appropriately for each thread. My lesson for my future coding: by writing with parallelization concepts in mind from the start I should be able to significantly reduce the overhead time when I go back and add openmp directives.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">Sun, Nov 13, 2011</a></h4>
+      <h4><a href="../../../../2011/11/13/non-optimal-outcomes-of-optimal-solutions/">non-optimal outcomes of optimal solutions</a></h4>
+      <div class="article-style">
+        I consider the optimal stochastic-dynamic programming solution for the model specified with known stochasticity in population dynamics, but now vary the actual simulated dynamics to include further uncertainty or error not included in the optimal solution in different ways. In some way this is an &ldquo;unfair&rdquo; analysis, as I really should be solving for the optimal solution in light of the fully uncertain space, but in practice this at least serves as a sensitivity analysis to the assumptions that certain quantities are perfectly known.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/28/parallelizing-code/">Parallelizing Code</a></h2>
-    <h4>Sun, Feb 28, 2010</h4>
-    <div class="article-style">
-      
-      A solution!  After a good bit more exploring permutations of openmp commands and experimenting with code (should have been done in a branch version so would be in the version management, instead done in my local experimental sandbox so will have to implement and merge into real code still!) was able to understand the root of my problem and pose a coherent question. Posting that question on stack overflow solved my problem in under an hour.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/10/thursday-12/">Thu, Nov 10, 2011</a></h4>
+      <h4><a href="../../../../2011/11/10/thursday-12/">Thursday</a></h4>
+      <div class="article-style">
+        Forage Fish dynamics
+ Forage fish consumption: who consumes, how important is it. e.g. Africa imports more quantity of fish, but of low value. net exports based on value.
+ food security / undernourished regions
+ forage fish substitutable? Study in Asia: Pretty inelastic.
+ income elasticity vs wealth elasticity (not a real difference. but patterns of consumption of a rich person aren&rsquo;t same as poor person with a windfall, e.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/26/friday/">Friday</a></h2>
-    <h4>Fri, Feb 26, 2010</h4>
-    <div class="article-style">
-      
-      Not much chance for progress.
- 11-noon (I was interviewed by Science Careers reporter). noon-1 Lunch w/ John Huelsenbeck. Good perspective on having formula representation of models rather than on/off switch for parameters! Will have to implement eventually in the phylogenetics project. 1-1:30 Wainwrighters lunch meeting. 1:30-3:30 prep Monte Carlo for teaching non-majors evolution course &ndash; case study on mimicry and levels of selection. Presenting Monday, we&rsquo;ll see how it goes in [User:Carl_Boettiger/Notebook/Teaching] 4-6 Phylogenetics discussion group (followed by CPB happy hour = more phylogenetics discussion).
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Wed, Nov 9, 2011</a></h4>
+      <h4><a href="../../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h4>
+      <div class="article-style">
+        Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/25/the-ergodicity-question--time-averaging-vs-ensemble-averaging/">The Ergodicity Question- Time averaging vs Ensemble averaging</a></h2>
-    <h4>Thu, Feb 25, 2010</h4>
-    <div class="article-style">
-      
-      11am &ndash; 3pm
- Tried time averaging over the entire time window (set sample_size to 1 less than max time); in close agreement with the ensemble predictions (getting around 1355). Mystery doesn&rsquo;t seem to actually be a problem in the method, but just innate variability! Even over reasonable time-averages and ensemble averages there&rsquo;s significant deviation from the expected variance! This variation around the warning signal/leading indicator is exactly what might frustrate the warning signal.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/24/derin-and-alan-meeting/"></a></h2>
-    <h4>Wed, Feb 24, 2010</h4>
-    <div class="article-style">
-      
-      1-2pm
- Discussion of reasons early warning signals fail   Insufficient signal-to-noise ratio for early warning Ensemble vs time average &ndash; satisfying ergodicity assumption? Role of bifurcation type. existing literature focuses mostly on 1D saddle node. Role of chaos (certainly frustrates warning signals, but not required).   How general are warning signals? Normal forms of bifurcations. Fitting a good model vs. general warning signals. Problem of extrapolation. Classification scheme of warning signals &ndash; TREE paper(?
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/23/comparing-to-analytic-dynamics/">Comparing to Analytic Dynamics</a></h2>
-    <h4>Tue, Feb 23, 2010</h4>
-    <div class="article-style">
-      
-      Goal for today: implement analytic calculations for warning signals.
- 10am-12pm  Abstraction/functionalizing code.
- 4pm-7pm  Implement GSL ode solvers for linear noise approximation:
-Recall our dynamics are d(n) = *e*n + a
-and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
-α~2~(n) = b(n) + d(n)</p>
 
-<p>recall that we have a linear Fokker-Planck equation whose solution is Gaussian and specified by the first two moments:  These are implemented in code using GSL ode library.
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/08/sdp-solution-for-allee-model/">Tue, Nov 8, 2011</a></h4>
+      <h4><a href="../../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h4>
+      <div class="article-style">
+        Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/22/monday/">Monday</a></h2>
-    <h4>Mon, Feb 22, 2010</h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/04/fridays-reading/">Fri, Nov 4, 2011</a></h4>
+      <h4><a href="../../../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h4>
+      <div class="article-style">
+        Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/17/hastings-meeting/">Hastings Meeting</a></h2>
-    <h4>Wed, Feb 17, 2010</h4>
-    <div class="article-style">
-      
-      Discussion of cases where variance decreases before crash &ndash; misleading warning signals. Schreiber 2003 Aaron King and Bill Schaffer JMB Hamiltonian vs Dissipative/gradient systems. Are Hamiltonian systems non-biological? Follow up with Darren  Reasons Warning Signals fail  Present (saddle-node model) but insufficient sensitivity to detect (lack ensembles, lack sampling frequency) dissipative but warning signals are backwards (other higher dimensional bifurcations, limit cycles &ndash;&gt; no potential) Hamiltonian instead of dissipative (centers, stochastically become random walks)  Code Updates Early warning signals code now does ensemble averaging, which works!
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../../2011/11/03/warning-signals-noise-response/">Thu, Nov 3, 2011</a></h4>
+      <h4><a href="../../../../2011/11/03/warning-signals-noise-response/">Warning signals - noise response</a></h4>
+      <div class="article-style">
+        Dakos (Dakos et. al. 2012) considers $ \tfrac{dx}{dt} = f(x,p) $ and perturbs the parameter randomly to introduce variation. Evaluating around an equilibrium where $ f(x^, p^) = 0 $, they expand to first order (citing (Ripa &amp; Heino, 1999)):
+$$ \frac{dx}{dt} = \partial_x f(x^,p^)(x-x^) + \partial_p f(x^,p^) (p - p^) $$
+and taking $ \xi = x- x^* $, with some slight of hand argue this can be rewritten as an Ito process,
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/15/implementing-warning-signals-metrics/">Implementing warning signals metrics</a></h2>
-    <h4>Mon, Feb 15, 2010</h4>
-    <div class="article-style">
-      
-      The code now contains implementation of the basic warning signals metrics computed over a given window size into the past.
- mean variance skew lag-1 autocorrelation lag-n autocorrelation  These are implemented through the fixed interval sampler function. Recall that the Gillespie simulation API permits two kinds of events, random events occurring with exponential time distribution and events occurring at fixed (scheduled) times, which can be used for discretizations of deterministic continuous time dynamics (i.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h2><a href="../../../../2010/02/10/meeting-w--alan/">Meeting w- Alan</a></h2>
-    <h4>Wed, Feb 10, 2010</h4>
-    <div class="article-style">
-      
-      Weekly check-in, following up on last week&rsquo;s meeting.  Goals for meeting  Discuss goals for regime shifts seminar tomorrow Discuss my manuscript outline on detection limits for early warning signals Discuss energy model formulation for analytic approximations to Tribolium model.  Meeting Notes  Early warning signals - starting in simple models, proof of principle. Discuss three challenges to detection:   ergodicity sensitivity complexity   Eventually develop robust tools to give confidence estimates (parametric bootstrap) on potential early warning signals.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -263,8 +225,12 @@ and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
 </nav>
 
 
+  </div></div>
+
+
 
 </div>
+
 <footer class="site-footer">
   <hr />
   <div class="container">
@@ -351,7 +317,13 @@ and defining the jump moments (van Kampen) α~1~(n) = b(n) − d(n)
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

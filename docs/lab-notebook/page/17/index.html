@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,126 +133,81 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2013/05/28/notes/">Tue, May 28, 2013</a></h4>
+    <div class="row">
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/07/integrating-github-project-repos-into-the-notebook/">Wed, May 7, 2014</a></h4>
       
-      Mangel group talk  Presented nonparametric-bayes slides ADP introduction / trouble-shooting (see yesterday&rsquo;s entry), html5 slides  Notes  Decent convergence in the forward algorithm is hard. Consider basis function representation of value function to decrease the search space in the backwards-algorithm first. Also consider searching for policy function (under appropriate piecewise constraints). Starts to sound more and more similar to POMDP  Misc  Trouble with equations in slidify/214 Finishing up posts from last week
-      
+      <div class="article-style">
+        For a while now most of my active research is developed through .Rmd scripts connected to a particular project repository (something I discuss at length in deep challenges with knitr workflows). In the previous post I discuss creating a template package with a more transparent organization of files, such as moving manuscripts from inst/doc/ to simply manuscripts/. This left these exploratory analysis scripts in inst/examples in a similarly unintuitive place.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/27/exploring-approximate-dynamic-programming-approaches/">Mon, May 27, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/06/steps-to-a-more-portable-workflow/">Tue, May 6, 2014</a></h4>
       
-      Introductory examples in approximate dynamic programming Based on Powell 2006, page 97. I try to conform to that notation throughout. Haven&rsquo;t really figured this out yet, so this is more a walk through of me thinking this out then a tutorial. My active copy of this analysis can be found in the adp-intro file of my nonparametric-bayes repo, see there for the most recent (or earlier) versions.
-Setup my sample problem First we define the Beverton-Holt stock-recruitment relationship as a function of stock size x, harvest h and parameters p
-      
+      <div class="article-style">
+        While I have made my workflow for most of my ongoing projects available on Github for some time, this does not mean that it has been particularly easy to follow. Further, as I move from project to project I have slowly improved how I handle projects. For instance, I have since added unit tests (with testthat) and continuous integration (with travis-ci) to my repositories, and my handling of manuscripts has gotten more automated, with richer latex templates, yaml metadata, and simpler and more powerful makefiles.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/24/notes/">Fri, May 24, 2013</a></h4>
     
-    <div class="article-style">
-      
-      prosecutor  Bit more writing on comment reply. Sent to Alex and Alan for feedback.  nonparametric-bayes Demonstrating robustness of the GP approach is remarkably difficult ironically because the comparison methods are not particularly robust; most often due to poor initial conditions. Doing all I can to make the MLE and parametric Bayesian cases suitably automated such that the can give reasonable performance as I loop over various simulation parameters and models without much hand-holding of each of the estimators.
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/05/knitr-workflow-challenges/">Mon, May 5, 2014</a></h4>
+      <h4><a href="../../../2014/05/05/knitr-workflow-challenges/">Deep challenges to dynamic documentation in daily workflows</a></h4>
+      <div class="article-style">
+        We often discuss dynamic documents such as Sweave and knitr in reference to final products such as publications or software package vignettes. In this case, all the elements involved are already fixed: external functions, code, text, and so forth. The dynamic documentation engine is really just a tool to combine them (knit them together). Using dynamic documentation on a day-to-day basis on ongoing research presents a compelling opportunity but a rather more complex challenge as well.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/23/notes/">Thu, May 23, 2013</a></h4>
     
-    <div class="article-style">
-      
-      Added multiple chains, randomized starting points for each chain, and confirming Gelman-Rubin convergence criteron via autojags.
- Some edits to adapt the extraction of posteriors from the multiple chains.
- Stange behavior in jags.parallel SO/16723036, looks like an annoying bug. Ah-ha, and now a nice solution to this problem via do.call.
-  When running on farm, try to remember: (yes it&rsquo;s in the run.sh script already).
-module load gcc R jags  This appears to result in greater uncertainty:
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/22/notes/">Wed, May 22, 2013</a></h4>
+
+    <div class="row">
     
-    <div class="article-style">
-      
-      Nonparametric-bayes  Establishing chunck dependencies, simplifying and abstracting code.
- still need to fix up Allen MCMC convergence when underlying model is Myers 10:18 am 2013/05/22
- replicate runs on data from allen and myers model 08:39 pm 2013/05/21
-  Clean code for complicated scripts Pseudo-code somewhat captured by the chuncks. Ideal would be:
- Define models Define parameters Simulate data Estimate MLE Estimate under GPP Allen MCMC Ricker MCMC Myers MCMC Determine optimal policy for each&hellip; Simulation Graphs  A preponderance of preprint servers Having sent in my review for IEE, do I also post it on the peerJ preprint?
-      
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/04/why-i-sign-my-reviews/">Sun, May 4, 2014</a></h4>
+      <h4><a href="../../../2014/05/04/why-i-sign-my-reviews/">why I sign my reviews</a></h4>
+      <div class="article-style">
+        For the past four years I have made an effort to sign all my reviews (which I try to keep to about one a month). It isn&rsquo;t because I believe in radical openness or something crazy like that. Its really just my self interest involved &ndash; at least mostly. Writing a review is an incredibly time consuming, and largely thankless task. Supposedly anonymous peer review is supposed to protect the reviewer, particularly the scenario of the less established scientist critiquing the work of the more established.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/21/comforting-trends-in-scientific-software-use/">Tue, May 21, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/02/multiple-uncertainty-notes/">Fri, May 2, 2014</a></h4>
       
-      Author&rsquo;s Note: Having refrained from actually posting this for 8 months, as I think I have quite mellowed more my critique. I do believe that education and peer review are the best way forward in tackling these issues, but cannot overstate how much of a long and rocky road that process will be. The Mozilla Science Foundation is really leading these efforts with their code review pilots (as I have discussed in posts since writing this), and through their work with Software Carpentry training.
-      
+      <div class="article-style">
+        Logistic recruitment, uniform noise (Sethi Fig 3 configuration)
+Logistic recruitment, lognormal noise Beverton-Holt recruitement, uniform noise Beverton-Holt recruitement, lognormal noise Logistic recruitment, uniform noise, small r Logistic recruitment, lognormal noise, small r Metadata From scenarios_meta.txt
+Columns: y_grid: The observed stock size escapement: The optimal escapement policy. (y_grid value minus the escapement is the quota). sigma_g: The growth noise scaling factor sigma_m: The measurement error scaling factor (between observed stock x and measured stock y) sigma_i: The implementation noise scaling factor (between quota q set and harvest h realized).
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/20/notes/">Mon, May 20, 2013</a></h4>
     
-    <div class="article-style">
+    <div class="col-md-4">
+      <h4><a href="../../../2014/05/02/scientific-computing-notes/">Fri, May 2, 2014</a></h4>
       
-      EWS TE revisions  Finalized manuscript(?) Checking references, reply letter, closing remaining issues.
- Very annoying to submit to a journal system that takes LaTeX but not any external style or class file dependencies. For instance, how does one add two footnotes to the same author without adding any such dependencies (oh, and writing macros that do not involve pairs of $ which pandoc mistakes for its own macros&hellip;) Reasonable author affiliations done otherwise using \and, \thanks, and \footnotemark; see [simple.
-      
+      <div class="article-style">
+        In my experience EC2 is good for some things but not for others. Consequently having some funding allocated for it would be great, but it would still be necessary to have other resources as well. I&rsquo;ve found EC2 very good for running some reasonably portable analysis where you temporarily want some extra processors or memory. On the other hand, I&rsquo;ve had some frustrations with it as well. You don&rsquo;t have a persistent development environment unless you explicitly make and maintain a machine image, which means installing any software dependencies from scratch; sometimes a particular nuisance when you aren&rsquo;t familiar with the architecture.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/17/null-distribution-width-minor-puzzle/">Fri, May 17, 2013</a></h4>
     
-    <div class="article-style">
-      
-      A quick foray into trying to understand why I see the wider distribution (though still symmetric) in the null of the OU model then in the null from the Allee model in the Prosecutor&rsquo;s fallacy.
-Load the original run of the ou model and increase the nulldt data frame to use all points instead of a sample of length 5000
-load(&quot;beer_run.rda&quot;) ou_dat &lt;- dat ou_null &lt;- nulldat #ou_null_ts &lt;- nulldt null &lt;- timeseries #[1000:6010,] null &lt;- as.
-      
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/16/notes/">Thu, May 16, 2013</a></h4>
-    
-    <div class="article-style">
-      
-      Prosecutor  Add figures for both examples with and without ASS text to accomidate both examples ROC curves? proof-reading  ews-review  looking over revisions, touch-ups See issues log for details  Links  Impressive set of tools provided by the Whitehouse open data project In particular, see the tool for generating a RESTful API from CSV files and the &ldquo;common core&rdquo; metadata definitions. Notebook complies with many of these (throught the Dublin core RDFa), but looks like I could benefit from adding some more terms from the Data Catalog Vocabulary.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2013/05/14/notes/">Tue, May 14, 2013</a></h4>
-    
-    <div class="article-style">
-      
-      Exploring potential plots that would allow for some visualization of the uncertainty in each of the models. Example follows up on analysis of e97043d/allen.md, as also in the script from b5d78b9/step_ahead_plots.md
-One-step ahead predictor plots and forecasting plots Set our usual plotting options for the notebook
-opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, comment = NA, fig.width = 7, fig.height = 4) library(ggplot2) opts_knit$set(upload.fun = socialR::flickr.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -267,9 +222,10 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -358,7 +314,13 @@ opts_chunk$set(tidy = FALSE, warning = FALSE, message = FALSE, cache = FALSE, co
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

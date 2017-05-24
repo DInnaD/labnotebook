@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,126 +133,88 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/11/21/following-my-computer-simulations-on-twitter/">Sun, Nov 21, 2010</a></h4>
-    <h4><a href="../../../2010/11/21/following-my-computer-simulations-on-twitter/">Making R twitter?</a></h4>
-    <div class="article-style">
-      
-      I&rsquo;m running quite a few of my analyses on my remote server, a 16 core, 32 GB ram, Ubuntu server with Tesla GPU, named &ldquo;zero&rdquo; (we&rsquo;re creative folks). It&rsquo;s easy to start lots of simulations (from ssh), harder to track when they are finished and verify results. No longer &ndash; &ldquo;zero&rdquo; now uses social media to share what she&rsquo;s up to. Find her on twitter: @tweeting_cpu
-Social Computation  Provides automated updating of simulation status and error messages
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/01/04/wrightscape-examples/">Wed, Jan 4, 2012</a></h4>
+      <h4><a href="../../../2012/01/04/wrightscape-examples/">wrightscape examples</a></h4>
+      <div class="article-style">
+        [flickr-gallery mode=&ldquo;search&rdquo; tags=&ldquo;phylogenetics&rdquo; min_upload_date=&ldquo;2012-01-03 7:00:37&rdquo; max_upload_date=&ldquo;2012-01-03 22:23:37&rdquo;]
+ kt and open seem the best focal traits. Unclear what good null traits to use would be.
+ Unclear if anything is gained by indep thetas in this example.
+ Performance of alpha v theta?
+  Edited plotting of likelihood comparisons, just grouped by trait to get common axis. (Difficult to get intelligent zooming on facet_grid to ignore the outliers). Trying such as:
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat, Nov 20, 2010</a></h4>
-    <h4><a href="../../../2010/11/20/sat-phylogenetics-porting-tree-transformations-to-ouch/">Sat: evolution -- porting tree transformations to OUCH?</a></h4>
-    <div class="article-style">
-      
-      The overnight runs yesterday using the geiger models bm and lambda on the (transformed) Anoles dataset don&rsquo;t seem to converge, spooling jobs that continue running even when R exits &ndash; probably that same problem in ape somewhere that was fixed by writing the tree out to Nexus and re-reading it, a very strange and subtle bug. Will try this and restart the runs.
-Ordered as: bm_v_lambda_origdata.png, delta_v_lambda.png, bm_v_lambda.png (data simulated under OU), each with 100 replicates.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2012/01/03/tuesday-pmc-package-latex-to-word-attempts/">Tue, Jan 3, 2012</a></h4>
+      <h4><a href="../../../2012/01/03/tuesday-pmc-package-latex-to-word-attempts/">Tuesday: pmc package, latex to word attempts</a></h4>
+      <div class="article-style">
+        Back from Oz.
+Evolution submission: Latex to word Final submission needs editable copy. No great solutions for latex to word, despite quite a few options:
+ tex2rtf is a fast solution to get something, but not successful on images or equations. Ended up going with this after all.
+ pandoc is a generic converter to many types, but has only partial support for latex input. Does okay on text, but fails on even simple things like italics and natbib citations
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri, Nov 19, 2010</a></h4>
-    <h4><a href="../../../2010/11/19/fri-extending-geiger-to-monte-carlo-method/">Fri: extending Geiger to Monte Carlo method</a></h4>
-    <div class="article-style">
-      
-      Completing my extension of geiger into object oriented design whereby I can easily apply the Monte Carlo approach to test fits using function calls to model fits such as update() and simulate(). A quick convenient example: AIC would prefer (though not by munch) the delta transform model over the Brownian motion model; a conclusion not supported by the Monte Carlo test, which suggests there is not enough power to choose between these models:
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/12/monday-12/">Mon, Dec 12, 2011</a></h4>
+      <h4><a href="../../../2011/12/12/monday-12/">Monday</a></h4>
+      <div class="article-style">
+        Wrote method2 test functions out in knitr/sweave. Sent document to Peter. Move my ropensci git origins to the ropensci github page. Ropensci comments on \dontrun: recommended for anything non-trivial, including web calls. Richer tests should be put into testthat. Reply to Charles Jervis, biology high school teacher interested in tools to teach math/modeling in ecology. Sounds like he&rsquo;s already doing some cool stuff with phylogenies with his students. prepare vignette for rfishbase based on tutorial.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/18/thurs-phylogenetics-likelihood/">Thu, Nov 18, 2010</a></h4>
-    <h4><a href="../../../2010/11/18/thurs-phylogenetics-likelihood/">Thurs: evolution likelihood</a></h4>
-    <div class="article-style">
-      
-      Back to writing for today. Working on discussion of non-nested models. Looking at the reverse comparison, can get the reverse p value. The case of OU.3 vs the OU.4 model doesn&rsquo;t show either test to be significant at the 95\% confidence level,but the case of OU.3 vs OU.15 (lets every species in the top two clades be unique) does:
-The reverse p value easily rejects this silly OU.15 model, though AIC vastly prefers it.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/18/weds/">Thu, Nov 18, 2010</a></h4>
-    <h4><a href="../../../2010/11/18/weds/">Weds</a></h4>
-    <div class="article-style">
-      
-      Great discussion in Monte Carlo Seminar with Rannala on the two rate estimation papers. See in-text notes, but focus on mechanisms of speciation and extinction as intrinsic (lineage specific) or extrinsic (perhaps spatially specific or global).
-Calculation of the likelihood function for the rates seems straight forward. Start by imaging the pure-birth model, simply allow branch lengths as draws from the exponential distribution of parameter lambda. Allowing extinction: probability a lineage speciates (as before) and then survives to present day.
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/12/better-sweave-dynamic-documents-with-syntax-highlighting-easier-tools/">Mon, Dec 12, 2011</a></h4>
+      <h4><a href="../../../2011/12/12/better-sweave-dynamic-documents-with-syntax-highlighting-easier-tools/">Better dynamic documents (Sweave) with syntax highlighting, caching, etc</a></h4>
+      <div class="article-style">
+        The highlight package is a simple solution for very nice syntax highlighted code boxes in latex documents. Requires switching the driver, which is best done from within R and requires creating a makefile though. Needs the &ldquo;highlight&rdquo; package installed. Here&rsquo;s a simple makefile.
+A wealth/mess of Sweave related packages on the CRAN taskview for Reproducible Research (now what other software platform has a the equivalent of a Reproducible Research task view?
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/16/tues-seminar/">Tue, Nov 16, 2010</a></h4>
-    <h4><a href="../../../2010/11/16/tues-seminar/">Tues seminar</a></h4>
-    <div class="article-style">
-      
-      Sarah Dalrymple seminar. Rick Karban&rsquo;s excellent intro: &ldquo;unlike the rest of these seminars, Sarah will tell us something new.&rdquo; &ldquo;Sarah&rsquo;s really out there.&ldquo; Also mentions TAC and art teaching.
-Ants, Jeff pine &amp; fire Fire suppression dramatic impacts. Prescribed under story burns work! ie Angora fire in Tahoe, 2007. Discover rings of unburned soil around base of tree, reducing damage&hellip; undescribed!
-More common in recently burned ( 30 yrs. What makes the rings?
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/11/some-notes-on-open-notebooks-open-peer-review-practices/">Sun, Dec 11, 2011</a></h4>
+      <h4><a href="../../../2011/12/11/some-notes-on-open-notebooks-open-peer-review-practices/">Some Notes on Open Notebooks, Open peer review practices.</a></h4>
+      <div class="article-style">
+        What follows is a collection of notes, examples, and reflections I&rsquo;ve been meaning to write down.
+Revealing Revisions Sharing version history is an important part of an open notebook really being open, and one reason why wikis have remained so popular for Open Notebook Science. Wordpress (this platform) does version management internally, and thepost-revision display plug-in makes this visible on posts. I had experimented but disabled this a while ago because I didn&rsquo;t like visual impact of the long list at the end of my posts.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">Mon, Nov 15, 2010</a></h4>
-    <h4><a href="../../../2010/11/15/phylogenetics-today-discussion-groups-writing-etc/">evolution today:  Discussion groups, writing, etc</a></h4>
-    <div class="article-style">
-      
-      Interesting discussion of a Lenski paper in Wainwright&rsquo;s 270.
-Barrick, J.E. et al. Genome evolution and adaptation in a long-term experiment with Escherichia coli. Nature 461, 1243-7(2009).
-Seems to focus on surprise of continuing linear rate of increase in beneficial mutations, though statistics don&rsquo;t seem to confirm. Curious about uncertainty in assay of fitness estimates (seem to go down at times, but surely not fixing deleterious mutations). General difficulties in setup of exponential growth with applications of classic constant population size, but maybe we&rsquo;re all missing something.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/12/09/friday-9/">Fri, Dec 9, 2011</a></h4>
+      <h4><a href="../../../2011/12/09/friday-9/">Friday</a></h4>
+      <div class="article-style">
+        Wrightscape/pmc  Writing up derivation from Thursday properly / for manuscript. Writing up test cases for method2, direct evaluation of covariance matrix for comparisons Minor revisions submitted to Evolution  pdg-control To Do  Implement the NCO. Implement HS SDP Closer read of (Sethi et. al. 2005), (Su &amp; Peterman, 2012) and Woodward &amp; Tomberlin  Warning signals  Allee effects in linear programming with different classes. Timescales of noise using van Kampen expansion.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thu, Nov 11, 2010</a></h4>
-    <h4><a href="../../../2010/11/11/thursday-post-predictive-verification-exploration-writing-and-figures/">Thursday: Post-predictive verification exploration; writing and figures</a></h4>
-    <div class="article-style">
-      
-      On Post-predictive Verification Considering the kind of post-predictive verification I was discussing with Dan on Tuesday. Let&rsquo;s start with the simple birth-death branching process. Starting from the master equation, the linearity gives us an accurate model as a Gaussian process where the systematic van Kampen expansion gives us the Fokker Planck equation whose solution is completely specified by its first two moments:
-[latex] \frac{dN}{dt} = (\lambda - \mu) N 
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/11/phylogenetics-statistics/">Thu, Nov 11, 2010</a></h4>
-    <h4><a href="../../../2010/11/11/phylogenetics-statistics/">evolution statistics </a></h4>
-    <div class="article-style">
-      
-      Exploring the best way for representing the Monte Carlo Likelihood approach visually, including comparison power and comparison to AIC.
-Blue line is AIC, dotted red line is real data. Red line to the right of blue line indicates test model is rejecting the null model by AIC score. Solid distribution are likelihood ratios simulated under null, dotted are simulated under test.
-The p-value is the integral of the null distribution lying right of the observed likelihood ratio in the real data:
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Wed, Nov 10, 2010</a></h4>
-    <h4><a href="../../../2010/11/10/tuesday-sdes-then-back-to-phylogenetics/">Tuesday - SDEs then back to phylogenetics</a></h4>
-    <div class="article-style">
-      
-      Nice meeting with Sebastian this morning, reviewed my spectral approach problem (see anything in Stochastic Population Dynamics / warning signals in the past week) and the multivariate SDE problem Peter posed Oct 30th. No solutions yet but some ideas to get started.
-With regards the SDE problem, note that it reduces to:
-$$ dX_1 = B_2 d B_1 $$
-and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic exercise in intro SDEs we can look up in Oksendal,
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -267,9 +229,10 @@ and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic 
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -358,7 +321,13 @@ and note also that if this were $$ dX_1 = B_1 d B_1 $$ this would be a classic 
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

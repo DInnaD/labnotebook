@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Hugo 0.20.2" />
+  <meta name="generator" content="Hugo 0.21" />
   <meta name="author" content="Carl Boettiger">
   
 
@@ -34,7 +34,7 @@
   <link rel="canonical" href="../../../lab-notebook/">
 
 
-  <title>Lab-notebooks | Boettiger Group</title>
+  <title>Lab Notebook | Boettiger Group</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
@@ -133,109 +133,92 @@
 
 
 
-  <h1>Lab Notebook Entries</h1>
 
+
+  <h1>Lab Notebook</h1>
+
+   
+  
+  <div class="article-style" itemprop="articleBody"><!-- Use a template to avoid default title, which pluralizes the content subdir name (Lab Notebooks) -->
+
+<!-- This tempalte also lets us specify default content -->
+
+<p><a href="../../../categories"><i class="fa fa-folder"></i> categories</a></p>
+
+<p><a href="../../../tags"><i class="fa fa-tags"></i> tags</a></p>
+</div>
   
 
+  <div class="row"><div class="col-md-11 col-md-offset-1">
   
-  
-  <div>
-    <h4><a href="../../../2010/08/30/summer-review/">Mon, Aug 30, 2010</a></h4>
-    <h4><a href="../../../2010/08/30/summer-review/">Summer Review</a></h4>
-    <div class="article-style">
-      
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Thu, Nov 10, 2011</a></h4>
+      <h4><a href="../../../2011/11/10/parallel-computing-on-clusters-in-r-mpi/">Parallel hpc on clusters in R, MPI</a></h4>
+      <div class="article-style">
+        Some notes for reference on parallel computing strategies on R with dedicated high performance clusters.
+parallelization in R For cluster computing in R, I&rsquo;ve found the &ldquo;snow&rdquo; package with MPI to be the most flexible and robust solution. snowfall is a useful package to use multiple cores on a single processor, but requesting all 16 threads on a node is a much more difficult demand for the queue to fill than 16 threads on all nodes.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/27/likelihood-ratio-todo/">Fri, Aug 27, 2010</a></h4>
-    <h4><a href="../../../2010/08/27/likelihood-ratio-todo/">Likelihood ratio ToDo</a></h4>
-    <div class="article-style">
-      
-      Inclusion of power figure, discussion of power. (include comparison to smaller trees?)  Code ToDo  Fix parallelization &ndash; lower-level parallelization in LR_boot function seems to have high memory and processing overhead. Parallelize over alpha only. Funny that sfSapply at lower level conflicts when inside an upper-level sfSapply call? Can the lower level be put into sequential mode? Requires more experimenting, probably with simple test functions.
- Create package around power analysis, including ability to test bootstraps
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Wed, Nov 9, 2011</a></h4>
+      <h4><a href="../../../2011/11/09/crashing-stocks-and-optimal-harvesting-effort-on-allee-effects/">Crashing stocks and optimal harvesting effort on Allee effects</a></h4>
+      <div class="article-style">
+        Modeling choices Allee effect model: Myers Beverton-Holt with harvesting-effort mortality:
+$$ x_{t+1} = f(x) = \frac{a x_t^{\alpha}}{1+ x_t^{\alpha}/b} - e x $$ For $ \alpha = 2 $, equilibrium points are $ x = 0 $ and
+$$ x = \frac{ab}{2(1+e)} \pm \frac{1}{2} \sqrt{ \left(\frac{ab}{1+e}\right)^2-4b } $$
+As written this differs from our earlier solutions a couple respects &ndash; the growth function applies to the unharvested population, which then experiences harvesting mortality, and the control variable is fishing effort, not harvest.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/26/likelihood-ratio-paper--power-in-trees/">Thu, Aug 26, 2010</a></h4>
-    <h4><a href="../../../2010/08/26/likelihood-ratio-paper--power-in-trees/">Likelihood Ratio Paper- Power in Trees</a></h4>
-    <div class="article-style">
-      
-      Power in Trees tests (Results from single OU simulation per alpha, run yesterday) 2000 replicates gives a cleaner picture of the critical alpha, though with low alpha values the estimates of p are quite variable. Also more variable on the smaller trees. Even arbitrarily large alpha aren&rsquo;t significant on the 5-taxa primate tree. On the small geospiza tree (13 taxa) from the geiger package we find:
-0.5735 0.29 0.
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/08/sdp-solution-for-allee-model/">Tue, Nov 8, 2011</a></h4>
+      <h4><a href="../../../2011/11/08/sdp-solution-for-allee-model/">SDP solution for allee model</a></h4>
+      <div class="article-style">
+        Summarizing efforts from last few days setting up and running some stochastic dynamic programming optimization problems. As we are focusing on discrete time at the moment, these problems are solved by Bellman&rsquo;s equation (don&rsquo;t need Hamilton-Jacobi-Bellman formulation).
+Problem Statement Choose the harvest level to optimize the profit $$ \maxh \sum{t=0}^T \beta^t \pi(x,h,t) $$
+Subject to the boundary conditions $X(0) = X_0, X(T) = X_T$ and the state equation: $$ X(t+1) = Z(t) f(X(t)) $$
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/25/likelihood-ratio-manuscript/">Wed, Aug 25, 2010</a></h4>
-    <h4><a href="../../../2010/08/25/likelihood-ratio-manuscript/">Likelihood Ratio Manuscript</a></h4>
-    <div class="article-style">
-      
-      Graham &amp; Peter Meeting Some comments on Neyman Pearson and approaches &gt; In the phylogenetics world, Huelsenbeck has a paper doing this: &ldquo; A Likelihood Ratio Test to Detect Conflicting Phylogenetic Signal&rdquo; and there&rsquo;s a good introduction to the paper.
-This is great, nice to know there&rsquo;s a basis for it.
-&gt; I see that in the paper John references, &ldquo; Statistical tests of models of DNA substitution &ldquo;, they call what you&rsquo;re doing &ldquo;Monte Carlo&rdquo;, and refers to some sort of resampling-the-data equivalent as the bootstrap.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/19/entry-title/">Thu, Aug 19, 2010</a></h4>
-    <h4><a href="../../../2010/08/19/entry-title/">Entry title</a></h4>
-    <div class="article-style">
-      
+
+    <div class="row">
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/06/sunday-5/">Sun, Nov 6, 2011</a></h4>
+      <h4><a href="../../../2011/11/06/sunday-5/">Sunday</a></h4>
+      <div class="article-style">
+        Computing notes A few configuration related things from migrating to the new laptop.
+Clipboard and Vim vim clipboard - install vim-gnome &ldquo;+y and &ldquo;+p interact between vim and global clipboard, and y, shift+insert work within terminal.
+make a repository bare so it can be pushed to (as opposed to moving to it&rsquo;s working directory and running a pull). From stackoverflow:
+mv repo/.git repo.git; rm -rf repo cd repo.git git config &ndash;bool core.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/19/writing/">Thu, Aug 19, 2010</a></h4>
-    <h4><a href="../../../2010/08/19/writing/">Writing</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/04/sparkleshare-configuration/">Fri, Nov 4, 2011</a></h4>
+      <h4><a href="../../../2011/11/04/sparkleshare-configuration/">Sparkleshare configuration</a></h4>
+      <div class="article-style">
+        Configured sparkleshare across my linux server &amp; laptops, and android phone. Provides a dropbox-style syncing and version history for all files using git. I can sync as much space as I have hardisk capacity, with as many users and machines as I like, at no cost. Wonderful.
+Basic setup Get sparkleshare working on a server is dead simple, Can also use a github server, gitorious server, etc. Setup is clearly documented, which is really just doing a bunch of standard stuff if you have a server or github already set up.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/18/warning-signals----still-in-code-development/">Wed, Aug 18, 2010</a></h4>
-    <h4><a href="../../../2010/08/18/warning-signals----still-in-code-development/">Warning Signals -- still in code development</a></h4>
-    <div class="article-style">
-      
+    
+    <div class="col-md-4">
+      <h4><a href="../../../2011/11/04/fridays-reading/">Fri, Nov 4, 2011</a></h4>
+      <h4><a href="../../../2011/11/04/fridays-reading/">Friday&#39;s reading</a></h4>
+      <div class="article-style">
+        Reading Catching up on journal table-of-contents/rss readings.
+News Australia Researchers unhappy (unknown, 2011)
+Climate change and Open Science Nature debate on the Berkeley climate team&rsquo;s (BEST) press release in advance of publication. (unknown, 2011) Editor critiques the stunt:
+ Richard Muller, the physicist in charge, even told the BBC: &ldquo;That is the way I practised science for decades; it was the way everyone practised it until some magazines — particularly Science and Nature — forbade it.
+      </div>
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/17/warning-signals/">Tue, Aug 17, 2010</a></h4>
-    <h4><a href="../../../2010/08/17/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
-      Bootstrapping for likelihood ratios! Updated class behavior &ndash; all simulation and fitting routines now return timeseries objects as data with correct range and timestep. updated plotting routines. Likelihood ratio plotting function. Bootstraps of parameters can be plotted using the output from the likelihood ratio fit simulation, avoiding redundancy, just specify which model is desired. Bootstrap likelihood ratio plots includes the original ratio and calculates plot range using this information.
-      
+    
     </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/16/warning-signals/">Mon, Aug 16, 2010</a></h4>
-    <h4><a href="../../../2010/08/16/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
-      bootstrapping models implemented improved handling of model classes &ndash; included T, t0, N, and X0 in object def implemented plotting for model bootstrap difficulties with changePt model fit remain. fixed one source of trouble &ndash; no longer passes zero-length data to OU.lik() when t_shift is outside the time interval.  Still giving errors on coercing lists into doubles for the saddle_node bifurcation simulated data set. &ndash;fixed, was getting t_shift as a vector from time(X).
-      
-    </div>
-  </div>
-  
-  <div>
-    <h4><a href="../../../2010/08/15/warning-signals/">Sun, Aug 15, 2010</a></h4>
-    <h4><a href="../../../2010/08/15/warning-signals/">Warning Signals</a></h4>
-    <div class="article-style">
-      
-      Exploring convergence in maximum likelihood model fits each on data produced by their own simulation method:
- fit1, basic OU method, converges just fine. (using L-BFGS-B method with appropriate bounding box to avoid negatives). fit2 , the linear change rate model, converges fine using Nelder-Meade (using 1e12 ~ inf likelihood return when attempting negative alpha or sigma), but throws hard errors for L-BFGS-B:   Error in optim(pars, warning.likfn, method = method, lower = lower) : non-finite finite-difference value [3]   fit3 runs on &ldquo;L-BFGS-B&rdquo; and returns reasonable values, though not meeting convergence standards.
-      
-    </div>
-  </div>
-  
 
   
 <nav>
@@ -250,9 +233,10 @@ This is great, nice to know there&rsquo;s a basis for it.
 </nav>
 
 
+  </div></div>
 
 
-  </div>
+
 </div>
 
 <footer class="site-footer">
@@ -341,7 +325,13 @@ This is great, nice to know there&rsquo;s a basis for it.
 
     
     
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
 
   </body>
 </html>
 
+   

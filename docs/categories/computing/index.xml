@@ -6,10 +6,65 @@
     <description>Recent content in Computing on Boettiger Group</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2015 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/computing/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title></title>
+      <link>/2015/08/27/nimble-model-construction/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/08/27/nimble-model-construction/</guid>
+      <description>library(&amp;quot;nimble&amp;quot;) ## ## Attaching package: &amp;#39;nimble&amp;#39; ## The following object is masked from &amp;#39;package:stats&amp;#39;: ## ## simulate library(&amp;quot;lazyeval&amp;quot;) library(&amp;quot;methods&amp;quot;) Can we declare the nimbleCode parts in sections? Such as defining the model and priors in separate, reusable code blocks? Here’s a “model” block:
+model &amp;lt;- nimbleCode({ for (i in 1:N){ theta[i] ~ dgamma(alpha,beta) lambda[i] &amp;lt;- theta[i]*t[i] x[i] ~ dpois(lambda[i]) } }) We may also wish to define the priors separately, and with specified list of hyperparameters for the priors.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/05/15/diagrammer/</link>
+      <pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/15/diagrammer/</guid>
+      <description>Exploring ways for using DiagrammeR to generate graphs/plots that can be exported to svg and included in knitr documents.
+devtools::install_github(&amp;quot;rich-iannone/DiagrammeR&amp;quot;) library(&amp;quot;DiagrammeR&amp;quot;) n &amp;lt;- c(&amp;quot;archive&amp;quot;, &amp;quot;index&amp;quot;, &amp;quot;share&amp;quot;, &amp;quot;discover&amp;quot;, &amp;quot;use&amp;quot;, &amp;quot;attribute&amp;quot;) nodes &amp;lt;- create_nodes(nodes = c(&amp;quot;Repository\n Roles&amp;quot;, n, &amp;quot;Researcher\n Roles&amp;quot;), shape = &amp;quot;circle&amp;quot;, color = c(rep(&amp;quot;PowderBlue&amp;quot;, 4), rep(&amp;quot;Linen&amp;quot;, 4)), style = &amp;quot;filled&amp;quot;) edges &amp;lt;- create_edges(from = n, to = c(n[-1], n[1]), color = &amp;quot;gray&amp;quot;, penwidth = 4) graph &amp;lt;- create_graph(nodes = nodes, edges = edges, graph_attrs = c(&amp;quot;layout = circo&amp;quot;)) out &amp;lt;- render_graph(graph) Render as SVG</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/04/15/misc-notes-on-cloud-providers/</link>
+      <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/04/15/misc-notes-on-cloud-providers/</guid>
+      <description>ongoing notes comparing computing resources
+Comparing compute resources:
+ AWS EC2, DigitalOcean, and Google Compute Engine look significantly cheaper than Rackspace, Azure, etc. (The Economist has estimated that AWS EC2 prices are roughly 3% below cost).
+ DigitalOcean tends to have the lowest price point for on-demand use of a given set of resources; usually comparable to the Amazon or EC2 persistent (e.g. monthly) use. All-inclusive pricing (storage, networking etc) and limited options make choices simple and total costs easy to anticipate, though lack the flexibility to fine-tune a configuration to pay for exactly what you need.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/24/docker-machine-notes/</link>
+      <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/24/docker-machine-notes/</guid>
+      <description>Docker recently released docker-machine to make managing multiple remote machines locally easier. Docker distributes binaries of docker-machine for most major architectures ready-to-go, potentially making it easier to get started on Windows and Mac as well.
+Set credentials in environmental variables so we don’t have to pass them on the command line each time:
+DIGITALOCEAN_ACCESS_TOKEN = XXX and create the docker-machine:
+docker-machine create --driver digitalocean --digitalocean-size &amp;quot;1gb&amp;quot; server-name where server-name is any name you want to give your server and DO_PAT is your access token (say, saved as an environmental variable).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2015/03/02/notes/</link>
+      <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/02/notes/</guid>
+      <description>Misc tricks  docker X11 sharing  docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro r-base  devtools::install_version devtools::use_readme_rmd (with git commit hooks)
+ How to specify a custom action for the knit button: add knit: (function(inputFile, encoding) ...) to the top-level YAML header; e.g. to control output directory:
+  rmarkdown::render(inputFile, encoding = encoding, output_file = paste0(dirname(inputFile), basename(inputFile), &amp;quot;.pdf&amp;quot;))  </description>
+    </item>
     
     <item>
       <title></title>
